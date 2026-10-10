@@ -1,0 +1,15 @@
+- id: agent-default-model
+  config:
+    provider: deepseek-account
+    model: deepseek-flash
+    reasoningEffort: high
+- id: session-title-llm
+  disabled: true
+- insert:
+    - id: megmeet-product-assistant
+      name: 'D:/VisualBoard/dsh-megmeet/lib/index.js'
+      config:
+        catalogPath: 'D:/VisualBoard/dsh-megmeet/success-demo/snapshots/catalog.v2.json'
+        maxCandidates: 10
+        maxInputChars: 60000
+        reportDirectory: 'D:/VisualBoard/dsh-megmeet/success-demo/native-reports'

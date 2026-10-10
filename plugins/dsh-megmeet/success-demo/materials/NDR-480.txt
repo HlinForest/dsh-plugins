@@ -1,0 +1,259 @@
+                      480W Single Output Industrial DIN RAIL                                                       N D R - 4 8 0 series
+                                                                                                                                                        User’s Manual
+
+
+
+
+                                                                                                                                   Bauar t gepruft
+                                                                    THOMAS SAMUEL
+                                                                                    THOMAS SAMUEL
+                                                                                                                                   Sicherheit
+                                                                                                                                    egel ma ge
+                                                                                                                                     od     o s
+                                                                                                                                    be wac      g
+
+
+                                                                                                                                   www.tuv.com
+
+
+                                                                   IS13252                          R33100                         ID 2000000000
+
+
+
+
+                                                                 (except 48V)                        RoHS           TPTC004 BS EN/EN62368-1 IEC62368-1
+
+
+■ Features                                                                                                   ■ Applications 
+‧Universal AC input / Full range                                                                             ‧Industrial control system
+‧Built-in active PFC function                                                                                ‧Factory automation
+‧Protections: Short circuit / Overload / Over voltage                                                        ‧Electro-mechanical apparatus
+                         / Over temperature
+‧Cooling by free air convection
+‧Can be installed on DIN rail TS-35/7.5 or 15                 ■ GTIN CODE 
+‧UL 508 (industrial control equipment) approved                 MW Search: https://www.meanwell.com/serviceGTIN.aspx
+
+‧BS EN/EN61000-6-2(BS EN/EN50082-2) industrial immunity level
+‧100% full load burn-in test
+‧3 years warranty
+■ Description 
+    NDR-480 is one economical slim 480W Din rail power supply series, adapt to be installed on TS-35/7.5 
+    or TS-35/15 mounting rails. The body is designed 85.5mm in width, which allows space saving inside the 
+    c a b i n e t s . T h e e n t i r e s e r i e s a d o p t s t h e f u l l r a n g e A C i n p u t f r o m 9 0 V A C t o 2 6 4 V A C a n d c o n f o r m s t o 
+    BS EN/EN61000-3-2, the norm the European Union regulates for harmonic current.
+    NDR-480 is designed with metal housing that enhances the unit's power dissipation. With working efficiency 
+    up to 92.5%, the entire series can operate at the ambient temperature between -20℃ and 70℃ under air 
+    convection. It is equipped with constant current mode for over-load protection, fitting various inductive 
+    or capacitive applications. The complete protection functions and relevant certificates for industrial control 
+    apparatus (UL508, TUV BS EN/EN62368-1, and etc.) make NDR-480 a very competitive power supply  
+    solution for industrial applications.
+
+
+■ Model Encoding
+  NDR - 480 - 24
+
+                                     Output voltage
+                                     Output wattage
+                                     Series name
+
+
+
+
+                                                                                                                                        File Name:NDR-480-SPEC 2025-01-10
+                       480W Single Output Industrial DIN RAIL                                                            N D R - 4 8 0 series
+SPECIFICATION
+MODEL                                      NDR-480-24                                                        NDR-480-48
+             DC VOLTAGE                    24V                                                               48V
+             RATED CURRENT                 20A                                                               10A
+             CURRENT RANGE                 0 ~ 20A                                                           0 ~ 10A
+             RATED POWER                   480W                                                              480W
+             RIPPLE & NOISE (max.) Note.2 150mVp-p                                                           150mVp-p
+OUTPUT       VOLTAGE ADJ. RANGE       24 ~ 28V                                                               48 ~ 55V
+             VOLTAGE TOLERANCE Note.3 ±1.0%                                                                  ±1.0%
+             LINE REGULATION               ±0.5%                                                             ±0.5%
+             LOAD REGULATION               ±1.0%                                                             ±1.0%
+             SETUP, RISE TIME              1500ms, 100ms/230VAC          3000ms, 100ms/115VAC at full load
+             HOLD UP TIME (Typ.)           16ms/230VAC         16ms/115VAC at full load
+             VOLTAGE RANGE          Note.4 90 ~ 264VAC       127 ~ 370VDC
+             FREQUENCY RANGE               47 ~ 63Hz
+             POWER FACTOR (Typ.)           PF>0.98/115VAC, PF>0.94/230VAC at full load
+INPUT        EFFICIENCY (Typ.)             92.5%                                                             92.5%
+             AC CURRENT (Typ.)             4.8A/115VAC        2.4A/230VAC
+             INRUSH CURRENT (Typ.)         20A/115VAC        35A/230VAC
+             LEAKAGE CURRENT               <2mA / 240VAC
+                                           105 ~ 130% rated output power
+             OVERLOAD
+                                           Protection type : Constant current limiting, unit will shut down after 3 sec., re-power on to recover
+PROTECTION                                 29 ~ 33V                                                          56 ~ 65V
+             OVER VOLTAGE
+                                           Protection type : Shut down o/p voltage, re-power on to recover
+             OVER TEMPERATURE              Shut down o/p voltage, recovers automatically after temperature goes down
+             WORKING TEMP.                 -20 ~ +70℃ (Refer to "Derating Curve")
+            WORKING HUMIDITY               20 ~ 95% RH non-condensing
+ENVIRONMENT STORAGE TEMP., HUMIDITY        -40 ~ +85℃, 10 ~ 95% RH
+            TEMP. COEFFICIENT              ±0.03%/℃ (0 ~ 50℃)
+            VIBRATION                      Component:10 ~ 500Hz, 2G 10min./1cycle, 60min. each along X, Y, Z axes; Mounting: Compliance to IEC60068-2-6
+                                           Ul508, TUV BS EN/EN62368-1, EAC TP TC 004 ,BSMI CNS15598-1 , IS13252(Part1)/IEC60950-1(except for 48V) approved;
+             SAFETY STANDARDS
+                                           (meet BS EN/EN60204-1)
+SAFETY & WITHSTAND VOLTAGE                 I/P-O/P:3KVAC     I/P-FG:2KVAC      O/P-FG:0.5KVAC
+EMC      ISOLATION RESISTANCE              I/P-O/P, I/P-FG, O/P-FG:>100M Ohms / 500VDC / 25℃/ 70% RH
+(Note 4) EMC EMISSION                      Compliance to BS EN/EN55032 (CISPR32),BS EN/EN61204-3 Class B,BS EN/EN61000-3-2,-3,EAC TP TC 020,CNS15936 Class B
+             EMC IMMUNITY                  Compliance to BS EN/EN61000-4-2,3,4,5,6,8,11,BS EN/EN55035,BS EN/EN61000-6-2 (BS EN/EN50082-2),BS EN/EN61204-3,
+                                           heavy industry level, EAC TP TC 020
+             MTBF                          1041.6K hrs min. Telcordia SR-332 (Bellcore) ; 146.8K hrs min.       MIL-HDBK-217F (25℃)
+OTHERS       DIMENSION                     85.5*125.2*128.5mm (W*H*D)
+             PACKING                       1.5Kg; 8pcs/13Kg/0.9CUFT
+NOTE         1. All parameters NOT specially mentioned are measured at 230VAC input, rated load and 25℃ of ambient temperature.
+             2. Ripple & noise are measured at 20MHz of bandwidth by using a 12" twisted pair-wire terminated with a 0.1μF & 47μF parallel capacitor.
+             3. Tolerance : includes set up tolerance, line regulation and load regulation.
+             4. Installation clearances : 40mm on top, 20mm on the bottom, 5mm on the left and right side are recommended when loaded permanently with full power.
+                 In case the adjacent device is a heat source, 15mm clearance is recommended.
+             5. Derating may be needed under low input voltage. Please check the derating curve for more details.
+             6. The power supply is considered as an independent unit, but the final equipment still need to re-confirm that the whole system complies with the 
+                  EMC directives. For guidance on how to perform these EMC tests, please refer to “EMI testing of component power supplies.”
+                  (as available on https://www.meanwell.com//Upload/PDF/EMI_statement_en.pdf )
+             7. The ambient temperature derating of 3.5℃/1000m with fanless models and of 5℃/1000m with fan models for operating altitude higher than 
+                 2000m(6500ft).
+             ※ Product Liability Disclaimer：For detailed information, please refer to https://www.meanwell.com/serviceDisclaimer.aspx
+
+
+
+
+                                                                                                                                            File Name:NDR-480-SPEC 2025-01-10
+                           480W Single Output Industrial DIN RAIL                                                               N D R - 4 8 0 series
+   Block Diagram
+                                                                                                                                                          PFC fosc : 85KHz
+                                                                                                                                                         PWM fosc : 65KHz
+
+                     EMI FILTER                 PFC                      POWER                          RECTIFIERS                                                         +V
+       I/P                &                                            SWITCHING                             &
+                                              CIRCUIT                                                                                                                      -V
+                     RECTIFIERS                                                                           FILTER
+                                                                                                                                         O.C.P.
+                                   UVP                        O.L.P.
+     FG                                                                                                                            DETECTION
+                                               PFC                           PWM                                                    CIRCUIT
+                                              CONTROL                       CONTROL
+
+                                                                                                                                O.V.P.
+                                                              O.T.P.
+
+
+
+
+   Derating Curve                                                                        Output derating VS input voltage
+
+
+                                                                                                 100
+             100
+                                                                                                  90
+              80
+                                                                                                  80
+
+              60                                                                                  70
+              50
+LOAD (%)
+
+
+
+
+                                                                                                  60
+                                                                                      LOAD (%)
+
+
+
+
+              40
+                                                                                                  50
+              20
+                                                                                                  40
+
+
+               -20     0     10   20     30   40    50   60       70 (VERTICAL)                    90   100   125   135   145    155 165     175   180   200   230   264
+
+                           AMBIENT TEMPERATURE (℃)                                                                  INPUT VOLTAGE (V) 60Hz
+
+
+
+
+                                                                                                                                                    File Name:NDR-480-SPEC 2025-01-10
+                 480W Single Output Industrial DIN RAIL                                                               N D R - 4 8 0 series
+Mechanical Specification
+(Unit: mm , tolerance ± 1mm)                                                                                                           Case No.984D
+
+
+
+
+                                                                                  Top View
+
+                        128.5                                                          85.5
+
+                                                                         12 3 4
+
+
+                                                                           TB2
+  36
+
+
+
+
+                                                              125.2
+
+
+
+
+                                                                             DC OK
+                                                                           + +V ADJ
+                                                                                         TB1
+                                                                                       1 2 3
+
+
+
+                     Side View                                                   Front View                                         Side View
+
+
+
+                                                                                                                     Terminal Pin No. Assignment (TB1)
+                                                                                                                      Pin No.   Assignment
+                                                                                                                         1      FG
+                                                                                                                         2      AC/N or DC -
+                                                                                                                         3      AC/L or DC +
+
+                                                                                                                     Terminal Pin No. Assignment (TB2)
+                                                                                                                      Pin No.   Assignment
+                                                                                                                        1,2     DC OUTPUT +V
+                                                                                                                        3,4     DC OUTPUT-V
+
+
+
+                                                                               Bottom View
+
+Installation Instruction
+
+
+
+
+                                                                                               This series fits DIN rail TS35/7.5 or TS35/15.
+                                                                                               For installation details, please refer to the Instruction manual.
+                                                    35
+
+
+
+
+                                       ADMISSIBLE DIN-RAIL:TS35/7.5 OR TS35/15
+                                       (For reference only. Not included with unit.)
+
+
+
+
+                      Back View
+
+
+
+Installation Manual
+Please refer to : http://www.meanwell.com/manual.html
+
+
+                                                                                                                                         File Name:NDR-480-SPEC 2025-01-10
+

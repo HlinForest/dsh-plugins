@@ -1,0 +1,147 @@
+[
+  {
+    "id": "agent-default-model",
+    "config": {
+      "provider": "deepseek-account",
+      "model": "deepseek-flash",
+      "reasoningEffort": "high"
+    }
+  },
+  {
+    "id": "llm-deepseek-account",
+    "config": {
+      "thinking": "enabled",
+      "reasoningEffort": "high",
+      "maxTokens": 16000
+    }
+  },
+  {
+    "id": "system-prompt",
+    "config": {
+      "personaPrefix": "你是工业控制柜电源选型辅助助手。依据本轮公开资料和工程需求，输出可复核的六部分中文报告。",
+      "personaSuffix": ""
+    }
+  },
+  {
+    "id": "approval",
+    "config": {
+      "policy": "never"
+    }
+  },
+  {
+    "id": "permission",
+    "config": {
+      "presets": {
+        "demo-workspace": {
+          "sandbox": "workspace-write",
+          "approval": "never"
+        }
+      },
+      "defaultPreset": "demo-workspace"
+    }
+  },
+  {
+    "id": "sandbox-policy",
+    "config": {
+      "mode": "workspace-write",
+      "workspaceRoot": "D:/VisualBoard/dsh-megmeet/success-demo"
+    }
+  },
+  {
+    "id": "tool-plugin-manager",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent-control",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent-list-agents",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent-fork",
+    "disabled": true
+  },
+  {
+    "id": "tool-workflow",
+    "disabled": true
+  },
+  {
+    "id": "tool-todo",
+    "disabled": true
+  },
+  {
+    "id": "tool-goal",
+    "disabled": true
+  },
+  {
+    "id": "tool-ralph",
+    "disabled": true
+  },
+  {
+    "id": "tool-web",
+    "disabled": true
+  },
+  {
+    "id": "agent-instructions",
+    "disabled": true
+  },
+  {
+    "id": "session-title-llm",
+    "disabled": true
+  },
+  {
+    "id": "tool-bash",
+    "disabled": true
+  },
+  {
+    "id": "tool-jobs",
+    "disabled": true
+  },
+  {
+    "id": "tool-fs",
+    "disabled": false
+  },
+  {
+    "id": "tool-fs-search",
+    "disabled": false
+  },
+  {
+    "id": "tool-pwsh",
+    "disabled": false
+  },
+  {
+    "id": "skill-filesystem",
+    "disabled": true,
+    "config": {
+      "includeDefaultRoots": false,
+      "customSkillDirs": [
+        "D:/VisualBoard/dsh-megmeet/success-demo/skills/c"
+      ],
+      "watch": false
+    }
+  },
+  {
+    "id": "tool-skill",
+    "disabled": true
+  },
+  {
+    "insert": [
+      {
+        "id": "megmeet-product-assistant",
+        "name": "D:/VisualBoard/dsh-megmeet/lib/index.js",
+        "config": {
+          "catalogPath": "D:/VisualBoard/dsh-megmeet/success-demo/snapshots/catalog.active.json",
+          "maxCandidates": 3,
+          "maxInputChars": 60000,
+          "reportDirectory": "D:/VisualBoard/dsh-megmeet/success-demo/records/plugin-reports"
+        }
+      }
+    ]
+  }
+]

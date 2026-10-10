@@ -1,0 +1,5676 @@
+{
+  "schemaVersion": 2,
+  "dataset": "公开工业控制柜电源资料库",
+  "version": "V2-2026-10-09",
+  "demo": false,
+  "sources": [
+    {
+      "id": "SDR-75",
+      "title": "MEAN WELL SDR-75 官方规格书",
+      "version": "2025-06-09",
+      "location": "PDF共3页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-75/SDR-75-SPEC.PDF",
+      "file": "../materials/SDR-75.pdf",
+      "sha256": "bd4c1f6607f411b2e3843c4346a4d1d15ab28de64b2d2837a20c3d5aaf450f9a"
+    },
+    {
+      "id": "SDR-120",
+      "title": "MEAN WELL SDR-120 官方规格书",
+      "version": "2025-06-09",
+      "location": "PDF共3页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-120/SDR-120-SPEC.PDF",
+      "file": "../materials/SDR-120.pdf",
+      "sha256": "f755e5a10c898519fb46ffb452a3781e0a3eb1488f3cd7372f1267359f9cc0e9"
+    },
+    {
+      "id": "SDR-240",
+      "title": "MEAN WELL SDR-240 官方规格书",
+      "version": "2025-02-17",
+      "location": "PDF共3页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-240/SDR-240-SPEC.PDF",
+      "file": "../materials/SDR-240.pdf",
+      "sha256": "7a184be3e20a5f80fe4a794bc8db9882e87402c7d99a0da517d319dede560b4f"
+    },
+    {
+      "id": "SDR-480",
+      "title": "MEAN WELL SDR-480 官方规格书",
+      "version": "2025-02-17",
+      "location": "PDF共3页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-480/SDR-480-SPEC.PDF",
+      "file": "../materials/SDR-480.pdf",
+      "sha256": "2914d2e73bafd7fdb3c7b13b36a3b75d5da7f020f3b44d459a2145565f189d75"
+    },
+    {
+      "id": "NDR-120",
+      "title": "MEAN WELL NDR-120 官方规格书",
+      "version": "2026-04-03",
+      "location": "PDF共4页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/NDR-120/NDR-120-SPEC.PDF",
+      "file": "../materials/NDR-120.pdf",
+      "sha256": "8ea2a476d9989a44e917afe910689f1d84c93aab311c86beb64d31cdb518ce8d"
+    },
+    {
+      "id": "NDR-240",
+      "title": "MEAN WELL NDR-240 官方规格书",
+      "version": "2026-04-03",
+      "location": "PDF共4页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/NDR-240/NDR-240-SPEC.PDF",
+      "file": "../materials/NDR-240.pdf",
+      "sha256": "383b37857443a4921952fc42b43b7dad456f150c670882d6f5e89e79f62446a1"
+    },
+    {
+      "id": "NDR-480",
+      "title": "MEAN WELL NDR-480 官方规格书",
+      "version": "2025-01-10",
+      "location": "PDF共4页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/NDR-480/NDR-480-SPEC.PDF",
+      "file": "../materials/NDR-480.pdf",
+      "sha256": "f077c7787d0203eefe95cc6772f70353b68b8e506c8722334e3aca6c870f87c5"
+    },
+    {
+      "id": "HDR-60",
+      "title": "MEAN WELL HDR-60 官方规格书",
+      "version": "2026-04-03",
+      "location": "PDF共4页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/HDR-60/HDR-60-SPEC.PDF",
+      "file": "../materials/HDR-60.pdf",
+      "sha256": "b51de6512c55662ec325fed1ee96027630bc6de1c1081eb99b5cdcdd37b675ab"
+    },
+    {
+      "id": "LRS-350",
+      "title": "MEAN WELL LRS-350 官方规格书",
+      "version": "2025-09-12",
+      "location": "PDF共4页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://www.meanwell.com/Upload/PDF/LRS-350/LRS-350-SPEC.PDF",
+      "file": "../materials/LRS-350.pdf",
+      "sha256": "ac3e7b8d27dcd72277b6bdbb208586a2343a635edf1ff578fffd131a31713f6f"
+    },
+    {
+      "id": "CP10.241",
+      "title": "PULS CP10.241 官方规格书",
+      "version": "Aug. 2025 / Rev. 1.9",
+      "location": "PDF共33页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://products.pulspower.com/mwdownloads/download/link/id/76",
+      "file": "../materials/CP10.241.pdf",
+      "sha256": "c61d0de1056ffe8e0c9676e5518da835b69aceaf3f801ac9402de81c7bc4094a"
+    },
+    {
+      "id": "CP20.241-R2",
+      "title": "PULS CP20.241-R2 官方规格书",
+      "version": "Nov. 2025 / Rev. 1.3",
+      "location": "PDF共33页；参数索引保留逐项PDF页码（从1开始）",
+      "url": "https://products.pulspower.com/us/mwdownloads/download/link/id/93/",
+      "file": "../materials/CP20.241-R2.pdf",
+      "sha256": "ab1379daf497ed16d80e9e813f699ea2f86a82ab6fb7965ac24722e5ee3c68a0"
+    }
+  ],
+  "products": [
+    {
+      "id": "SDR-75-12",
+      "name": "MEAN WELL SDR-75-12",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-75",
+      "description": "SDR-75-12；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Rated power is 75.6/76.8W as listed, despite 75W series/peak chart labels; peak power shared row 112.5W must not be recalculated as 1.5×76.8W. -30 to -25°C band is labelled 230VAC input only; base profile starts -25°C. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 12,
+        "output_current_a": 6.3,
+        "output_power_w": 75.6,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 32,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 112.5,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "12V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "6.3A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "75.6W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "32*"
+        },
+        "mounting": {
+          "sourceId": "SDR-75",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "12V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-75",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "112.5W (3 sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "112.5W (3 sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-75",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-75",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 75.6
+          },
+          {
+            "temperatureC": 55,
+            "powerW": 75.6
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 56.7
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-75-24",
+      "name": "MEAN WELL SDR-75-24",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-75",
+      "description": "SDR-75-24；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Rated power is 75.6/76.8W as listed, despite 75W series/peak chart labels; peak power shared row 112.5W must not be recalculated as 1.5×76.8W. -30 to -25°C band is labelled 230VAC input only; base profile starts -25°C. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 3.2,
+        "output_power_w": 76.8,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 32,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 112.5,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "3.2A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "76.8W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "32*"
+        },
+        "mounting": {
+          "sourceId": "SDR-75",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-75",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "112.5W (3 sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "112.5W (3 sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-75",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-75",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 76.8
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 76.8
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 57.6
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-75-48",
+      "name": "MEAN WELL SDR-75-48",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-75",
+      "description": "SDR-75-48；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Rated power is 75.6/76.8W as listed, despite 75W series/peak chart labels; peak power shared row 112.5W must not be recalculated as 1.5×76.8W. -30 to -25°C band is labelled 230VAC input only; base profile starts -25°C. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 1.6,
+        "output_power_w": 76.8,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 32,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 112.5,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "1.6A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "76.8W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "32*"
+        },
+        "mounting": {
+          "sourceId": "SDR-75",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-75",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "112.5W (3 sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "112.5W (3 sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-75",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-75",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 76.8
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 76.8
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 57.6
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-75",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-120-12",
+      "name": "MEAN WELL SDR-120-12",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-120",
+      "description": "SDR-120-12；官方额定参数。 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 12,
+        "output_current_a": 10,
+        "output_power_w": 120,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 40,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 180,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "12V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "10A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "120W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40*"
+        },
+        "mounting": {
+          "sourceId": "SDR-120",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "12V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "180W (3 sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "180W (3 sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-120",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 55,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 90
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-120-24",
+      "name": "MEAN WELL SDR-120-24",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-120",
+      "description": "SDR-120-24；官方额定参数。 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 5,
+        "output_power_w": 120,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 40,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 180,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "5A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "120W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40*"
+        },
+        "mounting": {
+          "sourceId": "SDR-120",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "180W (3 sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "180W (3 sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-120",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 90
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-120-48",
+      "name": "MEAN WELL SDR-120-48",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-120",
+      "description": "SDR-120-48；官方额定参数。 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 2.5,
+        "output_power_w": 120,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 40,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 180,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "2.5A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "120W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40*"
+        },
+        "mounting": {
+          "sourceId": "SDR-120",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "180W (3 sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "180W (3 sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-120",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 90
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-120",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-240-24",
+      "name": "MEAN WELL SDR-240-24",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-240",
+      "description": "SDR-240-24；官方额定参数。 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 63,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 360,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "10A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "63*"
+        },
+        "mounting": {
+          "sourceId": "SDR-240",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "360W (3sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "360W (3sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-240",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-240",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-240",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-240",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-240",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-240-48",
+      "name": "MEAN WELL SDR-240-48",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-240",
+      "description": "SDR-240-48；官方额定参数。 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 5,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 63,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 88,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 360,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "5A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "63*"
+        },
+        "mounting": {
+          "sourceId": "SDR-240",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "88 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "360W (3sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "360W (3sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-240",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-240",
+            "page": 1,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "SDR-240",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "SDR-240",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-240",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-480-24",
+      "name": "MEAN WELL SDR-480-24",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-480",
+      "description": "SDR-480-24；官方额定参数。Peak 720W is max 3s and average power must not exceed rated power (p1 Note6). Width 85.5mm exceeds 65mm before installation gaps. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 20,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 85.5,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 720,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "20A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "85.5*"
+        },
+        "mounting": {
+          "sourceId": "SDR-480",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "720W (3sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "720W (3sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-480",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 360
+          }
+        ],
+        "inputMinV": 230,
+        "inputMaxV": 230,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-480",
+            "page": 3,
+            "quote": "230VAC"
+          },
+          {
+            "sourceId": "SDR-480",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-480",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SDR-480-48",
+      "name": "MEAN WELL SDR-480-48",
+      "manufacturer": "MEAN WELL",
+      "family": "SDR-480",
+      "description": "SDR-480-48；官方额定参数。Peak 720W is max 3s and average power must not exceed rated power (p1 Note6). Width 85.5mm exceeds 65mm before installation gaps. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 10,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 85.5,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 720,
+        "peak_duration_s": 3,
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "10A"
+        },
+        "output_power_w": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "85.5*"
+        },
+        "mounting": {
+          "sourceId": "SDR-480",
+          "page": 2,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "dc_ok": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "DC OK REALY CONTACT RATINGS"
+        },
+        "input_voltage_v": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "SDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "720W (3sec.)"
+        },
+        "peak_duration_s": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "720W (3sec.)"
+        },
+        "orientation": {
+          "sourceId": "SDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "SDR-480",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 360
+          }
+        ],
+        "inputMinV": 230,
+        "inputMaxV": 230,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "SDR-480",
+            "page": 3,
+            "quote": "230VAC"
+          },
+          {
+            "sourceId": "SDR-480",
+            "page": 1,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "SDR-480",
+            "page": 1,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-120-12",
+      "name": "MEAN WELL NDR-120-12",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-120",
+      "description": "NDR-120-12；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 12V at 115VAC has an earlier 45°C breakpoint; base curve uses explicit 230VAC case. -20 to -10°C includes input-voltage-specific cold derating. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 12,
+        "output_current_a": 10,
+        "output_power_w": 120,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 40,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -10,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "12V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "10A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "120W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40*"
+        },
+        "mounting": {
+          "sourceId": "NDR-120",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "12V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-120",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -10,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 60
+          }
+        ],
+        "inputMinV": 230,
+        "inputMaxV": 230,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-120-24",
+      "name": "MEAN WELL NDR-120-24",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-120",
+      "description": "NDR-120-24；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 5,
+        "output_power_w": 120,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 40,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -10,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "5A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "120W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40*"
+        },
+        "mounting": {
+          "sourceId": "NDR-120",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-120",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -10,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 60
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-120-48",
+      "name": "MEAN WELL NDR-120-48",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-120",
+      "description": "NDR-120-48；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 2.5,
+        "output_power_w": 120,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 40,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -10,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "2.5A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "120W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40*"
+        },
+        "mounting": {
+          "sourceId": "NDR-120",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-120",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-120",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -10,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 120
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 60
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-120",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-240-24",
+      "name": "MEAN WELL NDR-240-24",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-240",
+      "description": "NDR-240-24；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 63,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -20,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "10A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "63*"
+        },
+        "mounting": {
+          "sourceId": "NDR-240",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-240",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -20,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 120
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-240",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-240",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-240",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-240",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-240-48",
+      "name": "MEAN WELL NDR-240-48",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-240",
+      "description": "NDR-240-48；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 5,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 63,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -20,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "5A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "63*"
+        },
+        "mounting": {
+          "sourceId": "NDR-240",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-240",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-240",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -20,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 120
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-240",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-240",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-240",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-240",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-480-24",
+      "name": "MEAN WELL NDR-480-24",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-480",
+      "description": "NDR-480-24；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 20,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 85.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -20,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "20A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "85.5*"
+        },
+        "mounting": {
+          "sourceId": "NDR-480",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-480",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -20,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 240
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-480",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-480",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-480",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-480",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NDR-480-48",
+      "name": "MEAN WELL NDR-480-48",
+      "manufacturer": "MEAN WELL",
+      "family": "NDR-480",
+      "description": "NDR-480-48；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 10,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 85.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 90,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -20,
+          "max": 70
+        },
+        "orientation": "vertical",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "10A"
+        },
+        "output_power_w": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "85.5*"
+        },
+        "mounting": {
+          "sourceId": "NDR-480",
+          "page": 4,
+          "quote": "TS35/7.5 OR TS35/15"
+        },
+        "input_voltage_v": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "90 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "NDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "orientation": {
+          "sourceId": "NDR-480",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "altitude_m": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "3.5℃/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "widthToleranceMm": 1,
+      "continuousPowerProfile": {
+        "sourceId": "NDR-480",
+        "page": 3,
+        "quote": "Derating Curve",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -20,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 50,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 240
+          }
+        ],
+        "inputMinV": 100,
+        "inputMaxV": 264,
+        "orientation": "vertical",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "NDR-480",
+            "page": 2,
+            "quote": "All parameters NOT specially mentioned"
+          },
+          {
+            "sourceId": "NDR-480",
+            "page": 3,
+            "quote": "INPUT VOLTAGE"
+          },
+          {
+            "sourceId": "NDR-480",
+            "page": 2,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "NDR-480",
+            "page": 2,
+            "quote": "3.5℃/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "HDR-60-5",
+      "name": "MEAN WELL HDR-60-5",
+      "manufacturer": "MEAN WELL",
+      "family": "HDR-60",
+      "description": "HDR-60-5；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 277VAC is labelled operational separately from 85–264VAC rated range; not folded into rated input maximum. Datasheet does not state numeric installation clearances. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 5,
+        "output_current_a": 6.5,
+        "output_power_w": 32.5,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 52.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -30,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "5V"
+        },
+        "output_current_a": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "6.5A"
+        },
+        "output_power_w": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "32.5W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "52.5*"
+        },
+        "mounting": {
+          "sourceId": "HDR-60",
+          "page": 1,
+          "quote": "DIN rail TS-35/7.5 or 15 mountable"
+        },
+        "input_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "5V"
+        },
+        "temperature_c": {
+          "sourceId": "HDR-60",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 0.5
+    },
+    {
+      "id": "HDR-60-12",
+      "name": "MEAN WELL HDR-60-12",
+      "manufacturer": "MEAN WELL",
+      "family": "HDR-60",
+      "description": "HDR-60-12；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 277VAC is labelled operational separately from 85–264VAC rated range; not folded into rated input maximum. Datasheet does not state numeric installation clearances. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 12,
+        "output_current_a": 4.5,
+        "output_power_w": 54,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 52.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -30,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "12V"
+        },
+        "output_current_a": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "4.5A"
+        },
+        "output_power_w": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "54W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "52.5*"
+        },
+        "mounting": {
+          "sourceId": "HDR-60",
+          "page": 1,
+          "quote": "DIN rail TS-35/7.5 or 15 mountable"
+        },
+        "input_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "12V"
+        },
+        "temperature_c": {
+          "sourceId": "HDR-60",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 0.5
+    },
+    {
+      "id": "HDR-60-15",
+      "name": "MEAN WELL HDR-60-15",
+      "manufacturer": "MEAN WELL",
+      "family": "HDR-60",
+      "description": "HDR-60-15；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 277VAC is labelled operational separately from 85–264VAC rated range; not folded into rated input maximum. Datasheet does not state numeric installation clearances. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 15,
+        "output_current_a": 4,
+        "output_power_w": 60,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 52.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -30,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "15V"
+        },
+        "output_current_a": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "4A"
+        },
+        "output_power_w": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "60W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "52.5*"
+        },
+        "mounting": {
+          "sourceId": "HDR-60",
+          "page": 1,
+          "quote": "DIN rail TS-35/7.5 or 15 mountable"
+        },
+        "input_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "15V"
+        },
+        "temperature_c": {
+          "sourceId": "HDR-60",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 0.5
+    },
+    {
+      "id": "HDR-60-24",
+      "name": "MEAN WELL HDR-60-24",
+      "manufacturer": "MEAN WELL",
+      "family": "HDR-60",
+      "description": "HDR-60-24；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 277VAC is labelled operational separately from 85–264VAC rated range; not folded into rated input maximum. Datasheet does not state numeric installation clearances. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 2.5,
+        "output_power_w": 60,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 52.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -30,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "2.5A"
+        },
+        "output_power_w": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "60W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "52.5*"
+        },
+        "mounting": {
+          "sourceId": "HDR-60",
+          "page": 1,
+          "quote": "DIN rail TS-35/7.5 or 15 mountable"
+        },
+        "input_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "HDR-60",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 0.5
+    },
+    {
+      "id": "HDR-60-48",
+      "name": "MEAN WELL HDR-60-48",
+      "manufacturer": "MEAN WELL",
+      "family": "HDR-60",
+      "description": "HDR-60-48；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. 277VAC is labelled operational separately from 85–264VAC rated range; not folded into rated input maximum. Datasheet does not state numeric installation clearances. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 1.25,
+        "output_power_w": 60,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 52.5,
+        "mounting": "din",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -30,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "1.25A"
+        },
+        "output_power_w": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "60W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "52.5*"
+        },
+        "mounting": {
+          "sourceId": "HDR-60",
+          "page": 1,
+          "quote": "DIN rail TS-35/7.5 or 15 mountable"
+        },
+        "input_voltage_v": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "input_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "85 ~ 264VAC"
+        },
+        "output_type": {
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "HDR-60",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 0.5
+    },
+    {
+      "id": "LRS-350-3.3",
+      "name": "MEAN WELL LRS-350-3.3",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-3.3；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 3.3,
+        "output_current_a": 60,
+        "output_power_w": 198,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "3.3V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "60A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "198W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "3.3V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-4.2",
+      "name": "MEAN WELL LRS-350-4.2",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-4.2；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 4.2,
+        "output_current_a": 60,
+        "output_power_w": 252,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "4.2V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "60A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "252W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "4.2V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-5",
+      "name": "MEAN WELL LRS-350-5",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-5；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 5,
+        "output_current_a": 60,
+        "output_power_w": 300,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        }
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "5V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "60A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "300W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "5V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-12",
+      "name": "MEAN WELL LRS-350-12",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-12；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 12,
+        "output_current_a": 29,
+        "output_power_w": 348,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 522,
+        "peak_duration_s": 1
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "12V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "29A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "348W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "12V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        },
+        "peak_duration_s": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-15",
+      "name": "MEAN WELL LRS-350-15",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-15；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 15,
+        "output_current_a": 23.2,
+        "output_power_w": 348,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 522,
+        "peak_duration_s": 1
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "15V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "23.2A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "348W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "15V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        },
+        "peak_duration_s": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-24",
+      "name": "MEAN WELL LRS-350-24",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-24；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 14.6,
+        "output_power_w": 350.4,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 525.6,
+        "peak_duration_s": 1
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "14.6A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "350.4W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        },
+        "peak_duration_s": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-36",
+      "name": "MEAN WELL LRS-350-36",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-36；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 36,
+        "output_current_a": 9.7,
+        "output_power_w": 349.2,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 523.8,
+        "peak_duration_s": 1
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "36V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "9.7A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "349.2W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "36V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        },
+        "peak_duration_s": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "LRS-350-48",
+      "name": "MEAN WELL LRS-350-48",
+      "manufacturer": "MEAN WELL",
+      "family": "LRS-350",
+      "description": "LRS-350-48；官方额定参数。DC OK lettering/LED is not proof of a relay or externally usable signal. Absence of a relay declaration remains unknown. Input has a prohibited gap between132VAC and180VAC. 176VAC demand is not supported. 215×115×30 is L×W×H;30mm is height, not width. Horizontal temperature curve and built-in fan; do not apply DIN vertical envelope. 360×360×1mm metal plate in Note9 is EMC test arrangement, not a thermal continuous-rating guarantee. 温度曲线由官方图读取，输入与温度曲线组合为工程推断。",
+      "parameters": {
+        "output_voltage_v": 48,
+        "output_current_a": 7.3,
+        "output_power_w": 350.4,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63
+        },
+        "width_mm": 115,
+        "mounting": "chassis-screw",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "peak_power_w": 525.6,
+        "peak_duration_s": 1
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "48V"
+        },
+        "output_current_a": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "7.3A"
+        },
+        "output_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "350.4W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "47 ~ 63Hz"
+        },
+        "width_mm": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "215*115*30mm (L*W*H)"
+        },
+        "mounting": {
+          "sourceId": "LRS-350",
+          "page": 4,
+          "quote": "4-M4"
+        },
+        "input_voltage_v": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "input_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "90 ~ 132VAC / 180 ~ 264VAC by switch"
+        },
+        "output_type": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "48V"
+        },
+        "temperature_c": {
+          "sourceId": "LRS-350",
+          "page": 3,
+          "quote": "Derating Curve"
+        },
+        "peak_power_w": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        },
+        "peak_duration_s": {
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "150% peak load capability"
+        }
+      },
+      "widthToleranceMm": 1
+    },
+    {
+      "id": "CP10.241",
+      "name": "PULS CP10.241",
+      "manufacturer": "PULS",
+      "family": "CP10",
+      "description": "CP10.241；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. Source inconsistency: installationp4 says designed altitudeup5000m; environmentp17 gives2000–6000m withderating. Store conservative cap5000m; rated profile restricts≤2000m. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 39,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Nom. 10A"
+        },
+        "output_power_w": {
+          "sourceId": "CP10.241",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "39mm"
+        },
+        "mounting": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP10.241",
+          "page": 10,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP10.241",
+          "page": 3,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP10.241",
+          "page": 17,
+          "quote": "15W/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP10.241",
+        "page": 8,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP10.241",
+            "page": 5,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 3,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "15W/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP10.241-C1",
+      "name": "PULS CP10.241-C1",
+      "manufacturer": "PULS",
+      "family": "CP10",
+      "description": "CP10.241-C1；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. Source inconsistency: installationp4 says designed altitudeup5000m; environmentp17 gives2000–6000m withderating. Store conservative cap5000m; rated profile restricts≤2000m. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 39,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Nom. 10A"
+        },
+        "output_power_w": {
+          "sourceId": "CP10.241",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "39mm"
+        },
+        "mounting": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP10.241",
+          "page": 10,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP10.241",
+          "page": 3,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP10.241",
+          "page": 17,
+          "quote": "15W/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP10.241",
+        "page": 8,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP10.241",
+            "page": 5,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 3,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "15W/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP10.241-S1",
+      "name": "PULS CP10.241-S1",
+      "manufacturer": "PULS",
+      "family": "CP10",
+      "description": "CP10.241-S1；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. Source inconsistency: installationp4 says designed altitudeup5000m; environmentp17 gives2000–6000m withderating. Store conservative cap5000m; rated profile restricts≤2000m. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 39,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Nom. 10A"
+        },
+        "output_power_w": {
+          "sourceId": "CP10.241",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "39mm"
+        },
+        "mounting": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP10.241",
+          "page": 10,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP10.241",
+          "page": 3,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP10.241",
+          "page": 17,
+          "quote": "15W/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP10.241",
+        "page": 8,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP10.241",
+            "page": 5,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 3,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "15W/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP10.241-S2",
+      "name": "PULS CP10.241-S2",
+      "manufacturer": "PULS",
+      "family": "CP10",
+      "description": "CP10.241-S2；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. Source inconsistency: installationp4 says designed altitudeup5000m; environmentp17 gives2000–6000m withderating. Store conservative cap5000m; rated profile restricts≤2000m. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 39,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Nom. 10A"
+        },
+        "output_power_w": {
+          "sourceId": "CP10.241",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "39mm"
+        },
+        "mounting": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP10.241",
+          "page": 10,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP10.241",
+          "page": 3,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP10.241",
+          "page": 17,
+          "quote": "15W/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP10.241",
+        "page": 8,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP10.241",
+            "page": 5,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 3,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "15W/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP10.242",
+      "name": "PULS CP10.242",
+      "manufacturer": "PULS",
+      "family": "CP10",
+      "description": "CP10.242；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. Source inconsistency: installationp4 says designed altitudeup5000m; environmentp17 gives2000–6000m withderating. Store conservative cap5000m; rated profile restricts≤2000m. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 10,
+        "output_power_w": 240,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 39,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -25,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Nom. 10A"
+        },
+        "output_power_w": {
+          "sourceId": "CP10.241",
+          "page": 1,
+          "quote": "240W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "39mm"
+        },
+        "mounting": {
+          "sourceId": "CP10.241",
+          "page": 23,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP10.241",
+          "page": 10,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP10.241",
+          "page": 5,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP10.241",
+          "page": 3,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP10.241",
+          "page": 17,
+          "quote": "15W/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP10.241",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP10.241",
+        "page": 8,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -25,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 240
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 180
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP10.241",
+            "page": 5,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 3,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP10.241",
+            "page": 17,
+            "quote": "15W/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP20.241-R1",
+      "name": "PULS CP20.241-R1",
+      "manufacturer": "PULS",
+      "family": "CP20-R",
+      "description": "CP20.241-R1；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 20,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 48,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -40,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Nom. 20A"
+        },
+        "output_power_w": {
+          "sourceId": "CP20.241-R2",
+          "page": 1,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "48mm"
+        },
+        "mounting": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP20.241-R2",
+          "page": 11,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP20.241-R2",
+          "page": 19,
+          "quote": "1.25A/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP20.241-R2",
+        "page": 9,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -40,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 360
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 6,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "1.25A/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP20.241-R2",
+      "name": "PULS CP20.241-R2",
+      "manufacturer": "PULS",
+      "family": "CP20-R",
+      "description": "CP20.241-R2；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 20,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 48,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -40,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Nom. 20A"
+        },
+        "output_power_w": {
+          "sourceId": "CP20.241-R2",
+          "page": 1,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "48mm"
+        },
+        "mounting": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP20.241-R2",
+          "page": 11,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP20.241-R2",
+          "page": 19,
+          "quote": "1.25A/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP20.241-R2",
+        "page": 9,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -40,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 360
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 6,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "1.25A/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP20.242-R2",
+      "name": "PULS CP20.242-R2",
+      "manufacturer": "PULS",
+      "family": "CP20-R",
+      "description": "CP20.242-R2；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 20,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 48,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -40,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Nom. 20A"
+        },
+        "output_power_w": {
+          "sourceId": "CP20.241-R2",
+          "page": 1,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "48mm"
+        },
+        "mounting": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP20.241-R2",
+          "page": 11,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP20.241-R2",
+          "page": 19,
+          "quote": "1.25A/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP20.241-R2",
+        "page": 9,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -40,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 360
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 6,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "1.25A/1000m or 5K/1000m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP20.241-R2-C1",
+      "name": "PULS CP20.241-R2-C1",
+      "manufacturer": "PULS",
+      "family": "CP20-R",
+      "description": "CP20.241-R2-C1；官方额定参数。额定类别：Nom.。Output rating is at nominal24V. At adjusted28V, allowable currents differ; do not retain24V current as though universal. Blanket source footer says values typical unless otherwise noted. Nom., Min., Max., explicit allowed limits andTyp remain distinguishable in evidence. Transient264–300VAC range max500ms is not part of continuous85–264VAC input coverage. Rated profile intentionally excludes continuous≤45°C PowerBoost; it therefore describes rated capacity, not maximum possible sustained capacity. ",
+      "parameters": {
+        "output_voltage_v": 24,
+        "output_current_a": 20,
+        "output_power_w": 480,
+        "input_frequency_hz": {
+          "min": 47,
+          "max": 63.6
+        },
+        "width_mm": 48,
+        "mounting": "din",
+        "dc_ok": "yes",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "input_type": "AC",
+        "output_type": "DC",
+        "temperature_c": {
+          "min": -40,
+          "max": 70
+        },
+        "orientation": "vertical-input-terminals-bottom",
+        "altitude_m": 2000,
+        "top_clearance_mm": 40,
+        "bottom_clearance_mm": 20,
+        "side_clearance_mm": 15
+      },
+      "evidence": {
+        "output_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "output_current_a": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Nom. 20A"
+        },
+        "output_power_w": {
+          "sourceId": "CP20.241-R2",
+          "page": 1,
+          "quote": "480W"
+        },
+        "input_frequency_hz": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "50–60Hz"
+        },
+        "width_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "48mm"
+        },
+        "mounting": {
+          "sourceId": "CP20.241-R2",
+          "page": 24,
+          "quote": "35mm DIN rails"
+        },
+        "dc_ok": {
+          "sourceId": "CP20.241-R2",
+          "page": 11,
+          "quote": "DC-OK RELAY CONTACT"
+        },
+        "input_voltage_v": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "input_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 6,
+          "quote": "85-264Vac"
+        },
+        "output_type": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "DC 24V"
+        },
+        "temperature_c": {
+          "sourceId": "CP20.241-R2",
+          "page": 9,
+          "quote": "Derate linearly between +60°C and +70°C"
+        },
+        "orientation": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "input terminals"
+        },
+        "altitude_m": {
+          "sourceId": "CP20.241-R2",
+          "page": 19,
+          "quote": "1.25A/1000m or 5K/1000m"
+        },
+        "top_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "bottom_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        },
+        "side_clearance_mm": {
+          "sourceId": "CP20.241-R2",
+          "page": 4,
+          "quote": "40mm on top, 20mm on the bottom, 5mm"
+        }
+      },
+      "continuousPowerProfile": {
+        "sourceId": "CP20.241-R2",
+        "page": 9,
+        "quote": "Derate linearly between +60°C and +70°C",
+        "basis": "rated_continuous",
+        "points": [
+          {
+            "temperatureC": -40,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 60,
+            "powerW": 480
+          },
+          {
+            "temperatureC": 70,
+            "powerW": 360
+          }
+        ],
+        "inputMinV": 85,
+        "inputMaxV": 264,
+        "orientation": "vertical-input-terminals-bottom",
+        "maxAltitudeM": 2000,
+        "clearancesMm": {
+          "top": 40,
+          "bottom": 20,
+          "side": 15
+        },
+        "conditionsEvidence": [
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 6,
+            "quote": "85-264Vac"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "For altitudes >2000m"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "input terminals"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 4,
+            "quote": "40mm on top, 20mm on the bottom, 5mm"
+          },
+          {
+            "sourceId": "CP20.241-R2",
+            "page": 19,
+            "quote": "1.25A/1000m or 5K/1000m"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "status": "completed",
+  "runtime": "DeepSeek Harness 0.2.0-rc.2",
+  "mode": "official headless profile",
+  "provider": "deepseek-account",
+  "model": "deepseek-flash",
+  "reasoningEffort": "high",
+  "maxTokens": 16000,
+  "promptSHA256": "0dfb1aa0f42916c7d4b61d17ed6bfa65d46028b34da1ff8dc7261023be6a6782",
+  "catalogSHA256": "815f1f4950861fb8fd9230934119780ac29fe7fe4488e405d65a4262ba0bdc0a",
+  "catalogVersion": "DEMO-1",
+  "fictionalData": true,
+  "controls": [
+    "Same prompt bytes including the same catalog and source evidence",
+    "Same model/provider/reasoning and token limit",
+    "Fresh sessions",
+    "Same shared patch and working directory",
+    "Only treatment profile has dsh-megmeet@0.1.0 installed",
+    "Generic filesystem, shell, web and delegation tools disabled in both arms"
+  ],
+  "limitations": [
+    "One paired demonstration, not a statistical benchmark",
+    "Provider sampling defaults; no supported seed configured",
+    "Headless DSH runs, not desktop screenshots",
+    "All products and source metadata are fictional"
+  ],
+  "sessions": {
+    "baseline": "session-277d424a-3134-45fe-a756-b4b9ab72b9b5",
+    "plugin": "session-11c1193b-e4ae-4e01-b771-27cccfce74ea"
+  },
+  "stats": {
+    "baseline": {
+      "durationSeconds": 23.195,
+      "modelSteps": 1,
+      "toolCalls": 0,
+      "characters": 5116,
+      "inputTokens": 4012,
+      "outputTokens": 4922,
+      "cacheReadTokens": 0,
+      "totalTokens": 8934
+    },
+    "plugin": {
+      "durationSeconds": 18.845,
+      "modelSteps": 3,
+      "toolCalls": 8,
+      "characters": 5395,
+      "inputTokens": 30306,
+      "outputTokens": 4041,
+      "cacheReadTokens": 14976,
+      "totalTokens": 49323
+    }
+  },
+  "conclusion": "Both runs classify all five demo products the same; the plugin adds deterministic checks and durable tool evidence. Token use increased in this pair."
+}

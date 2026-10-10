@@ -1,0 +1,247 @@
+                                                60W Ultra Slim Step Shape DIN Rail                                                                 HDR-60 series
+                                                                                                                                                                                 User’s Manual
+
+
+
+
+                                                                                                                                                                                    Click Me
+
+
+
+
+                                                                  Bauar t gepruft
+                                                                  Sicherheit
+                                                                   egel ma ge
+                                                                    od     o s
+                                                                   be wac      g
+
+
+                                                                  www. tuv.com
+                                                                  ID 2000000000
+
+                                        UL508   UL62368-1                           R33100
+                                                            BS EN/EN61558                    TPTC004   AS/NZS60950-1   IEC62368-1
+ IS13252                                                                             RoHS
+
+
+                   THOMAS SAMUEL
+   THOMAS SAMUEL
+
+
+
+
+(NOTE 6)
+
+
+■ Features                                                                                                                          ■ Applications 
+‧Ultra slim design with 52.5mm(3SU) width                                                                                           ‧Household control system
+‧Universal input 85~264VAC(277VAC operational)                                                                                      ‧Building automation
+‧No load power consumption<0.3W                                                                                                     ‧Industrial control system
+‧Isolation class Ⅱ                                                                                                                  ‧Factory automation
+‧Pass LPS (Limited power source)                                                                                                    ‧Electro-mechanical apparatus
+‧DC output voltage adjustable 
+‧Protections : Short  circuit / Overload / Over voltage
+                                                                                                                                    ■ GTIN CODE 
+‧Cooling by free air convection (working temperature:-30~+70°C)
+                                                                                                                                        MW Search: https://www.meanwell.com/serviceGTIN.aspx
+‧DIN rail TS-35/7.5 or 15 mountable
+‧LED indicator for power on
+‧3 years warranty
+
+ ■ Description 
+                                   HDR-60 is one economical ultra slim 60W DIN rail power supply series, adapt to be installed on TS-35/7.5 
+                                   or TS-35/15 mounting rails. The body is designed 52.5mm(3SU) in width, which allows space saving inside the 
+                                   cabinets. The entire series adopts the full range AC input from 85VAC to 264VAC (277VAC operational) and 
+                                   conforms to BS EN/EN61000-3-2,  the norm the European Union regulates for harmonic current.
+                                   HDR-60 is designed with plastic housing that it can effectively prevent user from electric hazards. With working   
+                                   efficiency up to 91%, the entire series can operate at the ambient temperature between -30℃ and 70℃ under  
+                                   air convection. The complete protection functions and relevant certificates for home automations and industrial    
+                                   control apparatus (IEC62368-1,UL508,UL62368-1,BS EN/EN61558-2-16) make HDR-60 a very  competitive power  
+                                   supply solution for household and industrial applications.
+
+
+ ■ Model Encoding
+   HDR - 60 - 12
+
+                                                            Output voltage
+                                                            Rated wattage
+                                                            Series name
+
+
+                                                                                                                                                                 File Name:HDR-60-SPEC 2026-04-03
+                       60W Ultra Slim Step Shape DIN Rail                                                                         HDR-60 series
+SPECIFICATION
+MODEL                                      HDR-60-5                     HDR-60-12                 HDR-60-15                 HDR-60-24                     HDR-60-48
+             DC VOLTAGE                    5V                           12V                      15V                        24V                           48V
+             RATED CURRENT                 6.5A                         4.5A                     4A                         2.5A                          1.25A
+             CURRENT RANGE                 0 ~6.5A                     0 ~ 4.5A                 0 ~ 4A                     0 ~ 2.5A                      0 ~ 1.25A
+             RATED POWER                   32.5W                        54W                      60W                        60W                           60W
+             RIPPLE & NOISE (max.) Note.2 80mVp-p                       120mVp-p                 120mVp-p                   150mVp-p                      240mVp-p
+OUTPUT       VOLTAGE ADJ. RANGE            5.0 ~ 5.5V                   10.8 ~ 13.8V             13.5 ~ 18V                 21.6 ~ 29V                    43.2 ~ 55.2V
+             VOLTAGE TOLERANCE Note.3 ±2.0%                             ±1.0%                    ±1.0%                      ±1.0%                         ±1.0%
+             LINE REGULATION               ±1.0%                        ±1.0%                    ±1.0%                      ±1.0%                         ±1.0%
+             LOAD REGULATION               ±1.0%                        ±1.0%                    ±1.0%                      ±1.0%                         ±1.0%
+             SETUP, RISE TIME              500ms, 50ms/230VAC            500ms, 50ms/115VAC at full load
+             HOLD UP TIME (Typ.)           30ms/230VAC        12ms/115VAC at full load
+             VOLTAGE RANGE                 85 ~ 264VAC (277VAC operational )           120 ~ 370VDC (390VDC operational )
+             FREQUENCY RANGE               47 ~ 63Hz
+INPUT        EFFICIENCY (Typ.)              85%                         88%                       89%                       90%                           91%
+             AC CURRENT (Typ.)             1.2A/115VAC    0.8A/230VAC
+             INRUSH CURRENT (Typ.)         COLD START 30A/115VAC      60A/230VAC
+                                           105 ~ 160% rated output power
+             OVERLOAD                      Hiccup mode when output voltage <50%, recovers automatically after fault condition is removed
+                                           Constant current limiting within 50% ~100% rated output voltage, recovers automatically after fault condition is removed 
+PROTECTION
+                                           5.75 ~ 6.75V               14.2 ~ 16.2V        18.8 ~ 22.5V            30 ~ 36V                     56.5 ~ 64.8V
+             OVER VOLTAGE
+                                           Protection type : Shut down o/p voltage, re-power on to recover
+             WORKING TEMP.                 -30 ~ +70℃ (Refer to "Derating Curve")
+            WORKING HUMIDITY               20 ~ 90% RH non-condensing
+ENVIRONMENT STORAGE TEMP., HUMIDITY        -40 ~ +85℃, 10 ~ 95% RH non-condensing
+             TEMP. COEFFICIENT             ±0.03%/℃ (0 ~ 50℃) RH non-condensing
+             VIBRATION                     10 ~ 500Hz, 2G 10min./1cycle, period for 60min. each along X, Y, Z axes; Mounting: Compliance to IEC60068-2-6
+             OPERATING ALTITUDE             2000 meters
+             OVER VOLTAGE CATEGORY         Ⅲ;According to E N 61558, EN50178,EN60664-1, EN62477-1;altitude up to 2000 meters
+                                           UL62368-1, UL508, TUV BS EN/EN61558-2-16, BS EN/EN61558-1, IEC62368-1, EAC TP TC 004, BSMI CNS15598-1,
+             SAFETY STANDARDS              BIS IS13252(Part1): 2010/IEC 60950-1:2005(NOTE 6) approved; Design refer to BS EN/EN62368-1
+             WITHSTAND VOLTAGE             I/P-O/P:4KVAC
+             ISOLATION RESISTANCE          I/P-O/P:100M Ohms / 500VDC / 25℃/ 70% RH
+                                           Parameter                       Standard                                           Test Level / Note
+                                           Conducted                               BS EN/EN55032(CISPR32), CNS15936           Class B
+             EMC EMISSION                  Radiated                                BS EN/EN55032(CISPR32), CNS15936            Class B
+                                           Harmonic Current                        BS EN/EN61000-3-2                           Class A
+                                           Voltage Flicker              BS EN/EN61000-3-3                                         -------
+SAFETY &                                   BS EN/EN55035, BS EN/EN61000-6-2, BS EN/EN61204-3
+EMC                                        Parameter                    Standard                                               Test Level /Note
+(Note 4)
+                                           ESD                                     BS EN/EN61000-4-2                           Level 3, 8KV air; Level 2, 4KV contact, criteria A
+                                           Radiated Susceptibility                 BS EN/EN61000-4-3                           Level 3, criteria A
+                                           EFT/Burest                              BS EN/EN61000-4-4                           Level 3, criteria A
+             EMC IMMUNITY
+                                           Surge                                   BS EN/EN61000-4-5                           Level 4,2KV/L-N, criteria A
+                                           Conducted                               BS EN/EN61000-4-6                              Level 3, criteria A
+                                           Magnetic Field                          BS EN/EN61000-4-8                        Level 4, criteria A
+                                                                                   BS EN/EN61000-4-11                       ＞95% dip 0.5 periods, 30% dip 25 periods,
+                                           Voltage Dips and interruptions
+                                                                                                                            ＞95% interruptions 250 periods
+             MTBF                          3524.8K hrs min.          Telcordia SR-332 (Bellcore) ; 927.6K hrs min.     MIL-HDBK-217F (25℃)
+OTHERS       DIMENSION                     52.5*90*54.5mm (W*H*D)
+             PACKING                       190g;60pcs/13Kg/0.91CUFT
+             1. All parameters NOT specially mentioned are measured at 230VAC input, rated load and 25℃ of ambient temperature.
+             2. Ripple & noise are measured at 20MHz of bandwidth by using a 12" twisted pair-wire terminated with a 0.1μF & 47μF parallel capacitor.
+             3. Tolerance : includes set up tolerance, line regulation and load regulation.
+             4. The power supply is considered a component which will be installed into a final equipment. The final equipment must be re-confirmed that it still meets
+NOTE            EMC directives. For guidance on how to perform these EMC tests, please refer to “EMI testing of component power supplies.”
+                (as available on https://www.meanwell.com//Upload/PDF/EMI_statement_en.pdf )
+             5. The ambient temperature derating of 3.5℃/1000m with fanless models and of 5℃/1000m with fan models for operating altitude higher than 2000m(6500ft).
+             6. Some model may not have the BIS logo, please contact your MEAN WELL sales for more information.
+             ※ Product Liability Disclaimer：For detailed information, please refer to https://www.meanwell.com/serviceDisclaimer.aspx
+                                                                                                                                                   File Name:HDR-60-SPEC 2026-04-03
+                       60W Ultra Slim Step Shape DIN Rail                                                                            HDR-60 series
+   Block Diagram
+
+
+
+
+                                                RECTIFIERS                        POWER                               RECTIFIERS                                +V
+                          EMI
+  I/P                                                &                                                                     &
+                        FILTER                                                   SWITCHING                                                                      -V
+                                                  FILTER                                                                FILTER
+
+
+                                                                                                                             DETECTION
+                                                                                                                              CIRCUIT
+                                                                                    PWM
+                                                             O.L.P.
+                                                                                  CONTROL
+                                                                                                                            O.V.P.
+
+
+
+
+   Derating Curve                                                                                Output Derating VS Input Voltage
+
+
+
+                                                                                                 100
+           100
+                                                                                                  90
+
+            80
+                                                                                                  80
+
+            60                                                                                    70
+            50
+                                                                                      LOAD (%)
+LOAD (%)
+
+
+
+
+                                                                                                  60
+            40
+                                                                                                  50
+
+            20                                                                                    40
+
+
+             -30   0     10      20   30   40      50    60           70 (VERTICAL)                    85   95   100 115 120 140 160 180 200 220 240     264 277
+                                                                                                                                                            (operational)
+
+                       AMBIENT TEMPERATURE (℃)                                                                       INPUT VOLTAGE (VAC) 60Hz
+
+
+
+
+                                                                                                                                             File Name:HDR-60-SPEC 2026-04-03
+              60W Ultra Slim Step Shape DIN Rail                                  HDR-60 series
+Mechanical Speciﬁcation
+(Unit: mm , tolerance ± 0.5mm)                                                           Case No.HDR-60
+                                                                                  58.4
+
+                                                                                  54.5
+                                   52.5
+
+
+
+                          1   2     3       4
+
+
+
+
+                                                             63.65
+
+                                                                     45.15
+                                                        90
+
+
+
+
+                      5       6
+                                                                             35
+
+
+
+
+   ADMISSIBLE DIN-RAIL:TS35/7.5 OR TS35/15
+
+
+
+      Terminal Pin No. Assignment
+    Pin No. Assignment            Pin No. Assignment
+      1,2        -V                     5       AC/L
+      3,4        +V                     6       AC/N
+
+
+
+
+Installation Manual
+
+Please refer to : http://www.meanwell.com/manual.html
+
+
+
+
+                                                                                              File Name:HDR-60-SPEC 2026-04-03
+

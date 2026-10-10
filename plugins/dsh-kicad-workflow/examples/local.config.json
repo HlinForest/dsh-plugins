@@ -1,0 +1,9 @@
+{
+  "serverEntry": "D:/codexproj/kicad-ai-workflow/KiCAD-MCP-Server/dist/index.js",
+  "nodeCommand": "C:/Program Files/nodejs/node.exe",
+  "kicadCli": "D:/Kicad/bin/kicad-cli.exe",
+  "kicadPython": "D:/Kicad/bin/python.exe",
+  "workspaceRoot": "D:/VisualBoard",
+  "backend": "swig",
+  "toolTimeoutMs": 600000
+}

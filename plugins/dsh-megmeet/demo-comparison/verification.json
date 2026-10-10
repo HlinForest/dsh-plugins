@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "samePromptSHA256": "0dfb1aa0f42916c7d4b61d17ed6bfa65d46028b34da1ff8dc7261023be6a6782",
+  "samePersistedUserMessages": true,
+  "sameActualModel": true,
+  "uniqueFreshSessions": true,
+  "configurationDifference": [
+    "megmeet-product-assistant"
+  ],
+  "installedCatalogEqualsSharedCatalog": true,
+  "finalOutputsUnedited": true,
+  "pluginCalls": 8,
+  "successfulToolResults": 8,
+  "validatedCandidates": 5,
+  "checksPerCandidate": 11,
+  "baselineClassificationReview": "Manual review: all five classifications agree with provided catalog",
+  "pluginClassificationReview": "Manual review plus assertions against five complete validation results",
+  "credentialValuesAbsentFromArtifacts": true,
+  "offlinePageChecks": {
+    "passed": true,
+    "desktopViewport": [
+      1440,
+      1000
+    ],
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "tabsWork": true,
+    "keyboardNavigation": true,
+    "pageOverflow": false,
+    "consoleErrors": [],
+    "externalRequests": 0,
+    "linkedArtifactsExist": true
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-09",
+  "source": {
+    "official_download_page": "https://megmeet.com/service?id=75",
+    "search_snapshot": "industrial-mpt-search.json",
+    "listing_date": "2026-08-12",
+    "source_locator": "各用户使用指导书 PDF 物理第 1 页的主要特点与选型表",
+    "interpretation_note": "选型表中的 Typ. 效率是典型值，不应作为效率下限或严格采购承诺。额定功率、输出电压和输入范围按原表记录。"
+  },
+  "products": [
+    {
+      "series": "MPT35",
+      "generation": "II",
+      "manual": "megmeet-mpt35-ii-user-guide.pdf",
+      "input_voltage": "85-264 Vac (120-370 Vdc)",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "natural cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit"
+      ],
+      "models": [
+        {
+          "model": "MPT35-5V",
+          "rated_power_w": 35.0,
+          "output_voltage_v": 5,
+          "efficiency_typical_pct": 82.0
+        },
+        {
+          "model": "MPT35-12V",
+          "rated_power_w": 36.0,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 86.0
+        },
+        {
+          "model": "MPT35-24V",
+          "rated_power_w": 36.0,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 89.0
+        },
+        {
+          "model": "MPT35-48V",
+          "rated_power_w": 38.4,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 90.0
+        }
+      ]
+    },
+    {
+      "series": "MPT50",
+      "generation": "II",
+      "manual": "megmeet-mpt50-ii-user-guide.pdf",
+      "input_voltage": "85-264 Vac (120-370 Vdc)",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "natural cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit"
+      ],
+      "models": [
+        {
+          "model": "MPT50-5V",
+          "rated_power_w": 50.0,
+          "output_voltage_v": 5,
+          "efficiency_typical_pct": 86.0
+        },
+        {
+          "model": "MPT50-12V",
+          "rated_power_w": 50.4,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 86.0
+        },
+        {
+          "model": "MPT50-24V",
+          "rated_power_w": 52.8,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 89.0
+        },
+        {
+          "model": "MPT50-48V",
+          "rated_power_w": 52.8,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 90.0
+        }
+      ]
+    },
+    {
+      "series": "MPT75",
+      "generation": "II",
+      "manual": "megmeet-mpt75-ii-user-guide.pdf",
+      "input_voltage": "85-264 Vac (120-370 Vdc)",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "natural cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit"
+      ],
+      "models": [
+        {
+          "model": "MPT75-12V",
+          "rated_power_w": 72.0,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 88.0
+        },
+        {
+          "model": "MPT75-24V",
+          "rated_power_w": 76.8,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 90.0
+        },
+        {
+          "model": "MPT75-48V",
+          "rated_power_w": 76.8,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 91.5
+        }
+      ]
+    },
+    {
+      "series": "MPT100",
+      "generation": "II",
+      "manual": "megmeet-mpt100-ii-user-guide.pdf",
+      "input_voltage": "85-264 Vac (120-370 Vdc)",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "natural cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit"
+      ],
+      "models": [
+        {
+          "model": "MPT100-12V",
+          "rated_power_w": 102.0,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 86.5
+        },
+        {
+          "model": "MPT100-24V",
+          "rated_power_w": 108.0,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 89.5
+        },
+        {
+          "model": "MPT100-48V",
+          "rated_power_w": 110.4,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 90.5
+        }
+      ]
+    },
+    {
+      "series": "MPT150",
+      "generation": "II",
+      "manual": "megmeet-mpt150-ii-user-guide.pdf",
+      "input_voltage": "85-264 Vac (120-370 Vdc)",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "natural cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit",
+        "overtemperature"
+      ],
+      "models": [
+        {
+          "model": "MPT150-12V",
+          "rated_power_w": 150.0,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 86.5
+        },
+        {
+          "model": "MPT150-24V",
+          "rated_power_w": 156.0,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 89.0
+        },
+        {
+          "model": "MPT150-48V",
+          "rated_power_w": 158.4,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 89.0
+        }
+      ]
+    },
+    {
+      "series": "MPT210",
+      "generation": "II",
+      "manual": "megmeet-mpt210-ii-user-guide.pdf",
+      "input_voltage": "90-132 Vac / 180-264 Vac",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "natural cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit",
+        "overtemperature"
+      ],
+      "models": [
+        {
+          "model": "MPT210-12V",
+          "rated_power_w": 204.0,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 87.5
+        },
+        {
+          "model": "MPT210-24V",
+          "rated_power_w": 211.2,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 88.5
+        },
+        {
+          "model": "MPT210-36V",
+          "rated_power_w": 208.8,
+          "output_voltage_v": 36,
+          "efficiency_typical_pct": 89.0
+        },
+        {
+          "model": "MPT210-48V",
+          "rated_power_w": 211.2,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 89.5
+        }
+      ]
+    },
+    {
+      "series": "MPT350",
+      "generation": "II",
+      "manual": "megmeet-mpt350-ii-user-guide.pdf",
+      "model_suffix": "F",
+      "input_voltage": "90-132 Vac / 180-264 Vac",
+      "working_temperature": "-30 to +70 C",
+      "cooling": "fan cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit",
+        "overtemperature"
+      ],
+      "models": [
+        {
+          "model": "MPT350-12V-F",
+          "rated_power_w": 348.0,
+          "output_voltage_v": 12,
+          "efficiency_typical_pct": 85.0
+        },
+        {
+          "model": "MPT350-24V-F",
+          "rated_power_w": 350.4,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 86.5
+        },
+        {
+          "model": "MPT350-36V-F",
+          "rated_power_w": 349.2,
+          "output_voltage_v": 36,
+          "efficiency_typical_pct": 88.5
+        },
+        {
+          "model": "MPT350-48V-F",
+          "rated_power_w": 350.4,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 89.0
+        }
+      ]
+    },
+    {
+      "series": "MPT600",
+      "generation": "I",
+      "manual": "megmeet-mpt600-i-user-guide.pdf",
+      "input_voltage": "180-264 Vac",
+      "working_temperature": "-25 to +60 C",
+      "cooling": "natural fan cooling",
+      "protection_features": [
+        "overcurrent",
+        "overvoltage",
+        "short circuit",
+        "overtemperature"
+      ],
+      "models": [
+        {
+          "model": "MPT600-24V",
+          "rated_power_w": 600.0,
+          "output_voltage_v": 24,
+          "efficiency_typical_pct": 85.0
+        },
+        {
+          "model": "MPT600-36V",
+          "rated_power_w": 600.0,
+          "output_voltage_v": 36,
+          "efficiency_typical_pct": 90.0
+        },
+        {
+          "model": "MPT600-48V",
+          "rated_power_w": 600.0,
+          "output_voltage_v": 48,
+          "efficiency_typical_pct": 90.0
+        }
+      ]
+    }
+  ]
+}

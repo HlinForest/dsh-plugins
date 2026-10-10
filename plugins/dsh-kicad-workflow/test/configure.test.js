@@ -1,0 +1,23 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import yaml from 'js-yaml';
+test('installer replaces the native empty overlay and updates only its managed block', async t => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'kicad-config-test-')); t.after(() => fs.rm(root, { recursive: true, force: true }));
+  const file = path.join(root, 'cordis.patch.yml');
+  await fs.writeFile(file, '# native default\n[]\n');
+  const config = { serverEntry: process.execPath, nodeCommand: process.execPath, kicadCli: process.execPath, kicadPython: process.execPath, workspaceRoot: root, backend: 'swig', toolTimeoutMs: 600000 };
+  const configFile = path.join(root, 'config.json'); await fs.writeFile(configFile, JSON.stringify(config));
+  const script = fileURLToPath(new URL('../scripts/configure-profile.mjs', import.meta.url));
+  const run = () => execFileSync(process.execPath, [script, root, configFile], { windowsHide: true });
+  run(); const first = await fs.readFile(file, 'utf8'); assert.equal(yaml.load(first)[0].id, 'kicad-workflow');
+  const other = '- id: untouched\n  config:\n    expression: !!js process.env.PRIVATE_VALUE\n';
+  await fs.writeFile(file, other + first); run(); const second = await fs.readFile(file, 'utf8');
+  assert.ok(second.startsWith(other));
+  assert.equal(second.split('# BEGIN DSH_KICAD_WORKFLOW').length, 2);
+  assert.equal((await fs.readdir(root)).filter(n => n.includes('.kicad-backup-')).length >= 1, true);
+});

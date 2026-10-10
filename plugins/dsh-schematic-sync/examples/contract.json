@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "partial",
+  "requirements": [
+    { "id": "r1-value", "kind": "component", "ref": "R1", "properties": { "value": "330Ω" }, "certain": true, "evidence": { "quote": "将 R1 改为 330Ω" } },
+    { "id": "r9-dnp", "kind": "component", "ref": "R9", "properties": { "dnp": true }, "certain": true, "evidence": { "quote": "R9 保持不装" } },
+    { "id": "r1-u1", "kind": "connected", "pins": [{ "ref": "R1", "pin": "1" }, { "ref": "U1", "pin": "5" }], "certain": true, "evidence": { "quote": "R1 的 1 脚与 U1 的 5 脚直接连接" } }
+  ],
+  "unresolved": []
+}

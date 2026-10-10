@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-09",
+  "scope_note": "以下四条均来自官方采购公告、官方招标文件或中国政府采购网官方结果公告。derived_test_condition 仅用于演示测试，不是原采购方新增的要求。",
+  "cases": [
+    {
+      "case_id": "buaa-rf-dc-20260715",
+      "source": {
+        "title": "电子信息工程学院射频测量系统直流供电电源（BUAAJJ20260087）采购公告",
+        "publisher": "北京航空航天大学招标采购中心",
+        "url": "https://zbcg.buaa.edu.cn/info/1088/61937.htm",
+        "publication_date": "2026-07-15",
+        "date_precision": "day",
+        "source_kind": "official procurement announcement",
+        "local_snapshot": "requirements/buaa-20260715.html",
+        "sha256": "70628E7C41641EBD204A8B81CBD86F4A1D2C427BEE010845C693819DA08F3CDF",
+        "retrieved_at": "2026-10-09",
+        "locator": "网页正文“技术参数”第1–8项"
+      },
+      "scope": "full_system",
+      "procurement_item": "射频测量系统电源组件定制型，或同等技术指标产品型号；2套",
+      "original_requirement": {
+        "exact_excerpts": [
+          {
+            "text": "设备应支持单相AC220V输入，输入电压适应范围不低于198V～242V",
+            "locator": "技术参数 1、输入电源要求"
+          },
+          {
+            "text": "12V输出功率不低于1000W，24V输出功率不低于500W，28V输出功率不低于1500W",
+            "locator": "技术参数 2、多路直流输出能力"
+          },
+          {
+            "text": "设备总转换效率应优于88%",
+            "locator": "技术参数 4、效率与散热方式"
+          }
+        ],
+        "normalized_constraints": [
+          {"field": "inputVoltage", "operator": "range", "value": "198-242 V AC", "parser_status": "representable"},
+          {"field": "outputVoltage", "operator": "set", "value": ["12 V DC", "24 V DC", "28 V DC"], "parser_status": "not_representable_as_single_output"},
+          {"field": "perOutputPower", "operator": "minimum_by_output", "value": {"12 V": "1000 W", "24 V": "500 W", "28 V": "1500 W"}, "parser_status": "not_representable"},
+          {"field": "totalOutputPower", "operator": "minimum", "value": "3000 W", "parser_status": "not_representable"},
+          {"field": "efficiency", "operator": ">", "value": "88%", "parser_status": "unsupported_strict_inequality"},
+          {"field": "protocols", "operator": "contains_any", "value": ["RS422", "equivalent industrial interface"], "parser_status": "partly_representable"},
+          {"field": "cooling", "operator": "contains_any", "value": ["liquid cooling", "equivalent high-efficiency cooling"], "parser_status": "needs_confirmation"},
+          {"field": "environment", "operator": "range", "value": "-40 to +55 C; storage -55 to +65 C; salt spray >=96 h", "parser_status": "not_representable"}
+        ]
+      },
+      "derived_test_condition": {
+        "label": "演示测试条件（derived）",
+        "test_request": "按北航公告原文评估麦格米特资料中的产品或模块。必须保留12V/24V/28V多路及各路功率要求；不能把三只单路模块拼成一个已满足的整机。对未披露的纹波、液冷、RS422、环境适应性和严格效率条件标记为需确认/未知，并给出原文链接。",
+        "why_derived": "这是将原采购公告改写为可提交给插件的对比请求；原公告本身没有要求使用本插件或麦格米特品牌。"
+      }
+    },
+    {
+      "case_id": "crsc-hump-dual-output-20260911",
+      "source": {
+        "title": "CTC、监测、CIPS、融雪、驼峰、调机设备买卖框架补充协议询比采购公告",
+        "publisher": "中国通号招标采购网（北京全路通信信号研究设计院集团有限公司采购项目）",
+        "url": "https://www.crsc.com.cn/news/tsi_7267_6094_100571.html",
+        "publication_date": "2026-09-11",
+        "date_precision": "day",
+        "source_kind": "official procurement announcement with attachment-like technical section",
+        "local_snapshot": "requirements/crsc-20260911.html",
+        "sha256": "D948162A84DD623F7D48EAB20BCE669D1809637C48FB2C266FB10380C057235A",
+        "retrieved_at": "2026-10-09",
+        "locator": "网页正文第3节“技术指标”第220–272行附近的24V/12V驼峰双路开关电源条款"
+      },
+      "scope": "component",
+      "procurement_item": "24V/12V驼峰双路开关电源，型号 MW2-Z24X20/12X6，预估30台",
+      "original_requirement": {
+        "exact_excerpts": [
+          {
+            "text": "输入电压：AC220V±20%",
+            "locator": "24V/12V驼峰双路开关电源，3.技术指标/1)输入参数"
+          },
+          {
+            "text": "24V输出满载20A，12V输出满载电流6A",
+            "locator": "同条款/2)输出参数 i)"
+          },
+          {
+            "text": "电源模块效率不小于85%",
+            "locator": "同条款/2)输出参数 d)"
+          }
+        ],
+        "normalized_constraints": [
+          {"field": "inputVoltage", "operator": "range", "value": "176-264 V AC", "parser_status": "representable"},
+          {"field": "inputFrequency", "operator": "range", "value": "47-53 Hz", "parser_status": "not_representable_in_current_schema"},
+          {"field": "outputVoltage", "operator": "set", "value": ["24-26.4 V DC adjustable", "12-13.2 V DC adjustable"], "parser_status": "not_representable_as_single_output"},
+          {"field": "outputCurrent", "operator": "minimum_by_output", "value": {"24 V": "20 A", "12 V": "6 A"}, "parser_status": "not_representable"},
+          {"field": "efficiency", "operator": ">=", "value": "85%", "parser_status": "representable"},
+          {"field": "powerFactor", "operator": ">=", "value": "0.9", "parser_status": "not_representable_in_current_schema"},
+          {"field": "cooling", "operator": "equals", "value": "natural cooling", "parser_status": "representable_if_catalog_discloses_it"},
+          {"field": "parallelRedundancy", "operator": "required", "value": true, "parser_status": "not_representable"}
+        ]
+      },
+      "derived_test_condition": {
+        "label": "演示测试条件（derived）",
+        "test_request": "按中国通号公告中的 MW2-Z24X20/12X6 双路指标评估麦格米特产品。要求同时核对24V/20A和12V/6A两路；单路24V模块不能宣称满足双路电源。对PF、THD、续流、保护阈值、并机均流和冗余等未在产品资料中披露的条件标记未知或需确认。",
+        "why_derived": "测试请求只把公开条款转换成插件输入，没有把公告中的行业标准或供应商资质扩展成产品电气指标。"
+      }
+    },
+    {
+      "case_id": "yrcti-smart-factory-acdc-20170515",
+      "source": {
+        "title": "河南省政府采购货物公开招标：智能工厂实训系统项目",
+        "publisher": "黄河水利职业技术学院；河南省科教仪器设备招标有限公司",
+        "url": "https://www.yrcti.edu.cn/__local/E/97/E2/6FB045AAF129FD1066978EDAAF1_7527CB3B_754B3.pdf?e=.pdf",
+        "publication_date": "2017-05",
+        "date_precision": "month",
+        "date_basis": "PDF封面仅印“二〇一七年五月”；PDF元数据 CreationDate/ModDate 为 2017-05-15，仅作文件生成/修改时间，不作为官方发布日期",
+        "source_kind": "official tender document PDF",
+        "local_snapshot": "requirements/yrcti-smart-factory-201705.pdf",
+        "sha256": "D3495157D10F29DE064CE4E7E490EB8E2AA846ABCC9F95265E38FF9D7C9CA9D4",
+        "retrieved_at": "2026-10-09",
+        "locator": "PDF物理页59–60（印刷页码58–59），技术要求第7–9项"
+      },
+      "scope": "component",
+      "procurement_item": "智能工厂实训系统内的AC/DC直流输出电源组件（120W、240W、48V/120W），与整套实训系统一起采购",
+      "original_requirement": {
+        "exact_excerpts": [
+          {
+            "text": "输入电压：176VAC-264VAC，50Hz-60Hz",
+            "locator": "PDF第58–59页，AC/DC直流输出电源技术要求"
+          },
+          {
+            "text": "额定功率不少于240W",
+            "locator": "PDF物理页59（印刷页码58），220VAC转24VDC直流输出电源（240W）"
+          },
+          {
+            "text": "输出电压：48VDC@2.5A",
+            "locator": "PDF物理页60（印刷页码59），220VAC转48VDC直流输出电源（120W）"
+          }
+        ],
+        "derived_values": [
+          "24V/120W implies 5A at nominal voltage and 24V/240W implies 10A; these currents are arithmetic derivations, not quoted clauses in the downloaded PDF."
+        ],
+        "normalized_constraints": [
+          {"variant": "24V-120W", "field": "inputVoltage", "operator": "range", "value": "176-264 V AC", "parser_status": "representable"},
+          {"variant": "24V-120W", "field": "outputVoltage", "operator": "equals", "value": "24 V DC", "parser_status": "representable"},
+          {"variant": "24V-120W", "field": "outputPower", "operator": ">=", "value": "120 W", "parser_status": "representable"},
+          {"variant": "24V-240W", "field": "outputPower", "operator": ">=", "value": "240 W", "parser_status": "representable"},
+          {"variant": "48V-120W", "field": "outputVoltage", "operator": "equals", "value": "48 V DC", "parser_status": "representable"},
+          {"variant": "48V-120W", "field": "outputPower", "operator": ">=", "value": "120 W", "parser_status": "representable"},
+          {"variant": "all", "field": "redundancy", "operator": "required", "value": "1+1 for 120W and parallel/redundant arrangement", "parser_status": "not_representable_as_single_product_fact"},
+          {"variant": "all", "field": "protection", "operator": "contains", "value": ["short circuit", "overload", "overvoltage", "overtemperature"], "parser_status": "partly_representable"}
+        ]
+      },
+      "derived_test_condition": {
+        "label": "演示测试条件（derived）",
+        "test_request": "分别把招标文件中的24V/120W、24V/240W、48V/120W当作三个单路组件需求检索麦格米特资料；输入范围按176–264VAC、50–60Hz。报告必须说明1+1冗余、隔离、软启动、状态报警及保护条件是否有原文证据，不能把整套智能工厂系统的集成能力当作单个电源模块属性。",
+        "why_derived": "招标文件是整套系统项目，插件测试把其中的电源组件条款拆成可比较的子需求，属于演示用派生拆分。"
+      }
+    },
+    {
+      "case_id": "ccgp-gz-training-consumables-20260601",
+      "source": {
+        "title": "广州市机电技师学院2026年实训教学耗材采购项目（三次）结果公告",
+        "publisher": "中国政府采购网（采购单位：广州市机电技师学院）",
+        "url": "https://www.ccgp.gov.cn/cggg/dfgg/zbgg/202606/t20260601_26662073.htm",
+        "publication_date": "2026-06-01",
+        "date_precision": "day",
+        "source_kind": "official government procurement result announcement",
+        "local_snapshot": "requirements/ccgp-guangzhou-20260601.html",
+        "sha256": "EB70985C1A5C9311F9075DB6400CEA040B20FA067D1715150C897AFF81D6809D",
+        "retrieved_at": "2026-10-09",
+        "locator": "网页正文“四、主要标的信息”中“DC24V直流电源”条目"
+      },
+      "scope": "component",
+      "procurement_item": "DC24V直流电源；品牌 Mwish；规格型号 NDR-120-24|24V5A120W；30个；成交结果条目",
+      "original_requirement": {
+        "exact_excerpts": [
+          {
+            "text": "DC24V直流电源",
+            "locator": "主要标的信息/货物类"
+          },
+          {
+            "text": "NDR-120-24|24V5A120W",
+            "locator": "主要标的信息/规格型号"
+          }
+        ],
+        "normalized_constraints": [
+          {"field": "outputVoltage", "operator": "equals", "value": "24 V DC", "parser_status": "representable"},
+          {"field": "outputCurrent", "operator": "equals", "value": "5 A", "parser_status": "not_representable_in_current_schema"},
+          {"field": "outputPower", "operator": "equals", "value": "120 W", "parser_status": "representable"},
+          {"field": "inputVoltage", "operator": "unknown", "value": null, "parser_status": "must_not_infer_from_model_or_brand"},
+          {"field": "brandModel", "operator": "specified_in_result", "value": "Mwish NDR-120-24", "parser_status": "procurement_fact_not_Megmeet_equivalence"}
+        ]
+      },
+      "derived_test_condition": {
+        "label": "演示测试条件（derived）",
+        "test_request": "把中国政府采购网成交结果中的 DC24V、24V5A120W 作为一个最小单路组件需求，检索麦格米特资料中的等效产品；明确区分‘公开成交标的’与‘麦格米特候选’，对输入范围、效率、保护、安装方式等公告未给出的字段不要补写。",
+        "why_derived": "该页面是结果公告而不是完整技术招标文件，因此测试只使用页面明确列出的电气规格，未把型号之外的信息当成原始需求。"
+      }
+    }
+  ]
+}

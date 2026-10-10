@@ -1,0 +1,11 @@
+- insert:
+    - id: kicad-workflow
+      name: dsh-kicad-workflow
+      config:
+        serverEntry: ''
+        workspaceRoot: ''
+        kicadCli: ''
+        kicadPython: ''
+        nodeCommand: ''
+        backend: swig
+        toolTimeoutMs: 600000

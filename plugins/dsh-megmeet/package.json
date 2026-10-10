@@ -1,0 +1,55 @@
+{
+  "name": "dsh-megmeet",
+  "version": "0.2.0",
+  "description": "真实资料库、工况校验与可追溯报告插件（DSH v0.2.0-rc.2）",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./domain": "./lib/domain.js",
+    "./service": "./lib/service.js",
+    "./reporting": "./lib/reporting.js"
+  },
+  "files": [
+    "lib",
+    "src",
+    "examples",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test test/*.test.js",
+    "demo": "npm run build && node scripts/demo.js",
+    "success:prepare": "npm run build && node success-demo/scripts/prepare.mjs",
+    "success:benchmark": "node success-demo/scripts/run-benchmark.mjs",
+    "check": "tsc --noEmit",
+    "prepack": "npm run check && npm test"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.4"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.0-rc.2",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3",
+    "js-yaml": "^4.1.0"
+  },
+  "license": "MIT"
+}

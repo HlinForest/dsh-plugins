@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <components>
+    <comp ref="U1"><value>DEMO-MCU</value><footprint>LQFP-48</footprint></comp>
+    <comp ref="U2"><value>DEMO-ISOLATOR</value><footprint>SOIC-16</footprint></comp>
+    <comp ref="J1"><value>Sensor input</value><footprint>Connector_2</footprint></comp>
+    <comp ref="R1"><value>1k</value><footprint>R_0603</footprint></comp>
+    <comp ref="C1"><value>100nF</value><footprint>C_0603</footprint><libsource part="C"/></comp>
+    <comp ref="C2"><value>10nF</value><footprint>C_0603</footprint><libsource part="C"/><property name="dnp"/></comp>
+    <comp ref="C3"><value>1nF</value><footprint>C_0603</footprint><libsource part="C"/></comp>
+  </components>
+  <nets>
+    <net name="3V3"><node ref="U1" pin="1"/><node ref="C1" pin="1"/></net>
+    <net name="GND"><node ref="U1" pin="2"/><node ref="C1" pin="2"/><node ref="C2" pin="2"/><node ref="C3" pin="2"/><node ref="J1" pin="2"/></net>
+    <net name="SENSOR_RAW"><node ref="J1" pin="1"/><node ref="R1" pin="1"/></net>
+    <net name="SENSE_ADC"><node ref="R1" pin="2"/><node ref="U1" pin="3"/><node ref="C2" pin="1"/></net>
+    <net name="CLK"><node ref="U1" pin="4"/><node ref="C3" pin="1"/></net>
+  </nets>
+</export>

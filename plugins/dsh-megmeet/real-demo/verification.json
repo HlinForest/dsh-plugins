@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "productCount": 28,
+  "officialIndustrialPDFs": 8,
+  "realProcurementSources": 4,
+  "testCases": 6,
+  "screeningEvaluations": 336,
+  "fullMatches": 0,
+  "checks": [
+    "All catalog source snapshots exist",
+    "All eight PDF file headers and hashes checked by preparation",
+    "28 first-page product rows independently visually checked",
+    "MPT35-12V rated power corrected to original36W",
+    "MPT100-24V original108W, not inferred from series name",
+    "Split AC input ranges not joined",
+    "Typ. efficiency never used as a guarantee",
+    "Full requirements cannot be hidden by screening scores",
+    "Version text points to local original"
+  ],
+  "nativeChatEvidence": "native-chat-link-verification.json",
+  "pairedModelRun": {
+    "pass": true,
+    "samePromptSHA256": "6f92b9ea042ef2d98fdf62e6e8645a279b284ae3c957aeb7384a1f576762854c",
+    "actualPlugin": "dsh-megmeet@0.1.3",
+    "uneditedAnswers": true,
+    "tools": 11
+  },
+  "credentialValuesAbsentFromArtifacts": true,
+  "offlinePageChecks": {
+    "pass": true,
+    "checks": [
+      {
+        "viewport": "1440x1000",
+        "tabs": 5,
+        "cases": 6,
+        "productFilter": true,
+        "localLinksExist": true,
+        "horizontalOverflow": false
+      },
+      {
+        "viewport": "390x844",
+        "tabs": 5,
+        "cases": 6,
+        "productFilter": true,
+        "localLinksExist": true,
+        "horizontalOverflow": false
+      }
+    ],
+    "pageErrors": [],
+    "automaticExternalRequests": []
+  }
+}

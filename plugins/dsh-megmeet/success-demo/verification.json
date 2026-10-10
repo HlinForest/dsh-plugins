@@ -1,0 +1,17 @@
+{
+  "status": "implementation_complete",
+  "pluginVersion": "0.2.0",
+  "runtime": "DSH v0.2.0-rc.2",
+  "automatedTests": {"passed": 42, "failed": 0},
+  "mainScenarios": {"initial": "SDR-240-24", "changed": "no-qualified-candidate", "expanded": "CP20.241-R2-and-real-variants"},
+  "formalBenchmark": {"directory": "records/primary-comparison", "workflows": 12, "attemptedSteps": 36, "completedSteps": 35, "failedSteps": 1, "failure": "A3 expanded reached provider max-tokens before completing its report", "originalDStepsRetained": 9, "setupAttemptsRetained": 5, "candidateCapAligned": 3, "assessment": "records/primary-comparison/assessment.json", "samePromptsVerified": true, "sameSnapshotsVerified": true, "actualModelVerified": true},
+  "sourceOriginals": {"officialPDFs": 11, "allHashesVerified": true, "realModelsV1": 30, "realModelsV2": 39},
+  "historicalReplay": {"reports": 22, "passed": true, "record": "delivery-verification.json"},
+  "nativeChatLinks": {"passed": true, "actualSession": true, "PDFOpened": true, "staticHTMLCharts": 6, "record": "native-chat-link-verification.json"},
+  "browserVerification": {"passed": true, "viewports": [1440, 390], "staticAndInteractiveModes": true, "allLocalLinks": true, "record": "page-verification.json"},
+  "desktopInstallation": {"version": "0.2.0", "installedAndConfigured": true, "codeHashVerified": true, "reopenDesktopToLoadNewPackage": true, "record": "desktop-install-verification.json"},
+  "language": "Chinese, STE-inspired clarity; not formal ASD-STE100 compliance",
+  "sharingArchive": "../dsh-megmeet-success-demo-0.2.0.zip",
+  "knownLimits": ["Three workflow repeats do not establish population accuracy or stable cost differences.", "Aligned D was rerun later; server load and caching differ.", "A3 discovered and called the shared engine CLI through generic PowerShell tools.", "Main candidate correctness is separate from narrative and status correctness; observed issues are preserved.", "The public shared library has no per-user data permissions, prices, stock or lead time."],
+  "preservation": {"previousDemosRetained": true, "originalModelOutputsRetained": true, "permissionRollbackBackups": "permission-recovery (local only, excluded from sharing archive)", "modelSandbox": "workspace-write"}
+}

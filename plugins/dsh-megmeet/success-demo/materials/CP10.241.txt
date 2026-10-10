@@ -1,0 +1,1819 @@
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+                                                                       POWER SUPPLY
+                                                                          AC 100-240V wide-range input
+                                                                          Width only 39mm
+                                                                          Efficiency up to 95.2%
+                                                                          Excellent partial load efficiency
+                                                                          20% output power reserves (PowerBoost)
+                                                                          Safe HiccupPLUS overload mode
+                                                                          Easy fuse breaking due to high overload peak current
+                                                                          Active power factor correction (PFC)
+                                                                          Minimal inrush current surge
+                                                                          Full power between -25°C and +60°C
+                                                                          DC-OK relay contact
+                                                                          3 year warranty
+
+
+
+
+PRODUCT DESCRIPTION                                                         SHORT-FORM DATA
+The DIMENSION CP-Series units are high-end power                            Output voltage          DC 24V             nominal
+supplies in a medium price range without compromising                       Adjustment range        24 – 28V           factory setting 24.1V
+quality, reliability and performance. The CP-Series is                      Output current          10.0-8.6A          up to +60°C ambient
+part of the DIMENSION power supply family. The most                                                 7.5-6.5A           at +70°C ambient
+outstanding features of CP10 series are the high                                                    Derate linearly between +60°C and +70°C
+efficiency, advanced inrush current limitation, active PFC                  PowerBoost              12.0A              up to +45°C ambient
+and the wide operational temperature range.                                                         Linear decrease to nominal power
+                                                                                                    between +45°C and +60°C.
+The CP-Series includes all the essential basic functions.
+                                                                            Input voltage AC        AC 100-240V        -15%/ +10%
+The devices also offer PowerBoost: Power reserves of
+                                                                            Mains frequency         50-60Hz            ±6%
+20%, which may even be used continuously at
+                                                                            Input current AC        2.15 / 1.13A       at 120 / 230Vac
+temperatures up to +45°C. Additionally, the CP10 can                        Power factor            0.99 / 0.97        at 120 / 230Vac
+deliver three times the nominal output current for at
+                                                                            Input voltage DC        DC 110-150V ±20% for CP10.241 (-xx)
+least 12ms which helps to trip fuses on faulty output
+                                                                                                    DC 110-300V ±20% CP10.242
+branches.                                                                   Input current DC        2.35A              at 110Vdc
+High immunity to transients and power surges as well as                                             2.35 / 0.84A       at 110 / 300Vdc
+low electromagnetic emission, a DC-OK relay contact                         Input inrush current    6 / 9Apeak         at +40°C, 120 / 230Vac
+and a large international approval package for a variety                    Efficiency              93.6 / 95.2%       at 120 / 230Vac
+of applications makes this unit suitable for nearly every                   Power Losses            16.4 / 12.1W       at 120 / 230Vac
+situation.                                                                  Hold-up time            37 / 37ms          at 120 / 230Vac
+                                                                            Temperature range       -25°C to +70°C
+                                                                            Size (w x h x d)        39x124x117mm       without DIN rail
+                                                                            Weight                  600g
+
+
+ORDER NUMBERS                                                               MAIN APPROVALS
+                                                                            For details and the complete approval list, see chapter 20.
+Power Supply CP10.241
+             CP10.241-C1 Conformal coating
+             CP10.241-S1 Spring-clamp terminals
+             CP10.241-S2 Push-in terminals
+             CP10.242    Extended DC-Input range                               UL 61010-2-201           UL 60950-1             ATEX
+Accessory        ZM10.WALL         Wall/panel mount bracket
+                 ZM12.SIDE         Side mount bracket
+
+                                                                                    IECEx              Class I Div 2          Marine
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.               1/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                                  CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                               CP10.241-S2, CP10.242
+                                   CP-Series                                              24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+INDEX
+                                                                         Page                                                                        Page
+1. Intended Use .......................................................3         22. Physical Dimensions and Weight ..................... 23
+2. Installation Instructions ......................................3             23. Accessories ........................................................ 24
+3. AC-Input...............................................................5        23.1. ZM10.WALL - Wall/Panel Mount Bracket 24
+4. DC-Input...............................................................6        23.2. ZM12.SIDE - Side Mounting Bracket ........ 25
+5. Input Inrush Current ...........................................7               23.3. YR20.242 - Redundancy Module .............. 26
+6. Output .................................................................8       23.4. YR20.246 - Redundancy Module with
+7. Hold-up Time .......................................................9           Automated Load Sharing .................................... 26
+8. DC-OK Relay Contact ........................................10                24. Application Notes ............................................. 27
+9. Efficiency and Power Losses..............................11                     24.1. Peak Current Capability ........................... 27
+10. Lifetime Expectancy ..........................................12               24.2. Back-feeding Loads .................................. 28
+11. MTBF ..................................................................12      24.3. External Input Protection ......................... 28
+12. Terminals and Wiring ........................................13                24.4. Output Circuit Breakers............................ 28
+13. Functional Diagram...........................................14                24.5. Series Operation ....................................... 29
+14. Front Side and User Elements ...........................15                     24.6. Parallel Use to Increase Output Power .... 29
+15. EMC ....................................................................16     24.7. Parallel Use for Redundancy .................... 30
+16. Environment ......................................................17           24.8. Inductive and Capacitive Loads................ 31
+17. Protection Features ...........................................18              24.9. Charging of Batteries ............................... 31
+18. Safety Features ..................................................18           24.10. Operation on Two Phases ........................ 32
+19. Dielectric Strength ............................................19             24.11. Use in a Tightly Sealed Enclosure ............ 32
+20. Approved, Fulfilled or Tested Standards .........20                            24.12. Mounting Orientations ............................ 33
+21. Regulatory Product Compliance .......................22
+
+
+The information given in this document is correct to the best of our knowledge and experience at the time of
+publication. If not expressly agreed otherwise, this information does not represent a warranty in the legal sense of the
+word. As the state of our knowledge and experience is constantly changing, the information in this data sheet is
+subject to revision. We therefore kindly ask you to always use the latest issue of this document (available under
+www.pulspower.com).
+No part of this document may be reproduced or utilized in any form without our prior permission in writing.
+
+
+
+
+TERMINOLOGY AND ABREVIATIONS
+PE and           symbol            PE is the abbreviation for Protective Earth and has the same meaning as the symbol                            .
+Earth, Ground                      This document uses the term “earth” which is the same as the U.S. term “ground”.
+t.b.d.                             To be defined, value or description will follow later.
+AC 230V                            A figure displayed with the AC or DC before the value represents a nominal voltage with
+                                   standard tolerances (usually ±15%) included.
+                                   E.g.: DC 12V describes a 12V battery disregarding whether it is full (13.7V) or flat (10V)
+230Vac                             A figure with the unit (Vac) at the end is a momentary figure without any additional
+                                   tolerances included.
+50Hz vs. 60Hz                      As long as not otherwise stated, AC 100V and AC 230V parameters are valid at 50Hz mains
+                                   frequency. AC 120V parameters are valid for 60Hz mains frequency.
+may                                A key word indicating flexibility of choice with no implied preference.
+shall                              A key word indicating a mandatory requirement.
+should                             A key word indicating flexibility of choice with a strongly preferred implementation.
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                                2/33
+                                                   www.pulspower.com Phone +49 89 9278 0         Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+1. INTENDED USE
+This device is designed for installation in an enclosure and is intended for commercial use, such as in industrial control,
+process control, monitoring and measurement equipment or the like.
+Do not use this device in equipment, where malfunctioning may cause severe personal injury or threaten human life
+without additional appropriate safety devices, that are suited for the application.
+If this device is used in a manner outside of its specification, the protection provided by the device may be impaired.
+
+
+
+
+2. INSTALLATION INSTRUCTIONS
+    WARNING           Risk of electrical shock, fire, personal injury or death.
+- Turn power off before working on the device and protect against inadvertent re-powering.
+- Do not open, modify or repair the device.
+- Use caution to prevent any foreign objects from entering into the housing.
+- Do not use in wet locations or in areas where moisture or condensation can be expected.
+- Do not touch during power-on, and immediately after power-off. Hot surface may cause burns.
+
+Obey the following installation instructions:
+This device may only be installed and put into operation by qualified personnel.
+This device does not contain serviceable parts. The tripping of an internal fuse is caused by an internal defect.
+If damage or malfunction should occur during installation or operation, immediately turn power off and send unit to
+the factory for inspection.
+Install device in an enclosure providing protection against electrical, mechanical and fire hazards.
+Install the device onto a DIN rail according to EN 60715 with the input terminals on the bottom of the device. Other
+mounting orientations require a reduction in output current.
+Make sure that the wiring is correct by following all local and national codes. Use appropriate copper cables that are
+designed for a minimum operating temperature of 60°C for ambient temperatures up to +45°C, 75°C for ambient
+temperatures up to +60°C and 90°C for ambient temperatures up to +70°C.
+Ensure that all strands of a stranded wire enter the terminal connection. Use ferrules for wires on the input terminals.
+Unused screw terminals should be securely tightened.
+The device is designed for pollution degree 2 areas in controlled environments. No condensation or frost is allowed.
+The enclosure of the device provides a degree of protection of IP20. The enclosure does not provide protection against
+spilled liquids.
+The isolation of the device is designed to withstand impulse voltages of overvoltage category III according to IEC
+60664-1.
+The device is designed as “Class of Protection I” equipment according to IEC 61140. Do not use without a proper PE
+(Protective Earth) connection.
+The device is suitable to be supplied from TN, TT or IT mains networks. The continuous voltage between the input
+terminal and the PE potential must not exceed 300Vac.
+The input can also be powered from batteries or similar DC sources. The continuous voltage between the supply
+voltage and the PE/ground potential must not exceed 375Vdc.
+A disconnecting means shall be provided for the input of the device.
+The device is designed for convection cooling and does not require an external fan. Do not obstruct airflow and do not
+cover ventilation grid!
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   3/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+The device is designed for altitudes up to 5000m. Above 2000m a reduction in output current and over voltage
+category is required.
+Keep the following minimum installation clearances: 40mm on top, 20mm on the bottom, 5mm left and right side.
+Increase the 5mm to 15mm in case the adjacent device is a heat source. When the device is permanently loaded with
+less than 50%, the 5mm can be reduced to zero.
+The device is designed, tested and approved for branch circuits up to 32A (IEC) and 30A (UL) without additional
+protection device. If an external fuse is utilized, do not use circuit breakers smaller than 6A B- or C-Characteristic to
+avoid a nuisance tripping of the circuit breaker.
+The maximum surrounding air temperature is +70°C. The operational temperature is the same as the ambient or
+surrounding air temperature and is defined 2cm below the device.
+The device is designed to operate in areas between 5% and 95% relative humidity.
+
+
+Installation Instructions for Hazardous Location Areas
+The device is suitable for use in Class I Division 2 Groups A, B, C, D locations and for use in Group II Category 3 (Zone 2)
+environments.
+Classification: ATEX: EPS 15 ATEX 1 101 X, II 3G Ex ec nC IIC T4 Gc / IECEx EPS 15.0079X
+
+
+WARNING EXPLOSION HAZARDS!
+Use only in standard vertical mounting orientation with the input terminals on bottom of the unit. Substitution of
+components may impair suitability for this environment.
+Do not disconnect the device or operate the voltage adjustment unless power has been switched off or the area is
+known to be non-hazardous.
+A suitable enclosure must be provided for the end product, which has a minimum protection of IP54 and fulfils the
+requirements of the EN 60079-0.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   4/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                                CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                             CP10.241-S2, CP10.242
+                                         CP-Series                                         24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+3. AC-INPUT
+AC input                                              Nom.    AC 100-240V       Suitable for TN-, TT- and IT mains networks
+AC input range                                                85-264Vac
+                                                              264-300Vac        For maximal 500ms
+Allowed voltage L or N to earth                       Max.    300Vac            Continuous, according to IEC 62477-1
+Input frequency                                       Nom.    50–60Hz           ±6%
+Turn-on voltage                                       Typ.    80Vac             Steady-state value, see Fig. 3-1
+Shut-down voltage                                     Typ.    70Vac             Steady-state value, see Fig. 3-1
+                                                      Typ.    55Vac             Dynamic value for maximal 250ms
+External input protection                             See recommendations in chapter 24.3.
+
+
+                                                                AC 100V     AC 120V        AC 230V
+Input current                                         Typ.       2.60A       2.15A          1.13A            At 24V, 10A, see Fig. 3-3
+Power factor*)                                        Typ.        0.99        0.99           0.97            At 24V, 10A, see Fig. 3-4
+Crest factor**)                                       Typ.         1.5         1.5           1.65            At 24V, 10A
+Start-up delay                                        Typ.       300ms       290ms          240ms            See Fig. 3-2
+Rise time                                             Typ.        30ms        30ms           30ms            At 24V, 10A const. current load,
+                                                                                                             0mF load capacitance, see Fig. 3-2
+                                                      Typ.         75ms       75ms             75ms          at 24V, 10A const. current load,
+                                                                                                             10mF load capacitance,, see Fig. 3-2
+Turn-on overshoot                                     Max.     200mV        200mV         200mV              See Fig. 3-2
+External input protection                             See recommendations in chapter 24.3.
+*) The power factor is the ratio of the true (or real) power to the apparent power in an AC circuit.
+**) The crest factor is the mathematical ratio of the peak value to RMS value of the input current waveform.
+
+
+               Fig. 3-1 Input voltage range                                             Fig. 3-2 Turn-on behavior, definitions
+
+                                           Rated
+      POUT                              input range      max.                        Input
+                                                        500ms                        Voltage
+                  Shut-down
+
+                              Turn-on
+
+
+
+
+                                                                                     Output           - 5%
+                                                                                                                             Overshoot
+
+
+
+
+                                                                                     Voltage
+                                                             VIN                                Start-up     Rise
+                                                                                                 delay       Time
+                                 85V              264V 300Vac
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                    5/33
+                                                      www.pulspower.com Phone +49 89 9278 0      Germany
+                                                                    CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                                 CP10.241-S2, CP10.242
+                                     CP-Series                                                    24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+       Fig. 3-3 Input current vs. output current at                                     Fig. 3-4 Power factor vs. output current at
+                   24V output voltage                                                              24V output voltage
+
+       Input Current, typ.                                                             Power Factor, typ.
+       3A                                                       a
+                                                                                        1.0
+       2.5                                                      b                                 (a)
+                     a) 100Vac                                                         0.95
+                                                                                                  (b)
+       2.0           b) 120Vac
+                     c) 230Vac                                                          0.9
+       1.5                                                      c                                                                        (a) 100Vac,
+       1.0                                                                             0.85                                              (b) 120Vac,
+                                                                                                            (c)                          (c) 230Vac
+       0.5                                                                              0.8
+                                                   Output Current                                                                     Output Current
+       0                                                                               0.75
+             1   2     3   4     5   6    7    8     9 10 11 12A                              1    2    3         4   5   6   7   8    9 10 11 12A
+
+
+
+
+4. DC-INPUT
+DC input                                               Nom.         DC 110-150V       ±20%
+                                                                                      For CP10.241, CP10.241-C1, CP10.241-S1, CP10.241-S2
+                                                       Nom.         DC 110-300V       ±20%
+                                                                                      For CP10.242
+DC input range                                                      88-180Vdc         For CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                                      CP10.241-S2
+                                                                    88-360Vdc         For CP10.242
+DC input current                                       Typ.         2.35A             At 110Vdc, at 24V, 10A
+                                                       Typ.         0.84A             At 300Vdc, at 24V, 10A
+Allowed Voltage L/N to Earth                           Max.         375Vdc            Continuous, according to IEC 62477-1
+Turn-on voltage                                        Typ.         80Vdc             Steady state value
+Shut-down voltage                                      Typ.         70Vdc             Steady state value
+                                                       Typ.         55Vdc             Dynamic value for maximal 250ms
+
+
+                     Fig. 4-1 Wiring for DC Input                           Instructions for DC use:
+        Battery                          Power Supply                       a) Use a battery or a similar DC source. A supply from the
+                                                                               intermediate DC-bus of a frequency converter is not
+                                          AC
+                 +                                                             recommended and can cause a malfunction or damage
+                                          L                                    the unit.
+                                          N            +                    b) Connect +pole to L and –pole to N.
+                                          PE                 Load           c) Connect the PE terminal to an earth wire or to the
+                                                       -                       machine ground.
+
+                 -
+                                                     DC
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                              6/33
+                                                       www.pulspower.com Phone +49 89 9278 0                Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+5. INPUT INRUSH CURRENT
+An active inrush limitation circuit (NTCs, which are bypassed by a relay contact) limits the input inrush current after
+turn-on of the input voltage.
+The charging current into EMI suppression capacitors is disregarded in the first microseconds after switch-on.
+
+
+                                                      AC 100V           AC 120V           AC 230V
+Inrush current                           Max.          11Apeak           7Apeak            11Apeak        At 40°C, cold start
+                                         Typ.           9Apeak           6Apeak            6Apeak         At 25°C, cold start
+                                         Typ.           9Apeak           6Apeak            9Apeak         At 40°C, cold start
+Inrush energy                            Max.          0.1A²s            0.1A²s            0.4A²s         At 40°C, cold start
+
+
+      Fig. 5-1 Typical turn-on behaviour at nominal                           Fig. 5-2 Typical turn-on behaviour at nominal
+            load, 120Vac input and 25°C ambient                                     load, 230Vac input and 25°C ambient
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.       7/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                      CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                   CP10.241-S2, CP10.242
+                            CP-Series                                                  24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+6. OUTPUT
+Output voltage                            Nom.       24V
+Adjustment range                                     24-28V             Guaranteed value
+                                          Max.       30.0V              This is the maximum output voltage which can occur
+                                                                        at the clockwise end position of the potentiometer
+                                                                        due to tolerances. It is not a guaranteed value which
+                                                                        can be achieved.
+Factory settings                          Typ.     24.1V                ±0.2%, at full load and cold unit
+Line regulation                           Max.     10mV                 Between 85 and 300Vac
+Load regulation                           Max.     50mV                 Between 0 and 12A, static value, see Fig. 6-1
+Ripple and noise voltage                  Max.     50mVpp               Bandwidth 20Hz to 20MHz, 50Ohm
+Output current                            Nom.     10A                  At 24V and up to +60°C ambient temperature, see
+                                                                        Fig. 6-1
+                                          Nom.     7.5A                 At 24V and +70°C ambient temperature, see Fig. 16-1
+                                          Nom.     8.6A                 At 28V up to +60°C ambient temperature, see Fig. 6-1
+                                          Nom.     6.45A                At 28V and +70°C ambient temperature, see Fig. 16-1
+                                          Derate linearly between +60°C and +70°C, see chapter 16
+PowerBoost1)                              Nom.     12A                  At 24V and up to +45°C ambient temperature, see
+                                                                        Fig. 16-1
+                                          Nom.     10.3A                At 28V and up to +45°C ambient temperature, see
+                                                                        Fig. 16-1
+                                          PowerBoost decreases linearly to nominal power between +45°C and +60°C, see
+                                          chapter 16
+Fuse breaking current                     Typ.     30A                  For minimal 12ms once every five seconds, see Fig. 6-2.
+                                                                        The output voltage stays above 20V. See chapter 24.1
+                                                                        for more peak current measurements. For AC 100V
+                                                                        mains, the pulse length is shorter than 12ms.
+Overload behaviour                                 Continuous current Output voltage above 13Vdc, see Fig. 6-1
+                                                   HiccupPLUS mode2)   Output voltage below 13Vdc, see Fig. 6-1
+Short-circuit current                     Min.     12.5A3)              Load impedance <45mOhm, see Fig. 6-3
+                                          Max.     15.5A3)              Load impedance <45mOhm, see Fig. 6-3
+                                          Max.     5A                   Average (R.M.S.) current, load impedance 50mOhm, see
+                                                                        Fig. 6-3
+                                          Min.     28A                  Up to 12ms, load impedance <45mOhm, see Fig. 6-2
+                                          Typ.     30.5A                Up to 12ms, load impedance <45mOhm, see Fig. 6-2
+Output capacitance                        Typ.     4 400µF              Included inside the power supply
+1) PowerBoost
+   This power/ current is continuously allowed up to an ambient temperature of +45°C.
+   Above +45°C, do not use this power or current longer than a duty cycle of 10% and/or not longer than 1 minute every 10 minutes.
+2) HiccupPLUS Mode
+   At heavy overloads (when output voltage falls below 13V), the power supply delivers continuous output current for 2s. After this, the
+   output is switched off for approx. 18s before a new start attempt is automatically performed. This cycle is repeated as long as the overload
+   exists. If the overload has been cleared, the device will operate normally. See Fig. 6-3
+3) Discharge current of output capacitors is not included.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                    8/33
+                                         www.pulspower.com Phone +49 89 9278 0               Germany
+                                                                          CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                                       CP10.241-S2, CP10.242
+                                       CP-Series                                                               24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+       Fig. 6-1 Output voltage vs. output current,                                                   Fig. 6-2 Dynamic output current capability,
+                          typ.                                                                                          typ.
+
+      Output Voltage                                        Adjustment                              Output Voltage (dynamic behavior, < 12ms)
+                                                              Range
+      28V                                                                                           28V
+        24                                                   Continuous                              24
+                                                               current
+        20            Factory                                                                        20        Adjustment
+                      setting                                                                                    Range
+        16                                                                                           16
+        12                                                                                           12
+         8                                                   HiccupPLUS                                8
+                                                               mode
+         4                                                                                             4
+                                 Output Current                                                                     Output Current
+         0                                                                                             0
+             0     2.5       5    7.5 10 12.5 15 17.5 20A                                                  0   5 10 15 20 25 30 35 40 45 50A
+
+
+                 Fig. 6-3 Short-circuit on output, HiccupPLUS mode, typ.
+
+      Output
+      Current
+                  Normal                                                                 Normal
+                 operation                        Short -circuit                        operation
+
+
+      14A
+
+
+
+                                                                                                t
+        0
+                                 2s        18s         2s          18s       2s   18s
+
+
+
+
+7. HOLD-UP TIME
+                                                                             AC 100V         AC 120V             AC 230V
+Hold-up Time                                                Typ.              73ms            73ms                73ms         At 24V, 5A, see Fig. 7-1
+                                                            Min.              55ms            55ms                55ms         At 24V, 5A, see Fig. 7-1
+                                                            Typ.              37ms            37ms                37ms         At 24V, 10A, see Fig. 7-1
+                                                            Min.              28ms            28ms                28ms         At 24V, 10A, see Fig. 7-1
+
+
+         Fig. 7-1 Hold-up time vs. input voltage                                                     Fig. 7-2 Shut-down behaviour, definitions
+
+      Hold-up Time
+                                      a) 24V 5A typ.   c) 24V 10A typ.
+       80ms                           b) 24V 5A min.   d) 24V 10A min.
+                                                                                                                            Zero Transition
+         70                                                              a                          Input
+         60                                                                                         Voltage
+                                                                         b
+         50
+         40                                                              c
+         30                                                              d                                                                    - 5%
+                                                                                                    Output
+         20                                                                                         Voltage
+         10                                                                                                             Hold-up Time
+                                       Input Voltage
+          0
+              90         120           155       190         230Vac
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                                  9/33
+                                                        www.pulspower.com Phone +49 89 9278 0                      Germany
+                                                         CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                      CP10.241-S2, CP10.242
+                             CP-Series                                                24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+8. DC-OK RELAY CONTACT
+This feature monitors the output voltage on the output terminals of a running power supply.
+
+
+Contact closes               As soon as the output voltage reaches typ. 90% of the adjusted output voltage level.
+Contact opens                As soon as the output voltage dips more than 10% below the adjusted output voltage.
+                             Short dips will be extended to a signal length of 100ms. Dips shorter than 1ms will be ignored.
+Switching hysteresis         1V
+Contact ratings              Maximal 60Vdc 0.3A, 30Vdc 1A, 30Vac 0.5A, resistive load
+                             Minimal permissible load: 1mA at 5Vdc
+Isolation voltage            See dielectric strength table in chapter 18.
+
+
+          Fig. 8-1 DC-OK relay contact behavior
+
+                                           VOUT = VADJ
+
+                        10%                  0.9* VADJ
+
+
+                 <           >
+                1ms         1ms      100ms
+
+
+
+
+       open        closed           open         closed
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   10/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                             CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                          CP10.241-S2, CP10.242
+                                 CP-Series                                            24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+9. EFFICIENCY AND POWER LOSSES
+                                                              AC 100V     AC 120V         AC 230V
+Efficiency                                     Typ.            92.9%       93.6%           95.2%          At 24V, 10A
+                                               Typ.            92.5%       93.4%           95.1%          At 24V, 12A (PowerBoost)
+Average efficiency*)                           Typ.            92.5%       93.0%           94.3%          25% at 2.5A, 25% at 5A,
+                                                                                                          25% at 7.5A. 25% at 10A
+Power losses                                   Typ.                2.5W     2.1W            1.8W          At 24V, 0A
+                                               Typ.                9.8W     8.9W            7.1W          At 24V, 5A
+                                               Typ.               18.3W    16.4W           12.1W          At 24V, 10A
+                                               Typ.               23.4W    21.7W           14.8W          At 24V, 12A (PowerBoost)
+*)   The average efficiency is an assumption for a typical application where the power supply is loaded with 25% of the nominal load for 25%
+     of the time, 50% of the nominal load for another 25% of the time, 75% of the nominal load for another 25% of the time and with 100%
+     of the nominal load for the rest of the time.
+
+
+
+
+      Fig. 9-1 Efficiency vs. output current at 24V,                         Fig. 9-2 Losses vs. output current at 24V, typ.
+                typ.
+      Efficiency                                                              Power Losses
+      96%                                                                     30W
+                                                                                                       (a) 100Vac
+       95                                                   (c)                25                      (b) 120Vac            (a)
+                                                                                                       (c) 230Vac
+                                                                                                                             (b)
+       94                                                                      20
+                                                            (b)
+       93                                                                      15                                            (c)
+                                                            (a)
+                                               (a) 100Vac
+       92                                      (b) 120Vac                      10
+                                               (c) 230Vac
+       91                                                                        5
+                                Output Current                                                  Output Current
+       90                                                                        0
+             2     3   4   5    6   7     8   9 10 11 12A                            0 1 2 3 4 5 6 7 8 9 10 11 12A
+
+
+      Fig. 9-3 Efficiency vs. input voltage at 24V,                          Fig. 9-4 Losses vs. input voltage at 24V, 10A,
+                10A, typ.                                                              typ.
+      Efficiency                                                              Power Losses
+      96%                                                                     22W
+       95                                                                      20
+       94                                                                      18
+       93                                                                      16
+       92                                                                      14
+       91                                                                      12
+                               Input Voltage                                                     Input Voltage
+       90                                                                      10
+                 100 120            180        230    264Vac                          100 120          180          230   264Vac
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.              11/33
+                                               www.pulspower.com Phone +49 89 9278 0         Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+10. LIFETIME EXPECTANCY
+The Lifetime expectancy shown in the table indicates the minimum operating hours (service life) and is determined by
+the lifetime expectancy of the built-in electrolytic capacitors. Lifetime expectancy is specified in operational hours and
+is calculated according to the capacitor’s manufacturer specification. The manufacturer of the electrolytic capacitors
+only guarantees a maximum life of up to 15 years (131 400h). Any number exceeding this value is a calculated
+theoretical lifetime which can be used to compare devices.
+
+
+                                             AC 100V              AC 120V               AC 230V
+Lifetime expectancy                          128 000h             141 000h              176 000h          At 24V, 5A and +40°C
+                                              61 000h              75 000h              120 000h          At 24V, 10A and +40°C
+                                              47 000h              59 000h              101 000h          At 24V, 12A and +40°C
+                                             363 000h             399 000h              499 000h          At 24V, 5A and +25°C
+                                             173 000h             211 000h              338 000h          At 24V, 10A and +25°C
+                                             132 000h             166 000h              286 000h          At 24V, 12A and +25°C
+
+
+
+
+11. MTBF
+MTBF stands for Mean Time Between Failures, which is calculated according to statistical device failures, and indicates
+reliability of a device. It is the statistical representation of the likelihood of a unit to fail and does not necessarily
+represent the life of a product.
+The MTBF figure is a statistical representation of the likelihood of a device to fail. An MTBF figure of e.g. 1 000 000h
+means that statistically one unit will fail every 100 hours if 10 000 units are installed in the field. However, it can not
+be determined if the failed unit has been running for 50 000h or only for 100h.
+For these types of units the MTTF (Mean Time To Failure) value is the same value as the MTBF value.
+
+
+                                             AC 100V               AC 120V              AC 230V
+MTBF SN 29500, IEC 61709                     550 000h              560 000h             661 000h          At 24V, 10A and +40°C
+                                            1 003 000h            1 017 000h           1 176 000h         At 24V, 10A and +25°C
+MTBF MIL HDBK 217F                           188 000h              188 000h             213 000h          At 24V, 10A and +40°C;
+                                                                                                          Ground Benign GB40
+                                             252 000h              252 000h             290 000h          At 24V, 10A and +25°C;
+                                                                                                          Ground Benign GB25
+                                              40 000h              40 000h               47 000h          At 24V, 10A and +40°C;
+                                                                                                          Ground Fixed GF40
+                                              51 000h              51 000h               61 000h          At 24V, 10A and +25°C;
+                                                                                                          Ground Fixed GF25
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.          12/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+12. TERMINALS AND WIRING
+The terminals are IP20 Finger safe constructed and suitable for field- and factory wiring.
+
+
+CP10.241, CP10.241-C1, CP10.242                  Input                            Output                          DC-OK-Signal
+Type                                             Screw terminal                   Screw terminal                  Push-in terminal
+Solid wire                                       Max. 6mm2                        Max. 6mm2                       Max. 1.5mm2
+Stranded wire                                    Max. 4mm2                        Max. 4mm2                       Max. 1.5mm2
+American Wire Gauge                              AWG 20-10                        AWG 20-10                       AWG 24-16
+Max. wire diameter (including ferrules)          2.8mm                            2.8mm                           1.6mm
+Recommended tightening torque                    Max. 1Nm                         Max. 1Nm                        -
+Wire stripping length                            7mm                              7mm                             8mm
+Screwdriver                                      3.5mm slotted or cross-          3.5mm slotted or cross-         3mm slotted to open
+                                                 head No 2                        head No 2                       the spring
+
+
+CP10.241-S1                                      Input                            Output                          DC-OK-Signal
+Type                                             Quick-connect spring-            Quick-connect spring-           Push-in terminal
+                                                 clamp terminal                   clamp terminal
+Solid wire                                       Max. 6mm2                        Max. 6mm2                       Max. 1.5mm2
+Stranded wire                                    Max. 4mm2                        Max. 4mm2                       Max. 1.5mm2
+American Wire Gauge                              AWG 20-10                        AWG 20-10                       AWG 24-16
+Max. wire diameter (including ferrules)          2.8mm                            2.8mm                           1.6mm
+Wire stripping length                            10mm                             10mm                            8mm
+Screwdriver                                      -                                -                               3mm slotted to open
+                                                                                                                  the spring
+
+
+CP10.241-S2                                      Input                            Output                          DC-OK-Signal
+Type                                             Push-in terminal                 Push-in terminal                Push-in terminal
+Solid wire                                       Max. 2.5mm2                      Max. 2.5mm2                     Max. 1.5mm2
+Stranded wire                                    Max. 2.5mm2                      Max. 2.5mm2                     Max. 1.5mm2
+Stranded wire with ferrules                      Max. 1.5mm2                      Max. 1.5mm2                     Max. 1.5mm2
+American Wire Gauge                              AWG 24-12                        AWG 24-12                       AWG 24-16
+Max. wire diameter (including ferrules)          2.3mm                            2.3mm                           1.6mm
+Wire stripping length                            10mm                             10mm                            8mm
+Screwdriver                                      3.0mm slotted to open            3.0mm slotted to open           3mm slotted to open
+                                                 the spring                       the spring                      the spring
+
+
+Instructions for wiring:
+a) Use appropriate copper cables that are designed for minimum operating temperatures of:
+    60°C for ambient up to 45°C and
+    75°C for ambient up to 60°C and
+    90°C for ambient up to 70°C minimum.
+b) Follow national installation codes and installation regulations!
+c) Ensure that all strands of a stranded wire enter the terminal connection!
+d) Unused terminal compartments should be securely tightened.
+e) Ferrules are allowed.
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.            13/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                           CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                        CP10.241-S2, CP10.242
+                            CP-Series                                                        24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+Daisy chaining:
+Daisy chaining is allowed for CP10.241, CP10.241-C1, CP10.241-S1 and CP10.242.
+Daisy chaining is not allowed for CP10.241-S2
+Daisy chaining (jumping from one power supply output to the next) is allowed as long as the average output current
+through one terminal pin does not exceed 25A. If the current is higher, use a separate distribution terminal block as
+shown in Fig. 12-2.
+
+
+
+     Fig. 12-1 Daisy chaining of outputs                                          Fig. 12-2 Using distribution terminals
+
+                                                                                                                          Distribution
+           Power           Power                                                                                          Terminals
+           Supply          Supply                                                        Power               Power
+                                                                                         Supply              Supply
+           + + -    -      + + -     -             Load
+                                                                                         + + -    -          + + -   -             Load
+           Output           Output                 +   -
+                                                                                         Output              Output                +     -
+
+                           max 25A!
+                          continuous
+
+
+
+
+13. FUNCTIONAL DIAGRAM
+                                                       Fig. 13-1 Functional diagram
+
+
+                   L                                                                                                     +
+                              Input Fuse
+                              Input Filter                                    Power               Output                 +
+                   N          Input Rectifier
+                                                              PFC
+                                                            Converter        Converter             Filter
+                              Inrush Current Limiter                                                                     -
+                                                                                                                         -
+                                                                                                                         -
+                                                                                                  Output
+                                                                                                  Voltage                VOUT
+                                                                                                 Regulator
+
+                                     Temper-                     Output                                                  DC-ok
+                                                  Output                     Output                                      LED
+                                      ature        Power          Over-      Voltage
+                                      Shut-       Manager        Voltage                          DC-ok
+                                      down                      Protection   Monitor                                     DC-ok
+                                                                                                  Relay                  Contact
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                    14/33
+                                               www.pulspower.com Phone +49 89 9278 0                  Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                             CP-Series                                                24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+14. FRONT SIDE AND USER ELEMENTS
+             Fig. 14-1                  Fig. 14-2                   Fig. 14-3                  Fig. 14-4                  Fig. 14-5
+       Front side CP10.241      Front side CP10.241-C1      Front side CP10.241-S1     Front side CP10.241-S2       Front side CP10.242
+
+
+
+
+A   Input Terminals
+    CP10.241, CP10.241-C1, CP10.242: Screw terminals
+    CP10.241-S1: Spring-clamp terminals
+    CP10.241-S2: Push-in terminals
+      N, L    Line input
+             PE (Protective Earth) input
+B Output Terminals
+  (two identical + poles and three identical - poles)
+   CP10.241, CP10.241-C1, CP10.242: Screw terminals
+   CP10.241-S1: Spring-clamp terminals
+   CP10.241-S2: Push-in terminals
+     +      Positive output
+     –      Negative (return) output
+C Output voltage potentiometer
+  Open the flap to adjust the output voltage. Factory set: 24.1V
+D DC-OK LED (green)
+  On, when the output voltage is in range and the DC-OK contact is closed.
+E   DC-OK Relay Contact (push-in terminals)
+    Monitors the output voltage of the running power supply. See chapter 8 for details.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                 15/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+15. EMC
+The power supply is suitable for applications in industrial environment as well as in residential, commercial and light
+industry environments.
+
+
+EMC Immunity                        According to generic standards: EN 61000-6-1 and EN 61000-6-2
+Electrostatic discharge             EN 61000-4-2       Contact discharge                   8kV               Criterion A
+                                                       Air discharge                       15kV              Criterion A
+Electromagnetic RF field            EN 61000-4-3       80MHz-2.7GHz                        20V/m             Criterion A
+Fast transients (Burst)             EN 61000-4-4       Input lines                         4kV               Criterion A
+                                                       Output lines                        2kV               Criterion A
+                                                       DC-OK signal (coupling clamp)       2kV               Criterion A
+Surge voltage on input              EN 61000-4-5       LN                                 2kV               Criterion A
+                                                       L  PE, N  PE                      4kV               Criterion A
+Surge voltage on output             EN 61000-4-5       +-                                 1kV               Criterion A
+                                                       + / -  PE                          2kV               Criterion A
+Surge voltage on Signals            EN 61000-4-5       DC-OK signal  PE                   1kV               Criterion A
+Conducted disturbance               EN 61000-4-6       0.15-80MHz                          20V               Criterion A
+Mains voltage dips                  EN 61000-4-11      0% of 100Vac                        0Vac, 20ms        Criterion A
+                                                       40% of 100Vac                       40Vac, 200ms      Criterion C
+                                                       70% of 100Vac                       70Vac, 500ms      Criterion C
+                                                       0% of 200Vac                        0Vac, 20ms        Criterion A
+                                                       40% of 200Vac                       80Vac, 200ms      Criterion A
+                                                       70% of 200Vac                       140Vac, 500ms     Criterion A
+Voltage interruptions               EN 61000-4-11      0% of 200Vac (=0V)                  5000ms            Criterion C
+Voltage sags                        SEMI F47           Dips on the input voltage according to SEMI F47 standard
+                                                       80% of 120Vac (96Vac)               1000ms            Criterion A
+                                                       70% of 120Vac (84Vac)               500ms             Criterion A
+                                                       50% of 120Vac (60Vac)               200ms             Criterion A
+Powerful transients                 VDE 0160           Over entire load range              750V, 0.3ms       Criterion A
+Criterions:
+A: Power supply shows normal operation behavior within the defined limits.
+C: Temporary loss of function is possible. Power supply may shut-down and restarts by itself. No damage or hazards for the power supply will
+   occur.
+
+
+EMC Emission                     According to generic standards: EN 61000-6-3 and EN 61000-6-4
+Conducted emission               EN 55011, EN 55015, EN 55032, FCC Part      Class B
+input lines                      15, CISPR 11, CISPR 32
+Conducted emission               IEC/CISPR 16-1-2, IEC/CISPR 16-2-1          Limits for DC power port according EN
+output lines 2)                                                              61000-6-3 fulfilled
+Radiated emission                EN 55011, EN 55032                          Class B
+Harmonic input current           EN 61000-3-2                                Class A fulfilled between 0A and 12A load
+                                                                             Class C fulfilled between 6A and 12A load
+Voltage fluctuations, flicker    EN 61000-3-3                                Fulfilled 1)
+This device complies with FCC Part 15 rules.
+Operation is subjected to following two conditions: (1) this device may not cause harmful interference, and (2) this
+device must accept any interference received, including interference that may cause undesired operation.
+1) Tested with constant current loads, non pulsing
+2) For information only, not mandatory for EN 61000-6-3
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.               16/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                           CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                        CP10.241-S2, CP10.242
+                               CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+Switching Frequencies
+PFC converter                         110kHz                    Fixed frequency
+Main converter                        84kHz to 140kHz           Output load dependent
+Auxiliary converter                   60kHz                     Fixed frequency
+
+
+
+
+16. ENVIRONMENT
+Operational temperature 1)              -25°C to +70°C                                   Reduce output power according to Fig. 16-1
+Storage temperature                     -40°C to +85°C                                   For storage and transportation
+Output derating                         6W/K                                             Between +60°C and +70°C
+Humidity                                5 to 95% r.h.                                    According to IEC 60068-2-30
+                                                                                         Do not energize while condensation is present.
+Vibration sinusoidal 2)                 2-17.8Hz: ±1.6mm; 17.8-500Hz: 2g                 According to IEC 60068-2-6
+                                        2 hours / axis
+Shock 2)                                30g 6ms, 20g 11ms                                According to IEC 60068-2-27
+                                        3 bumps / direction, 18 bumps in total
+Altitude                                0 to 2000m                            Without any restrictions
+                                        2000 to 6000m                         Reduce output power or ambient
+                                                                              temperature, see Fig. 16-2.
+Altitude derating                       15W/1000m or 5K/1000m                 For altitudes >2000m, see Fig. 16-2
+Over-voltage category                   III                                   According to IEC 62477-1 for altitudes up to
+                                                                              2000m
+                                        II                                    According to IEC 62477-1 for altitudes from
+                                                                              2000m to 6000m
+Degree of pollution                     2                                     According to IEC 62477-1, not conductive
+Audible noise                           Some audible noise may be emitted from the power supply during no load, overload or
+                                        short circuit.
+1) Operational temperature is the same as the ambient or surrounding temperature and is defined as the air temperature 2cm below the unit.
+2) Tested in combination with DIN rails according to EN 60715 with a height of 15mm and a thickness of 1.3mm and standard orientation.
+
+
+       Fig. 16-1 Output current vs. ambient temp.                                    Fig. 16-2 Output current vs. altitude
+         (Inom 10A; Iout with PowerBoost = 12A)
+
+      Allowed Output Current at 24V                                           Allowed Output Current at 24V
+       12A                                        B                            12A                                    D
+                                                  A                                                                   C
+        10A                                                                    10A                                    B
+        8A                                                                                                            A
+                                                                                8A
+        6A                                                                      6A
+                                                                                           A... Tamb < 60°C
+        4A                                                                      4A         B... Tamb < 50°C
+                  A... 85 to 264Vac, continuous                                            C... Tamb < 40°C
+        2A        B... short term                                               2A         D... Short term
+
+           0                                                                     0
+            -25          0       20       40          60 70°C                        0         2000m          4000m        6000m
+                                  Ambient Temperature                                                                     Altitude
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.            17/33
+                                               www.pulspower.com Phone +49 89 9278 0         Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+17. PROTECTION FEATURES
+Output protection                        Electronically protected against overload, no-load and short-circuits. In case of a
+                                         protection event, audible noise may occur.
+Output over-voltage protection           Typ. 30.5Vdc                 In case of an internal power supply defect, a redundant
+                                         Max. 32Vdc                   circuit limits the maximum output voltage. The output
+                                                                      shuts down and automatically attempts to restart.
+Degree of protection                     IP20                         EN/IEC 60529
+Penetration protection                   > 4mm                        E.g. screws, small parts
+Over-temperature protection              Yes                          Output shut-down with automatic restart.
+                                                                      The temperature sensor is installed on critical
+                                                                      components inside the unit and turns the unit off in
+                                                                      safety critical situations, which can happen e.g. when
+                                                                      derating requirements are not observed, ambient
+                                                                      temperature is too high, ventilation is obstructed or
+                                                                      the derating requirements for different mounting
+                                                                      orientation is not followed. There is no correlation
+                                                                      between the operating temperature and turn-off
+                                                                      temperature since this is dependent on input voltage,
+                                                                      load and installation methods.
+Input transient protection               MOV                          For protection values see chapter 15 (EMC).
+                                         (Metal Oxide Varistor)
+Internal input fuse                      Included                     Not user replaceable slow-blow high-braking capacity
+                                                                      fuse
+
+
+
+
+18. SAFETY FEATURES
+Input / output separation                Double or reinforced galvanic isolation
+                                         SELV                       IEC/EN 60950-1
+                                         PELV                       IEC/EN 60204-1, EN 62477-1, IEC 60364-4-41
+Class of protection                      I                          PE (Protective Earth) connection required
+Isolation resistance                     > 500MOhm                  At delivered condition between input and output,
+                                                                    measured with 500Vdc
+                                         > 500MOhm                  At delivered condition between input and PE,
+                                                                    measured with 500Vdc
+                                         > 500MOhm                  At delivered condition between output and PE,
+                                                                    measured with 500Vdc
+                                         > 500MOhm                  At delivered condition between output and DC-OK
+                                                                    contacts, measured with 500Vdc
+PE resistance                            < 0.1Ohm                   Resistance between PE terminal and the housing in the
+                                                                    area of the DIN rail mounting bracket.
+Touch current (leakage current)          Typ. 0.14mA / 0.36mA       At 100Vac, 50Hz, TN-,TT-mains / IT-mains
+                                         Typ. 0.20mA / 0.50mA       At 120Vac, 60Hz, TN-,TT-mains / IT-mains
+                                         Typ. 0.33mA / 0.86mA       At 230Vac, 50Hz, TN-,TT-mains / IT-mains
+                                         Max. 0.18mA / 0.43mA       At 110Vac, 50Hz, TN-,TT-mains / IT-mains
+                                         Max. 0.26mA / 0.61mA       At 132Vac, 60Hz, TN-,TT-mains / IT-mains
+                                         Max. 0.44mA / 1.05mA       At 264Vac, 50Hz, TN-,TT-mains / IT-mains
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   18/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                          CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                       CP10.241-S2, CP10.242
+                             CP-Series                                                  24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+19. DIELECTRIC STRENGTH
+The output voltage is floating and has no ohmic connection to the ground. Type and factory tests are conducted by
+the manufacturer. Field tests may be conducted in the field using the appropriate test equipment which applies the
+voltage with a slow ramp (2s up and 2s down). Connect all input-terminals together as well as all output poles before
+conducting the test. When testing, set the cut-off current settings to the value in the table below.
+                 Fig. 19-1 Dielectric strength                                                 A            B             C        D
+                                                              Type test            60s      2500Vac      4000Vac       1000Vac   500Vac
+          Input                         DC-ok                 Factory test         5s       2500Vac      2500Vac        500Vac   500Vac
+                                   *)                13
+             L                 B                              Field test           5s       2000Vac      2000Vac        500Vac   500Vac
+             N                                       14
+                                                              Cut-off current setting       > 10mA        > 10mA       > 20mA    > 1mA
+
+                                          D
+                                B
+
+
+
+
+              A
+                                                              To fulfil the PELV requirements according to EN60204-1 § 6.4.1, we
+          Earth, PE                     Output                recommend that either the + pole, the – pole or any other part of
+                               C
+                                                 +            the output circuit shall be connected to the protective earth
+                                                 -            system. This helps to avoid situations in which a load starts
+                                                              unexpectedly or can not be switched off when unnoticed earth
+                                                              faults occur.
+B*) When testing input to DC-OK ensure that the max. voltage between DC-OK and the output is not exceeded (column D). We recommend
+    connecting DC-OK pins and the output pins together when performing the test.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.          19/33
+                                          www.pulspower.com Phone +49 89 9278 0             Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+20. APPROVED, FULFILLED OR TESTED STANDARDS
+UL 508                                                            UL Certificate
+(only CP10.241, CP10.241-C1,                                      Listed equipment for category NMTR - Industrial Control
+CP10.241-S1, CP10.242)                                            Equipment
+                                                                  Applicable for US and Canada
+                                                                  E-File: E198865
+UL 61010-2-201                                                    UL Certificate
+(only CP10.241-S2)                                                Listed equipment for category NMTR - Electrical Equipment for
+                                                                  Measurement, Control and Laboratory Use - Particular
+                                                                  requirements for control equipment
+                                                                  Applicable for US and Canada
+                                                                  E-File: E198865
+IEC 61010-2-201                                                   Manufacturer's Declaration
+(only CP10.241, CP10.241-C1,                                      Electrical Equipment for Measurement, Control and Laboratory
+CP10.241-S1, CP10.242)                                            Use - Particular requirements for control equipment
+IEC 61010-2-201                                                   CB Scheme Certificate
+(only CP10.241-S2)                                                Electrical Equipment for Measurement, Control and Laboratory
+                                                                  Use - Particular requirements for control equipment
+IEC 62368-1                                                       CB Scheme Certificate
+(only CP10.241-S2)                                                IEC 62368-1 Audio/video, information and communication
+                                                                  technology equipment - Safety requirements
+                                                                  Output safety level: ES
+IEC 60950-1                                                       CB Scheme Certificate
+                                                                  General safety requirements for Information Technology
+                                                                  Equipment (ITE)
+UL 60950-1                                                        UL Certificate
+(only CP10.241, CP10.241-C1,                                      Recognized component for category QQGQ - Information
+CP10.241-S1, CP10.242)                                            Technology Equipment (ITE)
+                                                                  Applicable for US and Canada
+                                                                  E-File: E137006
+ATEX                                                              Agency Certificate (Bureau Veritas)
+                                                                  EN 60079-0 Explosive atmospheres - General requirements
+                                                                  EN 60079-7, EN 60079-15 Equipment protection by type of
+                                                                  protection "e" and "n"
+                                                                  Certificate: EPS 15 ATEX 1 101 X
+                                                                  Temperature Code: T4
+                                                                  Type of Protection: ec nC
+IECEx                                                             IECEx Certificate
+                                                                  IEC 60079-0 Explosive atmospheres - General requirements
+                                                                  IEC 60079-7, IEC 60079-15 Equipment protection by type of
+                                                                  protection "e" and "n"
+                                                                  Certificate: IECEx EPS 15.0079X
+                                                                  Temperature Code: T4
+                                                                  Type of Protection: ec nC
+Class 1 Div 2                                                     UL Certificate
+                                                                  Listed equipment for category NRAD - Listed equipment
+                                                                  Industrial Control Equipment for Use in Hazardous Locations
+                                                                  Applicable for US and Canada
+                                                                  E-File: E327416
+                                                                  Temperature Code: T4
+                                                                  Groups: A, B, C and D
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   20/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+Marine (DNV)                                                      DNV Certificate
+(only CP10.241, CP10.241-C1,                                      DNV Type approved product
+CP10.241-S1, CP10.242)                                            Certificate: TAA00002YX
+
+Marine (ABS)                                                      ABS Design Assessment Certificate
+(only CP10.241, CP10.241-S1,                                      ABS (American Bureau of Shipment) assessed product
+CP10.242)                                                         Certificate: 22-2231447-PDA
+
+IEC 61558-2-16                                                    Test Certificate
+(Annex BB)                                                        IEC 61558-2-16 - Safety of transformers, reactors, power supply
+                                        Safety Isolating          units and similar products for supply voltages up to 1100 V
+                                         Transformer              Particular requirements and tests for switch mode power
+                                                                  supply units and transformers for switch mode power supply
+                                                                  units
+SEMI F47                                                          Test Report
+                                                                  Voltage Sag Immunity for Semiconductor Processing
+                                                                  Equipment
+                                                                  Tested for AC 208V L-L or L-N mains voltages, nominal output
+                                                                  voltage and nominal output load
+IEC 60068-2-60                                                    Manufacturer's Declaration (Online Document)
+                                                                  Environmental Tests, Flowing Mixed Gas Corrosion Test
+                                                                  IEC 60068-2-60 Method 4
+                                                                  Test Ke - Method 4
+                                                                  H2S: 10ppb
+                                                                  NO2: 200ppb
+                                                                  Cl2: 10ppb
+                                                                  SO2: 200ppb
+                                                                  Test Duration: 3 weeks, this simulates a service life of 10 years.
+ISA-71.04 G3                                                      Manufacturer's Declaration (Online Document)
+                                                                  Airborne Contaminants Corrosion Test
+                                                                  ISA-71.04 G3
+                                                                  Severity Level: G3 Harsh
+                                                                  H2S: 100ppb
+                                                                  NOx: 1250ppb
+                                                                  Cl2: 20ppb
+                                                                  SO2: 300ppb
+                                                                  Test Duration: 3 weeks, this simulates a service life of 10 years.
+Labs                                                              Paint Wetting Impairment Substances Test (or LABS-Test)
+                                                                  Tested for Zone 2 and test class C1 according to VDMA 24364-
+                                                                  C1-L/W for solvents and water-based paints
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.       21/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+21. REGULATORY PRODUCT COMPLIANCE
+EU Declaration of                                                 The CE mark indicates conformance with the
+Conformity                                                        - EMC directive
+                                                                  - ATEX directive
+                                                                  - RoHS directive
+REACH Regulation (EU)                                             Manufacturer's Declaration
+                                                                  EU regulation regarding the Registration, Evaluation,
+                                                                  Authorisation and Restriction of Chemicals (REACH) fulfilled.
+                                                                  EU Regulation (EC) 1907/2006.
+WEEE Regulation                                                   Manufacturer's Declaration
+                                                                  EU Regulation on Waste Electrical and Electronic Equipment
+                                                                  Registered as business to business (B2B) products.
+                                                                  EU Regulation 2012/19/EU
+KC                                                                KC Korean Certification
+                                                                  Korean - Registration of Broadcasting and Communication
+                                                                  Equipment
+                                                                  Registered under Clause3, Article 58-2 of Radio Waves Act.
+                                                                  Registration No. R-R-PUG-CP10_241.
+CCC                                                               CCC Certificate
+                                                                  China Compulsory Certification (CNCA-C23-01:2019)
+                                                                  Certificate for devices made in Suzhou/China (PULS
+                                                                  Electronics): 2021122303114443
+                                                                  Certificate for devices made in Chomutov/Czech Republic
+                                                                  (PULS investiční): 2021122303114444
+                                                                  CCC-Ex
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.    22/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                      CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                   CP10.241-S2, CP10.242
+                             CP-Series                                                24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+22. PHYSICAL DIMENSIONS AND WEIGHT
+Width                          39mm
+Height                         124mm
+Depth                          117mm
+                               The DIN rail depth must be added to the unit depth to calculate the total required
+                               installation depth.
+Weight                         600g
+DIN rail                       Use 35mm DIN rails according to EN 60715 or EN 50022 with a height of 7.5 or 15mm.
+Housing material               Body: Aluminium alloy
+                               Cover: Zinc-plated steel
+Installation clearances        See chapter 2
+
+
+
+            Fig. 22-1                Fig. 22-2                Fig. 22-3                                       Fig. 22-4
+          Front view               Front view               Front view                                       Side view
+      CP10.241, CP10.241-          CP10.241-S1              CP10.241-S2
+         C1, CP10.242
+
+
+
+
+      All dimensions in mm     All dimensions in mm     All dimensions in mm                            All dimensions in mm
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.      23/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+23. ACCESSORIES
+
+23.1. ZM10.WALL - WALL/PANEL MOUNT BRACKET
+This bracket is used to mount the devices on a wall/panel without utilizing the DIN rail. The bracket can be mounted
+without detaching the DIN rail brackets from the power supply. PSU for illustration purpose only.
+
+
+             Fig. 23-1 Isometric view                         Fig. 23-2 Isometric view                        Fig. 23-3 Isometric view
+
+
+
+
+       Fig. 23-4 Wall/panel mounting,              Fig. 23-5 Hole pattern for wall              Fig. 23-6 Wall/panel mounting, side view
+                  front view                                  mounting
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                24/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+23.2. ZM12.SIDE - SIDE MOUNTING BRACKET
+
+                  This bracket is used to mount the power supply sideways with or without utilizing a DIN rail.
+                  The two aluminum brackets and the black plastic slider of the unit have to be detached, so that the
+                  steel brackets can be mounted.
+                  For sideway DIN rail mounting, the removed aluminum brackets and the black plastic slider need to be
+                  mounted on the steel bracket.
+
+
+
+
+               Fig. 23-4                             Fig. 23-5                                            Fig. 23-6
+      Side mounting without DIN             Side mounting with DIN rail                            Mounting Dimensions
+             rail brackets                          brackets                                       Side mounting bracket
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   25/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+23.3. YR20.242 - REDUNDANCY MODULE
+                                           The YR20.242 is equipped with two input channels, which are individually
+                                           decoupled by utilizing MOSFET technology. Using MOSFETSs instead of diodes
+                                           reduces the heat generation and the voltage drop between input and output. The
+                                           YR20.242 does not require an additional auxiliary voltage and is self-powered
+                                           even in case of a short circuit across the output.
+                                           Due to the low power losses, the unit is very slender and only requires 32mm
+                                           width on the DIN rail.
+                                           The YR20.242 can be used for n+1 and 1+1 redundancy systems.
+                                           Further information and wiring configurations can be found in chapter 24.7.
+
+
+
+
+23.4. YR20.246 - REDUNDANCY MODULE WITH AUTOMATED LOAD SHARING
+                                           The YR20.246 is equipped with two input channels, which are individually
+                                           decoupled by utilizing MOSFET technology. Using MOSFETSs instead of diodes
+                                           reduces the heat generation and the voltage drop between input and output. The
+                                           YR20.246 does not require an additional auxiliary voltage and is self-powered
+                                           even in case of a short circuit across the output.
+                                           Due to the low power losses, the unit is very slender and only requires 32mm
+                                           width on the DIN rail.
+                                           The YR20.246 is optimized for 1+1 redundancy systems.
+                                           Compared to the YR20.242, the YR20.246 is featured with an automated load
+                                           sharing between the connected power supplies. The YR20.246 monitors the
+                                           function of the redundancy circuitry and provides a signal in case of too high of
+                                           output current, which could prevent redundancy, if one power supply fails.
+                                           Further information and wiring configurations can be found in 24.7.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   26/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+24. APPLICATION NOTES
+
+24.1. PEAK CURRENT CAPABILITY
+The unit can deliver peak currents (up to several milliseconds) which are higher than the specified short term currents.
+This helps to start current demanding loads. Solenoids, contactors and pneumatic modules often have a steady state
+coil and a pick-up coil. The inrush current demand of the pick-up coil is several times higher than the steady-state
+current and usually exceeds the nominal output current (including the PowerBoost). The same situation applies when
+starting a capacitive load.
+The peak current capability also ensures the safe operation of subsequent circuit breakers of load circuits. The load
+branches are often individually protected with circuit breakers or fuses. In case of a short or an overload in one branch
+circuit, the fuse or circuit breaker need a certain amount of over-current to open in a timely manner. This avoids
+voltage loss in adjacent circuits.
+The extra current (peak current) is supplied by the power converter and the built-in large sized output capacitors of
+the power supply. The capacitors get discharged during such an event, which causes a voltage dip on the output. The
+following two examples show typical voltage dips for resistive loads:
+
+
+        Fig. 24-1 20A peak current for 50ms , typ.                               Fig. 24-2 50A peak current for 5ms , typ.
+                  (2x the nominal current)                                                (5x the nominal current)
+
+
+
+
+        Fig. 24-3 30A peak current for 12ms , typ.
+                  (3x the nominal current)
+
+
+
+
+                                                                   Please note: The DC-OK relay triggers when the voltage
+                                                                   dips more than 10% for longer than 1ms.
+
+
+
+Peak current voltage dips                Typically from 24V to 17V                   At 20A for 50ms, resistive load
+                                         Typically from 24V to 19V                   At 50A for 2ms, resistive load
+                                         Typically from 24V to 15.5V                 At 50A for 5ms, resistive load
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.    27/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                              CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                           CP10.241-S2, CP10.242
+                               CP-Series                                                24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+24.2. BACK-FEEDING LOADS
+Loads such as decelerating motors and inductors can feed voltage back to the power supply. This feature is also called
+return voltage immunity or resistance against Back- E.M.F. (Electro Magnetic Force).
+This power supply is resistant and does not show malfunctioning when a load feeds back voltage to the power supply.
+It does not matter whether the power supply is on or off.
+The maximum allowed feed-back-voltage is 35Vdc. The maximum allowed feed-back peak current is 40A. Higher
+currents can temporarily shut-down the output voltage. The absorbing energy can be calculated according to the
+built-in large sized output capacitor which is specified in chapter 6.
+
+
+
+
+24.3. EXTERNAL INPUT PROTECTION
+The unit is tested and approved for branch circuits up to 30A (UL) and 32A (IEC). An external protection is only
+required if the supplying branch has an ampacity greater than this. Check also local codes and local requirements. In
+some countries local regulations might apply.
+If an external fuse is necessary or utilized, minimum requirements need to be considered to avoid nuisance tripping of
+the circuit breaker. A minimum value of 6A B- or C-Characteristic breaker should be used.
+
+
+
+
+24.4. OUTPUT CIRCUIT BREAKERS
+Standard miniature circuit breakers (MCB’s or UL 1077 circuit breakers) are commonly used for AC-supply systems and
+may also be used on 24V branches.
+MCB’s are designed to protect wires and circuits. If the ampere value and the characteristics of the MCB are adapted to
+the wire size that is used, the wiring is considered as thermally safe regardless of whether the MCB opens or not.
+To avoid voltage dips and under-voltage situations in adjacent 24V branches which are supplied by the same source, a
+fast (magnetic) tripping of the MCB is desired. A quick shutdown within 10ms is necessary corresponding roughly to
+the ride-through time of PLC's. This requires power supplies with high current reserves and large output capacitors.
+Furthermore, the impedance of the faulty branch must be sufficiently small in order for the current to actually flow.
+The best current reserve in the power supply does not help if Ohm’s law does not permit current flow. The following
+table has typical test results showing which B- and C-Characteristic MCBs magnetically trip depending on the wire cross
+chapter and wire length.
+
+                     Fig. 24-4 Test circuit                       Maximal wire length*) for a fast (magnetic) tripping:
+                                                                           0.75mm²         1.0mm²       1.5mm²          2.5mm²
+                                                                  C-2A        30 m           37 m         54 m            84 m
+                                                                  C-3A        25 m           30 m         46 m            69 m
+      Power Supply     MCB                             Load
+                                                                  C-4A         9m            15 m         25 m            34 m
+       AC        +                                 +
+                                                                  C-6A         3m             3m           4m              7m
+                          Wire length
+                                              S1
+                                                                  C-8A
+
+            DC -                                   -
+                                                                  B-6A             12 m             15 m            21 m            34 m
+      S1... Fault simulation switch
+                                                                  B-10A            3m                3m              4m              9m
+                                                                  B-13A            2m                2m              3m              6m
+
+*)   Don’t forget to consider twice the distance to the load (or cable length) when calculating the total wire length (+ and – wire).
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                  28/33
+                                              www.pulspower.com Phone +49 89 9278 0           Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+24.5. SERIES OPERATION                                                                                       Unit A
+                                                                                                             AC
+Power supplies of the same type can be connected in series for higher                                                      +
+output voltages. It is possible to connect as many units in series as needed,                                              -
+                                                                                                                  DC
+providing the sum of the output voltage does not exceed 150Vdc. Voltages                                                                +
+with a potential above 60Vdc are not SELV any more and can be dangerous.                                     Unit B
+                                                                                                                                         Load
+Such voltages must be installed with a protection against touching.                                          AC
+Earthing of the output is required when the sum of the output voltage is                                                   +            -
+above 60Vdc.                                                                                                               -
+                                                                                                                  DC               Earth
+Avoid return voltage (e.g. from a decelerating motor or battery) which is                                                          (see notes)
+applied to the output terminals.
+Restrictions:
+Keep an installation clearance of 15mm (left / right) between two power supplies and avoid installing the power
+supplies on top of each other.
+Do not use power supplies in series in mounting orientations other than the standard mounting orientation (terminals
+on bottom of the unit).
+Pay attention that leakage current, EMI, inrush current, harmonics will increase when using multiple power supplies.
+
+
+
+
+24.6. PARALLEL USE TO INCREASE OUTPUT POWER
+CP10.241 power supplies can be paralleled to increase the output power. The                                       Unit A
+
+output voltage of all power supplies shall be adjusted to the same value                                       AC
+(±100mV) with the same load conditions on all units, or the units can be left                                                  +
+with the factory settings. There is no feature included which balances the load                                                -
+                                                                                                                      DC
+current between the power supplies. Usually the power supply with the higher                                                                +
+adjusted output voltage draws current until it goes into current limitation. This                                 Unit B
+                                                                                                                                            Load
+means no harm to this power supply as long as the ambient temperature stays                                    AC
+below 40°C.                                                                                                                    +            -
+If more than three units are connected in parallel, a fuse or circuit breaker                                                  -
+                                                                                                                      DC
+with a rating of 15A or 16A is required on each output. Alternatively, a diode
+or redundancy module can also be utilized.
+Energize all units at the same time to avoid the overload HiccupPLUS mode. It also might be necessary to cycle the input
+power (turn-off for at least five seconds), if the output was in HiccupPLUS mode due to overload or short circuits and the
+required output current is higher than the current of one unit.
+Restrictions:
+Keep an installation clearance of 15mm (left / right) between two power supplies and avoid installing the power
+supplies on top of each other.
+Do not use power supplies in parallel in mounting orientations other than the standard mounting orientation
+(terminals on bottom of the unit) or in any other condition where a derating of the output current is required (e.g.
+altitude, …).
+Pay attention that leakage current, EMI, inrush current, harmonics will increase when using multiple power supplies.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                        29/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                                 CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                              CP10.241-S2, CP10.242
+                                CP-Series                                                  24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+24.7. PARALLEL USE FOR REDUNDANCY
+1+1 Redundancy:
+Power supplies can be paralleled for redundancy to gain higher system availability. Redundant systems require a
+certain amount of extra power to support the load in case one power supply unit fails. The simplest way is to put two
+power supplies in parallel. This is called a 1+1 redundancy. In case one power supply unit fails, the other one is
+automatically able to support the load current without any interruption. It is essential to use a redundancy module to
+decouple power supplies from each other. This prevents that the defective unit becomes a load for the other power
+supplies and the output voltage cannot be maintained any more.
+Optionally to the use of external redundancy modules, power supplies with built-in redundancy CP10.241-R1 (spring-
+clamp terminals), the CP10.241-R2 (plug connectors for hot swap) or the CP10.241-R3 (screw terminals) can be used.
+Recommendations for building redundant power systems:
+  - Use separate input fuses for each power supply.
+  - Monitor the individual power supply units. Therefore, use the DC-OK relay contact of the power supply.
+  - It is desirable to set the output voltages of all units to the same value (± 100mV) or leave it at the factory setting.
+Pay attention that leakage current, EMI, inrush current, harmonics will increase when using multiple power supplies.
+Wiring examples for 1+1 redundancy:
+ Fig. 24-5 Wiring for 1+1 redundancy with the redundancy module             Fig. 24-6 Wiring for 1+1 redundancy with the redundancy module
+                              YR20.242                                                                   YR20.246
+
+
+                                                                  Failure
+                                                                  Monitor
+               + + -    -     + - + -               + + -    -                           + + -    -          + + -    -      - - + +                Load
+               Output       Input Input             Output                                Output              Output       1                   2    Share
+               24V,10A        1     2               24V,10A                              24V, 10A            24V, 10A      Input           Input
+                                                                                                                                                   Warning
+                                                                                                                          Load Share          o
+                        o                                    o                                    o                   o          OK           o
+                DC-                                  DC-                                  DC-                 DC-
+                OK      o   YR20.242                 OK      o                            OK      o           OK      o   Redudnadcy          o
+                            Redundancy                                                                                           OK           o
+           Power            Module              Power                                                                                              Failure
+           Supply                               Supply                               Power               Power             YR20.246                Monitor
+                                                                                     Supply              Supply            Redundancy
+                                                                                                                           Module
+               Input                   Output       Input                                Input               Input                      Output
+               L N PE                    - +        L N PE                               L N PE              L N PE                       - +
+                                                                   Max.                                                                             Max.
+                                                                   10A                                                                              10A
+                                                                   Load                                                                             Load
+                            optional
+
+
+
+
+           I                                    I                                    I                   I
+                                                                                                                             optional
+
+
+
+
+       L                                                                         +
+      N                                                                          -
+      PE                                                                        PE
+
+
+
+N+1 Redundancy:
+Redundant systems for a higher power demand are usually built in a N+1 method. E.g. four power supplies, each rated
+for 10A are paralleled to build a 30A redundant system.
+Pay attention that leakage current, EMI, inrush current, harmonics will increase when using multiple power supplies.
+Keep an installation clearance of 15mm (left / right) between two power supplies and avoid installing the power
+supplies on top of each other.
+Do not use power supplies in parallel in mounting orientations other than the standard mounting orientation or in
+any other condition, where a derating of the output current is required.
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                                    30/33
+                                                    www.pulspower.com Phone +49 89 9278 0             Germany
+                                                                             CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                                          CP10.241-S2, CP10.242
+                                            CP-Series                                                                   24V, 10A, 240W, SINGLE PHASE INPUT
+
+Wiring examples for 1+1 redundancy:
+         Fig. 24-7 Wiring for N+1 redundancy with four power supplies and two redundancy modules
+                                                 YR20.242
+
+
+                                                                                                                              Failure
+                                                                                                                              Monitor
+                + + -    -     + - + -               + + -    -              + + -    -          + - + -        + + -    -
+                Output       Input Input             Output                  Output          Input Input        Output
+                24V,10A        1     2               24V,10A                 24V,10A           1     2          24V,10A
+
+
+                 DC-     o                            DC-     o               DC-     o                          DC-     o
+                 OK      o   YR20.242                 OK      o               OK      o      YR20.242            OK      o
+                             Redundancy                                                      Redundancy
+           Power             Module              Power                   Power               Module        Power
+           Supply                                Supply                  Supply                            Supply
+
+                Input                   Output       Input                   Input                Output        Input
+                L N PE                    - +        L N PE                  L N PE                 - +         L N PE
+                                                                                                                               30A
+                                                                                                                               Load
+                             optional
+
+
+
+
+            I                                    I                       I                                  I
+
+     L
+     N
+     PE
+
+
+
+
+24.8. INDUCTIVE AND CAPACITIVE LOADS
+The unit is designed to supply any kind of loads, including capacitive and inductive loads. If extreme large capacitors,
+such as EDLCs (electric double layer capacitors or “UltraCaps”) with a capacitance larger than 1.5F are connected to the
+output, the unit might charge the capacitor in the HiccupPLUS mode (see chapter 6).
+
+
+
+
+24.9. CHARGING OF BATTERIES
+The power supply can be used to charge lead-acid or maintenance free batteries (SLA or VRLA batteries). Two 12V
+batteries are needed in series.
+Instructions for charging batteries:
+a)        Ensure that the ambient temperature of the power supply stays below 40°C for mains voltage of AC 120V or
+          higher and 35°C for a mains voltage of AC 100V.
+b)        Set output voltage (measured at no load and at the battery end of the cable) very precisely to the end-of-charge
+          voltage.
+           End-of-charge voltage                                  27.8V                   27.5V            27.15V             26.8V
+           Battery temperature                                    10°C                    20°C             30°C               40°C
+c)        Use a 15A or 16A circuit breaker (or blocking diode) between the power supply and the battery.
+d)        Ensure that the output current of the power supply is below the allowed charging current of the battery.
+e)        Use only matched batteries when putting 12V types in series.
+f)        The return current to the power supply (battery discharge current is typ. 3.5mA when the power supply is
+          switched off (except in case a blocking diode is utilized).
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                               31/33
+                                                             www.pulspower.com Phone +49 89 9278 0                           Germany
+                                                     CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                  CP10.241-S2, CP10.242
+                            CP-Series                                                 24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+24.10. OPERATION ON TWO PHASES                                                                                                 Power Supply
+The power supply can also be used on two-phases of a three-phase-                                    L1                             AC
+
+
+
+
+                                                                                                             240V +10% max.
+system. Such a phase-to-phase connection is allowed as long as the
+supplying voltage is below 240V+10%.                                                                                            L
+                                                                                                 Center
+                                                                                            L3     Tap                          N
+                                                                                                                               PE
+
+                                                                                                     L2                                  DC
+
+
+
+
+24.11. USE IN A TIGHTLY SEALED ENCLOSURE
+When the power supply is installed in a tightly sealed enclosure, the temperature inside the enclosure will be higher
+than outside. In such situations, the inside temperature defines the ambient temperature for the power supply.
+The following measurement results can be used as a reference to estimate the temperature rise inside the enclosure.
+The power supply is placed in the middle of the box, no other heat producing items are inside the box
+The temperature sensor inside the box is placed in the middle of the right side of the power supply with a distance of
+1cm.
+
+                                      Case A                     Case B                     Case C                            Case D
+Enclosure size                        110x180x165mm               110x180x165mm             180x180x165mm                     180x180x165mm
+                                      Rittal Typ IP66 Box         Rittal Typ IP66 Box       Rittal Typ IP66 Box               Rittal Typ IP66 Box
+                                      PK 9516 100,                PK 9516 100,              PK 9519 100,                      PK 9519 100,
+                                      plastic                     plastic                   plastic                           plastic
+Input voltage                         230Vac                      230Vac                    230Vac                            230Vac
+Load                                  24V, 8A; (=80%)             24V, 10A; (=100%)         24V, 8A; (=80%)                   24V, 10A; (=100%)
+Temperature inside the box            48.6°C                     53.8°C                     42.0°C                            48.1°C
+Temperature outside the box           26.3°C                     26.6°C                     25.8°C                            26.2°C
+Temperature rise                      22.3K                      27.3K                      16.2K                             21.9K
+
+
+
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.                     32/33
+                                         www.pulspower.com Phone +49 89 9278 0              Germany
+                                                      CP10.241, CP10.241-C1, CP10.241-S1,
+                                                                   CP10.241-S2, CP10.242
+                               CP-Series                                                    24V, 10A, 240W, SINGLE PHASE INPUT
+
+
+
+
+24.12. MOUNTING ORIENTATIONS
+Mounting orientations other than all terminals on the bottom require a reduction in continuous output power or a
+limitation in the maximum allowed ambient temperature. The amount of reduction influences the lifetime expectancy
+of the power supply. Therefore, two different derating curves for continuous operation can be found below:
+Curve A1            Recommended output current.
+Curve A2            Max allowed output current (results in approximately half the lifetime expectancy of A1).
+
+
+Fig. 24-8                                             Output Current
+Mounting                           OUTPUT             12A
+Orientation A                                                                                         A1
+(Standard                                               9
+orientation)                       Power
+                                   Supply               6
+                                                        3
+                                                                    Ambient Temperature
+                                   INPUT                0
+                                                            10    20        30         40        50        60°C
+
+Fig. 24-9                                             Output Current
+Mounting                            INPUT
+                                                      12A
+Orientation B
+(Upside down)                                           9                    A1        A2
+                                   Supply
+                                   Power                6
+                                                        3
+                                                                    Ambient Temperature
+                                                        0
+                                   OUTPUT
+
+                                                            10    20        30         40        50        60°C
+
+Fig. 24-10                                            Output Current
+Mounting                                              12A
+Orientation C
+(Table-top                                              9              A1         A2
+mounting)
+                                                        6
+                                                        3
+                                                                    Ambient Temperature
+                                                        0
+                                                            10    20        30         40        50        60°C
+
+Fig. 24-11                                            Output Current
+Mounting                                              12A
+Orientation D
+(Horizontal cw)                                         9
+                                             OUTPUT
+                                    Supply
+                                    Power
+
+
+
+
+                                                                             A1             A2
+                          INPUT
+
+
+
+
+                                                        6
+                                                        3
+                                                                    Ambient Temperature
+                                                        0
+                                                            10    20        30         40        50        60°C
+
+Fig. 24-12                                            Output Current
+Mounting                                              12A
+Orientation E
+(Horizontal ccw)                                        9
+                          OUTPUT
+
+
+
+
+                                                                            A1          A2
+                                    Supply
+                                    Power
+
+
+
+                                             INPUT
+
+
+
+
+                                                        6
+                                                        3
+                                                                    Ambient Temperature
+                                                        0
+                                                            10    20        30         40        50        60°C
+
+Aug. 2025 / Rev. 1.9 DS-CP10.241-EN
+All values are typical at 24V, 10A, 230Vac, 50Hz, +25°C ambient and after a 5 minutes run-in time unless otherwise noted.   33/33
+                                             www.pulspower.com Phone +49 89 9278 0                Germany
+

@@ -1,0 +1,10 @@
+{
+  "workspaceRoot": "D:/VisualBoard",
+  "workDirectory": "D:/VisualBoard/dsh-schematic-sync/workspaces",
+  "kicadCli": "D:/Kicad/bin/kicad-cli.exe",
+  "python": "D:/anaconda/python.exe",
+  "allowApply": true,
+  "visionBaseUrl": "",
+  "visionModel": "",
+  "visionKeyEnv": "SCHEMATIC_VISION_API_KEY"
+}

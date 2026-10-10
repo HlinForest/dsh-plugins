@@ -1,0 +1,9 @@
+- insert:
+    - id: megmeet-product-assistant
+      name: dsh-megmeet
+      config:
+        catalogPath: ''
+        maxCandidates: 10
+        maxInputChars: 60000
+        reportDirectory: ''
+

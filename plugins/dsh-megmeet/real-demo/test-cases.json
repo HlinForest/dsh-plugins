@@ -1,0 +1,122 @@
+{
+  "clarification": "上述basicRequest/fullRequest是从实际条款整理的测试输入，不是采购方新发布的需求；CRSC输入范围176–264V由220×(1±20%)计算。GZ保留120W等值，仅作成交规格筛查，不擅改为最低功率。来源频率排版或笔误按原件复核。basic只筛查列出字段，full保留尚未建模条件。",
+  "cases": [
+    {
+      "id": "YR-24-120",
+      "title": "实训系统：24V、至少120W",
+      "source": {
+        "title": "河南省政府采购货物公开招标：智能工厂实训系统项目",
+        "publisher": "黄河水利职业技术学院；河南省科教仪器设备招标有限公司",
+        "url": "https://www.yrcti.edu.cn/__local/E/97/E2/6FB045AAF129FD1066978EDAAF1_7527CB3B_754B3.pdf?e=.pdf",
+        "publication_date": "2017-05",
+        "date_precision": "month",
+        "date_basis": "PDF封面仅印“二〇一七年五月”；PDF元数据 CreationDate/ModDate 为 2017-05-15，仅作文件生成/修改时间，不作为官方发布日期",
+        "source_kind": "official tender document PDF",
+        "local_snapshot": "requirements/yrcti-smart-factory-201705.pdf",
+        "sha256": "D3495157D10F29DE064CE4E7E490EB8E2AA846ABCC9F95265E38FF9D7C9CA9D4",
+        "retrieved_at": "2026-10-09",
+        "locator": "PDF物理页59–60（印刷页码58–59），技术要求第7–9项"
+      },
+      "scope": "采购文件组件条款",
+      "basicRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于120W",
+      "fullRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于120W\n输入频率：50–60Hz\n支持1+1并联冗余；开机软启动；输入输出隔离；短路/过载/过压/超温保护；电源输出状态报警。"
+    },
+    {
+      "id": "YR-24-240",
+      "title": "实训系统：24V、至少240W",
+      "source": {
+        "title": "河南省政府采购货物公开招标：智能工厂实训系统项目",
+        "publisher": "黄河水利职业技术学院；河南省科教仪器设备招标有限公司",
+        "url": "https://www.yrcti.edu.cn/__local/E/97/E2/6FB045AAF129FD1066978EDAAF1_7527CB3B_754B3.pdf?e=.pdf",
+        "publication_date": "2017-05",
+        "date_precision": "month",
+        "date_basis": "PDF封面仅印“二〇一七年五月”；PDF元数据 CreationDate/ModDate 为 2017-05-15，仅作文件生成/修改时间，不作为官方发布日期",
+        "source_kind": "official tender document PDF",
+        "local_snapshot": "requirements/yrcti-smart-factory-201705.pdf",
+        "sha256": "D3495157D10F29DE064CE4E7E490EB8E2AA846ABCC9F95265E38FF9D7C9CA9D4",
+        "retrieved_at": "2026-10-09",
+        "locator": "PDF物理页59–60（印刷页码58–59），技术要求第7–9项"
+      },
+      "scope": "采购文件组件条款",
+      "basicRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于240W",
+      "fullRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于240W\n输入频率：50–60Hz\n开机软启动；输入输出隔离；短路/过载/过压/超温保护；电源输出状态报警。"
+    },
+    {
+      "id": "YR-48-120",
+      "title": "实训系统：48V、至少120W",
+      "source": {
+        "title": "河南省政府采购货物公开招标：智能工厂实训系统项目",
+        "publisher": "黄河水利职业技术学院；河南省科教仪器设备招标有限公司",
+        "url": "https://www.yrcti.edu.cn/__local/E/97/E2/6FB045AAF129FD1066978EDAAF1_7527CB3B_754B3.pdf?e=.pdf",
+        "publication_date": "2017-05",
+        "date_precision": "month",
+        "date_basis": "PDF封面仅印“二〇一七年五月”；PDF元数据 CreationDate/ModDate 为 2017-05-15，仅作文件生成/修改时间，不作为官方发布日期",
+        "source_kind": "official tender document PDF",
+        "local_snapshot": "requirements/yrcti-smart-factory-201705.pdf",
+        "sha256": "D3495157D10F29DE064CE4E7E490EB8E2AA846ABCC9F95265E38FF9D7C9CA9D4",
+        "retrieved_at": "2026-10-09",
+        "locator": "PDF物理页59–60（印刷页码58–59），技术要求第7–9项"
+      },
+      "scope": "采购文件组件条款",
+      "basicRequest": "输入电压：176–264VAC\n输出电压：48VDC\n额定功率：不低于120W",
+      "fullRequest": "输入电压：176–264VAC\n输出电压：48VDC\n额定功率：不低于120W\n输入频率：50–60Hz\n开机软启动；输入输出隔离；短路/过载/过压/超温保护；电源输出状态报警。"
+    },
+    {
+      "id": "BUAA-MULTI",
+      "title": "北航：12/24/28V多路射频供电",
+      "source": {
+        "title": "电子信息工程学院射频测量系统直流供电电源（BUAAJJ20260087）采购公告",
+        "publisher": "北京航空航天大学招标采购中心",
+        "url": "https://zbcg.buaa.edu.cn/info/1088/61937.htm",
+        "publication_date": "2026-07-15",
+        "date_precision": "day",
+        "source_kind": "official procurement announcement",
+        "local_snapshot": "requirements/buaa-20260715.html",
+        "sha256": "70628E7C41641EBD204A8B81CBD86F4A1D2C427BEE010845C693819DA08F3CDF",
+        "retrieved_at": "2026-10-09",
+        "locator": "网页正文“技术参数”第1–8项"
+      },
+      "scope": "整套电源系统，不能用单路产品代替",
+      "basicRequest": "输入电压：198–242VAC\n额定功率：不低于3000W",
+      "fullRequest": "输入电压：198–242VAC\n输出电压：12V、24V、28V，多路同时输出\n额定功率：不低于3000W\n各路输出功率：12V至少1000W，24V至少500W，28V至少1500W\n效率：>88%\n散热方式：液冷或等效高效散热\n通信协议：RS422或同等工业通信接口\n工作温度：-40–55℃\n纹波、保护、外场连接器、盐雾96小时及环境适应性按公告原文进一步复核。"
+    },
+    {
+      "id": "CRSC-DUAL",
+      "title": "中国通号：24V/20A与12V/6A双路",
+      "source": {
+        "title": "CTC、监测、CIPS、融雪、驼峰、调机设备买卖框架补充协议询比采购公告",
+        "publisher": "中国通号招标采购网（北京全路通信信号研究设计院集团有限公司采购项目）",
+        "url": "https://www.crsc.com.cn/news/tsi_7267_6094_100571.html",
+        "publication_date": "2026-09-11",
+        "date_precision": "day",
+        "source_kind": "official procurement announcement with attachment-like technical section",
+        "local_snapshot": "requirements/crsc-20260911.html",
+        "sha256": "D948162A84DD623F7D48EAB20BCE669D1809637C48FB2C266FB10380C057235A",
+        "retrieved_at": "2026-10-09",
+        "locator": "网页正文第3节“技术指标”第220–272行附近的24V/12V驼峰双路开关电源条款"
+      },
+      "scope": "双路电源组件，单路不能宣称满足",
+      "basicRequest": "输入电压：176–264VAC\n效率：≥85%",
+      "fullRequest": "输入电压：176–264VAC\n输出电压：24V和12V，双路同时输出\n输出电流：24V输出满载20A，12V输出满载6A\n效率：≥85%\n输入频率：47–53Hz\n自然冷却；功率因数≥0.9；输入THD、纹波、续流时间、均流冗余与保护阈值按公告原文复核。"
+    },
+    {
+      "id": "GZ-24-120",
+      "title": "广州实训成交标的：24V/5A/120W",
+      "source": {
+        "title": "广州市机电技师学院2026年实训教学耗材采购项目（三次）结果公告",
+        "publisher": "中国政府采购网（采购单位：广州市机电技师学院）",
+        "url": "https://www.ccgp.gov.cn/cggg/dfgg/zbgg/202606/t20260601_26662073.htm",
+        "publication_date": "2026-06-01",
+        "date_precision": "day",
+        "source_kind": "official government procurement result announcement",
+        "local_snapshot": "requirements/ccgp-guangzhou-20260601.html",
+        "sha256": "EB70985C1A5C9311F9075DB6400CEA040B20FA067D1715150C897AFF81D6809D",
+        "retrieved_at": "2026-10-09",
+        "locator": "网页正文“四、主要标的信息”中“DC24V直流电源”条目"
+      },
+      "scope": "成交结果，仅证明成交电气规格，不能等同完整招标条件",
+      "basicRequest": "输出电压：24VDC\n额定功率：120W",
+      "fullRequest": "输出电压：24VDC\n额定功率：120W\n输出电流：5A\n原成交标的是Mwish NDR-120-24；安装接口、输入范围、保护及替换兼容性待采购方确认。"
+    }
+  ]
+}

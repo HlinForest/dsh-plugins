@@ -1,0 +1,53 @@
+# Identical experiment controls for both arms. No credentials are stored here.
+- id: agent-default-model
+  config:
+    provider: deepseek-account
+    model: deepseek-flash
+    reasoningEffort: high
+- id: llm-deepseek-account
+  config:
+    thinking: enabled
+    reasoningEffort: high
+    maxTokens: 16000
+- id: system-prompt
+  config:
+    personaPrefix: '你是产品选型辅助助手。依据提供的资料回答，准确区分满足、不满足与资料缺失，保留来源和工程确认要求。'
+    personaSuffix: ''
+- id: tool-plugin-manager
+  disabled: true
+- id: tool-bash
+  disabled: true
+- id: tool-pwsh
+  disabled: true
+- id: tool-jobs
+  disabled: true
+- id: tool-fs
+  disabled: true
+- id: tool-fs-search
+  disabled: true
+- id: tool-skill
+  disabled: true
+- id: tool-subagent-control
+  disabled: true
+- id: tool-subagent-list-agents
+  disabled: true
+- id: tool-subagent
+  disabled: true
+- id: tool-subagent-fork
+  disabled: true
+- id: tool-workflow
+  disabled: true
+- id: tool-todo
+  disabled: true
+- id: tool-goal
+  disabled: true
+- id: tool-ralph
+  disabled: true
+- id: tool-web
+  disabled: true
+- id: agent-instructions
+  disabled: true
+- id: skill-filesystem
+  disabled: true
+- id: session-title-llm
+  disabled: true

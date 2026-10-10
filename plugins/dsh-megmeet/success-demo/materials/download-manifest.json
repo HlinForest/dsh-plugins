@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "createdAtUTC": "2026-10-09T06:08:10.666980+00:00",
+  "originalsUntouched": true,
+  "textExtraction": "Poppler pdftotext -layout; PUA U+F020..U+F07E normalised to ASCII labels; form-feed page separators retained",
+  "sources": [
+    {
+      "sourceId": "SDR-75",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-75/SDR-75-SPEC.PDF",
+      "version": "2025-06-09",
+      "pdfPath": "materials/SDR-75.pdf",
+      "textPath": "materials/SDR-75.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "sha256": "bd4c1f6607f411b2e3843c4346a4d1d15ab28de64b2d2837a20c3d5aaf450f9a",
+      "bytes": 628442,
+      "downloadedAtUTC": "2026-10-09T06:01:47.263877+00:00",
+      "pages": 3,
+      "textSha256": "6851b826b278839b9bf120675954d35dd95981709fa3b16013916d9578db8498"
+    },
+    {
+      "sourceId": "SDR-120",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-120/SDR-120-SPEC.PDF",
+      "version": "2025-06-09",
+      "pdfPath": "materials/SDR-120.pdf",
+      "textPath": "materials/SDR-120.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "sha256": "f755e5a10c898519fb46ffb452a3781e0a3eb1488f3cd7372f1267359f9cc0e9",
+      "bytes": 633013,
+      "downloadedAtUTC": "2026-10-09T06:01:52.081310+00:00",
+      "pages": 3,
+      "textSha256": "77ade533ff56f6027e6b726758d867cace7c3e46853cbffeedcba56f4cfe0f51"
+    },
+    {
+      "sourceId": "SDR-240",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-240/SDR-240-SPEC.PDF",
+      "version": "2025-02-17",
+      "pdfPath": "materials/SDR-240.pdf",
+      "textPath": "materials/SDR-240.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "sha256": "7a184be3e20a5f80fe4a794bc8db9882e87402c7d99a0da517d319dede560b4f",
+      "bytes": 146206,
+      "downloadedAtUTC": "2026-10-09T06:00:10.258901+00:00",
+      "pages": 3,
+      "textSha256": "487b9a585f7fb1c9c0ecf4ff1372164798512a5098512237bbd53af4330fc5bf"
+    },
+    {
+      "sourceId": "SDR-480",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/SDR-480/SDR-480-SPEC.PDF",
+      "version": "2025-02-17",
+      "pdfPath": "materials/SDR-480.pdf",
+      "textPath": "materials/SDR-480.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "sha256": "2914d2e73bafd7fdb3c7b13b36a3b75d5da7f020f3b44d459a2145565f189d75",
+      "bytes": 144954,
+      "downloadedAtUTC": "2026-10-09T06:00:12.485407+00:00",
+      "pages": 3,
+      "textSha256": "d18fb2776dc4775205145277d2ce90d7c3c91f2d57c88ebdd75439e0b915ff9d"
+    },
+    {
+      "sourceId": "NDR-120",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/NDR-120/NDR-120-SPEC.PDF",
+      "version": "2026-04-03",
+      "pdfPath": "materials/NDR-120.pdf",
+      "textPath": "materials/NDR-120.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          2,
+          3,
+          4
+        ]
+      },
+      "sha256": "8ea2a476d9989a44e917afe910689f1d84c93aab311c86beb64d31cdb518ce8d",
+      "bytes": 681608,
+      "downloadedAtUTC": "2026-10-09T06:01:55.565136+00:00",
+      "pages": 4,
+      "textSha256": "2503e7f78a366e2e0e8c87a8ea1ddb64ec48f726ce1bb43678a5f50614f2420b"
+    },
+    {
+      "sourceId": "NDR-240",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/NDR-240/NDR-240-SPEC.PDF",
+      "version": "2026-04-03",
+      "pdfPath": "materials/NDR-240.pdf",
+      "textPath": "materials/NDR-240.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          2,
+          3,
+          4
+        ]
+      },
+      "sha256": "383b37857443a4921952fc42b43b7dad456f150c670882d6f5e89e79f62446a1",
+      "bytes": 708114,
+      "downloadedAtUTC": "2026-10-09T06:01:59.216059+00:00",
+      "pages": 4,
+      "textSha256": "63ca4f1a8e29abc590ab04da399c66f9c8b21737c5707f869e9d5bd195f6ac3c"
+    },
+    {
+      "sourceId": "NDR-480",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/NDR-480/NDR-480-SPEC.PDF",
+      "version": "2025-01-10",
+      "pdfPath": "materials/NDR-480.pdf",
+      "textPath": "materials/NDR-480.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          2,
+          3,
+          4
+        ]
+      },
+      "sha256": "f077c7787d0203eefe95cc6772f70353b68b8e506c8722334e3aca6c870f87c5",
+      "bytes": 754272,
+      "downloadedAtUTC": "2026-10-09T06:02:02.216908+00:00",
+      "pages": 4,
+      "textSha256": "e3f0f3c83a57882b0340c85edd752ef57b46c8484b0d40d799be19c71fb9685f"
+    },
+    {
+      "sourceId": "HDR-60",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/HDR-60/HDR-60-SPEC.PDF",
+      "version": "2026-04-03",
+      "pdfPath": "materials/HDR-60.pdf",
+      "textPath": "materials/HDR-60.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "sha256": "b51de6512c55662ec325fed1ee96027630bc6de1c1081eb99b5cdcdd37b675ab",
+      "bytes": 942274,
+      "downloadedAtUTC": "2026-10-09T06:02:04.801774+00:00",
+      "pages": 4,
+      "textSha256": "5e47f49e751bb526d2145edbc1a3d96ca1b1527e0d452c0867f3aabe531d7fd4"
+    },
+    {
+      "sourceId": "LRS-350",
+      "brand": "MEAN WELL",
+      "url": "https://www.meanwell.com/Upload/PDF/LRS-350/LRS-350-SPEC.PDF",
+      "version": "2025-09-12",
+      "pdfPath": "materials/LRS-350.pdf",
+      "textPath": "materials/LRS-350.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          2,
+          3,
+          4
+        ]
+      },
+      "sha256": "ac3e7b8d27dcd72277b6bdbb208586a2343a635edf1ff578fffd131a31713f6f",
+      "bytes": 674002,
+      "downloadedAtUTC": "2026-10-09T06:02:07.733666+00:00",
+      "pages": 4,
+      "textSha256": "52f63f1b4fdae5991a0357b4678bce31b9d6445fb3e855e288419837e2c25744"
+    },
+    {
+      "sourceId": "CP10.241",
+      "brand": "PULS",
+      "url": "https://products.pulspower.com/mwdownloads/download/link/id/76",
+      "version": "Aug. 2025 / Rev. 1.9",
+      "pdfPath": "materials/CP10.241.pdf",
+      "textPath": "materials/CP10.241.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          3,
+          4,
+          8,
+          17,
+          23
+        ]
+      },
+      "sha256": "c61d0de1056ffe8e0c9676e5518da835b69aceaf3f801ac9402de81c7bc4094a",
+      "bytes": 2139024,
+      "downloadedAtUTC": "2026-10-09T06:02:10.968949+00:00",
+      "pages": 33,
+      "textSha256": "e2571594021ca760759a5b2c7ef59c2b5f6a725d166e8114a01a0836312e5bc9"
+    },
+    {
+      "sourceId": "CP20.241-R2",
+      "brand": "PULS",
+      "url": "https://products.pulspower.com/us/mwdownloads/download/link/id/93/",
+      "version": "Nov. 2025 / Rev. 1.3",
+      "pdfPath": "materials/CP20.241-R2.pdf",
+      "textPath": "materials/CP20.241-R2.txt",
+      "downloadDate": "2026-10-09",
+      "pageNumbering": "1-based PDF page",
+      "visualVerification": {
+        "performed": true,
+        "renderer": "Poppler pdftoppm",
+        "pages": [
+          1,
+          4,
+          6,
+          9,
+          11,
+          17,
+          19,
+          24,
+          28
+        ]
+      },
+      "sha256": "ab1379daf497ed16d80e9e813f699ea2f86a82ab6fb7965ac24722e5ee3c68a0",
+      "bytes": 1050038,
+      "downloadedAtUTC": "2026-10-09T06:00:17.271527+00:00",
+      "pages": 33,
+      "textSha256": "04004660cf6a55b965691cf37a18aa082bfb9dbd5dea16a15c8be082a123aa35"
+    }
+  ]
+}

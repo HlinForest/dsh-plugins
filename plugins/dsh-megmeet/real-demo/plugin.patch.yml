@@ -1,0 +1,5 @@
+- id: megmeet-product-assistant
+  config:
+    catalogPath: 'D:/VisualBoard/dsh-megmeet/real-demo/catalog.real.json'
+    maxCandidates: 10
+    maxInputChars: 60000

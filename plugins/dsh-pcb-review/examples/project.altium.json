@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "project": "虚构演示：AD 导出文件评审",
+  "format": "altium-protel",
+  "netlistPath": "demo.protel.net",
+  "positionsPath": "demo.positions.csv",
+  "context": {
+    "allListedFitted": true,
+    "componentOverrides": [{ "ref": "C2", "dnp": true }],
+    "signals": [
+      { "ref": "U1", "pin": "3", "kind": "analog", "groundNet": "GND", "capacitorPolicy": "required", "basis": "演示设计意图：此采样输入要求安装滤波电容；不是通用 MCU 规则。" },
+      { "ref": "U1", "pin": "4", "kind": "high_speed", "groundNet": "GND", "capacitorPolicy": "evaluate" }
+    ],
+    "decoupling": [{ "ref": "U1", "pin": "1", "groundNet": "GND", "basis": "演示规则：U1 电源引脚要求旁路电容。容值仍需按具体 MCU 资料核验。" }],
+    "proximity": [{ "ref": "C1", "nearRef": "U1", "maxMm": 3, "basis": "演示布局目标：封装参考点距离不超过 3 mm，仅作粗筛，不是原厂限值。" }],
+    "isolation": [{ "id": "ISO-1", "refs": ["U2"] }]
+  }
+}

@@ -1,0 +1,9 @@
+- insert:
+    - id: pcb-review-assistant
+      name: dsh-pcb-review
+      config:
+        projectFile: ''
+        reportDirectory: ''
+        watch: false
+        popup: false
+        pollSeconds: 3

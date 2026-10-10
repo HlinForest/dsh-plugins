@@ -1,0 +1,52 @@
+{
+  "runtime": "DSH v0.2.0-rc.2",
+  "plugin": "dsh-megmeet@0.1.3",
+  "provider": "deepseek-account",
+  "model": "deepseek-flash",
+  "reasoningEffort": "high",
+  "promptSHA256": "6f92b9ea042ef2d98fdf62e6e8645a279b284ae3c957aeb7384a1f576762854c",
+  "catalogSHA256": "a19f2a04c8b1c1c852aeacd632a22e9758a8d3f86ff88f6704cd2b682adf4584",
+  "realProductCount": 28,
+  "officialIndustrialDocuments": 8,
+  "procurementSources": 4,
+  "deterministicCases": 6,
+  "pairedCases": [
+    "YR-24-120",
+    "YR-24-240",
+    "CRSC-DUAL"
+  ],
+  "controls": [
+    "Same prompt bytes, model, data, workspace and shared patch",
+    "Fresh sessions; only treatment profile has the plugin",
+    "No generic filesystem, shell, web or delegation tools enabled"
+  ],
+  "limitations": [
+    "One paired model run, not a statistical benchmark",
+    "Catalog is a conservative manual transcription of scanned official PDF page1",
+    "Efficiency guarantee, temperature derating and certification evidence intentionally remain unknown",
+    "Full engineering and procurement suitability is not established"
+  ],
+  "status": "completed",
+  "stats": {
+    "baseline": {
+      "seconds": 42.42,
+      "calls": 0,
+      "steps": 1,
+      "tokens": 26421
+    },
+    "plugin": {
+      "seconds": 31.74,
+      "calls": 11,
+      "steps": 4,
+      "tokens": 215409
+    }
+  },
+  "outputFilesUnedited": true,
+  "sameActualModel": true,
+  "samePersistedPrompts": true,
+  "configurationDifference": [
+    "megmeet-product-assistant"
+  ],
+  "round1Archive": "round1-v0.1.2",
+  "assessment": "Both arms must be assessed against the deterministic results. No statistical accuracy improvement is claimed."
+}

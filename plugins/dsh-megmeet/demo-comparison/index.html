@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦格米特 DSH 插件：真实输出对比</title>
+<style>
+:root{--paper:#fafbfe;--ink:#163557;--blue:#315e9b;--green:#006b61;--muted:#566474;--rule:#d3dbe6;--red:#9b343d;--amber:#815709}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Microsoft YaHei UI","Segoe UI",sans-serif;line-height:1.7}a{color:var(--blue)}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #5482ba;outline-offset:3px}header,main,footer{max-width:1540px;margin:auto;padding:24px 36px}header{padding-top:36px;padding-bottom:16px}header .context{margin:0;color:var(--muted);font-size:13px}h1{font-size:clamp(25px,3.4vw,42px);line-height:1.3;margin:12px 0}header .finding{font-size:17px;max-width:960px;margin:12px 0;color:var(--ink)}.metadata{color:var(--muted);font-size:13px}.tabs{display:flex;gap:8px;flex-wrap:wrap;padding-top:16px;border-bottom:1px solid var(--rule)}.tabs button{border:0;border-bottom:3px solid transparent;color:var(--muted);background:none;padding:12px 18px}.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--blue);font-weight:700}.panel[hidden]{display:none}.reports{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}.report{min-width:0;background:white;border:1px solid var(--rule);border-radius:6px;overflow:hidden}.report-label{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--rule);background:#edf2f8}.report-label h2{font-size:19px;margin:0}.report-label a{font-size:12px}.report-content{padding:22px;font-size:13px;overflow-wrap:anywhere}.report-content h1{font-size:22px}.report-content h2{font-size:17px;margin-top:26px}.report-content h3{font-size:15px}.report-content p{margin:12px 0}.report-content blockquote{margin:15px 0;padding:10px 14px;border-left:3px solid var(--blue);background:#f3f6fa;color:var(--muted)}.report-content ul,.report-content ol{padding-left:24px}.report-content hr{border:0;border-top:1px solid var(--rule);margin:24px 0}table{border-collapse:collapse;width:100%;font-size:13px;text-align:left}th,td{border:1px solid var(--rule);padding:8px 9px;vertical-align:top}th{background:#eef3f8;font-weight:600}.report-content table{display:block;overflow-x:auto;font-size:12px}.report-content td,.report-content th{min-width:65px}.report-content table thead th{white-space:normal}.table-wrap{overflow-x:auto}code{overflow-wrap:anywhere;font-family:Consolas,"Microsoft YaHei UI",monospace;font-size:.93em;background:#eef2f7;border-radius:3px;padding:1px 4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf2f8;padding:20px;border-radius:5px;font-size:12px;line-height:1.65;max-height:65vh;overflow:auto}.section-title{font-size:23px;margin:0 0 10px}.section-note{max-width:900px;color:var(--muted)}.candidate{border:1px solid var(--rule);background:white;border-radius:5px;margin:14px 0}.candidate summary{padding:14px 18px;cursor:pointer;font-weight:650;display:flex;justify-content:space-between;gap:18px}.candidate summary span{font-weight:400;color:var(--muted)}.candidate .table-wrap{padding:0 18px 18px}.candidate table{min-width:1000px}.candidate td:last-child{max-width:340px}.status{display:inline-block;border-radius:3px;padding:1px 8px;white-space:nowrap}.status.pass{color:var(--green);background:#e5f2ef}.status.fail{color:var(--red);background:#f7e9eb}.status.unknown{color:var(--amber);background:#f9f0dc}.call-list{padding-left:28px;max-width:720px}.call-list li{padding:5px 0}.call-list span{font-size:14px}.call-list small{margin-left:12px;color:var(--muted)}.overview{max-width:1050px}.overview table{margin:20px 0}.prose{max-width:1000px}.prose h2{font-size:21px;margin-top:26px}.notice{border-left:4px solid var(--green);padding:10px 20px;background:#eaf3f1;max-width:1040px;margin-bottom:22px}.file-links{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}footer{font-size:12px;color:var(--muted);padding-top:8px;padding-bottom:30px}.paired-mode{color:var(--green);font-size:13px;margin:0 0 18px}@media(max-width:980px){.reports{grid-template-columns:1fr}header,main,footer{padding-left:18px;padding-right:18px}.report-content{padding:16px}.tabs button{padding:10px}.candidate summary{font-size:14px}}@media print{.tabs,footer,.report-label a{display:none}.panel[hidden]{display:none}.reports{display:block}.report{page-break-inside:auto;margin-bottom:24px}.report-content table{display:table}header,main{padding:12px}pre{max-height:none}}
+</style></head><body>
+<header><p class="context">麦格米特产品选型辅助插件 / DSH 真实运行演示</p><h1>同一份需求，两个运行结果</h1>
+<p class="finding">五个型号的分类结论一致。已安装插件组增加了可核查的逐项校验记录，本次累计 token 用量更高。</p>
+<p class="metadata">DeepSeek Harness 0.2.0-rc.2　模型 deepseek-flash　两条独立会话　2026-10-09</p>
+<p class="metadata"><a href="../real-demo/index.html">新增：28个真实型号、8份官方规格书和公开采购需求测试</a></p>
+<nav class="tabs" role="tablist" aria-label="对比演示视图">
+<button id="tab-output" role="tab" aria-selected="true" aria-controls="output" data-panel="output">原始输出</button>
+<button id="tab-evidence" role="tab" aria-selected="false" aria-controls="evidence" data-panel="evidence" tabindex="-1">逐项校验</button>
+<button id="tab-input" role="tab" aria-selected="false" aria-controls="input" data-panel="input" tabindex="-1">共同输入</button>
+<button id="tab-notes" role="tab" aria-selected="false" aria-controls="notes" data-panel="notes" tabindex="-1">演示说明</button></nav></header>
+<main>
+<section class="panel" id="output" role="tabpanel" aria-labelledby="tab-output"><p class="paired-mode">两份报告均为真实模型输出，未改写。产品和来源均为虚构演示数据。</p><div class="reports">
+<article class="report"><div class="report-label"><h2>无插件</h2><a href="baseline.md" download>保存原始 Markdown</a></div><div class="report-content"><h1>麦格米特业务场景｜产品选型辅助报告（虚构演示）</h1>
+<blockquote>
+<p>⚠️ <strong>演示数据声明</strong>：本报告全部产品与资料均为<strong>虚构演示数据（dataset: 虚构演示产品库；version: DEMO-1；demo: true；schemaVersion: 1）</strong>，不代表麦格米特实际产品。报告仅依据所提供产品库 JSON 分析，未联网补全，未编造型号、参数、认证、报价或交期。
+<strong>所有结论仍需工程师确认。</strong> 报价、库存、交期、温度降额、认证适用范围/标准版本均<strong>未验证</strong>。</p>
+</blockquote>
+<h2>0. 工具调用说明</h2>
+<p>本次运行环境中<strong>未提供本地产品检索、参数校验或报告生成类工具</strong>（可用工具仅为计划模式相关的交互工具，不适用于产品数据检索与校验）。因此<strong>未实际调用任何产品工具</strong>，直接依据所提供的同一份产品库 JSON（与另一组相同的资料）进行逐项比对分析。</p>
+<hr />
+<h2>1. 需求表（客户需求原文）</h2>
+<table>
+<thead>
+<tr>
+  <th>序号</th>
+  <th>需求项</th>
+  <th>客户要求</th>
+  <th>判定口径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>R1</td>
+  <td>输入类型</td>
+  <td>AC</td>
+  <td>完全一致</td>
+</tr>
+<tr>
+  <td>R2</td>
+  <td>输入电压</td>
+  <td>180–264V</td>
+  <td>须<strong>完整覆盖</strong> 180–264V，区间相交不等于覆盖</td>
+</tr>
+<tr>
+  <td>R3</td>
+  <td>输出电压</td>
+  <td>48V</td>
+  <td>完全一致</td>
+</tr>
+<tr>
+  <td>R4</td>
+  <td>输出功率</td>
+  <td>不低于 3kW（≥3000W）</td>
+  <td>≥3000W</td>
+</tr>
+<tr>
+  <td>R5</td>
+  <td>效率</td>
+  <td>≥96%</td>
+  <td>≥96%</td>
+</tr>
+<tr>
+  <td>R6</td>
+  <td>工作温度</td>
+  <td>-20–60℃</td>
+  <td>须<strong>完整覆盖</strong> -20–60℃，区间相交不等于覆盖</td>
+</tr>
+<tr>
+  <td>R7</td>
+  <td>通信协议</td>
+  <td>CAN、RS485</td>
+  <td>二者<strong>均须具备</strong></td>
+</tr>
+<tr>
+  <td>R8</td>
+  <td>认证</td>
+  <td>CE、UL</td>
+  <td>二者<strong>均须具备</strong></td>
+</tr>
+<tr>
+  <td>R9</td>
+  <td>散热方式</td>
+  <td>风冷（fan）</td>
+  <td>一致</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. 五个型号逐项对比表</h2>
+<p>图例：✅ 通过已列条件 ｜ ⚠️ 资料缺失/待确认 ｜ ❌ 硬性不匹配</p>
+<table>
+<thead>
+<tr>
+  <th>需求项</th>
+  <th>客户要求</th>
+  <th>DEMO-PS-A</th>
+  <th>DEMO-PS-B</th>
+  <th>DEMO-PS-C</th>
+  <th>DEMO-PS-D</th>
+  <th>DEMO-PS-E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>R1 输入类型</td>
+  <td>AC</td>
+  <td>AC ✅</td>
+  <td>AC ✅</td>
+  <td>AC ✅</td>
+  <td>AC ✅</td>
+  <td>AC ✅</td>
+</tr>
+<tr>
+  <td>R2 输入电压</td>
+  <td>180–264V</td>
+  <td>180–264 ✅（完全一致）</td>
+  <td>180–264 ✅（完全一致）</td>
+  <td>180–264 ✅（完全一致）</td>
+  <td><strong>200–240 ❌（下限200&gt;180、上限240&lt;264，未完整覆盖）</strong></td>
+  <td>180–264 ✅（完全一致）</td>
+</tr>
+<tr>
+  <td>R3 输出电压</td>
+  <td>48V</td>
+  <td>48V ✅</td>
+  <td>48V ✅</td>
+  <td>48V ✅</td>
+  <td>48V ✅</td>
+  <td><strong>24V ❌</strong></td>
+</tr>
+<tr>
+  <td>R4 输出功率</td>
+  <td>≥3000W</td>
+  <td>3000W ✅（等于下限）</td>
+  <td><strong>1500W ❌（低于下限）</strong></td>
+  <td>3300W ✅</td>
+  <td>3500W ✅</td>
+  <td>3000W ✅（等于下限）</td>
+</tr>
+<tr>
+  <td>R5 效率</td>
+  <td>≥96%</td>
+  <td>96.5% ✅</td>
+  <td>97% ✅</td>
+  <td><strong>未提供效率参数 ⚠️ 待确认</strong></td>
+  <td>97% ✅</td>
+  <td>96.5% ✅</td>
+</tr>
+<tr>
+  <td>R6 工作温度</td>
+  <td>-20–60℃</td>
+  <td>-20–60 ✅（完全一致）</td>
+  <td>-20–70 ✅（覆盖）</td>
+  <td>-30–70 ✅（覆盖）</td>
+  <td>-20–60 ✅（完全一致）</td>
+  <td>-20–60 ✅（完全一致）</td>
+</tr>
+<tr>
+  <td>R7 通信协议</td>
+  <td>CAN + RS485</td>
+  <td>CAN,RS485 ✅</td>
+  <td>CAN,RS485 ✅</td>
+  <td>CAN,RS485 ✅</td>
+  <td>CAN,RS485 ✅</td>
+  <td><strong>仅 CAN ❌（缺 RS485）</strong></td>
+</tr>
+<tr>
+  <td>R8 认证</td>
+  <td>CE + UL</td>
+  <td>CE,UL ✅</td>
+  <td>CE,UL ✅</td>
+  <td>CE,UL ✅</td>
+  <td>CE,UL ✅</td>
+  <td><strong>仅 CE ❌（缺 UL）</strong></td>
+</tr>
+<tr>
+  <td>R9 散热方式</td>
+  <td>风冷</td>
+  <td>fan ✅</td>
+  <td>fan ✅</td>
+  <td>fan ✅</td>
+  <td>fan ✅</td>
+  <td>fan ✅</td>
+</tr>
+<tr>
+  <td><strong>逐项小结</strong></td>
+  <td>—</td>
+  <td>9/9 项通过</td>
+  <td>8/9 通过，1 项硬性不匹配</td>
+  <td>8/9 通过，1 项待确认</td>
+  <td>8/9 通过，1 项硬性不匹配</td>
+  <td>6/9 通过，3 项硬性不匹配</td>
+</tr>
+</tbody>
+</table>
+<h3>结论汇总</h3>
+<table>
+<thead>
+<tr>
+  <th>型号</th>
+  <th>名称</th>
+  <th>结论</th>
+  <th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DEMO-PS-A</td>
+  <td>虚构演示电源 A</td>
+  <td><strong>通过已列条件</strong></td>
+  <td>9 项需求全部在已列参数中完整覆盖；功率 3000W 恰为下限，效率 96.5%≥96%</td>
+</tr>
+<tr>
+  <td>DEMO-PS-B</td>
+  <td>虚构演示电源 B</td>
+  <td><strong>硬性不匹配</strong></td>
+  <td>输出功率 1500W &lt; 3000W，其余 8 项通过</td>
+</tr>
+<tr>
+  <td>DEMO-PS-C</td>
+  <td>虚构演示电源 C</td>
+  <td><strong>待确认</strong></td>
+  <td>仅&quot;效率&quot;项资料未提供（无 efficiency_pct 及证据条目）；其余 8 项通过</td>
+</tr>
+<tr>
+  <td>DEMO-PS-D</td>
+  <td>虚构演示电源 D</td>
+  <td><strong>硬性不匹配</strong></td>
+  <td>输入电压 200–240V 未完整覆盖 180–264V（区间相交≠覆盖）；其余 8 项通过</td>
+</tr>
+<tr>
+  <td>DEMO-PS-E</td>
+  <td>虚构演示电源 E</td>
+  <td><strong>硬性不匹配</strong></td>
+  <td>输出电压 24V≠48V；通信仅 CAN 缺 RS485；认证仅 CE 缺 UL</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. 优先候选与排除原因</h2>
+<h3>3.1 优先候选（第一顺位）</h3>
+<p><strong>DEMO-PS-A（虚构演示电源 A）</strong> — 唯一&quot;通过已列条件&quot;的型号。</p>
+<ul>
+<li>通过依据：输入 AC / 180–264V / 输出 48V / 3000W / 效率 96.5% / -20–60℃ / CAN+RS485 / CE+UL / fan，九项与需求逐项一致或覆盖。</li>
+<li>需注意的工程边界（不改变上述结论，但必须由工程师确认）：<ol>
+<li>输出功率 3000W <strong>恰等于</strong>需求下限，无余量，需确认是否为额定连续输出能力；</li>
+<li><strong>温度降额未验证</strong>：-20–60℃ 是否为全温区满功率，高温端是否降额，资料未说明；</li>
+<li>CE/UL 的具体标准与适用范围未提供。</li>
+</ol>
+</li>
+</ul>
+<h3>3.2 次选（备选，必须先闭合资料缺口）</h3>
+<p><strong>DEMO-PS-C（虚构演示电源 C）</strong> — 功率余量更大（3300W）、温度范围更宽（-30–70℃），输入电压与协议/认证均满足；<strong>唯一缺口是效率资料未提供</strong>。在取得该型号效率数据并确认其 ≥96%（同时确认温度降额）之前，<strong>不得按&quot;满足&quot;处理</strong>。</p>
+<h3>3.3 排除原因</h3>
+<table>
+<thead>
+<tr>
+  <th>型号</th>
+  <th>排除结论</th>
+  <th>排除原因（逐条）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DEMO-PS-B</td>
+  <td>硬性不匹配，排除</td>
+  <td>输出功率 1500W 低于 3000W 下限，属硬性指标缺口，无法通过配置或其他满足项弥补</td>
+</tr>
+<tr>
+  <td>DEMO-PS-D</td>
+  <td>硬性不匹配，排除</td>
+  <td>输入电压 200–240V：下限 200V 高于要求的 180V，上限 240V 低于要求的 264V，<strong>未完整覆盖</strong>客户 180–264V 全范围；区间相交不等于覆盖。即使其功率(3500W)、效率(97%)、温度、协议、认证均满足，仍因输入电压条件不满足而排除</td>
+</tr>
+<tr>
+  <td>DEMO-PS-E</td>
+  <td>硬性不匹配，排除</td>
+  <td>三点硬性缺口：①输出电压 24V ≠ 48V；②通信协议仅有 CAN，缺少 RS485；③认证仅有 CE，缺少 UL</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>补充说明：DEMO-PS-D 若客户愿意把输入电压需求放宽到 200–240V，可在书面变更需求后重新评审，但在当前需求原文下<strong>不通过</strong>。</p>
+</blockquote>
+<hr />
+<h2>4. 参数来源 ID 与资料版本</h2>
+<table>
+<thead>
+<tr>
+  <th>型号</th>
+  <th>来源 ID</th>
+  <th>资料标题</th>
+  <th>资料版本</th>
+  <th>位置</th>
+  <th>覆盖参数（证据条目）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DEMO-PS-A</td>
+  <td>DEMO-PS-A-DATASHEET</td>
+  <td>虚构演示电源 A虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-A</td>
+  <td>全部 9 项（input_type / input_voltage_v / output_voltage_v / output_power_w / efficiency_pct / temperature_c / protocols / certifications / cooling）</td>
+</tr>
+<tr>
+  <td>DEMO-PS-B</td>
+  <td>DEMO-PS-B-DATASHEET</td>
+  <td>虚构演示电源 B虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-B</td>
+  <td>全部 9 项</td>
+</tr>
+<tr>
+  <td>DEMO-PS-C</td>
+  <td>DEMO-PS-C-DATASHEET</td>
+  <td>虚构演示电源 C虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-C</td>
+  <td>8 项；<strong>无 efficiency_pct 证据条目</strong></td>
+</tr>
+<tr>
+  <td>DEMO-PS-D</td>
+  <td>DEMO-PS-D-DATASHEET</td>
+  <td>虚构演示电源 D虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-D</td>
+  <td>全部 9 项</td>
+</tr>
+<tr>
+  <td>DEMO-PS-E</td>
+  <td>DEMO-PS-E-DATASHEET</td>
+  <td>虚构演示电源 E虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-E</td>
+  <td>全部 9 项</td>
+</tr>
+</tbody>
+</table>
+<p>产品库级元数据：schemaVersion = 1；dataset = 虚构演示产品库（非麦格米特实际产品）；version = DEMO-1；demo = true。</p>
+<hr />
+<h2>5. 待确认项（未提供 / 未验证，不得按满足处理）</h2>
+<ol>
+<li><strong>DEMO-PS-C 的效率</strong>：资料未提供 efficiency_pct 及对应证据条目 → 待确认（唯一阻断项）。</li>
+<li><strong>DEMO-PS-A 与 DEMO-PS-E 的 3000W 边界</strong>：是否额定连续功率、是否有瞬时/峰值口径差异 → 待确认。</li>
+<li><strong>温度降额</strong>：全部型号在 -20–60℃（尤其高温端）能否满功率输出，降额曲线未提供，<strong>未验证</strong>。</li>
+<li><strong>认证适用范围</strong>：CE/UL 所依据的标准及版本、覆盖的电压/功率/温度配置是否包含本选型工作点，<strong>未验证</strong>；DEMO-PS-E 明确缺 UL、DEMO-PS-E/仅 CE。</li>
+<li><strong>通信协议实现细节</strong>：CAN 波特率/协议栈（如 CANopen）、RS485 是否支持 Modbus RTU 及寄存器表，资料未提供；DEMO-PS-E 明确无 RS485。</li>
+<li><strong>风冷细节</strong>：风扇数量、寿命、噪音、进出风温度条件，资料未提供。</li>
+<li><strong>电气补充项</strong>：输入频率（50/60Hz）、掉电保持时间、浪涌、功率因数、启动电流、并机/均流能力，资料未提供。</li>
+<li><strong>机械与环境</strong>：尺寸、安装方式、防护等级、海拔、湿度、抗振，资料未提供（客户需求亦未列明，建议补充）。</li>
+<li><strong>商务项</strong>：报价、库存、交期、MOQ、质保 → <strong>未提供且未验证</strong>。</li>
+<li><strong>输入电压覆盖判定口径</strong>：本报告按&quot;必须完整覆盖 180–264V&quot;执行；若客户实际只在 200–240V 电网运行，需由客户书面确认变更需求后方可重新评审 DEMO-PS-D。</li>
+</ol>
+<hr />
+<h2>6. 结论</h2>
+<ul>
+<li>在&quot;通过已列条件 / 待确认 / 硬性不匹配&quot;三类中：<strong>通过已列条件 1 个（DEMO-PS-A）</strong>；<strong>待确认 1 个（DEMO-PS-C，仅效率缺资料）</strong>；<strong>硬性不匹配 3 个（DEMO-PS-B 功率不足、DEMO-PS-D 输入电压未完整覆盖、DEMO-PS-E 输出/协议/认证三项不符）</strong>。</li>
+<li>推荐顺序：<strong>DEMO-PS-A（首选，待工程师确认降额与认证范围）→ DEMO-PS-C（备选，先补效率资料）</strong>。</li>
+<li>全部结论基于虚构演示资料（DEMO-1），<strong>报价、库存、交期、温度降额与认证适用范围均未验证，最终选型须由工程师复核确认</strong>。</li>
+</ul>
+</div></article>
+<article class="report"><div class="report-label"><h2>已安装插件</h2><a href="plugin.md" download>保存原始 Markdown</a></div><div class="report-content"><h1>麦格米特选型辅助报告（虚构演示数据）</h1>
+<blockquote>
+<p>⚠️ <strong>演示数据声明</strong>：本报告全部产品、型号、参数、认证均来自 <strong>虚构演示产品库（非麦格米特实际产品）</strong>，dataset = <code>虚构演示产品库（非麦格米特实际产品）</code>，catalogVersion = <code>DEMO-1</code>，<code>demo = true</code>。这些型号不是真实麦格米特产品，不得作为真实选型、报价或宣传依据。
+所有结论<strong>仍需工程师确认</strong>；报价、库存、交期、温度降额曲线、认证适用范围均<strong>未验证</strong>。</p>
+</blockquote>
+<hr />
+<h2>一、需求表（含原文依据与校验 ID）</h2>
+<p>调用 <code>megmeet_parse_requirements</code> 解析结果：共 11 条硬性约束，<code>unresolved</code> 与 <code>warnings</code> 均为空。</p>
+<table>
+<thead>
+<tr>
+  <th>ID</th>
+  <th>参数项</th>
+  <th>约束</th>
+  <th>原文依据（逐字引用）</th>
+  <th>硬性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>R1</td>
+  <td>输入类型</td>
+  <td>= AC</td>
+  <td>输入类型：AC</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R2</td>
+  <td>输入电压</td>
+  <td>覆盖 180–264V（区间相交不算覆盖）</td>
+  <td>输入电压：180–264V</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R3</td>
+  <td>输出电压</td>
+  <td>= 48V</td>
+  <td>输出电压：48V</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R4</td>
+  <td>输出功率</td>
+  <td>≥ 3000W</td>
+  <td>输出功率：不低于3kW</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R5</td>
+  <td>效率</td>
+  <td>≥ 96%</td>
+  <td>效率：≥96%</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R6</td>
+  <td>工作温度</td>
+  <td>覆盖 -20–60℃（区间相交不算覆盖）</td>
+  <td>工作温度：-20–60℃</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R7</td>
+  <td>通信协议</td>
+  <td>包含 CAN</td>
+  <td>通信协议：CAN、RS485</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R8</td>
+  <td>通信协议</td>
+  <td>包含 RS485</td>
+  <td>通信协议：CAN、RS485</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R9</td>
+  <td>认证</td>
+  <td>包含 CE</td>
+  <td>认证：CE、UL</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R10</td>
+  <td>认证</td>
+  <td>包含 UL</td>
+  <td>认证：CE、UL</td>
+  <td>是</td>
+</tr>
+<tr>
+  <td>R11</td>
+  <td>散热方式</td>
+  <td>= 风冷</td>
+  <td>散热方式：风冷</td>
+  <td>是</td>
+</tr>
+</tbody>
+</table>
+<p><strong>资料版本（sources）</strong></p>
+<table>
+<thead>
+<tr>
+  <th>来源 ID</th>
+  <th>标题</th>
+  <th>版本</th>
+  <th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DEMO-PS-A-DATASHEET</td>
+  <td>虚构演示电源 A虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-A</td>
+</tr>
+<tr>
+  <td>DEMO-PS-B-DATASHEET</td>
+  <td>虚构演示电源 B虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-B</td>
+</tr>
+<tr>
+  <td>DEMO-PS-C-DATASHEET</td>
+  <td>虚构演示电源 C虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-C</td>
+</tr>
+<tr>
+  <td>DEMO-PS-D-DATASHEET</td>
+  <td>虚构演示电源 D虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-D</td>
+</tr>
+<tr>
+  <td>DEMO-PS-E-DATASHEET</td>
+  <td>虚构演示电源 E虚构资料</td>
+  <td>DEMO-1</td>
+  <td>examples/datasheets.demo.md#DEMO-PS-E</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>二、五个型号对比表（<code>megmeet_search_products</code> + <code>megmeet_validate_candidate</code> 逐项校验）</h2>
+<p><strong>结论口径</strong>：通过已列条件 / 待确认（资料缺失）/ 硬性不匹配（参数不满足）。</p>
+<table>
+<thead>
+<tr>
+  <th>校验项</th>
+  <th>A</th>
+  <th>B</th>
+  <th>C</th>
+  <th>D</th>
+  <th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>输入类型 = AC (R1)</td>
+  <td>✅ AC</td>
+  <td>✅ AC</td>
+  <td>✅ AC</td>
+  <td>✅ AC</td>
+  <td>✅ AC</td>
+</tr>
+<tr>
+  <td>输入电压 覆盖180–264V (R2)</td>
+  <td>✅ 180–264V</td>
+  <td>✅ 180–264V</td>
+  <td>✅ 180–264V</td>
+  <td>❌ 200–240V 未覆盖</td>
+  <td>✅ 180–264V</td>
+</tr>
+<tr>
+  <td>输出 48V (R3)</td>
+  <td>✅ 48V</td>
+  <td>✅ 48V</td>
+  <td>✅ 48V</td>
+  <td>✅ 48V</td>
+  <td>❌ 24V</td>
+</tr>
+<tr>
+  <td>功率 ≥3000W (R4)</td>
+  <td>✅ 3000W</td>
+  <td>❌ 1500W</td>
+  <td>✅ 3300W</td>
+  <td>✅ 3500W</td>
+  <td>✅ 3000W</td>
+</tr>
+<tr>
+  <td>效率 ≥96% (R5)</td>
+  <td>✅ 96.5%</td>
+  <td>✅ 97%</td>
+  <td>⚠️ 资料缺失→待确认</td>
+  <td>✅ 97%</td>
+  <td>✅ 96.5%</td>
+</tr>
+<tr>
+  <td>温度 覆盖-20–60℃ (R6)</td>
+  <td>✅ -20–60℃（恰好等值覆盖）</td>
+  <td>✅ -20–70℃</td>
+  <td>✅ -30–70℃</td>
+  <td>✅ -20–60℃（恰好等值覆盖）</td>
+  <td>✅ -20–60℃</td>
+</tr>
+<tr>
+  <td>协议 含CAN (R7)</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅ CAN</td>
+</tr>
+<tr>
+  <td>协议 含RS485 (R8)</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>❌ 仅CAN</td>
+</tr>
+<tr>
+  <td>认证 含CE (R9)</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅ CE</td>
+</tr>
+<tr>
+  <td>认证 含UL (R10)</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>✅</td>
+  <td>❌ 仅CE</td>
+</tr>
+<tr>
+  <td>散热 = 风冷 (R11)</td>
+  <td>✅ fan</td>
+  <td>✅ fan</td>
+  <td>✅ fan</td>
+  <td>✅ fan</td>
+  <td>✅ fan</td>
+</tr>
+<tr>
+  <td><strong>工具返回状态</strong></td>
+  <td><code>matches_listed_constraints</code></td>
+  <td><code>incompatible</code></td>
+  <td><code>needs_confirmation</code></td>
+  <td><code>incompatible</code></td>
+  <td><code>incompatible</code></td>
+</tr>
+<tr>
+  <td><strong>得分（已列条件通过比例，非置信度）</strong></td>
+  <td>100</td>
+  <td>91</td>
+  <td>91</td>
+  <td>91</td>
+  <td>73</td>
+</tr>
+<tr>
+  <td>参数来源 ID</td>
+  <td>DEMO-PS-A-DATASHEET</td>
+  <td>DEMO-PS-B-DATASHEET</td>
+  <td>DEMO-PS-C-DATASHEET</td>
+  <td>DEMO-PS-D-DATASHEET</td>
+  <td>DEMO-PS-E-DATASHEET</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：得分只是“已列硬性条件通过比例”，<strong>不是置信度，也不代表选型可行性</strong>。B/D 两项因单项硬性失败仍得 91 分，正说明必须看逐项检查而非总分排序。
+输入电压/工作温度已按“完整覆盖”判定：D 的 200–240V 与需求 180–264V 仅部分相交，判为<strong>不覆盖→硬性不匹配</strong>；B、C 的温度区间严格包含 -20–60℃，判为覆盖。</p>
+</blockquote>
+<h3>逐项结论与依据</h3>
+<p><strong>DEMO-PS-A（通过已列条件，100/100）</strong></p>
+<ul>
+<li>全部 11 项均为 <code>pass</code>。</li>
+<li>依据引文：<code>input_type: &quot;AC&quot;</code>、<code>input_voltage_v: {&quot;min&quot;:180,&quot;max&quot;:264}</code>、<code>output_voltage_v: 48</code>、<code>output_power_w: 3000</code>、<code>efficiency_pct: 96.5</code>、<code>temperature_c: {&quot;min&quot;:-20,&quot;max&quot;:60}</code>、<code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code>、<code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code>、<code>cooling: &quot;fan&quot;</code>（来源 ID：DEMO-PS-A-DATASHEET，版本 DEMO-1）。</li>
+<li>风险点：功率 3000W 与温度上下限均<strong>恰好等于</strong>需求边界，无余量；需工程师确认边界处是否需要降额/裕量。</li>
+</ul>
+<p><strong>DEMO-PS-B（硬性不匹配）</strong></p>
+<ul>
+<li>唯一失败项：输出功率 1500W &lt; 3000W（引文 <code>output_power_w: 1500</code>，R4 <code>fail</code>）。</li>
+<li>其余 10 项通过（效率 97%、温度 -20–70℃ 均更宽）。</li>
+</ul>
+<p><strong>DEMO-PS-C（待确认，91/100）</strong></p>
+<ul>
+<li>效率项 <code>unknown</code>：产品库<strong>没有该参数</strong>，无 <code>source</code>、无引文 → 只能标为<strong>待确认</strong>，不得按满足处理。</li>
+<li>其余 10 项通过，含功率 3300W、温度 -30–70℃（完整覆盖 -20–60℃）。</li>
+<li>依据引文：<code>output_power_w: 3300</code>、<code>temperature_c: {&quot;min&quot;:-30,&quot;max&quot;:70}</code>、<code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code>、<code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code>、<code>cooling: &quot;fan&quot;</code>（来源 ID：DEMO-PS-C-DATASHEET，版本 DEMO-1）；<strong>效率无来源</strong>。</li>
+</ul>
+<p><strong>DEMO-PS-D（硬性不匹配）</strong></p>
+<ul>
+<li>失败项：输入电压 200–240V <strong>未覆盖</strong> 180–264V（引文 <code>input_voltage_v: {&quot;min&quot;:200,&quot;max&quot;:240}</code>，R2 <code>fail</code>）。</li>
+<li>其余 10 项通过（功率 3500W、效率 97%、温度 -20–60℃）。</li>
+</ul>
+<p><strong>DEMO-PS-E（硬性不匹配）</strong></p>
+<ul>
+<li>失败项 3 项：输出电压 24V ≠ 48V（引文 <code>output_voltage_v: 24</code>）；协议仅 CAN，缺 RS485（引文 <code>protocols: [&quot;CAN&quot;]</code>）；认证仅 CE，缺 UL（引文 <code>certifications: [&quot;CE&quot;]</code>）。</li>
+<li>其余 8 项通过（含功率 3000W、效率 96.5%、温度 -20–60℃）。</li>
+</ul>
+<hr />
+<h2>三、优先候选与排除原因</h2>
+<p><strong>优先候选：DEMO-PS-A（唯一“通过全部已列条件”的型号）</strong></p>
+<ul>
+<li>理由：11/11 项硬性条件均有产品库来源与引文支撑，无缺失、无不满足。</li>
+<li>前提：<strong>仍属演示数据</strong>，需工程师确认；且功率与温度均为边界等值，需要评估余量、降额与长期可靠性。</li>
+</ul>
+<p><strong>备选（条件性）：DEMO-PS-C——作为“待确认”候选，而非满足候选</strong></p>
+<ul>
+<li>理由：仅效率一项资料缺失，其余 10 项通过，且功率 3300W、温度 -30–70℃ 有裕量。</li>
+<li>前置条件：须先补齐并核验效率 ≥96% 的正式资料；在补齐前<strong>不得当作满足需求</strong>。</li>
+</ul>
+<p><strong>排除原因</strong>
+| 型号 | 判定 | 排除/待确认原因 |
+|---|---|---|
+| DEMO-PS-B | 硬性不匹配 | 输出功率 1500W &lt; 3000W |
+| DEMO-PS-D | 硬性不匹配 | 输入电压 200–240V 未覆盖 180–264V（区间相交≠覆盖） |
+| DEMO-PS-E | 硬性不匹配 | 输出 24V≠48V；缺 RS485；缺 UL |
+| DEMO-PS-C | 待确认（不排除） | 效率参数缺失，无法判定是否 ≥96% |</p>
+<hr />
+<h2>四、待确认项清单</h2>
+<ol>
+<li><strong>DEMO-PS-C 效率</strong>：产品库无该参数、无来源、无引文，需补充正式资料后重新校验（当前必须视为“待确认”）。</li>
+<li><strong>A / C 的温度降额曲线</strong>：本次仅比对温度范围，未验证高温端（55–60℃）是否降额、降额后是否仍满足 ≥3000W 输出。</li>
+<li><strong>认证适用范围</strong>：仅比对认证清单存在性，未验证适用标准版本、型号派生、市场区域与报告有效期。</li>
+<li><strong>效率测试条件</strong>：未确认 96% / 96.5% / 97% 的测试工况（输入电压点、负载率、温度），不同工况结果不具可比性。</li>
+<li><strong>边界等值风险</strong>：A（3000W、-20/60℃）与 D（-20/60℃）处于需求边界等值，裕量为零，需工程评估。</li>
+<li><strong>未验证信息</strong>：报价、库存、交期、供货状态、可靠性/EMC 实测数据——本插件明确不接入价格/库存/交期，全部未验证。</li>
+<li><strong>工程确认要求</strong>：<code>humanReviewRequired = true</code>，所有结果均须工程师复核后方可用于项目决策。</li>
+</ol>
+<hr />
+<h2>五、方法与工具调用说明</h2>
+<ul>
+<li>数据集确认：<code>megmeet_get_catalog_info</code>（family = <code>power-supply</code>，产品数 5，maxCandidates 10，<code>demo = true</code>）。</li>
+<li>需求解析：<code>megmeet_parse_requirements</code> → 11 条硬性约束，无未解析项。</li>
+<li>检索（含不匹配产品）：<code>megmeet_search_products</code>（<code>includeIncompatible = true</code>，共评估 5 个，<code>excludedIncompatible = 0</code>，全部返回）。</li>
+<li>逐型号复核：<code>megmeet_validate_candidate</code> × 5（A/B/C/D/E），本报告结论以该确定性校验结果为准，未使用模型自行推断的参数。</li>
+<li>未执行：联网查询、保存文件、报价/库存/交期查询（工具不支持且需求禁止）。</li>
+</ul>
+<blockquote>
+<p>再次提示：本报告基于<strong>虚构演示产品库（DEMO-1）</strong>，型号与参数均为虚构，不代表麦格米特实际产品；所有结论仅为流程演示，最终选型须由工程师依据正式现行资料确认。</p>
+</blockquote>
+</div></article></div></section>
+<section class="panel" id="evidence" role="tabpanel" aria-labelledby="tab-evidence" hidden><h2 class="section-title">从工具记录复核每一项结论</h2><p class="section-note">以下直接读取本次持久化会话中的完整工具结果。C 的效率没有资料，D 的输入范围不覆盖客户要求。点击型号可展开全部 11 项校验。</p><details class='candidate' ><summary>DEMO-PS-A<span>通过已列条件</span></summary><div class='table-wrap'><table><thead><tr><th>约束</th><th>客户要求</th><th>产品资料</th><th>结果</th><th>判定原因</th><th>来源与逐字引文</th></tr></thead><tbody><tr><th scope='row'>R1 输入类型</th><td>= AC</td><td>AC</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>input_type: &quot;AC&quot;</code></td></tr><tr><th scope='row'>R2 输入电压</th><td>覆盖 180–264V</td><td>180–264V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>input_voltage_v: {&quot;min&quot;:180,&quot;max&quot;:264}</code></td></tr><tr><th scope='row'>R3 输出电压</th><td>= 48V</td><td>48V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>output_voltage_v: 48</code></td></tr><tr><th scope='row'>R4 输出功率</th><td>≥ 3000W</td><td>3000W</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>output_power_w: 3000</code></td></tr><tr><th scope='row'>R5 效率</th><td>≥ 96%</td><td>96.5%</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>efficiency_pct: 96.5</code></td></tr><tr><th scope='row'>R6 工作温度</th><td>覆盖 -20–60°C</td><td>-20–60°C</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>temperature_c: {&quot;min&quot;:-20,&quot;max&quot;:60}</code></td></tr><tr><th scope='row'>R7 通信协议</th><td>包含 CAN</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R8 通信协议</th><td>包含 RS485</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R9 认证</th><td>包含 CE</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R10 认证</th><td>包含 UL</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R11 散热方式</th><td>= 风冷</td><td>fan</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-A-DATASHEET<br>DEMO-1<br><code>cooling: &quot;fan&quot;</code></td></tr></tbody></table></div></details><details class='candidate' ><summary>DEMO-PS-B<span>硬性不匹配</span></summary><div class='table-wrap'><table><thead><tr><th>约束</th><th>客户要求</th><th>产品资料</th><th>结果</th><th>判定原因</th><th>来源与逐字引文</th></tr></thead><tbody><tr><th scope='row'>R1 输入类型</th><td>= AC</td><td>AC</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>input_type: &quot;AC&quot;</code></td></tr><tr><th scope='row'>R2 输入电压</th><td>覆盖 180–264V</td><td>180–264V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>input_voltage_v: {&quot;min&quot;:180,&quot;max&quot;:264}</code></td></tr><tr><th scope='row'>R3 输出电压</th><td>= 48V</td><td>48V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>output_voltage_v: 48</code></td></tr><tr><th scope='row'>R4 输出功率</th><td>≥ 3000W</td><td>1500W</td><td><span class='status fail'>不匹配</span></td><td>产品库参数不满足此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>output_power_w: 1500</code></td></tr><tr><th scope='row'>R5 效率</th><td>≥ 96%</td><td>97%</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>efficiency_pct: 97</code></td></tr><tr><th scope='row'>R6 工作温度</th><td>覆盖 -20–60°C</td><td>-20–70°C</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>temperature_c: {&quot;min&quot;:-20,&quot;max&quot;:70}</code></td></tr><tr><th scope='row'>R7 通信协议</th><td>包含 CAN</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R8 通信协议</th><td>包含 RS485</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R9 认证</th><td>包含 CE</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R10 认证</th><td>包含 UL</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R11 散热方式</th><td>= 风冷</td><td>fan</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-B-DATASHEET<br>DEMO-1<br><code>cooling: &quot;fan&quot;</code></td></tr></tbody></table></div></details><details class='candidate' open><summary>DEMO-PS-C<span>待确认</span></summary><div class='table-wrap'><table><thead><tr><th>约束</th><th>客户要求</th><th>产品资料</th><th>结果</th><th>判定原因</th><th>来源与逐字引文</th></tr></thead><tbody><tr><th scope='row'>R1 输入类型</th><td>= AC</td><td>AC</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>input_type: &quot;AC&quot;</code></td></tr><tr><th scope='row'>R2 输入电压</th><td>覆盖 180–264V</td><td>180–264V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>input_voltage_v: {&quot;min&quot;:180,&quot;max&quot;:264}</code></td></tr><tr><th scope='row'>R3 输出电压</th><td>= 48V</td><td>48V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>output_voltage_v: 48</code></td></tr><tr><th scope='row'>R4 输出功率</th><td>≥ 3000W</td><td>3300W</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>output_power_w: 3300</code></td></tr><tr><th scope='row'>R5 效率</th><td>≥ 96%</td><td>资料缺失</td><td><span class='status unknown'>待确认</span></td><td>产品库没有该参数。</td><td>无来源<br><br><code></code></td></tr><tr><th scope='row'>R6 工作温度</th><td>覆盖 -20–60°C</td><td>-30–70°C</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>temperature_c: {&quot;min&quot;:-30,&quot;max&quot;:70}</code></td></tr><tr><th scope='row'>R7 通信协议</th><td>包含 CAN</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R8 通信协议</th><td>包含 RS485</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R9 认证</th><td>包含 CE</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R10 认证</th><td>包含 UL</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R11 散热方式</th><td>= 风冷</td><td>fan</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-C-DATASHEET<br>DEMO-1<br><code>cooling: &quot;fan&quot;</code></td></tr></tbody></table></div></details><details class='candidate' ><summary>DEMO-PS-D<span>硬性不匹配</span></summary><div class='table-wrap'><table><thead><tr><th>约束</th><th>客户要求</th><th>产品资料</th><th>结果</th><th>判定原因</th><th>来源与逐字引文</th></tr></thead><tbody><tr><th scope='row'>R1 输入类型</th><td>= AC</td><td>AC</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>input_type: &quot;AC&quot;</code></td></tr><tr><th scope='row'>R2 输入电压</th><td>覆盖 180–264V</td><td>200–240V</td><td><span class='status fail'>不匹配</span></td><td>产品库参数不满足此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>input_voltage_v: {&quot;min&quot;:200,&quot;max&quot;:240}</code></td></tr><tr><th scope='row'>R3 输出电压</th><td>= 48V</td><td>48V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>output_voltage_v: 48</code></td></tr><tr><th scope='row'>R4 输出功率</th><td>≥ 3000W</td><td>3500W</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>output_power_w: 3500</code></td></tr><tr><th scope='row'>R5 效率</th><td>≥ 96%</td><td>97%</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>efficiency_pct: 97</code></td></tr><tr><th scope='row'>R6 工作温度</th><td>覆盖 -20–60°C</td><td>-20–60°C</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>temperature_c: {&quot;min&quot;:-20,&quot;max&quot;:60}</code></td></tr><tr><th scope='row'>R7 通信协议</th><td>包含 CAN</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R8 通信协议</th><td>包含 RS485</td><td>CAN、RS485</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;,&quot;RS485&quot;]</code></td></tr><tr><th scope='row'>R9 认证</th><td>包含 CE</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R10 认证</th><td>包含 UL</td><td>CE、UL</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;,&quot;UL&quot;]</code></td></tr><tr><th scope='row'>R11 散热方式</th><td>= 风冷</td><td>fan</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-D-DATASHEET<br>DEMO-1<br><code>cooling: &quot;fan&quot;</code></td></tr></tbody></table></div></details><details class='candidate' ><summary>DEMO-PS-E<span>硬性不匹配</span></summary><div class='table-wrap'><table><thead><tr><th>约束</th><th>客户要求</th><th>产品资料</th><th>结果</th><th>判定原因</th><th>来源与逐字引文</th></tr></thead><tbody><tr><th scope='row'>R1 输入类型</th><td>= AC</td><td>AC</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>input_type: &quot;AC&quot;</code></td></tr><tr><th scope='row'>R2 输入电压</th><td>覆盖 180–264V</td><td>180–264V</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>input_voltage_v: {&quot;min&quot;:180,&quot;max&quot;:264}</code></td></tr><tr><th scope='row'>R3 输出电压</th><td>= 48V</td><td>24V</td><td><span class='status fail'>不匹配</span></td><td>产品库参数不满足此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>output_voltage_v: 24</code></td></tr><tr><th scope='row'>R4 输出功率</th><td>≥ 3000W</td><td>3000W</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>output_power_w: 3000</code></td></tr><tr><th scope='row'>R5 效率</th><td>≥ 96%</td><td>96.5%</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>efficiency_pct: 96.5</code></td></tr><tr><th scope='row'>R6 工作温度</th><td>覆盖 -20–60°C</td><td>-20–60°C</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>temperature_c: {&quot;min&quot;:-20,&quot;max&quot;:60}</code></td></tr><tr><th scope='row'>R7 通信协议</th><td>包含 CAN</td><td>CAN</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;]</code></td></tr><tr><th scope='row'>R8 通信协议</th><td>包含 RS485</td><td>CAN</td><td><span class='status fail'>不匹配</span></td><td>产品库参数不满足此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>protocols: [&quot;CAN&quot;]</code></td></tr><tr><th scope='row'>R9 认证</th><td>包含 CE</td><td>CE</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;]</code></td></tr><tr><th scope='row'>R10 认证</th><td>包含 UL</td><td>CE</td><td><span class='status fail'>不匹配</span></td><td>产品库参数不满足此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>certifications: [&quot;CE&quot;]</code></td></tr><tr><th scope='row'>R11 散热方式</th><td>= 风冷</td><td>fan</td><td><span class='status pass'>通过</span></td><td>按产品库资料，通过此项已列条件。</td><td>DEMO-PS-E-DATASHEET<br>DEMO-1<br><code>cooling: &quot;fan&quot;</code></td></tr></tbody></table></div></details>
+<h2 class="section-title">8 次真实工具调用</h2><ol class="call-list"><li><span>megmeet_get_catalog_info</span></li><li><span>megmeet_parse_requirements</span></li><li><span>megmeet_search_products</span></li><li><span>megmeet_validate_candidate</span><small>DEMO-PS-A</small></li><li><span>megmeet_validate_candidate</span><small>DEMO-PS-B</small></li><li><span>megmeet_validate_candidate</span><small>DEMO-PS-C</small></li><li><span>megmeet_validate_candidate</span><small>DEMO-PS-D</small></li><li><span>megmeet_validate_candidate</span><small>DEMO-PS-E</small></li></ol><div class="file-links"><a href="runs/tool-results.full.json" download>完整工具结果 JSON</a><a href="runs/plugin.events.jsonl" download>原始 DSH 事件流</a><a href="verification.json" download>验证记录</a></div></section>
+<section class="panel" id="input" role="tabpanel" aria-labelledby="tab-input" hidden><h2 class="section-title">两组读取完全相同的 prompt</h2><p class="section-note">相同需求、同一产品库、同一来源与版本。已安装插件中的产品库也与这份输入一致。</p><p><strong>SHA-256</strong> <code>0dfb1aa0f42916c7d4b61d17ed6bfa65d46028b34da1ff8dc7261023be6a6782</code></p><h3>客户需求</h3><pre>输入类型：AC
+输入电压：180–264V
+输出电压：48V
+输出功率：不低于3kW
+效率：≥96%
+工作温度：-20–60℃
+通信协议：CAN、RS485
+认证：CE、UL
+散热方式：风冷
+</pre><details><summary>展开完整 prompt（包含共同产品库）</summary><pre>请作为麦格米特业务场景中的产品选型辅助助手，分析以下客户需求并形成中文选型报告。
+
+本次全部产品与资料为虚构演示数据，不代表麦格米特实际产品。只能依据下方产品库，不能联网补全、编造型号、参数、认证、报价或交期。
+
+客户需求原文：
+输入类型：AC
+输入电压：180–264V
+输出电压：48V
+输出功率：不低于3kW
+效率：≥96%
+工作温度：-20–60℃
+通信协议：CAN、RS485
+认证：CE、UL
+散热方式：风冷
+
+请逐项比较全部五个型号：给出“通过已列条件 / 待确认 / 硬性不匹配”的结论和依据。输入电压与工作温度必须完整覆盖客户要求，区间相交不等于覆盖；未提供的参数或来源标为待确认，不能按满足处理。
+如有本地产品检索、校验或报告工具，请实际调用，使用以上客户需求原文并展示不匹配产品；若没有这些工具，请直接依据下方相同资料分析。无需调用其他工具或保存文件，最终直接输出 Markdown 报告。
+
+报告请包含：需求表、五个型号的对比表、优先候选与排除原因、参数来源 ID 和资料版本、待确认项。保留演示数据标识，说明所有结果仍需工程师确认；报价、库存、交期、温度降额和认证适用范围均未验证。
+
+提供给两组的同一产品库 JSON：
+{
+  &quot;schemaVersion&quot;: 1,
+  &quot;dataset&quot;: &quot;虚构演示产品库（非麦格米特实际产品）&quot;,
+  &quot;version&quot;: &quot;DEMO-1&quot;,
+  &quot;demo&quot;: true,
+  &quot;sources&quot;: [
+    {
+      &quot;id&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+      &quot;title&quot;: &quot;虚构演示电源 A虚构资料&quot;,
+      &quot;version&quot;: &quot;DEMO-1&quot;,
+      &quot;location&quot;: &quot;examples/datasheets.demo.md#DEMO-PS-A&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+      &quot;title&quot;: &quot;虚构演示电源 B虚构资料&quot;,
+      &quot;version&quot;: &quot;DEMO-1&quot;,
+      &quot;location&quot;: &quot;examples/datasheets.demo.md#DEMO-PS-B&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+      &quot;title&quot;: &quot;虚构演示电源 C虚构资料&quot;,
+      &quot;version&quot;: &quot;DEMO-1&quot;,
+      &quot;location&quot;: &quot;examples/datasheets.demo.md#DEMO-PS-C&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+      &quot;title&quot;: &quot;虚构演示电源 D虚构资料&quot;,
+      &quot;version&quot;: &quot;DEMO-1&quot;,
+      &quot;location&quot;: &quot;examples/datasheets.demo.md#DEMO-PS-D&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+      &quot;title&quot;: &quot;虚构演示电源 E虚构资料&quot;,
+      &quot;version&quot;: &quot;DEMO-1&quot;,
+      &quot;location&quot;: &quot;examples/datasheets.demo.md#DEMO-PS-E&quot;
+    }
+  ],
+  &quot;products&quot;: [
+    {
+      &quot;id&quot;: &quot;DEMO-PS-A&quot;,
+      &quot;name&quot;: &quot;虚构演示电源 A&quot;,
+      &quot;family&quot;: &quot;power-supply&quot;,
+      &quot;description&quot;: &quot;仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。&quot;,
+      &quot;parameters&quot;: {
+        &quot;input_type&quot;: &quot;AC&quot;,
+        &quot;input_voltage_v&quot;: {
+          &quot;min&quot;: 180,
+          &quot;max&quot;: 264
+        },
+        &quot;output_voltage_v&quot;: 48,
+        &quot;output_power_w&quot;: 3000,
+        &quot;efficiency_pct&quot;: 96.5,
+        &quot;temperature_c&quot;: {
+          &quot;min&quot;: -20,
+          &quot;max&quot;: 60
+        },
+        &quot;protocols&quot;: [
+          &quot;CAN&quot;,
+          &quot;RS485&quot;
+        ],
+        &quot;certifications&quot;: [
+          &quot;CE&quot;,
+          &quot;UL&quot;
+        ],
+        &quot;cooling&quot;: &quot;fan&quot;
+      },
+      &quot;evidence&quot;: {
+        &quot;input_type&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_type: \&quot;AC\&quot;&quot;
+        },
+        &quot;input_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_voltage_v: {\&quot;min\&quot;:180,\&quot;max\&quot;:264}&quot;
+        },
+        &quot;output_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_voltage_v: 48&quot;
+        },
+        &quot;output_power_w&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_power_w: 3000&quot;
+        },
+        &quot;efficiency_pct&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;efficiency_pct: 96.5&quot;
+        },
+        &quot;temperature_c&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;temperature_c: {\&quot;min\&quot;:-20,\&quot;max\&quot;:60}&quot;
+        },
+        &quot;protocols&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;protocols: [\&quot;CAN\&quot;,\&quot;RS485\&quot;]&quot;
+        },
+        &quot;certifications&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;certifications: [\&quot;CE\&quot;,\&quot;UL\&quot;]&quot;
+        },
+        &quot;cooling&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-A-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;cooling: \&quot;fan\&quot;&quot;
+        }
+      }
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-B&quot;,
+      &quot;name&quot;: &quot;虚构演示电源 B&quot;,
+      &quot;family&quot;: &quot;power-supply&quot;,
+      &quot;description&quot;: &quot;仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。&quot;,
+      &quot;parameters&quot;: {
+        &quot;input_type&quot;: &quot;AC&quot;,
+        &quot;input_voltage_v&quot;: {
+          &quot;min&quot;: 180,
+          &quot;max&quot;: 264
+        },
+        &quot;output_voltage_v&quot;: 48,
+        &quot;output_power_w&quot;: 1500,
+        &quot;efficiency_pct&quot;: 97,
+        &quot;temperature_c&quot;: {
+          &quot;min&quot;: -20,
+          &quot;max&quot;: 70
+        },
+        &quot;protocols&quot;: [
+          &quot;CAN&quot;,
+          &quot;RS485&quot;
+        ],
+        &quot;certifications&quot;: [
+          &quot;CE&quot;,
+          &quot;UL&quot;
+        ],
+        &quot;cooling&quot;: &quot;fan&quot;
+      },
+      &quot;evidence&quot;: {
+        &quot;input_type&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_type: \&quot;AC\&quot;&quot;
+        },
+        &quot;input_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_voltage_v: {\&quot;min\&quot;:180,\&quot;max\&quot;:264}&quot;
+        },
+        &quot;output_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_voltage_v: 48&quot;
+        },
+        &quot;output_power_w&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_power_w: 1500&quot;
+        },
+        &quot;efficiency_pct&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;efficiency_pct: 97&quot;
+        },
+        &quot;temperature_c&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;temperature_c: {\&quot;min\&quot;:-20,\&quot;max\&quot;:70}&quot;
+        },
+        &quot;protocols&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;protocols: [\&quot;CAN\&quot;,\&quot;RS485\&quot;]&quot;
+        },
+        &quot;certifications&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;certifications: [\&quot;CE\&quot;,\&quot;UL\&quot;]&quot;
+        },
+        &quot;cooling&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-B-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;cooling: \&quot;fan\&quot;&quot;
+        }
+      }
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-C&quot;,
+      &quot;name&quot;: &quot;虚构演示电源 C&quot;,
+      &quot;family&quot;: &quot;power-supply&quot;,
+      &quot;description&quot;: &quot;仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。&quot;,
+      &quot;parameters&quot;: {
+        &quot;input_type&quot;: &quot;AC&quot;,
+        &quot;input_voltage_v&quot;: {
+          &quot;min&quot;: 180,
+          &quot;max&quot;: 264
+        },
+        &quot;output_voltage_v&quot;: 48,
+        &quot;output_power_w&quot;: 3300,
+        &quot;temperature_c&quot;: {
+          &quot;min&quot;: -30,
+          &quot;max&quot;: 70
+        },
+        &quot;protocols&quot;: [
+          &quot;CAN&quot;,
+          &quot;RS485&quot;
+        ],
+        &quot;certifications&quot;: [
+          &quot;CE&quot;,
+          &quot;UL&quot;
+        ],
+        &quot;cooling&quot;: &quot;fan&quot;
+      },
+      &quot;evidence&quot;: {
+        &quot;input_type&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_type: \&quot;AC\&quot;&quot;
+        },
+        &quot;input_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_voltage_v: {\&quot;min\&quot;:180,\&quot;max\&quot;:264}&quot;
+        },
+        &quot;output_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_voltage_v: 48&quot;
+        },
+        &quot;output_power_w&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_power_w: 3300&quot;
+        },
+        &quot;temperature_c&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;temperature_c: {\&quot;min\&quot;:-30,\&quot;max\&quot;:70}&quot;
+        },
+        &quot;protocols&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;protocols: [\&quot;CAN\&quot;,\&quot;RS485\&quot;]&quot;
+        },
+        &quot;certifications&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;certifications: [\&quot;CE\&quot;,\&quot;UL\&quot;]&quot;
+        },
+        &quot;cooling&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-C-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;cooling: \&quot;fan\&quot;&quot;
+        }
+      }
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-D&quot;,
+      &quot;name&quot;: &quot;虚构演示电源 D&quot;,
+      &quot;family&quot;: &quot;power-supply&quot;,
+      &quot;description&quot;: &quot;仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。&quot;,
+      &quot;parameters&quot;: {
+        &quot;input_type&quot;: &quot;AC&quot;,
+        &quot;input_voltage_v&quot;: {
+          &quot;min&quot;: 200,
+          &quot;max&quot;: 240
+        },
+        &quot;output_voltage_v&quot;: 48,
+        &quot;output_power_w&quot;: 3500,
+        &quot;efficiency_pct&quot;: 97,
+        &quot;temperature_c&quot;: {
+          &quot;min&quot;: -20,
+          &quot;max&quot;: 60
+        },
+        &quot;protocols&quot;: [
+          &quot;CAN&quot;,
+          &quot;RS485&quot;
+        ],
+        &quot;certifications&quot;: [
+          &quot;CE&quot;,
+          &quot;UL&quot;
+        ],
+        &quot;cooling&quot;: &quot;fan&quot;
+      },
+      &quot;evidence&quot;: {
+        &quot;input_type&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_type: \&quot;AC\&quot;&quot;
+        },
+        &quot;input_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_voltage_v: {\&quot;min\&quot;:200,\&quot;max\&quot;:240}&quot;
+        },
+        &quot;output_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_voltage_v: 48&quot;
+        },
+        &quot;output_power_w&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_power_w: 3500&quot;
+        },
+        &quot;efficiency_pct&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;efficiency_pct: 97&quot;
+        },
+        &quot;temperature_c&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;temperature_c: {\&quot;min\&quot;:-20,\&quot;max\&quot;:60}&quot;
+        },
+        &quot;protocols&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;protocols: [\&quot;CAN\&quot;,\&quot;RS485\&quot;]&quot;
+        },
+        &quot;certifications&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;certifications: [\&quot;CE\&quot;,\&quot;UL\&quot;]&quot;
+        },
+        &quot;cooling&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-D-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;cooling: \&quot;fan\&quot;&quot;
+        }
+      }
+    },
+    {
+      &quot;id&quot;: &quot;DEMO-PS-E&quot;,
+      &quot;name&quot;: &quot;虚构演示电源 E&quot;,
+      &quot;family&quot;: &quot;power-supply&quot;,
+      &quot;description&quot;: &quot;仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。&quot;,
+      &quot;parameters&quot;: {
+        &quot;input_type&quot;: &quot;AC&quot;,
+        &quot;input_voltage_v&quot;: {
+          &quot;min&quot;: 180,
+          &quot;max&quot;: 264
+        },
+        &quot;output_voltage_v&quot;: 24,
+        &quot;output_power_w&quot;: 3000,
+        &quot;efficiency_pct&quot;: 96.5,
+        &quot;temperature_c&quot;: {
+          &quot;min&quot;: -20,
+          &quot;max&quot;: 60
+        },
+        &quot;protocols&quot;: [
+          &quot;CAN&quot;
+        ],
+        &quot;certifications&quot;: [
+          &quot;CE&quot;
+        ],
+        &quot;cooling&quot;: &quot;fan&quot;
+      },
+      &quot;evidence&quot;: {
+        &quot;input_type&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_type: \&quot;AC\&quot;&quot;
+        },
+        &quot;input_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;input_voltage_v: {\&quot;min\&quot;:180,\&quot;max\&quot;:264}&quot;
+        },
+        &quot;output_voltage_v&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_voltage_v: 24&quot;
+        },
+        &quot;output_power_w&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;output_power_w: 3000&quot;
+        },
+        &quot;efficiency_pct&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;efficiency_pct: 96.5&quot;
+        },
+        &quot;temperature_c&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;temperature_c: {\&quot;min\&quot;:-20,\&quot;max\&quot;:60}&quot;
+        },
+        &quot;protocols&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;protocols: [\&quot;CAN\&quot;]&quot;
+        },
+        &quot;certifications&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;certifications: [\&quot;CE\&quot;]&quot;
+        },
+        &quot;cooling&quot;: {
+          &quot;sourceId&quot;: &quot;DEMO-PS-E-DATASHEET&quot;,
+          &quot;quote&quot;: &quot;cooling: \&quot;fan\&quot;&quot;
+        }
+      }
+    }
+  ]
+}
+</pre></details><div class="file-links"><a href="prompt.txt" download>保存 prompt</a><a href="catalog.demo.json" download>保存共同产品库</a><a href="runs/config-difference.json" download>唯一配置差异</a></div></section>
+<section class="panel" id="notes" role="tabpanel" aria-labelledby="tab-notes" hidden><h2 class="section-title">演示时强调过程与依据</h2><div class="notice">本次无插件组也判断正确。插件将原文约束、参数比对、缺资料处理和来源保留为可核查的工具记录。</div><div class="overview table-wrap"><table><thead><tr><th>比较项</th><th>无插件</th><th>已安装插件</th></tr></thead><tbody><tr><th>五个型号的分类</th><td>1 通过 / 1 待确认 / 3 不匹配</td><td>1 通过 / 1 待确认 / 3 不匹配</td></tr><tr><th>产品工具调用</th><td>0 次</td><td>8 次，全部成功</td></tr><tr><th>需求组织</th><td>9 项合并需求</td><td>11 条约束，保留原文依据</td></tr><tr><th>本次墙钟时间</th><td>23.20 秒</td><td>18.84 秒</td></tr><tr><th>累计总 token</th><td>8,934</td><td>49,323</td></tr><tr><th>其中缓存读取 token</th><td>0</td><td>14,976</td></tr></tbody></table></div><div class="prose"><h3>推荐讲解顺序</h3><ol><li>打开共同输入，展示完全相同的需求和产品资料。</li><li>并排阅读原始输出，保留两组分类一致的实际结果。</li><li>展开 C 的效率 unknown 和 D 的电压 fail，查看来源与逐字引文。</li><li>展示 11 条约束与 8 次真实调用，说明流程可复核。</li><li>说明结果来自一次配对演示，不据此推断整体准确率、速度或费用改善。</li></ol><p>使用官方 headless 运行方式与本机 DSH 登录账号，最终报告由相同模型整理。通用文件、终端、联网和委派工具在两组均禁用；配置导出证明唯一差异是产品插件。没有配置随机种子，两组缓存状态不同；时间包含进程启动。总 token 来自 provider 用量的逐步累加，未换算费用。</p><p>产品型号、参数、认证和来源全部为虚构 DEMO-1 数据。报价、库存、交期、温度降额和认证适用范围未验证，所有结果仍需工程师确认。</p></div><div class="file-links"><a href="comparison.md" download>对比说明</a><a href="experiment.json" download>实验元数据</a><a href="reproduce.ps1" download>复现脚本</a></div></section>
+</main><footer>原始输出与证据均保存在同目录。该页可离线展示，无需网络或账号凭据。</footer>
+<script>
+const tabs=Array.from(document.querySelectorAll('[role=tab]'));
+function activate(tab){tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;document.getElementById(t.dataset.panel).hidden=!active;});}
+tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activate(tab));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=tabs[(index+1)%tabs.length];if(event.key==='ArrowLeft')next=tabs[(index-1+tabs.length)%tabs.length];if(event.key==='Home')next=tabs[0];if(event.key==='End')next=tabs[tabs.length-1];if(next){event.preventDefault();activate(next);next.focus();}});});
+</script></body></html>

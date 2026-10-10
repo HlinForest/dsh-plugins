@@ -1,0 +1,1570 @@
+请作为麦格米特产品选型辅助助手，用相同下列官方产品资料评估三条来自实际公开采购的测试请求。资料是真实官网原件的人工核对数据，原需求出处均提供；测试文本是整理后的派生输入，不代表采购方新增条款。
+
+这是公平对比：两组获得完全相同的产品参数、原文数值、版本、资料路径和链接。只依据以下资料，不联网补齐参数，不把典型效率当保证值，不把两个输入区间合成连续区间。不宣称可替换或已经中标。无需写文件或使用其他工具。
+有megmeet工具时，先查看产品库，对每条fullRequest实际调用检索或报告工具（不得移除未解析条件），并保留原始来源Markdown链接；无这些工具时直接依据同一份资料分析。报告最多列每条2个初筛候选和3个排除示例，其余给数量；充分区分初筛字段通过与完整条件待确认。
+
+请输出约1500–2500字中文Markdown，包含每条需求的结论、关键差异、缺失证据，以及可直接点击的资料版本链接（绝对本地路径，不改成file://）和采购原文链接。说明全部结论须工程复核。不要为了演示声称安装插件必然提高准确率。
+
+三个测试请求：
+[
+  {
+    "id": "YR-24-120",
+    "title": "实训系统：24V、至少120W",
+    "source": {
+      "title": "河南省政府采购货物公开招标：智能工厂实训系统项目",
+      "publisher": "黄河水利职业技术学院；河南省科教仪器设备招标有限公司",
+      "url": "https://www.yrcti.edu.cn/__local/E/97/E2/6FB045AAF129FD1066978EDAAF1_7527CB3B_754B3.pdf?e=.pdf",
+      "publication_date": "2017-05",
+      "date_precision": "month",
+      "date_basis": "PDF封面仅印“二〇一七年五月”；PDF元数据 CreationDate/ModDate 为 2017-05-15，仅作文件生成/修改时间，不作为官方发布日期",
+      "source_kind": "official tender document PDF",
+      "local_snapshot": "requirements/yrcti-smart-factory-201705.pdf",
+      "sha256": "D3495157D10F29DE064CE4E7E490EB8E2AA846ABCC9F95265E38FF9D7C9CA9D4",
+      "retrieved_at": "2026-10-09",
+      "locator": "PDF物理页59–60（印刷页码58–59），技术要求第7–9项"
+    },
+    "scope": "采购文件组件条款",
+    "basicRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于120W",
+    "fullRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于120W\n输入频率：50–60Hz\n支持1+1并联冗余；开机软启动；输入输出隔离；短路/过载/过压/超温保护；电源输出状态报警。"
+  },
+  {
+    "id": "YR-24-240",
+    "title": "实训系统：24V、至少240W",
+    "source": {
+      "title": "河南省政府采购货物公开招标：智能工厂实训系统项目",
+      "publisher": "黄河水利职业技术学院；河南省科教仪器设备招标有限公司",
+      "url": "https://www.yrcti.edu.cn/__local/E/97/E2/6FB045AAF129FD1066978EDAAF1_7527CB3B_754B3.pdf?e=.pdf",
+      "publication_date": "2017-05",
+      "date_precision": "month",
+      "date_basis": "PDF封面仅印“二〇一七年五月”；PDF元数据 CreationDate/ModDate 为 2017-05-15，仅作文件生成/修改时间，不作为官方发布日期",
+      "source_kind": "official tender document PDF",
+      "local_snapshot": "requirements/yrcti-smart-factory-201705.pdf",
+      "sha256": "D3495157D10F29DE064CE4E7E490EB8E2AA846ABCC9F95265E38FF9D7C9CA9D4",
+      "retrieved_at": "2026-10-09",
+      "locator": "PDF物理页59–60（印刷页码58–59），技术要求第7–9项"
+    },
+    "scope": "采购文件组件条款",
+    "basicRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于240W",
+    "fullRequest": "输入电压：176–264VAC\n输出电压：24VDC\n额定功率：不低于240W\n输入频率：50–60Hz\n开机软启动；输入输出隔离；短路/过载/过压/超温保护；电源输出状态报警。"
+  },
+  {
+    "id": "CRSC-DUAL",
+    "title": "中国通号：24V/20A与12V/6A双路",
+    "source": {
+      "title": "CTC、监测、CIPS、融雪、驼峰、调机设备买卖框架补充协议询比采购公告",
+      "publisher": "中国通号招标采购网（北京全路通信信号研究设计院集团有限公司采购项目）",
+      "url": "https://www.crsc.com.cn/news/tsi_7267_6094_100571.html",
+      "publication_date": "2026-09-11",
+      "date_precision": "day",
+      "source_kind": "official procurement announcement with attachment-like technical section",
+      "local_snapshot": "requirements/crsc-20260911.html",
+      "sha256": "D948162A84DD623F7D48EAB20BCE669D1809637C48FB2C266FB10380C057235A",
+      "retrieved_at": "2026-10-09",
+      "locator": "网页正文第3节“技术指标”第220–272行附近的24V/12V驼峰双路开关电源条款"
+    },
+    "scope": "双路电源组件，单路不能宣称满足",
+    "basicRequest": "输入电压：176–264VAC\n效率：≥85%",
+    "fullRequest": "输入电压：176–264VAC\n输出电压：24V和12V，双路同时输出\n输出电流：24V输出满载20A，12V输出满载6A\n效率：≥85%\n输入频率：47–53Hz\n自然冷却；功率因数≥0.9；输入THD、纹波、续流时间、均流冗余与保护阈值按公告原文复核。"
+  }
+]
+
+同一份产品库及来源：
+{
+  "schemaVersion": 1,
+  "dataset": "麦格米特官网工业电源：8份原件、28个型号（交流工况）",
+  "version": "PUBLIC-SNAPSHOT-2026-10-09",
+  "demo": false,
+  "sources": [
+    {
+      "id": "MPT35-II",
+      "title": "MPT35-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA 365bcc393d63",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt35-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt35-ii-user-guide.pdf",
+          "markdown": "[MPT35-II · Ⅱ代 / 快照2026-10-09 / SHA 365bcc393d63](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt35-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT50-II",
+      "title": "MPT50-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA 9ebabb01fced",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt50-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt50-ii-user-guide.pdf",
+          "markdown": "[MPT50-II · Ⅱ代 / 快照2026-10-09 / SHA 9ebabb01fced](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt50-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT75-II",
+      "title": "MPT75-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA 770fd71a0daa",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt75-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt75-ii-user-guide.pdf",
+          "markdown": "[MPT75-II · Ⅱ代 / 快照2026-10-09 / SHA 770fd71a0daa](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt75-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT100-II",
+      "title": "MPT100-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA 3b4dd00a4238",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt100-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt100-ii-user-guide.pdf",
+          "markdown": "[MPT100-II · Ⅱ代 / 快照2026-10-09 / SHA 3b4dd00a4238](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt100-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT150-II",
+      "title": "MPT150-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA 41870d53f4a4",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt150-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt150-ii-user-guide.pdf",
+          "markdown": "[MPT150-II · Ⅱ代 / 快照2026-10-09 / SHA 41870d53f4a4](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt150-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT210-II",
+      "title": "MPT210-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA 223986642ab6",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt210-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt210-ii-user-guide.pdf",
+          "markdown": "[MPT210-II · Ⅱ代 / 快照2026-10-09 / SHA 223986642ab6](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt210-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT350-II",
+      "title": "MPT350-xxV（Ⅱ代）用户使用指导书",
+      "version": "Ⅱ代 / 快照2026-10-09 / SHA fd82f1d4ac00",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt350-ii-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt350-ii-user-guide.pdf",
+          "markdown": "[MPT350-II · Ⅱ代 / 快照2026-10-09 / SHA fd82f1d4ac00](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt350-ii-user-guide.pdf)"
+        }
+      ]
+    },
+    {
+      "id": "MPT600-I",
+      "title": "MPT600-xxV（Ⅰ代）用户使用指导书",
+      "version": "Ⅰ代 / 快照2026-10-09 / SHA 5e925edda7f4",
+      "location": "PDF第1页：选型表及主要特点。原文未标独立修订号；官网列示日期2026-08-12。完整SHA-256见下载清单。",
+      "url": "https://megmeet.com/service?id=75",
+      "file": "D:\\VisualBoard\\dsh-megmeet\\real-demo\\materials\\megmeet-mpt600-i-user-guide.pdf",
+      "links": [
+        {
+          "kind": "official",
+          "href": "https://megmeet.com/service?id=75",
+          "markdown": "[官网资料入口](https://megmeet.com/service?id=75)"
+        },
+        {
+          "kind": "snapshot",
+          "href": "D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt600-i-user-guide.pdf",
+          "markdown": "[MPT600-I · Ⅰ代 / 快照2026-10-09 / SHA 5e925edda7f4](D:/VisualBoard/dsh-megmeet/real-demo/materials/megmeet-mpt600-i-user-guide.pdf)"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "MPT35-5V",
+      "name": "MPT35-5V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.82%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT35-5V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 5,
+        "output_power_w": 35,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT35-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "5V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT35-II",
+          "quote": "35.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT35-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT35-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT35-12V",
+      "name": "MPT35-12V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.86%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT35-12V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 36,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT35-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT35-II",
+          "quote": "36.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT35-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT35-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT35-24V",
+      "name": "MPT35-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.89%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT35-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 36,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT35-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT35-II",
+          "quote": "36.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT35-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT35-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT35-48V",
+      "name": "MPT35-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.90%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT35-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 38.4,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT35-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT35-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT35-II",
+          "quote": "38.4W"
+        },
+        "output_channels": {
+          "sourceId": "MPT35-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT35-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT50-5V",
+      "name": "MPT50-5V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.86%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT50-5V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 5,
+        "output_power_w": 50,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT50-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "5V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT50-II",
+          "quote": "50.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT50-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT50-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT50-12V",
+      "name": "MPT50-12V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.86%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT50-12V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 50.4,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT50-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT50-II",
+          "quote": "50.4W"
+        },
+        "output_channels": {
+          "sourceId": "MPT50-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT50-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT50-24V",
+      "name": "MPT50-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.89%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT50-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 52.8,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT50-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT50-II",
+          "quote": "52.8W"
+        },
+        "output_channels": {
+          "sourceId": "MPT50-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT50-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT50-48V",
+      "name": "MPT50-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.90%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT50-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 52.8,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT50-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT50-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT50-II",
+          "quote": "52.8W"
+        },
+        "output_channels": {
+          "sourceId": "MPT50-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT50-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT75-12V",
+      "name": "MPT75-12V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.88%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT75-12V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 72,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT75-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT75-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT75-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT75-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT75-II",
+          "quote": "72.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT75-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT75-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT75-24V",
+      "name": "MPT75-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.90%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT75-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 76.8,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT75-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT75-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT75-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT75-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT75-II",
+          "quote": "76.8W"
+        },
+        "output_channels": {
+          "sourceId": "MPT75-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT75-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT75-48V",
+      "name": "MPT75-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.91.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT75-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 76.8,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT75-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT75-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT75-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT75-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT75-II",
+          "quote": "76.8W"
+        },
+        "output_channels": {
+          "sourceId": "MPT75-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT75-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT100-12V",
+      "name": "MPT100-12V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.86.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT100-12V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 102,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT100-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT100-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT100-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT100-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT100-II",
+          "quote": "102.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT100-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT100-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT100-24V",
+      "name": "MPT100-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.89.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT100-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 108,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT100-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT100-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT100-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT100-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT100-II",
+          "quote": "108.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT100-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT100-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT100-48V",
+      "name": "MPT100-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.90.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT100-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 110.4,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT100-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT100-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT100-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT100-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT100-II",
+          "quote": "110.4W"
+        },
+        "output_channels": {
+          "sourceId": "MPT100-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT100-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT150-12V",
+      "name": "MPT150-12V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.86.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT150-12V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 150,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT150-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT150-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT150-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT150-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT150-II",
+          "quote": "150.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT150-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT150-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT150-24V",
+      "name": "MPT150-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.89%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT150-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 156,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT150-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT150-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT150-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT150-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT150-II",
+          "quote": "156.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT150-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT150-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT150-48V",
+      "name": "MPT150-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.89%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT150-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 85,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 158.4,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT150-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT150-II",
+          "quote": "85~264Vac（120~370Vdc）"
+        },
+        "output_type": {
+          "sourceId": "MPT150-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT150-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT150-II",
+          "quote": "158.4W"
+        },
+        "output_channels": {
+          "sourceId": "MPT150-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT150-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT210-12V",
+      "name": "MPT210-12V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.87.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT210-12V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 204,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT210-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT210-II",
+          "quote": "204.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT210-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT210-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT210-24V",
+      "name": "MPT210-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.88.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT210-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 211.2,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT210-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT210-II",
+          "quote": "211.2W"
+        },
+        "output_channels": {
+          "sourceId": "MPT210-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT210-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT210-36V",
+      "name": "MPT210-36V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.89%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT210-36V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 36,
+        "output_power_w": 208.8,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT210-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "36V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT210-II",
+          "quote": "208.8W"
+        },
+        "output_channels": {
+          "sourceId": "MPT210-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT210-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT210-48V",
+      "name": "MPT210-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.89.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT210-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 211.2,
+        "output_channels": 1,
+        "cooling": "natural"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT210-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT210-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT210-II",
+          "quote": "211.2W"
+        },
+        "output_channels": {
+          "sourceId": "MPT210-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT210-II",
+          "quote": "自然风冷"
+        }
+      }
+    },
+    {
+      "id": "MPT350-12V-F",
+      "name": "MPT350-12V-F",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.85%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT350-12V-F行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 12,
+        "output_power_w": 348,
+        "output_channels": 1,
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT350-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "12V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT350-II",
+          "quote": "348.0W"
+        },
+        "output_channels": {
+          "sourceId": "MPT350-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT350-II",
+          "quote": "风扇散热"
+        }
+      }
+    },
+    {
+      "id": "MPT350-24V-F",
+      "name": "MPT350-24V-F",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.86.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT350-24V-F行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 350.4,
+        "output_channels": 1,
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT350-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT350-II",
+          "quote": "350.4W"
+        },
+        "output_channels": {
+          "sourceId": "MPT350-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT350-II",
+          "quote": "风扇散热"
+        }
+      }
+    },
+    {
+      "id": "MPT350-36V-F",
+      "name": "MPT350-36V-F",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.88.5%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT350-36V-F行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 36,
+        "output_power_w": 349.2,
+        "output_channels": 1,
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT350-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "36V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT350-II",
+          "quote": "349.2W"
+        },
+        "output_channels": {
+          "sourceId": "MPT350-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT350-II",
+          "quote": "风扇散热"
+        }
+      }
+    },
+    {
+      "id": "MPT350-48V-F",
+      "name": "MPT350-48V-F",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，II代。此数据视图限定交流输入工况，不用于直流输入判断。原文为90–132/180–264Vac两个区间；当前结构仅记录高压档180–264V，不能连成90–264V。选型表效率为Typ.89%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。第1页选型表MPT350-48V-F行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 350.4,
+        "output_channels": 1,
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "90~132Vac/180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT350-II",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT350-II",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT350-II",
+          "quote": "350.4W"
+        },
+        "output_channels": {
+          "sourceId": "MPT350-II",
+          "quote": "单组输出"
+        },
+        "cooling": {
+          "sourceId": "MPT350-II",
+          "quote": "风扇散热"
+        }
+      }
+    },
+    {
+      "id": "MPT600-24V",
+      "name": "MPT600-24V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，I代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.85%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。散热描述与图片需核查，未强行归入自然或风扇冷却。第1页选型表MPT600-24V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 24,
+        "output_power_w": 600,
+        "output_channels": 1
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT600-I",
+          "quote": "180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT600-I",
+          "quote": "180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT600-I",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT600-I",
+          "quote": "24V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT600-I",
+          "quote": "600W"
+        },
+        "output_channels": {
+          "sourceId": "MPT600-I",
+          "quote": "单组输出"
+        }
+      }
+    },
+    {
+      "id": "MPT600-36V",
+      "name": "MPT600-36V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，I代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.90%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。散热描述与图片需核查，未强行归入自然或风扇冷却。第1页选型表MPT600-36V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 36,
+        "output_power_w": 600,
+        "output_channels": 1
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT600-I",
+          "quote": "180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT600-I",
+          "quote": "180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT600-I",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT600-I",
+          "quote": "36V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT600-I",
+          "quote": "600W"
+        },
+        "output_channels": {
+          "sourceId": "MPT600-I",
+          "quote": "单组输出"
+        }
+      }
+    },
+    {
+      "id": "MPT600-48V",
+      "name": "MPT600-48V",
+      "family": "industrial-ac-dc",
+      "description": "官方型号，I代。此数据视图限定交流输入工况，不用于直流输入判断。选型表效率为Typ.90%，仅典型值，未填入效率保证下限。工作温度含降额条件，未填入无条件满功率温度范围。认证标志不等于已核验证书。散热描述与图片需核查，未强行归入自然或风扇冷却。第1页选型表MPT600-48V行。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_type": "DC",
+        "output_voltage_v": 48,
+        "output_power_w": 600,
+        "output_channels": 1
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "MPT600-I",
+          "quote": "180~264Vac"
+        },
+        "input_voltage_v": {
+          "sourceId": "MPT600-I",
+          "quote": "180~264Vac"
+        },
+        "output_type": {
+          "sourceId": "MPT600-I",
+          "quote": "AC/DC 单组输出"
+        },
+        "output_voltage_v": {
+          "sourceId": "MPT600-I",
+          "quote": "48V"
+        },
+        "output_power_w": {
+          "sourceId": "MPT600-I",
+          "quote": "600W"
+        },
+        "output_channels": {
+          "sourceId": "MPT600-I",
+          "quote": "单组输出"
+        }
+      }
+    }
+  ]
+}

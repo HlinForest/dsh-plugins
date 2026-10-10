@@ -1,0 +1,230 @@
+                       120W Single Output Industrial DIN RAIL with PFC Function                                                                     SDR-120 series
+                                                                        ■ Features :
+                                                                                                                                                                                 User’s Manual
+                                                                       ‧High efficiency 91% and low power dissipation
+                                                                       ‧150% peak load capability
+                                                                       ‧Built-in active PFC function, PF>0.93
+                                                                       ‧Protections: Short circuit / Overload / Over voltage / 
+                                                                                                Over temperature
+                                                                       ‧Cooling by free air convection
+                                                                       ‧Can be installed on DIN rail TS-35/7.5 or 15
+                                                                       ‧UL 508 (industrial control equipment) approved
+                                                                       ‧BS EN/EN61000-6-2(BS EN/EN50082-2) industrial immunity level
+                                                                       ‧Built-in DC OK relay contact
+                                                                       ‧100% full load burn-in test
+■ GTIN CODE                                                            ‧3 years warranty
+     MW Search: https://www.meanwell.com/serviceGTIN.aspx
+                                                                                                                                                               Bauar t gepruft
+                                                                                                                                                               Sicherheit
+                                                                                                                      SE             PQ                         egel ma ge
+                                                                                                                                                                 od     o s
+                                                                                                                           M                                    be wac      g
+                                                                                                                               IF
+                                                                                                                                    47                         www.tuv.com
+                                                                                                                                                               ID 2000000000
+
+
+
+
+SPECIFICATION                                                                     AS/NZS62368-1
+                                                                                                   R33100
+                                                                                                    RoHS    TPTC004                         UL508    BS EN/EN62368-1 IEC62368-1
+
+MODEL                                      SDR-120-12                                     SDR-120-24                                                SDR-120-48
+            DC VOLTAGE                     12V                                            24V                                                       48V
+            RATED CURRENT                  10A                                            5A                                                        2.5A
+            CURRENT RANGE                  0 ~ 10A                                        0 ~ 5A                                                    0 ~ 2.5A
+            RATED POWER                    120W                                           120W                                                      120W
+            PEAK CURRENT                   15A                                            7.5A                                                      3.75A
+            PEAK POWER Note.6              180W (3 sec.)
+OUTPUT      RIPPLE & NOISE (max.) Note.2 100mVp-p                                         100mVp-p                                                  120mVp-p
+            VOLTAGE ADJ. RANGE       12 ~ 14V                                             24 ~ 28V                                                  48 ~ 55V
+            VOLTAGE TOLERANCE Note.3 ±1.0%                                                ±1.0%                                                     ±1.0%
+            LINE REGULATION                ±0.5%                                          ±0.5%                                                     ±0.5%
+            LOAD REGULATION                ±1.0%                                          ±1.0%                                                     ±1.0%
+            SETUP, RISE TIME               1500ms, 60ms/230VAC           3000ms, 60ms/115VAC at full load
+            HOLD UP TIME (Typ.)            20ms/230VAC          20ms/115VAC at full load
+            VOLTAGE RANGE           Note.7 88 ~ 264VAC         124 ~ 370VDC
+            FREQUENCY RANGE                47 ~ 63Hz
+            POWER FACTOR (Typ.)             0.93/230VAC        0.96/115VAC at full load
+INPUT       EFFICIENCY (Typ.)               89%                                           91%                                                       90.5%
+            AC CURRENT (Typ.)               1.4A/115VAC         0.7A/230VAC
+            INRUSH CURRENT (Typ.)           35A/115VAC         70A/230VAC
+            LEAKAGE CURRENT                 <1mA / 240VAC
+                                            Normally works within 110 ~ 150% rated output power for more than 3 seconds and then shut down o/p voltage
+            OVERLOAD
+                                            >150% rated power, constant current limiting with auto-recovery within 3 seconds and shut down o/p voltage after 3 seconds
+                                            14 ~ 17V                                     29 ~ 33V                                                   56 ~ 65V
+PROTECTION OVER VOLTAGE
+                                            Protection type : Shut down o/p voltage, re-power on to recover
+                                           95℃±5℃ (TSW) detect on heatsink of power switch
+            OVER TEMPERATURE
+                                           Protection type : Shut down o/p voltage, recovers automatically after temperature goes down
+FUNCTION DC OK REALY CONTACT RATINGS (max.) 60Vdc/0.3A, 30Vdc/1A, 30Vac/0.5A resistive load
+         WORKING TEMP.                      -25 ~ +70℃ (Refer to "Derating Curve")
+         WORKING HUMIDITY                   20 ~ 95% RH non-condensing
+ENVIRONMENT STORAGE TEMP., HUMIDITY         -40 ~ +85℃, 10 ~ 95% RH
+            TEMP. COEFFICIENT               ±0.03%/℃ (0 ~ 50℃)
+            VIBRATION                       Component:10 ~ 500Hz, 2G 10min./1cycle, 60min. each along X, Y, Z axes; Mounting: Compliance to IEC60068-2-6
+            SAFETY STANDARDS                UL508, TUV BS EN/EN62368-1, AS/NZS 62368.1, EAC TP TC 004,BSMI CNS15598-1 approved;(meet BS EN/EN60204-1)
+            WITHSTAND VOLTAGE               I/P-O/P:3KVAC I/P-FG:2KVAC O/P-FG:0.5KVAC O/P-DC OK:0.5KVAC
+SAFETY &
+            ISOLATION RESISTANCE            I/P-O/P, I/P-FG, O/P-FG:>100M Ohms / 500VDC / 25℃/ 70% RH
+EMC         EMC EMISSION                    Compliance to BS EN/EN55032 (CISPR32), BS EN/EN61204-3 Class B, BS EN/EN61000-3-2,-3, EAC TP TC 020, CNS15936 Class B
+(Note 4)
+                                            Compliance to BS EN/EN61000-4-2,3,4,5,6,8,11, BS EN/EN55035, BS EN/EN61000-6-2 (BS EN/EN50082-2),
+            EMC IMMUNITY
+                                            BS EN/EN61204-3, heavy industry level, EAC TP TC 020, SEMI F47 approved
+            MTBF                            1764.6K hrs min. Telcordia SR-332 (Bellcore) ; 292.1K hrs min.                           MIL-HDBK-217F (25℃)
+OTHERS      DIMENSION                       40*125.2*113.5mm (W*H*D)
+            PACKING                         0.67Kg; 20pcs/14.4Kg/1.0CUFT
+NOTE         1. All parameters NOT specially mentioned are measured at 230VAC input, rated load and 25℃ of ambient temperature.
+             2. Ripple & noise are measured at 20MHz of bandwidth by using a 12" twisted pair-wire terminated with a 0.1μF & 47μF parallel capacitor.
+             3. Tolerance : includes set up tolerance, line regulation and load regulation.
+             4. The power supply is considered a component which will be installed into a final equipment. The final equipment must be re-confirmed that it still meets
+                 EMC directives. (as available on https://www.meanwell.com//Upload/PDF/EMI_statement_en.pdf )
+             5. Installation clearances : 40mm on top, 20mm on the bottom, 5mm on the left and right side are recommended when loaded permanently with full power.
+                 In case the adjacent device is a heat source, 15mm clearance is recommended.
+             6. 3 seconds max., please refer to peak loading curves. 
+             7. Derating may be needed under low input voltage. Please check the derating curve for more details.
+             8. The ambient temperature derating of 3.5℃/1000m with fanless models and of 5℃/1000m with fan models for operating altitude higher than 2000m(6500ft).
+             ※ Product Liability Disclaimer：For detailed information, please refer to https://www.meanwell.com/serviceDisclaimer.aspx 
+                                                                                                                                                               File Name:SDR-120-SPEC 2025-06-09
+                    120W Single Output Industrial DIN RAIL with PFC Function                                                                 SDR-120 series
+ Mechanical Specification
+ (Unit: mm , tolerance ± 1mm)                                                                                                                                     Case No.992A
+
+
+
+
+                                                                                                                                 113.5
+                                                                                     125.2
+                                                                                                                       TB2
+                                                                      TB1
+
+
+
+
+                                                                                                               DC OK
+                                                                                                                             1
+
+
+
+
+                                                                                                     +V ADJ.
+                                                                             1
+
+
+
+
+                                                                                             DC OK
+                                                                                                                             2
+            40
+
+
+
+
+                                                                             2                                               3
+                                                                                                                             4
+                                                                             3
+
+
+
+                                                                                                        +
+
+
+
+                                                                                                                                         Terminal Pin No. Assignment (TB1)
+                                                                                                                                          Pin No.   Assignment
+                                                                                                                                             1      FG
+                                                                                                                                             2      AC/N
+                                                                                                                                             3      AC/L
+                                                               35
+
+
+
+
+                                                                                                                                         Terminal Pin No. Assignment (TB2)
+                                                                                                                                          Pin No.   Assignment
+ADMISSIBLE DIN-RAIL:TS35/7.5 OR TS35/15                                                                                                     1,2     Relay Contact
+                                                                                                                                             3      DC OUTPUT -V
+                                                                                                                                             4      DC OUTPUT+V
+
+
+ Block Diagram
+
+
+                                                                                                                                                                              DC OK
+
+
+             EMI FILTER                   PFC                                  POWER                                   RECTIFIERS                                             +V
+ I/P              &                                                          SWITCHING                                      &
+                                        CIRCUIT                                                                                                                               -V
+             RECTIFIERS                                                                                                  FILTER
+                                                                                                                                                  O.C.P.
+                                                      U.V.P.        O.L.P.
+FG                                                                                                                                          DETECTION
+                                                                                 PWM & PFC                                                   CIRCUIT
+                                         PFC                                      CONTROL
+                                       CONTROL
+                                                                                                                                         O.V.P.
+
+
+
+ DC OK Relay Contact
+
+   Contact Close           PSU turns on / DC OK.
+   Contact Open            PSU turns off / DC Fail.
+   Contact Ratings (max.) 30V/1A resistive load.
+
+
+
+
+                                                                                                                                                           File Name:SDR-120-SPEC 2025-06-09
+                          120W Single Output Industrial DIN RAIL with PFC Function                                                      SDR-120 series
+   Peak Loading
+       (1)                                                                                             (2)
+
+       180W                                                                                            180W
+
+
+
+
+       120W                                                                                            60W
+                     100 sec.             3 sec.                                                                 15 sec. 3 sec.
+
+
+
+   Derating Curve                                                                          Output derating VS input voltage
+
+
+                                                                         Others                       100
+             150
+                                                                                                      90
+             125                     For 3 sec. (typ.)         12V                                    80
+                                                                     Others
+             100                                                                                      70
+LOAD (%)
+
+
+
+
+                                                                                           LOAD (%)
+
+                                                                                                      60
+              75                       Continuous
+                                                                12V
+                                                                                                      50
+              60
+                                                                                                      40
+
+
+               -25    0         10      20         30    40   50 55 60     70 (VERTICAL)                    88      100           110   135   155       230   264
+
+                          AMBIENT TEMPERATURE (℃)                                                                         INPUT VOLTAGE (V) 60Hz
+
+
+
+
+                                                                                                                                               File Name:SDR-120-SPEC 2025-06-09
+

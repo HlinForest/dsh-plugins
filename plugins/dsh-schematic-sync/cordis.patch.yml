@@ -1,0 +1,12 @@
+- insert:
+    - id: schematic-sync
+      name: dsh-schematic-sync
+      config:
+        workspaceRoot: ''
+        workDirectory: ''
+        kicadCli: kicad-cli
+        python: python
+        allowApply: false
+        visionBaseUrl: ''
+        visionModel: ''
+        visionKeyEnv: SCHEMATIC_VISION_API_KEY

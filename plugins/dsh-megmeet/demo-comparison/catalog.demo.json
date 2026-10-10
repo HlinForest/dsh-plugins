@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "dataset": "虚构演示产品库（非麦格米特实际产品）",
+  "version": "DEMO-1",
+  "demo": true,
+  "sources": [
+    {
+      "id": "DEMO-PS-A-DATASHEET",
+      "title": "虚构演示电源 A虚构资料",
+      "version": "DEMO-1",
+      "location": "examples/datasheets.demo.md#DEMO-PS-A"
+    },
+    {
+      "id": "DEMO-PS-B-DATASHEET",
+      "title": "虚构演示电源 B虚构资料",
+      "version": "DEMO-1",
+      "location": "examples/datasheets.demo.md#DEMO-PS-B"
+    },
+    {
+      "id": "DEMO-PS-C-DATASHEET",
+      "title": "虚构演示电源 C虚构资料",
+      "version": "DEMO-1",
+      "location": "examples/datasheets.demo.md#DEMO-PS-C"
+    },
+    {
+      "id": "DEMO-PS-D-DATASHEET",
+      "title": "虚构演示电源 D虚构资料",
+      "version": "DEMO-1",
+      "location": "examples/datasheets.demo.md#DEMO-PS-D"
+    },
+    {
+      "id": "DEMO-PS-E-DATASHEET",
+      "title": "虚构演示电源 E虚构资料",
+      "version": "DEMO-1",
+      "location": "examples/datasheets.demo.md#DEMO-PS-E"
+    }
+  ],
+  "products": [
+    {
+      "id": "DEMO-PS-A",
+      "name": "虚构演示电源 A",
+      "family": "power-supply",
+      "description": "仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_voltage_v": 48,
+        "output_power_w": 3000,
+        "efficiency_pct": 96.5,
+        "temperature_c": {
+          "min": -20,
+          "max": 60
+        },
+        "protocols": [
+          "CAN",
+          "RS485"
+        ],
+        "certifications": [
+          "CE",
+          "UL"
+        ],
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "input_type: \"AC\""
+        },
+        "input_voltage_v": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "input_voltage_v: {\"min\":180,\"max\":264}"
+        },
+        "output_voltage_v": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "output_voltage_v: 48"
+        },
+        "output_power_w": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "output_power_w: 3000"
+        },
+        "efficiency_pct": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "efficiency_pct: 96.5"
+        },
+        "temperature_c": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "temperature_c: {\"min\":-20,\"max\":60}"
+        },
+        "protocols": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "protocols: [\"CAN\",\"RS485\"]"
+        },
+        "certifications": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "certifications: [\"CE\",\"UL\"]"
+        },
+        "cooling": {
+          "sourceId": "DEMO-PS-A-DATASHEET",
+          "quote": "cooling: \"fan\""
+        }
+      }
+    },
+    {
+      "id": "DEMO-PS-B",
+      "name": "虚构演示电源 B",
+      "family": "power-supply",
+      "description": "仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_voltage_v": 48,
+        "output_power_w": 1500,
+        "efficiency_pct": 97,
+        "temperature_c": {
+          "min": -20,
+          "max": 70
+        },
+        "protocols": [
+          "CAN",
+          "RS485"
+        ],
+        "certifications": [
+          "CE",
+          "UL"
+        ],
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "input_type: \"AC\""
+        },
+        "input_voltage_v": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "input_voltage_v: {\"min\":180,\"max\":264}"
+        },
+        "output_voltage_v": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "output_voltage_v: 48"
+        },
+        "output_power_w": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "output_power_w: 1500"
+        },
+        "efficiency_pct": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "efficiency_pct: 97"
+        },
+        "temperature_c": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "temperature_c: {\"min\":-20,\"max\":70}"
+        },
+        "protocols": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "protocols: [\"CAN\",\"RS485\"]"
+        },
+        "certifications": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "certifications: [\"CE\",\"UL\"]"
+        },
+        "cooling": {
+          "sourceId": "DEMO-PS-B-DATASHEET",
+          "quote": "cooling: \"fan\""
+        }
+      }
+    },
+    {
+      "id": "DEMO-PS-C",
+      "name": "虚构演示电源 C",
+      "family": "power-supply",
+      "description": "仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_voltage_v": 48,
+        "output_power_w": 3300,
+        "temperature_c": {
+          "min": -30,
+          "max": 70
+        },
+        "protocols": [
+          "CAN",
+          "RS485"
+        ],
+        "certifications": [
+          "CE",
+          "UL"
+        ],
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "input_type: \"AC\""
+        },
+        "input_voltage_v": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "input_voltage_v: {\"min\":180,\"max\":264}"
+        },
+        "output_voltage_v": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "output_voltage_v: 48"
+        },
+        "output_power_w": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "output_power_w: 3300"
+        },
+        "temperature_c": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "temperature_c: {\"min\":-30,\"max\":70}"
+        },
+        "protocols": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "protocols: [\"CAN\",\"RS485\"]"
+        },
+        "certifications": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "certifications: [\"CE\",\"UL\"]"
+        },
+        "cooling": {
+          "sourceId": "DEMO-PS-C-DATASHEET",
+          "quote": "cooling: \"fan\""
+        }
+      }
+    },
+    {
+      "id": "DEMO-PS-D",
+      "name": "虚构演示电源 D",
+      "family": "power-supply",
+      "description": "仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 200,
+          "max": 240
+        },
+        "output_voltage_v": 48,
+        "output_power_w": 3500,
+        "efficiency_pct": 97,
+        "temperature_c": {
+          "min": -20,
+          "max": 60
+        },
+        "protocols": [
+          "CAN",
+          "RS485"
+        ],
+        "certifications": [
+          "CE",
+          "UL"
+        ],
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "input_type: \"AC\""
+        },
+        "input_voltage_v": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "input_voltage_v: {\"min\":200,\"max\":240}"
+        },
+        "output_voltage_v": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "output_voltage_v: 48"
+        },
+        "output_power_w": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "output_power_w: 3500"
+        },
+        "efficiency_pct": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "efficiency_pct: 97"
+        },
+        "temperature_c": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "temperature_c: {\"min\":-20,\"max\":60}"
+        },
+        "protocols": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "protocols: [\"CAN\",\"RS485\"]"
+        },
+        "certifications": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "certifications: [\"CE\",\"UL\"]"
+        },
+        "cooling": {
+          "sourceId": "DEMO-PS-D-DATASHEET",
+          "quote": "cooling: \"fan\""
+        }
+      }
+    },
+    {
+      "id": "DEMO-PS-E",
+      "name": "虚构演示电源 E",
+      "family": "power-supply",
+      "description": "仅用于插件功能测试；型号和参数均为虚构，不代表麦格米特产品。",
+      "parameters": {
+        "input_type": "AC",
+        "input_voltage_v": {
+          "min": 180,
+          "max": 264
+        },
+        "output_voltage_v": 24,
+        "output_power_w": 3000,
+        "efficiency_pct": 96.5,
+        "temperature_c": {
+          "min": -20,
+          "max": 60
+        },
+        "protocols": [
+          "CAN"
+        ],
+        "certifications": [
+          "CE"
+        ],
+        "cooling": "fan"
+      },
+      "evidence": {
+        "input_type": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "input_type: \"AC\""
+        },
+        "input_voltage_v": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "input_voltage_v: {\"min\":180,\"max\":264}"
+        },
+        "output_voltage_v": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "output_voltage_v: 24"
+        },
+        "output_power_w": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "output_power_w: 3000"
+        },
+        "efficiency_pct": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "efficiency_pct: 96.5"
+        },
+        "temperature_c": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "temperature_c: {\"min\":-20,\"max\":60}"
+        },
+        "protocols": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "protocols: [\"CAN\"]"
+        },
+        "certifications": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "certifications: [\"CE\"]"
+        },
+        "cooling": {
+          "sourceId": "DEMO-PS-E-DATASHEET",
+          "quote": "cooling: \"fan\""
+        }
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "initial",
+    "title": "初次选型",
+    "snapshot": "v1",
+    "loadW": 180,
+    "tempC": 25,
+    "text": "输出电压：24VDC；输入电压：176–264VAC；输入频率：50–60Hz；安装方式：导轨；本体宽度≤65mm；DC OK继电器：有；持续负载：180W；设计裕量：20%；环境温度：25℃；安装姿态：垂直且输入端子朝下；海拔：1000m；上方间距：50mm；下方间距：40mm；侧面间距：15mm。",
+    "promptSHA256": "7c19744c1a1fb15d55aa4eee44c521d1c1cd55c3029bd44256e97ddae6d0da8c",
+    "report": {
+      "reportId": "6d87e5d4-f91f-4bd9-b55e-b034b9c5623e",
+      "jsonPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e\\report.json",
+      "markdownPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e\\report.md",
+      "htmlPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e\\report.html",
+      "links": [
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e/report.html",
+          "markdown": "[交互报告](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e/report.html)"
+        },
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e/report.json",
+          "markdown": "[结构化JSON](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e/report.json)"
+        },
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e/report.md",
+          "markdown": "[报告Markdown](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-021Z-6d87e5d4-f91f-4bd9-b55e-b034b9c5623e/report.md)"
+        }
+      ]
+    },
+    "catalogRevision": "5f98af21efa2edffe1956afd634a9e5544561a2a9435b1a0bdc3aa905db41904",
+    "qualified": [
+      "SDR-240-24"
+    ]
+  },
+  {
+    "id": "changed",
+    "title": "工况变化",
+    "snapshot": "v1",
+    "loadW": 300,
+    "tempC": 55,
+    "text": "输出电压：24VDC；输入电压：176–264VAC；输入频率：50–60Hz；安装方式：导轨；本体宽度≤65mm；DC OK继电器：有；持续负载：300W；设计裕量：20%；环境温度：55℃；安装姿态：垂直且输入端子朝下；海拔：1000m；上方间距：50mm；下方间距：40mm；侧面间距：15mm。",
+    "promptSHA256": "4cbc656cf561ee37dcce6586269dc9ee1897389771ab230152730189e6bb8050",
+    "report": {
+      "reportId": "206ca101-eff0-4199-998f-42d10b6173da",
+      "jsonPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da\\report.json",
+      "markdownPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da\\report.md",
+      "htmlPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da\\report.html",
+      "links": [
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da/report.html",
+          "markdown": "[交互报告](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da/report.html)"
+        },
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da/report.json",
+          "markdown": "[结构化JSON](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da/report.json)"
+        },
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da/report.md",
+          "markdown": "[报告Markdown](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-087Z-206ca101-eff0-4199-998f-42d10b6173da/report.md)"
+        }
+      ]
+    },
+    "catalogRevision": "5f98af21efa2edffe1956afd634a9e5544561a2a9435b1a0bdc3aa905db41904",
+    "qualified": []
+  },
+  {
+    "id": "expanded",
+    "title": "资料库扩充",
+    "snapshot": "v2",
+    "loadW": 300,
+    "tempC": 55,
+    "text": "输出电压：24VDC；输入电压：176–264VAC；输入频率：50–60Hz；安装方式：导轨；本体宽度≤65mm；DC OK继电器：有；持续负载：300W；设计裕量：20%；环境温度：55℃；安装姿态：垂直且输入端子朝下；海拔：1000m；上方间距：50mm；下方间距：40mm；侧面间距：15mm。",
+    "promptSHA256": "f5ba22b137bdec1876d76e044326d5c882679a03c5ea4256a1656d90d5e9f34c",
+    "report": {
+      "reportId": "ee7a5816-efca-4417-8e69-90e9b3135610",
+      "jsonPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610\\report.json",
+      "markdownPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610\\report.md",
+      "htmlPath": "D:\\VisualBoard\\dsh-megmeet\\success-demo\\reports\\2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610\\report.html",
+      "links": [
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610/report.html",
+          "markdown": "[交互报告](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610/report.html)"
+        },
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610/report.json",
+          "markdown": "[结构化JSON](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610/report.json)"
+        },
+        {
+          "href": "D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610/report.md",
+          "markdown": "[报告Markdown](D:/VisualBoard/dsh-megmeet/success-demo/reports/2026-10-09T06-39-46-160Z-ee7a5816-efca-4417-8e69-90e9b3135610/report.md)"
+        }
+      ]
+    },
+    "catalogRevision": "fb470b5f6a03275395d674e891a1279b8ed3f87bb8b29721717b3a1ea207cf47",
+    "qualified": [
+      "CP20.241-R1",
+      "CP20.241-R2",
+      "CP20.241-R2-C1",
+      "CP20.242-R2"
+    ]
+  }
+]
