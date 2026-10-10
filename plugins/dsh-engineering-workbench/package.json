@@ -1,6 +1,6 @@
 {
   "name": "dsh-engineering-workbench",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "DSH 原生工程工作台：真实需求与产品方案、完整 PCB 评审、原理图目标同步和任务进度",
   "type": "module",
   "main": "src/index.js",

@@ -28,6 +28,8 @@
 
 「工程与网络」读取配置项目的导出快照，可按位号查询实际引脚网络并定位器件。「从已保存 KiCad 工程更新」重新导出网表、坐标与图纸，备份并更新评审项目清单，不修改原生原理图或 PCB。
 
+定位图使用大小受控的选择与键盘焦点标记。点击空白或按 Esc 取消选择；连续点击时仅显示最后一次查询，已取消的查询不会恢复旧高亮。
+
 另外提供器件检查清单、调用者输入的 JSON 快照评审、报告导出和变更监听。监听的是导出文件，两次稳定读取后提示问题变化；界面调整监听设置只影响当前运行会话，重启后恢复配置值。
 
 ### 原理图目标同步
@@ -35,8 +37,9 @@
 1. 选择当前原理图，再选择原生目标图、图片/PDF、TXT/Markdown 或直接输入要求。
 2. 原生图直接比较网表和绘图结构。文字/图像目标需要保存带证据的检查条目，覆盖元件属性、元件不存在、引脚连接和断开；未知事项阻止写回。
 3. 查询候选图的位号、引脚网络和对象 UUID。可自动同步原生目标或明确的元件属性；增删件、连线、图形和符号库操作通过高级 JSON 编辑入口提交。
-4. 验证目标差异和 ERC，查看前后图纸、候选 PDF 与验证记录。
-5. 核对准确工程路径并确认已保存、关闭 KiCad 后才可写回。确认仅限本次任务与验证版本，两分钟过期、一次有效。插件再次检查原文件、候选与验证结果；写回前创建备份，回退拒绝覆盖后续人工修改。
+4. 验证目标差异和 ERC，查看“本次实际变化”。清单列出元件数值、封装、位置 / 方向、符号排列、导线及标注的前后内容；点一项，在两张图各自的真实位置定位。橙色标记修改前，绿色标记候选。
+5. 图纸支持按钮 / 滚轮缩放、拖动平移、双击放大和全屏查看，前后图同步操作。可回到整张图、同时对照目标原件，或打开候选 PDF。Esc 只退出图纸全屏，不关闭工作台。
+6. 核对准确工程路径并确认已保存、关闭 KiCad 后才可写回。确认仅限本次任务与验证版本，两分钟过期、一次有效。插件再次检查原文件、候选与验证结果；写回前创建备份，回退拒绝覆盖后续人工修改。
 
 图片/PDF 可直接渲染查看、逐页录入证据。点击「识别本页为条目草稿」会重新检查并使用 DSH 当前默认图片模型，沿用现有登录；如已配置独立视觉服务则优先使用它。识别期间显示进度，完成后显示条目数与待确认项并收起原图；失败会给出原因。核对草稿后保存，才能比较和修改候选。DSH 对话里得到的条目也可导入。
 
@@ -45,7 +48,7 @@
 先安装 `dsh-megmeet@0.2.0`、`dsh-pcb-review@0.1.1`、`dsh-schematic-sync@0.1.1`；KiCad 工作流插件可一并使用。
 
 ```powershell
-dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.2.1.tgz --ignore-scripts
+dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.2.2.tgz --ignore-scripts
 ```
 
 在实际 profile 的 `cordis.patch.yml` 中配置工作台。以下是开发机示例；其他机器需调整：
@@ -79,3 +82,12 @@ dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.2.1.tgz --ig
 在插件目录运行 `npm ci --ignore-scripts`、`npm run build`、`npm run check`、`npm test`。修改 `client/` 源文件；`client.js` 由构建脚本生成并随安装包发布。客户端使用 DSH 提供的 React 和 Slot 服务，无外部 CDN。
 
 测试覆盖真实 DSH 工具运行时、需求透传、资料版本、报告原件链接、确认绑定、文件范围及错误记录。原生浏览器联调另外验证 24 个业务动作、真实 KiCad 导出、候选修改/验证/写回/逐字节回退、HTML 筛选和窄屏显示；写回检查使用独立测试工程。
+
+### 浏览器回归
+
+`test/browser/pcb-map.py` 和 `test/browser/schematic-viewer.py` 驱动实际 DSH 页面，需要 Python Playwright，以及带 PCB 快照 / 原理图候选任务的测试 profile。设置 `DSH_TEST_URL` 为本机 DSH 认证地址（不要提交或打印），可设置 `DSH_BROWSER_PATH` 指向浏览器及 `DSH_TEST_ARTIFACTS` 保存截图。原理图回归另外设置 `DSH_TEST_TASK` 为测试任务 ID；仅生成验证和预览，不写回原工程。
+
+```powershell
+python test/browser/pcb-map.py
+python test/browser/schematic-viewer.py
+```

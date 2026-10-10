@@ -49,6 +49,21 @@
         h(Table, { columns: [['检查内容', c => c.id || c.kind || c.field || '差异'], ['位置', c => c.ref || c.pins?.map(p => p.ref + '.' + p.pin).join('、') || c.net || '—'], ['状态', c => ({ match: '满足', difference: '有差异', unknown: '待确认' })[c.status] || c.kind || '差异'], ['要求 / 实际', c => h('div', null, c.properties && h('p', null, '目标：' + compact(c.properties)), c.expected !== undefined && h('p', null, '要求：' + compact(c.expected)), h('p', null, '实际：' + compact(c.actual ?? c.detail ?? c)))]], rows: value.checks || value.differences || [] }),
         h(Bullets, { items: value.unresolved }), value.unexpectedChanges?.length > 0 && h('div', { className: 'ew-error' }, '发现未在目标中声明的变化，不能写回。', h(Bullets, { items: value.unexpectedChanges })), h(Raw, { value, title: '完整网表与图形差异' }));
     }
+    function SchematicChanges({ verification, reference }) {
+      const data = verification.changeSet, changes = data?.changes || [];
+      const [selected, setSelected] = useState(changes[0]?.id || ''), [showTarget, setShowTarget] = useState(false);
+      const change = changes.find(c => c.id === selected);
+      const panes = [['before', '修改前快照'], ['after', '候选副本']].map(([id, title]) => ({ id, title, view: verification.views[id], points: change?.[id]?.points, marks: (change ? [change] : changes).map(c => c[id]).filter(Boolean) }));
+      if (showTarget && reference) panes.push({ id: 'target', title: '目标 JPG / PDF 原件', view: reference });
+      return h('section', { className: 'ew-section', 'aria-label': '本次实际修改' },
+        h('h3', null, data ? `本次实际变化：${data.counts.components} 个器件、${data.counts.wires} 段导线、${data.counts.other} 处标注 / 图形` : '请重新验证以生成实际修改清单'),
+        h('p', { className: 'ew-help' }, '这里比较修改前与候选，目标检查结果列在下方。点击变化可在两侧分别定位；移动的器件按各自真实位置显示。'),
+        changes.length ? h('div', { className: 'ew-change-list' }, button('查看全部变化', () => setSelected(''), { className: !selected ? 'ew-selected' : '' }), changes.map(c => button(h(R.Fragment, null, h('b', null, c.title), ...c.fields.map((f, i) => h('span', { key: i }, f.name + '：' + compact(f.before) + ' → ' + compact(f.after)))), () => setSelected(c.id), { key: c.id, className: selected === c.id ? 'ew-selected' : '', 'aria-pressed': selected === c.id }))) : h('p', { className: 'ew-note' }, '候选与修改前没有检测到可显示的变化。'),
+        h('div', { className: 'ew-change-legend' }, h('span', { className: 'before' }, '橙色：修改前的位置 / 内容'), h('span', { className: 'after' }, '绿色：候选中的位置 / 内容')),
+        change && (!change.before || !change.after) && h('p', { className: 'ew-help' }, !change.before ? '这是新增对象，修改前没有对应位置。' : '这是移除对象，候选中已不存在。'),
+        reference && checkbox('同时对照目标原图', showTarget, setShowTarget),
+        h(DrawingViewer, { title: '修改前后对比', panes, focusKey: selected }));
+    }
     function Schematic() {
       const work = useWork();
       const [caps, setCaps] = useState(null), [current, setCurrent] = useState(''), [targetType, setTargetType] = useState('text'), [targetPath, setTargetPath] = useState(''), [targetText, setTargetText] = useState('');
@@ -102,6 +117,7 @@
         const t = await api('task?id=' + encodeURIComponent(task.taskId)); setTask(t); setConfirmation(null); setClosedProject(false); setNotice(v.status === 'applied' ? '已备份并写回当前原理图。请在 KiCad 重新打开核对；PCB 没有随之修改。' : '已恢复写回前的原始文件。'); await listTasks();
       });
       const sourceImage = target?.artifacts?.find(a => a.key === 'preview');
+      const referenceView = sourceImage && { url: sourceImage.url, width: target.preview.width || 1200, height: target.preview.height || 800 };
       const focus = inspection?.placements?.find(p => p.ref === focusRef);
       return h('div', { className: 'ew-business' },
         h('div', { className: 'ew-page-intro' }, h('div', null, h('h2', null, '原理图目标同步'), h('p', null, '读取目标、核对差异、修改独立候选，再验证和应用。')), h('small', null, caps?.allowApply ? '已启用验证后的受控写回' : '当前配置只允许候选修改与验证')),
@@ -118,7 +134,7 @@
           !task.applied && h(R.Fragment, null,
             h('nav', { className: 'ew-subtabs ew-section', 'aria-label': '原理图任务步骤' }, [['target', '目标与证据'], ['compare', '差异比较'], ['candidate', '候选修改'], ['verify', '验证与写回']].map(([k, label]) => button(label, () => setStep(k), { key: k, className: step === k ? 'ew-selected' : '' }))),
             step === 'target' && h('section', { className: 'ew-paper ew-section' }, h('h3', null, '目标原件与检查条目'),
-              ['pdf', 'image'].includes(task.target.kind) && h(R.Fragment, null, h('div', { className: 'ew-form-row' }, h(Field, { label: '目标页码' }, h('input', { type: 'number', min: 1, value: page, onChange: e => setPage(e.target.value) })), button('读取此页', () => readTarget(false), { disabled: !!work.busy }), button('识别本页为条目草稿', () => readTarget(true), { className: 'ew-primary', disabled: !!work.busy })), h('p', { className: 'ew-help' }, caps?.vision?.reason || '点击识别，将检查当前 DSH 模型是否支持图片。'), sourceImage && h('details', { className: 'ew-extra', open: !contract.requirements.length }, h('summary', null, '查看目标原图（点击展开 / 收起）'), h('img', { className: 'ew-reference-image', src: sourceImage.url, alt: `目标原件第 ${target.preview.page} 页` })), target?.preview && h('details', null, h('summary', null, `第 ${target.preview.page} / ${target.preview.pages} 页可提取文字（不证明连线）`), h('pre', { className: 'ew-source-text' }, target.preview.text))),
+              ['pdf', 'image'].includes(task.target.kind) && h(R.Fragment, null, h('div', { className: 'ew-form-row' }, h(Field, { label: '目标页码' }, h('input', { type: 'number', min: 1, value: page, onChange: e => setPage(e.target.value) })), button('读取此页', () => readTarget(false), { disabled: !!work.busy }), button('识别本页为条目草稿', () => readTarget(true), { className: 'ew-primary', disabled: !!work.busy })), h('p', { className: 'ew-help' }, caps?.vision?.reason || '点击识别，将检查当前 DSH 模型是否支持图片。'), sourceImage && h('details', { className: 'ew-extra', open: !contract.requirements.length }, h('summary', null, '查看目标原图（点击展开 / 收起）'), h(DrawingViewer, { title: '目标原图', focusKey: sourceImage.url, panes: [{ id: 'target', title: `目标原件第 ${target.preview.page} 页`, view: referenceView }] })), target?.preview && h('details', null, h('summary', null, `第 ${target.preview.page} / ${target.preview.pages} 页可提取文字（不证明连线）`), h('pre', { className: 'ew-source-text' }, target.preview.text))),
               target?.kind === 'text' && h(R.Fragment, null, h('blockquote', { className: 'ew-source-text' }, target.text), button('从简单改值 / 装配要求提取草稿', () => { changeContract(targetDraft(target.text)); setNotice('仅提取明确的改值和装配语句，其他文字保留在待确认事项。请核对后保存。'); }, { disabled: !!work.busy })),
               isNative ? h('p', { className: 'ew-notice' }, '目标是原生 KiCad 图纸，直接比较实际网表及绘图结构，无需人工建立条目。') : h(R.Fragment, null,
                 h(ContractEditor, { value: contract, onChange: changeContract, imageTarget: ['pdf', 'image'].includes(task.target.kind), disabled: !!work.busy }),
@@ -126,8 +142,8 @@
                 button('保存并确认目标条目', define, { className: 'ew-primary', disabled: !!work.busy || !contract.requirements.length }), contractReady && h('span', { className: 'ew-help' }, '　当前条目已保存'))),
             step === 'compare' && h('section', { className: 'ew-paper ew-section' }, h('h3', null, '比较实际原理图与目标'), h('div', { className: 'ew-actions' }, button('比较修改前', () => compare('current'), { disabled: !!work.busy || !contractReady }), button('比较候选图', () => compare('candidate'), { disabled: !!work.busy || !contractReady, className: 'ew-primary' })), !contractReady && h('p', { className: 'ew-help' }, '请先保存目标条目。'), h(Comparison, { value: comparison })),
             step === 'candidate' && h('section', { className: 'ew-paper ew-section' }, h('h3', null, '候选图、器件与原始对象'),
-              h('div', { className: 'ew-form-row' }, h(Field, { label: '查看图纸' }, selectInput(which, setWhich, [['current', '修改前快照'], ['candidate', '候选副本'], ...(isNative ? [['target', '目标原图']] : [])])), button('读取图纸与对象', () => work.run('读取图纸与网络', () => inspect(task.taskId, which)), { disabled: !!work.busy })),
-              inspection?.views?.sheet && h('div', { className: 'ew-board-canvas ew-section' }, h(Sheet, { view: inspection.views.sheet, parts: inspection.placements, selected: focusRef ? [focusRef] : [], focus })),
+              h('div', { className: 'ew-form-row' }, h(Field, { label: '查看图纸' }, selectInput(which, value => work.run('读取图纸与网络', () => inspect(task.taskId, value)), [['current', '修改前快照'], ['candidate', '候选副本'], ...(isNative ? [['target', '目标原图']] : [])])), button('读取图纸与对象', () => work.run('读取图纸与网络', () => inspect(task.taskId, which)), { disabled: !!work.busy })),
+              inspection?.views?.sheet && h(DrawingViewer, { title: which === 'current' ? '修改前图纸' : which === 'target' ? '目标图纸' : '候选图纸', focusKey: inspection.revision + ':' + focusRef, panes: [{ id: which, title: which === 'current' ? '修改前快照' : which === 'target' ? '目标原图' : '候选副本', view: inspection.views.sheet, points: focus ? [focus.at.slice(0, 2)] : null, marks: focus ? [{ kind: 'symbol', points: [focus.at.slice(0, 2)] }] : [] }] }),
               inspection && h(R.Fragment, null, h(Field, { label: '聚焦器件' }, selectInput(focusRef, setFocusRef, [['', '整张图纸'], ...inspection.placements.map(p => [p.ref, `${p.ref} · ${p.value}`])])), h('details', { className: 'ew-extra' }, h('summary', null, '器件、网络与对象 UUID'), h(Table, { columns: [['位号', 'ref'], ['值', 'value'], ['封装', 'footprint'], ['不装配', c => c.dnp ? '是' : '否'], ['UUID', 'uuid']], rows: inspection.placements }), h(Raw, { value: inspection.board.nets, title: '逐脚网络' }), h(Raw, { value: inspection.objects, title: '原始图形与符号对象（高级修改依据）' }))),
               h('div', { className: 'ew-section-head' }, h('h3', null, '修改方式')), checkbox('使用高级修改操作（增删件、连线、图形、符号库）', useOperations, v => { setUseOperations(v); clearVerification(); }),
               useOperations ? h(Field, { label: '高级修改操作 JSON' }, textarea(operations, v => { setOperations(v); clearVerification(); }, { rows: 10, spellCheck: false, placeholder: '[{"op":"set_properties","ref":"R1","properties":{"Value":"10k"}}]' })) : h('p', { className: 'ew-help' }, isNative ? '自动同步单页原生目标，保留同位号元件关联。' : '按已保存的明确目标修改已有元件属性。连接和增删件需要基于实际 UUID 的高级操作。'),
@@ -136,8 +152,7 @@
             step === 'verify' && h('section', { className: 'ew-paper ew-section' }, h('div', { className: 'ew-section-head' }, h('h3', null, '验证、前后对比与写回'), button('验证候选并生成对比', verify, { disabled: !!work.busy || !contractReady, className: 'ew-primary' })),
               verification && h(R.Fragment, null,
                 h('div', { className: 'ew-diff-summary' }, chip(verification.canApply ? 'pass' : 'unknown'), h('strong', null, `目标差异 ${verification.comparison.differences?.length || 0} 项`), h('span', null, `ERC：${verification.erc.errors} 个错误，${verification.erc.warnings} 个警告`)),
-                h(Field, { label: '对比聚焦器件' }, selectInput(focusRef, setFocusRef, [['', '整张图纸'], ...(inspection?.placements || []).map(p => [p.ref, `${p.ref} · ${p.value}`])])),
-                h('div', { className: 'ew-diff-grid' }, [['before', '修改前'], ['after', '候选副本']].map(([key, name]) => h('div', { key, className: 'ew-diff-pane ' + (key === 'after' ? 'after' : '') }, h('header', null, name), h(Sheet, { view: verification.views[key], focus, parts: inspection?.placements || [], selected: focusRef ? [focusRef] : [] })))),
+                h(SchematicChanges, { key: verification.token, verification, reference: referenceView }),
                 h(Artifacts, { value: verification }), h(Comparison, { value: verification.comparison }),
                 h('p', { className: 'ew-note' }, verification.canApply ? '所列目标满足且 ERC 无错误，可以核对后写回。警告仍需工程师复核。' : '目标差异、未知项或 ERC 错误尚未解决，写回不可用。'),
                 button('核对并准备写回', () => requestChange('apply'), { disabled: !!work.busy || !verification.canApply || !caps?.allowApply, className: 'ew-primary' })))),

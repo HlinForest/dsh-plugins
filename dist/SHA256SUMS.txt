@@ -1,6 +1,7 @@
 80ae8259b40f7fbe0965123f32b7c6298ddbf283a2b1444755e53ef6c2258912  dsh-engineering-workbench-0.1.1.tgz
 415c8a6355bc9662b0dcd501a50599e217b4b9c24b14a9fc141ef3171cdbb973  dsh-engineering-workbench-0.2.0.tgz
 5fc071cb3d80129d19095cbbd00fc83f9fa9160abadf017172fabc3beb1ae54b  dsh-engineering-workbench-0.2.1.tgz
+6cf9e22cf4c055beab89b36efb1250a87a4dcaeae9e08b36d96deea1c77f6c5d  dsh-engineering-workbench-0.2.2.tgz
 4b2a059f6ce3caf1b45a66164865e12ebd6ab03597d2cb53a4bdba1ae1f1e232  dsh-kicad-workflow-0.1.1.tgz
 c237e802ca486700e03967e4489588177b4c20fa1db45fbb729a14a23eb3bf25  dsh-megmeet-0.2.0.tgz
 ade002d129824bb7603cc2db8e1d517d5acaa6ca2275ba2a6c5df895d605a2b1  dsh-pcb-review-0.1.0.tgz

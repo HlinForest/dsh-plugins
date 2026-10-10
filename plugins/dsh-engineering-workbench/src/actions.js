@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { randomUUID, createHash } from 'node:crypto';
+import { schematicChanges } from './schematic-changes.js';
 
 // Only these business operations are reachable from the authenticated UI.
 export const ACTIONS = {
@@ -65,10 +66,14 @@ export class Actions {
     if (group === 'schematic' && action === 'verify') {
       const record = await this.task(value.taskId);
       const directory = await this.previewDir();
+      const before = await fs.readFile(record.baseline, 'utf8'), after = await fs.readFile(record.candidate, 'utf8');
+      if (createHash('sha256').update(after).digest('hex') !== value.candidateHash) throw new Error('候选在验证后发生变化，请重新验证。');
+      value.changeSet = schematicChanges(before, after);
       views = {
         before: await this.service.schematicView(record.baseline, path.join(directory, 'before'), signal),
         after: await this.service.schematicView(record.candidate, path.join(directory, 'after'), signal),
       };
+      if (before !== await fs.readFile(record.baseline, 'utf8') || after !== await fs.readFile(record.candidate, 'utf8')) throw new Error('图纸在生成对比期间变化，请重新验证。');
       artifacts.push({ key: 'candidate', ...await this.fileAsset(record.candidate) });
     }
     return { ...value, artifacts, ...(views ? { views } : {}) };

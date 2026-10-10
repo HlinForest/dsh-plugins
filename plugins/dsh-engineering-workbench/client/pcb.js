@@ -12,6 +12,9 @@
       const [query, setQuery] = useState(''), [kind, setKind] = useState(''), [guide, setGuide] = useState(null);
       const [snapshot, setSnapshot] = useState(''), [snapshotResult, setSnapshotResult] = useState(null);
       const [watch, setWatch] = useState(null), [popup, setPopup] = useState(false), [seconds, setSeconds] = useState(3);
+      const [queryBusy, setQueryBusy] = useState(false), [queryError, setQueryError] = useState('');
+      const queryVersion = useRef(0);
+      useEffect(() => () => { queryVersion.current++; }, []);
       const loadProject = async () => { const i = await invoke('pcb', 'inspect'); const r = await invoke('pcb', 'review'); setInspection(i); setReport(r); setExported(null); };
       useEffect(() => { work.run('读取评审配置', async () => { const c = await invoke('pcb', 'capabilities'); setCaps(c); if (c.configuredProject) await loadProject(); }); }, []);
       useEffect(() => {
@@ -20,8 +23,21 @@
         const tick = async () => { try { const v = await invoke('pcb', 'watch'); if (!stopped) { setWatch(v); if (!initialized) { setPopup(!!v.settings?.popup); setSeconds(v.settings?.pollSeconds || 3); initialized = true; } } } catch (e) { if (!stopped) work.setError(e.message); } finally { if (!stopped) timer = setTimeout(tick, 4000); } };
         tick(); return () => { stopped = true; clearTimeout(timer); };
       }, [tab]);
-      const inspectRef = value => work.run('查询器件网络', async () => { const x = await invoke('pcb', 'inspect', value.trim() ? { ref: value.trim() } : {}); if (x.component) { setDetail(x); setSelected([x.component.ref]); } else setInspection(x); });
-      const locate = refs => { setSelected(refs); setRef(refs[0] || ''); if (view === 'pcb') setView('positions'); if (refs[0]) inspectRef(refs[0]); };
+      const inspectRef = async value => {
+        const requested = value.trim(), version = ++queryVersion.current;
+        setRef(requested); setSelected(requested ? [requested] : []); setDetail(null); setQueryError(''); setQueryBusy(true);
+        try {
+          const x = await invoke('pcb', 'inspect', requested ? { ref: requested } : {});
+          if (version !== queryVersion.current) return;
+          if (x.component) { setDetail(x); setSelected([x.component.ref]); } else setInspection(x);
+        } catch (e) { if (version === queryVersion.current) setQueryError(e.message); }
+        finally { if (version === queryVersion.current) setQueryBusy(false); }
+      };
+      const locate = refs => {
+        if (view === 'pcb') setView('positions');
+        if (refs[0]) inspectRef(refs[0]);
+        else { queryVersion.current++; setSelected([]); setRef(''); setDetail(null); setQueryBusy(false); setQueryError(''); }
+      };
       const updateProject = () => work.run('从已保存工程更新网表与图纸', async () => { const v = await api('refresh-project', {}); setVisual(v); await loadProject(); });
       const setWatcher = enabled => work.run(enabled ? '开启快照监听' : '停止快照监听', async () => { setWatch(await invoke('pcb', 'setWatch', { enabled, popup, pollSeconds: Number(seconds) })); });
       const components = visual?.components || inspection?.components || [];
@@ -37,8 +53,9 @@
             h('section', { className: 'ew-paper' }, h('div', { className: 'ew-section-head' }, h('h3', null, inspection.project), h('small', null, `${inspection.counts.components} 个器件，${inspection.counts.nets} 个网络`)),
               h('div', { className: 'ew-subtabs' }, [['positions', '器件定位'], ['pcb', 'PCB 原图'], ['schematic', '原理图']].map(([k, label]) => button(label, () => setView(k), { key: k, className: view === k ? 'ew-selected' : '', disabled: k !== 'positions' && !visual }))),
               h('div', { className: 'ew-board-canvas ew-section' }, view === 'positions' ? h(PositionMap, { components, selected, onSelect: locate }) : view === 'pcb' ? h('img', { src: visual.pcb, alt: 'KiCad 导出的真实 PCB 铜层与丝印' }) : h(Sheet, { view: visual.schematic, parts: visual.placements, selected })),
-              h('p', { className: 'ew-help' }, view === 'positions' ? '封装参考点位置，不代表焊盘和铜皮；点击器件查询实际引脚网络。' : '原生 KiCad 导出图纸。多页原理图当前预览首张，可在同步页检查网表。'),
-              h('div', { className: 'ew-form-row' }, h(Field, { label: '精确位号' }, textInput(ref, setRef, { placeholder: '例如 U1' })), button('查询器件网络', () => inspectRef(ref), { disabled: !!work.busy })),
+              h('p', { className: 'ew-help' }, view === 'positions' ? '封装参考点位置，不代表焊盘和铜皮；点击器件查询引脚网络，点击空白处或按 Esc 取消选择。' : '原生 KiCad 导出图纸。多页原理图当前预览首张，可在同步页检查网表。'),
+              h(Alert, { work: { busy: queryBusy ? '查询器件网络' : '', error: queryError } }),
+              h('div', { className: 'ew-form-row' }, h(Field, { label: '精确位号' }, textInput(ref, setRef, { placeholder: '例如 U1' })), button('查询器件网络', () => inspectRef(ref), { disabled: !!work.busy || queryBusy })),
               detail && h('div', { className: 'ew-refbox' }, h('h3', null, detail.component.ref + ' · ' + detail.component.value), h('p', null, '封装：' + (detail.component.footprint || '未提供')), h(Table, { columns: [['网络', 'name'], ['连接端点', n => n.nodes.map(p => p.ref + '.' + p.pin).join('、')]], rows: detail.nets }), h(Raw, { value: detail.component, title: '装配状态、属性与坐标' }))),
             h('section', { className: 'ew-paper' }, h('h3', null, '网络与器件目录'), h(Field, { label: '筛选网络名称' }, textInput(netFilter, setNetFilter)), h(Table, { columns: [['网络', 'name'], ['引脚数', 'pinCount']], rows: inspection.nets.filter(n => n.name.toLowerCase().includes(netFilter.toLowerCase())) }),
               h('details', { className: 'ew-extra' }, h('summary', null, '器件目录'), h(Table, { columns: [['位号', c => button(c.ref, () => locate([c.ref]), { disabled: !!work.busy })], ['值', 'value'], ['封装', 'footprint']], rows: inspection.components })), inspection.truncated && h('p', { className: 'ew-help' }, '总览最多显示 200 项，请按位号查询具体器件。'))),
