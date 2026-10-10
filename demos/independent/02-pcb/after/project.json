@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "project": "四器件 RC 输入评审演示",
+  "format": "kicad-xml",
+  "netlistPath": "netlist.xml",
+  "positionsPath": "positions.csv",
+  "context": {
+    "signals": [
+      {
+        "ref": "J2",
+        "pin": "1",
+        "kind": "analog",
+        "groundNet": "/GND",
+        "capacitorPolicy": "required",
+        "basis": "本演示设计要求：输出采样节点必须装配对地滤波电容。不是所有输入端的通用规则。"
+      }
+    ],
+    "proximity": [
+      {
+        "ref": "C1",
+        "nearRef": "J2",
+        "maxMm": 3,
+        "basis": "本演示布局目标：C1 与 J2 封装参考点距离不超过 3 mm。不是铜皮走线长度或安规限值。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "verifiedOn": "2026-10-10",
+  "runtime": "DSH 0.2.0-rc.2",
+  "workbench": "0.2.0",
+  "kicad": "10.0.6",
+  "selection": {
+    "selectionA": [
+      {
+        "id": "CP10.241",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 240
+      },
+      {
+        "id": "CP10.241-C1",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 240
+      },
+      {
+        "id": "CP10.241-S1",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 240
+      },
+      {
+        "id": "CP10.241-S2",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 240
+      },
+      {
+        "id": "CP10.242",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 240
+      },
+      {
+        "id": "CP20.241-R1",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "CP20.241-R2",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "CP20.241-R2-C1",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "CP20.242-R2",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "SDR-240-24",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 240
+      }
+    ],
+    "selectionB": [
+      {
+        "id": "CP20.241-R1",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "CP20.241-R2",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "CP20.241-R2-C1",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      },
+      {
+        "id": "CP20.242-R2",
+        "status": "matches_listed_constraints",
+        "verifiedContinuousW": 480
+      }
+    ],
+    "selectionC": [
+      {
+        "id": "CP20.241-R1",
+        "status": "needs_confirmation",
+        "verifiedContinuousW": null
+      },
+      {
+        "id": "CP20.241-R2",
+        "status": "needs_confirmation",
+        "verifiedContinuousW": null
+      },
+      {
+        "id": "CP20.241-R2-C1",
+        "status": "needs_confirmation",
+        "verifiedContinuousW": null
+      },
+      {
+        "id": "CP20.242-R2",
+        "status": "needs_confirmation",
+        "verifiedContinuousW": null
+      },
+      {
+        "id": "NDR-480-24",
+        "status": "needs_confirmation",
+        "verifiedContinuousW": null
+      },
+      {
+        "id": "SDR-480-24",
+        "status": "needs_confirmation",
+        "verifiedContinuousW": null
+      }
+    ]
+  },
+  "pcbBefore": {
+    "warning": 1,
+    "unknown": 0,
+    "checked": 0,
+    "not_applicable": 1
+  },
+  "pcbAfter": {
+    "warning": 0,
+    "unknown": 0,
+    "checked": 2,
+    "not_applicable": 0
+  },
+  "schematic": {
+    "changes": [
+      "R1: 10k -> 20k",
+      "R2: 10k -> 15k"
+    ],
+    "errors": 0,
+    "warnings": 0,
+    "canApply": true,
+    "rollbackByteExact": true
+  },
+  "browserErrors": []
+}

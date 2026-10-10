@@ -1,0 +1,9 @@
+.runtime/
+02-pcb/current/
+03-schematic/current/
+*.lck
+*.bak
+*.kicad_prl
+*-backups/
+01-selection/catalog/
+packages/

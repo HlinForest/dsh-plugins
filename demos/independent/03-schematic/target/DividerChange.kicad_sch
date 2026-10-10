@@ -1,0 +1,352 @@
+(kicad_sch (version 20250114) (generator "eeschema")
+      (uuid "35a8aec9-cfbb-5aee-b083-0ee3f04706ba") (paper "A4")
+      (title_block (title "DividerChange - independent teaching fixture") (rev "A")
+        (comment 1 "Teaching circuit only. PCB is intentionally unrouted."))
+      (lib_symbols (symbol "Connector_Generic:Conn_01x02"
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "J"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x02"
+			(at 0 -5.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "connector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Conn_01x02_1_1"
+			(rectangle
+				(start -1.27 1.27)
+				(end 1.27 -3.81)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(rectangle
+				(start -1.27 0.127)
+				(end 0 -0.127)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -2.413)
+				(end 0 -2.667)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin passive line
+				(at -5.08 0 0)
+				(length 3.81)
+				(name "Pin_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -2.54 0)
+				(length 3.81)
+				(name "Pin_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+(symbol "Device:R"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "R"
+			(at 2.032 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R"
+			(at 0 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at -1.778 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "R res resistor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "R_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "R_0_1"
+			(rectangle
+				(start -1.016 -2.54)
+				(end 1.016 2.54)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "R_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	))
+      (text "Change only R1 and R2. Compare, verify, apply and roll back." (at 60 55 0) (effects (font (size 1.6 1.6)) (justify left)))
+      (symbol (lib_id "Connector_Generic:Conn_01x02") (at 59.69 74.93 0) (unit 1)
+          (in_bom yes) (on_board yes) (dnp no)
+          (uuid "96800cfa-8882-5c52-9539-6b24935f9b7c")
+          (property "Reference" "J1" (at 64.69 72.93 0) (effects (font (size 1.27 1.27))))
+          (property "Value" "INPUT" (at 65.69 76.93 0) (effects (font (size 1.27 1.27))))
+          (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (at 59.69 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+          (pin "1" (uuid "732529ce-9721-55d2-bbfb-b889dce5d8ea")) (pin "2" (uuid "863631d9-358c-5ef0-bd21-696e6f440b5f"))
+          (instances (project "DividerChange" (path "/35a8aec9-cfbb-5aee-b083-0ee3f04706ba" (reference "J1") (unit 1)))))
+(symbol (lib_id "Connector_Generic:Conn_01x02") (at 139.7 74.93 0) (unit 1)
+          (in_bom yes) (on_board yes) (dnp no)
+          (uuid "5dbe2cb4-bf5e-58db-940c-a7aac466486b")
+          (property "Reference" "J2" (at 144.7 72.93 0) (effects (font (size 1.27 1.27))))
+          (property "Value" "OUTPUT" (at 145.7 76.93 0) (effects (font (size 1.27 1.27))))
+          (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (at 139.7 74.93 0) (effects (font (size 1.27 1.27)) (hide yes)))
+          (pin "1" (uuid "4c72eae4-a951-52ff-a5f8-43b4b9fcc1fa")) (pin "2" (uuid "cb457880-65bb-5a1d-bfe8-8cd50d17adf7"))
+          (instances (project "DividerChange" (path "/35a8aec9-cfbb-5aee-b083-0ee3f04706ba" (reference "J2") (unit 1)))))
+(symbol (lib_id "Device:R") (at 90.17 90.17 0) (unit 1)
+          (in_bom yes) (on_board yes) (dnp no)
+          (uuid "90459a18-5ab0-53ac-8b0a-ef8450f91cb1")
+          (property "Reference" "R1" (at 95.17 88.17 0) (effects (font (size 1.27 1.27))))
+          (property "Value" "20k" (at 96.17 92.17 0) (effects (font (size 1.27 1.27))))
+          (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 90.17 90.17 0) (effects (font (size 1.27 1.27)) (hide yes)))
+          (pin "1" (uuid "edf0bf41-9181-5a02-8ad2-b19cf618238f")) (pin "2" (uuid "b11eea0e-2417-5ebf-9b48-ccab0f9839c5"))
+          (instances (project "DividerChange" (path "/35a8aec9-cfbb-5aee-b083-0ee3f04706ba" (reference "R1") (unit 1)))))
+(symbol (lib_id "Device:R") (at 115.57 90.17 0) (unit 1)
+          (in_bom yes) (on_board yes) (dnp no)
+          (uuid "160b5795-8f9e-58d3-ac1f-fc36bbe749dc")
+          (property "Reference" "R2" (at 120.57 88.17 0) (effects (font (size 1.27 1.27))))
+          (property "Value" "15k" (at 121.57 92.17 0) (effects (font (size 1.27 1.27))))
+          (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 115.57 90.17 0) (effects (font (size 1.27 1.27)) (hide yes)))
+          (pin "1" (uuid "e2192483-da52-5985-9621-ed00d250e2b1")) (pin "2" (uuid "d34d3959-0807-5aa9-858b-70931a5533e7"))
+          (instances (project "DividerChange" (path "/35a8aec9-cfbb-5aee-b083-0ee3f04706ba" (reference "R2") (unit 1)))))
+(wire (pts (xy 46.99 74.93) (xy 54.61 74.93)) (stroke (width 0) (type default)) (uuid "350843c0-dfed-5e19-a1d8-0cbf20589ab5"))
+(label "VIN" (at 46.99 74.93 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "397c93bb-e3f4-5b79-b893-4831d949686d"))
+(wire (pts (xy 46.99 77.47) (xy 54.61 77.47)) (stroke (width 0) (type default)) (uuid "e7913d9f-5973-552c-ab48-e80da645e860"))
+(label "GND" (at 46.99 77.47 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "fe6f99cd-e537-5f86-82bf-8866763e802b"))
+(wire (pts (xy 127.0 74.93) (xy 134.62 74.93)) (stroke (width 0) (type default)) (uuid "644fc147-b593-55ff-8892-75450efc0745"))
+(label "SIGNAL" (at 127.0 74.93 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "016ba11a-b6df-52f9-8bbd-573d42783895"))
+(wire (pts (xy 127.0 77.47) (xy 134.62 77.47)) (stroke (width 0) (type default)) (uuid "5ff80e81-31de-5dd6-a9ea-515fd4412c02"))
+(label "GND" (at 127.0 77.47 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "977e6202-63b9-5f69-a7a3-cded2d951c00"))
+(wire (pts (xy 82.55 86.36) (xy 90.17 86.36)) (stroke (width 0) (type default)) (uuid "3627bce2-e74a-51b7-975a-33cbcc75d3a8"))
+(label "VIN" (at 82.55 86.36 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "98340874-c6b5-56d0-b8eb-23268e2a0938"))
+(wire (pts (xy 82.55 93.98) (xy 90.17 93.98)) (stroke (width 0) (type default)) (uuid "900bb8b1-caae-5fda-b60d-b2a7fff2f212"))
+(label "SIGNAL" (at 82.55 93.98 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "e4382697-092e-57f1-a3ba-880614787620"))
+(wire (pts (xy 107.95 86.36) (xy 115.57 86.36)) (stroke (width 0) (type default)) (uuid "70df09e6-28cb-5af2-9733-10fd86dd65de"))
+(label "SIGNAL" (at 107.95 86.36 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "dec327a2-0e30-5a8d-8213-64fff445c648"))
+(wire (pts (xy 107.95 93.98) (xy 115.57 93.98)) (stroke (width 0) (type default)) (uuid "cfd8e325-2826-5478-a814-30098e0ee40e"))
+(label "GND" (at 107.95 93.98 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "515752d4-486a-5beb-ae1f-585a937420ba"))
+      (sheet_instances (path "/" (page "1"))))
