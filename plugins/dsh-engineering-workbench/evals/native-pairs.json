@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "sample": "renamed-reference.kicad_sch",
+      "result": {
+        "components": "pass",
+        "connectivity": "pass",
+        "functional": "unknown",
+        "requirements": "unknown",
+        "fullCircuitEquivalence": "not_performed"
+      }
+    },
+    {
+      "sample": "moved-layout.kicad_sch",
+      "result": {
+        "components": "pass",
+        "connectivity": "pass",
+        "functional": "unknown",
+        "requirements": "unknown",
+        "fullCircuitEquivalence": "not_performed"
+      }
+    },
+    {
+      "sample": "changed-value.kicad_sch",
+      "result": {
+        "components": "fail",
+        "connectivity": "pass",
+        "functional": "unknown",
+        "requirements": "unknown",
+        "fullCircuitEquivalence": "not_performed"
+      }
+    },
+    {
+      "sample": "missing-decoupling.kicad_sch",
+      "result": {
+        "components": "unknown",
+        "connectivity": "fail",
+        "functional": "unknown",
+        "requirements": "unknown",
+        "fullCircuitEquivalence": "not_performed"
+      }
+    },
+    {
+      "sample": "dnp-capacitor.kicad_sch",
+      "result": {
+        "components": "fail",
+        "connectivity": "pass",
+        "functional": "unknown",
+        "requirements": "unknown",
+        "fullCircuitEquivalence": "not_performed"
+      }
+    },
+    {
+      "sample": "shorted-resistor.kicad_sch",
+      "result": {
+        "components": "pass",
+        "connectivity": "fail",
+        "functional": "unknown",
+        "requirements": "unknown",
+        "fullCircuitEquivalence": "not_performed"
+      }
+    }
+  ],
+  "falsePositives": 0,
+  "falseNegatives": 0,
+  "uncovered": [
+    "full-circuit simulation",
+    "AD 25/26 native validation",
+    "unlabelled datasheet extraction accuracy"
+  ]
+}

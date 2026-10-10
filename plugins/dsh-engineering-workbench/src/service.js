@@ -5,14 +5,20 @@ import { pathToFileURL } from 'node:url';
 import { randomUUID, createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { loadCatalog, parseRequirements, searchProducts } from 'dsh-megmeet/domain';
-import { buildSolutionReport, exportReport } from 'dsh-megmeet/reporting';
-import { SyncService } from 'dsh-schematic-sync/engine';
 
 const require = createRequire(import.meta.url);
 const packageRoot = name => path.dirname(path.dirname(require.resolve(name)));
-const { loadProject } = await import(pathToFileURL(path.join(packageRoot('dsh-pcb-review'), 'src/service.js')));
-const { placements } = await import(pathToFileURL(path.join(packageRoot('dsh-schematic-sync'), 'src/sexpr.js')));
+// Legacy routes resolve their optional provider only when invoked.
+async function optional(name, suffix) {
+  try { return await import(suffix ? pathToFileURL(path.join(packageRoot(name), suffix)) : name); }
+  catch (error) { if (error.code === 'ERR_MODULE_NOT_FOUND' || error.code === 'MODULE_NOT_FOUND') throw new Error(`此功能需要安装 ${name}；其他任务仍可使用。`); throw error; }
+}
+const loadCatalog = async (...args) => (await optional('dsh-megmeet/domain')).loadCatalog(...args);
+const parseRequirements = async (...args) => (await optional('dsh-megmeet/domain')).parseRequirements(...args);
+const searchProducts = async (...args) => (await optional('dsh-megmeet/domain')).searchProducts(...args);
+const buildSolutionReport = async (...args) => (await optional('dsh-megmeet/reporting')).buildSolutionReport(...args);
+const exportReport = async (...args) => (await optional('dsh-megmeet/reporting')).exportReport(...args);
+const loadProject = async (...args) => (await optional('dsh-pcb-review', 'src/service.js')).loadProject(...args);
 const exec = promisify(execFile);
 const digest = b => createHash('sha256').update(b).digest('hex');
 const exact = (value, keys) => {
@@ -41,7 +47,7 @@ export class Workbench {
     await fs.mkdir(this.config.workDirectory, { recursive: true });
   }
   status() {
-    return { now: Date.now(), tasks: this.events.map(t => ({ ...t, steps: t.steps.map(s => ({ ...s })) })), configured: !!(this.config.catalogPath && this.config.projectFile && this.config.currentSchematic) };
+    return { now: Date.now(), tasks: this.events.map(t => ({ ...t, steps: t.steps.map(s => ({ ...s })) })), configured: !!this.config.workDirectory, capabilities: { selection: !!this.config.catalogPath, engineering: !!this.config.workspaceRoot, kicad: !!this.config.kicadCli, pdfAndAltium: !!this.config.engineeringPython } };
   }
   record(label, origin = 'workbench', steps = []) {
     const t = { id: randomUUID(), label, origin, startedAt: Date.now(), state: 'running', steps: steps.map(label => ({ label, state: 'pending' })) };
@@ -88,7 +94,7 @@ export class Workbench {
     if (!file) throw new Error('请配置对应资料库路径。');
     const catalog = await loadCatalog(file);
     const text = requirementText(p);
-    const analysis = searchProducts(catalog, parseRequirements(text), { limit: 50, includeIncompatible: true });
+    const analysis = await searchProducts(catalog, await parseRequirements(text), { limit: 50, includeIncompatible: true });
     return { p, file, catalog, text, analysis };
   }
   async select(input) {
@@ -106,7 +112,7 @@ export class Workbench {
       const { catalog, text, analysis } = await step(0, () => this.analyze(input));
       if (!input.revision || input.revision !== catalog.revision) throw new Error('资料库版本已变，请重新校验后导出。');
       return step(1, async () => {
-        const report = buildSolutionReport(catalog, analysis, text);
+        const report = await buildSolutionReport(catalog, analysis, text);
         const out = await exportReport(report, path.join(this.config.workDirectory, 'selection-reports'));
         return { html: await this.asset(out.htmlPath, 'text/html; charset=utf-8'), json: await this.asset(out.jsonPath, 'application/json'), createdAt: new Date().toISOString() };
       });
@@ -148,6 +154,7 @@ export class Workbench {
         const pcb = path.join(directory, 'board.svg');
         await this.command(['pcb', 'export', 'svg', '--layers', 'F.Cu,B.Cu,F.SilkS,B.SilkS,Edge.Cuts', '--mode-single', '--page-size-mode', '2', '--exclude-drawing-sheet', '-o', pcb, this.config.pcbPath], signal);
         if (digest(original) !== digest(await fs.readFile(this.config.currentSchematic)) || digest(pcbOriginal) !== digest(await fs.readFile(this.config.pcbPath))) throw new Error('工程在渲染时发生变化，请重试。');
+        const { placements } = await optional('dsh-schematic-sync', 'src/sexpr.js');
         this.board = { project: board.project, components: board.components, placements: placements(original.toString('utf8')), report, schematic, pcb: await this.asset(pcb, 'image/svg+xml'), generatedAt: new Date().toISOString(), originalHash: digest(original) };
         this.snapshotProject = path.join(directory, 'project.json');
         return this.board;
@@ -178,6 +185,7 @@ export class Workbench {
       const beforeParts = placements(original.toString('utf8'));
       const item = beforeParts.find(x => x.ref === input.ref);
       if (!item) throw new Error(`工程中没有 ${input.ref}。`);
+      const { SyncService } = await optional('dsh-schematic-sync/engine');
       const service = new SyncService({ workspaceRoot: this.config.workspaceRoot, workDirectory: path.join(this.config.workDirectory, 'schematic-tasks'), kicadCli: this.config.kicadCli, allowApply: false });
       const text = `${input.ref} 改为 ${input.value}`;
       const task = await step(0, async () => {

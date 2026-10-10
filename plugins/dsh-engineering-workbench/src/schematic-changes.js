@@ -1,10 +1,4 @@
-import { createRequire } from 'node:module';
-import path from 'node:path';
-import { pathToFileURL } from 'node:url';
-
-const require = createRequire(import.meta.url);
-const root = path.dirname(path.dirname(require.resolve('dsh-schematic-sync')));
-const { schematic, placements, tag, nodes, node, value } = await import(pathToFileURL(path.join(root, 'src/sexpr.js')));
+import { schematic, placements, tag, nodes, node, value } from './engineering/sexpr.js';
 const clean = n => n.children ? n.children.filter(c => !['uuid', 'instances'].includes(tag(c))).map(clean) : n.value;
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const point = n => n?.children.slice(1, 3).map(v => Number(v.value));

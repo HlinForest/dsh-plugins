@@ -1,0 +1,10 @@
+altium-monkey==2026.9.22
+freetype-py==2.5.1
+jsonschema-rs==0.48.5
+lxml==6.0.2
+lz4==4.4.5
+msgspec==0.21.1
+pillow==12.3.0
+pymupdf==1.28.2
+uharfbuzz==0.56.3
+wn-geometer==2026.9.19

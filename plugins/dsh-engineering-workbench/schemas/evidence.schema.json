@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Engineering evidence v2",
+  "type": "object",
+  "required": ["fileHash", "snapshotVersion", "page", "bbox", "quote", "verification"],
+  "properties": {
+    "fileHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "snapshotVersion": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "page": { "type": "integer", "minimum": 1 },
+    "bbox": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" } },
+    "quote": { "type": "string", "minLength": 1 },
+    "conditions": { "type": "string" },
+    "verification": { "enum": ["human-reviewed", "unverified"] }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "altium-monkey": { "url": "https://github.com/wavenumber-eng/altium_monkey.git", "commit": "aa9e39c3be9aeba8f11eb7cb9773e42dfafd37b9", "version": "2026.9.22", "license": "AGPL-3.0-or-later" },
+  "kicad-happy": { "url": "https://github.com/aklofas/kicad-happy.git", "commit": "06840467ad0f5d76af45f64449b1f5ecb10f052f" },
+  "python": "3.12.15",
+  "pymupdf": "1.28.2"
+}

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": [
+    "six-entries",
+    "board-only-native-drc",
+    "optional-provider-isolation",
+    "pcb-marker-100%",
+    "pcb-marker-200%",
+    "pcb-clear",
+    "pcb-keyboard",
+    "two-native-inputs",
+    "unknown-mapping-no-pass",
+    "zoom",
+    "fullscreen",
+    "candidate-real-value-change",
+    "undo-redo",
+    "click-does-not-move",
+    "drag-native-coordinates",
+    "editor-fullscreen-clear",
+    "materials-reopen"
+  ],
+  "browserErrors": []
+}

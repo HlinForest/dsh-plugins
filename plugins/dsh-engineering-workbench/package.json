@@ -1,19 +1,27 @@
 {
   "name": "dsh-engineering-workbench",
-  "version": "0.2.2",
-  "description": "DSH 原生工程工作台：真实需求与产品方案、完整 PCB 评审、原理图目标同步和任务进度",
+  "version": "0.3.1",
+  "description": "DSH 工程工作台：独立读手册、产品方案、AD/KiCad 评审、原理图对比与向目标对齐",
   "type": "module",
   "main": "src/index.js",
   "exports": {
     ".": "./src/index.js",
-    "./client": "./client.js"
+    "./client": "./client.js",
+    "./engineering": "./src/engineering/tasks.js",
+    "./engineering-model": "./src/engineering/model.js"
   },
   "files": [
     "src",
     "client.js",
     "cordis.patch.yml",
+    "scripts/install-engines.ps1",
+    "scripts/engines.constraints.txt",
+    "bridge",
+    "docs",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "examples",
+    "schemas"
   ],
   "engines": {
     "node": ">=22.19.0"
@@ -38,14 +46,26 @@
     "prepack": "npm run build && npm run check && npm test"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "~3.18.4"
+    "@deepseek-ai/schemastery": "~3.18.4",
+    "fast-xml-parser": "5.11.2"
+  },
+  "peerDependenciesMeta": {
+    "dsh-megmeet": {
+      "optional": true
+    },
+    "dsh-pcb-review": {
+      "optional": true
+    },
+    "dsh-schematic-sync": {
+      "optional": true
+    }
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.4",
     "@deepseek-ai/dsh-client-connection": "0.2.0-rc.2",
     "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
     "dsh-megmeet": "0.2.0",
-    "dsh-pcb-review": "0.1.1",
+    "dsh-pcb-review": "^0.1.1",
     "dsh-schematic-sync": "^0.1.1"
   },
   "devDependencies": {
@@ -54,8 +74,8 @@
     "@deepseek-ai/dsh-system-prompt": "0.2.0-rc.2",
     "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
     "dsh-megmeet": "file:../../dist/dsh-megmeet-0.2.0.tgz",
-    "dsh-pcb-review": "file:../../dist/dsh-pcb-review-0.1.1.tgz",
-    "dsh-schematic-sync": "file:../../dist/dsh-schematic-sync-0.1.1.tgz"
+    "dsh-pcb-review": "file:../../dist/dsh-pcb-review-0.1.2.tgz",
+    "dsh-schematic-sync": "file:../../dist/dsh-schematic-sync-0.1.2.tgz"
   },
   "license": "MIT"
 }

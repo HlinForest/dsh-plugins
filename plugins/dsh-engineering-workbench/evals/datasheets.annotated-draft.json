@@ -1,0 +1,892 @@
+{
+  "schemaVersion": 1,
+  "manualAcceptance": "pending",
+  "sources": [
+    {
+      "source": "SDR-75",
+      "file": "dsh-megmeet/success-demo/materials/SDR-75.pdf",
+      "sha256": "bd4c1f6607f411b2e3843c4346a4d1d15ab28de64b2d2837a20c3d5aaf450f9a",
+      "version": "2025-06-09",
+      "product": "SDR-75-12",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 12,
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "12V",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              260.3721618652344,
+              11.284286499023438,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 6.3,
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "6.3A",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              271.7107849121094,
+              13.165084838867188,
+              7.5
+            ],
+            [
+              188.6597137451172,
+              283.0494079589844,
+              13.164382934570312,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 75.6,
+          "sourceId": "SDR-75",
+          "page": 1,
+          "quote": "75.6W",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              294.3879699707031,
+              18.4578857421875,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "SDR-120",
+      "file": "dsh-megmeet/success-demo/materials/SDR-120.pdf",
+      "sha256": "f755e5a10c898519fb46ffb452a3781e0a3eb1488f3cd7372f1267359f9cc0e9",
+      "version": "2025-06-09",
+      "product": "SDR-120-12",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 12,
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "12V",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              260.3721618652344,
+              11.284286499023438,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 10,
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "10A",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              271.7107849121094,
+              11.284286499023438,
+              7.5
+            ],
+            [
+              188.6597137451172,
+              283.0494079589844,
+              11.28387451171875,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 120,
+          "sourceId": "SDR-120",
+          "page": 1,
+          "quote": "120W",
+          "bboxCandidates": [
+            [
+              303.9436950683594,
+              294.3879699707031,
+              16.577423095703125,
+              7.5
+            ],
+            [
+              429.6036071777344,
+              294.3879699707031,
+              16.577423095703125,
+              7.5
+            ],
+            [
+              178.22720336914062,
+              294.3879699707031,
+              16.577392578125,
+              7.5
+            ],
+            [
+              115.966796875,
+              33.80943298339844,
+              26.524093627929688,
+              11.999996185302734
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "SDR-240",
+      "file": "dsh-megmeet/success-demo/materials/SDR-240.pdf",
+      "sha256": "7a184be3e20a5f80fe4a794bc8db9882e87402c7d99a0da517d319dede560b4f",
+      "version": "2025-02-17",
+      "product": "SDR-240-24",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 24,
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "24V",
+          "bboxCandidates": [
+            [
+              178.1884765625,
+              247.95864868164062,
+              11.284210205078125,
+              7.4998016357421875
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 10,
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "10A",
+          "bboxCandidates": [
+            [
+              178.1884765625,
+              259.2975769042969,
+              11.284210205078125,
+              7.499786376953125
+            ],
+            [
+              188.62071228027344,
+              270.6365051269531,
+              11.283432006835938,
+              7.499786376953125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 240,
+          "sourceId": "SDR-240",
+          "page": 1,
+          "quote": "240W",
+          "bboxCandidates": [
+            [
+              366.7214660644531,
+              281.9740295410156,
+              16.57757568359375,
+              7.499786376953125
+            ],
+            [
+              178.1884765625,
+              281.9754333496094,
+              16.57757568359375,
+              7.499786376953125
+            ],
+            [
+              115.92880249023438,
+              36.758541107177734,
+              26.524124145507812,
+              11.999698638916016
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "SDR-480",
+      "file": "dsh-megmeet/success-demo/materials/SDR-480.pdf",
+      "sha256": "2914d2e73bafd7fdb3c7b13b36a3b75d5da7f020f3b44d459a2145565f189d75",
+      "version": "2025-02-17",
+      "product": "SDR-480-24",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 24,
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "24V",
+          "bboxCandidates": [
+            [
+              178.18856811523438,
+              266.1290588378906,
+              11.284210205078125,
+              7.499786376953125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 20,
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "20A",
+          "bboxCandidates": [
+            [
+              178.18856811523438,
+              277.4679870605469,
+              11.284210205078125,
+              7.499786376953125
+            ],
+            [
+              188.6208038330078,
+              288.8069152832031,
+              11.283432006835938,
+              7.499786376953125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 480,
+          "sourceId": "SDR-480",
+          "page": 1,
+          "quote": "480W",
+          "bboxCandidates": [
+            [
+              366.7215576171875,
+              300.1444396972656,
+              16.57757568359375,
+              7.499786376953125
+            ],
+            [
+              178.18856811523438,
+              300.1458435058594,
+              16.57757568359375,
+              7.499786376953125
+            ],
+            [
+              115.92880249023438,
+              43.589229583740234,
+              26.524124145507812,
+              11.999698638916016
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "NDR-120",
+      "file": "dsh-megmeet/success-demo/materials/NDR-120.pdf",
+      "sha256": "8ea2a476d9989a44e917afe910689f1d84c93aab311c86beb64d31cdb518ce8d",
+      "version": "2026-04-03",
+      "product": "NDR-120-12",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 12,
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "12V",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              148.25921630859375,
+              11.283798217773438,
+              8.215667724609375
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 10,
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "10A",
+          "bboxCandidates": [
+            [
+              178.22720336914062,
+              161.866455078125,
+              11.283798217773438,
+              8.215667724609375
+            ],
+            [
+              188.65928649902344,
+              175.47320556640625,
+              11.284210205078125,
+              8.215667724609375
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 120,
+          "sourceId": "NDR-120",
+          "page": 2,
+          "quote": "120W",
+          "bboxCandidates": [
+            [
+              115.96710205078125,
+              77.50462341308594,
+              26.524093627929688,
+              12.0
+            ],
+            [
+              303.9436950683594,
+              189.08013916015625,
+              16.576934814453125,
+              8.215667724609375
+            ],
+            [
+              429.6036071777344,
+              189.08013916015625,
+              16.57659912109375,
+              8.215667724609375
+            ],
+            [
+              178.22720336914062,
+              189.08013916015625,
+              16.576828002929688,
+              8.215667724609375
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "NDR-240",
+      "file": "dsh-megmeet/success-demo/materials/NDR-240.pdf",
+      "sha256": "383b37857443a4921952fc42b43b7dad456f150c670882d6f5e89e79f62446a1",
+      "version": "2026-04-03",
+      "product": "NDR-240-24",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 24,
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "24V",
+          "bboxCandidates": [
+            [
+              178.14219665527344,
+              144.15170288085938,
+              11.28399658203125,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 10,
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "10A",
+          "bboxCandidates": [
+            [
+              178.14219665527344,
+              155.49026489257812,
+              11.28399658203125,
+              7.5
+            ],
+            [
+              188.57470703125,
+              166.82888793945312,
+              11.283294677734375,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 240,
+          "sourceId": "NDR-240",
+          "page": 2,
+          "quote": "240W",
+          "bboxCandidates": [
+            [
+              115.96710205078125,
+              77.50462341308594,
+              26.524093627929688,
+              12.0
+            ],
+            [
+              178.14219665527344,
+              178.16744995117188,
+              16.577407836914062,
+              7.5
+            ],
+            [
+              366.7027893066406,
+              178.16744995117188,
+              16.577423095703125,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "NDR-480",
+      "file": "dsh-megmeet/success-demo/materials/NDR-480.pdf",
+      "sha256": "f077c7787d0203eefe95cc6772f70353b68b8e506c8722334e3aca6c870f87c5",
+      "version": "2025-01-10",
+      "product": "NDR-480-24",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 24,
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "24V",
+          "bboxCandidates": [
+            [
+              178.14219665527344,
+              144.15170288085938,
+              11.28399658203125,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 20,
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "20A",
+          "bboxCandidates": [
+            [
+              179.3491973876953,
+              325.6415710449219,
+              11.283706665039062,
+              7.5
+            ],
+            [
+              178.14219665527344,
+              155.49026489257812,
+              11.28399658203125,
+              7.5
+            ],
+            [
+              188.57470703125,
+              166.82888793945312,
+              11.283294677734375,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 480,
+          "sourceId": "NDR-480",
+          "page": 2,
+          "quote": "480W",
+          "bboxCandidates": [
+            [
+              115.96710205078125,
+              77.50462341308594,
+              26.524093627929688,
+              12.0
+            ],
+            [
+              178.14219665527344,
+              178.16744995117188,
+              16.577407836914062,
+              7.5
+            ],
+            [
+              366.7027893066406,
+              178.16744995117188,
+              16.577423095703125,
+              7.5
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "HDR-60",
+      "file": "dsh-megmeet/success-demo/materials/HDR-60.pdf",
+      "sha256": "b51de6512c55662ec325fed1ee96027630bc6de1c1081eb99b5cdcdd37b675ab",
+      "version": "2026-04-03",
+      "product": "HDR-60-5",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 5,
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "5V",
+          "bboxCandidates": [
+            [
+              178.17050170898438,
+              108.75102996826172,
+              7.5222320556640625,
+              7.854957580566406
+            ],
+            [
+              331.6293029785156,
+              108.79521942138672,
+              7.522247314453125,
+              7.854957580566406
+            ],
+            [
+              198.86117553710938,
+              170.94090270996094,
+              7.522125244140625,
+              7.8549652099609375
+            ],
+            [
+              301.3629455566406,
+              220.6929168701172,
+              7.522247314453125,
+              7.8549652099609375
+            ],
+            [
+              255.89581298828125,
+              233.1310272216797,
+              7.522247314453125,
+              7.8549652099609375
+            ],
+            [
+              199.81564331054688,
+              283.2872314453125,
+              7.5222320556640625,
+              7.854949951171875
+            ],
+            [
+              238.383056640625,
+              295.089599609375,
+              7.5222320556640625,
+              7.854949951171875
+            ],
+            [
+              206.5953826904297,
+              343.81341552734375,
+              7.522216796875,
+              7.854949951171875
+            ],
+            [
+              356.63616943359375,
+              343.8579406738281,
+              7.522247314453125,
+              7.854949951171875
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 6.5,
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "6.5A",
+          "bboxCandidates": [
+            [
+              178.17050170898438,
+              121.18889617919922,
+              12.651519775390625,
+              7.854957580566406
+            ],
+            [
+              188.9920196533203,
+              134.1657257080078,
+              3.11767578125,
+              7.16082763671875
+            ],
+            [
+              192.1096954345703,
+              132.48362731933594,
+              1.63494873046875,
+              8.227005004882812
+            ],
+            [
+              193.74411010742188,
+              133.6269989013672,
+              7.22003173828125,
+              7.8549652099609375
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 32.5,
+          "sourceId": "HDR-60",
+          "page": 2,
+          "quote": "32.5W",
+          "bboxCandidates": [
+            [
+              178.35760498046875,
+              145.81028747558594,
+              17.774017333984375,
+              7.8549652099609375
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "LRS-350",
+      "file": "dsh-megmeet/success-demo/materials/LRS-350.pdf",
+      "sha256": "ac3e7b8d27dcd72277b6bdbb208586a2343a635edf1ff578fffd131a31713f6f",
+      "version": "2025-09-12",
+      "product": "LRS-350-3.3",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 3.3,
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "3.3V",
+          "bboxCandidates": [
+            [
+              189.8280029296875,
+              73.7299575805664,
+              13.6920166015625,
+              7.8000030517578125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 60,
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "60A",
+          "bboxCandidates": [
+            [
+              190.90969848632812,
+              269.4350280761719,
+              11.735809326171875,
+              7.800018310546875
+            ],
+            [
+              244.5549774169922,
+              269.4350280761719,
+              11.735122680664062,
+              7.800018310546875
+            ],
+            [
+              189.66839599609375,
+              86.75931549072266,
+              11.735610961914062,
+              7.8000030517578125
+            ],
+            [
+              200.67779541015625,
+              99.74466705322266,
+              11.7362060546875,
+              7.8000030517578125
+            ],
+            [
+              276.9460144042969,
+              86.8106460571289,
+              11.735595703125,
+              7.8000030517578125
+            ],
+            [
+              287.9551086425781,
+              99.79593658447266,
+              11.736175537109375,
+              7.8000030517578125
+            ],
+            [
+              233.69639587402344,
+              86.8106460571289,
+              11.735610961914062,
+              7.8000030517578125
+            ],
+            [
+              244.70579528808594,
+              99.79593658447266,
+              11.736190795898438,
+              7.8000030517578125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 198,
+          "sourceId": "LRS-350",
+          "page": 2,
+          "quote": "198W",
+          "bboxCandidates": [
+            [
+              189.8280029296875,
+              112.7519302368164,
+              17.240814208984375,
+              7.8000030517578125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    },
+    {
+      "source": "CP10.241",
+      "file": "dsh-megmeet/success-demo/materials/CP10.241.pdf",
+      "sha256": "c61d0de1056ffe8e0c9676e5518da835b69aceaf3f801ac9402de81c7bc4094a",
+      "version": "Aug. 2025 / Rev. 1.9",
+      "product": "CP10.241",
+      "facts": [
+        {
+          "name": "output_voltage_v",
+          "value": 24,
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "24V",
+          "bboxCandidates": [
+            [
+              356.8800048828125,
+              99.77999877929688,
+              21.444000244140625,
+              14.220001220703125
+            ],
+            [
+              136.93565368652344,
+              771.974365234375,
+              13.322250366210938,
+              8.9586181640625
+            ],
+            [
+              239.27999877929688,
+              188.14500427246094,
+              16.082992553710938,
+              10.664993286132812
+            ],
+            [
+              341.7602844238281,
+              309.9479675292969,
+              16.0830078125,
+              10.665008544921875
+            ],
+            [
+              341.76031494140625,
+              333.4649658203125,
+              16.0830078125,
+              10.665008544921875
+            ],
+            [
+              341.7630310058594,
+              383.98797607421875,
+              16.08294677734375,
+              10.665008544921875
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_current_a",
+          "value": 10,
+          "sourceId": "CP10.241",
+          "page": 8,
+          "quote": "Nom. 10A",
+          "bboxCandidates": [
+            [
+              200.75999450683594,
+              310.0649719238281,
+              25.059600830078125,
+              10.665008544921875
+            ],
+            [
+              239.27999877929688,
+              310.0649719238281,
+              16.577987670898438,
+              10.665008544921875
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        },
+        {
+          "name": "output_power_w",
+          "value": 240,
+          "sourceId": "CP10.241",
+          "page": 1,
+          "quote": "240W",
+          "bboxCandidates": [
+            [
+              412.32000732421875,
+              99.77999877929688,
+              32.040008544921875,
+              14.220001220703125
+            ]
+          ],
+          "textPresent": true,
+          "humanVerified": false
+        }
+      ],
+      "annotationSource": "existing curated catalogue; independent human annotation has not been supplied"
+    }
+  ]
+}

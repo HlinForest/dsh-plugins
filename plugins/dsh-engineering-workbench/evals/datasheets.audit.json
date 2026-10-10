@@ -1,0 +1,8 @@
+{
+  "sources": 10,
+  "facts": 30,
+  "quotesPresent": 30,
+  "manualAcceptance": "pending",
+  "modelExtractionAccuracy": "not_measured",
+  "notes": "Quote presence is not parameter extraction accuracy and is not human signoff."
+}

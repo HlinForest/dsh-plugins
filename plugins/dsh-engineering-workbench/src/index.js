@@ -2,17 +2,20 @@ import Schema from '@deepseek-ai/schemastery';
 import { Workbench } from './service.js';
 import { Actions, LABELS } from './actions.js';
 import { randomUUID } from 'node:crypto';
+import { EngineeringTasks } from './engineering/tasks.js';
+import { createDshVision } from './engineering/vision.js';
 
 export const name = 'engineering-workbench';
 export const inject = ['connection', 'tools'];
 export const Config = Schema.object(Object.fromEntries([
-  'catalogPath', 'catalogV1Path', 'projectFile', 'currentSchematic', 'pcbPath', 'workspaceRoot', 'workDirectory', 'kicadCli', 'syncWorkDirectory',
+  'catalogPath', 'catalogV1Path', 'projectFile', 'currentSchematic', 'pcbPath', 'workspaceRoot', 'workDirectory', 'kicadCli', 'syncWorkDirectory', 'engineeringPython', 'happyRoot',
 ].map(key => [key, Schema.string().default('')])));
 const watched = /^(megmeet_|pcb_|schematic_|kicad_workflow_|mcp__kicad__)/;
 const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'private, no-store' } });
 
 export function apply(ctx, config) {
   const service = new Workbench(config);
+  const engineering = new EngineeringTasks(service, createDshVision(ctx));
   const controller = new AbortController();
   ctx.on('dispose', () => controller.abort());
   const actions = new Actions(service, async (name, args, signal) => {
@@ -44,7 +47,15 @@ export function apply(ctx, config) {
     if (request.headers.get('sec-fetch-site') === 'cross-site' || (origin && new URL(origin).host !== authority)) throw new Error('不接受跨站操作。');
     const text = await request.text(); if (Buffer.byteLength(text) > 4 * 1024 * 1024) throw new Error('请求过大。'); return JSON.parse(text);
   };
-  route('bootstrap', ['GET'], async () => json({ ok: true, value: { currentSchematic: config.currentSchematic, workspaceRoot: config.workspaceRoot, projectFile: config.projectFile } }));
+  route('bootstrap', ['GET'], async () => json({ ok: true, value: { currentSchematic: config.currentSchematic, pcbPath: config.pcbPath, workspaceRoot: config.workspaceRoot, projectFile: config.projectFile } }));
+  const executeTask = async (a, signal) => ['list', 'open'].includes(a.action) ? engineering.dispatch(a, signal) : service.job(`engineering-${a.taskId || randomUUID()}`, `工程任务 · ${{create:'读取工程',page:'读取页面',extract:'提取资料',evidence:'保存证据',mapping:'确认对应',calibrate:'校准图面',compare:'比较',review:'评审',prepare:'生成候选',edit:'调整候选',undo:'撤销',redo:'重做',verify:'验证候选',export:'导出报告',apply:'保存',rollback:'回退'}[a.action] || a.action}`, [], () => engineering.dispatch(a, signal));
+  route('engineering', ['POST'], async r => json({ ok: true, value: await executeTask(await input(r), AbortSignal.any([r.signal, controller.signal])) }));
+  ctx.tools.register({
+    name: 'engineering_task', description: '独立读手册、原理图评审、PCB 评审、两图对比及向目标对齐。使用各自 taskId。请求 JSON action 为 create/list/open/page/extract/evidence/mapping/compare/review/prepare/edit/undo/redo/verify/export。覆盖原工程仅在工作台查看变化并确认后执行。图片条目保留不确定性；不能宣称完整功能等价。',
+    parameters: { type: 'object', additionalProperties: false, required: ['request'], properties: { request: { type: 'string', description: 'JSON 请求。create: {action,kind,left,right?,outputDirectory?}；其他操作: {action,taskId,...}。kind: datasheet/schematic-review/pcb-review/compare/align。edit 需 revision 和 operations。' } } },
+    output: { schema: {}, render: (_a, value) => [{ type: 'text', text: JSON.stringify(value) }] },
+    execute: async (args, exec) => { if (typeof args?.request !== 'string' || args.request.length > 4 * 1024 * 1024 || Object.keys(args).length !== 1) throw new Error('需要 JSON 请求文本。'); const a = JSON.parse(args.request); if (['confirmation', 'apply', 'rollback'].includes(a.action)) throw new Error('请在工作台查看实际变化并确认保存或回退。'); if (a.action === 'evidence') a.reviewed = false; return executeTask(a, exec.signal); },
+  });
   route('action', ['POST'], async r => json({ ok: true, value: await actions.call(await input(r), AbortSignal.any([r.signal, controller.signal])) }));
   route('confirmation', ['POST'], async r => json({ ok: true, value: await actions.confirmation(await input(r)) }));
   route('files', ['GET'], async r => json({ ok: true, value: await actions.files(new URL(r.url).searchParams.get('directory') || '') }));

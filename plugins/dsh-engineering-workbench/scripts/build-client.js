@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const read = relative => fs.readFile(new URL(relative, root), 'utf8');
-const parts = ['core', 'helpers', 'visuals', 'selection', 'pcb', 'schematic', 'shell'];
+const parts = ['core', 'helpers', 'visuals', 'selection', 'pcb', 'schematic', 'engineering', 'shell'];
 const body = [];
 body.push('const css = ' + JSON.stringify(await read('client/styles.css')) + ';');
 for (const part of parts) body.push(await read(`client/${part}.js`));

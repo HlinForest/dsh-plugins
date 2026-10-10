@@ -19,7 +19,7 @@ def verify(page, task_id, artifacts=None):
         pass
     opener.click()
     panel = page.get_by_role('dialog', name='工程工作台')
-    panel.get_by_role('button', name='原理图同步', exact=True).click()
+    panel.get_by_role('button', name='历史同步任务', exact=True).click()
     tasks = panel.get_by_label('已有原理图任务', exact=True)
     expect(tasks).to_be_enabled(timeout=60000)
     expect(tasks.locator('option[value="' + task_id + '"]')).to_have_count(1, timeout=60000)

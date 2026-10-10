@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "source": "hand-authored educational fixtures; not production circuitry",
+  "native": [
+    {
+      "target": "renamed-reference.kicad_sch",
+      "connectivity": "pass"
+    },
+    {
+      "target": "moved-layout.kicad_sch",
+      "connectivity": "pass"
+    },
+    {
+      "target": "changed-value.kicad_sch",
+      "components": "fail",
+      "connectivity": "pass"
+    },
+    {
+      "target": "missing-decoupling.kicad_sch",
+      "components": "unknown"
+    },
+    {
+      "target": "dnp-capacitor.kicad_sch",
+      "components": "fail"
+    },
+    {
+      "target": "shorted-resistor.kicad_sch",
+      "connectivity": "fail"
+    }
+  ],
+  "condition": "Vin=5V; output unloaded; ideal DC divider. Expected baseline Vout=3.333333V. Changed 22k top resistor produces 2.380952V."
+}
