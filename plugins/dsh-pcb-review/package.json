@@ -1,6 +1,6 @@
 {
   "name": "dsh-pcb-review",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AD / KiCad 原理图与 PCB 评审助手，适配 DeepSeek Harness 0.2.0-rc.2",
   "type": "module",
   "main": "src/index.js",

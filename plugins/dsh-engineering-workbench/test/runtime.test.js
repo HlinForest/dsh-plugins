@@ -19,7 +19,7 @@ test('真实 DSH 工具调用经过工作台观察器，结果与参数不泄露
   assert.equal(result.isError, false);
   const status = await (await routes.get('/api/engineering-workbench/status').fetch(new Request('http://local/api/engineering-workbench/status'))).json();
   assert.equal(status.value.tools.megmeet_, 6);
-  const task = status.value.tasks.find(x => x.label === 'megmeet_get_catalog_info');
+  const task = status.value.tasks.find(x => x.label === '读取产品资料库');
   assert.ok(task, 'actual tools/execute middleware was observed');
   assert.equal(task.origin, 'chat');
   assert.equal(task.state, 'done');

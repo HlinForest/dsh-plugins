@@ -27,9 +27,9 @@ async function copyExample(t) {
   await cp(fileURLToPath(new URL('../examples', import.meta.url)), dir, { recursive: true });
   return dir;
 }
-test('真实 DSH rc.2 加载七个工具并评审、导出报告', async t => {
+test('真实 DSH rc.2 加载八个工具并评审、导出报告', async t => {
   const dir = await copyExample(t), { ctx, call, fiber } = await setup(t, { projectFile: join(dir, 'project.kicad.json'), reportDirectory: join(dir, 'reports') });
-  assert.equal(ctx.tools.schemas().length, 7);
+  assert.equal(ctx.tools.schemas().length, 8);
   const info = await call('pcb_get_capabilities'); assert.equal(info.isError, false);
   const guide = await call('pcb_component_guide', { query: '隔离芯片' });
   assert.equal(guide.value.kind, 'isolator');
@@ -45,6 +45,19 @@ test('真实 DSH rc.2 加载七个工具并评审、导出报告', async t => {
   const second = await call('pcb_export_report', { expectedRevision: result.value.revision });
   assert.notEqual(second.value.json, exported.value.json);
   await fiber.dispose(); assert.equal(ctx.tools.schemas().length, 0);
+});
+
+test('运行会话可启停监听；无效设置不打断现有监听', async t => {
+  const dir = await copyExample(t), { call, fiber } = await setup(t, { projectFile: join(dir, 'project.kicad.json') });
+  const started = await call('pcb_set_watch', { enabled: true, pollSeconds: 3600 });
+  assert.equal(started.isError, false);
+  assert.equal(started.value.settings.enabled, true);
+  assert.equal((await call('pcb_set_watch', { enabled: true, pollSeconds: 0 })).isError, true);
+  assert.equal((await call('pcb_get_watch_status')).value.settings.enabled, true);
+  const stopped = await call('pcb_set_watch', { enabled: false });
+  assert.equal(stopped.value.state, 'disabled');
+  assert.equal(stopped.value.settings.enabled, false);
+  await fiber.dispose();
 });
 test('来源变化拒绝旧报告，工具不接受模型任意指定文件路径', async t => {
   const dir = await copyExample(t), { call } = await setup(t, { projectFile: join(dir, 'project.kicad.json'), reportDirectory: join(dir, 'reports') });

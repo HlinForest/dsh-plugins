@@ -22,7 +22,7 @@ AD / KiCad 原理图与 PCB 评审助手，适配 **DeepSeek Harness 0.2.0-rc.2*
 Node.js >= 22.19.0。在你们实际使用的 DSH profile 安装插件包，例如：
 
 ```powershell
-dsh plugin --profile web add 'D:\VisualBoard\dsh-pcb-review\dsh-pcb-review-0.1.0.tgz'
+dsh plugin --profile web add './dist/dsh-pcb-review-0.1.1.tgz'
 ```
 
 重新加载对应 profile 或按内部入口重启 DSH。使用的运行时需与目标版本一致；尚未验证其他 DSH 版本。
@@ -58,6 +58,7 @@ dsh plugin --profile web add 'D:\VisualBoard\dsh-pcb-review\dsh-pcb-review-0.1.0
 | `pcb_review_snapshot` | 输入 `snapshotJson`，评审 `{board,context}`；明确标记为调用者提供 |
 | `pcb_export_report` | 使用 `expectedRevision` 重新校验并导出，数据变化后拒绝旧快照 |
 | `pcb_get_watch_status` | 监听状态、最新问题和读取错误 |
+| `pcb_set_watch` | 在当前会话开启/停止监听，调整检查间隔与本机提醒 |
 
 ## KiCad 接入
 

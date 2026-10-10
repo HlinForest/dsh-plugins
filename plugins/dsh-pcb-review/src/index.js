@@ -21,13 +21,24 @@ export async function apply(ctx, config) {
   if (!Number.isInteger(config.pollSeconds)) throw new Error('pollSeconds 必须是整数');
   if (config.watch && !config.projectFile) throw new Error('启用 watch 需要 projectFile');
   let watcher;
+  let watchSettings = { enabled: config.watch, popup: config.popup, pollSeconds: config.pollSeconds };
+  const watchStatus = () => ({ ...(watcher?.getStatus() ?? { state: 'disabled', reason: '当前未开启导出快照监听。' }), settings: { ...watchSettings } });
+  const configureWatch = settings => {
+    if (settings.enabled && !config.projectFile) throw new Error('启用监听需要配置项目');
+    if (!Number.isInteger(settings.pollSeconds) || settings.pollSeconds < 1 || settings.pollSeconds > 3600) throw new Error('监听间隔必须是 1–3600 秒');
+    watcher?.dispose(); watcher = undefined;
+    watchSettings = settings;
+    if (settings.enabled) watcher = startWatcher({ projectFile: config.projectFile, pollSeconds: settings.pollSeconds, notify: createNotifier({ popup: settings.popup }) });
+    return watchStatus();
+  };
+  ctx.on('dispose', () => watcher?.dispose());
   const register = (name, description, parameters, execute) => ctx.tools.register(defineTool({
     name, description, parameters,
     output: { schema: { type: 'json' }, render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }] },
     async execute(args, exec) { exec.signal?.throwIfAborted(); object(args, 'tool arguments', Object.keys(parameters)); return execute(args, exec.signal); },
   }));
   register('pcb_get_capabilities', '先调用。查看 AD/KiCad 接入方式、检查范围、配置状态。不得将建议清单称为已检测结果。', {}, async () => ({
-    version: '0.1.0', runtime: 'DSH 0.2.0-rc.2', formats: ['KiCad XML 网表', 'AD Protel ASCII 网表', '统一 JSON 快照'],
+    version: '0.1.1', runtime: 'DSH 0.2.0-rc.2', formats: ['KiCad XML 网表', 'AD Protel ASCII 网表', '统一 JSON 快照'], kinds: KINDS,
     configuredProject: config.projectFile || null, reportExportEnabled: !!config.reportDirectory,
     checks: ['声明输入引脚到参考地的电容连接与 DNP', '声明电源引脚的去耦连接与 DNP', '封装参考点距离', '提供的安规测量值与项目限值比较'],
     limits: ['不读取 AD 二进制文件', '不感知 EDA 未导出的编辑', '不执行完整 DRC/铜皮路径测量', '不自动核实具体型号 datasheet', '弹窗运行在 DSH 所在 Windows 主机'],
@@ -69,9 +80,9 @@ export async function apply(ctx, config) {
     if (report.revision !== args.expectedRevision) throw new Error('项目数据已变化，请重新评审后再导出');
     return exportReport(report, config.reportDirectory, signal);
   });
-  register('pcb_get_watch_status', '查看文件监听状态、最新检查问题和读取错误。监听失败不能解释为没有问题。', {}, async () => watcher?.getStatus() ?? { state: 'disabled', reason: '管理员可设置 watch=true 开启；不是 EDA 原生编辑事件监听。' });
-  if (config.watch) {
-    watcher = startWatcher({ projectFile: config.projectFile, pollSeconds: config.pollSeconds, notify: createNotifier({ popup: config.popup }) });
-    ctx.on('dispose', () => watcher.dispose());
-  }
+  register('pcb_get_watch_status', '查看文件监听状态、最新检查问题和读取错误。监听失败不能解释为没有问题。', {}, async () => watchStatus());
+  register('pcb_set_watch', '在当前 DSH 运行会话开启或停止已配置项目的导出快照监听，设置轮询间隔和本机弹窗。重启恢复管理员配置。不是 EDA 原生编辑事件监听。', {
+    enabled: { type: 'boolean', required: true }, popup: { type: 'boolean' }, pollSeconds: { type: 'integer' },
+  }, async args => configureWatch({ enabled: args.enabled, popup: args.popup ?? watchSettings.popup, pollSeconds: args.pollSeconds ?? watchSettings.pollSeconds }));
+  if (config.watch) configureWatch(watchSettings);
 }

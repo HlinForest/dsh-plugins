@@ -80,7 +80,7 @@ export class Workbench {
     if (!asset) { const e = new Error('预览已过期，请重新运行。'); e.status = 404; throw e; }
     const buffer = await fs.readFile(asset.path);
     if (digest(buffer) !== asset.hash) { const e = new Error('文件已变化，请重新生成预览。'); e.status = 409; throw e; }
-    return { buffer, type: asset.type, name: path.basename(asset.path) };
+    return { buffer: asset.presentation || buffer, type: asset.type, name: path.basename(asset.path), policy: asset.policy };
   }
   async analyze(input) {
     const p = selectionInput(input);
@@ -149,9 +149,24 @@ export class Workbench {
         await this.command(['pcb', 'export', 'svg', '--layers', 'F.Cu,B.Cu,F.SilkS,B.SilkS,Edge.Cuts', '--mode-single', '--page-size-mode', '2', '--exclude-drawing-sheet', '-o', pcb, this.config.pcbPath], signal);
         if (digest(original) !== digest(await fs.readFile(this.config.currentSchematic)) || digest(pcbOriginal) !== digest(await fs.readFile(this.config.pcbPath))) throw new Error('工程在渲染时发生变化，请重试。');
         this.board = { project: board.project, components: board.components, placements: placements(original.toString('utf8')), report, schematic, pcb: await this.asset(pcb, 'image/svg+xml'), generatedAt: new Date().toISOString(), originalHash: digest(original) };
+        this.snapshotProject = path.join(directory, 'project.json');
         return this.board;
       });
     });
+  }
+  async refreshProject(signal) {
+    const configuredBefore = await fs.readFile(this.config.projectFile);
+    const board = await this.review(signal);
+    if (!configuredBefore.equals(await fs.readFile(this.config.projectFile))) throw new Error('项目配置已变化，请重新读取。');
+    const snapshot = JSON.parse(await fs.readFile(this.snapshotProject, 'utf8'));
+    snapshot.netlistPath = path.resolve(path.dirname(this.snapshotProject), snapshot.netlistPath);
+    snapshot.positionsPath = path.resolve(path.dirname(this.snapshotProject), snapshot.positionsPath);
+    await fs.writeFile(path.join(this.config.workDirectory, `project-config-before-${randomUUID()}.json`), configuredBefore, { flag: 'wx' });
+    const temp = this.config.projectFile + '.' + randomUUID() + '.tmp';
+    await fs.writeFile(temp, JSON.stringify(snapshot, null, 2), { flag: 'wx' });
+    signal?.throwIfAborted();
+    await fs.rename(temp, this.config.projectFile);
+    return board;
   }
   async compare(input, signal) {
     exact(input, ['ref', 'value']);
