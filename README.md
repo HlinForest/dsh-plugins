@@ -6,9 +6,9 @@
 | --- | --- | --- |
 | [dsh-megmeet](plugins/dsh-megmeet/README.md) | 0.2.0 | 需求解析、资料库检索、工况校验与可追溯报告 |
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.1 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
-| [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.0 | KiCad 原理图目标对比、候选修改、验证与回退 |
+| [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.1 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.2.0 | 三个插件完整操作入口、真实需求选型、工程评审、原理图写回与回退 |
+| [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.2.1 | 三个插件完整操作入口、真实需求选型、工程评审、原理图写回与回退 |
 
 ## 安装
 
@@ -19,9 +19,9 @@ git clone https://github.com/HlinForest/dsh-plugins.git
 cd dsh-plugins
 dsh plugin --profile web add ./dist/dsh-megmeet-0.2.0.tgz
 dsh plugin --profile web add ./dist/dsh-pcb-review-0.1.1.tgz
-dsh plugin --profile web add ./dist/dsh-schematic-sync-0.1.0.tgz
+dsh plugin --profile web add ./dist/dsh-schematic-sync-0.1.1.tgz
 dsh plugin --profile web add ./dist/dsh-kicad-workflow-0.1.1.tgz
-dsh plugin --profile web add ./dist/dsh-engineering-workbench-0.2.0.tgz
+dsh plugin --profile web add ./dist/dsh-engineering-workbench-0.2.1.tgz
 ```
 
 按各插件 README 设置目录、KiCad CLI / Python / MCP Server 等本机配置，然后重新加载对应 profile。源码 README 保留了原开发机的路径示例；换机器或移动目录后需要调整。插件没有另设模型登录入口。
@@ -49,16 +49,16 @@ npm pack --pack-destination ../../dist
 | --- | --- | --- |
 | dsh-megmeet | 42 | 0 / 0 |
 | dsh-pcb-review | 21 | 0 / 0 |
-| dsh-schematic-sync | 15 | 0 / 0 |
+| dsh-schematic-sync | 22 | 0 / 0 |
 | dsh-kicad-workflow | 15 | 0 / 0 |
 | dsh-engineering-workbench | 14 | 0 / 0 |
-| 合计 | 107 | 0 / 0 |
+| 合计 | 114 | 0 / 0 |
 
 `dist/` 安装包从通过检查的源码生成，SHA256 见 [dist/SHA256SUMS.txt](dist/SHA256SUMS.txt)。旧版压缩包保留供回退，安装时使用上表对应的新版本。
 
 新版工作台在实际 DSH 0.2.0-rc.2 原生 Web 界面完成 24 个业务动作联调：真实 48V 客户需求解析、检索、复核、报告三格式导出及 HTML 筛选/资料链接；工程导出、器件网络、检查清单、输入快照、监听启停；文字、原生 KiCad 和 PDF 目标、多项修改、前后图、ERC、确认写回和回退。另检查草稿保留、过期结果失效、浮动面板和窄屏显示。浏览器无页面异常。
 
-写回与回退只在独立测试工程执行，回退后文件逐字节一致，原工程 SHA256 未变。当前插件共有 30 个原生工具，另可接入 KiCad MCP；注册数量不代表每个硬件操作均已实测。自动视觉识别需要另行配置原理图插件的视觉服务，未配置时仍可逐页查看原件并手动录入证据。
+写回与回退只在独立测试工程执行，回退后文件逐字节一致，原工程 SHA256 未变。当前插件共有 30 个原生工具，另可接入 KiCad MCP；注册数量不代表每个硬件操作均已实测。自动视觉识别现在接入 DSH 当前默认图片模型，沿用登录；也支持显式配置独立视觉接口。纯文字模型、配置不完整或识别失败会显示原因，未知项继续阻止写回。已用实际 JPEG 在本机 DSH 登录下完成图片识别和工作台草稿回填；识别值仍需逐条人工核对，模型不会代替用户勾选确认。
 
 ## 三个插件的独立演示
 

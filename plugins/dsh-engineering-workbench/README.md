@@ -38,14 +38,14 @@
 4. 验证目标差异和 ERC，查看前后图纸、候选 PDF 与验证记录。
 5. 核对准确工程路径并确认已保存、关闭 KiCad 后才可写回。确认仅限本次任务与验证版本，两分钟过期、一次有效。插件再次检查原文件、候选与验证结果；写回前创建备份，回退拒绝覆盖后续人工修改。
 
-图片/PDF 可直接渲染查看、逐页录入证据。自动识别仅在原理图插件配置视觉服务后可用，未配置时界面明确禁用识别按钮；DSH 对话里得到的条目也可导入并核对。
+图片/PDF 可直接渲染查看、逐页录入证据。点击「识别本页为条目草稿」会重新检查并使用 DSH 当前默认图片模型，沿用现有登录；如已配置独立视觉服务则优先使用它。识别期间显示进度，完成后显示条目数与待确认项并收起原图；失败会给出原因。核对草稿后保存，才能比较和修改候选。DSH 对话里得到的条目也可导入。
 
 ## 安装与配置
 
-先安装 `dsh-megmeet@0.2.0`、`dsh-pcb-review@0.1.1`、`dsh-schematic-sync@0.1.0`；KiCad 工作流插件可一并使用。
+先安装 `dsh-megmeet@0.2.0`、`dsh-pcb-review@0.1.1`、`dsh-schematic-sync@0.1.1`；KiCad 工作流插件可一并使用。
 
 ```powershell
-dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.2.0.tgz --ignore-scripts
+dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.2.1.tgz --ignore-scripts
 ```
 
 在实际 profile 的 `cordis.patch.yml` 中配置工作台。以下是开发机示例；其他机器需调整：

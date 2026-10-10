@@ -1,6 +1,6 @@
 {
   "name": "dsh-schematic-sync",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DeepSeek Harness KiCad schematic comparison, target interpretation and verified repair",
   "type": "module",
   "main": "src/index.js",

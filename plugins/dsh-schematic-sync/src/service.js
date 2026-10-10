@@ -10,9 +10,10 @@ const manifest = files => files.map(({ path, hash }) => ({ path, hash }));
 const recordHash = data => hash(JSON.stringify(data));
 const stem = p => path.basename(p, '.kicad_sch');
 export class SyncService {
-  constructor(config) {
+  constructor(config, { nativeVision } = {}) {
     this.config = { kicadCli: 'kicad-cli', python: 'python', allowApply: false, visionBaseUrl: '', visionModel: '', visionKeyEnv: 'SCHEMATIC_VISION_API_KEY', ...config };
     this.queue = Promise.resolve();
+    this.nativeVision = nativeVision;
   }
   serial(fn) { const next = this.queue.then(fn); this.queue = next.catch(() => {}); return next; }
   async init() {
@@ -97,7 +98,7 @@ export class SyncService {
     if (task.target.kind === 'text') return { kind: 'text', text: task.target.text, targetRevision: task.target.hash };
     if (task.target.kind === 'schematic') return this.inspect(id, 'target', signal);
     const preview = await renderReference(this.config, task.target.snapshot, dir, page, signal);
-    return { targetRevision: task.target.hash, ...(interpret ? await interpretReference(this.config, preview, signal) : { preview }) };
+    return { targetRevision: task.target.hash, ...(interpret ? await interpretReference(this.config, preview, signal, this.nativeVision) : { preview }) };
   }
   async define(id, expectedTargetRevision, data) {
     const { task, dir } = await this.load(id);

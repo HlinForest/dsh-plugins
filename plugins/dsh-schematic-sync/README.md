@@ -15,7 +15,7 @@
 ## 安装与配置
 
 ```powershell
-dsh plugin --profile web add 'D:\VisualBoard\dsh-schematic-sync\dsh-schematic-sync-0.1.0.tgz'
+dsh plugin --profile web add 'D:\VisualBoard\dsh-plugins\dist\dsh-schematic-sync-0.1.1.tgz'
 ```
 
 `web` 替换为实际 DSH profile。在该 profile 的 `cordis.patch.yml` 里配置已插入的插件，重载该 profile：
@@ -41,9 +41,11 @@ dsh plugin --profile web add 'D:\VisualBoard\dsh-schematic-sync\dsh-schematic-sy
 python -m pip install pymupdf
 ```
 
-自动识图使用**支持图片输入、兼容 OpenAI Chat Completions 协议**的视觉服务，配置 `visionBaseUrl`（如 `https://你的服务/v1`）、`visionModel`，并在启动 DSH 的环境中设置 `SCHEMATIC_VISION_API_KEY`。`interpret:true` 会把选中页面发送到这个服务；密钥不会写入报告。不要给不支持图像输入的模型传图片。
+自动识图默认使用 **DSH 当前默认模型**，沿用 DSH 的登录与附件服务，无需额外 API Key。仅在模型明确声明支持图片时发送选中页面；切换为纯文字模型时会说明原因。工作台的识别按钮每次都会重新检查模型，识别完成后显示条目和待确认事项，草稿经人工核对保存后才进入对比。
 
-不配置视觉服务时，插件返回渲染后的 PNG 路径和 PDF 可提取文字，供 DSH 已有视觉/文件读取工具处理；若该会话也无视觉能力，需要提供可读的原理图/文字目标，插件不会假装已经识别。原理图 PDF 中提取出的文字本身不能证明线段连通。
+也可显式配置独立的 OpenAI Chat Completions 视觉服务：`visionBaseUrl`、`visionModel`，以及启动环境中的 `SCHEMATIC_VISION_API_KEY`。显式配置优先；配置不完整时不会悄悄切换服务。密钥不会写入报告。独立 CLI 不挂载 DSH 模型，需配置此服务或导入条目。
+
+识别结果会验证结构、证据页码和必需字段；响应截断、登录失效或模型不支持图片会报错。看不清的值、未标引脚和遗漏连接必须列为待确认，阻止写回。图片识别不能证明整图一致，PDF 可提取文字也不能证明线段连通。
 
 ## 在 DeepSeek 里直接这样说
 
@@ -171,6 +173,6 @@ node src/cli.js rollback --config examples/config.json --task '<taskId>'
 
 `verify:live` 依赖当前工作区的 `DisplayBoard.kicad_sch`、符号库和本机 KiCad；只在 `verification/时间戳/` 的测试副本上写回，不修改原始板图。可用 `KICAD_CLI` 指定其他 CLI 路径。
 
-测试包括真实 DSH 工具注册/调用、解析和 patch、逐脚网络比较、证据及未知项校验，以及真实 KiCad 文件的差异检测、修复、ERC、PDF、写回回退、过期验证拒绝和图像/PDF 输入。没有在线视觉 API Key，因此在线视觉服务调用和任意图片的识别准确率尚未实测；也没有在用户常驻 DSH profile 中安装或重启服务。
+测试包括真实 DSH 工具注册/调用、解析和 patch、逐脚网络比较、证据及未知项校验，以及真实 KiCad 文件的差异检测、修复、ERC、PDF、写回回退、过期验证拒绝和图像/PDF 输入。现已通过 DSH 当前图片模型及本机登录完成真实 JPEG 识别联调；模型误读和不完整条目会留待人工核对，不会自动确认。独立外部视觉接口的线上兼容性尚未实测。
 
 实现参考 KiCad 官方 [CLI 文档](https://docs.kicad.org/10.0/en/cli/cli.html) 和 [S-expression 原理图格式](https://dev-docs.kicad.org/en/file-formats/sexpr-schematic/)，DSH 接口以本机 `0.2.0-rc.2` 的实际类型与运行时测试为准。

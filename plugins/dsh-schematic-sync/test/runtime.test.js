@@ -18,3 +18,15 @@ test('DSH rc.2 loads all 10 tools, validates inputs and disposes cleanly', async
   const a = new AbortController(); a.abort(); assert.equal((await call('schematic_capabilities', {}, a.signal)).isError, true);
   await fiber.dispose(); assert.equal(ctx.tools.schemas().length, 0);
 });
+
+test('image recognition uses the mounted DSH vision model without a separate API key', async t => {
+  const ctx = new Context(); t.after(() => ctx.fiber.dispose());
+  ctx.provide('agentDefaultModel', { currentSelection: () => ({ provider: 'deepseek-account', model: 'deepseek-flash' }) });
+  ctx.provide('llm', { resolveModelInfo: async () => ({ inputModalities: ['text', 'image'] }) });
+  ctx.provide('attachments', { saveImages: async () => [] });
+  await ctx.plugin(SystemPrompt); await ctx.plugin(ToolRuntime); await ctx.plugin(plugin, {});
+  const result = await ctx.tools.execute({ name: 'schematic_capabilities', arguments: {}, callId: 'vision-regression', signal: new AbortController().signal });
+  assert.equal(result.isError, false);
+  assert.equal(result.value.visionConfigured, true, 'Workbench must enable recognition when the selected DSH model supports images');
+  assert.equal(result.value.vision.source, 'dsh');
+});
