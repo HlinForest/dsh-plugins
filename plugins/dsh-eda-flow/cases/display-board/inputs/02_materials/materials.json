@@ -1,0 +1,40 @@
+{
+  "datasheets": [],
+  "missing": [
+    "独立器件规格书未提供"
+  ],
+  "source_native": [
+    {
+      "original": "D:\\VisualBoard\\MD50PG_Confirmed_Restore\\native_original\\MD50PG.SchDoc",
+      "sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+      "role": "confirmed-native-preparation-only"
+    },
+    {
+      "original": "D:\\VisualBoard\\MD50PG_Confirmed_Restore\\native_original\\MD50PG_1.0 (2021.06.18).PcbDoc",
+      "sha256": "d2bdae6819254dae24ec9e8b63f7605b84a4015688ffdfd57b9f6fd2616a8e40",
+      "role": "confirmed-native-preparation-only"
+    },
+    {
+      "original": "D:\\VisualBoard\\MD50PG_Confirmed_Restore\\native_original\\MD50PG.PrjPcb",
+      "sha256": "0524dd02bcd1986bba7804b4352c5caf2f1e25abd9575d2b9a49ed02468e5458",
+      "role": "confirmed-native-preparation-only"
+    },
+    {
+      "original": "D:\\VisualBoard\\MD50PG_Confirmed_Restore\\pcb_reference\\MD50PG_native_import.kicad_pcb",
+      "sha256": "c0a9c94622818a5ce683837541e84e38ea056002b5b15111b88de9ff13aa6a62",
+      "role": "preparation-crosscheck-only",
+      "all_object_content_matches": true
+    }
+  ],
+  "pcb_extraction": {
+    "file": "D:\\VisualBoard\\MD50PG_Bundle_40076b00\\received\\02_extracted\\kicad_8730ea32467b\\8730ea32467b71ac.objects.json",
+    "sha256": "b8ceea59ca5f6f0e4121d665cb2335a450a728cdbbc74fc1092ab6049521067d",
+    "origin": "confirmed AD source, official importer used historically as auxiliary extraction channel",
+    "crosscheck": "Every extracted object matches the independently confirmed native import, excluding object IDs."
+  },
+  "excluded": [
+    "历史完成工程",
+    "历史复原生成脚本",
+    "撤销来源 7b63a8b546fd5891400f933f6e01e304fb9bc4035cd5f425769eadb3f9f0c600"
+  ]
+}

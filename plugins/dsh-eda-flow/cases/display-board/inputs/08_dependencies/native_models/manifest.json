@@ -1,0 +1,236 @@
+[
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/0",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{5296CB58-50A0-4527-BB96-E98936C7A5D0}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "0.000",
+      "DZ": "0",
+      "CHECKSUM": "-1612882029",
+      "NAME": "R0805.STEP"
+    },
+    "path": "08_dependencies/native_models/model_00_R0805.STEP",
+    "sha256": "f5d69e98f508d9ab9e844b1bdf3b778b9dbe782b5899e95174791dee498db37a"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/1",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{5296CB58-50A0-4527-BB96-E98936C7A5D0}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "180.000",
+      "DZ": "0",
+      "CHECKSUM": "-1612882029",
+      "NAME": "R0805.STEP"
+    },
+    "path": "08_dependencies/native_models/model_01_R0805.STEP",
+    "sha256": "f5d69e98f508d9ab9e844b1bdf3b778b9dbe782b5899e95174791dee498db37a"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/2",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{D2014B0E-3CBC-423B-A242-E325A79A4DB4}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "360.000",
+      "DZ": "787402",
+      "CHECKSUM": "-1925785562",
+      "NAME": "led3-2_54-6x5_6x6_95l.stp"
+    },
+    "path": "08_dependencies/native_models/model_02_led3-2_54-6x5_6x6_95l.stp",
+    "sha256": "a3ad6eab22f56dace2a5dcf37c4c3e92b53a8d4fede848153d469600b1d5d48a"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/3",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{784F6B70-0A53-4DA5-AB62-24C775D9BE16}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "180.000",
+      "DZ": "0",
+      "CHECKSUM": "1438013780",
+      "NAME": "R1206.STEP"
+    },
+    "path": "08_dependencies/native_models/model_03_R1206.STEP",
+    "sha256": "f5b0329370f2c4d61ad8d994cd8fba1759406708dfb544c49a359729041c07dc"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/4",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{5296CB58-50A0-4527-BB96-E98936C7A5D0}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "90.000",
+      "DZ": "0",
+      "CHECKSUM": "-1612882029",
+      "NAME": "R0805.STEP"
+    },
+    "path": "08_dependencies/native_models/model_04_R0805.STEP",
+    "sha256": "f5d69e98f508d9ab9e844b1bdf3b778b9dbe782b5899e95174791dee498db37a"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/5",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{134F9177-74EE-40F6-9ACE-72C118070E4E}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "0.000",
+      "DZ": "0",
+      "CHECKSUM": "966017848",
+      "NAME": "R0603.STEP"
+    },
+    "path": "08_dependencies/native_models/model_05_R0603.STEP",
+    "sha256": "b5c35cf2d4b24e46bd12060ab293b9b4f6c7c9e5b22a78f401a0cd5b0c9e28f0"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/6",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{599257E6-D87A-4BF8-8BE8-4AA02FD11196}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "270.000",
+      "DZ": "0",
+      "CHECKSUM": "-1612882029",
+      "NAME": "R0805.STEP"
+    },
+    "path": "08_dependencies/native_models/model_06_R0805.STEP",
+    "sha256": "f5d69e98f508d9ab9e844b1bdf3b778b9dbe782b5899e95174791dee498db37a"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/7",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{599257E6-D87A-4BF8-8BE8-4AA02FD11196}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "180.000",
+      "DZ": "0",
+      "CHECKSUM": "-1612882029",
+      "NAME": "R0805.STEP"
+    },
+    "path": "08_dependencies/native_models/model_07_R0805.STEP",
+    "sha256": "f5d69e98f508d9ab9e844b1bdf3b778b9dbe782b5899e95174791dee498db37a"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/8",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{5DEF01DF-8D26-40FA-AE07-DA5D0557DD4F}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "90.000",
+      "DZ": "0",
+      "CHECKSUM": "-1155224395",
+      "NAME": "cap_0603-H0.8.STEP"
+    },
+    "path": "08_dependencies/native_models/model_08_cap_0603-H0.8.STEP",
+    "sha256": "8daa9bb74c0b101c82e64ed4c89327b9396a9ead64415255bce91258ebaefbf6"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/9",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{C5E7225B-BE6E-4332-AE98-CFCC2B221CD2}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "180.000",
+      "DZ": "0",
+      "CHECKSUM": "157113378",
+      "NAME": "THT-CONX-2.5-6.4L(M).STEP"
+    },
+    "path": "08_dependencies/native_models/model_09_THT-CONX-2.5-6.4L(M).STEP",
+    "sha256": "1a55e026d9ca4d9448416cbdb9ea57f677f9bfbd77d3d2214b0867eacfbb1793"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/10",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{4AA7BE18-6587-4A96-94E5-2CA462ACBA39}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "180.000",
+      "DZ": "0",
+      "CHECKSUM": "-302276715",
+      "NAME": "THT-CONX-2.5-6.4L(L_R).STEP"
+    },
+    "path": "08_dependencies/native_models/model_10_THT-CONX-2.5-6.4L(L_R).STEP",
+    "sha256": "4e45a5ad511b1052880e74463ca822f6224ba26de8dafcf0ce71643d2f4252a6"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/11",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{5DEF01DF-8D26-40FA-AE07-DA5D0557DD4F}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "180.000",
+      "DZ": "0",
+      "CHECKSUM": "-1155224395",
+      "NAME": "cap_0603-H0.8.STEP"
+    },
+    "path": "08_dependencies/native_models/model_11_cap_0603-H0.8.STEP",
+    "sha256": "8daa9bb74c0b101c82e64ed4c89327b9396a9ead64415255bce91258ebaefbf6"
+  },
+  {
+    "source_file": "native/MD50PG_1.0 (2021.06.18).PcbDoc",
+    "source_locator": "Models/12",
+    "kind": "embedded_STEP",
+    "metadata": {
+      "EMBED": "TRUE",
+      "MODELSOURCE": "Undefined",
+      "ID": "{5DEF01DF-8D26-40FA-AE07-DA5D0557DD4F}",
+      "ROTX": "0.000",
+      "ROTY": "0.000",
+      "ROTZ": "0.000",
+      "DZ": "0",
+      "CHECKSUM": "-1155224395",
+      "NAME": "cap_0603-H0.8.STEP"
+    },
+    "path": "08_dependencies/native_models/model_12_cap_0603-H0.8.STEP",
+    "sha256": "8daa9bb74c0b101c82e64ed4c89327b9396a9ead64415255bce91258ebaefbf6"
+  }
+]

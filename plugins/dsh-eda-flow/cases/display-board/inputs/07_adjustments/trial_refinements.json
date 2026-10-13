@@ -1,0 +1,29 @@
+{
+  "reason": "首次实际生成与历史目标逐对象核对后，补明转换和编辑策略。源器件/引脚/网络/铜图元不变。",
+  "notes": [
+    "首次与历史目标比较后，补明原理图字体、符号线宽、引脚名称偏移及辅助铜形属性。几何与电气原始数据未修改。",
+    "PCB原封装字段统一使用原生 Components6/Data 的 PATTERN，不使用导入器临时库名。",
+    "比较显示总尺寸标注的方向、偏移、箭头和字体需明确，已补入 dimension_style；源属性名称沿用历史目标的 Altium_* 字段，字段值全部来自原生提取。",
+    "补充历史目标的编辑属性：有位号封装锁定、无电气引脚的机械/文字对象不进入贴装坐标表、隐藏源属性放在正面丝印层。NC焊盘类型来自本轮NC输入。",
+    "UL原理图圆角的历史转换使用整数字段，未使用半径的Frac字段；为匹配显示板目标显式保留此约定。完整原始分数字段仍在输入中，未修改。"
+  ],
+  "schematic_style": {
+    "font_face": "SimSun",
+    "line_width_mm": 0.1524,
+    "pin_name_offset_mm": 0.762,
+    "label_angle": "Style nonzero converted power glyph: 0; otherwise native Orientation * 90",
+    "rounded_rectangle_step_deg": 7.5,
+    "rounded_radius_integer_fields": true
+  },
+  "dimension_style": {
+    "horizontal_offset_mm": 6,
+    "vertical_offset_mm": 8,
+    "text_size_mm": 1.4,
+    "text_thickness_mm": 0.18,
+    "line_width_mm": 0.15,
+    "arrow_length_mm": 1
+  },
+  "lock_named_footprints": true,
+  "metadata_layer": "same-side silk, hidden",
+  "project_defaults": "KiCad 10.0.6 freshly initialized; four translated native custom rules override default constraints."
+}

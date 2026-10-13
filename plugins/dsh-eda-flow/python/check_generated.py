@@ -1,8 +1,15 @@
 """Host-owned checks for a model/manual script. Never trust its success claim alone."""
-import csv, json, os, sys, zipfile
+import csv, json, os, sys, zipfile, subprocess
 from pathlib import Path
-from runner import read, write, command
+sys.path.insert(0,str(Path(__file__).parent/'vendor'))
+sys.path.insert(0,str(Path(__file__).parent/'structured'))
+from common import read, write
 from content import project_snapshot
+
+def command(args, log):
+    r=subprocess.run(list(map(str,args)),capture_output=True,encoding='utf-8',errors='replace',timeout=600,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+    write(log,{'command':list(map(str,args)),'exitCode':r.returncode,'stdout':r.stdout,'stderr':r.stderr})
+    if r.returncode:raise RuntimeError(r.stderr+r.stdout)
 
 req = read(sys.argv[1]); out = Path(req['output']); project = out / 'project'; stage = req['stage']
 result = read(out / 'result.json'); result.setdefault('gaps', [])
@@ -27,9 +34,10 @@ if stage in [6, 7]:
     boards = list(project.glob('*.kicad_pcb'))
     if len(boards) != 1: raise ValueError('首版要求一个 KiCad PCB 文件。')
     command([req['cli'], 'pcb', 'drc', '--format', 'json', '-o', checks / 'drc.json', boards[0]], checks / 'drc-command.json')
-    for side, layers in [('front', 'F.Cu,F.Silkscreen,Edge.Cuts'), ('back', 'B.Cu,B.Silkscreen,Edge.Cuts')]:
-        command([req['cli'], 'pcb', 'export', 'svg', '--layers', layers, '--page-size-mode', '2', '-o', previews / ('PCB_' + side + '.svg'), boards[0]], checks / (side + '-command.json'))
-    command([req['cli'], 'pcb', 'render', '--width', '1400', '--height', '900', '--quality', 'basic', '--background', 'opaque', '-o', previews / 'PCB_3D.png', boards[0]], checks / '3d-command.json')
+    from front_preview import export_front
+    export_front(project,req['cli'],lambda label,args:command(args,checks/(label.replace(' ','-')+'.json')))
+    command([req['cli'], 'pcb', 'export', 'svg', '--mode-single','--mirror','--layers', 'B.Cu,B.SilkS,Edge.Cuts', '--page-size-mode', '2', '-o', previews / 'pcb-bottom.svg', boards[0]], checks / 'back-command.json')
+    if not req.get('skip3d'):command([req['cli'], 'pcb', 'render', '--width', '1400', '--height', '900', '--quality', 'basic', '--background', 'opaque', '-o', previews / '3d-top.png', boards[0]], checks / '3d-command.json')
 for report in checks.glob('*rc.json'):
     data = read(report); violations = data.get('violations', []) + [v for s in data.get('sheets', []) for v in s.get('violations', [])]
     result['gaps'].append(f'{report.name}: {len(violations)} 条规则检查记录，需工程师复核。')

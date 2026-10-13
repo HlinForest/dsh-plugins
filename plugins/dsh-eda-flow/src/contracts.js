@@ -1,16 +1,16 @@
 export const stages = [
-  { id: 1, title: '任务与约束', input: '工程版本、需求、层数、封装类型、板框和目标。', automatic: '整理约束、记录未定义项；不默认两层板或通孔器件。', obtain: '向工程负责人获取需求与当前有效版本。' },
-  { id: 2, title: '原始资料与提取', input: '复原：原始 SchDoc、PcbDoc、可选 PrjPcb；新设计：功能与接口说明。', automatic: '提取原始记录、引脚、连接和模型，重新导入原板。', obtain: '从原工程归档获取源文件；无法解析时从原 Altium 导出网表、页面 PDF、BOM、层叠与规则。' },
-  { id: 3, title: '器件与规格书', input: '型号、位号、封装、用户提供的 PDF 与企业物料属性。', automatic: '读取资料，绑定页码与来源；未知参数保留缺项。', obtain: '从器件厂家或企业物料库取得对应型号、封装版本的规格书。' },
-  { id: 4, title: '原理图', input: '原记录或新设计方案、器件参数、逐引脚连接与图纸约束。', automatic: '生成原理图与符号库、编译网表、运行 ERC 并导出预览。', obtain: '确认连接、NC、接口定义；复原补原软件编译网表和原图。' },
-  { id: 5, title: 'BOM 与封装', input: '原理图结果、位号属性、封装、DNP、装配变体与采购信息。', automatic: '生成逐位号 BOM、局部封装库与网络映射。', obtain: '由物料和工艺工程师补企业料号、封装版本及装配状态。' },
-  { id: 6, title: 'PCB', input: '原理图、封装、板框、层叠、机械与布线约束。', automatic: '生成 PCB、模型依赖、原理图关联及正反面、3D 预览。', obtain: '向结构与 PCB 工程师获取板框基准、层叠、关键位置与制造约束。' },
-  { id: 7, title: '核验与交付', input: '本次工程、独立核对依据、工程师意见与已知差异。', automatic: '重新检查、生成工程包；在另一空目录执行本轮步骤并比较。', obtain: '补充原软件导出和工程师评审；技术演示不等于公司生产放行。' },
+  { id: 1, title: '任务与约束', input: '功能、供电、接口、尺寸、板层、贴片或插件要求、验收目标。', automatic: '整理需求与设计约束', obtain: '由产品、硬件与结构工程师提供；未定项记录负责人和待确认内容。' },
+  { id: 2, title: '设计依据', input: '功能框图、接口定义、连接表、参考资料；已有工程文件可作为资料来源。', automatic: '读取资料并组织设计输入', obtain: '从零设计可用需求、器件应用说明和接口协议建立依据，参考电路不是必填项。' },
+  { id: 3, title: '器件与规格书', input: '准确型号、位号、封装、规格书 PDF、电气参数、装配状态。', automatic: '读取规格书，提取带页码的器件参数', obtain: '提供厂家对应型号与封装版本的 PDF；AI 提取引脚、供电、推荐外围与限制，工程师复核。' },
+  { id: 4, title: '原理图', input: '功能分块、逐引脚连接、NC、电源与接口、器件参数、图纸要求。', automatic: '生成原理图、符号库与检查结果', obtain: '补充电路连接与设计依据；AI 可提出电路方案及待确认项。' },
+  { id: 5, title: 'BOM 与封装', input: '位号、型号、企业料号、封装尺寸、焊盘与引脚对应、DNP。', automatic: '整理 BOM、封装库与引脚映射', obtain: '由器件规格书、物料库与装配工艺提供封装和采购属性。' },
+  { id: 6, title: 'PCB', input: '板框、安装孔、禁布区、层叠、布线铜面、器件位置、线宽间距、模型和制造要求。', automatic: '生成 PCB 和正反面预览', obtain: '结构提供机械数据，PCB 工程师确认叠层、孔金属化、关键布线与制造规则。' },
+  { id: 7, title: '核验与交付', input: '验收标准、源证据、工程师意见、待确认项处理结果。', automatic: '检查工程并打包可编辑文件和记录', obtain: '确认原理图、BOM、布局布线、依赖和制造设置；技术检查与工程师签核分别记录。' },
 ];
-
-export function defaultPlan(stage, recipe) {
-  return { version: 1, stage, summary: stages[stage - 1].automatic,
-    executor: recipe ? 'r6-preset' : stage < 4 ? 'local' : 'python',
-    ...(recipe ? { outline: recipe.outline, font: recipe.font, limitations: recipe.limitations } : {}),
-    assumptions: [], ...(stage >= 4 && !recipe ? { script: '' } : {}) };
-}
+export const version = '0.2.0';
+export const inputGroups = {
+  1: ['01_task', '07_adjustments'], 2: ['02_materials', '04_schematic'],
+  3: ['03_components', '08_dependencies'], 4: ['03_components', '04_schematic', '01_task', '07_adjustments'],
+  5: ['03_components', '05_footprints'], 6: ['05_footprints', '06_pcb', '07_adjustments', '08_dependencies'],
+  7: ['01_task', '07_adjustments'],
+};

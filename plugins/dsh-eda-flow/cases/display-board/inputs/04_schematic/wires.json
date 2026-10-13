@@ -1,0 +1,1953 @@
+[
+  {
+    "index": 854,
+    "offset": 144371,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "112",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "HZIMXJJK",
+      "LocationCount": "2",
+      "X1": "635",
+      "Y1": "390",
+      "X2": "635",
+      "Y2": "380"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 854,
+      "byte_offset": 144371
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 855,
+    "offset": 144506,
+    "length": 186,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "113",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "TWUWHFDJ",
+      "LocationCount": "5",
+      "X1": "360",
+      "Y1": "550",
+      "X2": "295",
+      "Y2": "550",
+      "X3": "295",
+      "Y3": "515",
+      "X4": "230",
+      "Y4": "515",
+      "X5": "230",
+      "Y5": "550"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 855,
+      "byte_offset": 144506
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 856,
+    "offset": 144696,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "114",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "HDMBCEBG",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "265",
+      "X2": "360",
+      "Y2": "265"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 856,
+      "byte_offset": 144696
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 857,
+    "offset": 144831,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "115",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "KVLCAAPF",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "305",
+      "X2": "360",
+      "Y2": "305"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 857,
+      "byte_offset": 144831
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 858,
+    "offset": 144966,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "116",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "XRYNHQSJ",
+      "LocationCount": "2",
+      "X1": "410",
+      "Y1": "265",
+      "X2": "400",
+      "Y2": "265"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 858,
+      "byte_offset": 144966
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 859,
+    "offset": 145101,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "117",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "ZJXNBYMM",
+      "LocationCount": "2",
+      "X1": "400",
+      "Y1": "305",
+      "X2": "410",
+      "Y2": "305"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 859,
+      "byte_offset": 145101
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 860,
+    "offset": 145236,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "118",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "RVKCUMQS",
+      "LocationCount": "2",
+      "X1": "345",
+      "Y1": "580",
+      "X2": "360",
+      "Y2": "580"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 860,
+      "byte_offset": 145236
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 861,
+    "offset": 145371,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "119",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "SFKBDFGF",
+      "LocationCount": "2",
+      "X1": "345",
+      "Y1": "595",
+      "X2": "360",
+      "Y2": "595"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 861,
+      "byte_offset": 145371
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 862,
+    "offset": 145506,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "120",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "LGYIGKAS",
+      "LocationCount": "2",
+      "X1": "345",
+      "Y1": "610",
+      "X2": "360",
+      "Y2": "610"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 862,
+      "byte_offset": 145506
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 863,
+    "offset": 145641,
+    "length": 145,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "121",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "XJDSSXFL",
+      "LocationCount": "3",
+      "X1": "540",
+      "Y1": "575",
+      "X2": "590",
+      "Y2": "575",
+      "X3": "590",
+      "Y3": "515"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 863,
+      "byte_offset": 145641
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 864,
+    "offset": 145790,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "122",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "ROSNSMBW",
+      "LocationCount": "2",
+      "X1": "590",
+      "Y1": "575",
+      "X2": "725",
+      "Y2": "575"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 864,
+      "byte_offset": 145790
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 865,
+    "offset": 145925,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "123",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "BBPBOIFQ",
+      "LocationCount": "2",
+      "X1": "635",
+      "Y1": "455",
+      "X2": "645",
+      "Y2": "455"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 865,
+      "byte_offset": 145925
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 866,
+    "offset": 146060,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "124",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "EAFZNTCU",
+      "LocationCount": "2",
+      "X1": "635",
+      "Y1": "475",
+      "X2": "645",
+      "Y2": "475"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 866,
+      "byte_offset": 146060
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 867,
+    "offset": 146195,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "125",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "NVMRAUNJ",
+      "LocationCount": "2",
+      "X1": "635",
+      "Y1": "495",
+      "X2": "645",
+      "Y2": "495"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 867,
+      "byte_offset": 146195
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 868,
+    "offset": 146330,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "126",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "BFVBQOON",
+      "LocationCount": "2",
+      "X1": "635",
+      "Y1": "515",
+      "X2": "645",
+      "Y2": "515"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 868,
+      "byte_offset": 146330
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 869,
+    "offset": 146465,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "127",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "FSBMGNJH",
+      "LocationCount": "2",
+      "X1": "685",
+      "Y1": "455",
+      "X2": "725",
+      "Y2": "455"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 869,
+      "byte_offset": 146465
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 870,
+    "offset": 146600,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "128",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "DTCYGOKD",
+      "LocationCount": "2",
+      "X1": "685",
+      "Y1": "475",
+      "X2": "725",
+      "Y2": "475"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 870,
+      "byte_offset": 146600
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 871,
+    "offset": 146735,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "129",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "CAZOYNZF",
+      "LocationCount": "2",
+      "X1": "685",
+      "Y1": "495",
+      "X2": "725",
+      "Y2": "495"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 871,
+      "byte_offset": 146735
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 872,
+    "offset": 146870,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "130",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "CLOJKOOO",
+      "LocationCount": "2",
+      "X1": "685",
+      "Y1": "515",
+      "X2": "725",
+      "Y2": "515"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 872,
+      "byte_offset": 146870
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 873,
+    "offset": 147005,
+    "length": 159,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "131",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "YMPEVZJL",
+      "LocationCount": "4",
+      "X1": "725",
+      "Y1": "535",
+      "X2": "710",
+      "Y2": "535",
+      "X3": "710",
+      "Y3": "620",
+      "X4": "755",
+      "Y4": "620"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 873,
+      "byte_offset": 147005
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 874,
+    "offset": 147168,
+    "length": 159,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "132",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "GFBHOHDD",
+      "LocationCount": "4",
+      "X1": "785",
+      "Y1": "620",
+      "X2": "855",
+      "Y2": "620",
+      "X3": "855",
+      "Y3": "555",
+      "X4": "820",
+      "Y4": "555"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 874,
+      "byte_offset": 147168
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 875,
+    "offset": 147331,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "133",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "KUVFOWEP",
+      "LocationCount": "2",
+      "X1": "835",
+      "Y1": "455",
+      "X2": "820",
+      "Y2": "455"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 875,
+      "byte_offset": 147331
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 876,
+    "offset": 147466,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "134",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "LJTOZHWQ",
+      "LocationCount": "2",
+      "X1": "835",
+      "Y1": "475",
+      "X2": "820",
+      "Y2": "475"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 876,
+      "byte_offset": 147466
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 877,
+    "offset": 147601,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "135",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "PKWDRGCJ",
+      "LocationCount": "2",
+      "X1": "835",
+      "Y1": "495",
+      "X2": "820",
+      "Y2": "495"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 877,
+      "byte_offset": 147601
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 878,
+    "offset": 147736,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "136",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "YGQVZUNF",
+      "LocationCount": "2",
+      "X1": "905",
+      "Y1": "535",
+      "X2": "820",
+      "Y2": "535"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 878,
+      "byte_offset": 147736
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 879,
+    "offset": 147871,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "137",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "MYWXUXCS",
+      "LocationCount": "2",
+      "X1": "820",
+      "Y1": "575",
+      "X2": "905",
+      "Y2": "575"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 879,
+      "byte_offset": 147871
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 880,
+    "offset": 148006,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "138",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "QLBYREYW",
+      "LocationCount": "2",
+      "X1": "905",
+      "Y1": "595",
+      "X2": "820",
+      "Y2": "595"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 880,
+      "byte_offset": 148006
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 881,
+    "offset": 148141,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "139",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "QVOGSPDQ",
+      "LocationCount": "2",
+      "X1": "905",
+      "Y1": "455",
+      "X2": "875",
+      "Y2": "455"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 881,
+      "byte_offset": 148141
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 882,
+    "offset": 148276,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "140",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "PCWCESJN",
+      "LocationCount": "2",
+      "X1": "905",
+      "Y1": "475",
+      "X2": "875",
+      "Y2": "475"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 882,
+      "byte_offset": 148276
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 883,
+    "offset": 148411,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "141",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "NAVVGTJP",
+      "LocationCount": "2",
+      "X1": "905",
+      "Y1": "495",
+      "X2": "875",
+      "Y2": "495"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 883,
+      "byte_offset": 148411
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 884,
+    "offset": 148546,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "142",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "EORVQPYS",
+      "LocationCount": "2",
+      "X1": "230",
+      "Y1": "580",
+      "X2": "230",
+      "Y2": "630"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 884,
+      "byte_offset": 148546
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 885,
+    "offset": 148694,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "143",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "LCNYYJPM",
+      "LocationCount": "2",
+      "X1": "285",
+      "Y1": "535",
+      "X2": "285",
+      "Y2": "545"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 885,
+      "byte_offset": 148694
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 886,
+    "offset": 148842,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "144",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "JQWIVCNX",
+      "LocationCount": "2",
+      "X1": "285",
+      "Y1": "585",
+      "X2": "285",
+      "Y2": "630"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 886,
+      "byte_offset": 148842
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 887,
+    "offset": 148990,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "145",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "PEFUAYRX",
+      "LocationCount": "2",
+      "X1": "295",
+      "Y1": "505",
+      "X2": "295",
+      "Y2": "515"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 887,
+      "byte_offset": 148990
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 888,
+    "offset": 149138,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "146",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "AMKOYCCF",
+      "LocationCount": "2",
+      "X1": "590",
+      "Y1": "485",
+      "X2": "590",
+      "Y2": "470"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 888,
+      "byte_offset": 149138
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 889,
+    "offset": 149273,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "147",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "XXQEHKZX",
+      "LocationCount": "2",
+      "X1": "555",
+      "Y1": "390",
+      "X2": "555",
+      "Y2": "380"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 889,
+      "byte_offset": 149273
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 890,
+    "offset": 149421,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "148",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "JASAOBIV",
+      "LocationCount": "2",
+      "X1": "615",
+      "Y1": "390",
+      "X2": "615",
+      "Y2": "380"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 890,
+      "byte_offset": 149421
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 891,
+    "offset": 149556,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "149",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "OTAHPAXE",
+      "LocationCount": "2",
+      "X1": "595",
+      "Y1": "380",
+      "X2": "595",
+      "Y2": "390"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 891,
+      "byte_offset": 149556
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 892,
+    "offset": 149691,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "150",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "KAYCTJHQ",
+      "LocationCount": "2",
+      "X1": "755",
+      "Y1": "635",
+      "X2": "710",
+      "Y2": "635"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 892,
+      "byte_offset": 149691
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 893,
+    "offset": 149826,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "151",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "RRHCXQPW",
+      "LocationCount": "2",
+      "X1": "785",
+      "Y1": "635",
+      "X2": "855",
+      "Y2": "635"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 893,
+      "byte_offset": 149826
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 894,
+    "offset": 149961,
+    "length": 159,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "152",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "LKMFRWIS",
+      "LocationCount": "4",
+      "X1": "755",
+      "Y1": "650",
+      "X2": "710",
+      "Y2": "650",
+      "X3": "710",
+      "Y3": "635",
+      "X4": "710",
+      "Y4": "620"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 894,
+      "byte_offset": 149961
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 895,
+    "offset": 150124,
+    "length": 159,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "153",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "BHEUTQEL",
+      "LocationCount": "4",
+      "X1": "785",
+      "Y1": "650",
+      "X2": "855",
+      "Y2": "650",
+      "X3": "855",
+      "Y3": "635",
+      "X4": "855",
+      "Y4": "620"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 895,
+      "byte_offset": 150124
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 896,
+    "offset": 150287,
+    "length": 172,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "154",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "BNBOTJIE",
+      "LocationCount": "4",
+      "X1": "155",
+      "Y1": "535",
+      "X2": "285",
+      "Y2": "535",
+      "X3": "335",
+      "Y3": "535",
+      "X4": "360",
+      "Y4": "535"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 896,
+      "byte_offset": 150287
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 897,
+    "offset": 150463,
+    "length": 158,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "155",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "BGEFAQIX",
+      "LocationCount": "3",
+      "X1": "155",
+      "Y1": "515",
+      "X2": "200",
+      "Y2": "515",
+      "X3": "230",
+      "Y3": "515"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 897,
+      "byte_offset": 150463
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 898,
+    "offset": 150625,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "156",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "JVKLXVZQ",
+      "LocationCount": "2",
+      "X1": "200",
+      "Y1": "550",
+      "X2": "200",
+      "Y2": "515"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 898,
+      "byte_offset": 150625
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 899,
+    "offset": 150773,
+    "length": 144,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "157",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "EQYOHVJC",
+      "LocationCount": "2",
+      "X1": "200",
+      "Y1": "580",
+      "X2": "200",
+      "Y2": "630"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 899,
+      "byte_offset": 150773
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 900,
+    "offset": 150921,
+    "length": 145,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "158",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "XUHZQWNE",
+      "LocationCount": "3",
+      "X1": "540",
+      "Y1": "595",
+      "X2": "605",
+      "Y2": "595",
+      "X3": "725",
+      "Y3": "595"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 900,
+      "byte_offset": 150921
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 901,
+    "offset": 151070,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "159",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "NGRYNNXO",
+      "LocationCount": "2",
+      "X1": "605",
+      "Y1": "515",
+      "X2": "605",
+      "Y2": "595"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 901,
+      "byte_offset": 151070
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 902,
+    "offset": 151205,
+    "length": 145,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "160",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "JTRSQWVR",
+      "LocationCount": "3",
+      "X1": "540",
+      "Y1": "555",
+      "X2": "575",
+      "Y2": "555",
+      "X3": "725",
+      "Y3": "555"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 902,
+      "byte_offset": 151205
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 903,
+    "offset": 151354,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "161",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "YHHFWVXV",
+      "LocationCount": "2",
+      "X1": "575",
+      "Y1": "515",
+      "X2": "575",
+      "Y2": "555"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 903,
+      "byte_offset": 151354
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 904,
+    "offset": 151489,
+    "length": 173,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "162",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "ODEAAARR",
+      "LocationCount": "5",
+      "X1": "575",
+      "Y1": "485",
+      "X2": "575",
+      "Y2": "470",
+      "X3": "590",
+      "Y3": "470",
+      "X4": "605",
+      "Y4": "470",
+      "X5": "605",
+      "Y5": "485"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 904,
+      "byte_offset": 151489
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 905,
+    "offset": 151666,
+    "length": 200,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "163",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "VLOPEXVU",
+      "LocationCount": "6",
+      "X1": "155",
+      "Y1": "555",
+      "X2": "170",
+      "Y2": "555",
+      "X3": "170",
+      "Y3": "630",
+      "X4": "200",
+      "Y4": "630",
+      "X5": "230",
+      "Y5": "630",
+      "X6": "235",
+      "Y6": "630"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 905,
+      "byte_offset": 151666
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 906,
+    "offset": 151870,
+    "length": 186,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "164",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "YLACKRXD",
+      "LocationCount": "5",
+      "X1": "275",
+      "Y1": "630",
+      "X2": "285",
+      "Y2": "630",
+      "X3": "305",
+      "Y3": "630",
+      "X4": "305",
+      "Y4": "565",
+      "X5": "360",
+      "Y5": "565"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 906,
+      "byte_offset": 151870
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 907,
+    "offset": 152060,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "165",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "CQNXGXTP",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "245",
+      "X2": "360",
+      "Y2": "245"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 907,
+      "byte_offset": 152060
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 908,
+    "offset": 152195,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "166",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "IRWFGLXS",
+      "LocationCount": "2",
+      "X1": "410",
+      "Y1": "245",
+      "X2": "400",
+      "Y2": "245"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 908,
+      "byte_offset": 152195
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 909,
+    "offset": 152330,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "167",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "IGMSBTNZ",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "225",
+      "X2": "360",
+      "Y2": "225"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 909,
+      "byte_offset": 152330
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 910,
+    "offset": 152465,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "168",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "IMRFZMET",
+      "LocationCount": "2",
+      "X1": "410",
+      "Y1": "225",
+      "X2": "400",
+      "Y2": "225"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 910,
+      "byte_offset": 152465
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 940,
+    "offset": 157209,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "172",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "OOLRZJQT",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "325",
+      "X2": "360",
+      "Y2": "325"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 940,
+      "byte_offset": 157209
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 941,
+    "offset": 157344,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "173",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "NYPWBDAK",
+      "LocationCount": "2",
+      "X1": "400",
+      "Y1": "325",
+      "X2": "410",
+      "Y2": "325"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 941,
+      "byte_offset": 157344
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 971,
+    "offset": 162088,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "177",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "AQQPSJFL",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "345",
+      "X2": "360",
+      "Y2": "345"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 971,
+      "byte_offset": 162088
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 972,
+    "offset": 162223,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "178",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "CWUBNTDS",
+      "LocationCount": "2",
+      "X1": "400",
+      "Y1": "345",
+      "X2": "410",
+      "Y2": "345"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 972,
+      "byte_offset": 162223
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1002,
+    "offset": 166969,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "182",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "NNNNEZSW",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "360",
+      "X2": "360",
+      "Y2": "360"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1002,
+      "byte_offset": 166969
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1003,
+    "offset": 167104,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "183",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "GJPJOAFG",
+      "LocationCount": "2",
+      "X1": "400",
+      "Y1": "360",
+      "X2": "410",
+      "Y2": "360"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1003,
+      "byte_offset": 167104
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1033,
+    "offset": 171958,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "187",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "QGZROHJR",
+      "LocationCount": "2",
+      "X1": "350",
+      "Y1": "285",
+      "X2": "360",
+      "Y2": "285"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1033,
+      "byte_offset": 171958
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1034,
+    "offset": 172093,
+    "length": 131,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "27",
+      "IndexInSheet": "188",
+      "OwnerPartId": "-1",
+      "LineWidth": "1",
+      "Color": "8388608",
+      "UniqueID": "ZTVFHNQP",
+      "LocationCount": "2",
+      "X1": "410",
+      "Y1": "285",
+      "X2": "400",
+      "Y2": "285"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1034,
+      "byte_offset": 172093
+    },
+    "kind": "native_parameter_record"
+  }
+]

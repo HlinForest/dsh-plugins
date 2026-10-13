@@ -1,0 +1,114 @@
+{
+  "sch/junction": {
+    "count": 19,
+    "sha256": "5a751ff3e029a035228ee7036fbac7a910654fccee93797206dda17518c25b35"
+  },
+  "sch/label": {
+    "count": 48,
+    "sha256": "f25774627c22be7f03e2e9e00c614d9c1f20582a0e45fc74025559313efa35ef"
+  },
+  "sch/lib_symbols": {
+    "count": 1,
+    "sha256": "852c7e875ed7c9d8756cd381bcf96e19928a493d269f1c5900f99dfb7668e34e"
+  },
+  "sch/no_connect": {
+    "count": 1,
+    "sha256": "fae03e7c796df3febf86dad513d3ad1b6982938fdb83414cc64e745322d8cfef"
+  },
+  "sch/paper": {
+    "count": 1,
+    "sha256": "501b69d0ebed1778e7b8eddb6c7648ee26e13455ae7db53fb4e7c7a38164057f"
+  },
+  "sch/symbol": {
+    "count": 41,
+    "sha256": "d190ae6f8337d237553f9cfc35e60d615a322bb790d817af0d9dbe29aa737235"
+  },
+  "sch/text": {
+    "count": 7,
+    "sha256": "046331ea238c3d3bf1e6b3f3beaff5b233faa5dfdb85816376f2ec3dcba34f2f"
+  },
+  "sch/wire": {
+    "count": 92,
+    "sha256": "7f363923e8de7d2a7ad89ea0b6fb3a875e113f0c531a3f0903958784a2f422ed"
+  },
+  "pcb/dimension": {
+    "count": 7,
+    "sha256": "973ba0567e745b8ddb0b582fa3d2dd2009d25d29d0befc466dee72f74d2caf93"
+  },
+  "pcb/embedded_files": {
+    "count": 1,
+    "sha256": "86f2e010edccb84b1131fb1b113e66d2352445a916fcb374a17d54e2205433ca"
+  },
+  "pcb/footprint": {
+    "count": 74,
+    "sha256": "f1701261b2f526e50c5e502df6df1f28e0324df5c8f1572d81cd1298ab6f7493"
+  },
+  "pcb/general": {
+    "count": 1,
+    "sha256": "5cf1d5df105a6eb187f58b57b864eca19d5dbe66f6957765a73adeb1a0e61bb6"
+  },
+  "pcb/gr_arc": {
+    "count": 33,
+    "sha256": "c6a80b12b49c3c3319b067a0f9faccc4e0330aa3912432a4f4774888dc67b171"
+  },
+  "pcb/gr_circle": {
+    "count": 1,
+    "sha256": "c59dd51279c3624ef6f23590fbbfbb3e618cc2e4e6d45525e96319ee0fa8cd68"
+  },
+  "pcb/gr_line": {
+    "count": 75,
+    "sha256": "d39be509d6a180e12caa7f807e0f14c6890650ccff1fc865ad93b13b92583b2a"
+  },
+  "pcb/gr_rect": {
+    "count": 1,
+    "sha256": "1e59f1a2503cdbe1bfdcd88a90f8947a692c9fd4651614d5a043649d6e2931a3"
+  },
+  "pcb/gr_text": {
+    "count": 68,
+    "sha256": "a8bcb7308d5c392eac49e01dada9d767804cce87408a50f1b8180867ba87dcc3"
+  },
+  "pcb/layers": {
+    "count": 1,
+    "sha256": "91670e6ed339f663138a818a633a5b0b54eb53aaa3ecd0c727d089c5fb5549cd"
+  },
+  "pcb/paper": {
+    "count": 1,
+    "sha256": "501b69d0ebed1778e7b8eddb6c7648ee26e13455ae7db53fb4e7c7a38164057f"
+  },
+  "pcb/segment": {
+    "count": 254,
+    "sha256": "a02cb24ecff4c3558df5ef9e43eac6dd988548bb92f749195732658bd7982185"
+  },
+  "pcb/setup": {
+    "count": 1,
+    "sha256": "1bcae8d056f1fce3f4386e27ec5493acd2a4eb81bfb36eec0e2e2487085c9014"
+  },
+  "pcb/zone": {
+    "count": 94,
+    "sha256": "4def8c3b598a68cd1d3b563fbf4fd1d99e13a5733f935dd9faf29643eb49d6fc"
+  },
+  "library/symbols": {
+    "count": 41,
+    "sha256": "7081c3356754379dcb9ba2a93528eee30799af72460db4bb258abc7b2d287936"
+  },
+  "library/footprints": {
+    "count": 74,
+    "sha256": "1e2ac1a0ebfe2a112f780e1e8a86a3cf2660d718df18249d744fe4f97e6dbae7"
+  },
+  "library/models": {
+    "count": 13,
+    "sha256": "16de655afe6b78461f338008c8713c266fa31da6b9d0d4fbb82ed12680ef89e2"
+  },
+  "project/settings": {
+    "count": 1,
+    "sha256": "f909d4f6ee169d6506d98a72b95cb2bac90ee4f5b1f015d6574f1af7a0e6e67c"
+  },
+  "project/custom_rules": {
+    "count": 5,
+    "sha256": "b1c60a468860ee3b7ab8e600f48f9eddfcda124d013229c75c410f4f54343cc6"
+  },
+  "bom/per_reference": {
+    "count": 41,
+    "sha256": "07708b265ffd58551486cb7eafafa9b30e4ff2f47a51de86f4b4f1ebb62bb905"
+  }
+}

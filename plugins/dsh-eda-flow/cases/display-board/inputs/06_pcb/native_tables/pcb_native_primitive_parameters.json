@@ -1,0 +1,3002 @@
+{
+  "source_file": "D:\\TEST\\md50pg_extract\\work\\decrypted\\MD50PG_1.0 (2021.06.18).PcbDoc",
+  "source_sha256": "d2bdae6819254dae24ec9e8b63f7605b84a4015688ffdfd57b9f6fd2616a8e40",
+  "source_stream": "PrimitiveParameters/Data",
+  "count": 168,
+  "records": [
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 0,
+        "stream_offset": 0
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "IRRWDUTT",
+        "ID": "Component#0",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 1,
+        "stream_offset": 88
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "IRRWDUTT",
+        "ID": "Component#0",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 2,
+        "stream_offset": 150
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 3,
+        "stream_offset": 319
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/4W/0����5%/1206",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,52,87,47,48,937,177,53,37,47,49,50,48,54"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/4W/0Ω±5%/1206"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 4,
+        "stream_offset": 544
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20140001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 5,
+        "stream_offset": 663
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 6,
+        "stream_offset": 776
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "WCXNPMEH",
+        "ID": "Component#1",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 7,
+        "stream_offset": 864
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "WCXNPMEH",
+        "ID": "Component#1",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 8,
+        "stream_offset": 926
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 9,
+        "stream_offset": 1095
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 10,
+        "stream_offset": 1320
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 11,
+        "stream_offset": 1439
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 12,
+        "stream_offset": 1552
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "LUWYVFDS",
+        "ID": "Component#10",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 13,
+        "stream_offset": 1641
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "LUWYVFDS",
+        "ID": "Component#10",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 14,
+        "stream_offset": 1704
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵB/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,66,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业B/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 15,
+        "stream_offset": 1873
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/4.7UF/10%/16V/X5R/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,23481,47,52,46,55,85,70,47,49,48,37,47,49,54,86,47,88,53,82,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电容/4.7UF/10%/16V/X5R/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 16,
+        "stream_offset": 2122
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21200046",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 17,
+        "stream_offset": 2241
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 18,
+        "stream_offset": 2354
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "CMKGFJNF",
+        "ID": "Component#11",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 19,
+        "stream_offset": 2443
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "CMKGFJNF",
+        "ID": "Component#11",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 20,
+        "stream_offset": 2506
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 21,
+        "stream_offset": 2675
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "̨ϵ��Ƭ����/0.068uF��10%/50V/X7R/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "21488,31995,36148,29255,30005,23481,47,48,46,48,54,56,117,70,177,49,48,37,47,53,48,86,47,88,55,82,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "台系贴片电容/0.068uF±10%/50V/X7R/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 22,
+        "stream_offset": 2951
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21200057",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 23,
+        "stream_offset": 3070
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 24,
+        "stream_offset": 3183
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "SDIPOPLW",
+        "ID": "Component#12",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 25,
+        "stream_offset": 3272
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "SDIPOPLW",
+        "ID": "Component#12",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 26,
+        "stream_offset": 3335
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵC/����C",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,67,47,28040,36153,67"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业C/消费C"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 27,
+        "stream_offset": 3504
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1uF��10%/25V/X7R/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,23481,47,49,117,70,177,49,48,37,47,50,53,86,47,88,55,82,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电容/1uF±10%/25V/X7R/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 28,
+        "stream_offset": 3748
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21070090",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 29,
+        "stream_offset": 3867
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 30,
+        "stream_offset": 3980
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "ACCOTYXP",
+        "ID": "Component#13",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 31,
+        "stream_offset": 4069
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "ACCOTYXP",
+        "ID": "Component#13",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 32,
+        "stream_offset": 4132
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 33,
+        "stream_offset": 4301
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 34,
+        "stream_offset": 4526
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 35,
+        "stream_offset": 4645
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 36,
+        "stream_offset": 4758
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "DWQRFNNT",
+        "ID": "Component#14",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 37,
+        "stream_offset": 4847
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "DWQRFNNT",
+        "ID": "Component#14",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 38,
+        "stream_offset": 4910
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 39,
+        "stream_offset": 5079
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 40,
+        "stream_offset": 5304
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 41,
+        "stream_offset": 5423
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 42,
+        "stream_offset": 5536
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "FRCFPIGS",
+        "ID": "Component#15",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 43,
+        "stream_offset": 5625
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "FRCFPIGS",
+        "ID": "Component#15",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 44,
+        "stream_offset": 5688
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 45,
+        "stream_offset": 5857
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "̨ϵ��Ƭ����/0.068uF��10%/50V/X7R/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "21488,31995,36148,29255,30005,23481,47,48,46,48,54,56,117,70,177,49,48,37,47,53,48,86,47,88,55,82,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "台系贴片电容/0.068uF±10%/50V/X7R/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 46,
+        "stream_offset": 6133
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21200057",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 47,
+        "stream_offset": 6252
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 48,
+        "stream_offset": 6365
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "UIAEGTLY",
+        "ID": "Component#16",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 49,
+        "stream_offset": 6454
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "UIAEGTLY",
+        "ID": "Component#16",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 50,
+        "stream_offset": 6517
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 51,
+        "stream_offset": 6686
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/100pF��5%/50V/NPO/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,23481,47,49,48,48,112,70,177,53,37,47,53,48,86,47,78,80,79,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电容/100pF±5%/50V/NPO/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 52,
+        "stream_offset": 6934
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21070004",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 53,
+        "stream_offset": 7053
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 54,
+        "stream_offset": 7166
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "CVTKFCSP",
+        "ID": "Component#17",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 55,
+        "stream_offset": 7255
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "CVTKFCSP",
+        "ID": "Component#17",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 56,
+        "stream_offset": 7318
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 57,
+        "stream_offset": 7487
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/100pF��5%/50V/NPO/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,23481,47,49,48,48,112,70,177,53,37,47,53,48,86,47,78,80,79,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电容/100pF±5%/50V/NPO/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 58,
+        "stream_offset": 7735
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21070004",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 59,
+        "stream_offset": 7854
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 60,
+        "stream_offset": 7967
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "INEOJSWX",
+        "ID": "Component#18",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 61,
+        "stream_offset": 8056
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "INEOJSWX",
+        "ID": "Component#18",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 62,
+        "stream_offset": 8119
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 63,
+        "stream_offset": 8229
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "����/MD-12K-D-1/�ư�������/26AWG/750mm/�ڰ׳����ϻ�/SM-6P/SM-T/MEG-150446",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "30005,32518,47,77,68,45,49,50,75,45,68,45,49,47,28783,26495,36830,25509,32447,47,50,54,65,87,71,47,55,53,48,109,109,47,40657,30333,27225,32511,32043,28784,47,83,77,45,54,80,47,83,77,45,84,47,77,69,71,45,49,53,48,52,52,54"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 64,
+        "stream_offset": 8648
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R30072135",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 65,
+        "stream_offset": 8767
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "THT",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 66,
+        "stream_offset": 8880
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "SYAVBYXA",
+        "ID": "Component#19",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 67,
+        "stream_offset": 8969
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "SYAVBYXA",
+        "ID": "Component#19",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 68,
+        "stream_offset": 9032
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 69,
+        "stream_offset": 9177
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "�ӿ��շ���/������չ�/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80��",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "25509,21475,25910,21457,22120,47,32418,22806,25509,25910,31649,47,73,82,77,45,51,54,51,56,77,51,45,88,47,51,56,75,72,90,47,53,46,53,86,47,48,46,54,109,65,47,45,50,48,126,43,56,48,8451"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 70,
+        "stream_offset": 9547
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R25090022",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 71,
+        "stream_offset": 9666
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "THT",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 72,
+        "stream_offset": 9779
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "MEWYHHWI",
+        "ID": "Component#2",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 73,
+        "stream_offset": 9867
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "MEWYHHWI",
+        "ID": "Component#2",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 74,
+        "stream_offset": 9929
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 75,
+        "stream_offset": 10098
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 76,
+        "stream_offset": 10323
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 77,
+        "stream_offset": 10442
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 78,
+        "stream_offset": 10555
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "FPAJTSTP",
+        "ID": "Component#22",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 79,
+        "stream_offset": 10644
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "FPAJTSTP",
+        "ID": "Component#22",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 80,
+        "stream_offset": 10707
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵB/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,66,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业B/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 81,
+        "stream_offset": 10876
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/4.7UF/10%/16V/X5R/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,23481,47,52,46,55,85,70,47,49,48,37,47,49,54,86,47,88,53,82,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电容/4.7UF/10%/16V/X5R/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 82,
+        "stream_offset": 11125
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21200046",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 83,
+        "stream_offset": 11244
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 84,
+        "stream_offset": 11357
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "SVYQJDAH",
+        "ID": "Component#23",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 85,
+        "stream_offset": 11446
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "SVYQJDAH",
+        "ID": "Component#23",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 86,
+        "stream_offset": 11509
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 87,
+        "stream_offset": 11678
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/100pF��5%/50V/NPO/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,23481,47,49,48,48,112,70,177,53,37,47,53,48,86,47,78,80,79,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电容/100pF±5%/50V/NPO/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 88,
+        "stream_offset": 11926
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R21070004",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 89,
+        "stream_offset": 12045
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 90,
+        "stream_offset": 12158
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "DMGICUKY",
+        "ID": "Component#3",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 91,
+        "stream_offset": 12246
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "DMGICUKY",
+        "ID": "Component#3",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 92,
+        "stream_offset": 12308
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 93,
+        "stream_offset": 12477
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 94,
+        "stream_offset": 12702
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 95,
+        "stream_offset": 12821
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 96,
+        "stream_offset": 12934
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "FWHRYXMY",
+        "ID": "Component#31",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 97,
+        "stream_offset": 13023
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "FWHRYXMY",
+        "ID": "Component#31",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 98,
+        "stream_offset": 13086
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 99,
+        "stream_offset": 13255
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/47����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,52,55,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/47Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 100,
+        "stream_offset": 13484
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180007",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 101,
+        "stream_offset": 13603
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 102,
+        "stream_offset": 13716
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "NWICCRLE",
+        "ID": "Component#32",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 103,
+        "stream_offset": 13805
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "NWICCRLE",
+        "ID": "Component#32",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 104,
+        "stream_offset": 13868
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 105,
+        "stream_offset": 14037
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/47����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,52,55,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/47Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 106,
+        "stream_offset": 14266
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180007",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 107,
+        "stream_offset": 14385
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 108,
+        "stream_offset": 14498
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "LAFFHHWS",
+        "ID": "Component#33",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 109,
+        "stream_offset": 14587
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "LAFFHHWS",
+        "ID": "Component#33",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 110,
+        "stream_offset": 14650
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 111,
+        "stream_offset": 14819
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/10W/47����5%/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,49,48,87,47,52,55,937,177,53,37,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/10W/47Ω±5%/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 112,
+        "stream_offset": 15052
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20190050",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 113,
+        "stream_offset": 15171
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 114,
+        "stream_offset": 15284
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "LSFKWBLA",
+        "ID": "Component#34",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 115,
+        "stream_offset": 15373
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "LSFKWBLA",
+        "ID": "Component#34",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 116,
+        "stream_offset": 15436
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵB/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,66,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业B/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 117,
+        "stream_offset": 15605
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/47����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,52,55,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/47Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 118,
+        "stream_offset": 15834
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180007",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 119,
+        "stream_offset": 15953
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 120,
+        "stream_offset": 16066
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "GWOALCOI",
+        "ID": "Component#35",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 121,
+        "stream_offset": 16155
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "GWOALCOI",
+        "ID": "Component#35",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 122,
+        "stream_offset": 16218
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 123,
+        "stream_offset": 16387
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/10W/47����5%/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,49,48,87,47,52,55,937,177,53,37,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/10W/47Ω±5%/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 124,
+        "stream_offset": 16620
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20190050",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 125,
+        "stream_offset": 16739
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 126,
+        "stream_offset": 16852
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "QGGDDDSB",
+        "ID": "Component#36",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 127,
+        "stream_offset": 16941
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "QGGDDDSB",
+        "ID": "Component#36",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 128,
+        "stream_offset": 17004
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 129,
+        "stream_offset": 17173
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/47����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,52,55,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/47Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 130,
+        "stream_offset": 17402
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180007",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 131,
+        "stream_offset": 17521
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 132,
+        "stream_offset": 17634
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "UYOOLDQE",
+        "ID": "Component#37",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 133,
+        "stream_offset": 17723
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "UYOOLDQE",
+        "ID": "Component#37",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 134,
+        "stream_offset": 17786
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 135,
+        "stream_offset": 17955
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/10W/47����5%/0603",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,49,48,87,47,52,55,937,177,53,37,47,48,54,48,51"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/10W/47Ω±5%/0603"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 136,
+        "stream_offset": 18188
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20190050",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 137,
+        "stream_offset": 18307
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 138,
+        "stream_offset": 18420
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "COPNWGHG",
+        "ID": "Component#39",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 139,
+        "stream_offset": 18509
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "COPNWGHG",
+        "ID": "Component#39",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 140,
+        "stream_offset": 18572
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 141,
+        "stream_offset": 18717
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "CMOS�߼�����/TM1616/5V/-20~+70��/SOP-16/������LED��������ר�õ�·",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "67,77,79,83,36923,36753,22120,20214,47,84,77,49,54,49,54,47,53,86,47,45,50,48,126,43,55,48,8451,47,83,79,80,45,49,54,47,20849,38452,26497,76,69,68,39537,21160,25511,21046,19987,29992,30005,36335"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 142,
+        "stream_offset": 19102
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R25070026",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 143,
+        "stream_offset": 19221
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 144,
+        "stream_offset": 19334
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "KVFNWBLV",
+        "ID": "Component#4",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 145,
+        "stream_offset": 19422
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "KVFNWBLV",
+        "ID": "Component#4",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 146,
+        "stream_offset": 19484
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵA/����A",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,65,47,28040,36153,65"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业A/消费A"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 147,
+        "stream_offset": 19653
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 148,
+        "stream_offset": 19878
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180001",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 149,
+        "stream_offset": 19997
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 150,
+        "stream_offset": 20110
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "WBYRJPUK",
+        "ID": "Component#5",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 151,
+        "stream_offset": 20198
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "WBYRJPUK",
+        "ID": "Component#5",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 152,
+        "stream_offset": 20260
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵC/����C",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,67,47,28040,36153,67"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业C/消费C"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 153,
+        "stream_offset": 20429
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/0����1%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,48,937,177,49,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/0Ω±1%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 154,
+        "stream_offset": 20654
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180224",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 155,
+        "stream_offset": 20773
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 156,
+        "stream_offset": 20886
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "BPFLKTJT",
+        "ID": "Component#8",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 157,
+        "stream_offset": 20974
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "BPFLKTJT",
+        "ID": "Component#8",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 158,
+        "stream_offset": 21036
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵB/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,66,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业B/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 159,
+        "stream_offset": 21205
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/22K����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,50,50,75,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/22KΩ±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 160,
+        "stream_offset": 21438
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180061",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 161,
+        "stream_offset": 21557
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 162,
+        "stream_offset": 21670
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "XPJILXFI",
+        "ID": "Component#9",
+        "APPURTENANCE": "System",
+        "VARIANTGUID": "System",
+        "COUNT": "0"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 163,
+        "stream_offset": 21758
+      },
+      "tag": null,
+      "raw_fields": {
+        "PRIMITIVEID": "XPJILXFI",
+        "ID": "Component#9",
+        "VARIANTGUID": "",
+        "COUNT": "4"
+      },
+      "utf8_fields": {}
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 164,
+        "stream_offset": 21820
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��ѡ�ȼ�",
+        "VALUE": "��ҵB/����B",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "20248,36873,31561,32423",
+        "UNICODE__VALUE": "24037,19994,66,47,28040,36153,66"
+      },
+      "utf8_fields": {
+        "NAME": "优选等级",
+        "VALUE": "工业B/消费B"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 165,
+        "stream_offset": 21989
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "��������",
+        "VALUE": "��Ƭ����/1/8W/220����5%/0805",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,25551,36848",
+        "UNICODE__VALUE": "36148,29255,30005,38459,47,49,47,56,87,47,50,50,48,937,177,53,37,47,48,56,48,53"
+      },
+      "utf8_fields": {
+        "NAME": "物料描述",
+        "VALUE": "贴片电阻/1/8W/220Ω±5%/0805"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 166,
+        "stream_offset": 22222
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "���ϱ���",
+        "VALUE": "R20180015",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "29289,26009,32534,30721"
+      },
+      "utf8_fields": {
+        "NAME": "物料编码"
+      }
+    },
+    {
+      "source_locator": {
+        "stream": "PrimitiveParameters/Data",
+        "record_index": 167,
+        "stream_offset": 22341
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "NAME": "װ������",
+        "VALUE": "SMD",
+        "ISIMPORTED": "TRUE",
+        "UNICODE__NAME": "35013,37197,31867,22411"
+      },
+      "utf8_fields": {
+        "NAME": "装配类型"
+      }
+    }
+  ]
+}

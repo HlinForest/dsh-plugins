@@ -1,0 +1,5857 @@
+{
+  "source": {
+    "source_file": "D:\\TEST\\md50pg_extract\\work\\decrypted\\MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "stream": "FileHeader",
+    "stream_locator": "OLE stream FileHeader",
+    "record_dump_sha256": "8192433cc0d5366a594afe5e3a2771bbf2c1850ca134994a7ac4b96584accf3e",
+    "record_count": 1054
+  },
+  "units": {
+    "units_per_mm": {
+      "value": 3.937007874,
+      "confidence": "low",
+      "basis": "No single scale is provable from the record stream alone. Primary reading: 1 raw unit = 0.254 mm (10 mil). Basis: (a) RECORD=31 CustomX/CustomY = 1500 x 950 units then equals exactly 15.00 x 9.50 inch = 381.0 x 241.3 mm, i.e. round inch-based sheet figures; (b) 75 of 85 pins have PinLength=10 units = 100 mil, the most common Altium pin length, and 20 units = 200 mil for the rest; (c) every wire vertex and graphics coordinate is a multiple of 5 units, i.e. a 50 mil entry grid on top of the 100/200 mil component pin pitches; (d) the drawing occupies 209.6 x 118.1 mm against an 82.7 x 57.7 mm board (5.2x board area), a normal schematic-to-board ratio. See sch_extract_notes.md for the ranked alternatives (0.127 mm = 5 mil is the main one) and for the evidence that could not be resolved offline.",
+      "alternatives": [
+        {
+          "unit_mm": 0.127,
+          "units_per_mm": 7.874015748,
+          "inch": "5 mil",
+          "implied_sheet": "190.5 x 120.65 mm (7.50 x 4.75 in)",
+          "supporting": "Symbol pin pitches then match the physical footprint pad pitches of the same components almost 1:1 (U1 SOP16 1.27 mm pitch drawn at 20 units, D1 2.54 mm part drawn at 20 units) and the designator font size 10 units becomes 1.27 mm, a typical Altium text height.",
+          "against": "The whole schematic drawing (104.8 x 59.1 mm) would be only 1.3x the board area (82.7 x 57.7 mm) for 41 symbols, and the sheet would be smaller than A5, i.e. smaller than any Altium sheet preset."
+        },
+        {
+          "unit_mm": 0.2,
+          "units_per_mm": 5.0,
+          "inch": "~7.87 mil",
+          "implied_sheet": "300 x 190 mm",
+          "supporting": "Sheet and coordinates are simultaneously round in millimetres; the 1500/6 and 950/4 border zone fields give a near-constant 50 mm zone pitch.",
+          "against": "Pin length 2 mm and a 1 mm entry grid are not Altium-typical; 300 x 190 mm matches no ISO preset."
+        },
+        {
+          "unit_mm": 0.1,
+          "units_per_mm": 10.0,
+          "inch": "~3.94 mil",
+          "implied_sheet": "150 x 95 mm",
+          "supporting": "Round millimetre sheet figures.",
+          "against": "The drawing (82.5 x 46.5 mm) would be smaller than the board area covered, and pin length would be 1 mm; effectively excluded."
+        }
+      ],
+      "raw_evidence": {
+        "record_31_CustomX": "1500",
+        "record_31_CustomY": "950",
+        "record_31_CustomXZones": "6",
+        "record_31_CustomYZones": "4",
+        "record_31_CustomMarginWidth": "20",
+        "record_31_SnapGridSize": "5",
+        "record_31_VisibleGridSize": "5",
+        "record_31_Display_Unit": "0",
+        "observed_coordinate_range_raw": {
+          "x": [
+            80,
+            905
+          ],
+          "y": [
+            200,
+            665
+          ]
+        },
+        "observed_minimum_grid_step_raw": 5,
+        "pin_length_values_raw": {
+          "10": 75,
+          "20": 10
+        },
+        "sheet_mm_at_primary_scale": {
+          "x": 381.0,
+          "y": 241.3
+        },
+        "sheet_mm_at_alternative_scale": {
+          "x": 190.5,
+          "y": 120.65
+        }
+      }
+    },
+    "conversion": "millimetres = raw_integer * 0.254 (primary inference); raw integers are always kept in the *_raw fields and in raw_fields. To rescale, multiply the mm values by (new_unit_mm / 0.254)."
+  },
+  "record_classes": [
+    "6",
+    "7",
+    "10",
+    "12",
+    "13",
+    "14"
+  ],
+  "count": 83,
+  "graphics": [
+    {
+      "record_index": 38,
+      "stream_offset": 6371,
+      "record_class": "14",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 85,
+        "y": 510
+      },
+      "location_mm": {
+        "x": 21.59,
+        "y": 129.54
+      },
+      "corner_raw": {
+        "x": 145,
+        "y": 560
+      },
+      "corner_mm": {
+        "x": 36.83,
+        "y": 142.24
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "11599871",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "4",
+        "OwnerPartId": "1",
+        "Location.X": "85",
+        "Location.Y": "510",
+        "Corner.X": "145",
+        "Corner.Y": "560",
+        "Color": "128",
+        "AreaColor": "11599871",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 42,
+      "stream_offset": 7099,
+      "record_class": "13",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 100,
+        "y": 520
+      },
+      "location_mm": {
+        "x": 25.4,
+        "y": 132.08
+      },
+      "corner_raw": {
+        "x": 100,
+        "y": 550
+      },
+      "corner_mm": {
+        "x": 25.4,
+        "y": 139.7
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "100",
+        "Location.Y": "520",
+        "Corner.X": "100",
+        "Corner.Y": "550",
+        "LineWidth": "1",
+        "Color": "255"
+      }
+    },
+    {
+      "record_index": 43,
+      "stream_offset": 7252,
+      "record_class": "7",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 110,
+          "y": 540
+        },
+        {
+          "index": 2,
+          "x": 110,
+          "y": 541
+        },
+        {
+          "index": 3,
+          "x": 90,
+          "y": 541
+        },
+        {
+          "index": 4,
+          "x": 90,
+          "y": 540
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 27.94,
+          "y": 137.16
+        },
+        {
+          "index": 2,
+          "x": 27.94,
+          "y": 137.414
+        },
+        {
+          "index": 3,
+          "x": 22.86,
+          "y": 137.414
+        },
+        {
+          "index": 4,
+          "x": 22.86,
+          "y": 137.16
+        }
+      ],
+      "location_count": 4,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": "255",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "7",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "255",
+        "AreaColor": "255",
+        "IsSolid": "T",
+        "LocationCount": "4",
+        "X1": "110",
+        "Y1": "540",
+        "X2": "110",
+        "Y2": "541",
+        "X3": "90",
+        "Y3": "541",
+        "X4": "90",
+        "Y4": "540"
+      }
+    },
+    {
+      "record_index": 44,
+      "stream_offset": 7442,
+      "record_class": "7",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 90,
+          "y": 530
+        },
+        {
+          "index": 2,
+          "x": 100,
+          "y": 540
+        },
+        {
+          "index": 3,
+          "x": 110,
+          "y": 530
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 22.86,
+          "y": 134.62
+        },
+        {
+          "index": 2,
+          "x": 25.4,
+          "y": 137.16
+        },
+        {
+          "index": 3,
+          "x": 27.94,
+          "y": 134.62
+        }
+      ],
+      "location_count": 3,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": "255",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "7",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "255",
+        "AreaColor": "255",
+        "IsSolid": "T",
+        "LocationCount": "3",
+        "X1": "90",
+        "Y1": "530",
+        "X2": "100",
+        "Y2": "540",
+        "X3": "110",
+        "Y3": "530"
+      }
+    },
+    {
+      "record_index": 45,
+      "stream_offset": 7619,
+      "record_class": "13",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 114,
+        "y": 538
+      },
+      "location_mm": {
+        "x": 28.956,
+        "y": 136.652
+      },
+      "corner_raw": {
+        "x": 118,
+        "y": 542
+      },
+      "corner_mm": {
+        "x": 29.972,
+        "y": 137.668
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "114",
+        "Location.Y": "538",
+        "Corner.X": "118",
+        "Corner.Y": "542",
+        "LineWidth": "1",
+        "Color": "255"
+      }
+    },
+    {
+      "record_index": 46,
+      "stream_offset": 7772,
+      "record_class": "13",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 114,
+        "y": 546
+      },
+      "location_mm": {
+        "x": 28.956,
+        "y": 138.684
+      },
+      "corner_raw": {
+        "x": 118,
+        "y": 550
+      },
+      "corner_mm": {
+        "x": 29.972,
+        "y": 139.7
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "10",
+        "OwnerPartId": "1",
+        "Location.X": "114",
+        "Location.Y": "546",
+        "Corner.X": "118",
+        "Corner.Y": "550",
+        "LineWidth": "1",
+        "Color": "255"
+      }
+    },
+    {
+      "record_index": 47,
+      "stream_offset": 7926,
+      "record_class": "7",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 112,
+          "y": 539
+        },
+        {
+          "index": 2,
+          "x": 112,
+          "y": 536
+        },
+        {
+          "index": 3,
+          "x": 115,
+          "y": 536
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 28.448,
+          "y": 136.906
+        },
+        {
+          "index": 2,
+          "x": 28.448,
+          "y": 136.144
+        },
+        {
+          "index": 3,
+          "x": 29.21,
+          "y": 136.144
+        }
+      ],
+      "location_count": 3,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": "255",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "7",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "11",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "255",
+        "AreaColor": "255",
+        "IsSolid": "T",
+        "LocationCount": "3",
+        "X1": "112",
+        "Y1": "539",
+        "X2": "112",
+        "Y2": "536",
+        "X3": "115",
+        "Y3": "536"
+      }
+    },
+    {
+      "record_index": 48,
+      "stream_offset": 8105,
+      "record_class": "7",
+      "owner_component_record_index": 33,
+      "owner_index_raw": "32",
+      "owner_record_class": "1",
+      "owner_component_designator": "D1",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 112,
+          "y": 547
+        },
+        {
+          "index": 2,
+          "x": 112,
+          "y": 544
+        },
+        {
+          "index": 3,
+          "x": 115,
+          "y": 544
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 28.448,
+          "y": 138.938
+        },
+        {
+          "index": 2,
+          "x": 28.448,
+          "y": 138.176
+        },
+        {
+          "index": 3,
+          "x": 29.21,
+          "y": 138.176
+        }
+      ],
+      "location_count": 3,
+      "line_width_raw": "1",
+      "color_raw": "255",
+      "area_color_raw": "255",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "7",
+        "OwnerIndex": "32",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "12",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "255",
+        "AreaColor": "255",
+        "IsSolid": "T",
+        "LocationCount": "3",
+        "X1": "112",
+        "Y1": "547",
+        "X2": "112",
+        "Y2": "544",
+        "X3": "115",
+        "Y3": "544"
+      }
+    },
+    {
+      "record_index": 87,
+      "stream_offset": 14604,
+      "record_class": "13",
+      "owner_component_record_index": 78,
+      "owner_index_raw": "77",
+      "owner_record_class": "1",
+      "owner_component_designator": "C2",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 200,
+        "y": 563
+      },
+      "location_mm": {
+        "x": 50.8,
+        "y": 143.002
+      },
+      "corner_raw": {
+        "x": 200,
+        "y": 560
+      },
+      "corner_mm": {
+        "x": 50.8,
+        "y": 142.24
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "77",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "200",
+        "Location.Y": "563",
+        "Corner.X": "200",
+        "Corner.Y": "560",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 88,
+      "stream_offset": 14762,
+      "record_class": "13",
+      "owner_component_record_index": 78,
+      "owner_index_raw": "77",
+      "owner_record_class": "1",
+      "owner_component_designator": "C2",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 200,
+        "y": 570
+      },
+      "location_mm": {
+        "x": 50.8,
+        "y": 144.78
+      },
+      "corner_raw": {
+        "x": 200,
+        "y": 567
+      },
+      "corner_mm": {
+        "x": 50.8,
+        "y": 144.018
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "77",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "200",
+        "Location.Y": "570",
+        "Corner.X": "200",
+        "Corner.Y": "567",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 89,
+      "stream_offset": 14920,
+      "record_class": "13",
+      "owner_component_record_index": 78,
+      "owner_index_raw": "77",
+      "owner_record_class": "1",
+      "owner_component_designator": "C2",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 196,
+        "y": 563
+      },
+      "location_mm": {
+        "x": 49.784,
+        "y": 143.002
+      },
+      "corner_raw": {
+        "x": 204,
+        "y": 563
+      },
+      "corner_mm": {
+        "x": 51.816,
+        "y": 143.002
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "77",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "196",
+        "Location.Y": "563",
+        "Corner.X": "204",
+        "Corner.Y": "563",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 90,
+      "stream_offset": 15078,
+      "record_class": "13",
+      "owner_component_record_index": 78,
+      "owner_index_raw": "77",
+      "owner_record_class": "1",
+      "owner_component_designator": "C2",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 196,
+        "y": 567
+      },
+      "location_mm": {
+        "x": 49.784,
+        "y": 144.018
+      },
+      "corner_raw": {
+        "x": 204,
+        "y": 567
+      },
+      "corner_mm": {
+        "x": 51.816,
+        "y": 144.018
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "77",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "196",
+        "Location.Y": "567",
+        "Corner.X": "204",
+        "Corner.Y": "567",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 111,
+      "stream_offset": 18744,
+      "record_class": "13",
+      "owner_component_record_index": 102,
+      "owner_index_raw": "101",
+      "owner_record_class": "1",
+      "owner_component_designator": "C3",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 230,
+        "y": 563
+      },
+      "location_mm": {
+        "x": 58.42,
+        "y": 143.002
+      },
+      "corner_raw": {
+        "x": 230,
+        "y": 560
+      },
+      "corner_mm": {
+        "x": 58.42,
+        "y": 142.24
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "101",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "230",
+        "Location.Y": "563",
+        "Corner.X": "230",
+        "Corner.Y": "560",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 112,
+      "stream_offset": 18903,
+      "record_class": "13",
+      "owner_component_record_index": 102,
+      "owner_index_raw": "101",
+      "owner_record_class": "1",
+      "owner_component_designator": "C3",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 230,
+        "y": 570
+      },
+      "location_mm": {
+        "x": 58.42,
+        "y": 144.78
+      },
+      "corner_raw": {
+        "x": 230,
+        "y": 567
+      },
+      "corner_mm": {
+        "x": 58.42,
+        "y": 144.018
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "101",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "230",
+        "Location.Y": "570",
+        "Corner.X": "230",
+        "Corner.Y": "567",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 113,
+      "stream_offset": 19062,
+      "record_class": "13",
+      "owner_component_record_index": 102,
+      "owner_index_raw": "101",
+      "owner_record_class": "1",
+      "owner_component_designator": "C3",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 226,
+        "y": 563
+      },
+      "location_mm": {
+        "x": 57.404,
+        "y": 143.002
+      },
+      "corner_raw": {
+        "x": 234,
+        "y": 563
+      },
+      "corner_mm": {
+        "x": 59.436,
+        "y": 143.002
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "101",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "226",
+        "Location.Y": "563",
+        "Corner.X": "234",
+        "Corner.Y": "563",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 114,
+      "stream_offset": 19221,
+      "record_class": "13",
+      "owner_component_record_index": 102,
+      "owner_index_raw": "101",
+      "owner_record_class": "1",
+      "owner_component_designator": "C3",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 226,
+        "y": 567
+      },
+      "location_mm": {
+        "x": 57.404,
+        "y": 144.018
+      },
+      "corner_raw": {
+        "x": 234,
+        "y": 567
+      },
+      "corner_mm": {
+        "x": 59.436,
+        "y": 144.018
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "101",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "226",
+        "Location.Y": "567",
+        "Corner.X": "234",
+        "Corner.Y": "567",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 135,
+      "stream_offset": 22858,
+      "record_class": "6",
+      "owner_component_record_index": 126,
+      "owner_index_raw": "125",
+      "owner_record_class": "1",
+      "owner_component_designator": "R3",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 285,
+          "y": 555
+        },
+        {
+          "index": 2,
+          "x": 282,
+          "y": 557
+        },
+        {
+          "index": 3,
+          "x": 288,
+          "y": 561
+        },
+        {
+          "index": 4,
+          "x": 282,
+          "y": 565
+        },
+        {
+          "index": 5,
+          "x": 288,
+          "y": 569
+        },
+        {
+          "index": 6,
+          "x": 282,
+          "y": 573
+        },
+        {
+          "index": 7,
+          "x": 285,
+          "y": 575
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 72.39,
+          "y": 140.97
+        },
+        {
+          "index": 2,
+          "x": 71.628,
+          "y": 141.478
+        },
+        {
+          "index": 3,
+          "x": 73.152,
+          "y": 142.494
+        },
+        {
+          "index": 4,
+          "x": 71.628,
+          "y": 143.51
+        },
+        {
+          "index": 5,
+          "x": 73.152,
+          "y": 144.526
+        },
+        {
+          "index": 6,
+          "x": 71.628,
+          "y": 145.542
+        },
+        {
+          "index": 7,
+          "x": 72.39,
+          "y": 146.05
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "125",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "285",
+        "Y1": "555",
+        "X2": "282",
+        "Y2": "557",
+        "X3": "288",
+        "Y3": "561",
+        "X4": "282",
+        "Y4": "565",
+        "X5": "288",
+        "Y5": "569",
+        "X6": "282",
+        "Y6": "573",
+        "X7": "285",
+        "Y7": "575"
+      }
+    },
+    {
+      "record_index": 156,
+      "stream_offset": 26628,
+      "record_class": "6",
+      "owner_component_record_index": 147,
+      "owner_index_raw": "146",
+      "owner_record_class": "1",
+      "owner_component_designator": "R1",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 245,
+          "y": 630
+        },
+        {
+          "index": 2,
+          "x": 247,
+          "y": 633
+        },
+        {
+          "index": 3,
+          "x": 251,
+          "y": 627
+        },
+        {
+          "index": 4,
+          "x": 255,
+          "y": 633
+        },
+        {
+          "index": 5,
+          "x": 259,
+          "y": 627
+        },
+        {
+          "index": 6,
+          "x": 263,
+          "y": 633
+        },
+        {
+          "index": 7,
+          "x": 265,
+          "y": 630
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 62.23,
+          "y": 160.02
+        },
+        {
+          "index": 2,
+          "x": 62.738,
+          "y": 160.782
+        },
+        {
+          "index": 3,
+          "x": 63.754,
+          "y": 159.258
+        },
+        {
+          "index": 4,
+          "x": 64.77,
+          "y": 160.782
+        },
+        {
+          "index": 5,
+          "x": 65.786,
+          "y": 159.258
+        },
+        {
+          "index": 6,
+          "x": 66.802,
+          "y": 160.782
+        },
+        {
+          "index": 7,
+          "x": 67.31,
+          "y": 160.02
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "146",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "245",
+        "Y1": "630",
+        "X2": "247",
+        "Y2": "633",
+        "X3": "251",
+        "Y3": "627",
+        "X4": "255",
+        "Y4": "633",
+        "X5": "259",
+        "Y5": "627",
+        "X6": "263",
+        "Y6": "633",
+        "X7": "265",
+        "Y7": "630"
+      }
+    },
+    {
+      "record_index": 173,
+      "stream_offset": 29777,
+      "record_class": "14",
+      "owner_component_record_index": 168,
+      "owner_index_raw": "167",
+      "owner_record_class": "1",
+      "owner_component_designator": "U1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 735,
+        "y": 445
+      },
+      "location_mm": {
+        "x": 186.69,
+        "y": 113.03
+      },
+      "corner_raw": {
+        "x": 810,
+        "y": 605
+      },
+      "corner_mm": {
+        "x": 205.74,
+        "y": 153.67
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "11599871",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "167",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "4",
+        "OwnerPartId": "1",
+        "Location.X": "735",
+        "Location.Y": "445",
+        "Corner.X": "810",
+        "Corner.Y": "605",
+        "Color": "128",
+        "AreaColor": "11599871",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 229,
+      "stream_offset": 39567,
+      "record_class": "13",
+      "owner_component_record_index": 220,
+      "owner_index_raw": "219",
+      "owner_record_class": "1",
+      "owner_component_designator": "C7",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 605,
+        "y": 498
+      },
+      "location_mm": {
+        "x": 153.67,
+        "y": 126.492
+      },
+      "corner_raw": {
+        "x": 605,
+        "y": 495
+      },
+      "corner_mm": {
+        "x": 153.67,
+        "y": 125.73
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "219",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "605",
+        "Location.Y": "498",
+        "Corner.X": "605",
+        "Corner.Y": "495",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 230,
+      "stream_offset": 39726,
+      "record_class": "13",
+      "owner_component_record_index": 220,
+      "owner_index_raw": "219",
+      "owner_record_class": "1",
+      "owner_component_designator": "C7",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 605,
+        "y": 505
+      },
+      "location_mm": {
+        "x": 153.67,
+        "y": 128.27
+      },
+      "corner_raw": {
+        "x": 605,
+        "y": 502
+      },
+      "corner_mm": {
+        "x": 153.67,
+        "y": 127.508
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "219",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "605",
+        "Location.Y": "505",
+        "Corner.X": "605",
+        "Corner.Y": "502",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 231,
+      "stream_offset": 39885,
+      "record_class": "13",
+      "owner_component_record_index": 220,
+      "owner_index_raw": "219",
+      "owner_record_class": "1",
+      "owner_component_designator": "C7",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 601,
+        "y": 498
+      },
+      "location_mm": {
+        "x": 152.654,
+        "y": 126.492
+      },
+      "corner_raw": {
+        "x": 609,
+        "y": 498
+      },
+      "corner_mm": {
+        "x": 154.686,
+        "y": 126.492
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "219",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "601",
+        "Location.Y": "498",
+        "Corner.X": "609",
+        "Corner.Y": "498",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 232,
+      "stream_offset": 40044,
+      "record_class": "13",
+      "owner_component_record_index": 220,
+      "owner_index_raw": "219",
+      "owner_record_class": "1",
+      "owner_component_designator": "C7",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 601,
+        "y": 502
+      },
+      "location_mm": {
+        "x": 152.654,
+        "y": 127.508
+      },
+      "corner_raw": {
+        "x": 609,
+        "y": 502
+      },
+      "corner_mm": {
+        "x": 154.686,
+        "y": 127.508
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "219",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "601",
+        "Location.Y": "502",
+        "Corner.X": "609",
+        "Corner.Y": "502",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 253,
+      "stream_offset": 43697,
+      "record_class": "13",
+      "owner_component_record_index": 244,
+      "owner_index_raw": "243",
+      "owner_record_class": "1",
+      "owner_component_designator": "C6",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 590,
+        "y": 498
+      },
+      "location_mm": {
+        "x": 149.86,
+        "y": 126.492
+      },
+      "corner_raw": {
+        "x": 590,
+        "y": 495
+      },
+      "corner_mm": {
+        "x": 149.86,
+        "y": 125.73
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "243",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "590",
+        "Location.Y": "498",
+        "Corner.X": "590",
+        "Corner.Y": "495",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 254,
+      "stream_offset": 43856,
+      "record_class": "13",
+      "owner_component_record_index": 244,
+      "owner_index_raw": "243",
+      "owner_record_class": "1",
+      "owner_component_designator": "C6",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 590,
+        "y": 505
+      },
+      "location_mm": {
+        "x": 149.86,
+        "y": 128.27
+      },
+      "corner_raw": {
+        "x": 590,
+        "y": 502
+      },
+      "corner_mm": {
+        "x": 149.86,
+        "y": 127.508
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "243",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "590",
+        "Location.Y": "505",
+        "Corner.X": "590",
+        "Corner.Y": "502",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 255,
+      "stream_offset": 44015,
+      "record_class": "13",
+      "owner_component_record_index": 244,
+      "owner_index_raw": "243",
+      "owner_record_class": "1",
+      "owner_component_designator": "C6",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 586,
+        "y": 498
+      },
+      "location_mm": {
+        "x": 148.844,
+        "y": 126.492
+      },
+      "corner_raw": {
+        "x": 594,
+        "y": 498
+      },
+      "corner_mm": {
+        "x": 150.876,
+        "y": 126.492
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "243",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "586",
+        "Location.Y": "498",
+        "Corner.X": "594",
+        "Corner.Y": "498",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 256,
+      "stream_offset": 44174,
+      "record_class": "13",
+      "owner_component_record_index": 244,
+      "owner_index_raw": "243",
+      "owner_record_class": "1",
+      "owner_component_designator": "C6",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 586,
+        "y": 502
+      },
+      "location_mm": {
+        "x": 148.844,
+        "y": 127.508
+      },
+      "corner_raw": {
+        "x": 594,
+        "y": 502
+      },
+      "corner_mm": {
+        "x": 150.876,
+        "y": 127.508
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "243",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "586",
+        "Location.Y": "502",
+        "Corner.X": "594",
+        "Corner.Y": "502",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 277,
+      "stream_offset": 47827,
+      "record_class": "13",
+      "owner_component_record_index": 268,
+      "owner_index_raw": "267",
+      "owner_record_class": "1",
+      "owner_component_designator": "C5",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 575,
+        "y": 498
+      },
+      "location_mm": {
+        "x": 146.05,
+        "y": 126.492
+      },
+      "corner_raw": {
+        "x": 575,
+        "y": 495
+      },
+      "corner_mm": {
+        "x": 146.05,
+        "y": 125.73
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "267",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "575",
+        "Location.Y": "498",
+        "Corner.X": "575",
+        "Corner.Y": "495",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 278,
+      "stream_offset": 47986,
+      "record_class": "13",
+      "owner_component_record_index": 268,
+      "owner_index_raw": "267",
+      "owner_record_class": "1",
+      "owner_component_designator": "C5",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 575,
+        "y": 505
+      },
+      "location_mm": {
+        "x": 146.05,
+        "y": 128.27
+      },
+      "corner_raw": {
+        "x": 575,
+        "y": 502
+      },
+      "corner_mm": {
+        "x": 146.05,
+        "y": 127.508
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "267",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "575",
+        "Location.Y": "505",
+        "Corner.X": "575",
+        "Corner.Y": "502",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 279,
+      "stream_offset": 48145,
+      "record_class": "13",
+      "owner_component_record_index": 268,
+      "owner_index_raw": "267",
+      "owner_record_class": "1",
+      "owner_component_designator": "C5",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 571,
+        "y": 498
+      },
+      "location_mm": {
+        "x": 145.034,
+        "y": 126.492
+      },
+      "corner_raw": {
+        "x": 579,
+        "y": 498
+      },
+      "corner_mm": {
+        "x": 147.066,
+        "y": 126.492
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "267",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "571",
+        "Location.Y": "498",
+        "Corner.X": "579",
+        "Corner.Y": "498",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 280,
+      "stream_offset": 48304,
+      "record_class": "13",
+      "owner_component_record_index": 268,
+      "owner_index_raw": "267",
+      "owner_record_class": "1",
+      "owner_component_designator": "C5",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 571,
+        "y": 502
+      },
+      "location_mm": {
+        "x": 145.034,
+        "y": 127.508
+      },
+      "corner_raw": {
+        "x": 579,
+        "y": 502
+      },
+      "corner_mm": {
+        "x": 147.066,
+        "y": 127.508
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "267",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "571",
+        "Location.Y": "502",
+        "Corner.X": "579",
+        "Corner.Y": "502",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 302,
+      "stream_offset": 52076,
+      "record_class": "6",
+      "owner_component_record_index": 293,
+      "owner_index_raw": "292",
+      "owner_record_class": "1",
+      "owner_component_designator": "R2",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 655,
+          "y": 515
+        },
+        {
+          "index": 2,
+          "x": 657,
+          "y": 518
+        },
+        {
+          "index": 3,
+          "x": 661,
+          "y": 512
+        },
+        {
+          "index": 4,
+          "x": 665,
+          "y": 518
+        },
+        {
+          "index": 5,
+          "x": 669,
+          "y": 512
+        },
+        {
+          "index": 6,
+          "x": 673,
+          "y": 518
+        },
+        {
+          "index": 7,
+          "x": 675,
+          "y": 515
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 166.37,
+          "y": 130.81
+        },
+        {
+          "index": 2,
+          "x": 166.878,
+          "y": 131.572
+        },
+        {
+          "index": 3,
+          "x": 167.894,
+          "y": 130.048
+        },
+        {
+          "index": 4,
+          "x": 168.91,
+          "y": 131.572
+        },
+        {
+          "index": 5,
+          "x": 169.926,
+          "y": 130.048
+        },
+        {
+          "index": 6,
+          "x": 170.942,
+          "y": 131.572
+        },
+        {
+          "index": 7,
+          "x": 171.45,
+          "y": 130.81
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "292",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "655",
+        "Y1": "515",
+        "X2": "657",
+        "Y2": "518",
+        "X3": "661",
+        "Y3": "512",
+        "X4": "665",
+        "Y4": "518",
+        "X5": "669",
+        "Y5": "512",
+        "X6": "673",
+        "Y6": "518",
+        "X7": "675",
+        "Y7": "515"
+      }
+    },
+    {
+      "record_index": 323,
+      "stream_offset": 55725,
+      "record_class": "6",
+      "owner_component_record_index": 314,
+      "owner_index_raw": "313",
+      "owner_record_class": "1",
+      "owner_component_designator": "R4",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 655,
+          "y": 495
+        },
+        {
+          "index": 2,
+          "x": 657,
+          "y": 498
+        },
+        {
+          "index": 3,
+          "x": 661,
+          "y": 492
+        },
+        {
+          "index": 4,
+          "x": 665,
+          "y": 498
+        },
+        {
+          "index": 5,
+          "x": 669,
+          "y": 492
+        },
+        {
+          "index": 6,
+          "x": 673,
+          "y": 498
+        },
+        {
+          "index": 7,
+          "x": 675,
+          "y": 495
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 166.37,
+          "y": 125.73
+        },
+        {
+          "index": 2,
+          "x": 166.878,
+          "y": 126.492
+        },
+        {
+          "index": 3,
+          "x": 167.894,
+          "y": 124.968
+        },
+        {
+          "index": 4,
+          "x": 168.91,
+          "y": 126.492
+        },
+        {
+          "index": 5,
+          "x": 169.926,
+          "y": 124.968
+        },
+        {
+          "index": 6,
+          "x": 170.942,
+          "y": 126.492
+        },
+        {
+          "index": 7,
+          "x": 171.45,
+          "y": 125.73
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "313",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "655",
+        "Y1": "495",
+        "X2": "657",
+        "Y2": "498",
+        "X3": "661",
+        "Y3": "492",
+        "X4": "665",
+        "Y4": "498",
+        "X5": "669",
+        "Y5": "492",
+        "X6": "673",
+        "Y6": "498",
+        "X7": "675",
+        "Y7": "495"
+      }
+    },
+    {
+      "record_index": 344,
+      "stream_offset": 59395,
+      "record_class": "6",
+      "owner_component_record_index": 335,
+      "owner_index_raw": "334",
+      "owner_record_class": "1",
+      "owner_component_designator": "R6",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 655,
+          "y": 475
+        },
+        {
+          "index": 2,
+          "x": 657,
+          "y": 478
+        },
+        {
+          "index": 3,
+          "x": 661,
+          "y": 472
+        },
+        {
+          "index": 4,
+          "x": 665,
+          "y": 478
+        },
+        {
+          "index": 5,
+          "x": 669,
+          "y": 472
+        },
+        {
+          "index": 6,
+          "x": 673,
+          "y": 478
+        },
+        {
+          "index": 7,
+          "x": 675,
+          "y": 475
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 166.37,
+          "y": 120.65
+        },
+        {
+          "index": 2,
+          "x": 166.878,
+          "y": 121.412
+        },
+        {
+          "index": 3,
+          "x": 167.894,
+          "y": 119.888
+        },
+        {
+          "index": 4,
+          "x": 168.91,
+          "y": 121.412
+        },
+        {
+          "index": 5,
+          "x": 169.926,
+          "y": 119.888
+        },
+        {
+          "index": 6,
+          "x": 170.942,
+          "y": 121.412
+        },
+        {
+          "index": 7,
+          "x": 171.45,
+          "y": 120.65
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "334",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "655",
+        "Y1": "475",
+        "X2": "657",
+        "Y2": "478",
+        "X3": "661",
+        "Y3": "472",
+        "X4": "665",
+        "Y4": "478",
+        "X5": "669",
+        "Y5": "472",
+        "X6": "673",
+        "Y6": "478",
+        "X7": "675",
+        "Y7": "475"
+      }
+    },
+    {
+      "record_index": 365,
+      "stream_offset": 63099,
+      "record_class": "6",
+      "owner_component_record_index": 356,
+      "owner_index_raw": "355",
+      "owner_record_class": "1",
+      "owner_component_designator": "R8",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 655,
+          "y": 455
+        },
+        {
+          "index": 2,
+          "x": 657,
+          "y": 458
+        },
+        {
+          "index": 3,
+          "x": 661,
+          "y": 452
+        },
+        {
+          "index": 4,
+          "x": 665,
+          "y": 458
+        },
+        {
+          "index": 5,
+          "x": 669,
+          "y": 452
+        },
+        {
+          "index": 6,
+          "x": 673,
+          "y": 458
+        },
+        {
+          "index": 7,
+          "x": 675,
+          "y": 455
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 166.37,
+          "y": 115.57
+        },
+        {
+          "index": 2,
+          "x": 166.878,
+          "y": 116.332
+        },
+        {
+          "index": 3,
+          "x": 167.894,
+          "y": 114.808
+        },
+        {
+          "index": 4,
+          "x": 168.91,
+          "y": 116.332
+        },
+        {
+          "index": 5,
+          "x": 169.926,
+          "y": 114.808
+        },
+        {
+          "index": 6,
+          "x": 170.942,
+          "y": 116.332
+        },
+        {
+          "index": 7,
+          "x": 171.45,
+          "y": 115.57
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "355",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "655",
+        "Y1": "455",
+        "X2": "657",
+        "Y2": "458",
+        "X3": "661",
+        "Y3": "452",
+        "X4": "665",
+        "Y4": "458",
+        "X5": "669",
+        "Y5": "452",
+        "X6": "673",
+        "Y6": "458",
+        "X7": "675",
+        "Y7": "455"
+      }
+    },
+    {
+      "record_index": 386,
+      "stream_offset": 66773,
+      "record_class": "6",
+      "owner_component_record_index": 377,
+      "owner_index_raw": "376",
+      "owner_record_class": "1",
+      "owner_component_designator": "R9",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 845,
+          "y": 455
+        },
+        {
+          "index": 2,
+          "x": 847,
+          "y": 458
+        },
+        {
+          "index": 3,
+          "x": 851,
+          "y": 452
+        },
+        {
+          "index": 4,
+          "x": 855,
+          "y": 458
+        },
+        {
+          "index": 5,
+          "x": 859,
+          "y": 452
+        },
+        {
+          "index": 6,
+          "x": 863,
+          "y": 458
+        },
+        {
+          "index": 7,
+          "x": 865,
+          "y": 455
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 214.63,
+          "y": 115.57
+        },
+        {
+          "index": 2,
+          "x": 215.138,
+          "y": 116.332
+        },
+        {
+          "index": 3,
+          "x": 216.154,
+          "y": 114.808
+        },
+        {
+          "index": 4,
+          "x": 217.17,
+          "y": 116.332
+        },
+        {
+          "index": 5,
+          "x": 218.186,
+          "y": 114.808
+        },
+        {
+          "index": 6,
+          "x": 219.202,
+          "y": 116.332
+        },
+        {
+          "index": 7,
+          "x": 219.71,
+          "y": 115.57
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "376",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "845",
+        "Y1": "455",
+        "X2": "847",
+        "Y2": "458",
+        "X3": "851",
+        "Y3": "452",
+        "X4": "855",
+        "Y4": "458",
+        "X5": "859",
+        "Y5": "452",
+        "X6": "863",
+        "Y6": "458",
+        "X7": "865",
+        "Y7": "455"
+      }
+    },
+    {
+      "record_index": 407,
+      "stream_offset": 70502,
+      "record_class": "6",
+      "owner_component_record_index": 398,
+      "owner_index_raw": "397",
+      "owner_record_class": "1",
+      "owner_component_designator": "R7",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 845,
+          "y": 475
+        },
+        {
+          "index": 2,
+          "x": 847,
+          "y": 478
+        },
+        {
+          "index": 3,
+          "x": 851,
+          "y": 472
+        },
+        {
+          "index": 4,
+          "x": 855,
+          "y": 478
+        },
+        {
+          "index": 5,
+          "x": 859,
+          "y": 472
+        },
+        {
+          "index": 6,
+          "x": 863,
+          "y": 478
+        },
+        {
+          "index": 7,
+          "x": 865,
+          "y": 475
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 214.63,
+          "y": 120.65
+        },
+        {
+          "index": 2,
+          "x": 215.138,
+          "y": 121.412
+        },
+        {
+          "index": 3,
+          "x": 216.154,
+          "y": 119.888
+        },
+        {
+          "index": 4,
+          "x": 217.17,
+          "y": 121.412
+        },
+        {
+          "index": 5,
+          "x": 218.186,
+          "y": 119.888
+        },
+        {
+          "index": 6,
+          "x": 219.202,
+          "y": 121.412
+        },
+        {
+          "index": 7,
+          "x": 219.71,
+          "y": 120.65
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "397",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "845",
+        "Y1": "475",
+        "X2": "847",
+        "Y2": "478",
+        "X3": "851",
+        "Y3": "472",
+        "X4": "855",
+        "Y4": "478",
+        "X5": "859",
+        "Y5": "472",
+        "X6": "863",
+        "Y6": "478",
+        "X7": "865",
+        "Y7": "475"
+      }
+    },
+    {
+      "record_index": 428,
+      "stream_offset": 74231,
+      "record_class": "6",
+      "owner_component_record_index": 419,
+      "owner_index_raw": "418",
+      "owner_record_class": "1",
+      "owner_component_designator": "R5",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 845,
+          "y": 495
+        },
+        {
+          "index": 2,
+          "x": 847,
+          "y": 498
+        },
+        {
+          "index": 3,
+          "x": 851,
+          "y": 492
+        },
+        {
+          "index": 4,
+          "x": 855,
+          "y": 498
+        },
+        {
+          "index": 5,
+          "x": 859,
+          "y": 492
+        },
+        {
+          "index": 6,
+          "x": 863,
+          "y": 498
+        },
+        {
+          "index": 7,
+          "x": 865,
+          "y": 495
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 214.63,
+          "y": 125.73
+        },
+        {
+          "index": 2,
+          "x": 215.138,
+          "y": 126.492
+        },
+        {
+          "index": 3,
+          "x": 216.154,
+          "y": 124.968
+        },
+        {
+          "index": 4,
+          "x": 217.17,
+          "y": 126.492
+        },
+        {
+          "index": 5,
+          "x": 218.186,
+          "y": 124.968
+        },
+        {
+          "index": 6,
+          "x": 219.202,
+          "y": 126.492
+        },
+        {
+          "index": 7,
+          "x": 219.71,
+          "y": 125.73
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "418",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "845",
+        "Y1": "495",
+        "X2": "847",
+        "Y2": "498",
+        "X3": "851",
+        "Y3": "492",
+        "X4": "855",
+        "Y4": "498",
+        "X5": "859",
+        "Y5": "492",
+        "X6": "863",
+        "Y6": "498",
+        "X7": "865",
+        "Y7": "495"
+      }
+    },
+    {
+      "record_index": 461,
+      "stream_offset": 79019,
+      "record_class": "14",
+      "owner_component_record_index": 460,
+      "owner_index_raw": "459",
+      "owner_record_class": "1",
+      "owner_component_designator": "SS",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 825,
+        "y": 385
+      },
+      "location_mm": {
+        "x": 209.55,
+        "y": 97.79
+      },
+      "corner_raw": {
+        "x": 892,
+        "y": 409
+      },
+      "corner_mm": {
+        "x": 226.568,
+        "y": 103.886
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "65535",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "459",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "825",
+        "Location.Y": "385",
+        "Corner.X": "892",
+        "Corner.Y": "409",
+        "Color": "128",
+        "AreaColor": "65535",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 463,
+      "stream_offset": 79360,
+      "record_class": "6",
+      "owner_component_record_index": 460,
+      "owner_index_raw": "459",
+      "owner_record_class": "1",
+      "owner_component_designator": "SS",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 826,
+          "y": 401
+        },
+        {
+          "index": 2,
+          "x": 826,
+          "y": 393
+        },
+        {
+          "index": 3,
+          "x": 880,
+          "y": 393
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 209.804,
+          "y": 101.854
+        },
+        {
+          "index": 2,
+          "x": 209.804,
+          "y": 99.822
+        },
+        {
+          "index": 3,
+          "x": 223.52,
+          "y": 99.822
+        }
+      ],
+      "location_count": 3,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "459",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "2",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "3",
+        "X1": "826",
+        "Y1": "401",
+        "X2": "826",
+        "Y2": "393",
+        "X3": "880",
+        "Y3": "393"
+      }
+    },
+    {
+      "record_index": 464,
+      "stream_offset": 79520,
+      "record_class": "6",
+      "owner_component_record_index": 460,
+      "owner_index_raw": "459",
+      "owner_record_class": "1",
+      "owner_component_designator": "SS",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 826,
+          "y": 401
+        },
+        {
+          "index": 2,
+          "x": 880,
+          "y": 401
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 209.804,
+          "y": 101.854
+        },
+        {
+          "index": 2,
+          "x": 223.52,
+          "y": 101.854
+        }
+      ],
+      "location_count": 2,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "459",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "3",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "2",
+        "X1": "826",
+        "Y1": "401",
+        "X2": "880",
+        "Y2": "401"
+      }
+    },
+    {
+      "record_index": 465,
+      "stream_offset": 79666,
+      "record_class": "6",
+      "owner_component_record_index": 460,
+      "owner_index_raw": "459",
+      "owner_record_class": "1",
+      "owner_component_designator": "SS",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 880,
+          "y": 401
+        },
+        {
+          "index": 2,
+          "x": 880,
+          "y": 408
+        },
+        {
+          "index": 3,
+          "x": 891,
+          "y": 397
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 223.52,
+          "y": 101.854
+        },
+        {
+          "index": 2,
+          "x": 223.52,
+          "y": 103.632
+        },
+        {
+          "index": 3,
+          "x": 226.314,
+          "y": 100.838
+        }
+      ],
+      "location_count": 3,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "459",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "4",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "3",
+        "X1": "880",
+        "Y1": "401",
+        "X2": "880",
+        "Y2": "408",
+        "X3": "891",
+        "Y3": "397"
+      }
+    },
+    {
+      "record_index": 466,
+      "stream_offset": 79826,
+      "record_class": "6",
+      "owner_component_record_index": 460,
+      "owner_index_raw": "459",
+      "owner_record_class": "1",
+      "owner_component_designator": "SS",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 880,
+          "y": 393
+        },
+        {
+          "index": 2,
+          "x": 880,
+          "y": 386
+        },
+        {
+          "index": 3,
+          "x": 891,
+          "y": 397
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 223.52,
+          "y": 99.822
+        },
+        {
+          "index": 2,
+          "x": 223.52,
+          "y": 98.044
+        },
+        {
+          "index": 3,
+          "x": 226.314,
+          "y": 100.838
+        }
+      ],
+      "location_count": 3,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "459",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "5",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "3",
+        "X1": "880",
+        "Y1": "393",
+        "X2": "880",
+        "Y2": "386",
+        "X3": "891",
+        "Y3": "397"
+      }
+    },
+    {
+      "record_index": 474,
+      "stream_offset": 81065,
+      "record_class": "10",
+      "owner_component_record_index": 473,
+      "owner_index_raw": "472",
+      "owner_record_class": "1",
+      "owner_component_designator": "DWK1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 825,
+        "y": 358
+      },
+      "location_mm": {
+        "x": 209.55,
+        "y": 90.932
+      },
+      "corner_raw": {
+        "x": 892,
+        "y": 372
+      },
+      "corner_mm": {
+        "x": 226.568,
+        "y": 94.488
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "16776960",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerYRadius": "20"
+      },
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "472",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "825",
+        "Location.Y": "358",
+        "Corner.X": "892",
+        "Corner.Y": "372",
+        "CornerXRadius": "20",
+        "CornerYRadius": "20",
+        "Color": "16711680",
+        "AreaColor": "16776960",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 483,
+      "stream_offset": 82532,
+      "record_class": "10",
+      "owner_component_record_index": 482,
+      "owner_index_raw": "481",
+      "owner_record_class": "1",
+      "owner_component_designator": "DWK2",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 825,
+        "y": 328
+      },
+      "location_mm": {
+        "x": 209.55,
+        "y": 83.312
+      },
+      "corner_raw": {
+        "x": 892,
+        "y": 342
+      },
+      "corner_mm": {
+        "x": 226.568,
+        "y": 86.868
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "16776960",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerYRadius": "20"
+      },
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "481",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "825",
+        "Location.Y": "328",
+        "Corner.X": "892",
+        "Corner.Y": "342",
+        "CornerXRadius": "20",
+        "CornerYRadius": "20",
+        "Color": "16711680",
+        "AreaColor": "16776960",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 492,
+      "stream_offset": 84030,
+      "record_class": "10",
+      "owner_component_record_index": 491,
+      "owner_index_raw": "490",
+      "owner_record_class": "1",
+      "owner_component_designator": "check",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 733,
+        "y": 395
+      },
+      "location_mm": {
+        "x": 186.182,
+        "y": 100.33
+      },
+      "corner_raw": {
+        "x": 773,
+        "y": 415
+      },
+      "corner_mm": {
+        "x": 196.342,
+        "y": 105.41
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "65280",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerXRadius_Frac": "806",
+        "CornerYRadius": "20",
+        "CornerYRadius_Frac": "90291"
+      },
+      "arc_fields_note": "Radius/Frac and the *_Frac corner radii are kept raw; the fraction denominator is not documented in this stream and is NOT decoded",
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "490",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "733",
+        "Location.Y": "395",
+        "Corner.X": "773",
+        "Corner.Y": "415",
+        "CornerXRadius": "20",
+        "CornerXRadius_Frac": "806",
+        "CornerYRadius": "20",
+        "CornerYRadius_Frac": "90291",
+        "Color": "16711680",
+        "AreaColor": "65280",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 511,
+      "stream_offset": 86812,
+      "record_class": "10",
+      "owner_component_record_index": 510,
+      "owner_index_raw": "509",
+      "owner_record_class": "1",
+      "owner_component_designator": "UL",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 730,
+        "y": 362
+      },
+      "location_mm": {
+        "x": 185.42,
+        "y": 91.948
+      },
+      "corner_raw": {
+        "x": 790,
+        "y": 378
+      },
+      "corner_mm": {
+        "x": 200.66,
+        "y": 96.012
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "65535",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerXRadius_Frac": "2206",
+        "CornerYRadius": "15",
+        "CornerYRadius_Frac": "42648"
+      },
+      "arc_fields_note": "Radius/Frac and the *_Frac corner radii are kept raw; the fraction denominator is not documented in this stream and is NOT decoded",
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "509",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "730",
+        "Location.Y": "362",
+        "Corner.X": "790",
+        "Corner.Y": "378",
+        "CornerXRadius": "20",
+        "CornerXRadius_Frac": "2206",
+        "CornerYRadius": "15",
+        "CornerYRadius_Frac": "42648",
+        "Color": "16711680",
+        "AreaColor": "65535",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 520,
+      "stream_offset": 88345,
+      "record_class": "10",
+      "owner_component_record_index": 519,
+      "owner_index_raw": "518",
+      "owner_record_class": "1",
+      "owner_component_designator": "LLOO",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 730,
+        "y": 220
+      },
+      "location_mm": {
+        "x": 185.42,
+        "y": 55.88
+      },
+      "corner_raw": {
+        "x": 801,
+        "y": 240
+      },
+      "corner_mm": {
+        "x": 203.454,
+        "y": 60.96
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "33789",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerYRadius": "20"
+      },
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "518",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "730",
+        "Location.Y": "220",
+        "Corner.X": "801",
+        "Corner.Y": "240",
+        "CornerXRadius": "20",
+        "CornerYRadius": "20",
+        "Color": "16711680",
+        "AreaColor": "33789",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 532,
+      "stream_offset": 90148,
+      "record_class": "14",
+      "owner_component_record_index": 531,
+      "owner_index_raw": "530",
+      "owner_record_class": "1",
+      "owner_component_designator": "QR Code",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 730,
+        "y": 293
+      },
+      "location_mm": {
+        "x": 185.42,
+        "y": 74.422
+      },
+      "corner_raw": {
+        "x": 791,
+        "y": 318
+      },
+      "corner_mm": {
+        "x": 200.914,
+        "y": 80.772
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "65535",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "530",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "730",
+        "Location.Y": "293",
+        "Corner.X": "791",
+        "Corner.Y": "318",
+        "Color": "128",
+        "AreaColor": "65535",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 542,
+      "stream_offset": 91704,
+      "record_class": "14",
+      "owner_component_record_index": 541,
+      "owner_index_raw": "540",
+      "owner_record_class": "1",
+      "owner_component_designator": "QR Code1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 730,
+        "y": 253
+      },
+      "location_mm": {
+        "x": 185.42,
+        "y": 64.262
+      },
+      "corner_raw": {
+        "x": 791,
+        "y": 278
+      },
+      "corner_mm": {
+        "x": 200.914,
+        "y": 70.612
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "65535",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "540",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "730",
+        "Location.Y": "253",
+        "Corner.X": "791",
+        "Corner.Y": "278",
+        "Color": "128",
+        "AreaColor": "65535",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 552,
+      "stream_offset": 93264,
+      "record_class": "10",
+      "owner_component_record_index": 551,
+      "owner_index_raw": "550",
+      "owner_record_class": "1",
+      "owner_component_designator": "MM1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 825,
+        "y": 295
+      },
+      "location_mm": {
+        "x": 209.55,
+        "y": 74.93
+      },
+      "corner_raw": {
+        "x": 888,
+        "y": 315
+      },
+      "corner_mm": {
+        "x": 225.552,
+        "y": 80.01
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "16776960",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerYRadius": "20"
+      },
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "550",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "825",
+        "Location.Y": "295",
+        "Corner.X": "888",
+        "Corner.Y": "315",
+        "CornerXRadius": "20",
+        "CornerYRadius": "20",
+        "Color": "16711680",
+        "AreaColor": "16776960",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 564,
+      "stream_offset": 95084,
+      "record_class": "10",
+      "owner_component_record_index": 563,
+      "owner_index_raw": "562",
+      "owner_record_class": "1",
+      "owner_component_designator": "MM2",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 825,
+        "y": 260
+      },
+      "location_mm": {
+        "x": 209.55,
+        "y": 66.04
+      },
+      "corner_raw": {
+        "x": 888,
+        "y": 280
+      },
+      "corner_mm": {
+        "x": 225.552,
+        "y": 71.12
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "16776960",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerYRadius": "20"
+      },
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "562",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "825",
+        "Location.Y": "260",
+        "Corner.X": "888",
+        "Corner.Y": "280",
+        "CornerXRadius": "20",
+        "CornerYRadius": "20",
+        "Color": "16711680",
+        "AreaColor": "16776960",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 576,
+      "stream_offset": 96904,
+      "record_class": "10",
+      "owner_component_record_index": 575,
+      "owner_index_raw": "574",
+      "owner_record_class": "1",
+      "owner_component_designator": "MM3",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 825,
+        "y": 225
+      },
+      "location_mm": {
+        "x": 209.55,
+        "y": 57.15
+      },
+      "corner_raw": {
+        "x": 888,
+        "y": 245
+      },
+      "corner_mm": {
+        "x": 225.552,
+        "y": 62.23
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "16711680",
+      "area_color_raw": "16776960",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "CornerXRadius": "20",
+        "CornerYRadius": "20"
+      },
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "10",
+        "OwnerIndex": "574",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "825",
+        "Location.Y": "225",
+        "Corner.X": "888",
+        "Corner.Y": "245",
+        "CornerXRadius": "20",
+        "CornerYRadius": "20",
+        "Color": "16711680",
+        "AreaColor": "16776960",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 588,
+      "stream_offset": 98729,
+      "record_class": "14",
+      "owner_component_record_index": 587,
+      "owner_index_raw": "586",
+      "owner_record_class": "1",
+      "owner_component_designator": "LLAA",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 730,
+        "y": 332
+      },
+      "location_mm": {
+        "x": 185.42,
+        "y": 84.328
+      },
+      "corner_raw": {
+        "x": 791,
+        "y": 348
+      },
+      "corner_mm": {
+        "x": 200.914,
+        "y": 88.392
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "65535",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "586",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "730",
+        "Location.Y": "332",
+        "Corner.X": "791",
+        "Corner.Y": "348",
+        "Color": "128",
+        "AreaColor": "65535",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 612,
+      "stream_offset": 102806,
+      "record_class": "6",
+      "owner_component_record_index": 603,
+      "owner_index_raw": "602",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ1",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 305
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 308
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 302
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 308
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 302
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 308
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 305
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 77.47
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 78.232
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 76.708
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 78.232
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 76.708
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 78.232
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 77.47
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "602",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "305",
+        "X2": "372",
+        "Y2": "308",
+        "X3": "376",
+        "Y3": "302",
+        "X4": "380",
+        "Y4": "308",
+        "X5": "384",
+        "Y5": "302",
+        "X6": "388",
+        "Y6": "308",
+        "X7": "390",
+        "Y7": "305"
+      }
+    },
+    {
+      "record_index": 641,
+      "stream_offset": 107458,
+      "record_class": "6",
+      "owner_component_record_index": 632,
+      "owner_index_raw": "631",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ2",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 265
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 268
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 262
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 268
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 262
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 268
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 265
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 67.31
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 68.072
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 66.548
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 68.072
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 66.548
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 68.072
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 67.31
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "631",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "265",
+        "X2": "372",
+        "Y2": "268",
+        "X3": "376",
+        "Y3": "262",
+        "X4": "380",
+        "Y4": "268",
+        "X5": "384",
+        "Y5": "262",
+        "X6": "388",
+        "Y6": "268",
+        "X7": "390",
+        "Y7": "265"
+      }
+    },
+    {
+      "record_index": 664,
+      "stream_offset": 111265,
+      "record_class": "14",
+      "owner_component_record_index": 659,
+      "owner_index_raw": "658",
+      "owner_record_class": "1",
+      "owner_component_designator": "DISP",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 370,
+        "y": 530
+      },
+      "location_mm": {
+        "x": 93.98,
+        "y": 134.62
+      },
+      "corner_raw": {
+        "x": 390,
+        "y": 615
+      },
+      "corner_mm": {
+        "x": 99.06,
+        "y": 156.21
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "11599871",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "658",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "4",
+        "OwnerPartId": "1",
+        "Location.X": "370",
+        "Location.Y": "530",
+        "Corner.X": "390",
+        "Corner.Y": "615",
+        "Color": "128",
+        "AreaColor": "11599871",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 689,
+      "stream_offset": 115401,
+      "record_class": "14",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 513,
+        "y": 270
+      },
+      "location_mm": {
+        "x": 130.302,
+        "y": 68.58
+      },
+      "corner_raw": {
+        "x": 645,
+        "y": 302
+      },
+      "corner_mm": {
+        "x": 163.83,
+        "y": 76.708
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "11599871",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "OwnerPartId": "1",
+        "Location.X": "513",
+        "Location.Y": "270",
+        "Corner.X": "645",
+        "Corner.Y": "302",
+        "Color": "128",
+        "AreaColor": "11599871",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 690,
+      "stream_offset": 115557,
+      "record_class": "14",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 545,
+        "y": 302
+      },
+      "location_mm": {
+        "x": 138.43,
+        "y": 76.708
+      },
+      "corner_raw": {
+        "x": 645,
+        "y": 360
+      },
+      "corner_mm": {
+        "x": 163.83,
+        "y": 91.44
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": null,
+      "color_raw": "128",
+      "area_color_raw": "11599871",
+      "is_solid_raw": "T",
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "14",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "545",
+        "Location.Y": "302",
+        "Corner.X": "645",
+        "Corner.Y": "360",
+        "Color": "128",
+        "AreaColor": "11599871",
+        "IsSolid": "T"
+      }
+    },
+    {
+      "record_index": 711,
+      "stream_offset": 120757,
+      "record_class": "12",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 531,
+        "y": 288
+      },
+      "location_mm": {
+        "x": 134.874,
+        "y": 73.152
+      },
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746"
+      },
+      "arc_fields_note": "Radius/Frac and the *_Frac corner radii are kept raw; the fraction denominator is not documented in this stream and is NOT decoded",
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "12",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "12",
+        "OwnerPartId": "1",
+        "Location.X": "531",
+        "Location.Y": "288",
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "LineWidth": "1",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 712,
+      "stream_offset": 120954,
+      "record_class": "12",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 567,
+        "y": 288
+      },
+      "location_mm": {
+        "x": 144.018,
+        "y": 73.152
+      },
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746"
+      },
+      "arc_fields_note": "Radius/Frac and the *_Frac corner radii are kept raw; the fraction denominator is not documented in this stream and is NOT decoded",
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "12",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "13",
+        "OwnerPartId": "1",
+        "Location.X": "567",
+        "Location.Y": "288",
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "LineWidth": "1",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 713,
+      "stream_offset": 121151,
+      "record_class": "12",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 631,
+        "y": 288
+      },
+      "location_mm": {
+        "x": 160.274,
+        "y": 73.152
+      },
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746"
+      },
+      "arc_fields_note": "Radius/Frac and the *_Frac corner radii are kept raw; the fraction denominator is not documented in this stream and is NOT decoded",
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "12",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "14",
+        "OwnerPartId": "1",
+        "Location.X": "631",
+        "Location.Y": "288",
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "LineWidth": "1",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 714,
+      "stream_offset": 121348,
+      "record_class": "12",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 597,
+        "y": 288
+      },
+      "location_mm": {
+        "x": 151.638,
+        "y": 73.152
+      },
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": {
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746"
+      },
+      "arc_fields_note": "Radius/Frac and the *_Frac corner radii are kept raw; the fraction denominator is not documented in this stream and is NOT decoded",
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "12",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "15",
+        "OwnerPartId": "1",
+        "Location.X": "597",
+        "Location.Y": "288",
+        "Radius": "5",
+        "Radius_Frac": "26124",
+        "LineWidth": "1",
+        "StartAngle": "331.586",
+        "EndAngle": "329.746",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 715,
+      "stream_offset": 121545,
+      "record_class": "6",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 575,
+          "y": 340
+        },
+        {
+          "index": 2,
+          "x": 575,
+          "y": 326
+        },
+        {
+          "index": 3,
+          "x": 589,
+          "y": 326
+        },
+        {
+          "index": 4,
+          "x": 589,
+          "y": 312
+        },
+        {
+          "index": 5,
+          "x": 575,
+          "y": 312
+        },
+        {
+          "index": 6,
+          "x": 575,
+          "y": 340
+        },
+        {
+          "index": 7,
+          "x": 589,
+          "y": 340
+        },
+        {
+          "index": 8,
+          "x": 589,
+          "y": 326
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 146.05,
+          "y": 86.36
+        },
+        {
+          "index": 2,
+          "x": 146.05,
+          "y": 82.804
+        },
+        {
+          "index": 3,
+          "x": 149.606,
+          "y": 82.804
+        },
+        {
+          "index": 4,
+          "x": 149.606,
+          "y": 79.248
+        },
+        {
+          "index": 5,
+          "x": 146.05,
+          "y": 79.248
+        },
+        {
+          "index": 6,
+          "x": 146.05,
+          "y": 86.36
+        },
+        {
+          "index": 7,
+          "x": 149.606,
+          "y": 86.36
+        },
+        {
+          "index": 8,
+          "x": 149.606,
+          "y": 82.804
+        }
+      ],
+      "location_count": 8,
+      "line_width_raw": "1",
+      "color_raw": null,
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "16",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "LocationCount": "8",
+        "X1": "575",
+        "Y1": "340",
+        "X2": "575",
+        "Y2": "326",
+        "X3": "589",
+        "Y3": "326",
+        "X4": "589",
+        "Y4": "312",
+        "X5": "575",
+        "Y5": "312",
+        "X6": "575",
+        "Y6": "340",
+        "X7": "589",
+        "Y7": "340",
+        "X8": "589",
+        "Y8": "326"
+      }
+    },
+    {
+      "record_index": 716,
+      "stream_offset": 121761,
+      "record_class": "6",
+      "owner_component_record_index": 688,
+      "owner_index_raw": "687",
+      "owner_record_class": "1",
+      "owner_component_designator": "*",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 593,
+          "y": 340
+        },
+        {
+          "index": 2,
+          "x": 593,
+          "y": 326
+        },
+        {
+          "index": 3,
+          "x": 607,
+          "y": 326
+        },
+        {
+          "index": 4,
+          "x": 607,
+          "y": 312
+        },
+        {
+          "index": 5,
+          "x": 593,
+          "y": 312
+        },
+        {
+          "index": 6,
+          "x": 593,
+          "y": 340
+        },
+        {
+          "index": 7,
+          "x": 607,
+          "y": 340
+        },
+        {
+          "index": 8,
+          "x": 607,
+          "y": 326
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 150.622,
+          "y": 86.36
+        },
+        {
+          "index": 2,
+          "x": 150.622,
+          "y": 82.804
+        },
+        {
+          "index": 3,
+          "x": 154.178,
+          "y": 82.804
+        },
+        {
+          "index": 4,
+          "x": 154.178,
+          "y": 79.248
+        },
+        {
+          "index": 5,
+          "x": 150.622,
+          "y": 79.248
+        },
+        {
+          "index": 6,
+          "x": 150.622,
+          "y": 86.36
+        },
+        {
+          "index": 7,
+          "x": 154.178,
+          "y": 86.36
+        },
+        {
+          "index": 8,
+          "x": 154.178,
+          "y": 82.804
+        }
+      ],
+      "location_count": 8,
+      "line_width_raw": "1",
+      "color_raw": null,
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "687",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "17",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "LocationCount": "8",
+        "X1": "593",
+        "Y1": "340",
+        "X2": "593",
+        "Y2": "326",
+        "X3": "607",
+        "Y3": "326",
+        "X4": "607",
+        "Y4": "312",
+        "X5": "593",
+        "Y5": "312",
+        "X6": "593",
+        "Y6": "340",
+        "X7": "607",
+        "Y7": "340",
+        "X8": "607",
+        "Y8": "326"
+      }
+    },
+    {
+      "record_index": 732,
+      "stream_offset": 124722,
+      "record_class": "13",
+      "owner_component_record_index": 723,
+      "owner_index_raw": "722",
+      "owner_record_class": "1",
+      "owner_component_designator": "C4",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 772,
+        "y": 635
+      },
+      "location_mm": {
+        "x": 196.088,
+        "y": 161.29
+      },
+      "corner_raw": {
+        "x": 775,
+        "y": 635
+      },
+      "corner_mm": {
+        "x": 196.85,
+        "y": 161.29
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "722",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "772",
+        "Location.Y": "635",
+        "Corner.X": "775",
+        "Corner.Y": "635",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 733,
+      "stream_offset": 124881,
+      "record_class": "13",
+      "owner_component_record_index": 723,
+      "owner_index_raw": "722",
+      "owner_record_class": "1",
+      "owner_component_designator": "C4",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 765,
+        "y": 635
+      },
+      "location_mm": {
+        "x": 194.31,
+        "y": 161.29
+      },
+      "corner_raw": {
+        "x": 768,
+        "y": 635
+      },
+      "corner_mm": {
+        "x": 195.072,
+        "y": 161.29
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "722",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "765",
+        "Location.Y": "635",
+        "Corner.X": "768",
+        "Corner.Y": "635",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 734,
+      "stream_offset": 125040,
+      "record_class": "13",
+      "owner_component_record_index": 723,
+      "owner_index_raw": "722",
+      "owner_record_class": "1",
+      "owner_component_designator": "C4",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 772,
+        "y": 631
+      },
+      "location_mm": {
+        "x": 196.088,
+        "y": 160.274
+      },
+      "corner_raw": {
+        "x": 772,
+        "y": 639
+      },
+      "corner_mm": {
+        "x": 196.088,
+        "y": 162.306
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "722",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "772",
+        "Location.Y": "631",
+        "Corner.X": "772",
+        "Corner.Y": "639",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 735,
+      "stream_offset": 125199,
+      "record_class": "13",
+      "owner_component_record_index": 723,
+      "owner_index_raw": "722",
+      "owner_record_class": "1",
+      "owner_component_designator": "C4",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 768,
+        "y": 631
+      },
+      "location_mm": {
+        "x": 195.072,
+        "y": 160.274
+      },
+      "corner_raw": {
+        "x": 768,
+        "y": 639
+      },
+      "corner_mm": {
+        "x": 195.072,
+        "y": 162.306
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "722",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "768",
+        "Location.Y": "631",
+        "Corner.X": "768",
+        "Corner.Y": "639",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 756,
+      "stream_offset": 128806,
+      "record_class": "13",
+      "owner_component_record_index": 747,
+      "owner_index_raw": "746",
+      "owner_record_class": "1",
+      "owner_component_designator": "C8",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 772,
+        "y": 650
+      },
+      "location_mm": {
+        "x": 196.088,
+        "y": 165.1
+      },
+      "corner_raw": {
+        "x": 775,
+        "y": 650
+      },
+      "corner_mm": {
+        "x": 196.85,
+        "y": 165.1
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "746",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "772",
+        "Location.Y": "650",
+        "Corner.X": "775",
+        "Corner.Y": "650",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 757,
+      "stream_offset": 128965,
+      "record_class": "13",
+      "owner_component_record_index": 747,
+      "owner_index_raw": "746",
+      "owner_record_class": "1",
+      "owner_component_designator": "C8",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 765,
+        "y": 650
+      },
+      "location_mm": {
+        "x": 194.31,
+        "y": 165.1
+      },
+      "corner_raw": {
+        "x": 768,
+        "y": 650
+      },
+      "corner_mm": {
+        "x": 195.072,
+        "y": 165.1
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "746",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "765",
+        "Location.Y": "650",
+        "Corner.X": "768",
+        "Corner.Y": "650",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 758,
+      "stream_offset": 129124,
+      "record_class": "13",
+      "owner_component_record_index": 747,
+      "owner_index_raw": "746",
+      "owner_record_class": "1",
+      "owner_component_designator": "C8",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 772,
+        "y": 646
+      },
+      "location_mm": {
+        "x": 196.088,
+        "y": 164.084
+      },
+      "corner_raw": {
+        "x": 772,
+        "y": 654
+      },
+      "corner_mm": {
+        "x": 196.088,
+        "y": 166.116
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "746",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "772",
+        "Location.Y": "646",
+        "Corner.X": "772",
+        "Corner.Y": "654",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 759,
+      "stream_offset": 129283,
+      "record_class": "13",
+      "owner_component_record_index": 747,
+      "owner_index_raw": "746",
+      "owner_record_class": "1",
+      "owner_component_designator": "C8",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 768,
+        "y": 646
+      },
+      "location_mm": {
+        "x": 195.072,
+        "y": 164.084
+      },
+      "corner_raw": {
+        "x": 768,
+        "y": 654
+      },
+      "corner_mm": {
+        "x": 195.072,
+        "y": 166.116
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "746",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "768",
+        "Location.Y": "646",
+        "Corner.X": "768",
+        "Corner.Y": "654",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 780,
+      "stream_offset": 132908,
+      "record_class": "13",
+      "owner_component_record_index": 771,
+      "owner_index_raw": "770",
+      "owner_record_class": "1",
+      "owner_component_designator": "C1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 768,
+        "y": 620
+      },
+      "location_mm": {
+        "x": 195.072,
+        "y": 157.48
+      },
+      "corner_raw": {
+        "x": 765,
+        "y": 620
+      },
+      "corner_mm": {
+        "x": 194.31,
+        "y": 157.48
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "770",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "Location.X": "768",
+        "Location.Y": "620",
+        "Corner.X": "765",
+        "Corner.Y": "620",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 781,
+      "stream_offset": 133067,
+      "record_class": "13",
+      "owner_component_record_index": 771,
+      "owner_index_raw": "770",
+      "owner_record_class": "1",
+      "owner_component_designator": "C1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 775,
+        "y": 620
+      },
+      "location_mm": {
+        "x": 196.85,
+        "y": 157.48
+      },
+      "corner_raw": {
+        "x": 772,
+        "y": 620
+      },
+      "corner_mm": {
+        "x": 196.088,
+        "y": 157.48
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "770",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "7",
+        "OwnerPartId": "1",
+        "Location.X": "775",
+        "Location.Y": "620",
+        "Corner.X": "772",
+        "Corner.Y": "620",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 782,
+      "stream_offset": 133226,
+      "record_class": "13",
+      "owner_component_record_index": 771,
+      "owner_index_raw": "770",
+      "owner_record_class": "1",
+      "owner_component_designator": "C1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 768,
+        "y": 624
+      },
+      "location_mm": {
+        "x": 195.072,
+        "y": 158.496
+      },
+      "corner_raw": {
+        "x": 768,
+        "y": 616
+      },
+      "corner_mm": {
+        "x": 195.072,
+        "y": 156.464
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "770",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "8",
+        "OwnerPartId": "1",
+        "Location.X": "768",
+        "Location.Y": "624",
+        "Corner.X": "768",
+        "Corner.Y": "616",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 783,
+      "stream_offset": 133385,
+      "record_class": "13",
+      "owner_component_record_index": 771,
+      "owner_index_raw": "770",
+      "owner_record_class": "1",
+      "owner_component_designator": "C1",
+      "owner_part_id": 1,
+      "location_raw": {
+        "x": 772,
+        "y": 624
+      },
+      "location_mm": {
+        "x": 196.088,
+        "y": 158.496
+      },
+      "corner_raw": {
+        "x": 772,
+        "y": 616
+      },
+      "corner_mm": {
+        "x": 196.088,
+        "y": 156.464
+      },
+      "vertices_raw": null,
+      "vertices_mm": null,
+      "location_count": null,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "13",
+        "OwnerIndex": "770",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "9",
+        "OwnerPartId": "1",
+        "Location.X": "772",
+        "Location.Y": "624",
+        "Corner.X": "772",
+        "Corner.Y": "616",
+        "LineWidth": "1",
+        "Color": "16711680"
+      }
+    },
+    {
+      "record_index": 807,
+      "stream_offset": 137426,
+      "record_class": "6",
+      "owner_component_record_index": 798,
+      "owner_index_raw": "797",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ3",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 245
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 248
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 242
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 248
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 242
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 248
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 245
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 62.23
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 62.992
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 61.468
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 62.992
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 61.468
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 62.992
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 62.23
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "797",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "245",
+        "X2": "372",
+        "Y2": "248",
+        "X3": "376",
+        "Y3": "242",
+        "X4": "380",
+        "Y4": "248",
+        "X5": "384",
+        "Y5": "242",
+        "X6": "388",
+        "Y6": "248",
+        "X7": "390",
+        "Y7": "245"
+      }
+    },
+    {
+      "record_index": 836,
+      "stream_offset": 142123,
+      "record_class": "6",
+      "owner_component_record_index": 827,
+      "owner_index_raw": "826",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ4",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 225
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 228
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 222
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 228
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 222
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 228
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 225
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 57.15
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 57.912
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 56.388
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 57.912
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 56.388
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 57.912
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 57.15
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "826",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "225",
+        "X2": "372",
+        "Y2": "228",
+        "X3": "376",
+        "Y3": "222",
+        "X4": "380",
+        "Y4": "228",
+        "X5": "384",
+        "Y5": "222",
+        "X6": "388",
+        "Y6": "228",
+        "X7": "390",
+        "Y7": "225"
+      }
+    },
+    {
+      "record_index": 920,
+      "stream_offset": 154757,
+      "record_class": "6",
+      "owner_component_record_index": 911,
+      "owner_index_raw": "910",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ5",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 325
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 328
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 322
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 328
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 322
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 328
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 325
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 82.55
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 83.312
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 81.788
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 83.312
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 81.788
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 83.312
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 82.55
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "910",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "325",
+        "X2": "372",
+        "Y2": "328",
+        "X3": "376",
+        "Y3": "322",
+        "X4": "380",
+        "Y4": "328",
+        "X5": "384",
+        "Y5": "322",
+        "X6": "388",
+        "Y6": "328",
+        "X7": "390",
+        "Y7": "325"
+      }
+    },
+    {
+      "record_index": 951,
+      "stream_offset": 159636,
+      "record_class": "6",
+      "owner_component_record_index": 942,
+      "owner_index_raw": "941",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ6",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 345
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 348
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 342
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 348
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 342
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 348
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 345
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 87.63
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 88.392
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 86.868
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 88.392
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 86.868
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 88.392
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 87.63
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "941",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "345",
+        "X2": "372",
+        "Y2": "348",
+        "X3": "376",
+        "Y3": "342",
+        "X4": "380",
+        "Y4": "348",
+        "X5": "384",
+        "Y5": "342",
+        "X6": "388",
+        "Y6": "348",
+        "X7": "390",
+        "Y7": "345"
+      }
+    },
+    {
+      "record_index": 982,
+      "stream_offset": 164515,
+      "record_class": "6",
+      "owner_component_record_index": 973,
+      "owner_index_raw": "972",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ7",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 360
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 363
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 357
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 363
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 357
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 363
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 360
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 91.44
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 92.202
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 90.678
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 92.202
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 90.678
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 92.202
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 91.44
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "972",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "360",
+        "X2": "372",
+        "Y2": "363",
+        "X3": "376",
+        "Y3": "357",
+        "X4": "380",
+        "Y4": "363",
+        "X5": "384",
+        "Y5": "357",
+        "X6": "388",
+        "Y6": "363",
+        "X7": "390",
+        "Y7": "360"
+      }
+    },
+    {
+      "record_index": 1015,
+      "stream_offset": 169692,
+      "record_class": "6",
+      "owner_component_record_index": 1006,
+      "owner_index_raw": "1005",
+      "owner_record_class": "1",
+      "owner_component_designator": "RJ8",
+      "owner_part_id": 1,
+      "location_raw": null,
+      "location_mm": null,
+      "corner_raw": null,
+      "corner_mm": null,
+      "vertices_raw": [
+        {
+          "index": 1,
+          "x": 370,
+          "y": 285
+        },
+        {
+          "index": 2,
+          "x": 372,
+          "y": 288
+        },
+        {
+          "index": 3,
+          "x": 376,
+          "y": 282
+        },
+        {
+          "index": 4,
+          "x": 380,
+          "y": 288
+        },
+        {
+          "index": 5,
+          "x": 384,
+          "y": 282
+        },
+        {
+          "index": 6,
+          "x": 388,
+          "y": 288
+        },
+        {
+          "index": 7,
+          "x": 390,
+          "y": 285
+        }
+      ],
+      "vertices_mm": [
+        {
+          "index": 1,
+          "x": 93.98,
+          "y": 72.39
+        },
+        {
+          "index": 2,
+          "x": 94.488,
+          "y": 73.152
+        },
+        {
+          "index": 3,
+          "x": 95.504,
+          "y": 71.628
+        },
+        {
+          "index": 4,
+          "x": 96.52,
+          "y": 73.152
+        },
+        {
+          "index": 5,
+          "x": 97.536,
+          "y": 71.628
+        },
+        {
+          "index": 6,
+          "x": 98.552,
+          "y": 73.152
+        },
+        {
+          "index": 7,
+          "x": 99.06,
+          "y": 72.39
+        }
+      ],
+      "location_count": 7,
+      "line_width_raw": "1",
+      "color_raw": "16711680",
+      "area_color_raw": null,
+      "is_solid_raw": null,
+      "is_not_accessible_raw": "T",
+      "arc_fields_raw": null,
+      "arc_fields_note": null,
+      "unique_id": null,
+      "raw_fields": {
+        "RECORD": "6",
+        "OwnerIndex": "1005",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "6",
+        "OwnerPartId": "1",
+        "LineWidth": "1",
+        "Color": "16711680",
+        "LocationCount": "7",
+        "X1": "370",
+        "Y1": "285",
+        "X2": "372",
+        "Y2": "288",
+        "X3": "376",
+        "Y3": "282",
+        "X4": "380",
+        "Y4": "288",
+        "X5": "384",
+        "Y5": "282",
+        "X6": "388",
+        "Y6": "288",
+        "X7": "390",
+        "Y7": "285"
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "dsh-eda-flow",
-  "version": "0.1.0",
-  "description": "独立原理图与 PCB 分步流程：默认方案或 Harness AI 输出，实际执行生成工程",
+  "version": "0.2.0",
+  "description": "独立分步原理图与 PCB 设计：完整显示板默认输入、Harness 模型处理、真实工具执行",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -10,17 +10,22 @@
   },
   "files": [
     "src",
-    "python",
-    "cases",
     "client",
     "client.js",
+    "python",
+    "cases/display-board",
+    "skills",
     "cordis.patch.yml",
-    "scripts",
     "README.md",
     "LICENSE",
     "docs",
+    "scripts/install-intranet.ps1",
+    "scripts/install-offline-python.ps1",
+    "scripts/check-environment.ps1",
+    "scripts/serve.mjs",
     "!**/__pycache__",
-    "!**/*.pyc"
+    "!**/*.pyc",
+    "!python/runner.py"
   ],
   "engines": {
     "node": ">=22.19.0"

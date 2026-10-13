@@ -1,0 +1,30 @@
+[
+  {
+    "index": 440,
+    "offset": 75830,
+    "length": 143,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "22",
+      "IndexInSheet": "59",
+      "OwnerPartId": "-1",
+      "Location.X": "820",
+      "Location.Y": "515",
+      "Color": "255",
+      "Symbol": "Thin Cross",
+      "IsActive": "T",
+      "SuppressAll": "T",
+      "UniqueID": "CDWVGFCQ"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 440,
+      "byte_offset": 75830
+    },
+    "kind": "native_parameter_record"
+  }
+]

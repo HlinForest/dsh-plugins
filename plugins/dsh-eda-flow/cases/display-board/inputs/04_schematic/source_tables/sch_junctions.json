@@ -1,0 +1,517 @@
+{
+  "source": {
+    "source_file": "D:\\TEST\\md50pg_extract\\work\\decrypted\\MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "stream": "FileHeader",
+    "stream_locator": "OLE stream FileHeader",
+    "record_dump_sha256": "8192433cc0d5366a594afe5e3a2771bbf2c1850ca134994a7ac4b96584accf3e",
+    "record_count": 1054
+  },
+  "units": {
+    "units_per_mm": {
+      "value": 3.937007874,
+      "confidence": "low",
+      "basis": "No single scale is provable from the record stream alone. Primary reading: 1 raw unit = 0.254 mm (10 mil). Basis: (a) RECORD=31 CustomX/CustomY = 1500 x 950 units then equals exactly 15.00 x 9.50 inch = 381.0 x 241.3 mm, i.e. round inch-based sheet figures; (b) 75 of 85 pins have PinLength=10 units = 100 mil, the most common Altium pin length, and 20 units = 200 mil for the rest; (c) every wire vertex and graphics coordinate is a multiple of 5 units, i.e. a 50 mil entry grid on top of the 100/200 mil component pin pitches; (d) the drawing occupies 209.6 x 118.1 mm against an 82.7 x 57.7 mm board (5.2x board area), a normal schematic-to-board ratio. See sch_extract_notes.md for the ranked alternatives (0.127 mm = 5 mil is the main one) and for the evidence that could not be resolved offline.",
+      "alternatives": [
+        {
+          "unit_mm": 0.127,
+          "units_per_mm": 7.874015748,
+          "inch": "5 mil",
+          "implied_sheet": "190.5 x 120.65 mm (7.50 x 4.75 in)",
+          "supporting": "Symbol pin pitches then match the physical footprint pad pitches of the same components almost 1:1 (U1 SOP16 1.27 mm pitch drawn at 20 units, D1 2.54 mm part drawn at 20 units) and the designator font size 10 units becomes 1.27 mm, a typical Altium text height.",
+          "against": "The whole schematic drawing (104.8 x 59.1 mm) would be only 1.3x the board area (82.7 x 57.7 mm) for 41 symbols, and the sheet would be smaller than A5, i.e. smaller than any Altium sheet preset."
+        },
+        {
+          "unit_mm": 0.2,
+          "units_per_mm": 5.0,
+          "inch": "~7.87 mil",
+          "implied_sheet": "300 x 190 mm",
+          "supporting": "Sheet and coordinates are simultaneously round in millimetres; the 1500/6 and 950/4 border zone fields give a near-constant 50 mm zone pitch.",
+          "against": "Pin length 2 mm and a 1 mm entry grid are not Altium-typical; 300 x 190 mm matches no ISO preset."
+        },
+        {
+          "unit_mm": 0.1,
+          "units_per_mm": 10.0,
+          "inch": "~3.94 mil",
+          "implied_sheet": "150 x 95 mm",
+          "supporting": "Round millimetre sheet figures.",
+          "against": "The drawing (82.5 x 46.5 mm) would be smaller than the board area covered, and pin length would be 1 mm; effectively excluded."
+        }
+      ],
+      "raw_evidence": {
+        "record_31_CustomX": "1500",
+        "record_31_CustomY": "950",
+        "record_31_CustomXZones": "6",
+        "record_31_CustomYZones": "4",
+        "record_31_CustomMarginWidth": "20",
+        "record_31_SnapGridSize": "5",
+        "record_31_VisibleGridSize": "5",
+        "record_31_Display_Unit": "0",
+        "observed_coordinate_range_raw": {
+          "x": [
+            80,
+            905
+          ],
+          "y": [
+            200,
+            665
+          ]
+        },
+        "observed_minimum_grid_step_raw": 5,
+        "pin_length_values_raw": {
+          "10": 75,
+          "20": 10
+        },
+        "sheet_mm_at_primary_scale": {
+          "x": 381.0,
+          "y": 241.3
+        },
+        "sheet_mm_at_alternative_scale": {
+          "x": 190.5,
+          "y": 120.65
+        }
+      }
+    },
+    "conversion": "millimetres = raw_integer * 0.254 (primary inference); raw integers are always kept in the *_raw fields and in raw_fields. To rescale, multiply the mm values by (new_unit_mm / 0.254)."
+  },
+  "count": 19,
+  "junctions": [
+    {
+      "record_index": 1035,
+      "stream_offset": 172228,
+      "location_raw": {
+        "x": 200,
+        "y": 515
+      },
+      "location_mm": {
+        "x": 50.8,
+        "y": 130.81
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "200",
+        "Location.Y": "515",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1036,
+      "stream_offset": 172314,
+      "location_raw": {
+        "x": 200,
+        "y": 630
+      },
+      "location_mm": {
+        "x": 50.8,
+        "y": 160.02
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "200",
+        "Location.Y": "630",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1037,
+      "stream_offset": 172400,
+      "location_raw": {
+        "x": 230,
+        "y": 515
+      },
+      "location_mm": {
+        "x": 58.42,
+        "y": 130.81
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "230",
+        "Location.Y": "515",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1038,
+      "stream_offset": 172486,
+      "location_raw": {
+        "x": 230,
+        "y": 630
+      },
+      "location_mm": {
+        "x": 58.42,
+        "y": 160.02
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "230",
+        "Location.Y": "630",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1039,
+      "stream_offset": 172572,
+      "location_raw": {
+        "x": 285,
+        "y": 535
+      },
+      "location_mm": {
+        "x": 72.39,
+        "y": 135.89
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "285",
+        "Location.Y": "535",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1040,
+      "stream_offset": 172658,
+      "location_raw": {
+        "x": 285,
+        "y": 630
+      },
+      "location_mm": {
+        "x": 72.39,
+        "y": 160.02
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "285",
+        "Location.Y": "630",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1041,
+      "stream_offset": 172744,
+      "location_raw": {
+        "x": 295,
+        "y": 515
+      },
+      "location_mm": {
+        "x": 74.93,
+        "y": 130.81
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "295",
+        "Location.Y": "515",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1042,
+      "stream_offset": 172830,
+      "location_raw": {
+        "x": 305,
+        "y": 630
+      },
+      "location_mm": {
+        "x": 77.47,
+        "y": 160.02
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "305",
+        "Location.Y": "630",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1043,
+      "stream_offset": 172916,
+      "location_raw": {
+        "x": 335,
+        "y": 535
+      },
+      "location_mm": {
+        "x": 85.09,
+        "y": 135.89
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "335",
+        "Location.Y": "535",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1044,
+      "stream_offset": 173002,
+      "location_raw": {
+        "x": 575,
+        "y": 470
+      },
+      "location_mm": {
+        "x": 146.05,
+        "y": 119.38
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "575",
+        "Location.Y": "470",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1045,
+      "stream_offset": 173088,
+      "location_raw": {
+        "x": 575,
+        "y": 555
+      },
+      "location_mm": {
+        "x": 146.05,
+        "y": 140.97
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "575",
+        "Location.Y": "555",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1046,
+      "stream_offset": 173174,
+      "location_raw": {
+        "x": 590,
+        "y": 470
+      },
+      "location_mm": {
+        "x": 149.86,
+        "y": 119.38
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "590",
+        "Location.Y": "470",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1047,
+      "stream_offset": 173260,
+      "location_raw": {
+        "x": 590,
+        "y": 575
+      },
+      "location_mm": {
+        "x": 149.86,
+        "y": 146.05
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "590",
+        "Location.Y": "575",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1048,
+      "stream_offset": 173346,
+      "location_raw": {
+        "x": 605,
+        "y": 595
+      },
+      "location_mm": {
+        "x": 153.67,
+        "y": 151.13
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "605",
+        "Location.Y": "595",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1049,
+      "stream_offset": 173432,
+      "location_raw": {
+        "x": 710,
+        "y": 620
+      },
+      "location_mm": {
+        "x": 180.34,
+        "y": 157.48
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "710",
+        "Location.Y": "620",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1050,
+      "stream_offset": 173518,
+      "location_raw": {
+        "x": 710,
+        "y": 635
+      },
+      "location_mm": {
+        "x": 180.34,
+        "y": 161.29
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "710",
+        "Location.Y": "635",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1051,
+      "stream_offset": 173604,
+      "location_raw": {
+        "x": 855,
+        "y": 555
+      },
+      "location_mm": {
+        "x": 217.17,
+        "y": 140.97
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "855",
+        "Location.Y": "555",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1052,
+      "stream_offset": 173690,
+      "location_raw": {
+        "x": 855,
+        "y": 620
+      },
+      "location_mm": {
+        "x": 217.17,
+        "y": 157.48
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "855",
+        "Location.Y": "620",
+        "Color": "128"
+      }
+    },
+    {
+      "record_index": 1053,
+      "stream_offset": 173776,
+      "location_raw": {
+        "x": 855,
+        "y": 635
+      },
+      "location_mm": {
+        "x": 217.17,
+        "y": 161.29
+      },
+      "color_raw": "128",
+      "index_in_sheet": -1,
+      "owner_part_id": -1,
+      "raw_fields": {
+        "RECORD": "29",
+        "IndexInSheet": "-1",
+        "OwnerPartId": "-1",
+        "Location.X": "855",
+        "Location.Y": "635",
+        "Color": "128"
+      }
+    }
+  ]
+}

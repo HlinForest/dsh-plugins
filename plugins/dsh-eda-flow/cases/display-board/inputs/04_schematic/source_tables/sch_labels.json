@@ -1,0 +1,944 @@
+{
+  "source": {
+    "source_file": "D:\\TEST\\md50pg_extract\\work\\decrypted\\MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "stream": "FileHeader",
+    "stream_locator": "OLE stream FileHeader",
+    "record_dump_sha256": "8192433cc0d5366a594afe5e3a2771bbf2c1850ca134994a7ac4b96584accf3e",
+    "record_count": 1054
+  },
+  "units": {
+    "units_per_mm": {
+      "value": 3.937007874,
+      "confidence": "low",
+      "basis": "No single scale is provable from the record stream alone. Primary reading: 1 raw unit = 0.254 mm (10 mil). Basis: (a) RECORD=31 CustomX/CustomY = 1500 x 950 units then equals exactly 15.00 x 9.50 inch = 381.0 x 241.3 mm, i.e. round inch-based sheet figures; (b) 75 of 85 pins have PinLength=10 units = 100 mil, the most common Altium pin length, and 20 units = 200 mil for the rest; (c) every wire vertex and graphics coordinate is a multiple of 5 units, i.e. a 50 mil entry grid on top of the 100/200 mil component pin pitches; (d) the drawing occupies 209.6 x 118.1 mm against an 82.7 x 57.7 mm board (5.2x board area), a normal schematic-to-board ratio. See sch_extract_notes.md for the ranked alternatives (0.127 mm = 5 mil is the main one) and for the evidence that could not be resolved offline.",
+      "alternatives": [
+        {
+          "unit_mm": 0.127,
+          "units_per_mm": 7.874015748,
+          "inch": "5 mil",
+          "implied_sheet": "190.5 x 120.65 mm (7.50 x 4.75 in)",
+          "supporting": "Symbol pin pitches then match the physical footprint pad pitches of the same components almost 1:1 (U1 SOP16 1.27 mm pitch drawn at 20 units, D1 2.54 mm part drawn at 20 units) and the designator font size 10 units becomes 1.27 mm, a typical Altium text height.",
+          "against": "The whole schematic drawing (104.8 x 59.1 mm) would be only 1.3x the board area (82.7 x 57.7 mm) for 41 symbols, and the sheet would be smaller than A5, i.e. smaller than any Altium sheet preset."
+        },
+        {
+          "unit_mm": 0.2,
+          "units_per_mm": 5.0,
+          "inch": "~7.87 mil",
+          "implied_sheet": "300 x 190 mm",
+          "supporting": "Sheet and coordinates are simultaneously round in millimetres; the 1500/6 and 950/4 border zone fields give a near-constant 50 mm zone pitch.",
+          "against": "Pin length 2 mm and a 1 mm entry grid are not Altium-typical; 300 x 190 mm matches no ISO preset."
+        },
+        {
+          "unit_mm": 0.1,
+          "units_per_mm": 10.0,
+          "inch": "~3.94 mil",
+          "implied_sheet": "150 x 95 mm",
+          "supporting": "Round millimetre sheet figures.",
+          "against": "The drawing (82.5 x 46.5 mm) would be smaller than the board area covered, and pin length would be 1 mm; effectively excluded."
+        }
+      ],
+      "raw_evidence": {
+        "record_31_CustomX": "1500",
+        "record_31_CustomY": "950",
+        "record_31_CustomXZones": "6",
+        "record_31_CustomYZones": "4",
+        "record_31_CustomMarginWidth": "20",
+        "record_31_SnapGridSize": "5",
+        "record_31_VisibleGridSize": "5",
+        "record_31_Display_Unit": "0",
+        "observed_coordinate_range_raw": {
+          "x": [
+            80,
+            905
+          ],
+          "y": [
+            200,
+            665
+          ]
+        },
+        "observed_minimum_grid_step_raw": 5,
+        "pin_length_values_raw": {
+          "10": 75,
+          "20": 10
+        },
+        "sheet_mm_at_primary_scale": {
+          "x": 381.0,
+          "y": 241.3
+        },
+        "sheet_mm_at_alternative_scale": {
+          "x": 190.5,
+          "y": 120.65
+        }
+      }
+    },
+    "conversion": "millimetres = raw_integer * 0.254 (primary inference); raw integers are always kept in the *_raw fields and in raw_fields. To rescale, multiply the mm values by (new_unit_mm / 0.254)."
+  },
+  "record_semantics_note": "RECORD=4 is a generic text object in this stream: 6 free net-label-like texts, 15 texts owned by symbols, 1 free sheet caption",
+  "count": 22,
+  "labels": [
+    {
+      "record_index": 27,
+      "stream_offset": 4129,
+      "text": "DIN",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 395,
+        "y": 605
+      },
+      "location_mm": {
+        "x": 100.33,
+        "y": 153.67
+      },
+      "font_id": 1,
+      "color_raw": "16711680",
+      "union_index": 2,
+      "unique_id": null,
+      "index_in_sheet": 25,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "25",
+        "OwnerPartId": "-1",
+        "UnionIndex": "2",
+        "Location.X": "395",
+        "Location.Y": "605",
+        "Color": "16711680",
+        "FontID": "1",
+        "Text": "DIN"
+      }
+    },
+    {
+      "record_index": 28,
+      "stream_offset": 4250,
+      "text": "CLK",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 395,
+        "y": 590
+      },
+      "location_mm": {
+        "x": 100.33,
+        "y": 149.86
+      },
+      "font_id": 1,
+      "color_raw": "16711680",
+      "union_index": 2,
+      "unique_id": null,
+      "index_in_sheet": 26,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "26",
+        "OwnerPartId": "-1",
+        "UnionIndex": "2",
+        "Location.X": "395",
+        "Location.Y": "590",
+        "Color": "16711680",
+        "FontID": "1",
+        "Text": "CLK"
+      }
+    },
+    {
+      "record_index": 29,
+      "stream_offset": 4371,
+      "text": "STB",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 395,
+        "y": 575
+      },
+      "location_mm": {
+        "x": 100.33,
+        "y": 146.05
+      },
+      "font_id": 1,
+      "color_raw": "16711680",
+      "union_index": 2,
+      "unique_id": null,
+      "index_in_sheet": 27,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "27",
+        "OwnerPartId": "-1",
+        "UnionIndex": "2",
+        "Location.X": "395",
+        "Location.Y": "575",
+        "Color": "16711680",
+        "FontID": "1",
+        "Text": "STB"
+      }
+    },
+    {
+      "record_index": 30,
+      "stream_offset": 4492,
+      "text": "+5V",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 395,
+        "y": 560
+      },
+      "location_mm": {
+        "x": 100.33,
+        "y": 142.24
+      },
+      "font_id": 1,
+      "color_raw": "16711680",
+      "union_index": 2,
+      "unique_id": null,
+      "index_in_sheet": 28,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "28",
+        "OwnerPartId": "-1",
+        "UnionIndex": "2",
+        "Location.X": "395",
+        "Location.Y": "560",
+        "Color": "16711680",
+        "FontID": "1",
+        "Text": "+5V"
+      }
+    },
+    {
+      "record_index": 31,
+      "stream_offset": 4613,
+      "text": "SGND",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 395,
+        "y": 545
+      },
+      "location_mm": {
+        "x": 100.33,
+        "y": 138.43
+      },
+      "font_id": 1,
+      "color_raw": "16711680",
+      "union_index": 2,
+      "unique_id": null,
+      "index_in_sheet": 29,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "29",
+        "OwnerPartId": "-1",
+        "UnionIndex": "2",
+        "Location.X": "395",
+        "Location.Y": "545",
+        "Color": "16711680",
+        "FontID": "1",
+        "Text": "SGND"
+      }
+    },
+    {
+      "record_index": 32,
+      "stream_offset": 4735,
+      "text": "RCV",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 395,
+        "y": 530
+      },
+      "location_mm": {
+        "x": 100.33,
+        "y": 134.62
+      },
+      "font_id": 1,
+      "color_raw": "16711680",
+      "union_index": 2,
+      "unique_id": null,
+      "index_in_sheet": 30,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "30",
+        "OwnerPartId": "-1",
+        "UnionIndex": "2",
+        "Location.X": "395",
+        "Location.Y": "530",
+        "Color": "16711680",
+        "FontID": "1",
+        "Text": "RCV"
+      }
+    },
+    {
+      "record_index": 462,
+      "stream_offset": 79172,
+      "text": "���庸�����¯��",
+      "text_utf8": "波峰焊单向过炉条",
+      "location_raw": {
+        "x": 828,
+        "y": 393
+      },
+      "location_mm": {
+        "x": 210.312,
+        "y": 99.822
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "459",
+      "owner_component_record_index": 460,
+      "owner_component_designator": "SS",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "459",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "828",
+        "Location.Y": "393",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "波峰焊单向过炉条",
+        "Text": "���庸�����¯��"
+      }
+    },
+    {
+      "record_index": 475,
+      "stream_offset": 81260,
+      "text": "PCB����˿ӡ��λ��",
+      "text_utf8": "PCB厂家丝印定位孔",
+      "location_raw": {
+        "x": 828,
+        "y": 361
+      },
+      "location_mm": {
+        "x": 210.312,
+        "y": 91.694
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "472",
+      "owner_component_record_index": 473,
+      "owner_component_designator": "DWK1",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "472",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "828",
+        "Location.Y": "361",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "PCB厂家丝印定位孔",
+        "Text": "PCB����˿ӡ��λ��"
+      }
+    },
+    {
+      "record_index": 484,
+      "stream_offset": 82727,
+      "text": "PCB����˿ӡ��λ��",
+      "text_utf8": "PCB厂家丝印定位孔",
+      "location_raw": {
+        "x": 828,
+        "y": 331
+      },
+      "location_mm": {
+        "x": 210.312,
+        "y": 84.074
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "481",
+      "owner_component_record_index": 482,
+      "owner_component_designator": "DWK2",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "481",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "828",
+        "Location.Y": "331",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "PCB厂家丝印定位孔",
+        "Text": "PCB����˿ӡ��λ��"
+      }
+    },
+    {
+      "record_index": 493,
+      "stream_offset": 84270,
+      "text": "������",
+      "text_utf8": "单面板检",
+      "location_raw": {
+        "x": 738,
+        "y": 405
+      },
+      "location_mm": {
+        "x": 187.452,
+        "y": 102.87
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "490",
+      "owner_component_record_index": 491,
+      "owner_component_designator": "check",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "490",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "738",
+        "Location.Y": "405",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "单面板检",
+        "Text": "������"
+      }
+    },
+    {
+      "record_index": 494,
+      "stream_offset": 84438,
+      "text": "��˶�˿ӡ",
+      "text_utf8": "查核对丝印",
+      "location_raw": {
+        "x": 736,
+        "y": 398
+      },
+      "location_mm": {
+        "x": 186.944,
+        "y": 101.092
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 2,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "490",
+      "owner_component_record_index": 491,
+      "owner_component_designator": "check",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "490",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "2",
+        "OwnerPartId": "1",
+        "Location.X": "736",
+        "Location.Y": "398",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "查核对丝印",
+        "Text": "��˶�˿ӡ"
+      }
+    },
+    {
+      "record_index": 512,
+      "stream_offset": 87053,
+      "text": "�����CQC UL��˿ӡλ�ÿ�",
+      "text_utf8": "单面板CQC UL等丝印位置框",
+      "location_raw": {
+        "x": 732,
+        "y": 366
+      },
+      "location_mm": {
+        "x": 185.928,
+        "y": 92.964
+      },
+      "font_id": 5,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "509",
+      "owner_component_record_index": 510,
+      "owner_component_designator": "UL",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "509",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "732",
+        "Location.Y": "366",
+        "Color": "8388608",
+        "FontID": "5",
+        "%UTF8%Text": "单面板CQC UL等丝印位置框",
+        "Text": "�����CQC UL��˿ӡλ�ÿ�"
+      }
+    },
+    {
+      "record_index": 521,
+      "stream_offset": 88537,
+      "text": "��˾LOGO���ֶ��޸�",
+      "text_utf8": "公司LOGO需手动修改",
+      "location_raw": {
+        "x": 731,
+        "y": 226
+      },
+      "location_mm": {
+        "x": 185.674,
+        "y": 57.404
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "518",
+      "owner_component_record_index": 519,
+      "owner_component_designator": "LLOO",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "518",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "731",
+        "Location.Y": "226",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "公司LOGO需手动修改",
+        "Text": "��˾LOGO���ֶ��޸�"
+      }
+    },
+    {
+      "record_index": 533,
+      "stream_offset": 90301,
+      "text": "��ά������",
+      "text_utf8": "二维码条块",
+      "location_raw": {
+        "x": 733,
+        "y": 305
+      },
+      "location_mm": {
+        "x": 186.182,
+        "y": 77.47
+      },
+      "font_id": 3,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "530",
+      "owner_component_record_index": 531,
+      "owner_component_designator": "QR Code",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "530",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "733",
+        "Location.Y": "305",
+        "Color": "8388608",
+        "FontID": "3",
+        "%UTF8%Text": "二维码条块",
+        "Text": "��ά������"
+      }
+    },
+    {
+      "record_index": 534,
+      "stream_offset": 90474,
+      "text": "6mm*6mm",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 736,
+        "y": 293
+      },
+      "location_mm": {
+        "x": 186.944,
+        "y": 74.422
+      },
+      "font_id": 3,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 2,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "530",
+      "owner_component_record_index": 531,
+      "owner_component_designator": "QR Code",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "530",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "2",
+        "OwnerPartId": "1",
+        "Location.X": "736",
+        "Location.Y": "293",
+        "Color": "8388608",
+        "FontID": "3",
+        "Text": "6mm*6mm"
+      }
+    },
+    {
+      "record_index": 543,
+      "stream_offset": 91857,
+      "text": "��ά������",
+      "text_utf8": "二维码条块",
+      "location_raw": {
+        "x": 733,
+        "y": 265
+      },
+      "location_mm": {
+        "x": 186.182,
+        "y": 67.31
+      },
+      "font_id": 3,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "540",
+      "owner_component_record_index": 541,
+      "owner_component_designator": "QR Code1",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "540",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "733",
+        "Location.Y": "265",
+        "Color": "8388608",
+        "FontID": "3",
+        "%UTF8%Text": "二维码条块",
+        "Text": "��ά������"
+      }
+    },
+    {
+      "record_index": 544,
+      "stream_offset": 92030,
+      "text": "6mm*6mm",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 736,
+        "y": 253
+      },
+      "location_mm": {
+        "x": 186.944,
+        "y": 64.262
+      },
+      "font_id": 3,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 2,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "540",
+      "owner_component_record_index": 541,
+      "owner_component_designator": "QR Code1",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "540",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "2",
+        "OwnerPartId": "1",
+        "Location.X": "736",
+        "Location.Y": "253",
+        "Color": "8388608",
+        "FontID": "3",
+        "Text": "6mm*6mm"
+      }
+    },
+    {
+      "record_index": 553,
+      "stream_offset": 93459,
+      "text": "MARK��ѧ��λ2��",
+      "text_utf8": "MARK光学定位2个",
+      "location_raw": {
+        "x": 827,
+        "y": 301
+      },
+      "location_mm": {
+        "x": 210.058,
+        "y": 76.454
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "550",
+      "owner_component_record_index": 551,
+      "owner_component_designator": "MM1",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "550",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "827",
+        "Location.Y": "301",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "MARK光学定位2个",
+        "Text": "MARK��ѧ��λ2��"
+      }
+    },
+    {
+      "record_index": 565,
+      "stream_offset": 95279,
+      "text": "MARK��ѧ��λ2��",
+      "text_utf8": "MARK光学定位2个",
+      "location_raw": {
+        "x": 827,
+        "y": 266
+      },
+      "location_mm": {
+        "x": 210.058,
+        "y": 67.564
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "562",
+      "owner_component_record_index": 563,
+      "owner_component_designator": "MM2",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "562",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "827",
+        "Location.Y": "266",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "MARK光学定位2个",
+        "Text": "MARK��ѧ��λ2��"
+      }
+    },
+    {
+      "record_index": 577,
+      "stream_offset": 97099,
+      "text": "MARK��ѧ��λ2��",
+      "text_utf8": "MARK光学定位2个",
+      "location_raw": {
+        "x": 827,
+        "y": 231
+      },
+      "location_mm": {
+        "x": 210.058,
+        "y": 58.674
+      },
+      "font_id": 4,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "574",
+      "owner_component_record_index": 575,
+      "owner_component_designator": "MM3",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "574",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "827",
+        "Location.Y": "231",
+        "Color": "8388608",
+        "FontID": "4",
+        "%UTF8%Text": "MARK光学定位2个",
+        "Text": "MARK��ѧ��λ2��"
+      }
+    },
+    {
+      "record_index": 589,
+      "stream_offset": 98882,
+      "text": "������32*10",
+      "text_utf8": "条形码32*10",
+      "location_raw": {
+        "x": 731,
+        "y": 334
+      },
+      "location_mm": {
+        "x": 185.674,
+        "y": 84.836
+      },
+      "font_id": 3,
+      "color_raw": "8388608",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 1,
+      "owner_part_id": 1,
+      "is_not_accessible_raw": "T",
+      "owner_index_raw": "586",
+      "owner_component_record_index": 587,
+      "owner_component_designator": "LLAA",
+      "owner_record_class": "1",
+      "owner_resolution": "record_index = OwnerIndex + 1 (stream header not counted)",
+      "structural_note": "this RECORD=4 carries OwnerIndex and belongs to a component/symbol (not a free net label)",
+      "raw_fields": {
+        "RECORD": "4",
+        "OwnerIndex": "586",
+        "IsNotAccesible": "T",
+        "IndexInSheet": "1",
+        "OwnerPartId": "1",
+        "Location.X": "731",
+        "Location.Y": "334",
+        "Color": "8388608",
+        "FontID": "3",
+        "%UTF8%Text": "条形码32*10",
+        "Text": "������32*10"
+      }
+    },
+    {
+      "record_index": 600,
+      "stream_offset": 100256,
+      "text": "Display board Interface",
+      "text_utf8": null,
+      "location_raw": {
+        "x": 200,
+        "y": 450
+      },
+      "location_mm": {
+        "x": 50.8,
+        "y": 114.3
+      },
+      "font_id": 6,
+      "color_raw": "16711935",
+      "union_index": null,
+      "unique_id": null,
+      "index_in_sheet": 92,
+      "owner_part_id": -1,
+      "is_not_accessible_raw": null,
+      "owner_index_raw": null,
+      "owner_component_record_index": null,
+      "owner_component_designator": null,
+      "owner_record_class": null,
+      "owner_resolution": "no OwnerIndex field",
+      "structural_note": null,
+      "raw_fields": {
+        "RECORD": "4",
+        "IndexInSheet": "92",
+        "OwnerPartId": "-1",
+        "Location.X": "200",
+        "Location.Y": "450",
+        "Color": "16711935",
+        "FontID": "6",
+        "Text": "Display board Interface"
+      }
+    }
+  ]
+}

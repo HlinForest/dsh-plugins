@@ -1,0 +1,16 @@
+[
+  {
+    "face": "SimSun",
+    "system_file": "C:\\Windows\\Fonts\\simsun.ttc",
+    "present": true,
+    "sha256": "1526ac24375f51f6eb73bc2d3f8072dbe4a80a3a65217677c9d9a84f67dab2ab",
+    "delivery": "System font dependency; native font evidence retained separately, SVG/PDF previews contain rendered geometry."
+  },
+  {
+    "face": "Arial",
+    "system_file": "C:\\Windows\\Fonts\\arial.ttf",
+    "present": true,
+    "sha256": "b3658eadae55e682b5f69eb64c439c1ecc8f196c0bb8d4756d145d13bc86476a",
+    "delivery": "System font dependency; native font evidence retained separately, SVG/PDF previews contain rendered geometry."
+  }
+]

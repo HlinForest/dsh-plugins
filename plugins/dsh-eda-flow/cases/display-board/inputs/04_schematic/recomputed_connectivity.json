@@ -1,0 +1,1805 @@
+{
+  "pins": [
+    {
+      "ref": "D1",
+      "pin": "1",
+      "name": "OUT",
+      "endpoint": [
+        155.0,
+        535.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 39,
+        "byte_offset": 6540
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "D1",
+      "pin": "2",
+      "name": "GND",
+      "endpoint": [
+        155.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 49,
+        "byte_offset": 8284
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "D1",
+      "pin": "3",
+      "name": "VCC",
+      "endpoint": [
+        155.0,
+        555.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 52,
+        "byte_offset": 8843
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C2",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        200.0,
+        580.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 83,
+        "byte_offset": 13898
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C2",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        200.0,
+        550.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 85,
+        "byte_offset": 14251
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C3",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        230.0,
+        580.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 107,
+        "byte_offset": 18034
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C3",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        230.0,
+        550.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 109,
+        "byte_offset": 18389
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R3",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        285.0,
+        545.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 131,
+        "byte_offset": 22148
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R3",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        285.0,
+        585.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 133,
+        "byte_offset": 22503
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R1",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        235.0,
+        630.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 152,
+        "byte_offset": 25918
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R1",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        275.0,
+        630.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 154,
+        "byte_offset": 26273
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "1",
+      "name": "DIN",
+      "endpoint": [
+        725.0,
+        595.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 174,
+        "byte_offset": 29948
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "2",
+      "name": "CLK",
+      "endpoint": [
+        725.0,
+        575.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 176,
+        "byte_offset": 30305
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "3",
+      "name": "STB",
+      "endpoint": [
+        725.0,
+        555.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 178,
+        "byte_offset": 30662
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "4",
+      "name": "VDD",
+      "endpoint": [
+        725.0,
+        535.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 180,
+        "byte_offset": 31019
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "7",
+      "name": "SEG3",
+      "endpoint": [
+        725.0,
+        475.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 182,
+        "byte_offset": 31376
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "5",
+      "name": "SEG1",
+      "endpoint": [
+        725.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 184,
+        "byte_offset": 31734
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "8",
+      "name": "SEG4",
+      "endpoint": [
+        725.0,
+        455.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 186,
+        "byte_offset": 32092
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "6",
+      "name": "SEG2",
+      "endpoint": [
+        725.0,
+        495.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 188,
+        "byte_offset": 32450
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "9",
+      "name": "SEG5",
+      "endpoint": [
+        820.0,
+        455.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 190,
+        "byte_offset": 32808
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "10",
+      "name": "SEG6",
+      "endpoint": [
+        820.0,
+        475.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 192,
+        "byte_offset": 33166
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "11",
+      "name": "SEG7",
+      "endpoint": [
+        820.0,
+        495.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 194,
+        "byte_offset": 33526
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "12",
+      "name": "GRID4",
+      "endpoint": [
+        820.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 196,
+        "byte_offset": 33886
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "13",
+      "name": "GRID3",
+      "endpoint": [
+        820.0,
+        535.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 198,
+        "byte_offset": 34247
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "14",
+      "name": "GND",
+      "endpoint": [
+        820.0,
+        555.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 200,
+        "byte_offset": 34608
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "15",
+      "name": "GRID2",
+      "endpoint": [
+        820.0,
+        575.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 202,
+        "byte_offset": 34967
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "U1",
+      "pin": "16",
+      "name": "GRID1",
+      "endpoint": [
+        820.0,
+        595.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 204,
+        "byte_offset": 35328
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C7",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        605.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 225,
+        "byte_offset": 38857
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C7",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        605.0,
+        485.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 227,
+        "byte_offset": 39212
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C6",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        590.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 249,
+        "byte_offset": 42987
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C6",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        590.0,
+        485.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 251,
+        "byte_offset": 43342
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C5",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        575.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 273,
+        "byte_offset": 47117
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C5",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        575.0,
+        485.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 275,
+        "byte_offset": 47472
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R2",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        645.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 298,
+        "byte_offset": 51366
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R2",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        685.0,
+        515.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 300,
+        "byte_offset": 51721
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R4",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        645.0,
+        495.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 319,
+        "byte_offset": 55015
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R4",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        685.0,
+        495.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 321,
+        "byte_offset": 55370
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R6",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        645.0,
+        475.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 340,
+        "byte_offset": 58685
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R6",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        685.0,
+        475.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 342,
+        "byte_offset": 59040
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R8",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        645.0,
+        455.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 361,
+        "byte_offset": 62389
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R8",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        685.0,
+        455.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 363,
+        "byte_offset": 62744
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R9",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        835.0,
+        455.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 382,
+        "byte_offset": 66063
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R9",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        875.0,
+        455.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 384,
+        "byte_offset": 66418
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R7",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        835.0,
+        475.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 403,
+        "byte_offset": 69792
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R7",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        875.0,
+        475.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 405,
+        "byte_offset": 70147
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R5",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        835.0,
+        495.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 424,
+        "byte_offset": 73521
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "R5",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        875.0,
+        495.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 426,
+        "byte_offset": 73876
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ1",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        305.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 608,
+        "byte_offset": 102096
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ1",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        305.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 610,
+        "byte_offset": 102451
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ2",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        265.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 637,
+        "byte_offset": 106748
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ2",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        265.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 639,
+        "byte_offset": 107103
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "DISP",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        535.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 665,
+        "byte_offset": 111436
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "DISP",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        360.0,
+        550.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 667,
+        "byte_offset": 111779
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "DISP",
+      "pin": "3",
+      "name": "3",
+      "endpoint": [
+        360.0,
+        565.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 669,
+        "byte_offset": 112122
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "DISP",
+      "pin": "4",
+      "name": "4",
+      "endpoint": [
+        360.0,
+        580.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 671,
+        "byte_offset": 112465
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "DISP",
+      "pin": "5",
+      "name": "5",
+      "endpoint": [
+        360.0,
+        595.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 673,
+        "byte_offset": 112850
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "DISP",
+      "pin": "6",
+      "name": "6",
+      "endpoint": [
+        360.0,
+        610.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 675,
+        "byte_offset": 113235
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "1",
+      "name": "DIG3",
+      "endpoint": [
+        555.0,
+        250.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 691,
+        "byte_offset": 115728
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "2",
+      "name": "DIG2",
+      "endpoint": [
+        575.0,
+        250.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 693,
+        "byte_offset": 116250
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "3",
+      "name": "DIG1",
+      "endpoint": [
+        595.0,
+        250.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 695,
+        "byte_offset": 116753
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "4",
+      "name": "B",
+      "endpoint": [
+        615.0,
+        250.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 697,
+        "byte_offset": 117256
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "5",
+      "name": "A",
+      "endpoint": [
+        637.0,
+        250.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 699,
+        "byte_offset": 117756
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "10",
+      "name": "D",
+      "endpoint": [
+        555.0,
+        380.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 701,
+        "byte_offset": 118256
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "9",
+      "name": "E",
+      "endpoint": [
+        577.0,
+        380.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 703,
+        "byte_offset": 118757
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "8",
+      "name": "C",
+      "endpoint": [
+        595.0,
+        380.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 705,
+        "byte_offset": 119257
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "7",
+      "name": "G",
+      "endpoint": [
+        615.0,
+        380.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 707,
+        "byte_offset": 119757
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "*",
+      "pin": "6",
+      "name": "F",
+      "endpoint": [
+        635.0,
+        380.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 709,
+        "byte_offset": 120257
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C4",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        755.0,
+        635.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 728,
+        "byte_offset": 124012
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C4",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        785.0,
+        635.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 730,
+        "byte_offset": 124367
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C8",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        755.0,
+        650.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 752,
+        "byte_offset": 128096
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C8",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        785.0,
+        650.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 754,
+        "byte_offset": 128451
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C1",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        785.0,
+        620.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 776,
+        "byte_offset": 132198
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "C1",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        755.0,
+        620.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 778,
+        "byte_offset": 132553
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ3",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        245.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 803,
+        "byte_offset": 136716
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ3",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        245.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 805,
+        "byte_offset": 137071
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ4",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        225.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 832,
+        "byte_offset": 141413
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ4",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        225.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 834,
+        "byte_offset": 141768
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ5",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        325.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 916,
+        "byte_offset": 154047
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ5",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        325.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 918,
+        "byte_offset": 154402
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ6",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        345.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 947,
+        "byte_offset": 158926
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ6",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        345.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 949,
+        "byte_offset": 159281
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ7",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        360.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 978,
+        "byte_offset": 163805
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ7",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        360.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 980,
+        "byte_offset": 164160
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ8",
+      "pin": "1",
+      "name": "1",
+      "endpoint": [
+        360.0,
+        285.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 1011,
+        "byte_offset": 168978
+      },
+      "electrical_raw": "4"
+    },
+    {
+      "ref": "RJ8",
+      "pin": "2",
+      "name": "2",
+      "endpoint": [
+        400.0,
+        285.0
+      ],
+      "source_locator": {
+        "stream": "FileHeader",
+        "record_index": 1013,
+        "byte_offset": 169335
+      },
+      "electrical_raw": "4"
+    }
+  ],
+  "nets": [
+    {
+      "nodes": [
+        [
+          "D1",
+          "1"
+        ],
+        [
+          "DISP",
+          "1"
+        ],
+        [
+          "R3",
+          "1"
+        ]
+      ],
+      "labels": [
+        "RCV"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "C1",
+          "2"
+        ],
+        [
+          "C2",
+          "1"
+        ],
+        [
+          "C3",
+          "1"
+        ],
+        [
+          "C4",
+          "1"
+        ],
+        [
+          "C5",
+          "1"
+        ],
+        [
+          "C6",
+          "1"
+        ],
+        [
+          "C7",
+          "1"
+        ],
+        [
+          "C8",
+          "1"
+        ],
+        [
+          "D1",
+          "2"
+        ],
+        [
+          "DISP",
+          "2"
+        ],
+        [
+          "RJ3",
+          "1"
+        ],
+        [
+          "RJ3",
+          "2"
+        ],
+        [
+          "RJ4",
+          "1"
+        ],
+        [
+          "RJ4",
+          "2"
+        ],
+        [
+          "RJ7",
+          "1"
+        ],
+        [
+          "RJ7",
+          "2"
+        ],
+        [
+          "U1",
+          "14"
+        ]
+      ],
+      "labels": [
+        "SGND"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "C2",
+          "2"
+        ],
+        [
+          "C3",
+          "2"
+        ],
+        [
+          "D1",
+          "3"
+        ],
+        [
+          "R1",
+          "1"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "C1",
+          "1"
+        ],
+        [
+          "C4",
+          "2"
+        ],
+        [
+          "C8",
+          "2"
+        ],
+        [
+          "DISP",
+          "3"
+        ],
+        [
+          "R1",
+          "2"
+        ],
+        [
+          "R3",
+          "2"
+        ],
+        [
+          "U1",
+          "4"
+        ]
+      ],
+      "labels": [
+        "+5V"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "C7",
+          "2"
+        ],
+        [
+          "DISP",
+          "6"
+        ],
+        [
+          "U1",
+          "1"
+        ]
+      ],
+      "labels": [
+        "DIN"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "C6",
+          "2"
+        ],
+        [
+          "DISP",
+          "5"
+        ],
+        [
+          "RJ5",
+          "1"
+        ],
+        [
+          "RJ5",
+          "2"
+        ],
+        [
+          "RJ6",
+          "1"
+        ],
+        [
+          "RJ6",
+          "2"
+        ],
+        [
+          "U1",
+          "2"
+        ]
+      ],
+      "labels": [
+        "CLK"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "C5",
+          "2"
+        ],
+        [
+          "DISP",
+          "4"
+        ],
+        [
+          "U1",
+          "3"
+        ]
+      ],
+      "labels": [
+        "STB"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R6",
+          "2"
+        ],
+        [
+          "U1",
+          "7"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R2",
+          "2"
+        ],
+        [
+          "U1",
+          "5"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R8",
+          "2"
+        ],
+        [
+          "U1",
+          "8"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R4",
+          "2"
+        ],
+        [
+          "U1",
+          "6"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R9",
+          "1"
+        ],
+        [
+          "U1",
+          "9"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R7",
+          "1"
+        ],
+        [
+          "U1",
+          "10"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "R5",
+          "1"
+        ],
+        [
+          "U1",
+          "11"
+        ]
+      ],
+      "labels": [],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "U1",
+          "12"
+        ]
+      ],
+      "labels": [],
+      "nc": true
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "2"
+        ],
+        [
+          "RJ1",
+          "1"
+        ],
+        [
+          "RJ1",
+          "2"
+        ],
+        [
+          "U1",
+          "13"
+        ]
+      ],
+      "labels": [
+        "G3"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "3"
+        ],
+        [
+          "RJ8",
+          "1"
+        ],
+        [
+          "RJ8",
+          "2"
+        ],
+        [
+          "U1",
+          "15"
+        ]
+      ],
+      "labels": [
+        "G2"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "1"
+        ],
+        [
+          "RJ2",
+          "1"
+        ],
+        [
+          "RJ2",
+          "2"
+        ],
+        [
+          "U1",
+          "16"
+        ]
+      ],
+      "labels": [
+        "G1"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "8"
+        ],
+        [
+          "R2",
+          "1"
+        ]
+      ],
+      "labels": [
+        "C"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "9"
+        ],
+        [
+          "R4",
+          "1"
+        ]
+      ],
+      "labels": [
+        "E"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "7"
+        ],
+        [
+          "R6",
+          "1"
+        ]
+      ],
+      "labels": [
+        "G"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "10"
+        ],
+        [
+          "R8",
+          "1"
+        ]
+      ],
+      "labels": [
+        "D"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "6"
+        ],
+        [
+          "R9",
+          "2"
+        ]
+      ],
+      "labels": [
+        "F"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "5"
+        ],
+        [
+          "R7",
+          "2"
+        ]
+      ],
+      "labels": [
+        "A"
+      ],
+      "nc": false
+    },
+    {
+      "nodes": [
+        [
+          "*",
+          "4"
+        ],
+        [
+          "R5",
+          "2"
+        ]
+      ],
+      "labels": [
+        "B"
+      ],
+      "nc": false
+    }
+  ],
+  "method": "Single flat sheet: wire endpoints, junctions, pin endpoints, NC and exact label names. Not an Altium compiled netlist.",
+  "source_file": "native/MD50PG.SchDoc"
+}

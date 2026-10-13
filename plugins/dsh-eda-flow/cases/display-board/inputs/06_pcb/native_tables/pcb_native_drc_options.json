@@ -1,0 +1,44 @@
+{
+  "source_file": "D:\\TEST\\md50pg_extract\\work\\decrypted\\MD50PG_1.0 (2021.06.18).PcbDoc",
+  "source_sha256": "d2bdae6819254dae24ec9e8b63f7605b84a4015688ffdfd57b9f6fd2616a8e40",
+  "source_stream": "Design Rule Checker Options6/Data",
+  "count": 1,
+  "records": [
+    {
+      "source_locator": {
+        "stream": "Design Rule Checker Options6/Data",
+        "record_index": 0,
+        "stream_offset": 0
+      },
+      "tag": null,
+      "raw_fields": {
+        "UNICODE": "EXISTS",
+        "RECORD": "DesignRuleCheckerOptions",
+        "DOMAKEDRCFILE": "TRUE",
+        "DOMAKEDRCERRORLIST": "TRUE",
+        "DOSUBNETDETAILS": "TRUE",
+        "REPORTFILENAME": "E:\\PCB �����ļ�\\�յ�\\���Ŀ�\\MD50PG\\MD50PG_1.0 (2021.06.18).DRC",
+        "EXTERNALNETLISTFILENAME": "",
+        "CHECKEXTERNALNETLIST": "FALSE",
+        "MAXVIOLATIONCOUNT": "500",
+        "REPORTDRILLEDSMTPADS": "TRUE",
+        "REPORTINVALIDMULTILAYERPADS": "TRUE",
+        "RULESETTOCHECK": "0,6,15,16,45,62,65",
+        "ONLINERULESETTOCHECK": "0,15,45,62,65",
+        "INTERNALPLANEWARNINGS": "TRUE",
+        "VERIFYSHORTINGCOPPER": "TRUE",
+        "REPORTBROKENPLANES": "TRUE",
+        "REPORTDEADCOPPER": "TRUE",
+        "DEADCOPPERMINAREA": "10000000000.000000",
+        "REPORTSTARVEDTHERMALS": "TRUE",
+        "MINSTARVEDCOPPERPERCENT": "50",
+        "REPORTSTRADLINGHOLES": "FALSE",
+        "REPORTHOLESINVOIDS": "FALSE",
+        "UNICODE__REPORTFILENAME": "69,58,92,80,67,66,32,24037,20316,25991,20214,92,31354,35843,92,38047,25991,20426,92,77,68,53,48,80,71,92,77,68,53,48,80,71,95,49,46,48,32,40,50,48,50,49,46,48,54,46,49,56,41,46,68,82,67"
+      },
+      "utf8_fields": {
+        "REPORTFILENAME": "E:\\PCB 工作文件\\空调\\钟文俊\\MD50PG\\MD50PG_1.0 (2021.06.18).DRC"
+      }
+    }
+  ]
+}

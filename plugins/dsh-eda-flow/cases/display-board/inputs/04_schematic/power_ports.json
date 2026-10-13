@@ -1,0 +1,1351 @@
+[
+  {
+    "index": 72,
+    "offset": 11505,
+    "length": 150,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "32",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "ShowNetName": "T",
+      "Location.X": "345",
+      "Location.Y": "580",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "STB",
+      "UniqueID": "OHEIYWEE"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 72,
+      "byte_offset": 11505
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 73,
+    "offset": 11659,
+    "length": 150,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "33",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "ShowNetName": "T",
+      "Location.X": "345",
+      "Location.Y": "595",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "CLK",
+      "UniqueID": "UEBCNGWP"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 73,
+      "byte_offset": 11659
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 74,
+    "offset": 11813,
+    "length": 150,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "34",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "ShowNetName": "T",
+      "Location.X": "345",
+      "Location.Y": "610",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "DIN",
+      "UniqueID": "DJRXHJGY"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 74,
+      "byte_offset": 11813
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 75,
+    "offset": 11967,
+    "length": 158,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "35",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "Style": "2",
+      "ShowNetName": "T",
+      "Location.X": "305",
+      "Location.Y": "630",
+      "Orientation": "1",
+      "Color": "128",
+      "Text": "+5V",
+      "UniqueID": "ETVOWWCW"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 75,
+      "byte_offset": 11967
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 76,
+    "offset": 12129,
+    "length": 150,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "36",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "ShowNetName": "T",
+      "Location.X": "335",
+      "Location.Y": "535",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "RCV",
+      "UniqueID": "KZTMULXY"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 76,
+      "byte_offset": 12129
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 77,
+    "offset": 12283,
+    "length": 159,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "37",
+      "OwnerPartId": "-1",
+      "UnionIndex": "2",
+      "Style": "5",
+      "ShowNetName": "T",
+      "Location.X": "295",
+      "Location.Y": "505",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "SGND",
+      "UniqueID": "ECJGNZRZ"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 77,
+      "byte_offset": 12283
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 215,
+    "offset": 36723,
+    "length": 137,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "43",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "540",
+      "Location.Y": "555",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "STB",
+      "UniqueID": "OFRMOJBV"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 215,
+      "byte_offset": 36723
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 216,
+    "offset": 36864,
+    "length": 137,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "44",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "540",
+      "Location.Y": "575",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "CLK",
+      "UniqueID": "TWXCSTCH"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 216,
+      "byte_offset": 36864
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 217,
+    "offset": 37005,
+    "length": 137,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "45",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "540",
+      "Location.Y": "595",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "DIN",
+      "UniqueID": "WUYMMNQL"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 217,
+      "byte_offset": 37005
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 218,
+    "offset": 37146,
+    "length": 145,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "46",
+      "OwnerPartId": "-1",
+      "Style": "2",
+      "ShowNetName": "T",
+      "Location.X": "710",
+      "Location.Y": "620",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "+5V",
+      "UniqueID": "MWLVIQGS"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 218,
+      "byte_offset": 37146
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 219,
+    "offset": 37295,
+    "length": 132,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "47",
+      "OwnerPartId": "-1",
+      "Style": "5",
+      "ShowNetName": "T",
+      "Location.X": "855",
+      "Location.Y": "555",
+      "Color": "128",
+      "Text": "SGND",
+      "UniqueID": "NIPRDLPV"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 219,
+      "byte_offset": 37295
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 292,
+    "offset": 49821,
+    "length": 146,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "51",
+      "OwnerPartId": "-1",
+      "Style": "5",
+      "ShowNetName": "T",
+      "Location.X": "575",
+      "Location.Y": "470",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "SGND",
+      "UniqueID": "RZFQZJWS"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 292,
+      "byte_offset": 49821
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 441,
+    "offset": 75977,
+    "length": 135,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "60",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "635",
+      "Location.Y": "515",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "C",
+      "UniqueID": "FMVZBRNY"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 441,
+      "byte_offset": 75977
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 442,
+    "offset": 76116,
+    "length": 135,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "61",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "635",
+      "Location.Y": "495",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "E",
+      "UniqueID": "HEBDFTLO"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 442,
+      "byte_offset": 76116
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 443,
+    "offset": 76255,
+    "length": 135,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "62",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "635",
+      "Location.Y": "475",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "G",
+      "UniqueID": "FIKMBNJE"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 443,
+      "byte_offset": 76255
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 444,
+    "offset": 76394,
+    "length": 135,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "63",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "635",
+      "Location.Y": "455",
+      "Orientation": "2",
+      "Color": "128",
+      "Text": "D",
+      "UniqueID": "JXOMJGMJ"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 444,
+      "byte_offset": 76394
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 445,
+    "offset": 76533,
+    "length": 121,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "64",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "905",
+      "Location.Y": "455",
+      "Color": "128",
+      "Text": "F",
+      "UniqueID": "DDOOIQYR"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 445,
+      "byte_offset": 76533
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 446,
+    "offset": 76658,
+    "length": 121,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "65",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "905",
+      "Location.Y": "475",
+      "Color": "128",
+      "Text": "A",
+      "UniqueID": "KUAXQMWI"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 446,
+      "byte_offset": 76658
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 447,
+    "offset": 76783,
+    "length": 121,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "66",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "905",
+      "Location.Y": "495",
+      "Color": "128",
+      "Text": "B",
+      "UniqueID": "RHQYUQPS"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 447,
+      "byte_offset": 76783
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 448,
+    "offset": 76908,
+    "length": 122,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "67",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "905",
+      "Location.Y": "535",
+      "Color": "128",
+      "Text": "G3",
+      "UniqueID": "CQQDDBPA"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 448,
+      "byte_offset": 76908
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 449,
+    "offset": 77034,
+    "length": 122,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "68",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "905",
+      "Location.Y": "575",
+      "Color": "128",
+      "Text": "G2",
+      "UniqueID": "RRZCFWGO"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 449,
+      "byte_offset": 77034
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 450,
+    "offset": 77160,
+    "length": 122,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "69",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "905",
+      "Location.Y": "595",
+      "Color": "128",
+      "Text": "G1",
+      "UniqueID": "JTCGMMNW"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 450,
+      "byte_offset": 77160
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 451,
+    "offset": 77286,
+    "length": 149,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "70",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "575",
+      "Location.Y": "250",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "G3",
+      "UniqueID": "EFFWWGXD"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 451,
+      "byte_offset": 77286
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 452,
+    "offset": 77439,
+    "length": 149,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "71",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "595",
+      "Location.Y": "250",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "G2",
+      "UniqueID": "SLOCVGYH"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 452,
+      "byte_offset": 77439
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 453,
+    "offset": 77592,
+    "length": 149,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "72",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "555",
+      "Location.Y": "250",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "G1",
+      "UniqueID": "KXCBLZWR"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 453,
+      "byte_offset": 77592
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 454,
+    "offset": 77745,
+    "length": 148,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "73",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "615",
+      "Location.Y": "250",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "B",
+      "UniqueID": "IEEKQHKW"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 454,
+      "byte_offset": 77745
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 455,
+    "offset": 77897,
+    "length": 148,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "74",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "637",
+      "Location.Y": "250",
+      "Orientation": "3",
+      "Color": "128",
+      "Text": "A",
+      "UniqueID": "XVUMYCAF"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 455,
+      "byte_offset": 77897
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 456,
+    "offset": 78049,
+    "length": 148,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "75",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "635",
+      "Location.Y": "390",
+      "Orientation": "1",
+      "Color": "128",
+      "Text": "F",
+      "UniqueID": "ASFIJZXS"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 456,
+      "byte_offset": 78049
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 457,
+    "offset": 78201,
+    "length": 148,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "76",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "615",
+      "Location.Y": "390",
+      "Orientation": "1",
+      "Color": "128",
+      "Text": "G",
+      "UniqueID": "IJKCSMTF"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 457,
+      "byte_offset": 78201
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 458,
+    "offset": 78353,
+    "length": 148,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "77",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "595",
+      "Location.Y": "390",
+      "Orientation": "1",
+      "Color": "128",
+      "Text": "C",
+      "UniqueID": "JNNSBMNL"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 458,
+      "byte_offset": 78353
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 459,
+    "offset": 78505,
+    "length": 148,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "78",
+      "OwnerPartId": "-1",
+      "UnionIndex": "3",
+      "ShowNetName": "T",
+      "Location.X": "555",
+      "Location.Y": "390",
+      "Orientation": "1",
+      "Color": "128",
+      "Text": "D",
+      "UniqueID": "WWASTNII"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 459,
+      "byte_offset": 78505
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 601,
+    "offset": 100384,
+    "length": 136,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "93",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "265",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "G1",
+      "UniqueID": "PWESSOQY"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 601,
+      "byte_offset": 100384
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 602,
+    "offset": 100524,
+    "length": 122,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "94",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "265",
+      "Color": "255",
+      "Text": "G1",
+      "UniqueID": "RHNRWHJE"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 602,
+      "byte_offset": 100524
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 630,
+    "offset": 105016,
+    "length": 136,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "96",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "305",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "G3",
+      "UniqueID": "IFAKYFGZ"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 630,
+      "byte_offset": 105016
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 631,
+    "offset": 105156,
+    "length": 122,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "97",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "305",
+      "Color": "255",
+      "Text": "G3",
+      "UniqueID": "CHNRDYCE"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 631,
+      "byte_offset": 105156
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 795,
+    "offset": 134837,
+    "length": 136,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "105",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "577",
+      "Location.Y": "380",
+      "Orientation": "1",
+      "Color": "128",
+      "Text": "E",
+      "UniqueID": "LNNXULHA"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 795,
+      "byte_offset": 134837
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 796,
+    "offset": 134977,
+    "length": 139,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "106",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "245",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "SGND",
+      "UniqueID": "UALHDOXP"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 796,
+      "byte_offset": 134977
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 797,
+    "offset": 135120,
+    "length": 125,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "107",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "245",
+      "Color": "255",
+      "Text": "SGND",
+      "UniqueID": "HOLOEHTM"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 797,
+      "byte_offset": 135120
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 825,
+    "offset": 139674,
+    "length": 139,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "109",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "225",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "SGND",
+      "UniqueID": "AWMJMGIL"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 825,
+      "byte_offset": 139674
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 826,
+    "offset": 139817,
+    "length": 125,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "110",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "225",
+      "Color": "255",
+      "Text": "SGND",
+      "UniqueID": "KHKQFFBF"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 826,
+      "byte_offset": 139817
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 938,
+    "offset": 156939,
+    "length": 138,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "170",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "325",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "CLK",
+      "UniqueID": "WWGRVORY"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 938,
+      "byte_offset": 156939
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 939,
+    "offset": 157081,
+    "length": 124,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "171",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "325",
+      "Color": "255",
+      "Text": "CLK",
+      "UniqueID": "PRUBEAMY"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 939,
+      "byte_offset": 157081
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 969,
+    "offset": 161818,
+    "length": 138,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "175",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "345",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "CLK",
+      "UniqueID": "JZZZSDXK"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 969,
+      "byte_offset": 161818
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 970,
+    "offset": 161960,
+    "length": 124,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "176",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "345",
+      "Color": "255",
+      "Text": "CLK",
+      "UniqueID": "GVZHWVVW"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 970,
+      "byte_offset": 161960
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1000,
+    "offset": 166697,
+    "length": 139,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "180",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "360",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "SGND",
+      "UniqueID": "GNXSOLVE"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1000,
+      "byte_offset": 166697
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1001,
+    "offset": 166840,
+    "length": 125,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "181",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "360",
+      "Color": "255",
+      "Text": "SGND",
+      "UniqueID": "TNJHNAMU"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1001,
+      "byte_offset": 166840
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1004,
+    "offset": 167239,
+    "length": 137,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "184",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "350",
+      "Location.Y": "285",
+      "Orientation": "2",
+      "Color": "255",
+      "Text": "G2",
+      "UniqueID": "ARCVEOJI"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1004,
+      "byte_offset": 167239
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1005,
+    "offset": 167380,
+    "length": 123,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "17",
+      "IndexInSheet": "185",
+      "OwnerPartId": "-1",
+      "ShowNetName": "T",
+      "Location.X": "410",
+      "Location.Y": "285",
+      "Color": "255",
+      "Text": "G2",
+      "UniqueID": "AHZVTIJB"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1005,
+      "byte_offset": 167380
+    },
+    "kind": "native_parameter_record"
+  }
+]

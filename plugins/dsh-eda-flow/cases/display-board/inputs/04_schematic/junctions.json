@@ -1,0 +1,458 @@
+[
+  {
+    "index": 1035,
+    "offset": 172228,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "200",
+      "Location.Y": "515",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1035,
+      "byte_offset": 172228
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1036,
+    "offset": 172314,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "200",
+      "Location.Y": "630",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1036,
+      "byte_offset": 172314
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1037,
+    "offset": 172400,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "230",
+      "Location.Y": "515",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1037,
+      "byte_offset": 172400
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1038,
+    "offset": 172486,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "230",
+      "Location.Y": "630",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1038,
+      "byte_offset": 172486
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1039,
+    "offset": 172572,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "285",
+      "Location.Y": "535",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1039,
+      "byte_offset": 172572
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1040,
+    "offset": 172658,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "285",
+      "Location.Y": "630",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1040,
+      "byte_offset": 172658
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1041,
+    "offset": 172744,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "295",
+      "Location.Y": "515",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1041,
+      "byte_offset": 172744
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1042,
+    "offset": 172830,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "305",
+      "Location.Y": "630",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1042,
+      "byte_offset": 172830
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1043,
+    "offset": 172916,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "335",
+      "Location.Y": "535",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1043,
+      "byte_offset": 172916
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1044,
+    "offset": 173002,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "575",
+      "Location.Y": "470",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1044,
+      "byte_offset": 173002
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1045,
+    "offset": 173088,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "575",
+      "Location.Y": "555",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1045,
+      "byte_offset": 173088
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1046,
+    "offset": 173174,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "590",
+      "Location.Y": "470",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1046,
+      "byte_offset": 173174
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1047,
+    "offset": 173260,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "590",
+      "Location.Y": "575",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1047,
+      "byte_offset": 173260
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1048,
+    "offset": 173346,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "605",
+      "Location.Y": "595",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1048,
+      "byte_offset": 173346
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1049,
+    "offset": 173432,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "710",
+      "Location.Y": "620",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1049,
+      "byte_offset": 173432
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1050,
+    "offset": 173518,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "710",
+      "Location.Y": "635",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1050,
+      "byte_offset": 173518
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1051,
+    "offset": 173604,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "855",
+      "Location.Y": "555",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1051,
+      "byte_offset": 173604
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1052,
+    "offset": 173690,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "855",
+      "Location.Y": "620",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1052,
+      "byte_offset": 173690
+    },
+    "kind": "native_parameter_record"
+  },
+  {
+    "index": 1053,
+    "offset": 173776,
+    "length": 82,
+    "prefix_hex": "",
+    "fields": {
+      "RECORD": "29",
+      "IndexInSheet": "-1",
+      "OwnerPartId": "-1",
+      "Location.X": "855",
+      "Location.Y": "635",
+      "Color": "128"
+    },
+    "duplicate_fields": [],
+    "decode_replacements": [],
+    "source_file": "native/MD50PG.SchDoc",
+    "source_sha256": "bd063b92a9a3dd99c2b28ec22438179d58d35468e11352cf11e9310e48ace99e",
+    "source_locator": {
+      "stream": "FileHeader",
+      "record_index": 1053,
+      "byte_offset": 173776
+    },
+    "kind": "native_parameter_record"
+  }
+]

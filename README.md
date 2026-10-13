@@ -8,16 +8,18 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.1.0 | 独立七步输入、默认/AI 输出、实际生成 R6、阶段确认与空目录重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.2.0 | 独立七步输入、Harness 模型处理、显示板完整默认输入、实际生成与空目录重放 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.5.0 | 本机原始资料提取、冻结、复原核验与重放；六项独立任务、双格式离线读取、原生检查、比较、图形候选编辑与回退 |
 
-## 独立工程流程 dsh-eda-flow 0.1.0
+## 独立工程流程 dsh-eda-flow 0.2.0
 
-[完整内网安装包（约 22.1 MB）](output/packages/EDA_Flow_Intranet_0.1.0.zip) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [插件说明](plugins/dsh-eda-flow/README.md) · [验收记录](plugins/dsh-eda-flow/evals/validation-0.1.0.json) · [SHA-256](output/packages/EDA_Flow_Intranet_0.1.0.sha256.txt)
+[完整内网安装包](output/packages/EDA_Flow_Intranet_0.2.0.zip) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [插件说明](plugins/dsh-eda-flow/README.md) · [本次验证](plugins/dsh-eda-flow/evals/validation-0.2.0.json) · [SHA-256](output/packages/EDA_Flow_Intranet_0.2.0.sha256.txt)
 
-独立七步页面，无需工程工作台。工程师输入 → R6 默认输出或 Harness AI 输出 → 本机工具实际执行 → 查看结果 → 确认下一步。R6 默认方案从包内原始工程生成可编辑原理图、PCB、BOM、库、模型及新预览；无需模型额度。
+新建设计和显示板示例使用同一套七步流程，无需工程工作台。显示板预填完整输入，每次执行仍调用 Harness 当前模型，再由工具生成原理图、BOM、PCB 和预览。规格书按页读取并绑定器件；默认输入可查看，阶段确认后再进入下游。
 
-实测默认生成与空目录重放的 98 项工程内容一致，并与历史 R6 独立基准一致。测试期间移走历史复原目录，模型请求数为 0。保留 R6 板框、字体、规则转换限制，未宣称原生完整 1:1 或 AI 独立复原成功。完整包包含原始案例工程，仅在有权限的环境使用。
+本机以测试替身验证模型接口，真实 KiCad 在两个空目录生成的工程内容一致，28 类内容与显示板目标一致；付费模型请求为零。插件已在独立 Harness profile 安装验证。真实模型的生成质量留到内网验收，未将离线工具链测试计为 AI 独立复现成功。
+
+工程保留源设计的背面布线和两个铜层设置；生产铜层数与通孔金属化单独待确认。正面阅读预览已增强，实际线宽不变。完整安装包带默认数据和离线依赖，无需历史成品。
 
 ## 工程复原内网试用版 0.5.0
 

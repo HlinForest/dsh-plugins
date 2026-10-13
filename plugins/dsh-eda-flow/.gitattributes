@@ -1,0 +1,2 @@
+cases/display-board/** -text -whitespace
+cases/display-board/inputs/** -diff

@@ -1,0 +1,63 @@
+{
+  "version": "0.2.0",
+  "validatedAt": "2026-10-14T02:09:38.054108+08:00",
+  "nodeTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "inputAndArchiveTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "browser": {
+    "passed": [
+      "Display board labels; no old preset execution",
+      "New design basis without reference schematic",
+      "Stage notes persist independently",
+      "Full default input viewer; offline execution disabled",
+      "Actual generated PCB preview and fullscreen viewer",
+      "No page exceptions; 3 viewport sizes without overflow"
+    ],
+    "pageErrors": []
+  },
+  "skillValidation": "passed",
+  "installedHarnessProfile": "eda-flow-v2-check",
+  "installedSourceParity": true,
+  "packageSha256": "9a4047aecb144667519a68d051b4fd878cab9aae3f4db7b54b329f50e24cc081",
+  "fullGeneration": {
+    "projectId": "119f5a40-0082-43ac-a9ef-3e28d3c16f53",
+    "stage7": "D:\\VisualBoard\\output\\EDA_Flow_0.2.0_Installed_Verification\\projects\\119f5a40-0082-43ac-a9ef-3e28d3c16f53\\steps\\7\\f8a85db4-238c-4b62-bd9b-7cfb0560a41c",
+    "reference": {
+      "equal": true,
+      "categories": 28,
+      "differences": []
+    },
+    "replay": {
+      "projectId": "0794af69-5fab-4362-bfff-9bba7046d3d3",
+      "at": "2026-10-13T18:04:16.044Z",
+      "match": true,
+      "compared": 28,
+      "differences": [],
+      "modelRequests": 0,
+      "method": "Recorded model decisions; deterministic replay"
+    },
+    "paidModelRequests": 0,
+    "modelValidation": "test-double only; real provider pending intranet",
+    "generatedProject": "D:\\VisualBoard\\output\\EDA_Flow_0.2.0_Installed_Verification\\projects\\119f5a40-0082-43ac-a9ef-3e28d3c16f53\\steps\\7\\f8a85db4-238c-4b62-bd9b-7cfb0560a41c\\project"
+  },
+  "erc": {
+    "warning": 1
+  },
+  "drc": {
+    "warning": 40
+  },
+  "paidModelRequests": 0,
+  "liveModelValidation": "pending intranet; all model responses in local tests were explicit test doubles",
+  "knownPending": [
+    "原 Altium 编译网表",
+    "原始页面 PDF",
+    "器件规格书",
+    "显示部件 3D 模型",
+    "制造铜层数与孔金属化"
+  ]
+}

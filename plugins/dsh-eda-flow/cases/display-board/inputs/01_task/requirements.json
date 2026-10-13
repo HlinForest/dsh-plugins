@@ -1,0 +1,86 @@
+{
+  "label": "显示板",
+  "stem": "DisplayBoard",
+  "output_format": "KiCad",
+  "schematic_unit_mm": 0.254,
+  "schematic_y_origin_mm": 209.55,
+  "paper": "A4",
+  "outline": {
+    "nominal_mm": [
+      82.47,
+      57.51
+    ],
+    "corner_radius_mm": 3.0,
+    "left_top_mm": [
+      107.2851,
+      76.2499
+    ],
+    "native_dimension_projections_mm": [
+      82.46700296,
+      57.51019994
+    ],
+    "imported_edge_bbox_mm": [
+      82.70276,
+      57.71376
+    ],
+    "method": "Closed R3 rounded rectangle at original dimension datums, nominal dimensions rounded to two decimals as requested. Original imported Edge.Cuts retained on Eco1.User. All copper and component coordinates unchanged."
+  },
+  "font": "SimSun",
+  "requested_behavior": [
+    "保留原电气连接、器件参数、位置和全部铜图元",
+    "电源符号转换为同名页面标签",
+    "原始板框保留在参考层",
+    "不移动器件或重新规划走线"
+  ],
+  "source_stackup_thickness_mm": 0.41116,
+  "source_vs_target_notes": [
+    "Native 41 components and every source parameter retained; 29 have electrical pins.",
+    "Relative page positions, pin endpoints and wire vertices retained. A4 Y origin = 209.55 mm, a uniform -0.45 mm translation for 50-mil grid alignment.",
+    "Power-port glyphs converted to same-name single-sheet labels; colors/font metrics follow KiCad theme.",
+    "Rounded rectangles sampled at 7.5 degree intervals; text rotations normalized to 0/90 for KiCad properties.",
+    "Native pin electrical type is passive for all 85 pins. ERC cannot establish IC electrical correctness.",
+    "Footprint model names retained verbatim. Original external libraries are not present; do not auto-substitute.",
+    "Native designator * is preserved, including any KiCad annotation warning.",
+    "Native Altium compiled netlist and original PDF not supplied; use native geometric net extraction + PCB membership cross-check."
+  ],
+  "rule_translation": {
+    "native_rule_count": 36,
+    "explicit_custom_rules": [
+      "NET TO ALL",
+      "Width",
+      "HoleSize",
+      "RoutingVias"
+    ],
+    "preserved_in_pcb": "Imported pad mask/paste margins, solid zone connections, 0.254 mm zone clearance and rule-area geometry.",
+    "limit": "Altium-specific autorouting, testpoint, collision and Keep-Out-layer scope semantics are preserved as source evidence, not claimed as fully equivalent KiCad rule translation. Default KiCad silk/text checks remain enabled."
+  },
+  "schematic_style": {
+    "font_face": "SimSun",
+    "line_width_mm": 0.1524,
+    "pin_name_offset_mm": 0.762,
+    "label_angle": "Style nonzero converted power glyph: 0; otherwise native Orientation * 90",
+    "rounded_rectangle_step_deg": 7.5,
+    "rounded_radius_integer_fields": true
+  },
+  "auxiliary_footprints": {
+    "board_only": true,
+    "exclude_from_bom": true,
+    "exclude_from_pos_files": true
+  },
+  "revision_notes": [
+    "首次与历史目标比较后，补明原理图字体、符号线宽、引脚名称偏移及辅助铜形属性。几何与电气原始数据未修改。",
+    "PCB原封装字段统一使用原生 Components6/Data 的 PATTERN，不使用导入器临时库名。",
+    "比较显示总尺寸标注的方向、偏移、箭头和字体需明确，已补入 dimension_style；源属性名称沿用历史目标的 Altium_* 字段，字段值全部来自原生提取。",
+    "补充历史目标的编辑属性：有位号封装锁定、无电气引脚的机械/文字对象不进入贴装坐标表、隐藏源属性放在正面丝印层。NC焊盘类型来自本轮NC输入。",
+    "UL原理图圆角的历史转换使用整数字段，未使用半径的Frac字段；为匹配显示板目标显式保留此约定。完整原始分数字段仍在输入中，未修改。"
+  ],
+  "dimension_style": {
+    "horizontal_offset_mm": 6,
+    "vertical_offset_mm": 8,
+    "text_size_mm": 1.4,
+    "text_thickness_mm": 0.18,
+    "line_width_mm": 0.15,
+    "arrow_length_mm": 1
+  },
+  "lock_named_footprints": true
+}
