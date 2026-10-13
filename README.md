@@ -1,6 +1,6 @@
 # DSH Plugins
 
-为 DeepSeek Harness 开发的四个工程插件与一个可视化工作台，目标运行时为 **DSH 0.2.0-rc.2**，要求 **Node.js ≥ 22.19.0**。
+为 DeepSeek Harness 提供独立工程插件与可视化工作台，目标运行时为 **DSH 0.2.0-rc.2**，要求 **Node.js ≥ 22.19.0**。
 
 | 插件 | 版本 | 用途 |
 | --- | --- | --- |
@@ -8,7 +8,16 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.1.0 | 独立七步输入、默认/AI 输出、实际生成 R6、阶段确认与空目录重放 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.5.0 | 本机原始资料提取、冻结、复原核验与重放；六项独立任务、双格式离线读取、原生检查、比较、图形候选编辑与回退 |
+
+## 独立工程流程 dsh-eda-flow 0.1.0
+
+[完整内网安装包（约 22.1 MB）](output/packages/EDA_Flow_Intranet_0.1.0.zip) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [插件说明](plugins/dsh-eda-flow/README.md) · [验收记录](plugins/dsh-eda-flow/evals/validation-0.1.0.json) · [SHA-256](output/packages/EDA_Flow_Intranet_0.1.0.sha256.txt)
+
+独立七步页面，无需工程工作台。工程师输入 → R6 默认输出或 Harness AI 输出 → 本机工具实际执行 → 查看结果 → 确认下一步。R6 默认方案从包内原始工程生成可编辑原理图、PCB、BOM、库、模型及新预览；无需模型额度。
+
+实测默认生成与空目录重放的 98 项工程内容一致，并与历史 R6 独立基准一致。测试期间移走历史复原目录，模型请求数为 0。保留 R6 板框、字体、规则转换限制，未宣称原生完整 1:1 或 AI 独立复原成功。完整包包含原始案例工程，仅在有权限的环境使用。
 
 ## 工程复原内网试用版 0.5.0
 

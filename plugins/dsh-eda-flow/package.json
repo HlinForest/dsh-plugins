@@ -1,0 +1,76 @@
+{
+  "name": "dsh-eda-flow",
+  "version": "0.1.0",
+  "description": "独立原理图与 PCB 分步流程：默认方案或 Harness AI 输出，实际执行生成工程",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./client.js"
+  },
+  "files": [
+    "src",
+    "python",
+    "cases",
+    "client",
+    "client.js",
+    "cordis.patch.yml",
+    "scripts",
+    "README.md",
+    "LICENSE",
+    "docs",
+    "!**/__pycache__",
+    "!**/*.pyc"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/service.js && node --check src/index.js && node --check client/app.js && node --check client.js",
+    "start": "node scripts/serve.mjs",
+    "prepack": "npm run check"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-connection": "0.2.0-rc.2"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.4"
+  },
+  "bundleDependencies": [
+    "@deepseek-ai/schemastery"
+  ],
+  "license": "MIT",
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-connection": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-connection": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.0-rc.2"
+  }
+}

@@ -1,0 +1,291 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { randomUUID } from 'node:crypto';
+import { spawn } from 'node:child_process';
+import { stages, defaultPlan } from './contracts.js';
+import { hash, readJSON, writeJSON, within, inside, tree } from './io.js';
+
+const packageRoot = fileURLToPath(new URL('../', import.meta.url));
+const runner = path.join(packageRoot, 'python/runner.py');
+const uuid = /^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$/;
+
+export class Flow {
+  constructor(config, ai = null) {
+    this.config = config; this.ai = ai; this.jobs = new Map();
+    this.root = path.join(config.workDirectory || path.join(config.workspaceRoot || '.', 'eda-flow'), 'projects');
+    if (!config.workspaceRoot || !inside(config.workspaceRoot, this.root)) throw new Error('任务目录必须在工程工作区内。');
+  }
+  dir(id) { if (!uuid.test(id || '')) throw new Error('无效项目 ID。'); return path.join(this.root, id); }
+  save(project) { project.updatedAt = new Date().toISOString(); return writeJSON(path.join(this.dir(project.id), 'project.json'), project); }
+  async load(id) {
+    const p = await readJSON(path.join(this.dir(id), 'project.json'));
+    if (!this.jobs.has(id)) for (const s of p.stages) if (s.status === 'running') { s.status = 'interrupted'; s.error = '上次进程已退出，请重新执行本步。'; }
+    return p;
+  }
+  async open(id) {
+    const p = await this.load(id);
+    let changed = false;
+    if (p.inputFiles?.length) {
+      for (const f of p.inputFiles) {
+        const current = await fs.readFile(f.original).then(hash).catch(() => null);
+        if (current !== f.sha256) { this.invalidate(p, f.stage); changed = true; break; }
+      }
+    }
+    for (const s of p.stages) {
+      if (!s.output) continue;
+      if (s.status === 'done' && s.files) {
+        const current = await tree(s.output).catch(() => []);
+        if (hash(current) !== s.outputHash) { this.invalidate(p, s.id); s.error = '本步生成文件已变化，请重新执行和确认。'; changed = true; break; }
+      }
+    }
+    p.aiEnabled = this.config.allowModelCalls === true && Boolean(this.ai);
+    p.busy = this.jobs.has(id); p.modelRequests = p.modelRequests || 0;
+    p.progress = this.jobs.get(id)?.progress || '';
+    if (changed && !p.busy) await this.save(p);
+    return p;
+  }
+  async list() {
+    await fs.mkdir(this.root, { recursive: true });
+    const rows = [];
+    for (const id of await fs.readdir(this.root)) if (uuid.test(id)) {
+      const p = await this.load(id).catch(e => { if (e.code === 'ENOENT') return null; throw e; });
+      if (p) rows.push({ id, label: p.label, mode: p.mode, updatedAt: p.updatedAt });
+    }
+    return rows.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  }
+  async create(args) {
+    const caseId = args.caseId || null;
+    if (caseId && caseId !== 'r6') throw new Error('未知默认方案。');
+    const recipe = caseId ? await readJSON(path.join(packageRoot, 'cases/r6/case.json')) : null;
+    const p = { schemaVersion: 1, id: randomUUID(), label: String(args.label || recipe?.label || '新工程'),
+      mode: args.mode === 'new' ? 'new' : 'restore', caseId, createdAt: new Date().toISOString(), revision: 1,
+      modelRequests: 0, inputs: { requirements: recipe ? '按已确认原始资料生成 R6；允许 R6 约定的板框、字体与规则转换。' : '', constraints: recipe?.constraints || {}, datasheets: [] },
+      stages: stages.map(s => ({ ...s, status: 'pending', source: caseId ? 'preset' : s.id < 4 ? 'local' : 'ai', plan: defaultPlan(s.id, recipe), confirmed: false, gaps: [], assumptions: [] })), events: [] };
+    await fs.mkdir(this.dir(p.id), { recursive: true });
+    if (recipe) {
+      if (!this.config.caseInputDirectory) throw new Error('请在设置中指定 R6 原始资料包目录。该目录应包含 case-inputs.json 和 sources。');
+      const input = await readJSON(path.join(this.config.caseInputDirectory, 'case-inputs.json'));
+      if (input.id !== 'r6') throw new Error('案例资料包身份不匹配。');
+      const destination = path.join(this.dir(p.id), 'sources'); await fs.mkdir(destination);
+      p.sourceFiles = [];
+      for (const row of recipe.sources) {
+        const source = await within(this.config.caseInputDirectory, row.path); const data = await fs.readFile(source);
+        if (hash(data) !== row.sha256) throw new Error('R6 原始资料哈希不匹配：' + row.path);
+        const target = path.join(destination, path.basename(source)); await fs.writeFile(target, data, { flag: 'wx' });
+        p.sourceFiles.push({ path: target, sha256: row.sha256, original: source });
+        const key = { '.schdoc': 'schematic', '.pcbdoc': 'pcb', '.prjpcb': 'nativeProject' }[path.extname(source).toLowerCase()];
+        if (key) p.inputs[key] = target;
+      }
+      p.recipeDigest = hash(recipe); p.caseInputSignature = this.designSignature(p.inputs);
+    }
+    await this.save(p); return this.open(p.id);
+  }
+  invalidate(p, from) {
+    for (const s of p.stages) if (s.id >= from) {
+      s.status = s.output ? 'stale' : 'pending'; s.confirmed = false; delete s.confirmation; delete s.error;
+    }
+    delete p.replay;
+  }
+  guard(id) { if (this.jobs.has(id)) throw new Error('当前项目正在执行，请先等待或取消。'); }
+  stage(p, number) { const s = p.stages.find(s => s.id === Number(number)); if (!s) throw new Error('请选择有效步骤。'); return s; }
+  async update(a) {
+    this.guard(a.projectId); const p = await this.load(a.projectId); const s = this.stage(p, a.stage);
+    if (a.inputs !== undefined) {
+      if (!a.inputs || typeof a.inputs !== 'object' || Array.isArray(a.inputs)) throw new Error('输入应为对象。');
+      p.inputs = { ...p.inputs, ...a.inputs };
+      const first = Math.min(...Object.keys(a.inputs).map(key => key === 'datasheets' ? 3 : ['schematic', 'pcb', 'nativeProject'].includes(key) ? 2 : 1));
+      this.invalidate(p, Number.isFinite(first) ? first : s.id);
+      p.inputFiles = (p.inputFiles || []).filter(f => f.stage < first);
+    } else this.invalidate(p, s.id);
+    if (a.plan !== undefined) {
+      if (!a.plan || typeof a.plan !== 'object' || Array.isArray(a.plan)) throw new Error('处理输出必须是对象。');
+      s.plan = a.plan;
+    }
+    if (a.source) { if (!['preset', 'ai', 'local', 'manual'].includes(a.source)) throw new Error('处理输出来源无效。'); s.source = a.source; }
+    p.revision++; await this.save(p); return this.open(p.id);
+  }
+  async confirm(a, actor) {
+    if (actor !== 'human') throw new Error('阶段确认必须由工程师在页面完成。');
+    this.guard(a.projectId); const p = await this.open(a.projectId); const s = this.stage(p, a.stage);
+    if (s.status !== 'done') throw new Error('本步没有有效的执行结果。');
+    if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new Error('本步仍有缺项或假设，请明确选择“带缺项继续草稿”。');
+    s.confirmed = true; s.confirmation = { at: new Date().toISOString(), actor: 'human', draft: Boolean(a.allowDraft), note: String(a.note || ''), outputHash: s.outputHash };
+    await this.save(p); return this.open(p.id);
+  }
+  async checkedInputs(p) {
+    const inputs = structuredClone(p.inputs);
+    for (const key of ['schematic', 'pcb', 'nativeProject']) if (inputs[key]) inputs[key] = await within(this.config.workspaceRoot, inputs[key]);
+    for (const pdf of inputs.datasheets || []) pdf.path = await within(this.config.workspaceRoot, pdf.path);
+    return inputs;
+  }
+  async assertPreset(p, s) {
+    const recipe = await readJSON(path.join(packageRoot, 'cases/r6/case.json'));
+    if (p.caseId !== 'r6' || p.recipeDigest !== hash(recipe) || p.caseInputSignature !== this.designSignature(p.inputs)) throw new Error('输入已偏离 R6 默认方案。请另建默认项目，或切换到 AI/自定义输出；不能承诺复现原版 R6。');
+    if (hash(s.plan) !== hash(defaultPlan(s.id, recipe))) throw new Error('本步默认方案参数已修改，请选择自定义输出；该结果不再保证匹配原版 R6。');
+    for (const item of p.sourceFiles || []) if (hash(await fs.readFile(item.path)) !== item.sha256) throw new Error('R6 原始资料内容已变化，默认方案不能继续。');
+  }
+  designSignature(inputs) { const { datasheets, ...design } = inputs; return hash(design); }
+  async snapshotInputs(inputs, output) {
+    const copy = structuredClone(inputs); const files = [];
+    const snapshot = async (original, stage) => {
+      const data = await fs.readFile(original); const sha256 = hash(data);
+      const target = path.join(output, 'input-snapshot', sha256.slice(0, 12), path.basename(original));
+      await fs.mkdir(path.dirname(target), { recursive: true }); await fs.writeFile(target, data);
+      files.push({ original, path: path.relative(output, target).replaceAll('\\', '/'), sha256, bytes: data.length, stage });
+      return target;
+    };
+    for (const key of ['schematic', 'pcb', 'nativeProject']) if (copy[key]) copy[key] = await snapshot(copy[key], 2);
+    for (const item of copy.datasheets || []) item.path = await snapshot(item.path, 3);
+    return { inputs: copy, files };
+  }
+  async runProcess(args, output, signal, event) {
+    const log = { command: this.config.kicadPython, args, stdout: '', stderr: '' };
+    const logPath = path.join(output, 'execution-' + path.basename(args[0], '.py') + '.json');
+    await new Promise((resolve, reject) => {
+      const child = spawn(this.config.kicadPython, args, { cwd: output, windowsHide: true, env: { ...process.env, PYTHONUTF8: '1' } });
+      const stop = () => {
+        if (process.platform === 'win32' && child.pid) { const killer = spawn('taskkill', ['/PID', String(child.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore' }); killer.on('error', () => child.kill()); }
+        else child.kill();
+      };
+      if (signal?.aborted) stop(); else signal?.addEventListener('abort', stop, { once: true });
+      const cleanup = () => { clearTimeout(timer); signal?.removeEventListener('abort', stop); };
+      const timer = setTimeout(stop, 15 * 60 * 1000);
+      child.stdout.on('data', data => {
+        log.stdout = (log.stdout + data).slice(-400000); event?.(String(data).slice(-1500));
+        for (const [id, job] of this.jobs) if (output.startsWith(this.dir(id) + path.sep)) {
+          const last = String(data).trim().split('\n').at(-1);
+          try { const item = JSON.parse(last); if (item.event === 'command') job.progress = [item.name, ...(item.args || []).slice(0, 3)].join(' '); } catch { /* Raw logs remain in the execution record. */ }
+        }
+      });
+      child.stderr.on('data', data => { log.stderr = (log.stderr + data).slice(-400000); });
+      child.on('error', e => { cleanup(); reject(e); });
+      child.on('close', code => { cleanup(); log.exitCode = code; code === 0 && !signal?.aborted ? resolve() : reject(new Error(signal?.aborted ? '本步已取消。' : (log.stderr || log.stdout || `执行退出码 ${code}`).slice(-4000))); });
+    }).catch(async error => { log.error = error.message; await writeJSON(logPath, log); throw error; });
+    await writeJSON(logPath, log);
+  }
+  async execute(id, number, signal, { replay = false } = {}) {
+    const p = await this.open(id); const s = this.stage(p, number);
+    for (const prior of p.stages.filter(x => x.id < s.id)) if (prior.status !== 'done' || !prior.confirmed) throw new Error(`请先执行并确认“${prior.title}”；有缺项时可选择继续草稿。`);
+    if (s.source === 'preset') await this.assertPreset(p, s);
+    const inputs = await this.checkedInputs(p);
+    this.invalidate(p, s.id);
+    const output = path.join(this.dir(id), 'steps', String(s.id), randomUUID()); await fs.mkdir(output, { recursive: true });
+    s.status = 'running'; s.startedAt = new Date().toISOString(); s.output = output; s.files = []; s.gaps = []; s.assumptions = [];
+    delete s.outputHash; await this.save(p);
+    const dependencies = Object.fromEntries(p.stages.filter(x => x.id < s.id).map(x => [x.id, x.output]));
+    const request = { stage: s.id, output, mode: p.mode, inputs, dependencies, cli: this.config.kicadCli, plan: s.plan,
+      ...(p.caseId === 'r6' && ['preset', 'manual'].includes(s.source) && s.plan.executor === 'r6-preset' ? { caseDir: path.join(packageRoot, 'cases/r6') } : {}) };
+    try {
+      const snapshot = await this.snapshotInputs(inputs, output); request.inputs = snapshot.inputs;
+      p.inputFiles = snapshot.files; s.inputFiles = snapshot.files;
+      const runtime = { node: process.version, platform: process.platform, plugin: '0.1.0',
+        implementation: [...await tree(path.join(packageRoot, 'python')), ...await tree(path.join(packageRoot, 'cases')), ...await tree(path.join(packageRoot, 'src'))] };
+      await writeJSON(path.join(output, 'environment.json'), runtime);
+      if (s.source === 'ai') {
+        if (!this.config.allowModelCalls || !this.ai) throw new Error('本机 AI 调用已禁用。R6 请使用默认输出；内网配置模型后可启用 AI。');
+        p.modelRequests++; await this.save(p);
+        const evidence = [];
+        for (const dir of Object.values(dependencies)) {
+          for (const file of await tree(dir)) if (/\.(json|csv|txt)$/.test(file.path) && file.bytes < 60000 && !/(request|execution|environment)\.json$/.test(file.path)) {
+            evidence.push({ stageDirectory: dir, path: file.path, text: await fs.readFile(path.join(dir, file.path), 'utf8') });
+            if (JSON.stringify(evidence).length > 100000) break;
+          }
+          if (JSON.stringify(evidence).length > 100000) break;
+        }
+        s.plan = await this.ai.generate({ project: p, stage: s, request, evidence }, signal);
+        request.plan = s.plan; s.planOrigin = 'live-ai'; await writeJSON(path.join(output, 'ai-output.json'), s.plan);
+      }
+      await writeJSON(path.join(output, 'request.json'), request);
+      if (request.plan.executor === 'python') {
+        if (typeof request.plan.script !== 'string' || !request.plan.script.trim()) throw new Error('缺少本步可执行脚本。');
+        // Human-selected stage output executes under the configured local account. Originals are copied below.
+        const script = path.join(output, 'stage.py'); await fs.writeFile(script, request.plan.script);
+        await this.runProcess([script, '--request', path.join(output, 'request.json')], output, signal);
+      } else await this.runProcess([runner, path.join(output, 'request.json')], output, signal);
+      if (request.plan.executor === 'python' && s.id >= 4) {
+        await this.runProcess([path.join(packageRoot, 'python/check_generated.py'), path.join(output, 'request.json')], output, signal);
+      }
+      const result = await readJSON(path.join(output, 'result.json'));
+      if (!result.summary || !Array.isArray(result.gaps)) throw new Error('阶段输出缺少 summary/gaps，不能记为成功。');
+      for (const f of snapshot.files) if (hash(await fs.readFile(f.original)) !== f.sha256) throw new Error('执行期间原始输入文件发生变化，请重新确认资料。');
+      for (const prior of p.stages.filter(x => x.id < s.id)) if (hash(await tree(prior.output)) !== prior.outputHash) throw new Error('执行期间上游文件发生变化，当前结果不能确认。');
+      s.result = result; s.gaps = [...new Set([...p.stages.filter(x => x.id < s.id).flatMap(x => x.gaps), ...result.gaps])];
+      s.assumptions = [...new Set([...p.stages.filter(x => x.id < s.id).flatMap(x => x.assumptions || []), ...(s.plan.assumptions || [])])];
+      if (s.id === 7) {
+        await writeJSON(path.join(output, 'frozen-evidence.json'), { schemaVersion: 1, projectId: p.id, inputs: p.inputs, modelRequests: p.modelRequests,
+          sourceFiles: p.inputFiles, stages: p.stages.map(x => ({ id: x.id, source: x.source, plan: x.executedPlan || x.plan, inputFiles: x.inputFiles, confirmation: x.confirmation, output: x.output, outputHash: x.outputHash, gaps: x.gaps, assumptions: x.assumptions })), environment: runtime });
+        await this.runProcess([path.join(packageRoot, 'python/archive.py'), path.join(output, 'request.json')], output, signal);
+      }
+      s.files = await tree(output); s.outputHash = hash(s.files); s.status = 'done';
+      s.finishedAt = new Date().toISOString(); s.executedPlan = structuredClone(s.plan);
+      if (replay) { s.confirmed = true; s.confirmation = { actor: 'replay', draft: true, inherited: true, outputHash: s.outputHash }; }
+      p.events.push({ stage: s.id, source: s.source, at: s.finishedAt, outcome: 'done' });
+    } catch (error) {
+      s.status = signal?.aborted ? 'cancelled' : 'failed'; s.error = String(error.message).slice(-4500);
+      s.finishedAt = new Date().toISOString(); p.events.push({ stage: s.id, at: s.finishedAt, outcome: s.status });
+      await this.save(p); throw error;
+    }
+    await this.save(p); return this.open(id);
+  }
+  async start(a) {
+    this.guard(a.projectId); const controller = new AbortController();
+    const task = { controller, promise: null }; this.jobs.set(a.projectId, task);
+    task.promise = this.execute(a.projectId, a.stage, controller.signal).catch(async error => {
+      const p = await this.load(a.projectId); const s = this.stage(p, a.stage); s.error = error.message; await this.save(p);
+    }).finally(() => this.jobs.delete(a.projectId));
+    return { started: true, projectId: a.projectId };
+  }
+  async replay(id) {
+    this.guard(id); const original = await this.open(id);
+    if (original.stages.some(s => s.status !== 'done' || !s.confirmed)) throw new Error('重放需要全部步骤有效且经工程师确认。');
+    const preset = original.caseId === 'r6' && original.stages.every(s => s.source === 'preset');
+    const p = await this.create({ ...(preset ? { caseId: 'r6' } : { mode: original.mode }), label: original.label + ' · 空目录重放' });
+    if (!preset) {
+      const snapshot = await this.snapshotInputs(await this.checkedInputs(original), this.dir(p.id));
+      p.inputs = snapshot.inputs; p.caseId = original.caseId;
+      for (const s of p.stages) {
+        s.source = 'manual'; s.plan = structuredClone(original.stages[s.id - 1].executedPlan);
+        if (JSON.stringify(s.plan).includes(this.dir(original.id)) || JSON.stringify(s.plan).includes(this.dir(original.id).replaceAll('\\', '/'))) throw new Error('本轮脚本硬编码了旧运行目录，无法独立重放。请改为读取 request.inputs/dependencies。');
+      }
+    } else if (original.inputs.datasheets?.length) {
+      const snapshot = await this.snapshotInputs({ datasheets: original.inputs.datasheets }, this.dir(p.id)); p.inputs.datasheets = snapshot.inputs.datasheets;
+    }
+    await this.save(p);
+    const control = new AbortController(); this.jobs.set(id, { controller: control }); this.jobs.set(p.id, { controller: control });
+    try {
+      for (let stage = 1; stage <= 7; stage++) await this.execute(p.id, stage, control.signal, { replay: true });
+      const repeated = await this.load(p.id);
+      const a = await readJSON(path.join(original.stages[6].output, 'project-content.json'));
+      const b = await readJSON(path.join(repeated.stages[6].output, 'project-content.json'));
+      const differences = [...new Set([...Object.keys(a), ...Object.keys(b)])].filter(k => a[k] !== b[k]);
+      original.replay = { projectId: p.id, at: new Date().toISOString(), match: !differences.length, compared: Object.keys(a).length, differences, modelRequests: repeated.modelRequests, method: preset ? 'R6 default plan' : 'Recorded stage outputs; no new model request' };
+      await this.save(original); return original.replay;
+    } finally { this.jobs.delete(id); this.jobs.delete(p.id); }
+  }
+  async files(directory) {
+    const dir = await within(this.config.workspaceRoot, directory || this.config.workspaceRoot);
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+    return { directory: dir, parent: dir === await fs.realpath(this.config.workspaceRoot) ? null : path.dirname(dir),
+      entries: entries.filter(e => !e.isSymbolicLink() && !e.name.startsWith('.')).slice(0, 500).map(e => ({ name: e.name, directory: e.isDirectory(), path: path.join(dir, e.name) })) };
+  }
+  async dispatch(a, signal, actor = 'model') {
+    if (a.action === 'list') return this.list();
+    if (a.action === 'create') return this.create(a);
+    if (a.action === 'files') return this.files(a.directory);
+    if (a.action === 'open') return this.open(a.projectId);
+    if (a.action === 'update') return this.update(a);
+    if (a.action === 'confirm') return this.confirm(a, actor);
+    if (a.action === 'cancel') { this.jobs.get(a.projectId)?.controller.abort(); return { cancelled: true }; }
+    if (a.action === 'execute') {
+      if (actor === 'human') return this.start(a);
+      throw new Error('请在页面执行或提交自定义处理输出；模型不能递归启动 AI 阶段。');
+    }
+    if (a.action === 'replay') {
+      if (actor !== 'human') throw new Error('重放由工程师发起。');
+      return this.replay(a.projectId);
+    }
+    throw new Error('未知流程操作。');
+  }
+  async close() { for (const job of this.jobs.values()) job.controller.abort(); await Promise.allSettled([...this.jobs.values()].map(j => j.promise)); }
+}
