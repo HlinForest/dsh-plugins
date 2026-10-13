@@ -1,6 +1,6 @@
 # 内网安装与试用
 
-解压 `EDA_Flow_Intranet_0.2.1.zip`，保留目录。安装包已包含显示板输入，无需旧工作台、旧工程目录或开发机路径。
+解压 `EDA_Flow_Intranet_0.2.2.zip`，保留目录。安装包已包含显示板输入，无需旧工作台、旧工程目录或开发机路径。
 
 先在 Harness 中选好内网可用模型。插件使用该模型，不另填密钥。
 
@@ -19,7 +19,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-intranet.ps1 -Workspa
 也可手动执行：
 
 ```powershell
-dsh plugin --profile desktop add .\plugin\dsh-eda-flow-0.2.1.tgz
+dsh plugin --profile desktop add .\plugin\dsh-eda-flow-0.2.2.tgz
 ```
 
 将该插件配置为：

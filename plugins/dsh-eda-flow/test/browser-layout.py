@@ -82,26 +82,27 @@ with sync_playwright() as pw:
     page = browser.contexts[0].pages[0]
     page.on('pageerror', lambda e: errors.append(str(e)))
     page.set_viewport_size({'width': 1279, 'height': 820})
-    if not page.locator('[data-eda-flow-window][open]').count():
+    if not page.locator('[data-eda-flow-window]:popover-open').count():
         page.get_by_role('button', name='原理图与 PCB 流程', exact=True).click()
     page.frame_locator('iframe[title="原理图与 PCB 流程"]').locator('[data-action="close-flow"]').wait_for()
     frame = next(f for f in page.frames if '/api/eda-flow/page' in f.url)
     frame.locator('[data-action="close-flow"]').wait_for()
-    assert page.locator('[data-eda-flow-window]').evaluate('(d)=>d.matches(":modal")')
+    assert not page.locator('[data-eda-flow-window]').evaluate('(d)=>d.matches(":modal")')
+    assert not page.locator('body').evaluate('(d)=>d.inert')
     assert page.locator('[data-eda-flow-window]').bounding_box()['y'] >= 40
     before = frame.evaluate("async()=>{const b=(await(await fetch('/api/eda-flow/bootstrap')).json()).value; return Promise.all(b.projects.map(async p=>(await(await fetch('/api/eda-flow/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'open',projectId:p.id})})).json()).value.modelRequests));}")
     frame.locator('[data-step="3"]').click()
     frame.locator('#mpn').fill('UNSAVED-UI-CHECK')
-    frame.get_by_role('button', name='返回 Harness', exact=True).click()
-    page.wait_for_function('!document.querySelector("[data-eda-flow-window]").open')
+    frame.get_by_role('button', name='收起', exact=True).click()
+    page.wait_for_function("!document.querySelector('[data-eda-flow-window]').matches(':popover-open')")
     assert page.locator('button[aria-label="原理图与 PCB 流程"]').evaluate('(b)=>document.activeElement===b')
     page.screenshot(path=str(out/'10-after-host.png'))
     page.get_by_role('button', name='原理图与 PCB 流程', exact=True).click()
     assert frame.locator('#mpn').input_value() == 'UNSAVED-UI-CHECK'
     frame.locator('#mpn').fill('')
     page.evaluate("window.postMessage({type:'eda-flow:close'},'*')")
-    assert page.locator('[data-eda-flow-window]').evaluate('(d)=>d.open')
-    checks.append('Native modal isolates host panels; close restores focus and preserves unsaved form; foreign messages ignored')
+    assert page.locator('[data-eda-flow-window]').evaluate("(d)=>d.matches(':popover-open')")
+    checks.append('Nonmodal panel preserves unsaved form and restores focus; foreign messages ignored')
 
     summary = frame.locator('summary').filter(has_text='本步默认输入')
     if not summary.evaluate('(s)=>s.parentElement.open'): summary.click()
@@ -109,10 +110,10 @@ with sync_playwright() as pw:
     frame.locator('#viewer[open]').wait_for()
     page.keyboard.press('Escape')
     assert not frame.locator('#viewer').evaluate('(d)=>d.open')
-    assert page.locator('[data-eda-flow-window]').evaluate('(d)=>d.open')
+    assert page.locator('[data-eda-flow-window]').evaluate("(d)=>d.matches(':popover-open')")
     frame.locator('#mpn').focus()
     page.keyboard.press('Escape')
-    page.wait_for_function('!document.querySelector("[data-eda-flow-window]").open')
+    page.wait_for_function("!document.querySelector('[data-eda-flow-window]').matches(':popover-open')")
     page.get_by_role('button', name='原理图与 PCB 流程', exact=True).click()
     for width, height in [(390,720),(900,640),(1279,820)]:
         page.set_viewport_size({'width':width,'height':height})
@@ -122,6 +123,20 @@ with sync_playwright() as pw:
     after = frame.evaluate("async()=>{const b=(await(await fetch('/api/eda-flow/bootstrap')).json()).value; return Promise.all(b.projects.map(async p=>(await(await fetch('/api/eda-flow/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'open',projectId:p.id})})).json()).value.modelRequests));}")
     assert before == after
     assert not errors, errors
+    frame.locator('#mpn').fill('KEEP-WHILE-CHATTING')
+    page.get_by_text('编辑',exact=True).click()
+    page.wait_for_function("!document.querySelector('[data-eda-flow-window]').matches(':popover-open')")
+    page.keyboard.press('Escape')
+    composer = page.locator('[contenteditable="true"]').first
+    original = composer.inner_text()
+    composer.fill('UI check: typing only, do not send')
+    assert composer.inner_text() == 'UI check: typing only, do not send'
+    composer.fill(original)
+    page.get_by_role('button',name='原理图与 PCB 流程',exact=True).click()
+    assert frame.locator('#mpn').input_value() == 'KEEP-WHILE-CHATTING'
+    frame.locator('#mpn').fill('')
+    page.screenshot(path=str(out/'nonmodal-panel.png'))
+    checks.append('Host menu and chat composer remain usable; outside click dismisses panel without losing inputs')
     checks.append('Nested Escape, desktop responsive layout, model request counts unchanged, no page exceptions')
     browser.close()
 
