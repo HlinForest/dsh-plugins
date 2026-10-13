@@ -3,6 +3,7 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { setTimeout as delay } from 'node:timers/promises';
 import { hash } from './model.js';
 const exec = promisify(execFile);
 export async function readLimited(file, limit = 64 * 1024 * 1024) { const s = await fs.stat(file); if (!s.isFile() || s.size > limit) throw new Error('文件过大或不是普通文件。'); return fs.readFile(file); }
@@ -12,7 +13,17 @@ export async function within(root, file) {
   if (rel.startsWith('..') || path.isAbsolute(rel)) throw new Error('文件超出工作目录。');
   return f;
 }
-export async function atomic(file, data) { const temp = `${file}.${randomUUID()}.tmp`; try { await fs.writeFile(temp, data, { flag: 'wx' }); await fs.rename(temp, file); } finally { await fs.rm(temp, { force: true }); } }
+export async function atomic(file, data) {
+  const temp = `${file}.${randomUUID()}.tmp`;
+  try {
+    await fs.writeFile(temp, data, { flag: 'wx' });
+    // Windows readers/virus scanners may briefly hold the destination without delete sharing.
+    for (let attempt = 0; ; attempt++) {
+      try { await fs.rename(temp, file); break; }
+      catch (e) { if (process.platform !== 'win32' || !['EPERM', 'EACCES', 'EBUSY'].includes(e.code) || attempt >= 5) throw e; await delay(20 * (attempt + 1)); }
+    }
+  } finally { await fs.rm(temp, { force: true }); }
+}
 export async function json(file, value) { await atomic(file, JSON.stringify(value, null, 2)); }
 export async function run(command, args, signal, options = {}) {
   if (!command) throw new Error('此检查所需工具未配置。');

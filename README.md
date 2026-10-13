@@ -8,7 +8,19 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.3.1 | 六项独立任务、双格式离线读取、原生检查、比较、图形候选编辑与回退 |
+| [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.5.0 | 本机原始资料提取、冻结、复原核验与重放；六项独立任务、双格式离线读取、原生检查、比较、图形候选编辑与回退 |
+
+## 工程复原内网试用版 0.5.0
+
+[完整内网安装包（约 20.6 MB）](output/packages/Engineering_Workbench_Intranet_0.5.0.zip) · [安装与试用说明](plugins/dsh-engineering-workbench/docs/intranet.md) · [SHA-256](output/packages/Engineering_Workbench_Intranet_0.5.0.sha256.txt) · [检查范围与限制](plugins/dsh-engineering-workbench/evals/intranet-0.5.0.json)
+
+已有仓库可执行 `git pull --ff-only`。将完整 ZIP 复制到内网并解压，按说明配置本机路径；安装后打开 **工程工作台 → 工程复原 → 直接读取本机原始文件**。插件内置 Node 运行依赖，ZIP 另带 Windows x64 Python 依赖轮子、安装器及环境检查脚本；Harness 和 KiCad 需预先安装。
+
+当前直接提取支持单页、无层级的 Altium 原理图和一块 PCB，可读取本机 PDF 并绑定器件资料。转换由当前 Harness 模型执行，插件负责资料、独立核验和重放。完整 1:1 与公司正式签核仍需逐项验收，已知差异不会被标成通过。本包不包含账号、原始工程或历史复原答案，模型连接沿用本机 Harness 设置。
+
+工作台源码开发所需的 `dsh-megmeet-0.2.1.tgz` 也在 `dist/` 中，供锁文件安装和回归测试使用；该模块源码的其他改动不在本次发布范围。
+
+2026-10-13 发布前已在独立目录重新安装依赖并完成构建：工作台 65 项 Node 测试、23 项 Python 测试全部通过，安装包与源码及文件哈希一致。
 
 ## 本轮更新
 
@@ -27,7 +39,7 @@ dsh plugin --profile web add ./dist/dsh-megmeet-0.2.0.tgz
 dsh plugin --profile web add ./dist/dsh-pcb-review-0.1.2.tgz
 dsh plugin --profile web add ./dist/dsh-schematic-sync-0.1.2.tgz
 dsh plugin --profile web add ./dist/dsh-kicad-workflow-0.1.1.tgz
-dsh plugin --profile web add ./dist/dsh-engineering-workbench-0.3.1.tgz
+dsh plugin --profile web add ./dist/dsh-engineering-workbench-0.5.0.tgz
 ```
 
 按各插件 README 设置目录、KiCad CLI / Python / MCP Server 等本机配置，然后重新加载对应 profile。源码 README 保留了原开发机的路径示例；换机器或移动目录后需要调整。插件没有另设模型登录入口。
@@ -47,7 +59,7 @@ npm pack --pack-destination ../../dist
 
 `verify:live`、桌面安装和模型对比演示依赖本机 DSH / KiCad 环境；普通单元与运行时测试不代替这些实际联调。
 
-### 本次上传验证
+### 2026-10-10 历史版本验证
 
 2026-10-10 在 Windows、Node.js 24.19.0、npm 11.17.0 环境完成检查：
 

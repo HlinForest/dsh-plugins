@@ -42,12 +42,17 @@
         return h('p', { key: i, style: { whiteSpace: 'pre-wrap' } }, part);
       }));
     }
-    function FilePicker({ value, onChange, label, extensions }) {
-      const [opened, setOpened] = useState(false), [listing, setListing] = useState(null), [error, setError] = useState('');
-      const browse = async dir => { try { setListing(await api('files?directory=' + encodeURIComponent(dir))); setError(''); } catch (e) { setError(e.message); } };
-      return h('div', { className: 'ew-path-field' }, h(Field, { label }, textInput(value, onChange, { placeholder: '选择文件或输入工程目录内的路径' })), button(opened ? '关闭文件列表' : '选择文件', () => { if (!opened) browse(''); setOpened(!opened); }), opened && h('div', { className: 'ew-filepicker' },
-        error && h('p', { role: 'alert' }, error), listing && h(R.Fragment, null, h('p', { className: 'ew-help' }, listing.root, listing.directory ? '/' + listing.directory : ''), listing.parent !== null && button('上级目录', () => browse(listing.parent)),
-          h('ul', null, listing.entries.filter(f => f.directory || !extensions || extensions.some(ext => f.name.toLowerCase().endsWith(ext))).map(f => h('li', { key: f.path }, button((f.directory ? '文件夹 · ' : '') + f.name, () => { if (f.directory) browse(f.relative); else { onChange(f.path); setOpened(false); } })))), listing.truncated && h('small', null, '本目录仅显示前 400 项，可输入确切路径。'))));
+    function FilePicker({ value, onChange, label, extensions, disabled = false }) {
+      const [opened, setOpened] = useState(false), [listing, setListing] = useState(null), [error, setError] = useState(''), [loading, setLoading] = useState(false), [query, setQuery] = useState('');
+      const trigger = useRef(null), request = useRef(0), id = R.useId();
+      const browse = async dir => { const version = ++request.current; setLoading(true); setError(''); setQuery(''); try { const next = await api('files?directory=' + encodeURIComponent(dir)); if (version === request.current) setListing(next); } catch (e) { if (version === request.current) setError(e.message); } finally { if (version === request.current) setLoading(false); } };
+      const files = listing?.entries.filter(f => (f.directory || !extensions || extensions.some(ext => f.name.toLowerCase().endsWith(ext))) && f.name.toLowerCase().includes(query.toLowerCase())) || [];
+      const close = () => { setOpened(false); trigger.current?.focus(); };
+      return h('div', { className: 'ew-path-field' }, h(Field, { label }, textInput(value, onChange, { disabled, placeholder: '选择文件或输入工作区内的完整路径' })), button(opened ? '关闭文件列表' : '选择文件', () => { if (!opened) browse(''); setOpened(!opened); }, { disabled, ref: trigger, 'aria-expanded': opened, 'aria-controls': id }), opened && !disabled && h('div', { className: 'ew-filepicker', id, 'aria-busy': loading, onKeyDown: e => { if (e.key === 'Escape') { e.stopPropagation(); close(); } } },
+        loading && h('p', { role: 'status' }, '正在读取文件列表…'), error && h('p', { role: 'alert' }, error), listing && h(R.Fragment, null, h('p', { className: 'ew-help ew-wrap' }, listing.root, listing.directory ? '/' + listing.directory : ''), listing.parent !== null && button('上级目录', () => browse(listing.parent), { disabled: loading }),
+          h(Field, { label: '筛选当前目录' }, textInput(query, setQuery, { disabled: loading, placeholder: '输入文件名' })),
+          !loading && !files.length && empty('当前目录没有匹配的文件。可返回上级目录或直接输入完整路径。'),
+          h('ul', null, files.map(f => h('li', { key: f.path }, button((f.directory ? '文件夹 · ' : '') + f.name, () => { if (f.directory) browse(f.relative); else { onChange(f.path); close(); } }, { disabled: loading })))), listing.truncated && h('small', null, '本目录仅显示前 400 项，可输入确切路径。'))));
     }
     function ConstraintEditor({ fields, value, onChange, disabled }) {
       const update = (i, patch) => onChange(value.map((row, j) => j === i ? { ...row, ...patch } : row));

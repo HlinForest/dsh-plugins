@@ -1,14 +1,18 @@
 import Schema from '@deepseek-ai/schemastery';
+import fs from 'node:fs/promises';
 import { Workbench } from './service.js';
 import { Actions, LABELS } from './actions.js';
 import { randomUUID } from 'node:crypto';
 import { EngineeringTasks } from './engineering/tasks.js';
 import { createDshVision } from './engineering/vision.js';
+import { Materials } from './materials.js';
+import { RestorationRuns } from './restoration/service.js';
+import { registerRestoration } from './restoration/index.js';
 
 export const name = 'engineering-workbench';
 export const inject = ['connection', 'tools'];
 export const Config = Schema.object(Object.fromEntries([
-  'catalogPath', 'catalogV1Path', 'projectFile', 'currentSchematic', 'pcbPath', 'workspaceRoot', 'workDirectory', 'kicadCli', 'syncWorkDirectory', 'engineeringPython', 'happyRoot',
+  'catalogPath', 'catalogV1Path', 'projectFile', 'currentSchematic', 'pcbPath', 'workspaceRoot', 'workDirectory', 'kicadCli', 'kicadPython', 'syncWorkDirectory', 'engineeringPython', 'happyRoot', 'materialSourcesPath',
 ].map(key => [key, Schema.string().default('')])));
 const watched = /^(megmeet_|pcb_|schematic_|kicad_workflow_|mcp__kicad__)/;
 const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'private, no-store' } });
@@ -16,16 +20,21 @@ const json = (value, status = 200) => new Response(JSON.stringify(value), { stat
 export function apply(ctx, config) {
   const service = new Workbench(config);
   const engineering = new EngineeringTasks(service, createDshVision(ctx));
+  const restoration = new RestorationRuns(config, engineering);
+  registerRestoration(ctx, restoration);
   const controller = new AbortController();
   ctx.on('dispose', () => controller.abort());
-  const actions = new Actions(service, async (name, args, signal) => {
+  ctx.on('dispose', () => Promise.allSettled([engineering.manuals.dispose(), engineering.references.dispose()]));
+  const executeTool = async (name, args, signal) => {
     const result = await ctx.tools.execute({ name, arguments: args, callId: `engineering-workbench:${randomUUID()}`, signal });
     if (result.isError) {
       const detail = result.content?.filter(c => c.type === 'text').map(c => c.text).join('\n');
       throw new Error(detail || result.value?.message || '插件执行失败。');
     }
-    return result.value;
-  });
+    return result.value ?? result.structuredContent ?? result;
+  };
+  const actions = new Actions(service, executeTool);
+  const materials = new Materials(service, { schemas: () => ctx.tools.schemas(), execute: executeTool });
   ctx.on('tools/execute', async (exec, next) => {
     if (!watched.test(exec.name) || exec.callId?.startsWith('engineering-workbench:')) return next();
     const task = service.record(LABELS[exec.name] || exec.name, 'chat');
@@ -47,9 +56,36 @@ export function apply(ctx, config) {
     if (request.headers.get('sec-fetch-site') === 'cross-site' || (origin && new URL(origin).host !== authority)) throw new Error('不接受跨站操作。');
     const text = await request.text(); if (Buffer.byteLength(text) > 4 * 1024 * 1024) throw new Error('请求过大。'); return JSON.parse(text);
   };
-  route('bootstrap', ['GET'], async () => json({ ok: true, value: { currentSchematic: config.currentSchematic, pcbPath: config.pcbPath, workspaceRoot: config.workspaceRoot, projectFile: config.projectFile } }));
+  route('bootstrap', ['GET'], async () => json({ ok: true, value: { apiVersion: 2, currentSchematic: config.currentSchematic, pcbPath: config.pcbPath, workspaceRoot: config.workspaceRoot, projectFile: config.projectFile } }));
   const executeTask = async (a, signal) => ['list', 'open'].includes(a.action) ? engineering.dispatch(a, signal) : service.job(`engineering-${a.taskId || randomUUID()}`, `工程任务 · ${{create:'读取工程',page:'读取页面',extract:'提取资料',evidence:'保存证据',mapping:'确认对应',calibrate:'校准图面',compare:'比较',review:'评审',prepare:'生成候选',edit:'调整候选',undo:'撤销',redo:'重做',verify:'验证候选',export:'导出报告',apply:'保存',rollback:'回退'}[a.action] || a.action}`, [], () => engineering.dispatch(a, signal));
   route('engineering', ['POST'], async r => json({ ok: true, value: await executeTask(await input(r), AbortSignal.any([r.signal, controller.signal])) }));
+  route('restoration', ['POST'], async r => {
+    const value = await restoration.dispatch(await input(r), AbortSignal.any([r.signal, controller.signal]), 'human');
+    if (value?.validation) {
+      value.artifacts = [{ key: 'report', name: '独立核验报告.json', url: await service.asset(value.validation.report, 'application/json') }];
+      const pdf = value.validation.report.replace(/independent-verification\.json$/, 'schematic.pdf');
+      if (await fs.stat(pdf).then(s => s.isFile(), () => false)) value.artifacts.push({ key: 'pdf', name: '原理图检查预览.pdf', url: await service.asset(pdf, 'application/pdf') });
+    }
+    return json({ ok: true, value });
+  });
+  route('references', ['POST'], async r => json({ ok: true, value: await engineering.references.dispatch(await input(r), AbortSignal.any([r.signal, controller.signal])) }));
+  route('manuals', ['POST'], async r => json({ ok: true, value: await engineering.manuals.dispatch(await input(r), AbortSignal.any([r.signal, controller.signal])) }));
+  route('materials', ['GET', 'POST'], async r => {
+    if (r.method === 'GET') return json({ ok: true, value: await materials.list() });
+    const a = await input(r), signal = AbortSignal.any([r.signal, controller.signal]);
+    if (!['search', 'read', 'create-task'].includes(a.action)) throw new Error('不支持的资料操作。');
+    if (a.action === 'search') return json({ ok: true, value: await materials.search(a, signal) });
+    const record = await materials.read(a, signal);
+    if (a.action === 'read') return json({ ok: true, value: record });
+    // Only this host-owned route can attach verified provenance to a database import.
+    const task = await executeTask({ action: 'create', kind: 'datasheet', left: record.filePath, label: record.title }, signal);
+    const stored = await engineering.load(task.id); stored.materialSource = record; await engineering.persist(stored);
+    return json({ ok: true, value: await engineering.present(stored) });
+  });
+  route('material-sources', ['GET', 'POST'], async r => {
+    if (r.method === 'GET') return json({ ok: true, value: await materials.settings() });
+    return json({ ok: true, value: await materials.configure(await input(r)) });
+  });
   ctx.tools.register({
     name: 'engineering_task', description: '独立读手册、原理图评审、PCB 评审、两图对比及向目标对齐。使用各自 taskId。请求 JSON action 为 create/list/open/page/extract/evidence/mapping/compare/review/prepare/edit/undo/redo/verify/export。覆盖原工程仅在工作台查看变化并确认后执行。图片条目保留不确定性；不能宣称完整功能等价。',
     parameters: { type: 'object', additionalProperties: false, required: ['request'], properties: { request: { type: 'string', description: 'JSON 请求。create: {action,kind,left,right?,outputDirectory?}；其他操作: {action,taskId,...}。kind: datasheet/schematic-review/pcb-review/compare/align。edit 需 revision 和 operations。' } } },

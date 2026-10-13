@@ -146,7 +146,7 @@ export class Actions {
     const files = [];
     for (const f of entries) {
       if (f.name.startsWith('.') || ['node_modules', 'workspaces', 'dsh-workbench-data'].includes(f.name) || f.isSymbolicLink()) continue;
-      if (!f.isDirectory() && !['.kicad_sch', '.kicad_pcb', '.schdoc', '.pcbdoc', '.prjpcb', '.schlib', '.pdf', '.png', '.jpg', '.jpeg', '.webp', '.txt', '.md'].includes(path.extname(f.name).toLowerCase())) continue;
+      if (!f.isDirectory() && f.name !== 'manifest.json' && !['.kicad_pro', '.py', '.kicad_sch', '.kicad_pcb', '.schdoc', '.pcbdoc', '.prjpcb', '.schlib', '.pdf', '.png', '.jpg', '.jpeg', '.webp', '.txt', '.md'].includes(path.extname(f.name).toLowerCase())) continue;
       const resolved = await fs.realpath(path.join(actual, f.name)); if (!within(root, resolved)) continue;
       files.push({ name: f.name, directory: f.isDirectory(), path: resolved, relative: path.relative(root, resolved) });
     }

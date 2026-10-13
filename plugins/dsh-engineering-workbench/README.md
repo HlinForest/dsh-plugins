@@ -1,19 +1,32 @@
-# DSH 工程工作台 0.3.1
+# DSH 工程工作台 0.5.0
 
 六项独立任务：**读手册、产品方案、原理图评审、PCB 评审、原理图对比、向目标对齐**。支持 DSH 桌面 / Web 0.2.0-rc.2。工程师可只打开一块 PCB 进行评审，各任务有独立快照、范围、证据和持久化记录。
 
 [六项任务分步演示](docs/independent-demo.md) · [验证与已知限制](docs/validation.md) · [公共接口](docs/contracts.md) · [AD 25/26 待验收记录](docs/AD-acceptance.md)
 
+0.4.0 新增 [从原始资料复原](docs/restoration.md)：冻结输入、按位号读取全部原记录与引脚端点、独立核验、报告过期检查、空目录重放，以及规格书绑定和技术演示评审入口。实际转换仍由本轮 Harness 编写，不内置历史复原答案。完整 1:1 验收保持待确认，已知差异明确失败。
+
+0.5.0 增加本机 Altium 文件直接提取与冻结入口，以及 Windows 内网试用安装包。见 [内网安装与试用](docs/intranet.md)。支持范围和待确认项随提取记录保存；不内置案例复原脚本。
+
+## 本次修复
+
+官网资料默认使用 dsh-megmeet 0.2.1 的麦格米特完整下载列表索引，不再预设演示资料库。读手册可检索官网 PDF，按需下载并保留来源；数据库 MCP 预留只读、分页的检索与读取接口，见 [资料源接口](docs/material-sources.md)。选择文件后点击“读取文件并继续”，进入预览及评审范围；后端版本不一致会给出明确提示。
+
+0.3.3 按 UI UX Pro Max 的交互建议改进工作台：官网、本地 PDF 与已配置数据库直接可选；界面支持添加、编辑和移除数据库资料源，并展示真实连接状态。检索支持 Enter、前后分页与空结果引导；工程流程显示当前步骤、读取反馈和下一步。导航改为独立一行并适配窄窗口，补充深色主题、键盘焦点返回、文件筛选及减少动态效果支持。
+
+0.3.4 支持整本 PDF 索引、全文搜索、章节跳转、自动分批通读、带引用的笔记与暂停续读。PDF 对比增加逐页图像识别与覆盖进度，未读取目标内容时阻止比较。产品型号索引移到下方并默认折叠；MCP 优先选择可识别的数据库，技术字段移到高级设置。模块拆分和读取边界见 [架构说明](docs/architecture.md)。
+
 ## 能力与边界
 
 | 任务 | 当前能力 |
 | --- | --- |
-| 读手册 | PDF 页面、文本层 / DSH 视觉模型、两次提取交叉检查、带文件哈希和页码位置的资料卡 |
+| 读手册 | 整本索引、全文搜索、章节跳转、自动通读/按问题阅读、暂停续读、带原文引用的笔记和参数草稿 |
 | 产品方案 | 保留原插件真实需求、候选复核、工况校验与三种报告；按需安装产品方案插件 |
 | 原理图评审 | KiCad 原生 ERC、AD 离线实际对象与网络、共用明确规则、固定上游版本的建议 |
 | PCB 评审 | KiCad 原生 DRC / 未布线 / 可选原理图一致性；AD PcbDoc 离线板图和焊盘网络 |
 | 原理图对比 | 原生工程、图片和 PDF 混合；器件对应、连接、已列功能指标与设计要求分别判断 |
 | 向目标对齐 | 部分差异候选；真实对象属性、选择 / 框选、移动、旋转、增删件、导线 / 标注、撤销重做；验证、完整候选包及受控保存 / 回退 |
+| 工程复原 | 原始证据快照、阶段输入、独立检查、重放记录与规格书绑定；目前适配 Altium 直接提取证据到 KiCad 的技术演示 |
 
 资料管理与执行记录为公共入口。原有工具名、原 `dsh-schematic-sync` 包及历史同步任务保持兼容；旧界面说明在 [0.2 历史文档](docs/legacy-0.2.md)。
 
@@ -26,7 +39,7 @@ AD 离线使用固定版本 altium-monkey。**当前没有 AD 25/26 环境，软
 工作台本身可独立执行 KiCad 评审、对比和对齐，不要求安装产品库、PCB 业务插件或同步插件。需要产品方案时安装 dsh-megmeet；需要旧业务工具时安装对应插件。一个可选模块缺失不影响其他入口。
 
 ```powershell
-dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.3.1.tgz --ignore-scripts
+dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.5.0.tgz --ignore-scripts
 ```
 
 最小配置，写入实际 profile 的 cordis.patch.yml：
@@ -37,6 +50,7 @@ dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.3.1.tgz --ig
     workspaceRoot: D:/VisualBoard
     workDirectory: D:/VisualBoard/dsh-workbench-data
     kicadCli: D:/Kicad/bin/kicad-cli.exe
+    kicadPython: D:/Kicad/bin/python.exe
 ```
 
 PDF / 图片和 AD 离线能力需要工程工具环境。安装脚本固定源码提交与依赖版本，不把第三方代码混入自有 MIT 源码：

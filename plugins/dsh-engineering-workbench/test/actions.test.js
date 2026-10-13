@@ -24,7 +24,7 @@ async function harness(t) {
   t.after(() => ctx.fiber.dispose());
   ctx.provide('connection', { fetch: { register(route) { routes.set(route.path, route); } } });
   await ctx.plugin(SystemPrompt); await ctx.plugin(ToolRuntime);
-  await ctx.plugin(megmeet, { reportDirectory: dir, maxCandidates: 10 });
+  await ctx.plugin(megmeet, { catalogPath: fileURLToPath(new URL('../../dsh-megmeet/examples/catalog.demo.json', import.meta.url)), reportDirectory: dir, maxCandidates: 10 });
   const projectFile = fileURLToPath(new URL('../../dsh-pcb-review/examples/project.kicad.json', import.meta.url));
   await ctx.plugin(pcb, { projectFile, reportDirectory: dir });
   await ctx.plugin(plugin, { workDirectory: dir, workspaceRoot: dir });

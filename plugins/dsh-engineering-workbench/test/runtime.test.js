@@ -8,6 +8,32 @@ import * as plugin from '../src/index.js';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { HostConnectionService } from '@deepseek-ai/dsh-client-connection';
+
+test('real DSH Fetch registry serves engineering POST and both materials methods', async t => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'workbench-routes-'));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const ctx = new Context(); t.after(() => ctx.fiber.dispose());
+  new HostConnectionService(ctx, [], {});
+  await ctx.plugin(SystemPrompt); await ctx.plugin(ToolRuntime);
+  await ctx.plugin(plugin, { workspaceRoot: dir, workDirectory: dir });
+  const handler = ctx.connection.createSharedFetchHandler('/api');
+  const request = (endpoint, body) => handler.fetch(new Request('http://local/api/engineering-workbench/' + endpoint, body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : {}));
+  assert.equal((await (await request('bootstrap')).json()).value.apiVersion, 2);
+  assert.deepEqual((await (await request('engineering', { action: 'list' })).json()).value, []);
+  assert.deepEqual((await (await request('restoration', { action: 'list' })).json()).value, []);
+  assert.ok((await (await request('materials')).json()).value.every(s => s.kind === 'megmeet-official'));
+  const result = await request('materials', { action: 'search', sourceId: 'missing', query: '' });
+  assert.equal(result.status, 400); assert.equal((await result.json()).ok, false);
+  assert.equal((await (await request('material-sources')).json()).value.canSave, true);
+  const added = await (await request('material-sources', { action: 'save-source', source: { label: '界面添加', readOnly: true, tools: { search: 'mcp__db__search', read: 'mcp__db__read' } } })).json();
+  assert.equal(added.ok, true);
+  const rows = (await (await request('materials')).json()).value;
+  assert.equal(rows.find(s => s.id === added.value.id).connected, false);
+  const crossSite = await handler.fetch(new Request('http://local/api/engineering-workbench/material-sources', { method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://elsewhere.invalid' }, body: JSON.stringify({ action: 'remove-source', id: added.value.id }) }));
+  assert.equal(crossSite.status, 400);
+  assert.equal((await (await request('materials')).json()).value.some(s => s.id === added.value.id), true);
+});
 
 test('真实 DSH 工具调用经过工作台观察器，结果与参数不泄露到状态面板', async t => {
   const ctx = new Context();
@@ -40,4 +66,6 @@ test('独立工程工具不依赖业务插件；模型不能请求覆盖确认',
   const call = request => ctx.tools.execute({ name: 'engineering_task', arguments: { request: JSON.stringify(request) }, callId: 'independent-tool-test', signal: new AbortController().signal });
   const result = await call({ action: 'list' }); assert.equal(result.isError, false); assert.deepEqual(result.value, []);
   const denied = await call({ action: 'confirmation', taskId: 'model-cannot-sign', operation: 'apply' }); assert.equal(denied.isError, true);
+  const restore = await ctx.tools.execute({ name: 'engineering_restore', arguments: { request: JSON.stringify({ action: 'review', runId: 'model-cannot-sign' }) }, callId: 'restore-review-denied', signal: new AbortController().signal });
+  assert.equal(restore.isError, true);
 });

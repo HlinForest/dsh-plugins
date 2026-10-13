@@ -6,15 +6,34 @@
       const work = useWork(), [left, setLeft] = useState(''), [right, setRight] = useState(''), [output, setOutput] = useState('');
       const [task, setTask] = useState(null), [records, setRecords] = useState([]), [chosen, setChosen] = useState([]), [focus, setFocus] = useState('');
       const [relatedSchematic, setRelatedSchematic] = useState('');
+      const [ready, setReady] = useState(false), [previewOpen, setPreviewOpen] = useState(false);
+      const [materialBusy, setMaterialBusy] = useState(false), nextStep = useRef(null);
+      const inputVersion = useRef(0);
       const [native, setNative] = useState(true), [extended, setExtended] = useState(true), [checks, setChecks] = useState([]), [metrics, setMetrics] = useState([]);
       const pair = kind === 'compare' || kind === 'align', review = kind.endsWith('review');
+      const busy = !!work.busy || materialBusy;
+      useEffect(() => { if (task) { nextStep.current?.focus(); nextStep.current?.scrollIntoView({ block: 'start' }); } }, [task?.id]);
       const refreshList = async () => setRecords((await et({ action: 'list' })).filter(t => t.kind === kind));
-      useEffect(() => { api('bootstrap').then(c => setLeft(kind === 'pcb-review' ? c.pcbPath || '' : kind !== 'datasheet' ? c.currentSchematic || '' : '')).catch(() => {}); refreshList().catch(() => {}); }, []);
+      const connect = () => work.run('检查工程服务', async () => {
+        setReady(false);
+        const version = inputVersion.current, c = await api('bootstrap');
+        if (c.apiVersion !== 2) throw new Error('工程后端版本尚未更新，请重新加载插件后端或重启 DeepSeek Harness。');
+        if (version === inputVersion.current) setLeft(previous => previous || (kind === 'pcb-review' ? c.pcbPath || '' : kind !== 'datasheet' ? c.currentSchematic || '' : ''));
+        await refreshList(); setReady(true);
+      });
+      useEffect(() => { connect(); }, []);
+      const changeInput = setter => value => { inputVersion.current++; setter(value); setTask(null); setChosen([]); setFocus(''); work.setError(''); };
       const execute = (action, extra = {}) => work.run('正在' + ({ create: '读取文件', review: '评审', extract: '提取并交叉核对', prepare: '生成候选', verify: '验证候选', export: '保存报告' }[action] || '处理任务'), async () => {
-        const result = await et({ action, taskId: task?.id, revision: task?.revision, ...extra }); setTask(result); setChosen([]); if (action === 'create' || action === 'open') setFocus(''); await refreshList(); return result;
+        const version = inputVersion.current;
+        const result = await et({ action, taskId: task?.id, revision: task?.revision, ...extra });
+        if (version !== inputVersion.current) return null;
+        setTask(result); if (action === 'page') setPreviewOpen(true); setChosen([]); if (action === 'create' || action === 'open') setFocus('');
+        try { await refreshList(); } catch { work.setError('工程已读取，但记录列表刷新失败；可以继续当前任务。'); }
+        return result;
       });
       const current = task?.candidate || task?.left;
       const source = current?.design, target = task?.right?.design;
+      const referencesReady = task && [task.left, task.right].filter(Boolean).every(s => s.design.format !== 'reference' || (s.design.coverage.pagesReviewed || []).length === s.design.pages && s.design.components.length > 0);
       const diffNames = { value: '数值', footprint: '封装', dnp: '装配状态', libId: '型号 / 符号', position: '图面位置', 'pin-net': '引脚连接', 'net-name-only': '仅网络名不同', 'mapping-unconfirmed': '对应关系待确认', 'unmatched-source': '源图未匹配', 'unmatched-target': '目标图未匹配' };
       const describeObject = id => [...(source?.components || []), ...(target?.components || [])].find(c => c.id === id)?.ref || id;
       const selectTask = async id => { if (!id) return; const result = await execute('open', { taskId: id }); if (result) { setLeft(result.left.source); setRight(result.right?.source || ''); setOutput(result.outputDirectory || ''); setChecks(result.checks || []); setMetrics(result.metrics || []); } };
@@ -29,26 +48,38 @@
         if (window.confirm(message)) setTask(await et({ action: operation, taskId: task.id, confirmation: prepared.confirmation }));
       });
       return h('div', { className: 'ew-engineering' },
-        h('div', { className: 'ew-section-head' }, h('div', null, h('h2', null, engineeringTitles[kind]), h('p', { className: 'ew-help' }, '每项任务拥有独立文件快照、检查范围和记录。默认工程仅用于预填。')), h('div', null, task && chip('版本 ' + task.revision))),
+        h('div', { className: 'ew-section-head' }, h('div', null, h('h2', null, engineeringTitles[kind]), h('p', { className: 'ew-help' }, kind === 'datasheet' ? '搜索全文、按问题阅读或自动通读整本，结论保留页码与原文。' : pair ? '选择源工程与目标资料，核对对应关系，再比较差异。' : '选择本次工程，读取预览后设置检查范围并开始评审。')), h('div', null, task && chip('版本 ' + task.revision))),
+        h('ol', { className: 'ew-workflow', 'aria-label': '处理步骤' }, (kind === 'datasheet' ? ['选择资料', '整本阅读与检索', '导出笔记与资料卡'] : ['选择工程', review ? '预览与评审' : '核对与比较', '查看结果']).map((title, i) => {
+          const stage = task ? task.review || task.comparison || task.artifacts?.some(a => a.key !== 'preview') ? 2 : 1 : 0;
+          return h('li', { key: title, className: i < stage ? 'ew-step-done' : '', 'aria-current': i === stage ? 'step' : undefined }, h('span', { className: 'ew-stepno' }, i < stage ? h(Icon, { name: 'check', size: 14 }) : i + 1), title);
+        })),
         h(Alert, { work }),
-        h('div', { className: 'ew-form-row' }, h(FilePicker, { label: pair ? '源原理图' : kind === 'datasheet' ? 'PDF 手册' : '待评审工程', value: left, onChange: setLeft, extensions: kind === 'datasheet' ? ['.pdf'] : kind === 'pcb-review' ? ['.kicad_pcb', '.pcbdoc'] : undefined }), pair && h(FilePicker, { label: '目标原理图 / 图片 / PDF', value: right, onChange: setRight }), h(Field, { label: '报告保存目录（可留空）' }, textInput(output, setOutput, { placeholder: '留空则保存在此任务目录' }))),
-        kind === 'pcb-review' && h('details', null, h('summary', null, '可选：关联原理图以执行原生一致性检查'), h(FilePicker, { label: '关联原理图（留空继续评审 PCB）', value: relatedSchematic, onChange: setRelatedSchematic, extensions: ['.kicad_sch'] })),
-        h('div', { className: 'ew-inline' }, button('新建独立任务', () => execute('create', { kind, left, right: pair ? right : undefined, relatedSchematic: relatedSchematic || undefined, outputDirectory: output || undefined }), { disabled: !!work.busy || !left || pair && !right }), h(Field, { label: '打开已有记录' }, selectInput(task?.id || '', selectTask, [['', '选择此任务的记录'], ...records.map(t => [t.id, `${t.label} · ${new Date(t.createdAt).toLocaleString()}`])]))),
-        task && h(R.Fragment, null,
+        !ready && !work.busy && button('重新连接工程服务', connect),
+        kind === 'datasheet' && h(MaterialBrowser, { disabled: !!work.busy || !ready, onBusy: setMaterialBusy, onSourceChange: () => { inputVersion.current++; setTask(null); }, onTask: result => { inputVersion.current++; setTask(result); setLeft(result.left.source); setOutput(''); refreshList().catch(() => {}); } }),
+        kind !== 'datasheet' && h('section', { className: 'ew-input-panel', 'aria-label': '本次工程' }, h('h3', null, pair ? '选择要比较的文件' : '本次评审工程'),
+          h('div', { className: 'ew-form-row' }, h(FilePicker, { label: pair ? '源原理图' : '待评审工程', value: left, onChange: changeInput(setLeft), disabled: busy, extensions: kind === 'pcb-review' ? ['.kicad_pcb', '.pcbdoc'] : ['.kicad_sch', '.schdoc', '.prjpcb'] }), pair && h(FilePicker, { label: '目标原理图 / 图片 / PDF', value: right, onChange: changeInput(setRight), disabled: busy })),
+          h('details', { className: 'ew-output-settings' }, h('summary', null, '报告保存位置（可选）'), h(Field, { label: '报告保存目录（可留空）' }, textInput(output, changeInput(setOutput), { disabled: busy, placeholder: '留空则保存在此任务目录' }))),
+          h('div', { className: 'ew-action-row' }, h('p', { className: 'ew-help', role: 'status' }, task ? '文件已读取，可继续下方操作。更换文件会开始新任务。' : left ? '已选择文件。下一步：读取文件，生成预览和独立任务。' : '选择工程文件后，即可读取并查看预览。'), button(work.busy === '正在读取文件' ? '正在读取文件…' : '读取文件并继续', () => execute('create', { kind, left, right: pair ? right : undefined, relatedSchematic: relatedSchematic || undefined, outputDirectory: output || undefined }), { className: task ? '' : 'ew-primary', disabled: busy || !ready || !left || pair && !right }))),
+        kind === 'pcb-review' && h('details', null, h('summary', null, '可选：关联原理图以执行原生一致性检查'), h(FilePicker, { label: '关联原理图（留空继续评审 PCB）', value: relatedSchematic, onChange: changeInput(setRelatedSchematic), disabled: !!work.busy, extensions: ['.kicad_sch'] })),
+        h('div', { className: 'ew-history-row' }, h(Field, { label: '打开已有记录' }, selectInput(task?.id || '', selectTask, [['', records.length ? `选择历史记录（${records.length}）` : '暂无记录，读取文件后自动保存'], ...records.map(t => [t.id, `${t.label} · ${new Date(t.createdAt).toLocaleString()}`])], { disabled: busy || !ready || !records.length }))),
+        task && h('section', { className: 'ew-task-body', ref: nextStep, tabIndex: -1, 'aria-label': '当前任务' },
+          h('div', { className: 'ew-task-ready', role: 'status' }, h(Icon, { name: 'check' }), h('span', null, h('strong', null, '文件已读取'), h('small', null, review ? '下一步：选择检查范围并开始评审。' : pair ? '下一步：完成 PDF / 图片识别，再核对对应关系。' : '下一步：搜索全文，或自动通读整本手册。'))),
           h('p', { className: 'ew-help' }, '任务 ' + task.id + ' · ' + task.left.source),
+          task.materialSource && h('p', { className: 'ew-help' }, `来源：${task.materialSource.sourceLabel} · 记录 ${task.materialSource.id} · 版本 ${task.materialSource.revision || '未提供'}`),
           (!task.sourceFresh && !task.applied || task.targetFresh === false || task.candidateFresh === false) && h('p', { className: 'ew-error' }, '源工程、目标或候选已在此任务之外改变。旧结果只用于查看历史，不能沿用旧确认覆盖文件。'),
           h('div', { className: 'ew-inline' }, button('导出报告 / 资料卡', () => execute('export')), task.candidate && button('验证候选', () => execute('verify')), task.validation?.canOverwrite && button('覆盖原工程', () => confirmation('apply')), task.applied && button('回退此版本', () => confirmation('rollback'))), h(Artifacts, { value: task }),
           task.validation && h('div', { className: task.validation.canOverwrite ? 'ew-note' : 'ew-error' }, '原生检查：' + es(task.validation.native.status) + '。' + (task.validation.native.reason || '') + (task.validation.canOverwrite ? '允许确认保存。' : '当前不能覆盖原工程；可保留候选继续处理。') + ' 修改原理图不会自动更新 PCB。'),
-          ['left', ...(pair ? ['right'] : [])].map(side => task[side].design.format === 'reference' && h(ReferencePanel, { key: side, task, side, execute, work })),
-          source?.previews?.length > 0 && h(EngineeringViewer, { task, focus }),
+          ['left', ...(pair ? ['right'] : [])].map(side => task[side].design.format === 'reference' && h(R.Fragment, { key: task.id + side }, kind === 'datasheet' ? h(ManualReader, { task, execute }) : h(ReferenceReader, { task, side, execute }), h('details', null, h('summary', null, '逐页预览与高级校对'), h(ReferencePanel, { task, side, execute, work })))),
+          source?.previews?.length > 0 && (kind === 'datasheet' ? h('details', { className: 'ew-manual-preview', tabIndex: -1, open: previewOpen, onToggle: e => setPreviewOpen(e.currentTarget.open) }, h('summary', null, `查看原文预览（第 ${source.page || 1} 页）`), button('返回阅读结果', e => { const reader = nextStep.current?.querySelector('.ew-manual-reader'); reader?.focus(); reader?.scrollIntoView({ block: 'start' }); }), h(EngineeringViewer, { task, focus })) : h(EngineeringViewer, { task, focus })),
           kind === 'pcb-review' && h(BoardObjects, { design: source, focus }),
           review && h(R.Fragment, null,
-            h('h3', null, '检查范围'), h('div', { className: 'ew-inline' }, checkbox('原生 ERC / DRC', native, setNative), checkbox('扩展检查建议', extended, setExtended), button('开始评审', () => execute('review', { native, extended, checks }), { disabled: !!work.busy })),
+            h('h3', null, '检查范围'), h('div', { className: 'ew-inline' }, checkbox('原生 ERC / DRC', native, setNative), checkbox('扩展检查建议', extended, setExtended), button(work.busy === '正在评审' ? '正在评审…' : '开始评审', () => execute('review', { native, extended, checks }), { className: 'ew-primary', disabled: busy })),
             h(RuleEditor, { value: checks, onChange: setChecks, components: source.components, nets: source.nets }),
             task.review && h(R.Fragment, null, h('h3', null, '检查结果'), h('p', null, '原生：' + es(task.review.native.status) + ' · 扩展：' + es(task.review.extension.status)), h(Bullets, { items: task.review.missing }),
               task.review.native.reason && h('p', { className: 'ew-error' }, task.review.native.reason), task.review.extension.reason && h('p', { className: 'ew-note' }, task.review.extension.reason),
               h(Table, { columns: [['检查项', r => r.rule || r.type || r.description || r.detector], ['结论', r => es(r.status || r.severity)], ['证据 / 描述', r => r.reason || r.description || r.summary || r.formula], ['位置', r => (r.objects || r.items || r.components || []).map(x => typeof x === 'string' ? describeObject(x) : x.description || x.uuid).join(', ')], ['定位', r => button('定位器件', () => setFocus(issueObject(r)), { disabled: !issueObject(r) })]], rows: [...(task.review.native.violations || []), ...task.review.rules, ...(task.review.extension.findings || [])] }))),
-          pair && h(R.Fragment, null,
+          pair && !referencesReady && h('p', { className: 'ew-note' }, '完成上方资料识别后，这里会出现元件对应关系和比较操作。'),
+          pair && referencesReady && h(R.Fragment, null,
             h('h3', null, '元件对应关系'), h('p', { className: 'ew-help' }, '位号相同只是建议。不同型号、不同引脚定义需逐项核对；不能据此认定可互换。'),
             h(MappingEditor, { task, onSave: mappings => execute('mapping', { mappings }) }),
             kind === 'align' && h(LayoutCalibration, { task, execute }),
@@ -87,7 +118,7 @@
       const work = useWork(), [records, setRecords] = useState([]);
       const refresh = () => work.run('读取资料与任务', async () => setRecords(await et({ action: 'list' })));
       useEffect(() => { refresh(); }, []);
-      return h('section', null, h('h2', null, '资料管理'), h('p', { className: 'ew-help' }, '各任务保留自己的源文件快照、证据和报告。打开记录可查看资料卡、导出或继续处理；选择文件时仍需明确本次任务输入。'), h(Alert, { work }), button('刷新记录', refresh), h(Table, { columns: [['名称', r => r.label], ['任务', r => engineeringTitles[r.kind]], ['创建时间', r => new Date(r.createdAt).toLocaleString()], ['版本', r => r.revision], ['打开', r => button('打开此记录', () => onOpen(r.kind, r.id))]], rows: records }));
+      return h('section', null, h('h2', null, '资料管理'), h('p', { className: 'ew-help' }, '各任务保留自己的源文件快照、证据和报告。打开记录可查看资料卡、导出或继续处理；选择文件时仍需明确本次任务输入。'), h(Alert, { work }), h(MaterialBrowser, { onTask: task => onOpen(task.kind, task.id) }), h('h3', null, '已读取的资料与工程记录'), button('刷新记录', refresh), h(Table, { columns: [['名称', r => r.label], ['任务', r => engineeringTitles[r.kind]], ['创建时间', r => new Date(r.createdAt).toLocaleString()], ['版本', r => r.revision], ['打开', r => button('打开此记录', () => onOpen(r.kind, r.id))]], rows: records }));
     }
     function MappingEditor({ task, onSave }) {
       const [rows, setRows] = useState(task.mappings);
@@ -102,6 +133,7 @@
     }
     function ReferencePanel({ task, side, execute, work }) {
       const snap = task[side], design = snap.design, [page, setPage] = useState(String(design.page || 1)), [text, setText] = useState(''), [reviewed, setReviewed] = useState(false);
+      useEffect(() => { setPage(String(design.page || 1)); }, [design.page]);
       useEffect(() => { setText(snap.draft ? JSON.stringify(snap.draft.first, null, 2) : ''); setReviewed(false); }, [snap.draft?.sourceHash, snap.draft?.page, snap.draft?.first, design.page]);
       return h('section', { className: 'ew-reference-card' }, h('h3', null, side === 'right' ? '目标资料识别' : task.kind === 'datasheet' ? '资料卡' : '源资料识别'),
         h('div', { className: 'ew-inline' }, h(Field, { label: `页码 / 共 ${design.pages} 页` }, textInput(page, setPage, { type: 'number', min: 1, max: design.pages })), button('读取此页', () => execute('page', { side, page: Number(page) })), button('提取两遍并核对', () => execute('extract', { side }), { disabled: !!work.busy })),

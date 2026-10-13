@@ -13,7 +13,7 @@ def verify(page, artifacts):
     for title in ['读手册', '产品方案', '原理图评审', 'PCB 评审', '原理图对比', '向目标对齐']:
         expect(panel.get_by_role('button', name=title, exact=True)).to_have_count(1)
     # No product catalog, schematic-sync provider or PCB-review provider installed.
-    panel.get_by_role('button', name='新建独立任务', exact=True).click()
+    panel.get_by_role('button', name='读取文件并继续', exact=True).click()
     expect(panel.get_by_role('button', name='开始评审', exact=True)).to_be_visible(timeout=60000)
     panel.get_by_role('button', name='器件定位与实际焊盘网络', exact=True).click()
     canvas = panel.locator('.ew-map:visible')
@@ -40,7 +40,7 @@ def verify(page, artifacts):
     panel.get_by_role('button', name='原理图对比', exact=True).click()
     section = panel.locator('.ew-engineering:visible')
     section.get_by_label('目标原理图 / 图片 / PDF').fill('D:/VisualBoard/DisplayBoard.kicad_sch')
-    section.get_by_role('button', name='新建独立任务', exact=True).click()
+    section.get_by_role('button', name='读取文件并继续', exact=True).click()
     expect(section.get_by_text('元件对应关系', exact=True)).to_be_visible(timeout=60000)
     viewer = section.locator('.ew-drawing-viewer')
     viewer.get_by_role('button', name='放大图纸', exact=True).click()
@@ -58,7 +58,7 @@ def verify(page, artifacts):
     fixture = 'D:/VisualBoard/dsh-plugins/plugins/dsh-engineering-workbench/examples/independent/'
     section.get_by_label('源原理图', exact=True).fill(fixture + 'divider.kicad_sch')
     section.get_by_label('目标原理图 / 图片 / PDF').fill(fixture + 'changed-value.kicad_sch')
-    section.get_by_role('button', name='新建独立任务', exact=True).click()
+    section.get_by_role('button', name='读取文件并继续', exact=True).click()
     expect(section.get_by_role('button', name='保存对应关系', exact=True)).to_be_visible(timeout=60000)
     for check in section.get_by_label('已核对', exact=True).all(): check.check()
     section.get_by_role('button', name='保存对应关系', exact=True).click()

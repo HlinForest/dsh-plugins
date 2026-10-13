@@ -5,6 +5,7 @@
       const [parsed, setParsed] = useState(null), [result, setResult] = useState(null), [candidate, setCandidate] = useState(null);
       const [chosen, setChosen] = useState([]), [report, setReport] = useState(null), [title, setTitle] = useState('客户需求与产品方案');
       const revision = useRef(0);
+      const [modelQuery, setModelQuery] = useState(''), [modelPage, setModelPage] = useState(0);
       useEffect(() => { work.run('读取产品资料库', async () => { const x = await invoke('selection', 'info'); setInfo(x); setLimit(x.maxCandidates); }); }, []);
       const invalidate = () => { revision.current++; setParsed(null); setResult(null); setCandidate(null); setChosen([]); setReport(null); };
       const changeText = v => { setText(v); invalidate(); };
@@ -26,10 +27,12 @@
       const fields = info?.fields || {};
       const expected = c => c.operator === 'range' ? `${c.min}–${c.max}${fields[c.field]?.unit || ''}` : `${({ gte: '≥', lte: '≤', eq: '=', includes: '包含' })[c.operator]} ${c.textValue ?? c.value}${fields[c.field]?.unit || ''}`;
       const sources = result?.sources || info?.sources || [];
+      const models = (info?.models || []).filter(m => (!family || m.family === family) && m.name.toLowerCase().includes(modelQuery.trim().toLowerCase()));
       return h('div', { className: 'ew-business' },
         h('div', { className: 'ew-page-intro' }, h('div', null, h('h2', null, '客户需求与产品方案'), h('p', null, '保留客户原文，逐项核对条件、候选与资料依据。')), button('刷新资料库信息', () => work.run('刷新资料库', async () => { invalidate(); setInfo(await invoke('selection', 'info')); }), { disabled: !!work.busy })),
         h(Alert, { work }),
-        info && h('div', { className: 'ew-dataset' }, h('strong', null, info.dataset), h('span', null, `${info.productCount} 个型号`), h('span', null, `版本 ${info.catalogVersion}`), h('span', { className: info.demo ? 'ew-warning-text' : '' }, info.demo ? '虚构演示库' : '已配置资料库'), h('small', null, '资料快照 ' + info.catalogRevision.slice(0, 12))),
+        info && h('div', { className: 'ew-dataset' }, h('strong', null, info.dataset), info.configured !== false && h(R.Fragment, null, h('span', null, `当前快照收录 ${info.productCount} 个${info.coverage ? '型号 / 系列标识' : '型号'}`), h('span', null, `版本 ${info.catalogVersion}`), h('span', { className: info.demo ? 'ew-warning-text' : '' }, info.demo ? '虚构演示库 · 仅用于演示' : '已指定资料快照 · 不代表完整资料库'), h('small', null, '资料快照 ' + (info.catalogRevision || '').slice(0, 12)))),
+        info?.configured === false && h('p', { className: 'ew-note' }, '尚未接入实际产品资料库。可以先解析需求；连接资料库后再检索。演示数据不会默认载入。'),
         h('div', { className: 'ew-request-grid' },
           h('section', { className: 'ew-paper' }, h('h3', null, '需求原文'),
             h(Field, { label: '客户需求' }, textarea(text, changeText, { rows: 9, placeholder: '粘贴真实需求，例如输入/输出电压、功率、环境温度、效率、通信、认证及安装限制。未提供的条件不会自动补上。', maxLength: info?.maxInputChars || 500000 })),
@@ -37,9 +40,9 @@
             h('details', { className: 'ew-examples' }, h('summary', null, '载入可选示例'),
               button('48V 通信电源需求', () => changeText('输入电压：180–264VAC；输出电压：48VDC；输出功率不少于3kW；效率至少96%；工作温度：-20–60℃；通信协议：CAN、RS485；认证：CE、UL；散热方式：风冷。'), { disabled: !!work.busy }),
               button('24V 控制柜电源需求', () => changeText('输出电压：24VDC；输入电压：176–264VAC；输入频率：50–60Hz；安装方式：导轨；本体宽度≤65mm；DC OK继电器：有；持续负载：300W；设计裕量：20%；环境温度：55℃；安装姿态：垂直且输入端子朝下；海拔：1000m；上方间距：50mm；下方间距：40mm；侧面间距：15mm。'), { disabled: !!work.busy })),
-            h('div', { className: 'ew-form-row' }, h(Field, { label: '产品类别' }, selectInput(family, v => { setFamily(v); invalidate(); }, [['', '全部类别'], ...(info?.families || [])])), h(Field, { label: '候选展示上限' }, h('input', { type: 'number', value: limit, min: 1, max: info?.maxCandidates || 10, onChange: e => { setLimit(e.target.value); invalidate(); } }))),
+            h('div', { className: 'ew-form-row' }, h(Field, { label: '产品类别' }, selectInput(family, v => { setFamily(v); setModelPage(0); invalidate(); }, [['', '全部类别'], ...(info?.families || [])])), h(Field, { label: '候选展示上限' }, h('input', { type: 'number', value: limit, min: 1, max: info?.maxCandidates || 10, onChange: e => { setLimit(e.target.value); invalidate(); } }))),
             checkbox('同时列出不满足项，便于解释排除原因', include, v => { setInclude(v); invalidate(); }),
-            h('div', { className: 'ew-actions' }, button('解析需求', parse, { disabled: !!work.busy || !text.trim() || !info }), button('检索并校验候选', search, { className: 'ew-primary', disabled: !!work.busy || !text.trim() || !info }))),
+            h('div', { className: 'ew-actions' }, button('解析需求', parse, { disabled: !!work.busy || !text.trim() || !info }), button('检索并校验候选', search, { className: 'ew-primary', disabled: !!work.busy || !text.trim() || !info || info.configured === false }))),
           h('section', { className: 'ew-paper' }, h('h3', null, '已提取条件'),
             requirements.length ? h(Table, { columns: [['条件', c => fields[c.field]?.label || c.field], ['要求', expected], ['类型', c => c.hard ? '硬条件' : '偏好'], ['原文依据', 'sourceQuote']], rows: requirements }) : empty('输入需求并解析后，这里显示实际提取的条件。'),
             parsed && h(R.Fragment, null, h('h3', { className: 'ew-section-title' }, '待确认与解析提示'), (parsed.unresolved?.length || parsed.warnings?.length) ? h(Bullets, { items: [...(parsed.unresolved || []), ...(parsed.warnings || [])] }) : h('p', { className: 'ew-help' }, '本次解析没有列出待确认项；仍需核对条件是否完整。'),
@@ -61,6 +64,11 @@
           h(Field, { label: '报告标题' }, textInput(title, v => { revision.current++; setTitle(v); setReport(null); }, { maxLength: 200 })),
           h('div', { className: 'ew-actions' }, button('生成方案', () => makeReport('report'), { disabled: !!work.busy, className: 'ew-primary' }), button('导出 HTML / Markdown / JSON', () => makeReport('export'), { disabled: !!work.busy })),
           report && h('div', { className: 'ew-report' }, h(Artifacts, { value: report }), h(TextReport, { text: report.markdown }))),
+        info?.coverage && h('details', { className: 'ew-paper ew-catalog' }, h('summary', null, `浏览官网型号与系列（${info.productCount}）`),
+          h('p', { className: 'ew-help' }, `官网下载列表 ${info.coverage.listedRows} 条，去重 ${info.coverage.uniqueDocuments} 份资料；标题收录 ${info.productCount} 个型号 / 系列标识。通配名称不展开。规格参数尚未逐项核验，选型结论保持待确认。`),
+          h(Field, { label: '查找官网型号或系列' }, textInput(modelQuery, value => { setModelQuery(value); setModelPage(0); }, { placeholder: '例如 MPT、MV820、SPM' })),
+          h(Table, { columns: [['型号 / 系列', m => m.name], ['分类', m => m.family], ['相关资料', m => m.documentIds.length + ' 份'], ['复核', m => button('按当前需求复核', () => work.run('复核官网型号', async () => { const n = revision.current, value = await invoke('selection', 'validate', { ...args(), productId: m.id, expectedCatalogRevision: info.catalogRevision }); if (n === revision.current) { setCandidate(value.candidate); setParsed(value.requirements); setResult({ ...value, candidates: [value.candidate], totalEvaluated: 1, totalCandidates: 1, excludedIncompatible: value.candidate.status === 'incompatible' ? 1 : 0 }); setChosen([m.id]); setReport(null); } }), { disabled: !!work.busy || !text.trim() })]], rows: models.slice(modelPage * 20, (modelPage + 1) * 20) }),
+          h('div', { className: 'ew-inline' }, h('span', null, `匹配 ${models.length} 项 · 第 ${modelPage + 1} 页`), button('上一页型号', () => setModelPage(Math.max(0, modelPage - 1)), { disabled: modelPage === 0 }), button('下一页型号', () => setModelPage(modelPage + 1), { disabled: (modelPage + 1) * 20 >= models.length }))),
         info && h('details', { className: 'ew-extra' }, h('summary', null, '资料库范围与限制'), h(Bullets, { items: info.limitations }), h(Raw, { value: info, title: '资料库信息' })));
     }
     function PowerOverview({ result }) {

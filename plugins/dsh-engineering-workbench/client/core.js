@@ -7,6 +7,10 @@
     const stamp = value => value ? new Date(value).toLocaleTimeString('zh-CN', { hour12: false }) : '—';
     function Icon({ name, size = 18 }) {
       const shapes = {
+        file: h('path', { d: 'M14 2H5v20h14V7zM14 2v6h5M8 13h8M8 17h6' }),
+        globe: [h('circle', { key: 1, cx: 12, cy: 12, r: 9 }), h('path', { key: 2, d: 'M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18' })],
+        database: [h('ellipse', { key: 1, cx: 12, cy: 5, rx: 8, ry: 3 }), h('path', { key: 2, d: 'M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0' })],
+        plus: h('path', { d: 'M12 5v14M5 12h14' }),
         grid: [h('rect', { key: 1, x: 3, y: 3, width: 7, height: 7, rx: 1 }), h('rect', { key: 2, x: 14, y: 3, width: 7, height: 7, rx: 1 }), h('rect', { key: 3, x: 3, y: 14, width: 7, height: 7, rx: 1 }), h('path', { key: 4, d: 'M14 17h7M17.5 13.5v7' })],
         power: h('path', { d: 'M13 2 4 14h7l-1 8 10-13h-8z' }),
         circuit: [h('rect', { key: 1, x: 6, y: 6, width: 12, height: 12, rx: 2 }), h('path', { key: 2, d: 'M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4' })],
@@ -22,7 +26,11 @@
     const link = (text, href) => h('a', { href, target: '_blank', rel: 'noopener noreferrer', className: 'ew-link' }, text);
     async function api(endpoint, body) {
       const response = await fetch(`/api/engineering-workbench/${endpoint}`, body === undefined ? { cache: 'no-store' } : { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
-      const value = await response.json();
+      if (response.status === 401 || response.status === 403) throw new Error('工作台认证失效，请重新连接 DeepSeek Harness。');
+      if (response.status === 404) throw new Error(`工作台接口 ${endpoint.split('?')[0]} 不可用（404）。请重新加载插件后端或重启 DeepSeek Harness，使前后端版本一致。`);
+      let value;
+      try { value = await response.json(); } catch { throw new Error(`工作台接口返回了无法识别的响应（${response.status}），请检查插件后端是否已加载。`); }
+      if (!value || typeof value !== 'object') throw new Error('工作台接口响应格式不正确，请重新加载插件后端。');
       if (!response.ok || !value.ok) throw new Error(value.error || `请求失败 (${response.status})`);
       return value.value;
     }

@@ -1,0 +1,103 @@
+{
+  "pluginVersion": "0.5.0",
+  "platform": "Windows x64",
+  "harnessVersion": "0.2.0-rc.2",
+  "kicadVersion": "10.0.6",
+  "packSHA256": "87636f48b42cb5de7ef2e4c3541515ab7e19c03a4b7732666873d3fde0c0a722",
+  "nodeFullSuite": {
+    "passed": 65,
+    "failed": 0,
+    "note": "Before final generic source-path/installer fixes; relevant paths rechecked below."
+  },
+  "nodeFinalRestorationSuite": {
+    "passed": 12,
+    "failed": 0
+  },
+  "pythonFinalSuite": {
+    "passed": 23,
+    "failed": 0
+  },
+  "offlineInstall": {
+    "emptyCacheBundledDependencies": true,
+    "relocatedPackage": true,
+    "existingProfileStorePreserved": true,
+    "windowsPowerShell5": true,
+    "configurationValidated": true
+  },
+  "tamperedPackageRejectedBeforeProfileMutation": true,
+  "browser": {
+    "passed": true,
+    "version": "0.5.0",
+    "runId": "1191b465-bcc1-4c55-91bd-97dc62448c2c",
+    "checks": [
+      "relocated-offline-install",
+      "direct-native-file-intake-167",
+      "source-objects-41-pins-85-models-13",
+      "preflight",
+      "existing-manifest-mode",
+      "local-pdf-read",
+      "datasheet-binding",
+      "retained-task",
+      "independent-full-check-nativeTextStyle-fails-honestly"
+    ],
+    "browserErrors": [],
+    "modelRunPerformed": false,
+    "completeOneToOneVerified": false
+  },
+  "nativeExtraction": {
+    "passed": true,
+    "rawRecords": 1054,
+    "pinCount": 85,
+    "netGroups": 25,
+    "models": 13,
+    "originalBytesUnchanged": true,
+    "readiness": "PARTIAL",
+    "note": "Compared newly extracted source data with previously frozen direct-native evidence; no R6 or reconstruction code used."
+  },
+  "dependencies": {
+    "package/node_modules/@deepseek-ai/cosmokit/package.json": "1.8.5",
+    "package/node_modules/@deepseek-ai/schemastery/package.json": "3.18.4",
+    "package/node_modules/@nodable/entities/package.json": "3.1.0",
+    "package/node_modules/@standard-schema/spec/package.json": "1.1.0",
+    "package/node_modules/anynum/package.json": "1.0.1",
+    "package/node_modules/fast-xml-builder/package.json": "1.3.1",
+    "package/node_modules/fast-xml-parser/package.json": "5.11.2",
+    "package/node_modules/is-unsafe/package.json": "2.0.2",
+    "package/node_modules/path-expression-matcher/package.json": "1.6.2",
+    "package/node_modules/strnum/package.json": "2.5.1",
+    "package/node_modules/xml-naming/package.json": "0.3.0"
+  },
+  "completeOneToOneVerified": false,
+  "newDeepSeekGenerationRunPerformed": false,
+  "limits": [
+    "Direct native intake supports one flat Altium schematic and one board; unsupported hierarchy/bus/hidden-pin semantics stop with diagnostics.",
+    "No original design, credentials, chats or reconstruction converter supplied.",
+    "Uses the user-configured Harness model endpoint; local reading does not imply offline model inference.",
+    "Known source font discrepancy is still an audit failure; company review is separate."
+  ],
+  "finalInstallerAdjustment": "Exact original YAML rollback verified with a simulated configuration failure.",
+  "configurationRollback": {
+    "passed": true,
+    "simulatedProfileValidationExit": 7,
+    "previousYamlPreservedByteForByte": true
+  },
+  "publicationValidation": {
+    "date": "2026-10-13",
+    "isolatedCleanInstall": true,
+    "build": "passed",
+    "check": "passed",
+    "nodeFullSuite": {
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0
+    },
+    "pythonFullSuite": {
+      "passed": 23,
+      "failed": 0
+    },
+    "sourceMatchesPublishedPackage": true,
+    "zipCRCAndManifestHashes": "passed",
+    "zipSHA256": "ce2043165b6fe71b170d98d2831321c74a4a85f643428f64da46026077f8be76",
+    "note": "Repeated on isolated publication tree after all final fixes. Sealed ZIP is unchanged; this publication validation extends its embedded validation record."
+  }
+}

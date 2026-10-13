@@ -11,3 +11,5 @@ ade002d129824bb7603cc2db8e1d517d5acaa6ca2275ba2a6c5df895d605a2b1  dsh-pcb-review
 e0b21b1aa03c35ad410d1f7f458740e5a824b912d2f8c5254986ff720148045a  dsh-schematic-sync-0.1.0.tgz
 c8f25dac932cb6edcb183c4a35bcbce7d7c8930bf26e3714ae8a749ab30352b3  dsh-schematic-sync-0.1.1.tgz
 212f37771e0928d3f5a797db3a6ee8d856945736d4a5a7dbb7765b7085c312c4  dsh-schematic-sync-0.1.2.tgz
+87636f48b42cb5de7ef2e4c3541515ab7e19c03a4b7732666873d3fde0c0a722  dsh-engineering-workbench-0.5.0.tgz
+e969ca3be844c1da97ef04fa01f8e6ac477e9771d2da7bcd37595027ee045ae1  dsh-megmeet-0.2.1.tgz
