@@ -1,4 +1,4 @@
-# 原理图与 PCB 流程 · 0.2.0
+# 原理图与 PCB 流程 · 0.2.1
 
 独立 DeepSeek Harness 插件，无需安装工程工作台。
 
@@ -8,7 +8,7 @@
 
 ## 使用
 
-使用完整内网包按 [安装说明](docs/intranet.md) 安装。环境：Windows x64、Node ≥22.19、Harness 0.2.0-rc.2、KiCad 10.0.6 与其 Python。沿用 Harness 的模型选择和登录。
+使用完整内网包按 [安装说明](docs/intranet.md) 安装。环境：Windows x64、Node ≥22.19、Harness 0.2.1-rc.2、KiCad 10.0.6 与其 Python。沿用 Harness 的模型选择和登录。
 
 1. 点击“载入显示板输入”或“新建设计”。载入后各步尚未执行。
 2. 在当前步骤查看说明、表格和完整数据，填写补充要求；第 3 步可选择本机规格书 PDF 并绑定型号与位号。

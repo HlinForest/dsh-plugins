@@ -1,5 +1,7 @@
 const app = document.querySelector('#app');
-let bootstrap, project, current = 1, error = '', working = false, poll = null, renderedKey = '';
+const embedded = window.parent !== window && new URLSearchParams(location.search).has('embedded');
+const closeFlow = () => { if (embedded) window.parent.postMessage({ type: 'eda-flow:close' }, '*'); };
+let bootstrap, project, current = 1, error = '', working = false, poll = null, renderedKey = '', renderedPageKey = '';
 const labels = { pending: '尚未执行', running: '正在执行', done: '已生成', failed: '执行失败', stale: '需要重新执行', cancelled: '已取消', interrupted: '上次中断' };
 const escape = x => String(x ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const pretty = x => escape(JSON.stringify(x, null, 2));
@@ -12,9 +14,9 @@ async function api(body) {
   return data.value;
 }
 function nav() {
-  return `<aside><div class="project-info">当前工程</div><select id="projects" aria-label="选择工程"><option value="">选择工程</option>${bootstrap.projects.map(p => `<option value="${p.id}" ${project?.id === p.id ? 'selected' : ''}>${escape(p.label)}</option>`).join('')}</select>
-    <nav class="step-nav" aria-label="工程步骤">${bootstrap.stages.map(s => { const state = project?.stages[s.id - 1]; return `<button class="step ${current === s.id && project ? 'active' : ''}" data-step="${s.id}" ${!project ? 'disabled' : ''}><span class="number">${state?.confirmed ? '✓' : s.id}</span><span>${s.title}<small>${labels[state?.status] || '等待创建项目'}${state?.confirmed ? ' · 已确认' : ''}</small></span></button>`; }).join('')}</nav>
-    <div class="new-actions">${button('载入显示板输入', 'display-board')}${button('新建设计', 'new')}</div><p class="hint">资料逐步补充。每一步的处理输出交给本机工具执行，文件与检查结果留在本次项目中。</p></aside>`;
+  return `<aside><div class="project-info">当前工程</div><select id="projects" aria-label="选择工程"><option value="">选择工程</option>${bootstrap.projects.map(p => `<option value="${p.id}" ${project?.id === p.id ? 'selected' : ''}>${escape(p.label)}</option>`).join('')}<optgroup label="创建工程"><option value="__new">新建设计</option><option value="__display">载入显示板输入</option></optgroup></select>
+    <nav class="step-nav" aria-label="工程步骤">${bootstrap.stages.map(s => { const state = project?.stages[s.id - 1]; return `<button class="step ${current === s.id && project ? 'active' : ''}" data-step="${s.id}" ${current === s.id && project ? 'aria-current="step"' : ''} ${!project ? 'disabled' : ''}><span class="number">${state?.confirmed ? '✓' : s.id}</span><span>${s.title}<small>${labels[state?.status] || '等待创建项目'}${state?.confirmed ? ' · 已确认' : ''}</small></span></button>`; }).join('')}</nav>
+    <div class="new-actions">${button('载入显示板输入', 'display-board')}${button('新建设计', 'new')}</div><p class="hint">按步骤填写输入，查看生成结果，再确认下一步。</p></aside>`;
 }
 function section(title, content, right = '') { return `<section class="section"><div class="section-head"><h3>${title}</h3>${right}</div><div class="section-body">${content}</div></section>`; }
 function pathField(label, key, value) { return `<label for="${key}">${label}</label><div class="file-row"><input id="${key}" data-input="${key}" value="${escape(value)}" placeholder="运行 Harness 的电脑上的文件路径">${button('选择文件', 'browse', `data-key="${key}"`)}</div>`; }
@@ -25,7 +27,7 @@ function inputsUI(s) {
   if (s.id === 3) form += `<div class="two"><div><label for="mpn">准确型号</label><input id="mpn" placeholder="按器件资料填写"></div><div><label for="binding">位号与封装</label><input id="binding" placeholder="如 U1 / LQFP-48"></div></div>` + pathField('PDF 规格书', 'pdf', '') + `<div class="buttons">${button('添加规格书', 'pdf')}</div>` + (project.inputs.datasheets?.length ? `<ul>${project.inputs.datasheets.map(x => `<li>${escape(x.mpn)} · ${escape(x.binding)} · ${escape(x.path)}</li>`).join('')}</ul>` : '<p class="help">添加后由 AI 读取引脚、电气参数和应用要求，并保留页码。</p>');
   const groups = {1:['01_task','07_adjustments'],2:['02_materials','04_schematic'],3:['03_components','08_dependencies'],4:['03_components','04_schematic'],5:['05_footprints','03_components'],6:['06_pcb','05_footprints','08_dependencies'],7:['01_task','07_adjustments']}[s.id];
   const files = (project.inputCatalog || []).filter(f => groups.some(g => f.path.startsWith(g + '/')));
-  if (files.length) form += `<details open><summary>本步默认输入 · ${files.length} 个文件</summary><div class="input-files">${files.map(f=>`<button data-read="${escape(f.path)}"><span>${escape(f.path)}</span><small>${(f.bytes/1024).toFixed(1)} KB</small></button>`).join('')}</div></details>`;
+  if (files.length) form += `<details><summary>本步默认输入 · ${files.length} 个文件</summary><div class="input-files">${files.map(f=>`<button data-read="${escape(f.path)}"><span>${escape(f.path)}</span><small>${(f.bytes/1024).toFixed(1)} KB</small></button>`).join('')}</div></details>`;
   form += `<label for="stage-note">本步补充与调整</label><textarea id="stage-note" placeholder="填写连接、参数、位置等具体要求，AI 将结合上游结果处理">${escape(project.inputs.stageNotes?.[s.id] || '')}</textarea><div class="buttons">${button('保存本步输入', 'save-input', project.busy ? 'disabled' : '')}</div><details><summary>缺少资料时怎么获取</summary><p>${escape(s.obtain)}</p></details>`;
   return form;
 }
@@ -47,19 +49,33 @@ function resultUI(s) {
 function render() {
   const s = project?.stages[current - 1];
   const key = [project?.id, current, project?.revision, s?.status].join(':');
+  const pageKey = [project?.id, current].join(':');
+  const samePage = pageKey === renderedPageKey;
+  const scroll = { main: app.querySelector('main')?.scrollTop || 0, side: app.querySelector('aside')?.scrollTop || 0 };
+  const focused = app.contains(document.activeElement) ? document.activeElement : null;
+  const focus = focused?.id ? { id: focused.id, start: focused.selectionStart, end: focused.selectionEnd } : null;
+  const expanded = new Map(samePage ? [...app.querySelectorAll('details')].map(el => [el.querySelector('summary')?.textContent, el.open]) : []);
   const draft = key === renderedKey ? [...app.querySelectorAll('input[id],textarea[id]')].map(el => ({ id: el.id, value: el.value, checked: el.checked })) : [];
-  const head = `<header class="top"><div class="brand"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h24v24H4zM9 10h7v6h7M9 22h7v-6M22 10v-6"/><circle cx="9" cy="10" r="2"/><circle cx="9" cy="22" r="2"/><circle cx="23" cy="16" r="2"/></svg><div><h1>原理图与 PCB 流程</h1><small>工程师输入 · AI 处理 · 工具生成 · 阶段确认</small></div></div><span class="local">${bootstrap.aiEnabled ? '使用 Harness 当前模型' : '模型待连接'}</span></header>`;
-  const welcome = `<div class="welcome"><h2>从设计输入，到原理图与 PCB</h2><p class="sub">按步骤补充设计依据，让 AI 读取资料、形成方案，再查看本次生成结果。</p><div class="entry-grid"><article class="entry"><h3>显示板</h3><p>载入完整器件、连接、封装与 PCB 数据，体验同一套设计流程。</p>${button('载入显示板输入', 'display-board', 'class="primary"')}</article><article class="entry"><h3>新建设计</h3><p>从功能、接口和指定器件开始。提供规格书，由 AI 协助整理每一步输入。</p>${button('创建新设计', 'new')}</article></div></div>`;
+  const head = `<header class="top"><div class="brand"><h1>原理图与 PCB 流程</h1><small>设计输入 → AI 处理 → 工程师确认</small></div><div class="top-actions"><span class="local">${bootstrap.aiEnabled ? 'Harness 当前模型' : '模型待连接'}</span>${embedded ? button('返回 Harness', 'close-flow', 'class="close-flow"') : ''}</div></header>`;
+  const welcome = `<div class="welcome"><span class="eyebrow">开始一个工程</span><h2>从输入开始，一步步完成设计</h2><p class="sub">补充设计依据，交给 AI 整理与生成。每一步都可以查看资料、调整要求和确认结果。</p><div class="entry-grid"><article class="entry"><small>默认输入 · 流程示例</small><h3>显示板</h3><p>器件、连接、封装与 PCB 数据已备好。逐步查看这些输入，再生成本次工程。</p>${button('载入显示板输入', 'display-board', 'class="primary"')}</article><article class="entry"><small>自定义输入 · 新项目</small><h3>新建设计</h3><p>从功能需求、接口和指定器件开始，添加规格书，由 AI 协助补齐每一步输入。</p>${button('创建新设计', 'new')}</article></div></div>`;
   let main = welcome;
-  if (s) main = `<div class="headline"><div><h2>${current}. ${s.title}</h2><p class="sub">${escape(project.label)} / ${project.caseId ? '显示板默认输入' : '新建设计'} / KiCad</p></div><span class="badge ${s.status}">${labels[s.status]}</span></div>
-    ${section('设计输入', inputsUI(s))}
+  if (s) main = `<div class="headline"><div><span class="eyebrow">步骤 ${current} / 7</span><h2>${s.title}</h2><p class="sub">${escape(project.label)} / ${project.caseId ? '显示板默认输入' : '新建设计'} / KiCad</p></div><span class="badge ${s.status}">${labels[s.status]}</span></div>
+    <div class="stage-grid"><div>${section('设计输入', inputsUI(s))}</div><div>
     ${section('AI 处理方案', s.plan ? `<p>${escape(s.plan.summary)}</p><details><summary>查看与调整方案</summary><textarea id="plan" class="code" aria-label="处理方案">${pretty(s.plan)}</textarea><div class="buttons">${button('保存调整', 'save-plan', project.busy ? 'disabled' : '')}</div></details>` : '<p class="help">执行本步后，AI 将读取资料并生成处理方案。</p>')}
     ${s.error ? `<div class="error"><strong>本步未完成</strong><br>${escape(s.error)}<br><br>${escape(s.obtain)}</div>` : ''}
     ${section('本次执行结果', resultUI(s), s.output ? `<span class="help">${s.files?.length || 0} 个文件</span>` : '')}
-    ${current === 7 ? section('空目录重放', `<p>使用相同输入与已记录的 AI 方案，在新目录重新执行工具并比较工程内容。</p>${button('执行空目录重放', 'replay', project.busy || project.stages.some(x => !x.confirmed || x.status !== 'done') ? 'disabled' : '')}${project.replay ? `<p class="notice">${project.replay.match ? '重放工程内容一致' : '重放存在差异'}，比较 ${project.replay.compared} 个文件。</p><pre>${pretty(project.replay)}</pre>` : ''}`) : ''}`;
-  app.innerHTML = head + `<div class="layout">${nav()}<main>${error ? `<div role="alert" class="error">${escape(error)}</div>` : ''}${main}</main></div>` + (s ? `<footer class="footer"><small>${project.modelRequests === 0 ? '等待首次 AI 处理' : `模型请求 ${project.modelRequests} 次`}<br>修改上游输入后，相关结果需要重新执行。</small><div class="buttons">${current > 1 ? button('上一步', 'previous') : ''}${button(s.status === 'done' ? '重新执行本步' : '执行本步', 'execute', `class="primary" ${project.busy || working || !project.aiEnabled ? 'disabled' : ''}`)}${button(current === 7 ? '确认本步结果' : '确认并进入下一步', 'next', s.status !== 'done' || project.busy || working || !project.aiEnabled ? 'disabled' : '')}</div></footer>` : '');
+    ${current === 7 ? section('空目录重放', `<p>使用相同输入与已记录的 AI 方案，在新目录重新执行工具并比较工程内容。</p>${button('执行空目录重放', 'replay', project.busy || project.stages.some(x => !x.confirmed || x.status !== 'done') ? 'disabled' : '')}${project.replay ? `<p class="notice">${project.replay.match ? '重放工程内容一致' : '重放存在差异'}，比较 ${project.replay.compared} 个文件。</p><pre>${pretty(project.replay)}</pre>` : ''}`) : ''}</div></div>`;
+  app.innerHTML = head + `<div class="layout">${nav()}<div class="workspace"><main>${error ? `<div role="alert" class="error">${escape(error)}</div>` : ''}${main}</main>` + (s ? `<footer class="footer"><small>${project.modelRequests === 0 ? '等待首次 AI 处理' : `模型请求 ${project.modelRequests} 次`}</small><div class="buttons">${current > 1 ? button('上一步', 'previous') : ''}${button(s.status === 'done' ? '重新执行本步' : '执行本步', 'execute', `class="primary" ${project.busy || working || !project.aiEnabled ? 'disabled' : ''}`)}${button(current === 7 ? '确认本步结果' : '确认并进入下一步', 'next', s.status !== 'done' || project.busy || working || !project.aiEnabled ? 'disabled' : '')}</div></footer>` : '') + '</div></div>';
   for (const saved of draft) { const field = document.getElementById(saved.id); if (field) { field.value = saved.value; field.checked = saved.checked; } }
-  renderedKey = key;
+  if (samePage) {
+    for (const el of app.querySelectorAll('details')) { const key = el.querySelector('summary')?.textContent; if (expanded.has(key)) el.open = expanded.get(key); }
+    app.querySelector('main').scrollTop = scroll.main;
+    app.querySelector('aside').scrollTop = scroll.side;
+    const field = focus && document.getElementById(focus.id);
+    if (field) { field.focus({ preventScroll: true }); if (focus.start != null) field.setSelectionRange?.(focus.start, focus.end); }
+  }
+  if (!samePage) app.querySelector('.step.active')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  renderedKey = key; renderedPageKey = pageKey;
 }
 async function refresh() { bootstrap = await api(); if (project) project = await api({ action: 'open', projectId: project.id }); render(); }
 async function perform(fn) { error = ''; working = true; try { await fn(); } catch (e) { error = e.message; } finally { working = false; await refresh().catch(e => { error = e.message; render(); }); schedule(); } }
@@ -95,6 +111,7 @@ async function viewInput(file, offset = 0) {
 }
 document.addEventListener('click', event => {
   const el = event.target.closest('button'); if (!el) return;
+  if (el.dataset.action === 'close-flow') { closeFlow(); return; }
   if (el.dataset.close) { document.getElementById(el.dataset.close).close(); return; }
   if (working) return;
   if (el.dataset.dir) { browse(document.querySelector('#picker').dataset.key, el.dataset.dir); return; }
@@ -126,8 +143,22 @@ document.addEventListener('click', event => {
     if (action === 'replay') { project.busy = true; render(); const data = await api({ action: 'replay', projectId: project.id }); project.replay = data; }
   });
 });
+let resizeFrame;
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame = requestAnimationFrame(() => app.querySelector('.step.active')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && embedded && !document.querySelector('dialog[open]')) { event.preventDefault(); closeFlow(); }
+});
 document.addEventListener('change', event => {
-  if (event.target.id === 'projects' && event.target.value) perform(async () => { project = await api({ action: 'open', projectId: event.target.value }); current = 1; localStorage.setItem('eda-flow-project', project.id); });
+  if (event.target.id === 'projects' && event.target.value) {
+    const value = event.target.value;
+    perform(async () => {
+      project = await api(value === '__new' ? { action: 'create', label: '新设计项目' } : value === '__display' ? { action: 'create', caseId: 'display-board' } : { action: 'open', projectId: value });
+      current = 1; localStorage.setItem('eda-flow-project', project.id);
+    });
+  }
   if (event.target.name === 'source') perform(async () => { project = await api({ action: 'update', projectId: project.id, stage: current, source: event.target.value }); });
 });
 try {

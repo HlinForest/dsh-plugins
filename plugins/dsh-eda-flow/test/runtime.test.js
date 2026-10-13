@@ -18,7 +18,7 @@ test('real Harness registers UI API and eda_flow with no workbench and no model 
   const handler = ctx.connection.createSharedFetchHandler('/api');
   const response = await handler.fetch(new Request('http://local/api/eda-flow/bootstrap'));
   const state = (await response.json()).value;
-  assert.equal(state.version, '0.2.0'); assert.equal(state.aiEnabled, false); assert.equal(state.stages.length, 7);
+  assert.equal(state.version, '0.2.1'); assert.equal(state.aiEnabled, false); assert.equal(state.stages.length, 7);
   const result = await ctx.tools.execute({ name: 'eda_flow', arguments: { request: '{"action":"list"}' }, callId: 'independent-flow', signal: new AbortController().signal });
   assert.equal(result.isError, false); assert.deepEqual(result.value, []);
 });
