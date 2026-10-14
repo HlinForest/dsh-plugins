@@ -37,3 +37,11 @@ input[type=checkbox],input[type=radio]{margin:0}
 .window-titlebar-content span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .desktop-window .assistant.drawer-open,.desktop-window .sidebar.drawer-open{top:calc(var(--top) + 40px)}
 .desktop-window .drawer-backdrop{top:calc(var(--top) + 40px)}
+
+/* Input provenance and next actions stay inside the existing work area. */
+.input-guide{border-bottom:1px solid var(--line,rgba(0,0,0,.08));padding:4px 0 16px;margin:0 0 20px}
+.input-guide strong{font-size:14px;font-weight:600}.input-guide p{margin:6px 0;color:var(--muted,#61666b);font-size:13px;line-height:1.6}
+.input-guide-actions,.notice-actions{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:10px}
+.pending-items{padding:16px;background:#fff9ed;border-radius:12px;margin:0 0 20px}.pending-items h3{margin:0;font-size:15px}
+.pending-items ul{list-style:none;margin:12px 0 0;padding:0}.pending-items li{display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding:10px 0;border-top:1px solid rgba(0,0,0,.08)}
+.pending-items li span{flex:1;min-width:160px;overflow-wrap:anywhere}.pending-items .text-link{white-space:normal;text-align:left}.notice p{margin:8px 0;overflow-wrap:anywhere}

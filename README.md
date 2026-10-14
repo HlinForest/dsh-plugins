@@ -8,7 +8,7 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.2 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.3 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
 ## 工程工作台 0.6.0：拉取后直接更新
@@ -30,18 +30,22 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 
 本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
 
-## 独立工程流程 dsh-eda-flow 0.3.2
+## 独立工程流程 dsh-eda-flow 0.3.3
 
-0.3.2 修复确认失效后仍跳步、任务启动反馈不明显，以及文件清单元数据造成的误判。已有安装直接更新，无需填写原工作目录：
+0.3.3 核对页面与实际运行后台版本，确认返回不完整时读取已保存状态，并增加默认资料与待确认项入口。已有安装直接更新，无需填写原工作目录：
 
 ```powershell
 git pull --ff-only origin main
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps1 -Profile desktop
 ```
 
-[0.3.2 Release 与升级包](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.2) · [更新说明](docs/update-eda-flow-0.3.2.md) · [0.3.2 插件 TGZ](dist/dsh-eda-flow-0.3.2.tgz)。更新保留项目、窗口运行时、模型和登录配置；重新加载插件后，在页面左下角核对版本 0.3.2。
+[0.3.3 Release 与升级包](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.3) · [更新说明](docs/update-eda-flow-0.3.3.md) · [0.3.3 插件 TGZ](dist/dsh-eda-flow-0.3.3.tgz)。更新保留项目、窗口运行时、模型和登录配置。**安装更新不等于旧窗口已加载新版**：在方便时正常退出并重开 Harness，页面左下角的“电路设计”和“运行后台”均应为 0.3.3。只读检查：
 
-[0.3.2 验证记录](plugins/dsh-eda-flow/evals/validation-0.3.2.json)：21 项自动测试、浏览器确认及重试检查通过；显示板七步实际 KiCad 生成与 28 类内容比较、空目录重放均通过。模型使用测试替身，付费请求为零。
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-eda-flow.ps1 -Profile desktop
+```
+
+0.3.3 的验证记录见 [确认与输入入口测试](plugins/dsh-eda-flow/evals/validation-0.3.3.json)。真实模型生成质量留到内网验证，本机仅使用模拟模型。此前 [0.3.2 验证记录](plugins/dsh-eda-flow/evals/validation-0.3.2.json)保留显示板七步 KiCad 生成、28 类内容比较和空目录重放结果。
 
 [首次安装完整离线包 0.3.1](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1) · [插件安装包](dist/dsh-eda-flow-0.3.1.tgz) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [UI skills](skills/megmeet-dsh-plugin-skills/SKILL.md) · [UI Spec](skills/megmeet-dsh-plugin-skills/references/ui-spec.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.1.json)
 

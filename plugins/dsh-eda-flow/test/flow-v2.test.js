@@ -37,7 +37,12 @@ test('prerequisites, draft confirmation and human approval are enforced', async 
   await assert.rejects(flow.execute(p.id, 2), /请先执行并确认/);
   await flow.execute(p.id, 1);
   await assert.rejects(flow.confirm({ projectId: p.id, stage: 1, allowDraft: true }, 'model'), /工程师/);
-  await assert.rejects(flow.confirm({ projectId: p.id, stage: 1 }, 'human'), /缺项/);
+  await assert.rejects(flow.confirm({ projectId: p.id, stage: 1 }, 'human'), error => {
+    assert.equal(error.code, 'review');
+    assert.deepEqual(error.details.gaps, ['test gap']);
+    assert.match(error.message, /本步待确认项/);
+    return true;
+  });
   await flow.confirm({ projectId: p.id, stage: 1, allowDraft: true }, 'human');
   const p2 = await flow.execute(p.id, 2); assert.deepEqual(p2.stages[1].gaps, ['test gap']); assert.equal(p2.modelRequests, 2);
 });

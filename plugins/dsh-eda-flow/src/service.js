@@ -146,7 +146,7 @@ export class Flow {
     this.guard(a.projectId); const p = await this.open(a.projectId); const s = this.stage(p, a.stage);
     if (s.id === 1 && s.status !== 'done') return this.manualConfirm(p, a);
     if (s.status !== 'done') throw new Error('本步没有有效的执行结果。');
-    if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new Error('本步仍有缺项或假设，请明确选择“带缺项继续草稿”。');
+    if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new FlowError('review', '本步仍有待确认项，请查看当前页面的“本步待确认项”。可按入口补充，或在底部选择“带待确认项继续草稿”。', { stage: s.id, gaps: s.gaps, assumptions: s.assumptions });
     s.confirmed = true; s.confirmation = { at: new Date().toISOString(), actor: 'human', draft: Boolean(a.allowDraft), note: String(a.note || ''), outputHash: s.outputHash };
     this.recordEvent(p, s.id, '确认', '确认' + s.title, s.confirmation);
     await this.save(p); return this.confirmedProject(p.id, s.id);

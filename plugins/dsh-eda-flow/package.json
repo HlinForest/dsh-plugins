@@ -1,6 +1,6 @@
 {
   "name": "dsh-eda-flow",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "独立分步原理图与 PCB 设计：完整显示板默认输入、Harness 模型处理、真实工具执行",
   "type": "module",
   "main": "src/index.js",

@@ -1,0 +1,47 @@
+{
+  "version": "0.3.3",
+  "nodeTests": 21,
+  "paidModelCalls": 0,
+  "defaultInputContentUnchanged": true,
+  "generationToolsUnchanged": true,
+  "installedPackageMatchesSource": true,
+  "profileConfigurationByteIdentical": true,
+  "otherPluginDependenciesUnchanged": true,
+  "existingProjectFilesUnchanged": 83,
+  "forcedHarnessRestart": false,
+  "browser": {
+    "checks": [
+      "Default step two preserves the confirmed first step and advances to step three",
+      "Actual datasheet gap links to its upload page and explicit draft confirmation can continue",
+      "Incomplete acknowledgement reads back persisted confirmation instead of claiming missing inputs",
+      "Default inputs have a visible location without uploading the source project again",
+      "Loaded backend version mismatch is explicit and does not mutate the project"
+    ],
+    "pageErrors": [],
+    "paidModelCalls": 0,
+    "intranetCause": "Not inferred from injected responses"
+  },
+  "previousConfirmationRegressions": {
+    "checks": [
+      "Unconfirmed readback stays on the first page and displays the actual reason",
+      "Stage failure is visible in the work area even when the AI column is collapsed",
+      "Retry retains the same project and confirms the first two stages"
+    ],
+    "pageErrors": [],
+    "paidModelCalls": 0
+  },
+  "viewportChecks": [
+    1280,
+    1000,
+    390
+  ],
+  "localActivationEvidence": {
+    "beforeUpdateInstalled": "0.3.2",
+    "afterUpdateInstalled": "0.3.3",
+    "runningBackend": "0.3.1",
+    "activation": "restart-required"
+  },
+  "firstStepStateAfterSecondStep": "confirmed, done, unchanged output hash",
+  "fullGenerationReplay": "Not rerun; tools and input data unchanged from 0.3.2",
+  "intranetInitialDriftCause": "Not verified; actual running version and record needed before attributing file changes"
+}
