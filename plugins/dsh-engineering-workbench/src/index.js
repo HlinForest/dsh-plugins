@@ -8,6 +8,9 @@ import { createDshVision } from './engineering/vision.js';
 import { Materials } from './materials.js';
 import { RestorationRuns } from './restoration/service.js';
 import { registerRestoration } from './restoration/index.js';
+import { WorkbenchWindow, webResource } from './window.js';
+
+const buildInfo = JSON.parse(await fs.readFile(new URL('./build.json', import.meta.url), 'utf8'));
 
 export const name = 'engineering-workbench';
 export const inject = ['connection', 'tools'];
@@ -41,13 +44,20 @@ export function apply(ctx, config) {
     try { const result = await next(); service.finish(task, result.isError ? new Error('工具返回错误，请查看原对话中的详情。') : undefined); return result; }
     catch (error) { service.finish(task, error); throw error; }
   });
-  const route = (suffix, methods, fn) => ctx.connection.fetch.register({
+  const routes = [];
+  const workbenchWindow = new WorkbenchWindow(config, routes);
+  ctx.on('dispose', () => workbenchWindow.close());
+  const route = (suffix, methods, fn) => {
+    const definition = {
     path: `/api/engineering-workbench/${suffix}`, methods, requestBody: 'buffered',
     fetch: async request => {
       try { return await fn(request); }
       catch (error) { return json({ ok: false, error: String(error.message ?? error).slice(0, 500) }, error.status ?? 400); }
     },
-  });
+    };
+    routes.push(definition);
+    return ctx.connection.fetch.register(definition);
+  };
   const input = async request => {
     if (!request.headers.get('content-type')?.startsWith('application/json')) throw new Error('需要 JSON 参数。');
     const origin = request.headers.get('origin');
@@ -56,7 +66,12 @@ export function apply(ctx, config) {
     if (request.headers.get('sec-fetch-site') === 'cross-site' || (origin && new URL(origin).host !== authority)) throw new Error('不接受跨站操作。');
     const text = await request.text(); if (Buffer.byteLength(text) > 4 * 1024 * 1024) throw new Error('请求过大。'); return JSON.parse(text);
   };
-  route('bootstrap', ['GET'], async () => json({ ok: true, value: { apiVersion: 2, currentSchematic: config.currentSchematic, pcbPath: config.pcbPath, workspaceRoot: config.workspaceRoot, projectFile: config.projectFile } }));
+  for (const name of ['page', 'app.js', 'styles.css']) route(name, ['GET'], () => webResource(name));
+  route('open-window', ['POST'], async r => {
+    await input(r);
+    return json({ ok: true, value: await workbenchWindow.open() });
+  });
+  route('bootstrap', ['GET'], async () => json({ ok: true, value: { apiVersion: 2, ...buildInfo, currentSchematic: config.currentSchematic, pcbPath: config.pcbPath, workspaceRoot: config.workspaceRoot, projectFile: config.projectFile } }));
   const executeTask = async (a, signal) => ['list', 'open'].includes(a.action) ? engineering.dispatch(a, signal) : service.job(`engineering-${a.taskId || randomUUID()}`, `工程任务 · ${{create:'读取工程',page:'读取页面',extract:'提取资料',evidence:'保存证据',mapping:'确认对应',calibrate:'校准图面',compare:'比较',review:'评审',prepare:'生成候选',edit:'调整候选',undo:'撤销',redo:'重做',verify:'验证候选',export:'导出报告',apply:'保存',rollback:'回退'}[a.action] || a.action}`, [], () => engineering.dispatch(a, signal));
   route('engineering', ['POST'], async r => json({ ok: true, value: await executeTask(await input(r), AbortSignal.any([r.signal, controller.signal])) }));
   route('restoration', ['POST'], async r => {

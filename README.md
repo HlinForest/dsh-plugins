@@ -9,7 +9,26 @@
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
 | [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.1 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
-| [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.5.0 | 本机原始资料提取、冻结、复原核验与重放；六项独立任务、双格式离线读取、原生检查、比较、图形候选编辑与回退 |
+| [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
+
+## 工程工作台 0.6.0：拉取后直接更新
+
+[更新步骤与命令](docs/update-workbench-0.6.0.md) · [Release](https://github.com/HlinForest/dsh-plugins/releases/tag/workbench-v0.6.0) · [升级 ZIP](output/packages/Engineering_Workbench_0.6.0.zip) · [插件 TGZ](dist/dsh-engineering-workbench-0.6.0.tgz) · [验证记录](plugins/dsh-engineering-workbench/evals/ui-0.6.0.json)
+
+工作台改为独立窗口，宿主仅保留图标入口；保留原业务导航与操作顺序，标题栏、圆角和分隔对齐 Harness。窗口关闭后保留草稿并暂停界面轮询，后台任务继续；重复点击恢复已有窗口。正式流程继续使用 Harness 当前模型与登录。
+
+已有仓库，在仓库根目录执行以下命令。**工作目录必须替换为原工作台配置中的 workDirectory**，桌面版 profile 通常为 `desktop`：
+
+```powershell
+git pull --ff-only origin main
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.ps1 -WorkDirectory "D:\原工作台数据目录" -Profile desktop
+```
+
+首次拉取使用 `git clone --depth 1 https://github.com/HlinForest/dsh-plugins.git`，再 `cd dsh-plugins` 执行更新命令。本次仓库包含安装包及约 158 MB 的运行时分卷，脚本自动校验、合并并安装，**不需要从 Release 补下载 0.6.0 的窗口运行时**。分卷是普通 Git 文件，不依赖 Git LFS。
+
+升级自动备份旧插件和配置，保留原项目、模型与登录设置；使用带哈希的新包路径避开旧缓存。安装后重新加载插件或在方便时重启 Harness，在工作台“执行记录”核对 **0.6.0 / 32b84f0902abfb3f**。脚本不会强行关闭 Harness，也不调用模型。
+
+本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
 
 ## 独立工程流程 dsh-eda-flow 0.3.1
 
@@ -19,13 +38,13 @@
 
 从宿主图标进入三栏独立窗口，保持聊天可用。标题栏为 40px，与顶栏同色，圆角及分隔对齐 Harness；重复打开、执行和重试不会新增项目。正式安装使用真实模型，本机测试使用模拟响应。
 
-已有仓库执行 `git pull --ff-only` 获取源码、插件包及 UI skills。首次内网安装建议另外下载上述 Release 的 `EDA_Flow_Intranet_0.3.1.zip`，其中已包含较大的 Electron 窗口运行时、Python 离线依赖和 UI skills；仅拉取源码不包含 Electron 二进制。完整包的安装器会自动部署窗口运行时。
+已有仓库执行 `git pull --ff-only` 获取源码、插件 TGZ 及 UI skills。`git clone` 不会下载 Release 附件：首次内网安装电路设计 0.3.1 时，可另外下载上述 Release 的 `EDA_Flow_Intranet_0.3.1.zip`，其中包含对应的 Electron 窗口运行时、Python 离线依赖和 UI skills，完整包的安装器会自动部署。上方 0.6.0 自动更新命令仅针对工程工作台，不会更新或替换电路设计插件。
 
 本版 14 项 Node 测试及图标交互模拟检查通过；独立窗口、系统按钮、聊天共存及 UI skills 有单独验证记录。此前的真实 KiCad 两个空目录重放和 28 类工程内容比较作为历史工程验证保留；本次 UI 发布没有重跑生成链。真实模型生成质量留到内网验收，本机没有付费模型请求。
 
 工程保留源设计的背面布线和两个铜层设置；生产铜层数与通孔金属化单独待确认。正面阅读预览已增强，实际线宽不变。完整安装包带默认数据和离线依赖，无需历史成品。
 
-## 工程复原内网试用版 0.5.0
+## 历史工程复原内网试用版 0.5.0
 
 [完整内网安装包（约 20.6 MB）](output/packages/Engineering_Workbench_Intranet_0.5.0.zip) · [安装与试用说明](plugins/dsh-engineering-workbench/docs/intranet.md) · [SHA-256](output/packages/Engineering_Workbench_Intranet_0.5.0.sha256.txt) · [检查范围与限制](plugins/dsh-engineering-workbench/evals/intranet-0.5.0.json)
 
@@ -37,7 +56,7 @@
 
 2026-10-13 发布前已在独立目录重新安装依赖并完成构建：工作台 65 项 Node 测试、23 项 Python 测试全部通过，安装包与源码及文件哈希一致。
 
-## 本轮更新
+## 工程能力与历史验证
 
 工程工作台按任务独立使用。KiCad 原生 ERC/DRC、两图比较、实际对象编辑、多页候选包及保存回退已实现并测试；AD 支持离线工程读取与候选编辑。**AD 25/26 软件内修改及原生回执仍待接入验收，覆盖 AD 原工程禁用。10 份手册的人工黄金集验收也未完成。**
 
@@ -45,7 +64,7 @@
 
 ## 安装
 
-克隆本私有仓库后，在仓库根目录按需安装 `dist/` 中的包。`web` 替换为实际使用的 DSH profile。
+克隆本公开仓库后，在仓库根目录按需安装 `dist/` 中的包。`web` 替换为实际使用的 DSH profile。已有工程工作台请优先使用上方的更新脚本，以保留配置并部署独立窗口运行时。
 
 ```powershell
 git clone https://github.com/HlinForest/dsh-plugins.git
@@ -54,7 +73,7 @@ dsh plugin --profile web add ./dist/dsh-megmeet-0.2.0.tgz
 dsh plugin --profile web add ./dist/dsh-pcb-review-0.1.2.tgz
 dsh plugin --profile web add ./dist/dsh-schematic-sync-0.1.2.tgz
 dsh plugin --profile web add ./dist/dsh-kicad-workflow-0.1.1.tgz
-dsh plugin --profile web add ./dist/dsh-engineering-workbench-0.5.0.tgz
+dsh plugin --profile web add ./dist/dsh-engineering-workbench-0.6.0.tgz
 ```
 
 按各插件 README 设置目录、KiCad CLI / Python / MCP Server 等本机配置，然后重新加载对应 profile。源码 README 保留了原开发机的路径示例；换机器或移动目录后需要调整。插件没有另设模型登录入口。

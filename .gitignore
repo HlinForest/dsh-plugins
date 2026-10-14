@@ -1,4 +1,5 @@
 node_modules/
+/downloads/
 lib/
 __pycache__/
 *.pyc

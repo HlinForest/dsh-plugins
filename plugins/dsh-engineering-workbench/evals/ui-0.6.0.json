@@ -1,0 +1,35 @@
+{
+  "version": "0.6.0",
+  "build": "32b84f0902abfb3f",
+  "date": "2026-10-14",
+  "nodeTests": {"passed": 68, "failed": 0},
+  "browser": {
+    "pages": 10,
+    "widths": [1280, 1586, 1000, 640, 390],
+    "wholePageHorizontalOverflow": false,
+    "fixture": "KiCad test project",
+    "checked": ["read", "zoom", "fullscreen", "review", "export", "failure and retry preserving input"]
+  },
+  "nativeWindow": {
+    "singleInstance": true,
+    "closePreservesDraft": true,
+    "hiddenStopsPolling": true,
+    "minimizeRestoreMaximize": true,
+    "fullscreenClearsCaption": true,
+    "hostShutdownExitsWindow": true,
+    "captionHeight": 40,
+    "captionAndHeaderColor": "rgb(249, 250, 251)"
+  },
+  "hostEntry": {
+    "fixture": "isolated host slots and chat controls; not a live user chat",
+    "buttonSize": 40,
+    "iconSize": 20,
+    "keyboardTooltip": true,
+    "neighborStable": true,
+    "noOverlayOrChatBlock": true
+  },
+  "model": {"mockCalls": 2, "failedThenRetried": true, "completed": true, "paidCalls": 0},
+  "localInstall": {"filesMatchSource": true, "configurationByteIdentical": true, "forcedHostRestart": false},
+  "limits": ["Real model generation quality remains for intranet validation", "This UI release does not repeat all historical hardware reconstruction acceptance tests"],
+  "evidence": "Engineering_Workbench_0.6.0.zip contains screenshots and individual check records"
+}

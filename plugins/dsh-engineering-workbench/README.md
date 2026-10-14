@@ -1,4 +1,6 @@
-# DSH 工程工作台 0.5.0
+# DSH 工程工作台 0.6.0
+
+0.6.0 按 Megmeet DSH UI 规范统一独立窗口、图标入口、圆角和轻分隔。关闭窗口保留本次草稿，工程进度移入工作台。见 [独立窗口与保留配置的升级步骤](docs/window-0.6.md)。
 
 六项独立任务：**读手册、产品方案、原理图评审、PCB 评审、原理图对比、向目标对齐**。支持 DSH 桌面 / Web 0.2.0-rc.2。工程师可只打开一块 PCB 进行评审，各任务有独立快照、范围、证据和持久化记录。
 
@@ -39,7 +41,7 @@ AD 离线使用固定版本 altium-monkey。**当前没有 AD 25/26 环境，软
 工作台本身可独立执行 KiCad 评审、对比和对齐，不要求安装产品库、PCB 业务插件或同步插件。需要产品方案时安装 dsh-megmeet；需要旧业务工具时安装对应插件。一个可选模块缺失不影响其他入口。
 
 ```powershell
-dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.5.0.tgz --ignore-scripts
+dsh plugin --profile desktop add ./dist/dsh-engineering-workbench-0.6.0.tgz --ignore-scripts
 ```
 
 最小配置，写入实际 profile 的 cordis.patch.yml：

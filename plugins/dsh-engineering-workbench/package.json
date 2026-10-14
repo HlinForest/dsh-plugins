@@ -1,6 +1,6 @@
 {
   "name": "dsh-engineering-workbench",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "DSH 工程工作台：独立读手册、产品方案、AD/KiCad 评审、原理图对比与向目标对齐",
   "type": "module",
   "main": "src/index.js",
@@ -27,7 +27,11 @@
     "!**/*.pyc",
     "scripts/install-intranet.ps1",
     "scripts/check-environment.ps1",
-    "scripts/install-offline-python.ps1"
+    "scripts/install-offline-python.ps1",
+    "web",
+    "desktop",
+    "scripts/install-desktop-runtime.ps1",
+    "scripts/upgrade-intranet.ps1"
   ],
   "engines": {
     "node": ">=22.19.0"
@@ -81,7 +85,10 @@
     "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
     "dsh-megmeet": "file:../../dist/dsh-megmeet-0.2.1.tgz",
     "dsh-pcb-review": "file:../../dist/dsh-pcb-review-0.1.2.tgz",
-    "dsh-schematic-sync": "file:../../dist/dsh-schematic-sync-0.1.2.tgz"
+    "dsh-schematic-sync": "file:../../dist/dsh-schematic-sync-0.1.2.tgz",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "esbuild": "0.25.12"
   },
   "license": "MIT",
   "bundleDependencies": [

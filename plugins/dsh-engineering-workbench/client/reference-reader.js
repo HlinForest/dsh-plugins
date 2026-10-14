@@ -5,9 +5,9 @@
       useEffect(() => { let alive = true; call('status').then(value => { if (alive) { setStatus(value); setLoaded(true); } }).catch(() => { if (alive) work.setError('无法读取识别状态，请刷新任务。'); }); return () => { alive = false; }; }, [task.id, side]);
       useEffect(() => {
         if (!status?.active) return;
-        let stopped = false, timer;
-        const poll = async () => { try { const value = await call('status'); if (!stopped) { setStatus(value); work.setError(''); if (!value.active && status.activeSide === side) await execute('open', { taskId: task.id }); } } catch { if (!stopped) work.setError('暂时无法获取识别进度，正在重试。'); } if (!stopped) timer = setTimeout(poll, 1500); };
-        timer = setTimeout(poll, 1500); return () => { stopped = true; clearTimeout(timer); };
+        let stopped = false;
+        const poll = async () => { try { const value = await call('status'); if (!stopped) { setStatus(value); work.setError(''); if (!value.active && status.activeSide === side) await execute('open', { taskId: task.id }); } } catch { if (!stopped) work.setError('暂时无法获取识别进度，正在重试。'); } };
+        const stop = visiblePoll(poll, 1500); return () => { stopped = true; stop(); };
       }, [status?.active, status?.activeSide, task.id, side]);
       const run = status?.run, pages = run?.completedPages.length || 0;
       return h('section', { className: 'ew-reference-card', 'aria-label': side === 'right' ? '读取目标资料' : '读取源资料' },

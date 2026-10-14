@@ -1,0 +1,30 @@
+{
+  "runtime": "Electron",
+  "version": "44.7.2",
+  "platform": "win32-x64",
+  "archive": "Engineering_Workbench_Runtime_win32_x64.zip",
+  "size": 157868329,
+  "sha256": "bfd203f1084f0829fedc4ac6e9ed9a7601ccde2d8341a58a1aaefee01582132c",
+  "parts": [
+    {
+      "file": "runtime.zip.part01",
+      "size": 41943040,
+      "sha256": "c0cdbb8a0bec0e929416a73e6579280ec7d61c5de9551bc1a18b5ccfbc32e64a"
+    },
+    {
+      "file": "runtime.zip.part02",
+      "size": 41943040,
+      "sha256": "a69a22fe3395470da8d7f7327e21abc1a02d1cdf7d454ad902d9945b19122631"
+    },
+    {
+      "file": "runtime.zip.part03",
+      "size": 41943040,
+      "sha256": "66ae7bc0c4acdb16d3c9f33603b7aabbc0cfcb06b421a989eeef5f376bbdb333"
+    },
+    {
+      "file": "runtime.zip.part04",
+      "size": 32039209,
+      "sha256": "4a47c51ea9c5ab43b48b37a7b564249a91098d6d44c7aff91382c15a5af4101c"
+    }
+  ]
+}

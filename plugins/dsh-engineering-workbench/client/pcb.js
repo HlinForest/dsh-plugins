@@ -19,9 +19,9 @@
       useEffect(() => { work.run('读取评审配置', async () => { const c = await invoke('pcb', 'capabilities'); setCaps(c); if (c.configuredProject) await loadProject(); }); }, []);
       useEffect(() => {
         if (tab !== 'watch') return;
-        let stopped = false, initialized = false, timer;
-        const tick = async () => { try { const v = await invoke('pcb', 'watch'); if (!stopped) { setWatch(v); if (!initialized) { setPopup(!!v.settings?.popup); setSeconds(v.settings?.pollSeconds || 3); initialized = true; } } } catch (e) { if (!stopped) work.setError(e.message); } finally { if (!stopped) timer = setTimeout(tick, 4000); } };
-        tick(); return () => { stopped = true; clearTimeout(timer); };
+        let stopped = false, initialized = false;
+        const tick = async () => { try { const v = await invoke('pcb', 'watch'); if (!stopped) { setWatch(v); if (!initialized) { setPopup(!!v.settings?.popup); setSeconds(v.settings?.pollSeconds || 3); initialized = true; } } } catch (e) { if (!stopped) work.setError(e.message); } };
+        if (!document.hidden) tick(); const stop = visiblePoll(tick, 4000); return () => { stopped = true; stop(); };
       }, [tab]);
       const inspectRef = async value => {
         const requested = value.trim(), version = ++queryVersion.current;

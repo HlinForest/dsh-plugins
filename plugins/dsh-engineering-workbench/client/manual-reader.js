@@ -6,9 +6,9 @@
       useEffect(() => { alive.current = true; work.run('建立整本索引', async () => { const value = await call('index'); update(value); if (alive.current && value.active) setTab(value.active); }); return () => { alive.current = false; }; }, [task.id]);
       useEffect(() => {
         if (!status?.active) return;
-        let stopped = false, timer;
-        const poll = async () => { try { const value = await call('status'); if (!stopped) { update(value); work.setError(''); } } catch { if (!stopped) work.setError('进度暂时连接失败，正在重试；已保存的阅读结果会保留。'); } if (!stopped) timer = setTimeout(poll, 1500); };
-        timer = setTimeout(poll, 1500); return () => { stopped = true; clearTimeout(timer); };
+        let stopped = false;
+        const poll = async () => { try { const value = await call('status'); if (!stopped) { update(value); work.setError(''); } } catch { if (!stopped) work.setError('进度暂时连接失败，正在重试；已保存的阅读结果会保留。'); } };
+        const stop = visiblePoll(poll, 1500); return () => { stopped = true; stop(); };
       }, [status?.active, task.id]);
       const start = mode => work.run('启动自动阅读', async () => { setTab(mode); setNotePage(0); update(await call('start', { mode, question: query.trim() })); });
       const search = offset => work.run('搜索整本手册', async () => { const version = generation.current, value = await call('search', { query, offset: offset || 0 }); if (generation.current === version) setHits(value); });

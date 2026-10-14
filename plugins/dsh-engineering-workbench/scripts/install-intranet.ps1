@@ -16,7 +16,7 @@ function Get-BundleHash([string]$File) {
 }
 if ($Profile -notmatch '^[a-zA-Z0-9_-]+$') { throw 'Invalid profile name.' }
 $taskBundle = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$taskPackage = Join-Path $taskBundle 'plugin/dsh-engineering-workbench-0.5.0.tgz'
+$taskPackage = Join-Path $taskBundle 'plugin/dsh-engineering-workbench-0.6.0.tgz'
 $taskWorkspace = (Resolve-Path -LiteralPath $WorkspaceRoot).Path
 if (-not $WorkDirectory) { $WorkDirectory = Join-Path $taskWorkspace 'engineering-trial' }
 $taskWork = [IO.Path]::GetFullPath($WorkDirectory)
@@ -34,6 +34,11 @@ foreach ($taskItem in $taskManifest.files) {
 }
 New-Item -ItemType Directory -Force -Path $taskWork | Out-Null
 $taskProfileDir = Join-Path $DshHomePath "profiles/$Profile"
+$taskExistingManifest = Join-Path $taskProfileDir 'package.json'
+if (Test-Path -LiteralPath $taskExistingManifest) {
+    $taskExisting = Get-Content -LiteralPath $taskExistingManifest -Raw | ConvertFrom-Json
+    if ($taskExisting.dependencies.'dsh-engineering-workbench') { throw 'An existing workbench was found. Use scripts/upgrade-intranet.ps1 with its current WorkDirectory to preserve configuration.' }
+}
 if (-not (Test-Path -LiteralPath (Join-Path $taskProfileDir 'package.json'))) {
     throw "Open or initialize the intended Harness profile first: $Profile. This installer does not copy logins or replace existing profiles."
 }
@@ -103,7 +108,7 @@ try {
         throw "Plugin was installed, but profile configuration failed validation; previous patch restored. See $taskWork/profile-validation.private.log locally."
     }
 } finally { $env:DSH_HOME = $taskOldDshHome; $ErrorActionPreference = 'Stop' }
-[IO.File]::WriteAllText((Join-Path $taskWork 'installation.json'), (@{version='0.5.0';profile=$Profile;config=$taskConfig;backup=$taskBackup;installedAt=(Get-Date).ToString('o')} | ConvertTo-Json -Depth 5), [Text.UTF8Encoding]::new($false))
-Write-Output "Installed engineering workbench 0.5.0 into profile $Profile. Restart Harness."
+[IO.File]::WriteAllText((Join-Path $taskWork 'installation.json'), (@{version='0.6.0';profile=$Profile;config=$taskConfig;backup=$taskBackup;installedAt=(Get-Date).ToString('o')} | ConvertTo-Json -Depth 5), [Text.UTF8Encoding]::new($false))
+Write-Output "Installed engineering workbench 0.6.0 into profile $Profile. Restart Harness."
 Write-Output "Backup: $taskBackup"
 Write-Output 'The installer preserves your existing model provider and login. Local file access does not imply an offline model.'

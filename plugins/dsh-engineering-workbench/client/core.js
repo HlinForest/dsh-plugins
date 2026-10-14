@@ -24,6 +24,23 @@
     const chip = value => h('span', { className: `ew-chip ${tone(value)}` }, statuses[value] || value);
     const button = (text, onClick, props = {}) => h('button', { type: 'button', onClick, ...props }, text);
     const link = (text, href) => h('a', { href, target: '_blank', rel: 'noopener noreferrer', className: 'ew-link' }, text);
+    let desktopVisible = true;
+    const pageVisible = () => !document.hidden && desktopVisible;
+    function visiblePoll(callback, delay) {
+      let stopped = false, timer, running = false;
+      const tick = async () => {
+        clearTimeout(timer);
+        if (stopped || !pageVisible() || running) return;
+        running = true;
+        try { await callback(); }
+        finally { running = false; if (!stopped && pageVisible()) timer = setTimeout(tick, delay); }
+      };
+      const visibility = () => { clearTimeout(timer); if (pageVisible()) tick(); };
+      document.addEventListener('visibilitychange', visibility);
+      document.addEventListener('workbenchvisibility', visibility);
+      timer = setTimeout(tick, delay);
+      return () => { stopped = true; clearTimeout(timer); document.removeEventListener('visibilitychange', visibility); document.removeEventListener('workbenchvisibility', visibility); };
+    }
     async function api(endpoint, body) {
       const response = await fetch(`/api/engineering-workbench/${endpoint}`, body === undefined ? { cache: 'no-store' } : { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
       if (response.status === 401 || response.status === 403) throw new Error('工作台认证失效，请重新连接 DeepSeek Harness。');
