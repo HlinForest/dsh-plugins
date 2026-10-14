@@ -6,7 +6,7 @@ import { spawn } from 'node:child_process';
 import { FlowError, classify } from './errors.js';
 import { presentation } from './presentation.js';
 import { stages, inputGroups, version } from './contracts.js';
-import { hash, readJSON, writeJSON, within, inside, tree } from './io.js';
+import { hash, readJSON, writeJSON, within, inside, tree, fileChanges, sameFiles } from './io.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
 const uuid = /^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$/;
@@ -28,18 +28,36 @@ export class Flow {
   async open(id) {
     const p = await this.load(id);
     let changed = false;
-    if (p.inputsBundle && p.bundleHash !== hash(await tree(p.inputsBundle))) { this.invalidate(p, 1); changed = true; }
+    if (p.inputsBundle) {
+      const current = await tree(p.inputsBundle);
+      if (!this.bundleMatches(p, current)) {
+        const files = p.bundleFiles ? fileChanges(p.bundleFiles, current) : [];
+        this.invalidate(p, 1, { kind: 'default-input-files', from: 1, files,
+          message: `显示板默认资料的校验不一致${this.changedNames(files)}。请查看操作记录中的文件差异。` }); changed = true;
+      } else if (!p.bundleFiles) {
+        // Upgrade only after the previous digest has verified the actual files.
+        p.bundleFiles = current; changed = true;
+      }
+    }
     if (p.inputFiles?.length) {
       for (const f of p.inputFiles) {
         const current = await fs.readFile(f.original).then(hash).catch(() => null);
-        if (current !== f.sha256) { this.invalidate(p, f.stage); changed = true; break; }
+        if (current !== f.sha256) { this.invalidate(p, f.stage, { kind: 'source-file', from: f.stage,
+          files: [{ path: path.basename(f.original), kind: current === null ? 'missing' : 'changed' }],
+          message: `提供的资料文件已变化或无法读取：${path.basename(f.original)}。请重新核对资料。` }); changed = true; break; }
       }
     }
     for (const s of p.stages) {
       if (!s.output) continue;
       if (s.status === 'done' && s.files) {
         const current = await tree(s.output).catch(() => []);
-        if (hash(current) !== s.outputHash) { this.invalidate(p, s.id); s.error = '本步生成文件已变化，请重新执行和确认。'; changed = true; break; }
+        const recordValid = Boolean(s.outputHash) && hash(s.files) === s.outputHash;
+        if (!recordValid || !sameFiles(s.files, current)) {
+          const files = fileChanges(s.files, current);
+          this.invalidate(p, s.id, { kind: recordValid ? 'output-files' : 'output-record', from: s.id, files,
+            message: recordValid ? `“${s.title}”的${s.id === 1 && s.source === 'human' ? '确认' : '生成'}文件已变化${this.changedNames(files)}。请返回该步重新核对并确认。` : `“${s.title}”的文件校验记录不完整或已变化，请重新确认该步。` });
+          changed = true; break;
+        }
       }
     }
     p.aiEnabled = this.config.allowModelCalls === true && Boolean(this.ai);
@@ -76,17 +94,32 @@ export class Flow {
       const source = path.join(packageRoot, 'cases/display-board/inputs');
       p.inputsBundle = path.join(this.dir(p.id), 'default-inputs');
       await fs.cp(source, p.inputsBundle, { recursive: true });
-      p.bundleHash = hash(await tree(p.inputsBundle));
+      p.bundleFiles = await tree(p.inputsBundle); p.bundleHash = hash(p.bundleFiles);
       p.caseInputSignature = this.designSignature(p.inputs);
     }
     this.recordEvent(p, 1, '项目', caseId ? '载入显示板输入' : '创建空白项目');
     await this.save(p); return this.open(p.id);
   }
-  invalidate(p, from) {
+  changedNames(files) { return files.length ? `：${files.slice(0, 3).map(f => f.path).join('、')}${files.length > 3 ? `等 ${files.length} 个文件` : ''}` : ''; }
+  bundleMatches(p, current) { return p.bundleFiles ? hash(p.bundleFiles) === p.bundleHash && sameFiles(p.bundleFiles, current) : p.bundleHash === hash(current); }
+  invalidate(p, from, reason = { kind: 'inputs', from, message: `“${p.stages.find(s => s.id === from)?.title || '前序步骤'}”的输入或处理方案已修改，请重新核对本步结果。` }) {
+    let record = false;
     for (const s of p.stages) if (s.id >= from) {
+      if ((s.output || s.confirmed) && hash(s.invalidation || null) !== hash(reason)) record = true;
       s.status = s.output || s.confirmed ? 'stale' : 'pending'; s.confirmed = false; delete s.confirmation; delete s.error; delete s.errorInfo;
+      s.invalidation = reason;
     }
+    if (record) this.recordEvent(p, from, '校验', '结果需要重新确认', reason);
     delete p.replay;
+  }
+  prerequisites(p, number) {
+    for (const prior of p.stages.filter(s => s.id < Number(number))) if (prior.status !== 'done' || !prior.confirmed)
+      throw new FlowError('input', `请先执行并确认“${prior.title}”。${prior.invalidation?.message || '确认成功后再执行本步。'}`);
+  }
+  async confirmedProject(id, number) {
+    const current = await this.open(id), stage = this.stage(current, number);
+    if (stage.status !== 'done' || !stage.confirmed) throw new FlowError('integrity', stage.invalidation?.message || stage.error || '确认后的文件校验未通过，本步尚未确认。', { stage: stage.id, ...stage.invalidation });
+    return current;
   }
   guard(id) { if (this.jobs.has(id)) throw new Error('当前项目正在执行，请先等待或取消。'); }
   stage(p, number) { const s = p.stages.find(s => s.id === Number(number)); if (!s) throw new Error('请选择有效步骤。'); return s; }
@@ -116,7 +149,7 @@ export class Flow {
     if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new Error('本步仍有缺项或假设，请明确选择“带缺项继续草稿”。');
     s.confirmed = true; s.confirmation = { at: new Date().toISOString(), actor: 'human', draft: Boolean(a.allowDraft), note: String(a.note || ''), outputHash: s.outputHash };
     this.recordEvent(p, s.id, '确认', '确认' + s.title, s.confirmation);
-    await this.save(p); return this.open(p.id);
+    await this.save(p); return this.confirmedProject(p.id, s.id);
   }
   async checkedInputs(p) {
     const inputs = structuredClone(p.inputs);
@@ -126,7 +159,7 @@ export class Flow {
     return inputs;
   }
   async structuredEligible(p) {
-    return Boolean(p.inputsBundle && p.caseInputSignature === this.designSignature(p.inputs) && p.bundleHash === hash(await tree(p.inputsBundle)));
+    return Boolean(p.inputsBundle && p.caseInputSignature === this.designSignature(p.inputs) && this.bundleMatches(p, await tree(p.inputsBundle)));
   }
   designSignature(inputs) { const { datasheets, resources, stageNotes, ...design } = inputs; return hash({ ...Object.fromEntries(Object.entries(design).filter(([,v]) => v !== '' && v != null)), stageNotes: Object.fromEntries(Object.entries(stageNotes || {}).filter(([,v]) => v.trim())) }); }
   async inputIndex(p, number) {
@@ -186,7 +219,7 @@ export class Flow {
   }
   async execute(id, number, signal, { replay = false } = {}) {
     const p = await this.open(id); const s = this.stage(p, number);
-    for (const prior of p.stages.filter(x => x.id < s.id)) if (prior.status !== 'done' || !prior.confirmed) throw new Error(`请先执行并确认“${prior.title}”；有缺项时可选择继续草稿。`);
+    this.prerequisites(p, s.id);
     if (!replay && (!this.config.allowModelCalls || !this.ai)) throw new Error('本步需要 Harness 当前模型。请配置模型后执行；离线页面仅用于查看输入。');
     const inputs = await this.checkedInputs(p);
     this.invalidate(p, s.id);
@@ -241,8 +274,8 @@ export class Flow {
       const result = await readJSON(path.join(output, 'result.json'));
       if (!result.summary || !Array.isArray(result.gaps)) throw new Error('阶段输出缺少 summary/gaps，不能记为成功。');
       for (const f of snapshot.files) if (hash(await fs.readFile(f.original)) !== f.sha256) throw new Error('执行期间原始输入文件发生变化，请重新确认资料。');
-      if (p.inputsBundle && hash(await tree(p.inputsBundle)) !== p.bundleHash) throw new Error('执行期间默认输入发生变化，请重新载入资料。');
-      for (const prior of p.stages.filter(x => x.id < s.id)) if (hash(await tree(prior.output)) !== prior.outputHash) throw new Error('执行期间上游文件发生变化，当前结果不能确认。');
+      if (p.inputsBundle && !this.bundleMatches(p, await tree(p.inputsBundle))) throw new Error('执行期间默认输入发生变化，请重新载入资料。');
+      for (const prior of p.stages.filter(x => x.id < s.id)) if (!sameFiles(prior.files, await tree(prior.output))) throw new Error('执行期间上游文件发生变化，当前结果不能确认。');
       const intake = await readJSON(path.join(output, 'prepared/intake.json'));
       const inheritedGaps = p.stages.filter(x => x.id < s.id).flatMap(x => x.gaps).filter(g => !(result.erc && g.startsWith('ERC：')) && !(result.drc && g.startsWith('DRC：')));
       s.result = result; s.gaps = [...new Set([...inheritedGaps, ...intake.gaps, ...(s.plan.gaps || []), ...result.gaps])];
@@ -252,7 +285,7 @@ export class Flow {
           sourceFiles: p.inputFiles, defaultInputsHash: p.bundleHash, stages: p.stages.map(x => ({ id: x.id, source: x.source, plan: x.executedPlan || x.plan, inputFiles: x.inputFiles, confirmation: x.confirmation, output: x.output, outputHash: x.outputHash, gaps: x.gaps, assumptions: x.assumptions })), environment: runtime });
         await this.runProcess([path.join(packageRoot, 'python/archive.py'), path.join(output, 'request.json')], output, signal);
       }
-      s.files = await tree(output); s.outputHash = hash(s.files); s.status = 'done';
+      s.files = await tree(output); s.outputHash = hash(s.files); s.status = 'done'; delete s.invalidation;
       s.finishedAt = new Date().toISOString(); s.executedPlan = structuredClone(s.plan);
       if (replay) { s.confirmed = true; s.confirmation = { actor: 'replay', draft: true, inherited: true, outputHash: s.outputHash }; }
       this.recordEvent(p, s.id, '完成', s.title + '处理完成', { output, summary: result.summary, source: s.planOrigin });
@@ -264,6 +297,8 @@ export class Flow {
     await this.save(p); return this.open(id);
   }
   async start(a) {
+    this.guard(a.projectId);
+    const current = await this.open(a.projectId); this.stage(current, a.stage); this.prerequisites(current, a.stage);
     this.guard(a.projectId); const controller = new AbortController();
     const task = { controller, type: 'stage', promise: null }; this.jobs.set(a.projectId, task);
     task.promise = this.execute(a.projectId, a.stage, controller.signal).catch(async error => {
@@ -305,10 +340,11 @@ export class Flow {
     await writeJSON(path.join(output, 'design-inputs.json'), { engineer: p.inputs, confirmation: 'human', at: new Date().toISOString() });
     await writeJSON(path.join(output, 'result.json'), result);
     Object.assign(s, { status: 'done', source: 'human', plan: null, output, result, confirmed: true, gaps: [], assumptions: [], finishedAt: new Date().toISOString() });
+    delete s.invalidation;
     s.files = await tree(output); s.outputHash = hash(s.files);
     s.confirmation = { at: s.finishedAt, actor: 'human', draft: Boolean(a.allowDraft), note: String(a.note || ''), outputHash: s.outputHash };
     this.recordEvent(p, 1, '确认', '工程师确认任务与约束', '人工确认输入；未调用模型。');
-    await this.save(p); return this.open(p.id);
+    await this.save(p); return this.confirmedProject(p.id, 1);
   }
   async rename(a) {
     this.guard(a.projectId); const p = await this.load(a.projectId), label = String(a.label || '').trim();

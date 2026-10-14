@@ -8,7 +8,7 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.1 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.2 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
 ## 工程工作台 0.6.0：拉取后直接更新
@@ -30,9 +30,20 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 
 本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
 
-## 独立工程流程 dsh-eda-flow 0.3.1
+## 独立工程流程 dsh-eda-flow 0.3.2
 
-[完整离线包与校验值](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1) · [插件安装包](dist/dsh-eda-flow-0.3.1.tgz) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [UI skills](skills/megmeet-dsh-plugin-skills/SKILL.md) · [UI Spec](skills/megmeet-dsh-plugin-skills/references/ui-spec.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.1.json)
+0.3.2 修复确认失效后仍跳步、任务启动反馈不明显，以及文件清单元数据造成的误判。已有安装直接更新，无需填写原工作目录：
+
+```powershell
+git pull --ff-only origin main
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps1 -Profile desktop
+```
+
+[0.3.2 Release 与升级包](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.2) · [更新说明](docs/update-eda-flow-0.3.2.md) · [0.3.2 插件 TGZ](dist/dsh-eda-flow-0.3.2.tgz)。更新保留项目、窗口运行时、模型和登录配置；重新加载插件后，在页面左下角核对版本 0.3.2。
+
+[0.3.2 验证记录](plugins/dsh-eda-flow/evals/validation-0.3.2.json)：21 项自动测试、浏览器确认及重试检查通过；显示板七步实际 KiCad 生成与 28 类内容比较、空目录重放均通过。模型使用测试替身，付费请求为零。
+
+[首次安装完整离线包 0.3.1](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1) · [插件安装包](dist/dsh-eda-flow-0.3.1.tgz) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [UI skills](skills/megmeet-dsh-plugin-skills/SKILL.md) · [UI Spec](skills/megmeet-dsh-plugin-skills/references/ui-spec.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.1.json)
 
 新建设计和显示板示例使用同一套七步流程，无需工程工作台。第一步可由工程师直接确认；后续生成使用 Harness 当前模型，再由工具生成原理图、BOM、PCB 和预览。规格书按页读取并绑定器件；默认输入可查看，阶段确认后再进入下游。
 
@@ -40,7 +51,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 
 已有仓库执行 `git pull --ff-only` 获取源码、插件 TGZ 及 UI skills。`git clone` 不会下载 Release 附件：首次内网安装电路设计 0.3.1 时，可另外下载上述 Release 的 `EDA_Flow_Intranet_0.3.1.zip`，其中包含对应的 Electron 窗口运行时、Python 离线依赖和 UI skills，完整包的安装器会自动部署。上方 0.6.0 自动更新命令仅针对工程工作台，不会更新或替换电路设计插件。
 
-本版 14 项 Node 测试及图标交互模拟检查通过；独立窗口、系统按钮、聊天共存及 UI skills 有单独验证记录。此前的真实 KiCad 两个空目录重放和 28 类工程内容比较作为历史工程验证保留；本次 UI 发布没有重跑生成链。真实模型生成质量留到内网验收，本机没有付费模型请求。
+0.3.1 的 14 项 Node 测试及图标交互模拟检查通过；独立窗口、系统按钮、聊天共存及 UI skills 有单独验证记录。此前的真实 KiCad 两个空目录重放和 28 类工程内容比较作为历史工程验证保留；本次 UI 发布没有重跑生成链。真实模型生成质量留到内网验收，本机没有付费模型请求。
 
 工程保留源设计的背面布线和两个铜层设置；生产铜层数与通孔金属化单独待确认。正面阅读预览已增强，实际线宽不变。完整安装包带默认数据和离线依赖，无需历史成品。
 

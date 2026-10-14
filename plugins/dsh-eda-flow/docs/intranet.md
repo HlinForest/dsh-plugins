@@ -1,5 +1,7 @@
 # 内网安装与试用
 
+已有安装升级到 **0.3.2**，优先使用[保留配置的更新命令](../../../docs/update-eda-flow-0.3.2.md)，无需填写工作目录。以下完整离线包用于首次安装 0.3.1，安装后再升级。
+
 解压 `EDA_Flow_Intranet_0.3.1.zip`，保留目录。安装包已包含显示板输入，无需旧工作台、旧工程目录或开发机路径。
 
 [GitHub 完整离线包与 UI skills](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1)。完整包包含独立窗口运行时、Python 离线依赖与 `skills/megmeet-dsh-plugin-skills`；安装器自动复制随包窗口运行时，不联网下载它。Harness、Node 与 KiCad 仍需预先安装。更新前先关闭电路设计窗口。

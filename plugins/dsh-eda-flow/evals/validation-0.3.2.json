@@ -1,0 +1,28 @@
+{
+  "version": "0.3.2",
+  "nodeTests": 21,
+  "paidModelCalls": 0,
+  "defaultInputContentUnchanged": true,
+  "installedPackageMatchesSource": true,
+  "profileConfigurationByteIdentical": true,
+  "otherPluginDependenciesUnchanged": true,
+  "existingProjectFilesUnchanged": 83,
+  "forcedHarnessRestart": false,
+  "browser": {
+    "checks": [
+      "Unconfirmed readback stays on the first page and displays the actual reason",
+      "Stage failure is visible in the work area even when the AI column is collapsed",
+      "Retry retains the same project and confirms the first two stages"
+    ],
+    "pageErrors": [],
+    "paidModelCalls": 0
+  },
+  "fullFlow": {
+    "stages": 7,
+    "realKiCadTools": true,
+    "referenceMatches": true,
+    "emptyDirectoryReplayMatches": true,
+    "model": "test-double only"
+  },
+  "intranetInitialDriftCause": "Not verified without the original intranet file-difference record"
+}

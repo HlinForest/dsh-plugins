@@ -1,7 +1,7 @@
 export class FlowError extends Error {
   constructor(code, message, details = {}) { super(message); this.code = code; this.details = details; }
 }
-const titles = { unselected: '未选择模型', auth: '模型鉴权失败', quota: '模型额度不足', rate: '请求受到限流', timeout: '模型响应超时', cancelled: '本次处理已取消', truncated: '模型输出被截断', format: '模型返回格式不完整', tool: '工具执行失败', model: '模型请求未完成', input: '输入需要补充', conflict: '输入已被其他窗口修改' };
+const titles = { integrity: '文件校验未通过', unselected: '未选择模型', auth: '模型鉴权失败', quota: '模型额度不足', rate: '请求受到限流', timeout: '模型响应超时', cancelled: '本次处理已取消', truncated: '模型输出被截断', format: '模型返回格式不完整', tool: '工具执行失败', model: '模型请求未完成', input: '输入需要补充', conflict: '输入已被其他窗口修改' };
 export function classify(error, phase = 'model', signal) {
   if (error instanceof FlowError) return { code: error.code, title: titles[error.code] || '处理未完成', message: error.message, phase, details: error.details };
   const failure = error?.failure || error || {}, message = String(failure.message || error || '请求未完成').slice(-4500);

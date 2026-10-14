@@ -44,8 +44,20 @@ export async function tree(root) {
       if (['__pycache__', '.git'].includes(entry.name)) continue;
       const file = path.join(dir, entry.name);
       if (entry.isDirectory()) await walk(file);
-      else result.push({ path: path.relative(root, file).replaceAll('\\', '/'), bytes: (await fs.stat(file)).size, sha256: hash(await fs.readFile(file)) });
+      else {
+        // Size and digest must describe the same read, including on managed filesystems.
+        const content = await fs.readFile(file);
+        result.push({ path: path.relative(root, file).replaceAll('\\', '/'), bytes: content.length, sha256: hash(content) });
+      }
     }
   }
   await walk(root); return result.sort((a, b) => a.path.localeCompare(b.path));
 }
+
+export function fileChanges(expected, current) {
+  const before = new Map(expected.map(f => [f.path, f.sha256]));
+  const after = new Map(current.map(f => [f.path, f.sha256]));
+  return [...new Set([...before.keys(), ...after.keys()])].sort().flatMap(file =>
+    before.get(file) === after.get(file) ? [] : [{ path: file, kind: !before.has(file) ? 'added' : !after.has(file) ? 'missing' : 'changed' }]);
+}
+export const sameFiles = (expected, current) => fileChanges(expected, current).length === 0;
