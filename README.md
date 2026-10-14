@@ -8,16 +8,20 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.2.0 | 独立七步输入、Harness 模型处理、显示板完整默认输入、实际生成与空目录重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.1 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.5.0 | 本机原始资料提取、冻结、复原核验与重放；六项独立任务、双格式离线读取、原生检查、比较、图形候选编辑与回退 |
 
-## 独立工程流程 dsh-eda-flow 0.2.0
+## 独立工程流程 dsh-eda-flow 0.3.1
 
-[完整内网安装包](output/packages/EDA_Flow_Intranet_0.2.0.zip) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [插件说明](plugins/dsh-eda-flow/README.md) · [本次验证](plugins/dsh-eda-flow/evals/validation-0.2.0.json) · [SHA-256](output/packages/EDA_Flow_Intranet_0.2.0.sha256.txt)
+[完整离线包与校验值](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1) · [插件安装包](dist/dsh-eda-flow-0.3.1.tgz) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [UI skills](skills/megmeet-dsh-plugin-skills/SKILL.md) · [UI Spec](skills/megmeet-dsh-plugin-skills/references/ui-spec.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.1.json)
 
-新建设计和显示板示例使用同一套七步流程，无需工程工作台。显示板预填完整输入，每次执行仍调用 Harness 当前模型，再由工具生成原理图、BOM、PCB 和预览。规格书按页读取并绑定器件；默认输入可查看，阶段确认后再进入下游。
+新建设计和显示板示例使用同一套七步流程，无需工程工作台。第一步可由工程师直接确认；后续生成使用 Harness 当前模型，再由工具生成原理图、BOM、PCB 和预览。规格书按页读取并绑定器件；默认输入可查看，阶段确认后再进入下游。
 
-本机以测试替身验证模型接口，真实 KiCad 在两个空目录生成的工程内容一致，28 类内容与显示板目标一致；付费模型请求为零。插件已在独立 Harness profile 安装验证。真实模型的生成质量留到内网验收，未将离线工具链测试计为 AI 独立复现成功。
+从宿主图标进入三栏独立窗口，保持聊天可用。标题栏为 40px，与顶栏同色，圆角及分隔对齐 Harness；重复打开、执行和重试不会新增项目。正式安装使用真实模型，本机测试使用模拟响应。
+
+已有仓库执行 `git pull --ff-only` 获取源码、插件包及 UI skills。首次内网安装建议另外下载上述 Release 的 `EDA_Flow_Intranet_0.3.1.zip`，其中已包含较大的 Electron 窗口运行时、Python 离线依赖和 UI skills；仅拉取源码不包含 Electron 二进制。完整包的安装器会自动部署窗口运行时。
+
+本版 14 项 Node 测试及图标交互模拟检查通过；独立窗口、系统按钮、聊天共存及 UI skills 有单独验证记录。此前的真实 KiCad 两个空目录重放和 28 类工程内容比较作为历史工程验证保留；本次 UI 发布没有重跑生成链。真实模型生成质量留到内网验收，本机没有付费模型请求。
 
 工程保留源设计的背面布线和两个铜层设置；生产铜层数与通孔金属化单独待确认。正面阅读预览已增强，实际线宽不变。完整安装包带默认数据和离线依赖，无需历史成品。
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Megmeet DSH 插件 UI"
+  short_description: "复用已确认的 DSH 插件外观、独立窗口与三栏工程流程规范"
+  default_prompt: "使用 $megmeet-dsh-plugin-skills 优化这个插件的前端，沿用已确认的窗口、配色与交互。"

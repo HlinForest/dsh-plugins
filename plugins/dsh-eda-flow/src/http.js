@@ -7,16 +7,32 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.pdf': 'application/pdf', '.json': 'application/json; charset=utf-8', '.csv': 'text/csv; charset=utf-8' };
 export const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 export function routes(service) {
+  const checkOrigin = request => {
+    const origin = request.headers.get('origin'), host = request.headers.get('host') || new URL(request.url).host;
+    if (request.headers.get('sec-fetch-site') === 'cross-site' || origin && new URL(origin).host !== host) throw new Error('不接受跨站操作。');
+  };
   return [
     ...[['page', 'index.html'], ['app.js', 'app.js'], ['styles.css', 'styles.css']].map(([name, file]) => ({ name, methods: ['GET'], run: async () => new Response(await fs.readFile(path.join(root, 'client', file)), { headers: { 'content-type': types[path.extname(file)], 'cache-control': 'no-store' } }) })),
     { name: 'bootstrap', methods: ['GET'], run: async () => json({ ok: true, value: { version, stages, workspaceRoot: service.config.workspaceRoot,
-      caseReady: true, aiEnabled: service.config.allowModelCalls === true && Boolean(service.ai), projects: await service.list() } }) },
+      caseReady: true, aiEnabled: service.config.allowModelCalls === true && Boolean(service.ai), model: service.ai?.selection?.() || null, projects: await service.list() } }) },
+    { name: 'upload', methods: ['POST'], run: async request => {
+      checkOrigin(request); const form = await request.formData();
+      const key = form.get('projectId'), next = (service.mutations.get(key) || Promise.resolve()).catch(() => {}).then(() => service.upload({ projectId: key, stage: Number(form.get('stage')), binding: form.get('binding') || '' }, form.getAll('files')));
+      service.mutations.set(key, next);
+      try { return json({ ok: true, value: await next }); } finally { if (service.mutations.get(key) === next) service.mutations.delete(key); }
+    } },
     { name: 'action', methods: ['POST'], run: async request => {
-      const origin = request.headers.get('origin'); const host = request.headers.get('host') || new URL(request.url).host;
-      if (request.headers.get('sec-fetch-site') === 'cross-site' || origin && new URL(origin).host !== host) throw new Error('不接受跨站操作。');
+      checkOrigin(request);
       if (!request.headers.get('content-type')?.startsWith('application/json')) throw new Error('需要 JSON 请求。');
       const raw = await request.text(); if (Buffer.byteLength(raw) > 3 * 1024 * 1024) throw new Error('请求过大。');
-      return json({ ok: true, value: await service.dispatch(JSON.parse(raw), request.signal, 'human') });
+      const args = JSON.parse(raw);
+      if (args.action === 'open-window') return json({ ok: true, value: await service.openWindow() });
+      const mutate = ['update','confirm','rename','adopt','attach','create','chat','execute','replay'].includes(args.action);
+      const run = () => service.dispatch(args, request.signal, 'human');
+      if (!mutate) return json({ ok: true, value: await run() });
+      const key = args.projectId || 'create', previous = service.mutations.get(key) || Promise.resolve(), next = previous.catch(() => {}).then(run);
+      service.mutations.set(key, next);
+      try { return json({ ok: true, value: await next }); } finally { if (service.mutations.get(key) === next) service.mutations.delete(key); }
     } },
     { name: 'asset', methods: ['GET'], run: async request => {
       const url = new URL(request.url); const project = await service.load(url.searchParams.get('projectId'));

@@ -14,7 +14,8 @@ const flow=new Flow({workspaceRoot:root,workDirectory:root,kicadPython:process.a
 });
 try {
  const p=await flow.create({caseId:'display-board',label:'显示板 · 离线工具链验证'});
- for(let stage=1;stage<=7;stage++){console.log('STAGE',stage);await flow.execute(p.id,stage);await flow.confirm({projectId:p.id,stage,allowDraft:true},'human');}
+ await flow.confirm({projectId:p.id,stage:1},'human');
+ for(let stage=2;stage<=7;stage++){console.log('STAGE',stage);await flow.execute(p.id,stage);await flow.confirm({projectId:p.id,stage,allowDraft:true},'human');}
  const project=await flow.open(p.id);const result=await readJSON(path.join(project.stages[6].output,'result.json'));
  if(!result.comparison.equal)throw new Error('Reference differences '+JSON.stringify(result.comparison));
  if(project.stages[6].gaps.some(g=>g.startsWith('ERC：82')))throw new Error('Superseded partial ERC result survived final check');

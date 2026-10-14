@@ -1,6 +1,8 @@
 # 内网安装与试用
 
-解压 `EDA_Flow_Intranet_0.2.2.zip`，保留目录。安装包已包含显示板输入，无需旧工作台、旧工程目录或开发机路径。
+解压 `EDA_Flow_Intranet_0.3.1.zip`，保留目录。安装包已包含显示板输入，无需旧工作台、旧工程目录或开发机路径。
+
+[GitHub 完整离线包与 UI skills](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1)。完整包包含独立窗口运行时、Python 离线依赖与 `skills/megmeet-dsh-plugin-skills`；安装器自动复制随包窗口运行时，不联网下载它。Harness、Node 与 KiCad 仍需预先安装。更新前先关闭电路设计窗口。
 
 先在 Harness 中选好内网可用模型。插件使用该模型，不另填密钥。
 
@@ -19,7 +21,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-intranet.ps1 -Workspa
 也可手动执行：
 
 ```powershell
-dsh plugin --profile desktop add .\plugin\dsh-eda-flow-0.2.2.tgz
+dsh plugin --profile desktop add .\plugin\dsh-eda-flow-0.3.1.tgz
 ```
 
 将该插件配置为：
@@ -34,7 +36,9 @@ dsh plugin --profile desktop add .\plugin\dsh-eda-flow-0.2.2.tgz
     allowModelCalls: true
 ```
 
-点击“载入显示板输入”，逐步执行、查看、确认。显示板也会调用模型。若模型额度不足，本步明确失败，数据留存，不回退成无模型生成。PDF 选择的是运行 Harness 的电脑上的文件，需放在配置工作区内。
+按 [桌面窗口说明](desktop-window.md) 部署独立运行时后，点击电路设计图标打开独立桌面窗口；悬停可查看入口名称。未部署运行时时使用 Edge 回退。“新建项目”选择显示板输入或空白输入。第一步可人工确认，其他生成阶段调用真实模型；错误按服务实际返回分类。文件选择会将资料复制到当前项目目录。
+
+UI skills 是供开发助手复用的界面规范，不是运行插件的必要依赖。可直接阅读随包 `skills/megmeet-dsh-plugin-skills/SKILL.md`；在 Codex 使用时把整个文件夹复制到本机技能目录，然后指定 `$megmeet-dsh-plugin-skills`。它包含通用 UI spec、显示板流程约定及实拍参考。
 
 试用记录在 `workDirectory/projects/<项目ID>/steps/<步骤>/<运行ID>`：`model-log.json` 是实际模型输入、读取、输出与错误；`commands.json` 是本次工具执行；`result.json` 是结果；原工程和规格书快照也在对应步骤。第 7 步提供工程 ZIP 与完整冻结记录 ZIP。
 

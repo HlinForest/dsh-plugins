@@ -9,6 +9,8 @@ def main():
     req=read(sys.argv[1]);out=Path(req['output']);stage=req['stage'];project=out/'project';cli=req['cli'];plan=req['plan']
     gaps=[];result={'summary':plan['summary'],'gaps':gaps}
     if stage<4:
+        for key in ['components','parameters','connections','citations']:
+            if isinstance(plan.get(key),list):result[key]=plan[key]
         if req.get('inputsBundle'):
             inp=Path(req['inputsBundle']);manifest=read(inp/'manifest.json')
             for name,sha in manifest['files'].items():assert digest(inp/name)==sha,'Input hash mismatch: '+name

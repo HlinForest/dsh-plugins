@@ -11,6 +11,20 @@ def main():
     req=json.loads(Path(sys.argv[1]).read_text(encoding='utf-8-sig')); out=Path(req['output'])/'prepared'
     out.mkdir(exist_ok=True); gaps=[]; sources=[]
     write(out/'engineer-inputs.json',req['inputs'])
+    for item in req['inputs'].get('resources',[]):
+        src=Path(item['path']);sha=hashlib.sha256(src.read_bytes()).hexdigest()
+        try:
+            if src.suffix.lower()=='.pdf':
+                import pymupdf
+                with pymupdf.open(src) as doc:pages=[{'page':i+1,'text':p.get_text()} for i,p in enumerate(doc)]
+                extracted={'pages':pages}
+                if not any(p['text'].strip() for p in pages):gaps.append(src.name+'：扫描 PDF 无可提取文字，请提供文本或 OCR 后复核。')
+            elif src.suffix.lower() in ['.txt','.md','.csv','.json','.xml']:
+                extracted={'text':src.read_text(encoding='utf-8-sig')}
+            else:
+                gaps.append(src.name+'：暂不支持自动读取此格式，请提供 PDF、文本、CSV 或 JSON。');continue
+            write(out/'resources'/(sha+'.json'),dict(name=src.name,sha256=sha,binding=item.get('binding',''),**extracted))
+        except Exception as e:gaps.append(src.name+'：资料读取失败，'+str(e))
     if req['stage']==2:
         mapping={}
         for key in ['schematic','pcb','nativeProject']:

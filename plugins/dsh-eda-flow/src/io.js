@@ -1,13 +1,31 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
+import { setTimeout as delay } from 'node:timers/promises';
 
 export const hash = data => createHash('sha256').update(typeof data === 'string' || Buffer.isBuffer(data) ? data : JSON.stringify(data)).digest('hex');
 export const readJSON = async file => JSON.parse((await fs.readFile(file, 'utf8')).replace(/^\uFEFF/, ''));
-export async function writeJSON(file, value) {
-  await fs.mkdir(path.dirname(file), { recursive: true });
-  const tmp = file + '.' + randomUUID() + '.tmp';
-  await fs.writeFile(tmp, JSON.stringify(value, null, 2)); await fs.rename(tmp, file);
+const writes = new Map();
+export function writeJSON(file, value) {
+  const payload = JSON.stringify(value, null, 2);
+  const next = (writes.get(file) || Promise.resolve()).catch(() => {}).then(async () => {
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    const tmp = file + '.' + randomUUID() + '.tmp';
+    try {
+      await fs.writeFile(tmp, payload);
+      for (let attempt = 0; ; attempt++) {
+        try { await fs.rename(tmp, file); break; }
+        catch (error) {
+          // Windows readers and antivirus may briefly deny replacing an open file.
+          if (!['EPERM','EACCES','EBUSY'].includes(error.code) || attempt >= 9) throw error;
+          await delay(Math.min(40 * (attempt + 1), 250));
+        }
+      }
+    } finally { await fs.unlink(tmp).catch(() => {}); }
+  });
+  writes.set(file, next);
+  next.finally(() => { if (writes.get(file) === next) writes.delete(file); }).catch(() => {});
+  return next;
 }
 export function inside(root, candidate) {
   const rel = path.relative(path.resolve(root), path.resolve(candidate));
