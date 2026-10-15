@@ -7,9 +7,9 @@ param(
 $ErrorActionPreference = 'Stop'
 if ($Profile -notmatch '^[a-zA-Z0-9_-]+$') { throw 'Invalid profile name.' }
 $taskRepo = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$taskPackage = Join-Path $taskRepo 'dist/dsh-eda-flow-0.3.3.tgz'
+$taskPackage = Join-Path $taskRepo 'dist/dsh-eda-flow-0.3.4.tgz'
 $taskHashes = Get-Content -LiteralPath (Join-Path $taskRepo 'dist/SHA256SUMS.txt') -Encoding UTF8
-$taskLine = $taskHashes | Where-Object { $_ -match '^([a-f0-9]{64})\s+dsh-eda-flow-0\.3\.3\.tgz$' } | Select-Object -First 1
+$taskLine = $taskHashes | Where-Object { $_ -match '^([a-f0-9]{64})\s+dsh-eda-flow-0\.3\.4\.tgz$' } | Select-Object -First 1
 if (-not $taskLine) { throw 'Package checksum record is missing.' }
 $taskExpected = ($taskLine -split '\s+')[0]
 if ((Get-FileHash -LiteralPath $taskPackage -Algorithm SHA256).Hash.ToLowerInvariant() -ne $taskExpected) { throw 'Plugin checksum mismatch.' }
@@ -25,7 +25,7 @@ else {
 }
 if (-not $taskStore) { throw 'Cannot locate the existing pnpm store; no install was attempted.' }
 if ([IO.Path]::GetFileName($taskStore) -match '^v\d+$') { $taskStore = Split-Path -Parent $taskStore }
-$taskBackup = Join-Path $DshHomePath ('plugin-upgrade-backups/eda-flow-0.3.3-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [guid]::NewGuid().ToString('N').Substring(0,6))
+$taskBackup = Join-Path $DshHomePath ('plugin-upgrade-backups/eda-flow-0.3.4-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [guid]::NewGuid().ToString('N').Substring(0,6))
 New-Item -ItemType Directory -Path $taskBackup | Out-Null
 foreach ($taskName in @('package.json','cordis.patch.yml','pnpm-lock.yaml','pnpm-workspace.yaml')) {
     $taskFile = Join-Path $taskProfile $taskName
@@ -34,7 +34,7 @@ foreach ($taskName in @('package.json','cordis.patch.yml','pnpm-lock.yaml','pnpm
 Copy-Item -LiteralPath $taskInstalled -Destination (Join-Path $taskBackup 'plugin') -Recurse
 $taskCache = Join-Path $DshHomePath 'plugin-cache'
 New-Item -ItemType Directory -Force -Path $taskCache | Out-Null
-$taskCached = Join-Path $taskCache ('dsh-eda-flow-0.3.3-' + $taskExpected.Substring(0,16) + '.tgz')
+$taskCached = Join-Path $taskCache ('dsh-eda-flow-0.3.4-' + $taskExpected.Substring(0,16) + '.tgz')
 Copy-Item -LiteralPath $taskPackage -Destination $taskCached -Force
 $taskOldHome = $env:DSH_HOME
 try {
@@ -49,7 +49,7 @@ try {
     if (Test-Path -LiteralPath $taskSavedPatch) { Copy-Item -LiteralPath $taskSavedPatch -Destination (Join-Path $taskProfile 'cordis.patch.yml') -Force }
 }
 $taskVersion = (Get-Content -LiteralPath (Join-Path $taskInstalled 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json).version
-if ($taskVersion -ne '0.3.3') { throw "Installed version is $taskVersion, expected 0.3.3. Backup: $taskBackup" }
+if ($taskVersion -ne '0.3.4') { throw "Installed version is $taskVersion, expected 0.3.4. Backup: $taskBackup" }
 Write-Output "Installed EDA Flow $taskVersion into profile $Profile. Existing project paths, runtime, model and login configuration preserved."
 Write-Output "Backup: $taskBackup"
 Write-Output 'Reload the circuit-design plugin or restart Harness when convenient. Harness was not stopped.'

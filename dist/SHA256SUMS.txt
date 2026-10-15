@@ -18,3 +18,4 @@ e969ca3be844c1da97ef04fa01f8e6ac477e9771d2da7bcd37595027ee045ae1  dsh-megmeet-0.
 02a21154f21da7f518dfb08ccbd54234fec8563d9eaa1abb97e17fbdc63bc59e  dsh-engineering-workbench-0.6.0.tgz
 d14c96dccd1b4ee52774acd5ea512dc83c61ec0491c3f91b6eda807137100260  dsh-eda-flow-0.3.2.tgz
 99e2f57e20dcb1195bb83f618d6a867dcc4230b285e404050cfd196992044562  dsh-eda-flow-0.3.3.tgz
+50fcddb7cbfde90fa0e1da299f958a42364dea3fe74c9338ad71d3e1e2c3c61d  dsh-eda-flow-0.3.4.tgz

@@ -8,7 +8,7 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.3 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.4 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
 ## 工程工作台 0.6.0：拉取后直接更新
@@ -30,26 +30,29 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 
 本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
 
-## 独立工程流程 dsh-eda-flow 0.3.3
+## 电路设计 dsh-eda-flow 0.3.4：内网资料读取检查
 
-0.3.3 核对页面与实际运行后台版本，确认返回不完整时读取已保存状态，并增加默认资料与待确认项入口。已有安装直接更新，无需填写原工作目录：
+针对点击“整理输入”后 CSV 校验变化：检测 TSD 保护格式，对照 Harness/Node 与 KiCad Python 读取结果；非任务资料异常从第二步阻止执行，保留未改变的任务确认。校验仍严格执行，不解密、不删除保护头、不自动接受变化文件。尚未取得内网诊断，不能断言具体原因就是加密。
+
+移除来源、器件与 BOM 表格里无作用的勾选框，七步都写明“本步操作”和“需要补什么、在哪里补”。第二步直接“整理输入”，不需要勾选来源记录或重传 AD 文件。
 
 ```powershell
 git pull --ff-only origin main
+if ($LASTEXITCODE -ne 0) { throw '拉取失败，请先停止更新' }
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps1 -Profile desktop
 ```
 
-[0.3.3 Release 与升级包](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.3) · [更新说明](docs/update-eda-flow-0.3.3.md) · [0.3.3 插件 TGZ](dist/dsh-eda-flow-0.3.3.tgz)。更新保留项目、窗口运行时、模型和登录配置。**安装更新不等于旧窗口已加载新版**：在方便时正常退出并重开 Harness，页面左下角的“电路设计”和“运行后台”均应为 0.3.3。只读检查：
+更新自动备份并保留原项目、模型配置、登录和窗口运行时。等聊天任务结束后正常退出整个 Harness，再重开并点击电路设计图标；只关闭子窗口可能仍是旧后台。
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-eda-flow.ps1 -Profile desktop
 ```
 
-**更新成功须同时满足 `installedVersion: 0.3.3`、`runningVersion: 0.3.3`、`activation: active`。** 不能只看安装成功或关闭电路设计子窗口；后台仍为旧版时，请在聊天任务结束后正常退出整个 Harness，再重开。
+必须同时得到 **installedVersion 0.3.4 / runningVersion 0.3.4 / activation active**。旧项目可直接在第二步点击“检查资料读取 → 下载诊断记录”，无需查找内部目录。原先已被撤销的第一步需人工重新核对一次。
 
-2026-10-14 已在安装后的 **0.3.3 原生独立窗口**新建显示板项目，实际点击七步、查看 21 个页签、生成并下载工程。第二步及后续步骤保留第一步确认与输出哈希；刷新后七步确认仍保留，28 类工程内容与基准一致。12 次模型响应均为模拟，付费请求为零；KiCad 工具实际执行。第 3–7 步带待确认项继续草稿，最终 ERC 1 条、DRC 40 条待复核。
+[更新、诊断与七步操作说明](docs/update-eda-flow-0.3.4.md) · [0.3.4 Release](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.4) · [升级 ZIP](output/packages/EDA_Flow_Update_0.3.4.zip) · [插件 TGZ](dist/dsh-eda-flow-0.3.4.tgz) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.4.json)
 
-[七步验证报告及截图](docs/eda-flow-0.3.3-seven-step-validation.md) · [机器可读记录](plugins/dsh-eda-flow/evals/seven-steps-0.3.3.json) · [可重跑的 UI 脚本](plugins/dsh-eda-flow/test/desktop-seven-steps.mjs) · [验证证据 ZIP](output/packages/EDA_Flow_0.3.3_SevenStep_Verification.zip) · [确认与输入入口测试](plugins/dsh-eda-flow/evals/validation-0.3.3.json)。本次安装包与七步验证所用版本一致，未重新构建。真实模型生成质量留到内网验证。
+此前 [0.3.3 七步记录](docs/eda-flow-0.3.3-seven-step-validation.md)和[确认与输入入口测试](plugins/dsh-eda-flow/evals/validation-0.3.3.json)继续保留。正式插件使用 Harness 当前模型与登录；本机验证使用模拟响应和实际工具。
 
 [首次安装完整离线包 0.3.1](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1) · [插件安装包](dist/dsh-eda-flow-0.3.1.tgz) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [UI skills](skills/megmeet-dsh-plugin-skills/SKILL.md) · [UI Spec](skills/megmeet-dsh-plugin-skills/references/ui-spec.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.1.json)
 

@@ -7,6 +7,7 @@ import { FlowError, classify } from './errors.js';
 import { presentation } from './presentation.js';
 import { stages, inputGroups, version } from './contracts.js';
 import { hash, readJSON, writeJSON, within, inside, tree, fileChanges, sameFiles } from './io.js';
+import { byteEvidence, inspectDefaultBundle, compareReaders } from './input-integrity.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
 const uuid = /^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$/;
@@ -30,14 +31,15 @@ export class Flow {
     let changed = false;
     if (p.inputsBundle) {
       const current = await tree(p.inputsBundle);
-      if (!this.bundleMatches(p, current)) {
-        const files = p.bundleFiles ? fileChanges(p.bundleFiles, current) : [];
-        this.invalidate(p, 1, { kind: 'default-input-files', from: 1, files,
-          message: `显示板默认资料的校验不一致${this.changedNames(files)}。请查看操作记录中的文件差异。` }); changed = true;
+      const issue = await this.inspectBundle(p, current);
+      if (issue) {
+        p.bundleIssue = issue;
+        this.invalidate(p, issue.from, issue); changed = true;
       } else if (!p.bundleFiles) {
         // Upgrade only after the previous digest has verified the actual files.
         p.bundleFiles = current; changed = true;
       }
+      if (!issue && p.bundleIssue) { delete p.bundleIssue; changed = true; }
     }
     if (p.inputFiles?.length) {
       for (const f of p.inputFiles) {
@@ -102,6 +104,62 @@ export class Flow {
   }
   changedNames(files) { return files.length ? `：${files.slice(0, 3).map(f => f.path).join('、')}${files.length > 3 ? `等 ${files.length} 个文件` : ''}` : ''; }
   bundleMatches(p, current) { return p.bundleFiles ? hash(p.bundleFiles) === p.bundleHash && sameFiles(p.bundleFiles, current) : p.bundleHash === hash(current); }
+  async inspectBundle(p, current) {
+    return inspectDefaultBundle(p, current, await readJSON(path.join(packageRoot, 'cases/display-board/inputs/manifest.json')));
+  }
+  requireReadable(p, number) {
+    if (p.bundleIssue && p.bundleIssue.from <= Number(number)) throw new FlowError(p.bundleIssue.code, p.bundleIssue.message, p.bundleIssue);
+  }
+  async pythonInputReadings(p, files, signal) {
+    return new Promise((resolve, reject) => {
+      const child = spawn(this.config.kicadPython, [path.join(packageRoot, 'python/input_probe.py')],
+        { windowsHide: true, env: { ...process.env, PYTHONUTF8: '1' }, stdio: ['pipe', 'pipe', 'pipe'] });
+      let stdout = '', size = 0;
+      const stop = () => child.kill();
+      const timer = setTimeout(stop, 30000);
+      signal?.addEventListener('abort', stop, { once: true });
+      if (signal?.aborted) stop();
+      const cleanup = () => { clearTimeout(timer); signal?.removeEventListener('abort', stop); };
+      child.stdout.on('data', data => { size += data.length; if (size > 4 * 1024 * 1024) stop(); else stdout += data; });
+      child.stderr.resume();
+      child.stdin.on('error', () => {});
+      child.on('error', error => { cleanup(); reject(new Error(`Python 读取检查无法启动（${error.code || '启动失败'}）。请检查配置的 KiCad Python 路径。`)); });
+      child.on('close', code => {
+        cleanup();
+        if (signal?.aborted || code !== 0) return reject(new Error('Python 读取检查未完成，请检查工具路径与内网执行授权。'));
+        try { const rows = JSON.parse(stdout); if (!Array.isArray(rows)) throw new Error(); resolve(rows); }
+        catch { reject(new Error('Python 读取检查未返回有效记录。')); }
+      });
+      child.stdin.end(JSON.stringify({ root: p.inputsBundle, files }));
+    });
+  }
+  async diagnoseInputs(a, supplied, signal) {
+    const p = supplied || await this.load(a.projectId);
+    if (!p.inputsBundle) throw new FlowError('input', '当前项目没有显示板默认资料；请在资料列表核对已上传文件的读取结果。');
+    const manifest = await readJSON(path.join(packageRoot, 'cases/display-board/inputs/manifest.json'));
+    const current = await tree(p.inputsBundle);
+    const paths = [...new Set([...current.map(f => f.path), ...Object.keys(manifest.files)])];
+    const expected = paths.map(name => ({ path: name, sha256: manifest.files[name] || p.bundleFiles?.find(f => f.path === name)?.sha256 }));
+    const node = [];
+    for (const file of expected) {
+      try { node.push({ path: file.path, ...byteEvidence(await fs.readFile(await within(p.inputsBundle, file.path))) }); }
+      catch { node.push({ path: file.path, unavailable: true }); }
+    }
+    let python = [], pythonError;
+    try { python = await this.pythonInputReadings(p, expected, signal); } catch (error) { pythonError = error.message; }
+    const files = compareReaders(expected, node, python);
+    const problems = files.filter(f => f.status !== 'verified');
+    const protectedCount = files.filter(f => f.status === 'tsd-protected').length;
+    const differentReaders = files.filter(f => f.status === 'reader-mismatch').length;
+    const summary = protectedCount ? `${protectedCount} 个文件读取到 TSD-Header 保护格式。请由内网 IT 核对 Harness/Node 与 KiCad Python 的读取授权，或在获准环境导出可读副本后重新检查。`
+      : pythonError || (differentReaders ? `${differentReaders} 个文件在 Node 与 Python 中读到的字节不同；这可能与进程授权或检查期间文件变化有关，请核对诊断记录。`
+        : problems.length ? `${problems.length} 个文件与原始默认资料不同或不可读；未检测到 TSD-Header，暂不能判定为加密。`
+          : 'Node 与 KiCad Python 均能读取默认资料，内容与发布包一致。');
+    return { version, projectId: p.id, checkedAt: new Date().toISOString(), allValid: !problems.length,
+      code: !problems.length ? null : protectedCount ? 'encrypted' : pythonError ? 'tool' : 'integrity', summary,
+      readers: { node: process.execPath, python: this.config.kicadPython || '未配置' }, pythonError,
+      files, realModelCalls: 0, contentIncluded: false };
+  }
   invalidate(p, from, reason = { kind: 'inputs', from, message: `“${p.stages.find(s => s.id === from)?.title || '前序步骤'}”的输入或处理方案已修改，请重新核对本步结果。` }) {
     let record = false;
     for (const s of p.stages) if (s.id >= from) {
@@ -113,6 +171,7 @@ export class Flow {
     delete p.replay;
   }
   prerequisites(p, number) {
+    this.requireReadable(p, number);
     for (const prior of p.stages.filter(s => s.id < Number(number))) if (prior.status !== 'done' || !prior.confirmed)
       throw new FlowError('input', `请先执行并确认“${prior.title}”。${prior.invalidation?.message || '确认成功后再执行本步。'}`);
   }
@@ -144,6 +203,7 @@ export class Flow {
   async confirm(a, actor) {
     if (actor !== 'human') throw new Error('阶段确认必须由工程师在页面完成。');
     this.guard(a.projectId); const p = await this.open(a.projectId); const s = this.stage(p, a.stage);
+    this.requireReadable(p, s.id);
     if (s.id === 1 && s.status !== 'done') return this.manualConfirm(p, a);
     if (s.status !== 'done') throw new Error('本步没有有效的执行结果。');
     if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new FlowError('review', '本步仍有待确认项，请查看当前页面的“本步待确认项”。可按入口补充，或在底部选择“带待确认项继续草稿”。', { stage: s.id, gaps: s.gaps, assumptions: s.assumptions });
@@ -159,7 +219,7 @@ export class Flow {
     return inputs;
   }
   async structuredEligible(p) {
-    return Boolean(p.inputsBundle && p.caseInputSignature === this.designSignature(p.inputs) && this.bundleMatches(p, await tree(p.inputsBundle)));
+    return Boolean(p.inputsBundle && p.caseInputSignature === this.designSignature(p.inputs) && !(await this.inspectBundle(p, await tree(p.inputsBundle))));
   }
   designSignature(inputs) { const { datasheets, resources, stageNotes, ...design } = inputs; return hash({ ...Object.fromEntries(Object.entries(design).filter(([,v]) => v !== '' && v != null)), stageNotes: Object.fromEntries(Object.entries(stageNotes || {}).filter(([,v]) => v.trim())) }); }
   async inputIndex(p, number) {
@@ -174,6 +234,7 @@ export class Flow {
     const file = await within(root, item.path);
     if (!/\.(json|csv|txt|md|xml|py|kicad_sch|kicad_pcb|kicad_sym|kicad_mod)$/i.test(file)) throw new Error('请读取提取后的文本或数据文件。');
     const data = await fs.readFile(file); if (data.length > 32 * 1024 * 1024) throw new Error('资料文件过大。');
+    if (byteEvidence(data).tsdHeader) throw new FlowError('encrypted', '资料含 TSD-Header 保护头，当前进程无法读取原始数据。请检查内网读取授权。', { path: item.path });
     const text = data.toString('utf8'); const offset = Math.max(0, Math.floor(Number(item.offset) || 0));
     const length = Math.max(1, Math.min(24000, Math.floor(Number(item.length) || 16000)));
     return { scope, path: item.path, sha256: hash(data), offset, totalChars: text.length, text: text.slice(offset, offset + length), nextOffset: offset + length < text.length ? offset + length : null };
@@ -241,6 +302,12 @@ export class Flow {
       await writeJSON(path.join(output, 'environment.json'), runtime);
       await writeJSON(path.join(output, 'request.json'), request);
       await this.runProcess([path.join(packageRoot, 'python/intake.py'), path.join(output, 'request.json')], output, signal);
+      if (p.inputsBundle) {
+        const reading = await this.diagnoseInputs({ projectId: id }, p, signal);
+        await writeJSON(path.join(output, 'input-reading-check.json'), reading);
+        this.recordEvent(p, s.id, '资料检查', reading.summary, { output, allValid: reading.allValid, code: reading.code });
+        if (!reading.allValid) throw new FlowError(reading.code, reading.summary, reading);
+      }
       if (!replay) {
         phase = 'model'; this.phase(id, phase, 'AI 处理');
         const evidence = [{ scope: 'inputs', files: await this.inputIndex(p, s.id) }, { scope: 'prepared', files: await tree(path.join(output, 'prepared')) }];
@@ -274,7 +341,10 @@ export class Flow {
       const result = await readJSON(path.join(output, 'result.json'));
       if (!result.summary || !Array.isArray(result.gaps)) throw new Error('阶段输出缺少 summary/gaps，不能记为成功。');
       for (const f of snapshot.files) if (hash(await fs.readFile(f.original)) !== f.sha256) throw new Error('执行期间原始输入文件发生变化，请重新确认资料。');
-      if (p.inputsBundle && !this.bundleMatches(p, await tree(p.inputsBundle))) throw new Error('执行期间默认输入发生变化，请重新载入资料。');
+      if (p.inputsBundle) {
+        const issue = await this.inspectBundle(p, await tree(p.inputsBundle));
+        if (issue) throw new FlowError(issue.code, issue.message, issue);
+      }
       for (const prior of p.stages.filter(x => x.id < s.id)) if (!sameFiles(prior.files, await tree(prior.output))) throw new Error('执行期间上游文件发生变化，当前结果不能确认。');
       const intake = await readJSON(path.join(output, 'prepared/intake.json'));
       const inheritedGaps = p.stages.filter(x => x.id < s.id).flatMap(x => x.gaps).filter(g => !(result.erc && g.startsWith('ERC：')) && !(result.drc && g.startsWith('DRC：')));
@@ -435,6 +505,10 @@ export class Flow {
     if (a.action === 'read') { const p = await this.open(a.projectId); return this.readEvidence(p, Number(a.stage || 1), a, this.stage(p, a.stage || 1).output ? path.join(this.stage(p, a.stage || 1).output, 'prepared') : undefined); }
     if (a.action === 'data') return presentation(await this.open(a.projectId));
     if (a.action === 'records') return (await this.load(a.projectId)).events;
+    if (a.action === 'diagnose-inputs') {
+      if (actor !== 'human') throw new Error('资料读取检查请由工程师在页面发起。');
+      this.guard(a.projectId); return this.diagnoseInputs(a, undefined, signal);
+    }
     if (a.action === 'rename') return this.rename(a);
     if (a.action === 'chat') { if (actor !== 'human') throw new Error('请由工程师发起助手对话。'); return this.startChat(a); }
     if (a.action === 'adopt') { if (actor !== 'human') throw new Error('请由工程师采用建议。'); return this.adopt(a); }
