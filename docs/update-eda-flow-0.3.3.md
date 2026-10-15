@@ -1,4 +1,4 @@
-# 电路设计 0.3.3：确认状态与默认输入入口
+# 电路设计 0.3.3：更新安装与实际运行版本核对
 
 适用于已安装电路设计的电脑。默认资料随插件提供，不需要另找原工程或填写工作目录。
 
@@ -8,7 +8,9 @@
 
 ```powershell
 git pull --ff-only origin main
+if ($LASTEXITCODE -ne 0) { throw 'Git pull failed; stop before updating.' }
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps1 -Profile desktop
+if ($LASTEXITCODE -ne 0) { throw 'Plugin update failed; keep the error output.' }
 ```
 
 更新脚本备份旧插件，保留原项目、模型、登录与窗口运行时。它不会自动退出 Harness，也不会调用模型。
@@ -25,7 +27,31 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-eda-flow.ps1 -Profile desktop
 ```
 
-`active` 表示安装版与运行版一致；`window-not-reachable` 或 `not-detected` 表示暂时没有取得运行版本，不等于安装失败。先从 Harness 打开电路设计，再检查。若原来使用的 profile 不是 `desktop`，两个命令使用原 profile 名称。
+本次更新的成功条件是下面三项同时匹配。不能只看 `active`，因为两个旧版本相同也可能显示 `active`。
+
+```json
+{
+  "profile": "desktop",
+  "installedVersion": "0.3.3",
+  "runningVersion": "0.3.3",
+  "activation": "active"
+}
+```
+
+`window-not-reachable` 或 `not-detected` 表示暂时没有取得运行版本，不等于安装失败。先从 Harness 打开电路设计，再检查。若原来使用的 profile 不是 `desktop`，两个命令使用原 profile 名称；自定义了 DSH 数据目录时，两条脚本命令都加 `-DshHomePath '原来的 DSH 数据目录'`。
+
+备份位置为 `%USERPROFILE%\.dsh\plugin-upgrade-backups\eda-flow-0.3.3-时间-编号`（自定义 DSH 数据目录时在该目录下）。脚本备份旧插件、profile 配置与锁文件，沿用已有项目目录、模型配置和登录。请勿删除 `.dsh`、卸载整个 Harness 或清空项目目录。`git pull` 仅更新仓库文件；必须执行更新脚本，然后核对实际运行版本。
+
+## 这次七步验证对应哪个安装包
+
+2026-10-14 的[七步原生窗口验证](eda-flow-0.3.3-seven-step-validation.md)使用已安装的 **0.3.3**，与仓库及 Release 的以下文件对应。2026-10-15 补充验证证据，插件包未重新构建，版本仍为 0.3.3。
+
+| 文件 | SHA-256 |
+| --- | --- |
+| `dsh-eda-flow-0.3.3.tgz` | `99e2f57e20dcb1195bb83f618d6a867dcc4230b285e404050cfd196992044562` |
+| `EDA_Flow_Update_0.3.3.zip` | `17b56e4d241d784255c528540ab0708218320fc375f745b824da1a6c84b29a5b` |
+
+升级脚本会校验 TGZ 哈希，并使用带哈希的缓存路径安装。模型模拟仅存在于单独运行的验证脚本；正式插件继续使用 Harness 当前选择的模型与登录。
 
 ## 显示板应该怎样走
 

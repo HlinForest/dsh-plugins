@@ -45,7 +45,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-eda-flow.ps1 -Profile desktop
 ```
 
-0.3.3 的验证记录见 [确认与输入入口测试](plugins/dsh-eda-flow/evals/validation-0.3.3.json)。真实模型生成质量留到内网验证，本机仅使用模拟模型。此前 [0.3.2 验证记录](plugins/dsh-eda-flow/evals/validation-0.3.2.json)保留显示板七步 KiCad 生成、28 类内容比较和空目录重放结果。
+**更新成功须同时满足 `installedVersion: 0.3.3`、`runningVersion: 0.3.3`、`activation: active`。** 不能只看安装成功或关闭电路设计子窗口；后台仍为旧版时，请在聊天任务结束后正常退出整个 Harness，再重开。
+
+2026-10-14 已在安装后的 **0.3.3 原生独立窗口**新建显示板项目，实际点击七步、查看 21 个页签、生成并下载工程。第二步及后续步骤保留第一步确认与输出哈希；刷新后七步确认仍保留，28 类工程内容与基准一致。12 次模型响应均为模拟，付费请求为零；KiCad 工具实际执行。第 3–7 步带待确认项继续草稿，最终 ERC 1 条、DRC 40 条待复核。
+
+[七步验证报告及截图](docs/eda-flow-0.3.3-seven-step-validation.md) · [机器可读记录](plugins/dsh-eda-flow/evals/seven-steps-0.3.3.json) · [可重跑的 UI 脚本](plugins/dsh-eda-flow/test/desktop-seven-steps.mjs) · [验证证据 ZIP](output/packages/EDA_Flow_0.3.3_SevenStep_Verification.zip) · [确认与输入入口测试](plugins/dsh-eda-flow/evals/validation-0.3.3.json)。本次安装包与七步验证所用版本一致，未重新构建。真实模型生成质量留到内网验证。
 
 [首次安装完整离线包 0.3.1](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1) · [插件安装包](dist/dsh-eda-flow-0.3.1.tgz) · [安装说明](plugins/dsh-eda-flow/docs/intranet.md) · [UI skills](skills/megmeet-dsh-plugin-skills/SKILL.md) · [UI Spec](skills/megmeet-dsh-plugin-skills/references/ui-spec.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.3.1.json)
 
