@@ -1,0 +1,54 @@
+{
+  "version": "0.4.3",
+  "date": "2026-10-15",
+  "status": "locally-verified",
+  "realDshModelCalls": 0,
+  "installedHarnessUpdated": false,
+  "intranetRealModelValidation": "pending",
+  "bug": {
+    "stage": 4,
+    "evidence": "User screenshots show prose before an unfenced precise_apply JSON action, formatRetries=2, and parser rejection.",
+    "exactUserRawResponseAvailable": false,
+    "reproducedPattern": true,
+    "cause": "Parser accepted pure JSON or one fenced JSON block, rejecting a complete unfenced action preceded by prose.",
+    "fix": "Find exactly one complete JSON object while respecting strings and escapes; parse strictly; reject any extra object/array/fence outside. Never edit CAD parameters.",
+    "rawReplyAndHarnessHistoryPreserved": true
+  },
+  "validation": {
+    "beforeFix": {
+      "targetedFailures": 2
+    },
+    "backendSuite": {
+      "passed": 51,
+      "failed": 0,
+      "realHarnessRuntime": true,
+      "realKiCadMcp": true,
+      "model": "local test adapter only"
+    },
+    "frontend": {
+      "passed": 13,
+      "failed": 0
+    },
+    "packagedRuntime": {
+      "passed": 5,
+      "failed": 0,
+      "isolatedExtraction": true
+    },
+    "rejectionCases": [
+      "multiple JSON actions",
+      "array envelope",
+      "second incomplete object",
+      "unclosed object",
+      "invalid string escape",
+      "additional fenced action"
+    ],
+    "package": {
+      "file": "dsh-eda-flow-0.4.3.tgz",
+      "sha256": "3ac518998d6066321b4e918712369f2bd6805b39bf6a2ca83baabe47f3777dfe",
+      "bytes": 2514689,
+      "files": 185,
+      "sourceMatches": true
+    }
+  },
+  "scope": "Actual KiCad MCP regression includes prose-prefixed tool action and unchanged argument checks. No paid DSH calls or installed Harness changes; original full user response unavailable; live intranet model validation pending."
+}

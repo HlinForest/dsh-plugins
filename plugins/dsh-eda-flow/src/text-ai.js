@@ -13,6 +13,33 @@ function parseAction(raw) {
       try { return JSON.parse(block[1]); } catch {}
     }
   }
+  // Some models prepend a short status sentence without fencing the JSON.
+  // Find one complete object without modifying its contents. Braces inside
+  // quoted strings are data; any extra object/array/fence outside is ambiguous.
+  const start = raw.indexOf('{');
+  if (start >= 0 && !/[{}\[\]`]/.test(raw.slice(0, start))) {
+    const stack = []; let quoted = false, escaped = false;
+    for (let i = start; i < raw.length; i++) {
+      const c = raw[i];
+      if (quoted) {
+        if (escaped) escaped = false;
+        else if (c === '\\') escaped = true;
+        else if (c === '"') quoted = false;
+        continue;
+      }
+      if (c === '"') quoted = true;
+      else if (c === '{' || c === '[') stack.push(c);
+      else if (c === '}' || c === ']') {
+        if (stack.pop() !== (c === '}' ? '{' : '[')) break;
+        if (!stack.length) {
+          if (!/[{}\[\]`]/.test(raw.slice(i + 1))) {
+            try { return JSON.parse(raw.slice(start, i + 1)); } catch {}
+          }
+          break;
+        }
+      }
+    }
+  }
   throw new FlowError('format', '模型回复不是完整的单个 JSON 动作。');
 }
 

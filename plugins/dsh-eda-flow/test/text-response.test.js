@@ -61,3 +61,27 @@ test('ambiguous multiple JSON actions must be repaired before any tool runs', as
   assert.equal(f.requests.length, 2);
   assert.equal(f.tools.length, 0);
 });
+
+test('a complete single action with unfenced leading and trailing prose needs no repair request', async () => {
+  const f = fixture(['已整理资料。\n' + JSON.stringify({ action: 'question', questions: ['请核对 "引脚" 与 {供电}、[NC]。'] }) + '\n补充后继续。']);
+  assert.equal((await f.run()).action, 'question');
+  assert.equal(f.requests.length, 1);
+});
+
+test('prose cannot conceal extra actions, malformed payloads or array envelopes', async () => {
+  const tool = JSON.stringify({ action: 'tool', name: 'forbidden-during-format-repair', arguments: {} });
+  const recovered = JSON.stringify({ action: 'question', questions: ['请明确动作。'] });
+  for (const raw of [
+    '处理如下：' + tool + '\n然后：' + recovered,
+    '处理如下：[' + tool + ']',
+    '处理如下：' + tool + '\n{"action":',
+    '处理如下：{"action":"tool","name":"forbidden-during-format-repair","arguments":{',
+    '处理如下：{"action":"tool","name":"forbidden-during-format-repair","arguments":{"note":"bad\\q"}}',
+    '处理如下：' + tool + '\n```json\n' + recovered + '\n```',
+  ]) {
+    const f = fixture([raw, recovered]);
+    assert.equal((await f.run()).action, 'question');
+    assert.equal(f.tools.length, 0, raw);
+    assert.equal(f.requests.length, 2, raw);
+  }
+});

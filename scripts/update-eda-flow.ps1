@@ -3,7 +3,7 @@ param(
     [string]$DshHomePath = (Join-Path $env:USERPROFILE '.dsh'),
     [string]$DshCommand = (Join-Path $env:LOCALAPPDATA 'Programs/DeepSeek Harness/resources/runtime/cli/bin/dsh.cmd'),
     [string]$Registry,
-    [string]$PackageVersion = '0.4.2',
+    [string]$PackageVersion = '0.4.3',
     [switch]$DisableModelCalls
 )
 $ErrorActionPreference = 'Stop'

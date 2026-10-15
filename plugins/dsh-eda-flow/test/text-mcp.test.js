@@ -18,7 +18,8 @@ function mockHost(actions) {
   class LocalAdapter extends LlmAdapter {
     async *stream(request) {
       requests.push(request); const action = actions.shift(); assert(action, 'Test double has no queued response');
-      yield { type: 'text-delta', index: 0, text: JSON.stringify(typeof action === 'function' ? action(request) : action) };
+      const response = typeof action === 'function' ? action(request) : action;
+      yield { type: 'text-delta', index: 0, text: typeof response === 'string' ? response : JSON.stringify(response) };
       yield { type: 'finish', reason: { kind: 'stop' } };
     }
   }
@@ -109,7 +110,7 @@ test('text stages use registered host tools and real stdio KiCad; immutable upst
     tool('precise_create', { request_key: 'bad', name: 'Fixture', root: 'D:/escape' }),
     tool('precise_create', { request_key: 'create', name: 'Fixture', title: '文字 MCP 测试' }),
     tool('precise_apply', { request_key: 'invalid-visibility', symbols: [{ name: 'Conflicting', pins: [{ number: '1', name: 'X', at: [0,0], length: 2.54, type: 'input', name_visible: false }] }] }),
-    tool('precise_apply', fixture), read(), check('same-model-key'), finish,
+    'Symbols are ready. Now place the circuit objects.\n\n' + JSON.stringify(tool('precise_apply', fixture)), read(), check('same-model-key'), finish,
     read(), check('same-model-key'), finish, read(), check('same-model-key'), finish];
   const { flow, ctx, mcp } = await context(t, actions);
   let p = await flow.create({ label: 'Actual MCP fixture' });
@@ -129,6 +130,10 @@ test('text stages use registered host tools and real stdio KiCad; immutable upst
   const upstream = p.stages[3]; assert.equal(hash(await tree(upstream.output)), upstream.outputHash);
   const log = await readJSON(path.join(upstream.output, 'tool-log.json')); assert(log.some(x => !x.ok)); assert(log.some(x => x.name === 'precise_apply' && x.ok));
   assert(log.some(x => x.error?.includes('set symbol-level pin_names_visible')));
+  assert.deepEqual(log.find(x => x.arguments.request_key === fixture.request_key).arguments, fixture);
+  const modelLog = await readJSON(path.join(upstream.output, 'model-log.json'));
+  assert(modelLog.some(x => x.event === 'response' && x.raw.startsWith('Symbols are ready.')));
+  assert(!modelLog.some(x => x.event === 'format-retry'));
   const bomStage = p.stages[4], bomLog = await readJSON(path.join(bomStage.output, 'tool-log.json'));
   assert(bomLog.find(x => x.arguments.request_key === 'same-model-key').result.outputs.netlist.path.startsWith(path.join(bomStage.output, 'project')));
   assert(ctx.calls.every(c => c.name.startsWith('eda_precise_') && c.arguments.executionToken));

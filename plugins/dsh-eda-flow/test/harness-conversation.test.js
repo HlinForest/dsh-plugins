@@ -44,6 +44,25 @@ test('real Harness runtime accepts the next request after a schematic MCP result
   checkHistory(requests);
 });
 
+test('schematic action with the screenshot-style prose prefix executes unchanged without format retries', async t => {
+  const args = { request_key: 'fixture-capacitors', symbols: [{ name: 'FixtureCap', description: 'A complete symbol with {braces}, [brackets] and "quotes" in a string', pins: [
+    { number: '1', name: '1', at: [0, 0, 90], length: 2.54, type: 'passive' },
+    { number: '2', name: '2', at: [0, 7.62, 270], length: 2.54, type: 'passive' },
+  ] }] };
+  const raw = 'U1 defined (revision 2). Now batch the vertical decoupling capacitors (pin names/numbers hidden).\n\n'
+    + JSON.stringify({ action: 'tool', name: 'precise_apply', arguments: args });
+  const { ai, requests } = host(t, [raw, finish]);
+  const invoked = [], records = [];
+  const result = await ai.generateText({ project: { mode: 'text-mcp' }, stage: { id: 4 }, request: { inputs: {} }, tools: [{ name: 'precise_apply' }],
+    invoke: async (name, value) => { invoked.push([name, value]); return { ok: true }; }, record: async e => records.push(e) });
+  assert.equal(result.action, 'finish');
+  assert.deepEqual(invoked, [['precise_apply', args]]);
+  assert.equal(records.filter(e => e.event === 'format-retry').length, 0);
+  assert.equal(records.find(e => e.event === 'response').raw, raw);
+  assert.equal(requests[1].find(m => m.role === 'assistant').content[1].text, raw);
+  checkHistory(requests);
+});
+
 test('format repair retains valid Harness assistant attribution and replay metadata', async t => {
   const { ai, requests } = host(t, ['{action:"question"}', { action: 'question', questions: ['需要规格书正文'] }]);
   const result = await ai.generateText({ project: {}, stage: { id: 3 }, request: { inputs: {} }, record: async () => {} });
