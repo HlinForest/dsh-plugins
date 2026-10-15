@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import fs from 'node:fs/promises';
+import { createAssembler, createUserMessage } from './harness-messages.js';
 import { FlowError, finishError, classify } from './errors.js';
 import { generateText } from './text-ai.js';
 const skill = await fs.readFile(new URL('../skills/eda-inputs/SKILL.md', import.meta.url), 'utf8');
@@ -20,10 +21,12 @@ export function harnessAI(ctx) {
       let readCount = 0;
       for (let round = 0; round < 16; round++) {
         const blocks = new Map(); let finish, size = 0;
+        const assembler = createAssembler();
         await record({ event: 'request', round, provider: selection.provider, model: selection.model, system, messages: structuredClone(messages) });
         try {
           const call = await llm.prepareCall({ ...selection, maxTokens: 24000 }, bounded);
           for await (const chunk of call.stream({ ...call.config, system, purpose: 'eda-flow-stage', signal: bounded, messages })) {
+            assembler.push(chunk);
             if (chunk.type === 'text-delta') { size += chunk.text.length; if (size > 2 * 1024 * 1024) throw new Error('模型输出过大。'); blocks.set(chunk.index, (blocks.get(chunk.index) || '') + chunk.text); }
             if (chunk.type === 'block-end' && chunk.block.type === 'text') blocks.set(chunk.index, chunk.block.text);
             if (chunk.type === 'finish') finish = chunk.reason;
@@ -39,7 +42,8 @@ export function harnessAI(ctx) {
             const results = []; for (const file of plan.files) results.push(await read(file));
             readCount += results.length;
             await record({ event: 'reads', round, results });
-            messages.push({ id: randomUUID(), role: 'assistant', content: [{ type: 'text', text: raw }] }, { id: randomUUID(), role: 'user', content: [{ type: 'text', text: JSON.stringify({ fileResults: results }) }] });
+            messages.push(assembler.message({ provider: selection.provider, model: selection.model, ...(assembler.replayState === undefined ? {} : { replayState: assembler.replayState }) }),
+              createUserMessage({ source: { kind: 'eda-flow' }, content: [{ type: 'text', text: JSON.stringify({ fileResults: results }) }] }));
             continue;
           }
           if (!['structured', 'local', 'python'].includes(plan.executor) || typeof plan.summary !== 'string' || !Array.isArray(plan.assumptions) || !Array.isArray(plan.gaps)) throw new FlowError('format', '模型方案缺少处理方式、说明或待确认项。');

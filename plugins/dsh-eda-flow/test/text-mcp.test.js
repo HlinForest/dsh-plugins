@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
+import { Context } from '@deepseek-ai/cordis';
+import { LlmAdapter, LlmRuntime } from '@deepseek-ai/dsh-llm';
 import { Flow } from '../src/service.js';
 import { harnessAI } from '../src/ai.js';
 import { PreciseTools, invokePrecise } from '../src/precise-tools.js';
@@ -12,17 +14,23 @@ import { readJSON, tree, hash } from '../src/io.js';
 const finish = { action: 'finish', summary: '模拟模型测试结果；非真实 Harness 模型验收', gaps: [], assumptions: [] };
 function mockHost(actions) {
   const registered = new Map(), calls = [], requests = [];
-  return { calls, requests, registered, realModelCalls: 0,
+  const runtimeContext = new Context(), llm = new LlmRuntime(runtimeContext);
+  class LocalAdapter extends LlmAdapter {
+    async *stream(request) {
+      requests.push(request); const action = actions.shift(); assert(action, 'Test double has no queued response');
+      yield { type: 'text-delta', index: 0, text: JSON.stringify(typeof action === 'function' ? action(request) : action) };
+      yield { type: 'finish', reason: { kind: 'stop' } };
+    }
+  }
+  llm.registerAdapter(['test-double'], new LocalAdapter());
+  return { calls, requests, registered, realModelCalls: 0, dispose: () => runtimeContext.fiber.dispose(),
     tools: {
       register: tool => registered.set(tool.name, tool),
       async execute(call) { calls.push(call); const value = await registered.get(call.name).execute(call.arguments, { signal: call.signal }); return { value }; },
     },
     get(name) {
       if (name === 'agentDefaultModel') return { currentSelection: () => ({ provider: 'test-double', model: 'TEST-DOUBLE' }) };
-      if (name === 'llm') return { async prepareCall() { return { config: {}, async *stream(request) {
-        requests.push(request); const action = actions.shift(); assert(action, 'Test double has no queued response');
-        yield { type: 'text-delta', index: 0, text: JSON.stringify(typeof action === 'function' ? action(request) : action) }; yield { type: 'finish', reason: { kind: 'stop' } };
-      } }; } };
+      if (name === 'llm') return llm;
     },
   };
 }
@@ -31,6 +39,7 @@ async function context(t, actions = []) {
   t.after(() => fs.rm(workspace, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 }));
   const config = { workspaceRoot: workspace, workDirectory: workspace, allowModelCalls: true, kicadPython: process.env.EDA_TEST_PYTHON || 'D:/anaconda/python.exe', kicadCli: process.env.EDA_TEST_KICAD || 'D:/Kicad/bin/kicad-cli.exe' };
   const ctx = mockHost(actions), mcp = new PreciseTools(config, ctx); mcp.register();
+  t.after(ctx.dispose);
   return { workspace, config, ctx, mcp, flow: new Flow(config, harnessAI(ctx), mcp) };
 }
 const tool = (name, args) => ({ action: 'tool', name, arguments: args });

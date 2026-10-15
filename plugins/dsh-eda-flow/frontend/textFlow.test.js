@@ -9,9 +9,9 @@ import { appendQuestionAnswer, checkStatus, generatedPreviewFiles, textInputReco
 const frontend = path.dirname(fileURLToPath(import.meta.url));
 const compiled = await build({
   stdin: { contents: `import React from 'react'; import {renderToStaticMarkup} from 'react-dom/server';
-    import {TextFlowContent, TextInputGuide, TextInputModal, Questions} from './TextFlow.jsx';
+    import {TextFlowContent, TextInputGuide, TextInputModal, Questions, ModelReply} from './TextFlow.jsx';
     export {fieldsOf} from './api.js';
-    const components = {TextFlowContent, TextInputGuide, TextInputModal, Questions};
+    const components = {TextFlowContent, TextInputGuide, TextInputModal, Questions, ModelReply};
     export const render = (name, props) => renderToStaticMarkup(React.createElement(components[name], props));`,
     loader: 'jsx', resolveDir: frontend, sourcefile: 'text-flow-test-entry.jsx' },
   bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent',
@@ -136,4 +136,13 @@ test('text input guide does not imply old PCB objects were loaded', () => {
   const html = render('TextInputGuide', { project, stage: 2, onFiles() {} });
   assert.match(html, /显示板纯文字任务书/);
   assert.doesNotMatch(html, /已载入提取数据|已载入 PCB|完整连接.*已载入/);
+  assert.match(html, /补充本步文字/);
+  assert.match(html, /补充规格书正文/);
+});
+
+test('format failures expose the saved model reply without claiming a completed result', () => {
+  const html = render('ModelReply', { state: { status: 'failed', errorInfo: { code: 'format', details: { rawResponse: '{action:' } } }, onView() {} });
+  assert.match(html, /查看模型原始回复/);
+  assert.doesNotMatch(html, /已完成/);
+  assert.equal(render('ModelReply', { state: { status: 'done' }, onView() {} }), '');
 });

@@ -1,0 +1,132 @@
+{
+  "version": "0.4.1",
+  "date": "2026-10-15",
+  "status": "locally-verified",
+  "realDshModelCalls": 0,
+  "installedHarnessUpdated": false,
+  "intranetRealModelValidation": "pending",
+  "bugs": [
+    {
+      "symptom": "Step 2 supplement location / return missing",
+      "reproduced": true,
+      "fix": "Focus actual input; save before visiting datasheets; save and return to source step."
+    },
+    {
+      "symptom": "Model did not return complete JSON",
+      "exactUserRawResponseAvailable": false,
+      "reproducedCases": [
+        "explanation around one JSON code block",
+        "invalid JSON",
+        "multiple conflicting actions"
+      ],
+      "fix": "Real JSON prompt examples, bounded two-attempt format repair, raw reply visible and downloadable."
+    },
+    {
+      "symptom": "Cannot read properties of undefined (reading 'replayState')",
+      "reproduced": true,
+      "cause": "Assistant history omitted required source; actual Harness forAdapter reads message.source.replayState on the next request.",
+      "fix": "Canonical Harness message assembly preserves source/provider/model, reasoning blocks and aligned replay metadata."
+    }
+  ],
+  "validation": {
+    "backendSuite": {
+      "passed": 42,
+      "failed": 0,
+      "realHarnessRuntime": true,
+      "realKiCadMcp": true,
+      "model": "local test adapter only"
+    },
+    "frontend": {
+      "passed": 11,
+      "failed": 0
+    },
+    "packagedRuntime": {
+      "passed": 4,
+      "failed": 0,
+      "isolatedExtraction": true,
+      "extraRuntimeNodePackagesRequired": false
+    },
+    "supplementBrowser": {
+      "status": "PASS",
+      "modelRequests": 0,
+      "checks": [
+        "supplement link focuses the actual field",
+        "datasheet navigation saves existing draft",
+        "save and return to step 2",
+        "full text modal has an explicit return action",
+        "failed model reply can be viewed and downloaded as escaped text"
+      ]
+    },
+    "textFlowBrowser": {
+      "status": "PASS",
+      "checks": [
+        "公开问答保存到本步输入，不自动请求模型；新项目无旧对象包；PCB skipped",
+        "完整任务书与供电字段编辑保存；上游修改使人工确认失效",
+        "完整文字预览、复制、下载一致，包含额外约束与公开问答",
+        "规格书正文粘贴、保存和刷新后保持",
+        "PCB无执行/确认按钮；可进入第七步；真实模型验收待验证，无固定重放",
+        "1280/1000/390 三种宽度无页面水平溢出，底栏在视口内"
+      ],
+      "browser": "155.0.4283.45",
+      "viewportChecks": [
+        {
+          "width": 1280,
+          "scroll": 1280,
+          "height": 900,
+          "footer": {
+            "x": 208,
+            "y": 824,
+            "width": 1072,
+            "height": 76,
+            "top": 824,
+            "right": 1280,
+            "bottom": 900,
+            "left": 208
+          }
+        },
+        {
+          "width": 1000,
+          "scroll": 1000,
+          "height": 900,
+          "footer": {
+            "x": 208,
+            "y": 824,
+            "width": 792,
+            "height": 76,
+            "top": 824,
+            "right": 1000,
+            "bottom": 900,
+            "left": 208
+          }
+        },
+        {
+          "width": 390,
+          "scroll": 390,
+          "height": 900,
+          "footer": {
+            "x": 0,
+            "y": 788,
+            "width": 390,
+            "height": 112,
+            "top": 788,
+            "right": 390,
+            "bottom": 900,
+            "left": 0
+          }
+        }
+      ],
+      "pageErrors": [],
+      "externalRequests": [],
+      "realModelCalls": 0,
+      "scope": "浏览器页面与真实后台状态；问题为界面夹具。未运行 Harness 真实模型或原生桌面窗口。"
+    },
+    "package": {
+      "file": "dsh-eda-flow-0.4.1.tgz",
+      "sha256": "e08811f4aad90cbe77af8690b95686a947d3c19cd9efbe6ab94e665d2cfd5fc8",
+      "bytes": 2511938,
+      "files": 184,
+      "sourceMatches": true
+    }
+  },
+  "scope": "No real DSH model requests; no installed-host restart; preserves previous projects and configuration. PCB remains skipped."
+}

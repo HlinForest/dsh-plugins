@@ -14,20 +14,27 @@ const HELP = {
   7: ['检查本次原理图、BOM、工程依赖和真实 ERC。', '运行核验后复核结果并确认交付。Harness 真实模型验收状态单独记录。'],
 };
 
-export function TextInputGuide({ project, stage, onFiles }) {
+export function TextInputGuide({ project, stage, onFiles, onLocate }) {
   return <section className="input-guide" aria-label="本步输入来源">
     <strong>{project.template ? '显示板纯文字任务书' : '工程师文字输入'}</strong>
     <p>{HELP[stage][0]}</p><p><b>本步操作</b>{HELP[stage][1]}</p>
     <div className="input-guide-actions"><button className="text-link" onClick={onFiles}>查看完整文字输入</button><span className="muted">保存与模型执行分开</span></div>
+    {stage !== 6 && <div className="input-guide-actions"><Btn onClick={() => onLocate?.({ stage, tab: 0, field: 'stageNotes' })}>补充本步文字</Btn><Btn onClick={() => onLocate?.({ stage: 3, tab: 1, field: 'datasheetText' })}>补充规格书正文</Btn></div>}
   </section>;
 }
 
-export function TextInputModal({ project, download, notify, onEdit }) {
+export function TextInputModal({ project, download, notify, onEdit, onClose, returnLabel = '返回当前步骤' }) {
   const text = textInputRecord(project);
   const copy = async () => { try { await navigator.clipboard.writeText(text); notify('完整文字输入已复制'); } catch { notify('无法访问剪贴板，可下载正文或选择下方文字复制'); } };
   return <><p className="page-help">这是当前完整输入正文。修改在第一步保存；规格书正文在第三步保存。</p>
     <div className="buttons"><Btn onClick={copy}>复制完整正文</Btn><Btn icon={Download} onClick={() => download(`${project.name}-文字输入.txt`, text, 'text/plain;charset=utf-8')}>下载文字</Btn><Btn onClick={onEdit}>编辑任务书</Btn></div>
-    <pre className="text-task-preview">{text || '尚未填写文字要求。'}</pre></>;
+    <pre className="text-task-preview">{text || '尚未填写文字要求。'}</pre><div className="modal-actions"><Btn primary onClick={onClose}>{returnLabel}</Btn></div></>;
+}
+
+export function ModelReply({ state, onView }) {
+  const details = state.errorInfo?.details;
+  if (state.errorInfo?.code !== 'format' || typeof details?.rawResponse !== 'string') return null;
+  return <div className="notice-actions"><button className="text-link" onClick={() => onView(details.rawResponse)}>查看模型原始回复</button></div>;
 }
 
 export function Questions({ state, busy, onAnswer }) {
@@ -50,7 +57,7 @@ export function TextChecks({ state, detail, resultFiles }) {
 }
 
 export function TextFlowContent({ p, data, stage, tab, state, field, notes, ct, nets, preview, imageFile, detail, resultFiles, download, go, openUpload }) {
-  const f = (label, key, props = {}) => <Field label={label} value={p.fields[key]} onChange={value => field(key, value)} {...props} />;
+  const f = (label, key, props = {}) => <Field label={label} value={p.fields[key]} onChange={value => field(key, value)} data-input={key} {...props} />;
   const components = data.components || [];
   const checks = () => <TextChecks state={state} detail={detail} resultFiles={resultFiles} />;
   const generated = p.stages.filter(s => s.status === 'done');

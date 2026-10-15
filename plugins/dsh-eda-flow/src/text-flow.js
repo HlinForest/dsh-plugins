@@ -27,6 +27,11 @@ export async function executeText(flow, p, s, signal) {
   let session, phase = 'input', lastMutation = 0, lastRead = -1, lastCheck = -1, operation = 0, authored = false;
   const records = [], toolRecords = [];
   const record = async value => {
+    if (value.event === 'format-retry') {
+      flow.phase(p.id, 'model', `模型回复格式修正 · ${value.attempt}/${value.limit}`);
+      flow.recordEvent(p, s.id, '回复修正', `模型回复格式修正 · ${value.attempt}/${value.limit}`, { reason: value.reason });
+      await flow.save(p);
+    }
     if (value.event === 'request') {
       p.modelRequests++;
       flow.phase(p.id, 'model', `模型处理 · 第 ${p.modelRequests} 次请求`);

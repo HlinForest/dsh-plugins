@@ -45,7 +45,7 @@ export function PendingItems({ state, stage, onLocate, textMode = false }) {
   if (!items.length) return null;
   return <section className="pending-items" aria-label="本步待确认项">
     <h3>本步待确认项 · {items.length}</h3>
-    <p className="page-help">逐项核对或补充；暂不补充时，可在底部选择“带待确认项继续草稿”。</p>
-    <ul>{items.map((text, index) => { const legacyTarget = issueTarget(text, stage); const target = textMode ? (/规格书|datasheet|PDF.*器件/i.test(text) ? { stage: 3, tab: 1, label: '补充规格书正文' } : /ERC/.test(text) ? { stage: 4, tab: 2, label: '查看实际 ERC' } : { stage, tab: 0, label: '补充文字要求' }) : legacyTarget; return <li key={index}><span>{text}</span><button className="text-link" onClick={() => onLocate(target)}>{target.label}</button></li>; })}</ul>
+    <p className="page-help">{state.status === 'done' ? '逐项核对或补充；暂不补充时，可在底部选择“带待确认项继续草稿”。' : '点击对应入口补充文字，保存后再执行本步；待补问题不会自动记为完成。'}</p>
+    <ul>{items.map((text, index) => { const legacyTarget = issueTarget(text, stage); const target = textMode ? (/规格书|datasheet|PDF.*器件/i.test(text) ? { stage: 3, tab: 1, field: 'datasheetText', label: '补充规格书正文' } : /ERC/.test(text) ? { stage: 4, tab: 2, label: '查看实际 ERC' } : { stage, tab: 0, field: 'stageNotes', label: '补充文字要求' }) : legacyTarget; return <li key={index}><span>{text}</span><button className="text-link" onClick={() => onLocate(target)}>{target.label}</button></li>; })}</ul>
   </section>;
 }
