@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { FlowError, classify } from './errors.js';
 import { hash, readJSON, sameFiles, tree, writeJSON } from './io.js';
+import { toolLabels } from './progress.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 export async function textDefaults(caseId) {
@@ -27,6 +28,12 @@ export async function executeText(flow, p, s, signal) {
   let session, phase = 'input', lastMutation = 0, lastRead = -1, lastCheck = -1, operation = 0, authored = false;
   const records = [], toolRecords = [];
   const record = async value => {
+    flow.modelProgress(p.id, value);
+    if (value.event === 'stream-progress') return; // Transient counters; avoid rewriting the complete transcript per chunk.
+    if (value.event === 'truncation-retry') {
+      flow.recordEvent(p, s.id, '截断恢复', `输出被截断，缩小批次重试 · ${value.attempt}/${value.limit}`, { maxTokens: value.maxTokens, actionExecuted: false });
+      await flow.save(p);
+    }
     if (value.event === 'format-retry') {
       flow.phase(p.id, 'model', `模型回复格式修正 · ${value.attempt}/${value.limit}`);
       flow.recordEvent(p, s.id, '回复修正', `模型回复格式修正 · ${value.attempt}/${value.limit}`, { reason: value.reason });
@@ -34,7 +41,6 @@ export async function executeText(flow, p, s, signal) {
     }
     if (value.event === 'request') {
       p.modelRequests++;
-      flow.phase(p.id, 'model', `模型处理 · 第 ${p.modelRequests} 次请求`);
       flow.recordEvent(p, s.id, 'AI 请求', `文字模型处理 · 第 ${p.modelRequests} 次请求`, { provider: value.provider, model: value.model });
       await flow.save(p);
     }
@@ -60,7 +66,8 @@ export async function executeText(flow, p, s, signal) {
       session = flow.mcp.open(projectRoot, signal, s.id === 4);
     }
     const invoke = async (name, args) => {
-      phase = 'tool'; flow.phase(p.id, phase, `KiCad MCP · ${name}`);
+      const returnPhase = phase === 'check' ? 'check' : 'model';
+      phase = 'tool'; flow.phase(p.id, phase, toolLabels[name] || `正在调用 KiCad · ${name}`, { tool: name });
       operation++;
       try {
         const value = await session.invoke(name, args);
@@ -69,11 +76,13 @@ export async function executeText(flow, p, s, signal) {
         if (name === 'precise_check_export') lastCheck = operation;
         const event = { at: new Date().toISOString(), name, arguments: args, result: value, ok: true };
         toolRecords.push(event); flow.recordEvent(p, s.id, 'MCP', name, event); await writeJSON(path.join(output, 'tool-log.json'), toolRecords); await flow.save(p);
+        flow.phase(p.id, phase, 'KiCad 操作已完成', { toolsCompleted: toolRecords.filter(t => t.ok).length });
         return value;
       } catch (error) {
         const event = { at: new Date().toISOString(), name, arguments: args, error: error.message, ok: false };
+        flow.phase(p.id, phase, 'KiCad 返回错误，准备交回模型处理', { toolErrors: toolRecords.filter(t => !t.ok).length + 1 });
         toolRecords.push(event); flow.recordEvent(p, s.id, 'MCP', name + ' 返回错误', event); await writeJSON(path.join(output, 'tool-log.json'), toolRecords); await flow.save(p); throw error;
-      } finally { phase = 'model'; flow.phase(p.id, phase, '模型核对工具返回'); }
+      } finally { phase = returnPhase; flow.phase(p.id, phase, phase === 'check' ? '正在核验并整理交付文件' : '模型核对工具返回'); }
     };
     s.plan = await flow.ai.generateText({ project: { mode: p.mode, scope: p.scope, label: p.label }, stage: { id: s.id, title: s.title }, request,
       tools: session?.tools || [], invoke, record,

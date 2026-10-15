@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { createAssembler, createUserMessage } from './harness-messages.js';
 import { FlowError, classify, finishError } from './errors.js';
+import { streamProgress } from './progress.js';
 
 function parseAction(raw) {
   try { return JSON.parse(raw); } catch {}
@@ -22,14 +23,16 @@ export async function generateText(ctx, { project, stage, request, tools = [], i
   const system = '你是文字驱动的电路设计助手。输入正文已经完整给出，不要求读取文件，不导入历史 CAD，不运行脚本，不使用 structured/python 生成器。规格书附件只有元数据时代表未读取；请用户粘贴带来源页码的正文，禁止编造资料内容。遵循明确连接、属性、装配、几何要求。\n'
     + '只返回一个合法 JSON 对象，键名和字符串必须使用双引号，不加解释或 Markdown。三种动作示例：{"action":"question","questions":["影响正确性的待补问题"]}；{"action":"tool","name":"工具名","arguments":{}}；{"action":"finish","summary":"本步实际结果","gaps":[],"assumptions":[]}。完成动作可另外提供 components、parameters、citations 数组。不输出批量调用脚本或固定调用序列。每次工具结果或错误返回后继续理解和修正。finish 只表示模型完成，实际通过取决于工具校验。\n'
     + '步骤2/3只分析已提供正文，关键参数记录来源（正文段落或真实规格书页码）；步骤4从空白项目调用通用 MCP 创建符号、连接和属性，修改后必须 precise_read 和 precise_check_export 检查再 finish；步骤5/7只读取当前生成工程副本并导出核对，不修改已确认 CAD。PCB 本轮跳过。\n'
+    + '控制单轮输出：一次只做一个小动作，不在一条回复中输出整张原理图。precise_apply 按 symbol.name/item.id 逐对象新增或替换，未列出的对象保持不变；完整替换指单个对象，不是整个工程。先创建空白工程，再分批定义符号（每批1个复杂符号）、放置器件与导线（通常每批不超过20个对象），每个被更新对象的全部必需属性必须齐全；不同批次使用不同 request_key。成功后接着做下一批，不重复已完成对象，不重新 create。finish 只写简洁总结，不复述任务书、全部页面坐标或工具已返回的完整对象。\n'
     + '精确工具：所有坐标 mm，页面Y向下，符号局部Y向上。request_key每次意图唯一；同key重试参数必须相同。precise_apply是完整对象替换，不是局部补丁。KiCad坐标单位0.0001mm，符号原点和pin分别舍入，读取 native_at 后以真实网表修正导线。KiCad10忽略pin name/number局部effects.hide；统一隐藏必须设符号级pin_names_visible/pin_numbers_visible，不能只设逐pin；混合可见性无法保证时提出能力缺项。不得用全无源、排除ERC或改DNP等方法伪造通过。\n'
     + (conversation ? '当前仅提供建议，禁止工具修改。以finish.summary答复，必要时question。\n' : '')
     + '允许工具及完整参数结构：' + JSON.stringify(tools);
   const messages = [{ id: randomUUID(), role: 'user', source: { kind: 'eda-flow-text' }, content: [{ type: 'text', text: JSON.stringify({ project, stage, request, conversation }) }] }];
-  let formatRetries = 0;
+  let formatRetries = 0, truncationRetries = 0;
   for (let round = 0; round < 256; round++) {
     const blocks = new Map(); let finish, size = 0, raw = '';
     const assembler = createAssembler();
+    const reportProgress = streamProgress(record, round);
     const respond = value => messages.push(
       assembler.message({ provider: selection.provider, model: selection.model, ...(assembler.replayState === undefined ? {} : { replayState: assembler.replayState }) }),
       createUserMessage({ source: { kind: 'eda-flow-text' }, content: [{ type: 'text', text: JSON.stringify(value) }] }),
@@ -39,6 +42,7 @@ export async function generateText(ctx, { project, stage, request, tools = [], i
       const call = await llm.prepareCall({ ...selection, maxTokens: 24000 }, bounded);
       for await (const chunk of call.stream({ ...call.config, system, purpose: 'eda-flow-text-mcp', signal: bounded, messages })) {
         assembler.push(chunk);
+        await reportProgress(chunk);
         if (chunk.type === 'text-delta') { size += chunk.text.length; if (size > 2 * 1024 * 1024) throw new Error('模型输出过大。'); blocks.set(chunk.index, (blocks.get(chunk.index) || '') + chunk.text); }
         if (chunk.type === 'block-end' && chunk.block.type === 'text') blocks.set(chunk.index, chunk.block.text);
         if (chunk.type === 'finish') finish = chunk.reason;
@@ -68,6 +72,20 @@ export async function generateText(ctx, { project, stage, request, tools = [], i
       if (issue) { await record({ event: 'finish-rejected', round, issue }); respond({ finishAccepted: false, issue }); continue; }
       return { ...action, provider: selection.provider, model: selection.model };
     } catch (error) {
+      if (error.code === 'truncated' && !bounded.aborted) {
+        if (truncationRetries < 2 && round < 255) {
+          truncationRetries++;
+          await record({ event: 'truncation-retry', round, attempt: truncationRetries, limit: 2, maxTokens: 24000 });
+          respond({ truncated: true, actionExecuted: false,
+            instruction: '上一条回复因输出长度上限被截断，当前动作未执行。放弃该不完整回复，重新给出一个更小且完整的 JSON 动作，不要续接 JSON 碎片。保留已成功的工具结果，不重新 create，不重做之前已完成的批次；仅输出下一小批，优先一个符号或不超过10个页面对象。precise_apply 只替换本批提供的单个完整对象，未提供的对象保留。减少重复分析与大段解释；不要省略必需属性或凭空宣称完成。' });
+          continue;
+        }
+        error = new FlowError('truncated', '模型输出仍达到长度上限，已停止本次处理。已完成的工具记录与原始回复已保留，可查看后重试。', {
+          truncationRetries, maxTokens: 24000, finishReason: finish?.kind,
+          rawResponse: raw.length > 24000 ? raw.slice(0, 12000) + '\n…（完整内容见执行记录）…\n' + raw.slice(-12000) : raw,
+          rawResponseTruncated: raw.length > 24000,
+        });
+      }
       if (error.code === 'format' && !bounded.aborted) {
         if (formatRetries < 2 && round < 255) {
           formatRetries++;

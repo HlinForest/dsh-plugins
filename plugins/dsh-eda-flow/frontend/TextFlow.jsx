@@ -33,7 +33,7 @@ export function TextInputModal({ project, download, notify, onEdit, onClose, ret
 
 export function ModelReply({ state, onView }) {
   const details = state.errorInfo?.details;
-  if (state.errorInfo?.code !== 'format' || typeof details?.rawResponse !== 'string') return null;
+  if (!['format', 'truncated'].includes(state.errorInfo?.code) || typeof details?.rawResponse !== 'string') return null;
   return <div className="notice-actions"><button className="text-link" onClick={() => onView(details.rawResponse)}>查看模型原始回复</button></div>;
 }
 

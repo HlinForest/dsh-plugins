@@ -21,3 +21,4 @@ d14c96dccd1b4ee52774acd5ea512dc83c61ec0491c3f91b6eda807137100260  dsh-eda-flow-0
 50fcddb7cbfde90fa0e1da299f958a42364dea3fe74c9338ad71d3e1e2c3c61d  dsh-eda-flow-0.3.4.tgz
 10579b8c77568c26aedcaa0e0cc1c7ac0c36ab817d4e27b99d4a03f541acec83  dsh-eda-flow-0.4.0.tgz
 e08811f4aad90cbe77af8690b95686a947d3c19cd9efbe6ab94e665d2cfd5fc8  dsh-eda-flow-0.4.1.tgz
+c2d3d2c5408c96bb87d08f863a85cc62352f41de6ca29f8b8664eb6d61dfed29  dsh-eda-flow-0.4.2.tgz

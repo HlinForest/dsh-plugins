@@ -10,8 +10,10 @@ const frontend = path.dirname(fileURLToPath(import.meta.url));
 const compiled = await build({
   stdin: { contents: `import React from 'react'; import {renderToStaticMarkup} from 'react-dom/server';
     import {TextFlowContent, TextInputGuide, TextInputModal, Questions, ModelReply} from './TextFlow.jsx';
+    import {RunProgress} from './RunProgress.jsx';
+    export {progressView} from './RunProgress.jsx';
     export {fieldsOf} from './api.js';
-    const components = {TextFlowContent, TextInputGuide, TextInputModal, Questions, ModelReply};
+    const components = {TextFlowContent, TextInputGuide, TextInputModal, Questions, ModelReply, RunProgress};
     export const render = (name, props) => renderToStaticMarkup(React.createElement(components[name], props));`,
     loader: 'jsx', resolveDir: frontend, sourcefile: 'text-flow-test-entry.jsx' },
   bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent',
@@ -21,6 +23,7 @@ compiledModule.filename = path.join(frontend, 'text-flow-test-bundle.cjs');
 compiledModule.paths = Module._nodeModulePaths(frontend);
 compiledModule._compile(compiled.outputFiles[0].text, compiledModule.filename);
 const { render, fieldsOf } = compiledModule.exports;
+const { progressView } = compiledModule.exports;
 const project = {
   id: 'sample', name: '显示板', mode: 'text-mcp', scope: 'schematic', template: true,
   fields: { requirements: '完整任务书：U1 引脚 1 接 DIN；坐标 12.7000 mm。', datasheetText: 'TM1616 V2.1，第 3 页：引脚 1 为 DIN 输入。' },
@@ -145,4 +148,20 @@ test('format failures expose the saved model reply without claiming a completed 
   assert.match(html, /查看模型原始回复/);
   assert.doesNotMatch(html, /已完成/);
   assert.equal(render('ModelReply', { state: { status: 'done' }, onView() {} }), '');
+});
+
+
+test('progress remains visible outside the assistant drawer and distinguishes silence from disconnection', () => {
+  const now = Date.now(), progress = { startedAt: new Date(now - 65000).toISOString(), lastActivityAt: new Date(now - 50000).toISOString(), phase: 'model', label: '等待模型响应', stage: 4, round: 2, replyChars: 123 };
+  const view = progressView(progress, now, now, '');
+  assert.equal(view.elapsed, '1 分 5 秒');
+  assert.match(view.warning, /暂未收到新的模型内容/);
+  assert.match(progressView(progress, now, now - 16000, '').warning, /连接暂时中断/);
+  const html = render('RunProgress', { project: { busy: true, liveProgress: progress }, lastSyncAt: now });
+  assert.match(html, /实时处理进度/); assert.match(html, /本轮已收到 123 字符/); assert.match(html, /取消本次处理/);
+  assert.equal(render('RunProgress', { project: { busy: false } }), '');
+});
+
+test('truncated replies offer the same raw-response inspection as malformed JSON', () => {
+  assert.match(render('ModelReply', { state: { errorInfo: { code: 'truncated', details: { rawResponse: '{' } } } }), /查看模型原始回复/);
 });

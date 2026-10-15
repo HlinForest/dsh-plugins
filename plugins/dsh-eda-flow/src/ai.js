@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import { createAssembler, createUserMessage } from './harness-messages.js';
 import { FlowError, finishError, classify } from './errors.js';
 import { generateText } from './text-ai.js';
+import { streamProgress } from './progress.js';
 const skill = await fs.readFile(new URL('../skills/eda-inputs/SKILL.md', import.meta.url), 'utf8');
 
 export function harnessAI(ctx) {
@@ -22,11 +23,13 @@ export function harnessAI(ctx) {
       for (let round = 0; round < 16; round++) {
         const blocks = new Map(); let finish, size = 0;
         const assembler = createAssembler();
+        const reportProgress = streamProgress(record, round);
         await record({ event: 'request', round, provider: selection.provider, model: selection.model, system, messages: structuredClone(messages) });
         try {
           const call = await llm.prepareCall({ ...selection, maxTokens: 24000 }, bounded);
           for await (const chunk of call.stream({ ...call.config, system, purpose: 'eda-flow-stage', signal: bounded, messages })) {
             assembler.push(chunk);
+            await reportProgress(chunk);
             if (chunk.type === 'text-delta') { size += chunk.text.length; if (size > 2 * 1024 * 1024) throw new Error('模型输出过大。'); blocks.set(chunk.index, (blocks.get(chunk.index) || '') + chunk.text); }
             if (chunk.type === 'block-end' && chunk.block.type === 'text') blocks.set(chunk.index, chunk.block.text);
             if (chunk.type === 'finish') finish = chunk.reason;

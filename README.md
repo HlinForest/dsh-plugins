@@ -8,7 +8,7 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.4.1 | 纯文字默认输入、七步界面、模型调用 KiCad MCP；本轮生成原理图，PCB 未执行 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.4.2 | 纯文字默认输入、七步界面、模型调用 KiCad MCP；本轮生成原理图，PCB 未执行 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
 ## 工程工作台 0.6.0：拉取后直接更新
@@ -29,6 +29,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 升级自动备份旧插件和配置，保留原项目、模型与登录设置；使用带哈希的新包路径避开旧缓存。安装后重新加载插件或在方便时重启 Harness，在工作台“执行记录”核对 **0.6.0 / 32b84f0902abfb3f**。脚本不会强行关闭 Harness，也不调用模型。
 
 本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
+
+## 电路设计 0.4.2：实时进度与截断恢复
+
+[下载 0.4.2 升级 ZIP](output/packages/EDA_Flow_Update_0.4.2.zip) · [更新说明](docs/update-eda-flow-0.4.2.md) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.4.2.json)
+
+主工作区持续显示模型等待、回复接收、KiCad 执行、已用时间与最近活动；窄窗口同样可见，区分无新内容和状态连接中断。第四步按小批次生成，截断后最多两次请求更小的完整动作，仍失败可查看原始回复。更新保留原项目和配置，不自动请求模型。
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps1 -Profile desktop -PackageVersion 0.4.2
+```
+
+正常重开 Harness，确认页面和后台均为 0.4.2，打开原项目继续第四步。发布仍在已有试用分支；真实内网模型效果待验证。
 
 ## 电路设计 0.4.1 修复更新
 

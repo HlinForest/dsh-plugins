@@ -1,0 +1,58 @@
+{
+  "version": "0.4.2",
+  "date": "2026-10-15",
+  "status": "locally-verified",
+  "realDshModelCalls": 0,
+  "installedHarnessUpdated": false,
+  "intranetRealModelValidation": "pending",
+  "changes": [
+    "Real stream activity in central workspace, elapsed time, current round, reply chars, completed tools, recent events",
+    "45-second silence message distinct from polling failure; refresh and cancellation",
+    "Small MCP batches; discard truncated actions and request a smaller complete replacement, at most two attempts",
+    "Raw truncated reply visible on exhausted recovery"
+  ],
+  "validation": {
+    "backendSuite": {
+      "passed": 48,
+      "failed": 0,
+      "realHarnessRuntime": true,
+      "realKiCadMcp": true,
+      "model": "local test adapter only"
+    },
+    "frontend": {
+      "passed": 13,
+      "failed": 0
+    },
+    "browser": {
+      "status": "PASS",
+      "realModelCalls": 0,
+      "checks": [
+        "waiting / reasoning / reply activity before completion",
+        "elapsed timer advances",
+        "1280 / 1000 / 390 visible without assistant drawer or horizontal overflow",
+        "tool in-flight and completed count",
+        "long silence distinguished from disconnected polling",
+        "refresh retains active job",
+        "truncation recovery visible in recent activity",
+        "completion clears progress",
+        "central cancellation",
+        "exhausted truncation exposes raw reply",
+        "assistant conversation progress"
+      ],
+      "scope": "Actual Harness runtime and Flow HTTP; controlled local model and tool fixture, no real CAD generation in browser test"
+    },
+    "packagedRuntime": {
+      "passed": 4,
+      "failed": 0,
+      "isolatedExtraction": true
+    },
+    "package": {
+      "file": "dsh-eda-flow-0.4.2.tgz",
+      "sha256": "c2d3d2c5408c96bb87d08f863a85cc62352f41de6ca29f8b8664eb6d61dfed29",
+      "bytes": 2514318,
+      "files": 185,
+      "sourceMatches": true
+    }
+  },
+  "scope": "UI screenshots use a controlled local model/tool fixture. Backend regression includes actual KiCad MCP. No installed Harness update or restart, no paid requests; PCB skipped."
+}

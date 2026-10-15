@@ -10,6 +10,7 @@ import { hash, readJSON, writeJSON, within, inside, tree, fileChanges, sameFiles
 import { byteEvidence, inspectDefaultBundle, compareReaders } from './input-integrity.js';
 import { PreciseTools } from './precise-tools.js';
 import { executeText, textDefaults } from './text-flow.js';
+import { updateProgress, modelProgress } from './progress.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
 const uuid = /^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$/;
@@ -71,6 +72,8 @@ export class Flow {
     p.busy = this.jobs.has(id); p.modelRequests = p.modelRequests || 0;
     p.progress = this.jobs.get(id)?.progress || '';
     p.phase = this.jobs.get(id)?.phase || null; p.jobType = this.jobs.get(id)?.type || null;
+    const job = this.jobs.get(id);
+    p.liveProgress = job ? { ...job.activity, startedAt: job.startedAt, stage: job.stage, type: job.type, cancelling: Boolean(job.cancelling), recent: job.recentActivity || [] } : null;
     p.model = this.ai?.selection?.() || null;
     p.inputCatalog = await this.inputIndex(p, 1);
     if (changed && !p.busy) await this.save(p);
@@ -329,6 +332,7 @@ export class Flow {
           evidence.push({ scope: 'stage:' + index, result: await readJSON(path.join(dir, 'result.json')), files: (await tree(dir)).filter(f => !/input-snapshot|model-log/.test(f.path)) });
         }
         const records = []; const record = async value => {
+          this.modelProgress(id, value); if (value.event === 'stream-progress') return;
           if (value.event === 'request') { p.modelRequests++; this.recordEvent(p, s.id, 'AI 请求', `模型处理 · 第 ${p.modelRequests} 次请求`, { provider: value.provider, model: value.model, phase }); await this.save(p); }
           records.push({ at: new Date().toISOString(), ...value }); await writeJSON(path.join(output, 'model-log.json'), records);
         };
@@ -383,7 +387,8 @@ export class Flow {
     this.guard(a.projectId);
     const current = await this.open(a.projectId); this.stage(current, a.stage); this.prerequisites(current, a.stage);
     this.guard(a.projectId); const controller = new AbortController();
-    const task = { controller, type: 'stage', promise: null }; this.jobs.set(a.projectId, task);
+    const task = { controller, type: 'stage', stage: a.stage, startedAt: new Date().toISOString(), promise: null }; this.jobs.set(a.projectId, task);
+    this.phase(a.projectId, 'input', '正在检查本步输入');
     task.promise = this.execute(a.projectId, a.stage, controller.signal).catch(async error => {
       const p = await this.load(a.projectId); const s = this.stage(p, a.stage); if (s.status !== 'failed' && s.status !== 'cancelled') { s.errorInfo = classify(error, 'input', controller.signal); s.error = s.errorInfo.message; s.status = controller.signal.aborted ? 'cancelled' : 'failed'; this.recordEvent(p, s.id, '失败', s.errorInfo.title, s.errorInfo); } await this.save(p);
     }).finally(() => this.jobs.delete(a.projectId));
@@ -415,7 +420,8 @@ export class Flow {
   recordEvent(p, stage, kind, title, detail = '') {
     p.events.push({ id: randomUUID(), stage, kind, title, detail, at: new Date().toISOString() });
   }
-  phase(id, phase, progress) { const job = this.jobs.get(id); if (job) Object.assign(job, { phase, progress }); }
+  phase(id, phase, progress, details) { updateProgress(this.jobs.get(id), phase, progress, details); }
+  modelProgress(id, value) { modelProgress(this.jobs.get(id), value); }
   async manualConfirm(p, a = {}) {
     if (!String(p.inputs.requirements || '').trim()) throw new FlowError('input', '请先填写需求与目标。');
     const s = p.stages[0]; this.invalidate(p, 1);
@@ -477,15 +483,16 @@ export class Flow {
     if (!String(a.text || '').trim()) throw new Error('请输入补充问题。');
     const context = String(a.context || a.stage || 1);
     if (!/^[1-7]$|^files$|^activity$/.test(context)) throw new Error('无效对话范围。');
-    const controller = new AbortController(), task = { controller, type: 'chat', phase: 'model', progress: 'AI 整理建议' };
+    const controller = new AbortController(), task = { controller, type: 'chat', stage: Number(a.stage || 1), startedAt: new Date().toISOString() };
     this.jobs.set(a.projectId, task);
+    this.phase(a.projectId, 'model', '正在准备助手对话');
     task.promise = (async () => {
       const p = await this.load(a.projectId), number = /^[1-7]$/.test(context) ? Number(context) : Number(a.stage || 1);
       const stage = this.stage(p, number); p.messages[context] ||= [];
       p.messages[context].push({ id: randomUUID(), role: 'user', text: String(a.text).slice(0, 32000), at: new Date().toISOString() });
       this.recordEvent(p, number, '对话', '补充本步要求', a.text);
       const folder = path.join(this.dir(p.id), 'conversations', randomUUID()), records = [];
-      const record = async value => { if (value.event === 'request') p.modelRequests++; records.push({ at: new Date().toISOString(), ...value }); await writeJSON(path.join(folder, 'model-log.json'), records); };
+      const record = async value => { this.modelProgress(p.id, value); if (value.event === 'stream-progress') return; if (value.event === 'request') p.modelRequests++; records.push({ at: new Date().toISOString(), ...value }); await writeJSON(path.join(folder, 'model-log.json'), records); };
       await this.save(p);
       try {
         const conversation = { messages: p.messages[context].slice(-20), selectedRecord: a.selectedRecord };
@@ -539,7 +546,7 @@ export class Flow {
     if (a.action === 'attach') return this.attach(a);
     if (a.action === 'update') return this.update(a);
     if (a.action === 'confirm') return this.confirm(a, actor);
-    if (a.action === 'cancel') { this.jobs.get(a.projectId)?.controller.abort(); return { cancelled: true }; }
+    if (a.action === 'cancel') { const job = this.jobs.get(a.projectId); if (job) { this.phase(a.projectId, job.phase, '正在取消，请等待当前操作结束'); job.cancelling = true; job.controller.abort(); } return { cancelled: true }; }
     if (a.action === 'execute') {
       if (actor === 'human') return this.start(a);
       throw new Error('请在页面执行或提交自定义处理输出；模型不能递归启动 AI 阶段。');

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { clientVersion, confirmedStage, confirmationError } from './confirmation.js';
 const BASE = '/api/eda-flow/';
 export async function api(body) {
-  const response = await fetch(BASE + (body ? 'action' : 'bootstrap'), body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : { cache: 'no-store' });
+  const response = await fetch(BASE + (body ? 'action' : 'bootstrap'), body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), ...(body.action === 'open' ? { signal: AbortSignal.timeout(15000) } : {}) } : { cache: 'no-store' });
   const value = await response.json();
   if (!response.ok || !value.ok) throw Object.assign(new Error(value.error || `请求失败：${response.status}`), { info: value.errorInfo });
   return value.value;
@@ -19,11 +19,12 @@ function viewProject(raw) {
   return { ...raw, name: /^(R6|显示板默认流程)$/.test(raw.label) ? '显示板' : raw.label, template: raw.caseId === 'display-board', fields: fieldsOf(raw), notes: raw.inputs.stageNotes || {}, statuses: raw.stages.map(s => s.status), confirmed: raw.stages.map(s => s.confirmed), errors: Object.fromEntries(raw.stages.map(s => [s.id, s.errorInfo?.code || (s.error ? 'model' : undefined)])), uploads: raw.uploads || [], messages: raw.messages || {}, events: [...(raw.events || [])].reverse().map((e,i) => ({ ...e, id: e.id || i, title: e.title || `${e.stage} · ${e.outcome || '记录'}`, kind: e.kind || e.source || '执行' })) };
 }
 export function useFlow() {
+  const [lastSyncAt, SYNC] = useState(0), [connectionError, CONNECTION] = useState('');
   const [version, VERSION] = useState('');
   const [errorInfo, EI] = useState(null);
   const [raw, R] = useState(null), [projects, PS] = useState([]), [data, D] = useState(EMPTY_DATA), [model, MD] = useState(null), [error, E] = useState(''), [pending, P] = useState(false), [operation, OP] = useState(null), [drafts, DF] = useState({});
   const active = useRef(null), rawRef = useRef(null), dataRevision = useRef(''), lock = useRef(false), epoch = useRef(0), backendVersion = useRef('');
-  const accept = value => { if (active.current !== value.id) return; rawRef.current = value; R(value); MD(value.model || null); };
+  const accept = value => { if (active.current !== value.id) return; rawRef.current = value; R(value); MD(value.model || null); SYNC(Date.now()); CONNECTION(''); };
   const refreshList = async () => { const boot = await api(); backendVersion.current = boot.version || ''; VERSION(boot.version || ''); PS(boot.projects.map(x => ({ ...x, name: /^(R6|显示板默认流程)$/.test(x.label) ? '显示板' : x.label, template: x.caseId === 'display-board', created: new Date(x.createdAt || x.updatedAt).toLocaleString('zh-CN') }))); MD(boot.model); return boot; };
   const refresh = async (id = active.current) => {
     if (!id) return;
@@ -46,7 +47,7 @@ export function useFlow() {
       if (id) await select(id);
     })().catch(e => E(e.message));
     let polling = false;
-    const interval = setInterval(async () => { if (polling || disposed || lock.current) return; polling = true; try { await refresh(); if (!active.current) await refreshList(); } catch (e) { E(e.message); } finally { polling = false; } }, 1800);
+    const interval = setInterval(async () => { if (polling || disposed || lock.current) return; polling = true; try { await refresh(); if (!active.current) await refreshList(); } catch (e) { CONNECTION(e.message); } finally { polling = false; } }, 1200);
     return () => { disposed = true; clearInterval(interval); };
   }, []);
   const perform = async (fn, action = null) => {
@@ -89,7 +90,7 @@ export function useFlow() {
   const upload = (files, stage, binding) => perform(async () => { await save(stage); const form = new FormData(); form.set('projectId', active.current); form.set('stage', stage); form.set('binding', binding); for (const file of files) form.append('files', file); const response = await fetch(BASE + 'upload', { method: 'POST', body: form }); const value = await response.json(); if (!value.ok) throw new Error(value.error); accept(value.value); });
   const base = viewProject(raw), d = drafts[base.id];
   const p = d ? { ...base, fields: { ...base.fields, ...d.fields }, notes: { ...base.notes, ...d.notes }, dirty: d.dirty } : base;
-  return { p, data, projects, model, version, clientVersion, compatible: version === clientVersion, error, errorInfo, pending, operation, update, action,
+  return { p, data, projects, model, version, clientVersion, compatible: version === clientVersion, error, errorInfo, pending, operation, update, action, lastSyncAt, connectionError,
     refresh: () => perform(async () => { await refreshList(); return refresh(); }, { action: 'refresh', readOnly: true }),
     select: id => perform(() => select(id), { readOnly: true }), create, rename, upload, save: stage => perform(() => save(stage), { action: 'save', stage }), clearError: () => { E(''); EI(null); } };
 }
