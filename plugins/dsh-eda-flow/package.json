@@ -1,7 +1,7 @@
 {
   "name": "dsh-eda-flow",
-  "version": "0.3.4",
-  "description": "独立分步原理图与 PCB 设计：完整显示板默认输入、Harness 模型处理、真实工具执行",
+  "version": "0.4.0",
+  "description": "纯文字需求与规格书驱动的 KiCad MCP 原理图流程；保留七步界面与历史工程查看",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -13,6 +13,7 @@
     "client",
     "client.js",
     "python",
+    "mcp",
     "cases/display-board",
     "skills",
     "cordis.patch.yml",

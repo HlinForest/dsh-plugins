@@ -1,11 +1,13 @@
 import { randomUUID } from 'node:crypto';
 import fs from 'node:fs/promises';
 import { FlowError, finishError, classify } from './errors.js';
+import { generateText } from './text-ai.js';
 const skill = await fs.readFile(new URL('../skills/eda-inputs/SKILL.md', import.meta.url), 'utf8');
 
 export function harnessAI(ctx) {
   return {
     selection() { return ctx.get('agentDefaultModel')?.currentSelection() || null; },
+    generateText(args, signal) { return generateText(ctx, args, signal); },
     async generate({ project, stage, request, evidence = [], read, record, conversation }, signal) {
       const llm = ctx.get('llm'); const selection = ctx.get('agentDefaultModel')?.currentSelection();
       if (!llm || !selection?.provider || !selection?.model) throw new FlowError('unselected', '请先在 Harness 中选择模型。输入已保存。');

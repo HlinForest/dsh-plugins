@@ -8,7 +8,7 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.4 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.4.0 | 纯文字默认输入、七步界面、模型调用 KiCad MCP；本轮生成原理图，PCB 未执行 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
 ## 工程工作台 0.6.0：拉取后直接更新
@@ -30,7 +30,26 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 
 本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
 
-## 电路设计 dsh-eda-flow 0.3.4：内网资料读取检查
+## 电路设计 0.4.0：纯文字输入与 KiCad MCP
+
+[升级与内网试用说明](docs/update-eda-flow-0.4.0.md) · [升级 ZIP（含新增 Python 离线依赖）](output/packages/EDA_Flow_Update_0.4.0.zip) · [插件 TGZ](dist/dsh-eda-flow-0.4.0.tgz) · [验证记录](plugins/dsh-eda-flow/evals/validation-0.4.0.json)
+
+新建显示板项目载入可查看、编辑的纯文字任务书，不加载旧工程对象包。模型根据文字和规格书正文组织通用 MCP 操作，读取结果并修正；PCB 标为本轮未执行，旧项目保留并标明历史来源。
+
+已有安装先更新并关闭模型调用，查看输入和七步界面：
+
+```powershell
+git fetch origin release/eda-flow-0.4.0
+git switch -c try-eda-flow-0.4.0 --track origin/release/eda-flow-0.4.0
+if ($LASTEXITCODE -ne 0) { throw '拉取失败，请先停止更新' }
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-eda-flow.ps1 -Profile desktop -PackageVersion 0.4.0 -DisableModelCalls
+```
+
+脚本备份原插件与配置、保留项目及登录，仅把本插件模型调用开关设为关闭。安装后正常退出整个 Harness，再重开电路设计，核对页面与后台均为 0.4.0。新建项目选择“使用显示板输入”，第一步查看完整文字。准备实际执行时再按说明配置 Python 依赖并开启模型调用。
+
+本机两次独立 Codex 生成分别通过 2,395 项比较、0 差异；插件完成模拟模型与真实 MCP 测试，并已在实际 Harness 安装打开。**Harness 真实模型全流程和内网安装仍待验证；本次新增 DSH 模型请求为 0。** 精确连接和坐标来自文字要求。升级 ZIP 沿用原有 Harness、KiCad 和窗口运行时，附 Windows x64 / Python 3.11 的新增依赖，不是首次安装完整包。
+
+## 历史版本 0.3.4：内网资料读取检查
 
 针对点击“整理输入”后 CSV 校验变化：检测 TSD 保护格式，对照 Harness/Node 与 KiCad Python 读取结果；非任务资料异常从第二步阻止执行，保留未改变的任务确认。校验仍严格执行，不解密、不删除保护头、不自动接受变化文件。尚未取得内网诊断，不能断言具体原因就是加密。
 

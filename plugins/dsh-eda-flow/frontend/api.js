@@ -10,8 +10,8 @@ export async function api(body) {
 export const assetURL = (id, stage, file, download = false) => BASE + 'asset?' + new URLSearchParams({ projectId: id, stage, path: file, ...(download ? { download: '1' } : {}) });
 const EMPTY_DATA = { components: [], pins: [], nets: [], tracks: [], footprints: [], files: [], models: [], materials: { source_native: [] }, counts: {} };
 export function fieldsOf(raw) {
-  const i = raw.inputs || {}, c = i.constraints || {}, example = raw.caseId === 'display-board';
-  return { requirements: i.requirements || '', outline: c.outlinePolicy || '', mount: c.packagePolicy || '', rules: c.rulePolicy || '', basis: i.basis || '', acceptance: i.acceptance || '', power: i.power || '', interfaces: i.interfaces || '', manufacture: '', routing: '', cadLayers: '', plating: '', review: i.review || '',
+  const i = raw.inputs || {}, c = i.constraints || {}, example = raw.caseId === 'display-board' && raw.mode !== 'text-mcp';
+  return { requirements: i.requirements || '', datasheetText: i.datasheetText || '', outline: c.outlinePolicy || '', mount: c.packagePolicy || '', rules: c.rulePolicy || '', basis: i.basis || '', acceptance: i.acceptance || '', power: i.power || '', interfaces: i.interfaces || '', manufacture: '', routing: '', cadLayers: '', plating: '', review: i.review || '',
     ...(example ? { power: '按原工程供电与网络定义', interfaces: 'DISP 接口；DIN、CLK、STB、RCV', manufacture: '待工程师确认', routing: '背面 B.Cu', cadLayers: '2 个铜层（工程表示）', acceptance: '连接、参数、符号与页面布局一致；PCB 位置与铜图元一致；工程依赖可解析。' } : {}), ...i.ui };
 }
 function viewProject(raw) {
@@ -64,7 +64,7 @@ export function useFlow() {
     for (const [key,value] of Object.entries(d?.fields || {})) if (value !== previous[key]) {
       const constraint = { outline: 'outlinePolicy', mount: 'packagePolicy', rules: 'rulePolicy' }[key];
       if (constraint) changes.constraints = { ...current.inputs.constraints, ...changes.constraints, [constraint]: value };
-      else if (['requirements','basis','acceptance','power','interfaces','review'].includes(key)) changes[key] = value;
+      else if (['requirements','datasheetText','basis','acceptance','power','interfaces','review'].includes(key)) changes[key] = value;
       else changes.ui = { ...current.inputs.ui, ...changes.ui, [key]: value };
     }
     if (d?.notes[stage] !== undefined && d.notes[stage] !== current.inputs.stageNotes?.[stage]) changes.stageNotes = { [stage]: d.notes[stage] };
@@ -84,7 +84,7 @@ export function useFlow() {
     }
     return result;
   }, { action: body.action, stage: body.stage });
-  const create = (name, template) => perform(async () => { const result = await api({ action: 'create', label: name, caseId: template ? 'display-board' : null }); await refreshList(); await select(result.id); return result; });
+  const create = (name, template) => perform(async () => { const result = await api({ action: 'create', label: name, caseId: template ? 'display-board' : null, mode: 'text-mcp', scope: 'schematic' }); await refreshList(); await select(result.id); return result; });
   const rename = name => perform(async () => { const value = await api({ action: 'rename', projectId: active.current, label: name }); accept(value); await refreshList(); });
   const upload = (files, stage, binding) => perform(async () => { await save(stage); const form = new FormData(); form.set('projectId', active.current); form.set('stage', stage); form.set('binding', binding); for (const file of files) form.append('files', file); const response = await fetch(BASE + 'upload', { method: 'POST', body: form }); const value = await response.json(); if (!value.ok) throw new Error(value.error); accept(value.value); });
   const base = viewProject(raw), d = drafts[base.id];

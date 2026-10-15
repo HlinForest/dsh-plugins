@@ -40,12 +40,12 @@ export function InputGuide({ project, stage, onFiles, onUpload, onLocate }) {
     <div className="input-guide-actions">{project.template && <><button className="text-link" onClick={onFiles}>查看本步默认资料</button><span className="muted">{files.length} 份关联资料</span></>}{stage > 1 && <button className="text-link" onClick={onUpload}>补充本步资料</button>}</div>
   </section>;
 }
-export function PendingItems({ state, stage, onLocate }) {
+export function PendingItems({ state, stage, onLocate, textMode = false }) {
   const items = [...(state.gaps || []), ...(state.assumptions || [])];
   if (!items.length) return null;
   return <section className="pending-items" aria-label="本步待确认项">
     <h3>本步待确认项 · {items.length}</h3>
     <p className="page-help">逐项核对或补充；暂不补充时，可在底部选择“带待确认项继续草稿”。</p>
-    <ul>{items.map((text, index) => { const target = issueTarget(text, stage); return <li key={index}><span>{text}</span><button className="text-link" onClick={() => onLocate(target)}>{target.label}</button></li>; })}</ul>
+    <ul>{items.map((text, index) => { const legacyTarget = issueTarget(text, stage); const target = textMode ? (/规格书|datasheet|PDF.*器件/i.test(text) ? { stage: 3, tab: 1, label: '补充规格书正文' } : /ERC/.test(text) ? { stage: 4, tab: 2, label: '查看实际 ERC' } : { stage, tab: 0, label: '补充文字要求' }) : legacyTarget; return <li key={index}><span>{text}</span><button className="text-link" onClick={() => onLocate(target)}>{target.label}</button></li>; })}</ul>
   </section>;
 }
