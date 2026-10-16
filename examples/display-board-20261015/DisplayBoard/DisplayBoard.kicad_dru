@@ -1,0 +1,5 @@
+(version 1)
+(rule "NET TO ALL" (constraint clearance (min 0.254mm)))
+(rule "Width" (constraint track_width (min 0.254mm) (opt 0.2999994mm) (max 1.00000054mm)))
+(rule "HoleSize" (condition "A.Type == 'Pad' || A.Type == 'Via'") (constraint hole_size (min 0.0254mm) (max 2.54mm)))
+(rule "RoutingVias" (condition "A.Type == 'Via'") (constraint via_diameter (min 1.27mm) (max 1.27mm)) (constraint hole_size (min 0.7112mm) (max 0.7112mm)))

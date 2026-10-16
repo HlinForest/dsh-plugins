@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "DisplayBoard_Placed") (type "KiCad") (uri "${KIPRJMOD}/DisplayBoard_Placed.pretty") (options "") (descr "Original instance geometry"))
+)

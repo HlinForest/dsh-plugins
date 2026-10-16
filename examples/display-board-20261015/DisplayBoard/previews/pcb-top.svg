@@ -1,0 +1,872 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" version="1.1" width="1200" height="846" viewBox="-1 -1 84.52 59.56" style="background:white;max-width:100%;height:auto">
+<ns0:title>显示板正面 · 阅读版（细轮廓以0.9屏幕像素显示；真实工程线宽见原比例图）</ns0:title>
+  <ns0:desc>For screen reading only. PCB coordinates and physical line widths are unchanged. Use pcb-top-true-width.svg for actual plotted line widths.</ns0:desc>
+<ns0:g style="fill:#000000; fill-opacity:1.0000;stroke:#000000; stroke-opacity:1.0000; stroke-linecap:round; stroke-linejoin:round;" transform="translate(0 0) scale(1 1)">
+</ns0:g>
+<ns0:g style="fill:#000000; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="15.5500" cy="33.9006" r="0.7500" /> 
+<ns0:circle cx="18.0900" cy="33.9006" r="0.7500" /> 
+<ns0:circle cx="20.6300" cy="33.9006" r="0.7500" /> 
+<ns0:circle cx="27.3500" cy="11.5506" r="0.8500" /> 
+<ns0:circle cx="24.8500" cy="11.5506" r="0.8500" /> 
+<ns0:circle cx="22.3500" cy="11.5506" r="0.8500" /> 
+<ns0:circle cx="19.8500" cy="11.5506" r="0.8500" /> 
+<ns0:circle cx="17.3500" cy="11.5506" r="0.8500" /> 
+<ns0:circle cx="14.8500" cy="11.5506" r="0.8500" /> 
+<ns0:circle cx="50.2400" cy="37.4506" r="0.7620" /> 
+<ns0:circle cx="52.7800" cy="37.4506" r="0.7620" /> 
+<ns0:circle cx="55.3200" cy="37.4506" r="0.7620" /> 
+<ns0:circle cx="57.8600" cy="37.4506" r="0.7620" /> 
+<ns0:circle cx="60.4000" cy="37.4506" r="0.7620" /> 
+<ns0:circle cx="60.4000" cy="9.5106" r="0.7620" /> 
+<ns0:circle cx="57.8600" cy="9.5106" r="0.7620" /> 
+<ns0:circle cx="55.3200" cy="9.5106" r="0.7620" /> 
+<ns0:circle cx="52.7800" cy="9.5106" r="0.7620" /> 
+<ns0:circle cx="50.2400" cy="9.5106" r="0.7620" /> 
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.1000; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:g transform="rotate(-90.000000 15.5225 17.6006)">
+<ns0:text x="15.5225" y="17.6006" textLength="2.6238" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">DIN</ns0:text>
+</ns0:g>
+<ns0:g class="stroked-text"><ns0:desc>DIN</ns0:desc>
+<ns0:path d="M15.3949 17.2967 L14.3949 17.2967 " />
+<ns0:path d="M14.3949 17.2967 L14.3949 17.0586 " />
+<ns0:path d="M14.3949 17.0586 L14.4425 16.9158 " />
+<ns0:path d="M14.4425 16.9158 L14.5378 16.8205 " />
+<ns0:path d="M14.5378 16.8205 L14.6330 16.7729 " />
+<ns0:path d="M14.6330 16.7729 L14.8235 16.7253 " />
+<ns0:path d="M14.8235 16.7253 L14.9663 16.7253 " />
+<ns0:path d="M14.9663 16.7253 L15.1568 16.7729 " />
+<ns0:path d="M15.1568 16.7729 L15.2521 16.8205 " />
+<ns0:path d="M15.2521 16.8205 L15.3473 16.9158 " />
+<ns0:path d="M15.3473 16.9158 L15.3949 17.0586 " />
+<ns0:path d="M15.3949 17.0586 L15.3949 17.2967 " />
+<ns0:path d="M15.3949 16.2967 L14.3949 16.2967 " />
+<ns0:path d="M15.3949 15.8205 L14.3949 15.8205 " />
+<ns0:path d="M14.3949 15.8205 L15.3949 15.2491 " />
+<ns0:path d="M15.3949 15.2491 L14.3949 15.2491 " />
+</ns0:g><ns0:g transform="rotate(-90.000000 17.9813 18.1767)">
+<ns0:text x="17.9813" y="18.1767" textLength="2.9095" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">CLK</ns0:text>
+</ns0:g>
+<ns0:g class="stroked-text"><ns0:desc>CLK</ns0:desc>
+<ns0:path d="M17.7585 17.3013 L17.8061 17.3490 " />
+<ns0:path d="M17.8061 17.3490 L17.8537 17.4918 " />
+<ns0:path d="M17.8537 17.4918 L17.8537 17.5871 " />
+<ns0:path d="M17.8537 17.5871 L17.8061 17.7299 " />
+<ns0:path d="M17.8061 17.7299 L17.7109 17.8252 " />
+<ns0:path d="M17.7109 17.8252 L17.6156 17.8728 " />
+<ns0:path d="M17.6156 17.8728 L17.4251 17.9204 " />
+<ns0:path d="M17.4251 17.9204 L17.2823 17.9204 " />
+<ns0:path d="M17.2823 17.9204 L17.0918 17.8728 " />
+<ns0:path d="M17.0918 17.8728 L16.9966 17.8252 " />
+<ns0:path d="M16.9966 17.8252 L16.9013 17.7299 " />
+<ns0:path d="M16.9013 17.7299 L16.8537 17.5871 " />
+<ns0:path d="M16.8537 17.5871 L16.8537 17.4918 " />
+<ns0:path d="M16.8537 17.4918 L16.9013 17.3490 " />
+<ns0:path d="M16.9013 17.3490 L16.9489 17.3013 " />
+<ns0:path d="M17.8537 16.3966 L17.8537 16.8728 " />
+<ns0:path d="M17.8537 16.8728 L16.8537 16.8728 " />
+<ns0:path d="M17.8537 16.0633 L16.8537 16.0633 " />
+<ns0:path d="M17.8537 15.4918 L17.2823 15.9204 " />
+<ns0:path d="M16.8537 15.4918 L17.4251 16.0633 " />
+</ns0:g><ns0:g transform="rotate(-90.000000 20.4401 18.1767)">
+<ns0:text x="20.4401" y="18.1767" textLength="2.8143" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">STB</ns0:text>
+</ns0:g>
+<ns0:g class="stroked-text"><ns0:desc>STB</ns0:desc>
+<ns0:path d="M20.2649 17.9204 L20.3125 17.7775 " />
+<ns0:path d="M20.3125 17.7775 L20.3125 17.5394 " />
+<ns0:path d="M20.3125 17.5394 L20.2649 17.4442 " />
+<ns0:path d="M20.2649 17.4442 L20.2173 17.3966 " />
+<ns0:path d="M20.2173 17.3966 L20.1220 17.3490 " />
+<ns0:path d="M20.1220 17.3490 L20.0268 17.3490 " />
+<ns0:path d="M20.0268 17.3490 L19.9316 17.3966 " />
+<ns0:path d="M19.9316 17.3966 L19.8839 17.4442 " />
+<ns0:path d="M19.8839 17.4442 L19.8363 17.5394 " />
+<ns0:path d="M19.8363 17.5394 L19.7887 17.7299 " />
+<ns0:path d="M19.7887 17.7299 L19.7411 17.8252 " />
+<ns0:path d="M19.7411 17.8252 L19.6935 17.8728 " />
+<ns0:path d="M19.6935 17.8728 L19.5982 17.9204 " />
+<ns0:path d="M19.5982 17.9204 L19.5030 17.9204 " />
+<ns0:path d="M19.5030 17.9204 L19.4077 17.8728 " />
+<ns0:path d="M19.4077 17.8728 L19.3601 17.8252 " />
+<ns0:path d="M19.3601 17.8252 L19.3125 17.7299 " />
+<ns0:path d="M19.3125 17.7299 L19.3125 17.4918 " />
+<ns0:path d="M19.3125 17.4918 L19.3601 17.3490 " />
+<ns0:path d="M19.3125 17.0633 L19.3125 16.4918 " />
+<ns0:path d="M20.3125 16.7775 L19.3125 16.7775 " />
+<ns0:path d="M19.7887 15.8252 L19.8363 15.6823 " />
+<ns0:path d="M19.8363 15.6823 L19.8839 15.6347 " />
+<ns0:path d="M19.8839 15.6347 L19.9792 15.5871 " />
+<ns0:path d="M19.9792 15.5871 L20.1220 15.5871 " />
+<ns0:path d="M20.1220 15.5871 L20.2173 15.6347 " />
+<ns0:path d="M20.2173 15.6347 L20.2649 15.6823 " />
+<ns0:path d="M20.2649 15.6823 L20.3125 15.7775 " />
+<ns0:path d="M20.3125 15.7775 L20.3125 16.1585 " />
+<ns0:path d="M20.3125 16.1585 L19.3125 16.1585 " />
+<ns0:path d="M19.3125 16.1585 L19.3125 15.8252 " />
+<ns0:path d="M19.3125 15.8252 L19.3601 15.7299 " />
+<ns0:path d="M19.3601 15.7299 L19.4077 15.6823 " />
+<ns0:path d="M19.4077 15.6823 L19.5030 15.6347 " />
+<ns0:path d="M19.5030 15.6347 L19.5982 15.6347 " />
+<ns0:path d="M19.5982 15.6347 L19.6935 15.6823 " />
+<ns0:path d="M19.6935 15.6823 L19.7411 15.7299 " />
+<ns0:path d="M19.7411 15.7299 L19.7887 15.8252 " />
+<ns0:path d="M19.7887 15.8252 L19.7887 16.1585 " />
+</ns0:g><ns0:g transform="rotate(-90.000000 22.8989 18.6385)">
+<ns0:text x="22.8989" y="18.6385" textLength="3.1476" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">+5V</ns0:text>
+</ns0:g>
+<ns0:g class="stroked-text"><ns0:desc>+5V</ns0:desc>
+<ns0:path d="M22.3904 18.3346 L22.3904 17.5727 " />
+<ns0:path d="M22.7713 17.9536 L22.0094 17.9536 " />
+<ns0:path d="M21.7713 16.6203 L21.7713 17.0965 " />
+<ns0:path d="M21.7713 17.0965 L22.2475 17.1441 " />
+<ns0:path d="M22.2475 17.1441 L22.1999 17.0965 " />
+<ns0:path d="M22.1999 17.0965 L22.1523 17.0013 " />
+<ns0:path d="M22.1523 17.0013 L22.1523 16.7632 " />
+<ns0:path d="M22.1523 16.7632 L22.1999 16.6679 " />
+<ns0:path d="M22.1999 16.6679 L22.2475 16.6203 " />
+<ns0:path d="M22.2475 16.6203 L22.3427 16.5727 " />
+<ns0:path d="M22.3427 16.5727 L22.5808 16.5727 " />
+<ns0:path d="M22.5808 16.5727 L22.6761 16.6203 " />
+<ns0:path d="M22.6761 16.6203 L22.7237 16.6679 " />
+<ns0:path d="M22.7237 16.6679 L22.7713 16.7632 " />
+<ns0:path d="M22.7713 16.7632 L22.7713 17.0013 " />
+<ns0:path d="M22.7713 17.0013 L22.7237 17.0965 " />
+<ns0:path d="M22.7237 17.0965 L22.6761 17.1441 " />
+<ns0:path d="M21.7713 16.2870 L22.7713 15.9536 " />
+<ns0:path d="M22.7713 15.9536 L21.7713 15.6203 " />
+</ns0:g><ns0:g transform="rotate(-90.000000 25.3577 19.2764)">
+<ns0:text x="25.3577" y="19.2764" textLength="4.1000" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">SGND</ns0:text>
+</ns0:g>
+<ns0:g class="stroked-text"><ns0:desc>SGND</ns0:desc>
+<ns0:path d="M25.1825 19.0202 L25.2301 18.8773 " />
+<ns0:path d="M25.2301 18.8773 L25.2301 18.6392 " />
+<ns0:path d="M25.2301 18.6392 L25.1825 18.5440 " />
+<ns0:path d="M25.1825 18.5440 L25.1349 18.4964 " />
+<ns0:path d="M25.1349 18.4964 L25.0396 18.4487 " />
+<ns0:path d="M25.0396 18.4487 L24.9444 18.4487 " />
+<ns0:path d="M24.9444 18.4487 L24.8492 18.4964 " />
+<ns0:path d="M24.8492 18.4964 L24.8015 18.5440 " />
+<ns0:path d="M24.8015 18.5440 L24.7539 18.6392 " />
+<ns0:path d="M24.7539 18.6392 L24.7063 18.8297 " />
+<ns0:path d="M24.7063 18.8297 L24.6587 18.9249 " />
+<ns0:path d="M24.6587 18.9249 L24.6111 18.9725 " />
+<ns0:path d="M24.6111 18.9725 L24.5158 19.0202 " />
+<ns0:path d="M24.5158 19.0202 L24.4206 19.0202 " />
+<ns0:path d="M24.4206 19.0202 L24.3253 18.9725 " />
+<ns0:path d="M24.3253 18.9725 L24.2777 18.9249 " />
+<ns0:path d="M24.2777 18.9249 L24.2301 18.8297 " />
+<ns0:path d="M24.2301 18.8297 L24.2301 18.5916 " />
+<ns0:path d="M24.2301 18.5916 L24.2777 18.4487 " />
+<ns0:path d="M24.2777 17.4964 L24.2301 17.5916 " />
+<ns0:path d="M24.2301 17.5916 L24.2301 17.7344 " />
+<ns0:path d="M24.2301 17.7344 L24.2777 17.8773 " />
+<ns0:path d="M24.2777 17.8773 L24.3730 17.9725 " />
+<ns0:path d="M24.3730 17.9725 L24.4682 18.0202 " />
+<ns0:path d="M24.4682 18.0202 L24.6587 18.0678 " />
+<ns0:path d="M24.6587 18.0678 L24.8015 18.0678 " />
+<ns0:path d="M24.8015 18.0678 L24.9920 18.0202 " />
+<ns0:path d="M24.9920 18.0202 L25.0873 17.9725 " />
+<ns0:path d="M25.0873 17.9725 L25.1825 17.8773 " />
+<ns0:path d="M25.1825 17.8773 L25.2301 17.7344 " />
+<ns0:path d="M25.2301 17.7344 L25.2301 17.6392 " />
+<ns0:path d="M25.2301 17.6392 L25.1825 17.4964 " />
+<ns0:path d="M25.1825 17.4964 L25.1349 17.4487 " />
+<ns0:path d="M25.1349 17.4487 L24.8015 17.4487 " />
+<ns0:path d="M24.8015 17.4487 L24.8015 17.6392 " />
+<ns0:path d="M25.2301 17.0202 L24.2301 17.0202 " />
+<ns0:path d="M24.2301 17.0202 L25.2301 16.4487 " />
+<ns0:path d="M25.2301 16.4487 L24.2301 16.4487 " />
+<ns0:path d="M25.2301 15.9725 L24.2301 15.9725 " />
+<ns0:path d="M24.2301 15.9725 L24.2301 15.7344 " />
+<ns0:path d="M24.2301 15.7344 L24.2777 15.5916 " />
+<ns0:path d="M24.2777 15.5916 L24.3730 15.4964 " />
+<ns0:path d="M24.3730 15.4964 L24.4682 15.4487 " />
+<ns0:path d="M24.4682 15.4487 L24.6587 15.4011 " />
+<ns0:path d="M24.6587 15.4011 L24.8015 15.4011 " />
+<ns0:path d="M24.8015 15.4011 L24.9920 15.4487 " />
+<ns0:path d="M24.9920 15.4487 L25.0873 15.4964 " />
+<ns0:path d="M25.0873 15.4964 L25.1825 15.5916 " />
+<ns0:path d="M25.1825 15.5916 L25.2301 15.7344 " />
+<ns0:path d="M25.2301 15.7344 L25.2301 15.9725 " />
+</ns0:g><ns0:g transform="rotate(-90.000000 27.8165 18.4814)">
+<ns0:text x="27.8165" y="18.4814" textLength="2.9571" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">RCV</ns0:text>
+</ns0:g>
+<ns0:g class="stroked-text"><ns0:desc>RCV</ns0:desc>
+<ns0:path d="M27.6889 17.6060 L27.2127 17.9394 " />
+<ns0:path d="M27.6889 18.1775 L26.6889 18.1775 " />
+<ns0:path d="M26.6889 18.1775 L26.6889 17.7965 " />
+<ns0:path d="M26.6889 17.7965 L26.7365 17.7013 " />
+<ns0:path d="M26.7365 17.7013 L26.7841 17.6537 " />
+<ns0:path d="M26.7841 17.6537 L26.8794 17.6060 " />
+<ns0:path d="M26.8794 17.6060 L27.0222 17.6060 " />
+<ns0:path d="M27.0222 17.6060 L27.1175 17.6537 " />
+<ns0:path d="M27.1175 17.6537 L27.1651 17.7013 " />
+<ns0:path d="M27.1651 17.7013 L27.2127 17.7965 " />
+<ns0:path d="M27.2127 17.7965 L27.2127 18.1775 " />
+<ns0:path d="M27.5937 16.6060 L27.6413 16.6537 " />
+<ns0:path d="M27.6413 16.6537 L27.6889 16.7965 " />
+<ns0:path d="M27.6889 16.7965 L27.6889 16.8918 " />
+<ns0:path d="M27.6889 16.8918 L27.6413 17.0346 " />
+<ns0:path d="M27.6413 17.0346 L27.5461 17.1299 " />
+<ns0:path d="M27.5461 17.1299 L27.4508 17.1775 " />
+<ns0:path d="M27.4508 17.1775 L27.2603 17.2251 " />
+<ns0:path d="M27.2603 17.2251 L27.1175 17.2251 " />
+<ns0:path d="M27.1175 17.2251 L26.9270 17.1775 " />
+<ns0:path d="M26.9270 17.1775 L26.8318 17.1299 " />
+<ns0:path d="M26.8318 17.1299 L26.7365 17.0346 " />
+<ns0:path d="M26.7365 17.0346 L26.6889 16.8918 " />
+<ns0:path d="M26.6889 16.8918 L26.6889 16.7965 " />
+<ns0:path d="M26.6889 16.7965 L26.7365 16.6537 " />
+<ns0:path d="M26.7365 16.6537 L26.7841 16.6060 " />
+<ns0:path d="M26.6889 16.3203 L27.6889 15.9870 " />
+<ns0:path d="M27.6889 15.9870 L26.6889 15.6537 " />
+</ns0:g><ns0:text x="16.8900" y="37.4481" textLength="2.0524" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">D1</ns0:text>
+<ns0:g class="stroked-text"><ns0:desc>D1</ns0:desc>
+<ns0:path d="M17.1939 37.3205 L17.1939 36.3205 " />
+<ns0:path d="M17.1939 36.3205 L17.4320 36.3205 " />
+<ns0:path d="M17.4320 36.3205 L17.5748 36.3681 " />
+<ns0:path d="M17.5748 36.3681 L17.6701 36.4634 " />
+<ns0:path d="M17.6701 36.4634 L17.7177 36.5586 " />
+<ns0:path d="M17.7177 36.5586 L17.7653 36.7491 " />
+<ns0:path d="M17.7653 36.7491 L17.7653 36.8919 " />
+<ns0:path d="M17.7653 36.8919 L17.7177 37.0824 " />
+<ns0:path d="M17.7177 37.0824 L17.6701 37.1777 " />
+<ns0:path d="M17.6701 37.1777 L17.5748 37.2729 " />
+<ns0:path d="M17.5748 37.2729 L17.4320 37.3205 " />
+<ns0:path d="M17.4320 37.3205 L17.1939 37.3205 " />
+<ns0:path d="M18.7177 37.3205 L18.1463 37.3205 " />
+<ns0:path d="M18.4320 37.3205 L18.4320 36.3205 " />
+<ns0:path d="M18.4320 36.3205 L18.3367 36.4634 " />
+<ns0:path d="M18.3367 36.4634 L18.2415 36.5586 " />
+<ns0:path d="M18.2415 36.5586 L18.1463 36.6062 " />
+</ns0:g><ns0:text x="29.2650" y="17.0231" textLength="3.5286" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">DISP</ns0:text>
+<ns0:g class="stroked-text"><ns0:desc>DISP</ns0:desc>
+<ns0:path d="M29.5689 16.8955 L29.5689 15.8955 " />
+<ns0:path d="M29.5689 15.8955 L29.8070 15.8955 " />
+<ns0:path d="M29.8070 15.8955 L29.9498 15.9431 " />
+<ns0:path d="M29.9498 15.9431 L30.0451 16.0384 " />
+<ns0:path d="M30.0451 16.0384 L30.0927 16.1336 " />
+<ns0:path d="M30.0927 16.1336 L30.1403 16.3241 " />
+<ns0:path d="M30.1403 16.3241 L30.1403 16.4669 " />
+<ns0:path d="M30.1403 16.4669 L30.0927 16.6574 " />
+<ns0:path d="M30.0927 16.6574 L30.0451 16.7527 " />
+<ns0:path d="M30.0451 16.7527 L29.9498 16.8479 " />
+<ns0:path d="M29.9498 16.8479 L29.8070 16.8955 " />
+<ns0:path d="M29.8070 16.8955 L29.5689 16.8955 " />
+<ns0:path d="M30.5689 16.8955 L30.5689 15.8955 " />
+<ns0:path d="M30.9975 16.8479 L31.1403 16.8955 " />
+<ns0:path d="M31.1403 16.8955 L31.3784 16.8955 " />
+<ns0:path d="M31.3784 16.8955 L31.4736 16.8479 " />
+<ns0:path d="M31.4736 16.8479 L31.5213 16.8003 " />
+<ns0:path d="M31.5213 16.8003 L31.5689 16.7050 " />
+<ns0:path d="M31.5689 16.7050 L31.5689 16.6098 " />
+<ns0:path d="M31.5689 16.6098 L31.5213 16.5146 " />
+<ns0:path d="M31.5213 16.5146 L31.4736 16.4669 " />
+<ns0:path d="M31.4736 16.4669 L31.3784 16.4193 " />
+<ns0:path d="M31.3784 16.4193 L31.1879 16.3717 " />
+<ns0:path d="M31.1879 16.3717 L31.0927 16.3241 " />
+<ns0:path d="M31.0927 16.3241 L31.0451 16.2765 " />
+<ns0:path d="M31.0451 16.2765 L30.9975 16.1812 " />
+<ns0:path d="M30.9975 16.1812 L30.9975 16.0860 " />
+<ns0:path d="M30.9975 16.0860 L31.0451 15.9908 " />
+<ns0:path d="M31.0451 15.9908 L31.0927 15.9431 " />
+<ns0:path d="M31.0927 15.9431 L31.1879 15.8955 " />
+<ns0:path d="M31.1879 15.8955 L31.4260 15.8955 " />
+<ns0:path d="M31.4260 15.8955 L31.5689 15.9431 " />
+<ns0:path d="M31.9975 16.8955 L31.9975 15.8955 " />
+<ns0:path d="M31.9975 15.8955 L32.3784 15.8955 " />
+<ns0:path d="M32.3784 15.8955 L32.4736 15.9431 " />
+<ns0:path d="M32.4736 15.9431 L32.5213 15.9908 " />
+<ns0:path d="M32.5213 15.9908 L32.5689 16.0860 " />
+<ns0:path d="M32.5689 16.0860 L32.5689 16.2289 " />
+<ns0:path d="M32.5689 16.2289 L32.5213 16.3241 " />
+<ns0:path d="M32.5213 16.3241 L32.4736 16.3717 " />
+<ns0:path d="M32.4736 16.3717 L32.3784 16.4193 " />
+<ns0:path d="M32.3784 16.4193 L31.9975 16.4193 " />
+</ns0:g><ns0:text x="79.1548" y="4.6759" textLength="4.1952" font-size="1.3333" lengthAdjust="spacingAndGlyphs" text-anchor="middle" opacity="0" stroke-opacity="0">DWK1</ns0:text>
+<ns0:g class="stroked-text"><ns0:desc>DWK1</ns0:desc>
+<ns0:path d="M77.3453 4.6333 L77.3453 3.6333 " />
+<ns0:path d="M77.3453 3.6333 L77.5834 3.6333 " />
+<ns0:path d="M77.5834 3.6333 L77.7262 3.6809 " />
+<ns0:path d="M77.7262 3.6809 L77.8215 3.7762 " />
+<ns0:path d="M77.8215 3.7762 L77.8691 3.8714 " />
+<ns0:path d="M77.8691 3.8714 L77.9167 4.0619 " />
+<ns0:path d="M77.9167 4.0619 L77.9167 4.2047 " />
+<ns0:path d="M77.9167 4.2047 L77.8691 4.3952 " />
+<ns0:path d="M77.8691 4.3952 L77.8215 4.4905 " />
+<ns0:path d="M77.8215 4.4905 L77.7262 4.5857 " />
+<ns0:path d="M77.7262 4.5857 L77.5834 4.6333 " />
+<ns0:path d="M77.5834 4.6333 L77.3453 4.6333 " />
+<ns0:path d="M78.2501 3.6333 L78.4882 4.6333 " />
+<ns0:path d="M78.4882 4.6333 L78.6786 3.9190 " />
+<ns0:path d="M78.6786 3.9190 L78.8691 4.6333 " />
+<ns0:path d="M78.8691 4.6333 L79.1072 3.6333 " />
+<ns0:path d="M79.4882 4.6333 L79.4882 3.6333 " />
+<ns0:path d="M80.0596 4.6333 L79.6310 4.0619 " />
+<ns0:path d="M80.0596 3.6333 L79.4882 4.2047 " />
+<ns0:path d="M81.0120 4.6333 L80.4405 4.6333 " />
+<ns0:path d="M80.7262 4.6333 L80.7262 3.6333 " />
+<ns0:path d="M80.7262 3.6333 L80.6310 3.7762 " />
+<ns0:path d="M80.6310 3.7762 L80.5358 3.8714 " />
+<ns0:path d="M80.5358 3.8714 L80.4405 3.9190 " />
+</ns0:g><ns0:path style="fill:#000000; fill-opacity:1.0000; stroke:none;fill-rule:evenodd;" d="M 8.6210,26.6082 6.0901,26.6082 6.0901,26.2741 8.3280,26.2741 8.3280,25.0313 8.6210,25.0313 Z" /> 
+<ns0:path style="fill:#000000; fill-opacity:1.0000; stroke:none;fill-rule:evenodd;" d="M 8.6210,22.9305 7.8529,23.2248 7.8529,24.2801 8.6210,24.5572 8.6210,24.9119 6.0901,23.9427 6.0901,23.7705 6.3552,23.7705 6.5962,23.8283 6.8371,23.9065 7.5771,24.1836 7.5771,23.3281 6.8784,23.5915 6.5735,23.7016 6.3552,23.7705 6.0901,23.7705 6.0901,23.5829 8.6210,22.5500 Z" /> 
+<ns0:path style="fill:#000000; fill-opacity:1.0000; stroke:none;fill-rule:evenodd;" d="M 8.0588,20.4105 8.2172,20.4665 8.3558,20.5527 8.4533,20.6516 8.5244,20.7720 8.5787,20.9280 8.6094,21.1036 8.6210,21.3350 8.6210,22.2973 6.0901,22.2973 6.0901,21.4590 6.3831,21.4590 6.3831,21.9632 7.1537,21.9632 7.1537,21.4176 7.1520,21.3797 7.4466,21.3797 7.4466,21.9632 8.3280,21.9632 8.3280,21.3350 8.3157,21.1077 8.2867,20.9989 8.2459,20.9151 8.1871,20.8456 8.1034,20.7876 8.0045,20.7506 7.8873,20.7376 7.7940,20.7460 7.7116,20.7703 7.6382,20.8100 7.5749,20.8641 7.5256,20.9303 7.4896,21.0106 7.4591,21.1531 7.4466,21.3797 7.1520,21.3797 7.1447,21.2113 7.1241,21.0991 7.0717,20.9850 6.9972,20.9072 6.8999,20.8596 6.7745,20.8426 6.6535,20.8581 6.5509,20.9029 6.4933,20.9488 6.4496,21.0056 6.4188,21.0751 6.3940,21.2069 6.3831,21.4590 6.0901,21.4590 6.0901,21.3505 6.1000,21.1579 6.1267,21.0057 6.1669,20.8866 6.2276,20.7779 6.3058,20.6873 6.4029,20.6128 6.5124,20.5572 6.6229,20.5247 6.7362,20.5139 6.8418,20.5236 6.9430,20.5526 7.0413,20.6018 7.1285,20.6683 7.2053,20.7555 7.2721,20.8667 7.3297,20.7220 7.4063,20.6061 7.5022,20.5147 7.6159,20.4468 7.7427,20.4057 7.8861,20.3916 Z" /> 
+<ns0:path style="fill:#000000; fill-opacity:1.0000; stroke:none;fill-rule:evenodd;" d="M 8.6210,19.9255 6.0901,19.9255 6.0901,18.1007 6.3831,18.1007 6.3831,19.5914 7.1635,19.5914 7.1635,18.1953 7.4565,18.1953 7.4565,19.5914 8.3280,19.5914 8.3280,18.0421 8.6210,18.0421 Z" /> 
+<ns0:path style="fill:#000000; fill-opacity:1.0000; stroke:none;fill-rule:evenodd;" d="M 8.6210,17.5949 6.0901,17.5949 6.0901,17.2609 8.3280,17.2609 8.3280,16.0180 8.6210,16.0180 Z" /> 
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.1000; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:text x="5.0000" y="54.9843" textLength="6.1429" font-size="2.0000" lengthAdjust="spacingAndGlyphs" text-anchor="start" opacity="0" stroke-opacity="0">DWK2</ns0:text>
+<ns0:g class="stroked-text"><ns0:desc>DWK2</ns0:desc>
+<ns0:path d="M5.4229 54.7956 L5.4229 53.2956 " />
+<ns0:path d="M5.4229 53.2956 L5.7801 53.2956 " />
+<ns0:path d="M5.7801 53.2956 L5.9944 53.3670 " />
+<ns0:path d="M5.9944 53.3670 L6.1372 53.5099 " />
+<ns0:path d="M6.1372 53.5099 L6.2086 53.6527 " />
+<ns0:path d="M6.2086 53.6527 L6.2801 53.9384 " />
+<ns0:path d="M6.2801 53.9384 L6.2801 54.1527 " />
+<ns0:path d="M6.2801 54.1527 L6.2086 54.4384 " />
+<ns0:path d="M6.2086 54.4384 L6.1372 54.5813 " />
+<ns0:path d="M6.1372 54.5813 L5.9944 54.7241 " />
+<ns0:path d="M5.9944 54.7241 L5.7801 54.7956 " />
+<ns0:path d="M5.7801 54.7956 L5.4229 54.7956 " />
+<ns0:path d="M6.7801 53.2956 L7.1372 54.7956 " />
+<ns0:path d="M7.1372 54.7956 L7.4229 53.7241 " />
+<ns0:path d="M7.4229 53.7241 L7.7086 54.7956 " />
+<ns0:path d="M7.7086 54.7956 L8.0658 53.2956 " />
+<ns0:path d="M8.6372 54.7956 L8.6372 53.2956 " />
+<ns0:path d="M9.4944 54.7956 L8.8515 53.9384 " />
+<ns0:path d="M9.4944 53.2956 L8.6372 54.1527 " />
+<ns0:path d="M10.0658 53.4384 L10.1372 53.3670 " />
+<ns0:path d="M10.1372 53.3670 L10.2801 53.2956 " />
+<ns0:path d="M10.2801 53.2956 L10.6372 53.2956 " />
+<ns0:path d="M10.6372 53.2956 L10.7801 53.3670 " />
+<ns0:path d="M10.7801 53.3670 L10.8515 53.4384 " />
+<ns0:path d="M10.8515 53.4384 L10.9229 53.5813 " />
+<ns0:path d="M10.9229 53.5813 L10.9229 53.7241 " />
+<ns0:path d="M10.9229 53.7241 L10.8515 53.9384 " />
+<ns0:path d="M10.8515 53.9384 L9.9944 54.7956 " />
+<ns0:path d="M9.9944 54.7956 L10.9229 54.7956 " />
+</ns0:g></ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.2000; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M14.9400 22.6506 L21.2400 22.6506 " />
+<ns0:path d="M14.9400 29.9006 L14.9400 22.6506 " />
+<ns0:path d="M14.9400 29.9006 L15.2900 29.5506 " />
+<ns0:path d="M14.9400 29.9006 L21.2400 29.9006 " />
+<ns0:path d="M14.9400 22.6506 L15.2900 23.0006 " />
+<ns0:path d="M15.2900 29.5506 L15.2900 29.5506 " />
+<ns0:path d="M15.2900 29.5506 L15.2900 29.5506 " />
+<ns0:path d="M15.2900 23.0006 L20.8900 23.0006 " />
+<ns0:path d="M15.2900 29.5506 L15.2900 23.0006 " />
+<ns0:path d="M15.2900 29.5506 L20.8900 29.5506 " />
+<ns0:path d="M15.3000 30.7006 L15.8400 30.7006 " />
+<ns0:path d="M15.3000 32.5006 L15.3000 30.7006 " />
+<ns0:path d="M15.3000 32.5006 L15.8000 32.5006 " />
+<ns0:path d="M15.8000 31.2006 L16.3400 31.2006 " />
+<ns0:path d="M15.8000 32.5006 L15.8000 31.2006 " />
+<ns0:path d="M15.8400 30.7006 L15.8400 29.9006 " />
+<ns0:path d="M16.3400 31.2006 L16.3400 29.9006 " />
+<ns0:path d="M17.5900 25.3506 L18.0900 25.3506 " />
+<ns0:path d="M17.8400 32.5006 L17.8400 29.9006 " />
+<ns0:path d="M17.8400 32.5006 L18.3400 32.5006 " />
+<ns0:path d="M18.0900 25.3506 L18.0900 24.9006 " />
+<ns0:path d="M18.0900 25.3506 L18.5900 25.3506 " />
+<ns0:path d="M18.0900 25.8006 L18.0900 25.3506 " />
+<ns0:path d="M18.3400 32.5006 L18.3400 29.9006 " />
+<ns0:path d="M19.8400 31.2006 L19.8400 29.9006 " />
+<ns0:path d="M19.8400 31.2006 L20.3800 31.2006 " />
+<ns0:path d="M20.3400 30.7006 L20.3400 29.9006 " />
+<ns0:path d="M20.3400 30.7006 L20.8800 30.7006 " />
+<ns0:path d="M20.3800 32.5006 L20.3800 31.2006 " />
+<ns0:path d="M20.3800 32.5006 L20.8800 32.5006 " />
+<ns0:path d="M20.8800 32.5006 L20.8800 30.7006 " />
+<ns0:path d="M20.8900 23.0006 L20.8900 29.5506 " />
+<ns0:path d="M20.8900 23.0006 L21.2400 22.6506 " />
+<ns0:path d="M20.8900 29.5506 L21.2400 29.9006 " />
+<ns0:path d="M21.2400 22.6506 L21.2400 29.9006 " />
+<ns0:circle cx="18.0900" cy="25.3506" r="2.3300" /> 
+<ns0:path d="M12.6500 10.5506 L13.3500 10.5506 " />
+<ns0:path d="M12.6500 8.6506 L28.4500 8.6506 " />
+<ns0:path d="M12.6500 14.0506 L13.3500 14.0506 " />
+<ns0:path d="M12.6500 15.2506 L12.6500 8.6506 " />
+<ns0:path d="M12.6500 15.2506 L28.4500 15.2506 " />
+<ns0:path d="M13.3500 10.5506 L13.3500 13.2506 " />
+<ns0:path d="M13.3500 13.2506 L15.2500 13.2506 " />
+<ns0:path d="M13.3500 14.4506 L13.3500 14.0506 " />
+<ns0:path d="M13.3500 14.4506 L15.2500 14.4506 " />
+<ns0:path d="M13.5000 6.6506 L13.9000 6.6506 " />
+<ns0:path d="M13.5000 7.0506 L13.5000 6.6506 " />
+<ns0:path d="M13.5000 7.8506 L13.5000 7.4506 " />
+<ns0:path d="M13.5000 8.6506 L13.5000 8.2506 " />
+<ns0:path d="M14.5000 6.6506 L14.9000 6.6506 " />
+<ns0:path d="M14.9000 7.0506 L14.9000 6.6506 " />
+<ns0:path d="M14.9000 7.8506 L14.9000 7.4506 " />
+<ns0:path d="M14.9000 8.6506 L14.9000 8.2506 " />
+<ns0:path d="M15.2500 10.5506 L15.8500 10.5506 " />
+<ns0:path d="M15.2500 13.2506 L15.2500 10.5506 " />
+<ns0:path d="M15.2500 14.0506 L15.2500 14.4506 " />
+<ns0:path d="M15.2500 14.0506 L15.8500 14.0506 " />
+<ns0:path d="M15.8500 10.5506 L15.8500 13.2506 " />
+<ns0:path d="M15.8500 14.4506 L15.8500 14.0506 " />
+<ns0:path d="M15.8500 14.4506 L17.7500 14.4506 " />
+<ns0:path d="M15.8500 13.2506 L17.7500 13.2506 " />
+<ns0:path d="M16.0000 6.6506 L16.4000 6.6506 " />
+<ns0:path d="M16.0000 7.0506 L16.0000 6.6506 " />
+<ns0:path d="M16.0000 7.8506 L16.0000 7.4506 " />
+<ns0:path d="M16.0000 8.6506 L16.0000 8.2506 " />
+<ns0:path d="M17.0000 6.6506 L17.4000 6.6506 " />
+<ns0:path d="M17.4000 7.0506 L17.4000 6.6506 " />
+<ns0:path d="M17.4000 7.4506 L17.4000 7.8506 " />
+<ns0:path d="M17.4000 8.6506 L17.4000 8.2506 " />
+<ns0:path d="M17.7500 10.5506 L18.3500 10.5506 " />
+<ns0:path d="M17.7500 13.2506 L17.7500 10.5506 " />
+<ns0:path d="M17.7500 14.0506 L18.3500 14.0506 " />
+<ns0:path d="M17.7500 14.4506 L17.7500 14.0506 " />
+<ns0:path d="M18.3500 13.2506 L18.3500 10.5506 " />
+<ns0:path d="M18.3500 13.2506 L20.2500 13.2506 " />
+<ns0:path d="M18.3500 14.0506 L18.3500 14.4506 " />
+<ns0:path d="M18.3500 14.4506 L20.2500 14.4506 " />
+<ns0:path d="M18.5400 6.6506 L18.9400 6.6506 " />
+<ns0:path d="M18.5400 7.0506 L18.5400 6.6506 " />
+<ns0:path d="M18.5400 7.8506 L18.5400 7.4506 " />
+<ns0:path d="M18.5400 8.6506 L18.5400 8.2506 " />
+<ns0:path d="M19.5400 6.6506 L19.9400 6.6506 " />
+<ns0:path d="M19.9400 7.0506 L19.9400 6.6506 " />
+<ns0:path d="M19.9400 7.8506 L19.9400 7.4506 " />
+<ns0:path d="M19.9400 8.6506 L19.9400 8.2506 " />
+<ns0:path d="M20.2500 10.5506 L20.2500 13.2506 " />
+<ns0:path d="M20.2500 10.5506 L20.8500 10.5506 " />
+<ns0:path d="M20.2500 14.0506 L20.8500 14.0506 " />
+<ns0:path d="M20.2500 14.4506 L20.2500 14.0506 " />
+<ns0:path d="M20.8500 13.2506 L20.8500 10.5506 " />
+<ns0:path d="M20.8500 13.2506 L22.7500 13.2506 " />
+<ns0:path d="M20.8500 14.0506 L20.8500 14.4506 " />
+<ns0:path d="M20.8500 14.4506 L22.7500 14.4506 " />
+<ns0:path d="M21.0800 6.6506 L21.4800 6.6506 " />
+<ns0:path d="M21.0800 7.0506 L21.0800 6.6506 " />
+<ns0:path d="M21.0800 7.8506 L21.0800 7.4506 " />
+<ns0:path d="M21.0800 8.6506 L21.0800 8.2506 " />
+<ns0:path d="M22.0800 6.6506 L22.4800 6.6506 " />
+<ns0:path d="M22.4800 7.0506 L22.4800 6.6506 " />
+<ns0:path d="M22.4800 7.8506 L22.4800 7.4506 " />
+<ns0:path d="M22.4800 8.6506 L22.4800 8.2506 " />
+<ns0:path d="M22.7500 10.5506 L23.3500 10.5506 " />
+<ns0:path d="M22.7500 13.2506 L22.7500 10.5506 " />
+<ns0:path d="M22.7500 14.0506 L23.3500 14.0506 " />
+<ns0:path d="M22.7500 14.4506 L22.7500 14.0506 " />
+<ns0:path d="M23.3500 13.2506 L23.3500 10.5506 " />
+<ns0:path d="M23.3500 13.2506 L25.2500 13.2506 " />
+<ns0:path d="M23.3500 14.4506 L23.3500 14.0506 " />
+<ns0:path d="M23.3500 14.4506 L25.2500 14.4506 " />
+<ns0:path d="M23.6200 6.6506 L24.0200 6.6506 " />
+<ns0:path d="M23.6200 7.0506 L23.6200 6.6506 " />
+<ns0:path d="M23.6200 7.4506 L23.6200 7.8506 " />
+<ns0:path d="M23.6200 8.6506 L23.6200 8.2506 " />
+<ns0:path d="M24.6200 6.6506 L25.0200 6.6506 " />
+<ns0:path d="M25.0200 7.0506 L25.0200 6.6506 " />
+<ns0:path d="M25.0200 7.4506 L25.0200 7.8506 " />
+<ns0:path d="M25.0200 8.6506 L25.0200 8.2506 " />
+<ns0:path d="M25.2500 10.5506 L25.8500 10.5506 " />
+<ns0:path d="M25.2500 13.2506 L25.2500 10.5506 " />
+<ns0:path d="M25.2500 14.0506 L25.8500 14.0506 " />
+<ns0:path d="M25.2500 14.4506 L25.2500 14.0506 " />
+<ns0:path d="M25.8500 10.5506 L25.8500 13.2506 " />
+<ns0:path d="M25.8500 14.4506 L25.8500 14.0506 " />
+<ns0:path d="M25.8500 14.4506 L27.7500 14.4506 " />
+<ns0:path d="M25.8500 13.2506 L27.7500 13.2506 " />
+<ns0:path d="M26.1600 6.6506 L26.5600 6.6506 " />
+<ns0:path d="M26.1600 7.0506 L26.1600 6.6506 " />
+<ns0:path d="M26.1600 7.8506 L26.1600 7.4506 " />
+<ns0:path d="M26.1600 8.6506 L26.1600 8.2506 " />
+<ns0:path d="M27.1600 6.6506 L27.5600 6.6506 " />
+<ns0:path d="M27.5600 7.0506 L27.5600 6.6506 " />
+<ns0:path d="M27.5600 7.8506 L27.5600 7.4506 " />
+<ns0:path d="M27.5600 8.6506 L27.5600 8.2506 " />
+<ns0:path d="M27.7500 10.5506 L28.4500 10.5506 " />
+<ns0:path d="M27.7500 13.2506 L27.7500 10.5506 " />
+<ns0:path d="M27.7500 14.0506 L28.4500 14.0506 " />
+<ns0:path d="M27.7500 14.4506 L27.7500 14.0506 " />
+<ns0:path d="M28.4500 15.2506 L28.4500 8.6506 " />
+<ns0:path style="fill:#000000; fill-opacity:1.0000; stroke:none;fill-rule:evenodd;" d="M 30.0000,12.4506 29.0000,11.4506 30.0000,10.4506 Z" /> 
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.2000; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:circle cx="78.4500" cy="6.6006" r="1.2500" /> 
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.1500; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M20.3188 49.6356 L20.3188 37.9356 " />
+<ns0:path d="M21.4688 36.7856 L33.1688 36.7856 " />
+<ns0:path d="M21.4688 50.7856 L75.1688 50.7856 " />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.0127; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M22.0688 39.2856 L22.0688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M22.0688 39.2856 L25.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M22.0688 39.2856 L32.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M22.0688 48.2856 L25.0688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M22.0688 48.2856 L32.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M25.0688 42.2856 L29.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M25.0688 45.2856 L25.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M25.0688 45.2856 L29.5688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M29.5688 42.2856 L32.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M29.5688 45.2856 L29.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M29.5688 45.2856 L32.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M32.5688 39.2856 L32.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.1500; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M34.3188 35.6356 L34.3188 7.9356 " />
+<ns0:path d="M35.4688 6.7856 L75.1688 6.7856 " />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.0127; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M36.0688 39.2856 L39.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M36.0688 39.2856 L46.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M36.0688 48.2856 L36.0688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M36.0688 48.2856 L39.0688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M36.0688 48.2856 L46.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.1222 31.3284 L38.5907 25.9741 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.1222 31.3284 L38.6430 30.6839 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.6430 30.6839 L39.1136 25.3045 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.6430 30.6839 L41.0338 30.8931 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.8084 33.3496 L38.9943 33.5526 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.8539 25.0329 L39.1136 25.3045 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.9943 33.5526 L41.4635 31.2899 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.0688 42.2856 L43.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.0688 45.2856 L39.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.0688 45.2856 L43.5688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.1131 20.1181 L39.5693 20.0958 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.1136 25.3045 L41.5045 25.5136 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.1232 19.8872 L39.5993 14.4458 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.4403 24.2512 L40.3980 23.3737 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.4712 34.0730 L39.9544 34.6003 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.4712 34.0730 L41.9404 31.8104 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.5693 20.0958 L40.0400 14.7163 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.5693 20.0958 L41.9602 20.3049 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.5993 14.4458 L40.0400 14.7163 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.8093 21.9085 L40.4323 22.5883 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M40.0400 14.7163 L42.4308 14.9255 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M40.3980 23.3737 L42.0028 25.1251 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M40.4323 22.5883 L42.3810 20.8026 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M40.4489 12.7230 L40.8386 12.3658 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M40.8386 12.3658 L42.9204 14.6377 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.0197 23.0074 L42.5233 24.6482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.0197 23.0074 L42.8579 21.3230 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.0338 30.8931 L41.4635 31.2899 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.0338 30.8931 L41.5045 25.5136 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.1709 35.1356 L42.4379 34.6730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.1709 35.1356 L48.8341 35.1356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.3590 11.8889 L42.0355 11.2691 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.3590 11.8889 L43.4408 14.1608 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.4635 31.2899 L42.0028 25.1251 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.5045 25.5136 L42.0028 25.1251 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.9404 31.8104 L42.4379 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.9404 31.8104 L48.5435 31.8104 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.9602 20.3049 L42.3810 20.8026 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M41.9602 20.3049 L42.4308 14.9255 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.3810 20.8026 L42.9204 14.6377 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.4308 14.9255 L42.9204 14.6377 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.4379 32.2730 L47.8379 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.4379 34.6730 L42.4379 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.4379 34.6730 L47.8379 34.6730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.5233 24.6482 L43.2922 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.5233 24.6482 L49.1264 24.6482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.8579 21.3230 L43.2922 21.7856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M42.8579 21.3230 L49.4610 21.3230 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.1502 10.8356 L44.1464 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.1502 10.8356 L50.8134 10.8356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.2922 21.7856 L43.2922 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.2922 21.7856 L48.6922 21.7856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.2922 24.1856 L48.6922 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.4408 14.1608 L44.1464 13.6982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.4408 14.1608 L50.0439 14.1608 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.5688 45.2856 L43.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.5688 45.2856 L46.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.5688 42.2856 L46.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M44.1464 11.2982 L49.5464 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M44.1464 13.6982 L44.1464 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M44.1464 13.6982 L49.5464 13.6982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M46.5688 48.2856 L46.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M47.8379 32.2730 L48.5435 31.8104 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M47.8379 34.6730 L47.8379 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M47.8379 34.6730 L48.8341 35.1356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M48.5435 31.8104 L50.6253 34.0822 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M48.6922 21.7856 L49.4610 21.3230 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M48.6922 24.1856 L48.6922 21.7856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M48.6922 24.1856 L49.1264 24.6482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.0639 31.3335 L49.5535 31.0457 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.0639 31.3335 L49.6033 25.1686 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.0639 31.3335 L51.1457 33.6054 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.1264 24.6482 L50.9646 22.9638 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.4610 21.3230 L50.9646 22.9638 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.5464 11.2982 L50.8134 10.8356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.5464 13.6982 L49.5464 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.5464 13.6982 L50.0439 14.1608 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.5535 31.0457 L50.0241 25.6662 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.5535 31.0457 L51.9444 31.2549 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.6033 25.1686 L50.0241 25.6662 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.6033 25.1686 L51.5521 23.3829 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.9488 34.7021 L50.6253 34.0822 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.9815 20.8461 L50.4798 20.4576 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.9815 20.8461 L50.5208 14.6812 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M49.9815 20.8461 L51.5863 22.5975 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0241 25.6662 L52.4150 25.8754 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0439 14.1608 L52.5131 11.8982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0688 39.2856 L53.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0688 39.2856 L60.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0688 48.2856 L50.0688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0688 48.2856 L53.0688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.0688 48.2856 L60.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.4798 20.4576 L50.9505 15.0781 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.4798 20.4576 L52.8707 20.6667 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.5208 14.6812 L50.9505 15.0781 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.5208 14.6812 L52.9900 12.4186 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M50.9505 15.0781 L53.3413 15.2873 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M51.1457 33.6054 L51.5355 33.2482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M51.5521 23.3829 L52.1750 24.0627 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M51.5863 22.5975 L52.5440 21.7200 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M51.9444 31.2549 L52.3851 31.5254 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M51.9444 31.2549 L52.4150 25.8754 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.0299 11.3709 L52.5131 11.8982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.3851 31.5254 L52.8611 26.0840 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.4150 25.8754 L52.8712 25.8530 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.8707 20.6667 L53.1304 20.9382 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.8707 20.6667 L53.3413 15.2873 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.9900 12.4186 L53.1760 12.6216 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M53.0688 42.2856 L57.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M53.0688 45.2856 L53.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M53.0688 45.2856 L57.5688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M53.3413 15.2873 L53.8621 14.6428 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M53.3937 19.9971 L53.8621 14.6428 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M56.4895 31.3284 L56.9579 25.9741 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M56.4895 31.3284 L57.0102 30.6839 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.0102 30.6839 L57.4809 25.3045 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.0102 30.6839 L59.4011 30.8931 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.1756 33.3496 L57.3615 33.5526 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.2211 25.0329 L57.4809 25.3045 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.3615 33.5526 L59.8307 31.2899 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.4804 20.1181 L57.9366 20.0958 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.4809 25.3045 L59.8717 25.5136 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.4904 19.8872 L57.9665 14.4458 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.5688 45.2856 L57.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.5688 45.2856 L60.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.5688 42.2856 L60.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.8075 24.2512 L58.7652 23.3737 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.8384 34.0730 L58.3216 34.6003 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.8384 34.0730 L60.3076 31.8104 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.9366 20.0958 L58.4072 14.7163 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.9366 20.0958 L60.3274 20.3049 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.9665 14.4458 L58.4072 14.7163 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.1766 21.9085 L58.7995 22.5883 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.4072 14.7163 L60.7981 14.9255 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.7652 23.3737 L60.3701 25.1251 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.7995 22.5883 L60.7483 20.8026 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.8161 12.7230 L59.2058 12.3658 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.2058 12.3658 L61.2876 14.6377 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.3870 23.0074 L60.8905 24.6482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.3870 23.0074 L61.2251 21.3230 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.4011 30.8931 L59.8307 31.2899 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.4011 30.8931 L59.8717 25.5136 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.5381 35.1356 L60.8052 34.6730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.5381 35.1356 L67.2013 35.1356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.7263 11.8889 L60.4027 11.2691 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.7263 11.8889 L61.8080 14.1608 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.8307 31.2899 L60.3701 25.1251 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M59.8717 25.5136 L60.3701 25.1251 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.3076 31.8104 L60.8052 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.3076 31.8104 L66.9107 31.8104 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.3274 20.3049 L60.7483 20.8026 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.3274 20.3049 L60.7981 14.9255 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.5688 39.2856 L60.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.7483 20.8026 L61.2876 14.6377 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.7981 14.9255 L61.2876 14.6377 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.8052 32.2730 L66.2052 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.8052 34.6730 L60.8052 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.8052 34.6730 L66.2052 34.6730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.8905 24.6482 L61.6594 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M60.8905 24.6482 L67.4937 24.6482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.2251 21.3230 L61.6594 21.7856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.2251 21.3230 L67.8283 21.3230 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.5175 10.8356 L62.5136 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.5175 10.8356 L69.1807 10.8356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.6594 21.7856 L61.6594 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.6594 21.7856 L67.0594 21.7856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.6594 24.1856 L67.0594 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.8080 14.1608 L62.5136 13.6982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.8080 14.1608 L68.4112 14.1608 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M62.5136 11.2982 L67.9136 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M62.5136 13.6982 L62.5136 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M62.5136 13.6982 L67.9136 13.6982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M64.0688 39.2856 L67.0688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M64.0688 39.2856 L74.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M64.0688 48.2856 L64.0688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M64.0688 48.2856 L67.0688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M64.0688 48.2856 L74.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M66.2052 32.2730 L66.9107 31.8104 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M66.2052 34.6730 L66.2052 32.2730 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M66.2052 34.6730 L67.2013 35.1356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M66.9107 31.8104 L68.9925 34.0822 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.0594 21.7856 L67.0594 24.1856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.0594 21.7856 L67.8283 21.3230 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.0594 24.1856 L67.4937 24.6482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.0688 42.2856 L67.0688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.0688 42.2856 L71.5688 42.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.0688 45.2856 L71.5688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.4312 31.3335 L67.9207 31.0457 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.4312 31.3335 L67.9705 25.1686 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.4312 31.3335 L69.5130 33.6054 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.4937 24.6482 L69.3318 22.9638 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.8283 21.3230 L69.3318 22.9638 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9136 11.2982 L69.1807 10.8356 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9136 13.6982 L67.9136 11.2982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9136 13.6982 L68.4112 14.1608 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9207 31.0457 L68.3914 25.6662 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9207 31.0457 L70.3116 31.2549 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9705 25.1686 L68.3914 25.6662 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.9705 25.1686 L69.9193 23.3829 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.3161 34.7021 L68.9925 34.0822 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.3487 20.8461 L68.8471 20.4576 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.3487 20.8461 L68.8881 14.6812 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.3487 20.8461 L69.9536 22.5975 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.3914 25.6662 L70.7822 25.8754 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.4112 14.1608 L70.8804 11.8982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.8471 20.4576 L69.3177 15.0781 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.8471 20.4576 L71.2379 20.6667 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.8881 14.6812 L69.3177 15.0781 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M68.8881 14.6812 L71.3573 12.4186 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M69.3177 15.0781 L71.7086 15.2873 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M69.5130 33.6054 L69.9027 33.2482 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M69.9193 23.3829 L70.5422 24.0627 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M69.9536 22.5975 L70.9113 21.7200 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.3116 31.2549 L70.7523 31.5254 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.3116 31.2549 L70.7822 25.8754 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.3972 11.3709 L70.8804 11.8982 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.7523 31.5254 L71.2284 26.0840 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.7822 25.8754 L71.2384 25.8530 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.2379 20.6667 L71.4977 20.9382 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.2379 20.6667 L71.7086 15.2873 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.3573 12.4186 L71.5432 12.6215 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.5688 42.2856 L71.5688 45.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.5688 42.2856 L74.5688 39.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.5688 45.2856 L74.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.7086 15.2873 L72.2293 14.6428 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.7609 19.9971 L72.2293 14.6428 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M74.5688 39.2856 L74.5688 48.2856 " vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.1500; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M76.3188 49.6356 L76.3188 7.9356 " />
+<ns0:path d="M21.4688 36.7856 A1.1500 1.1500 0.0 0 0 20.3188 37.9356" />
+<ns0:path d="M20.3188 49.6356 A1.1500 1.1500 0.0 0 0 21.4688 50.7856" />
+<ns0:path d="M33.1688 36.7856 A1.1500 1.1500 0.0 0 0 34.3188 35.6356" />
+<ns0:path d="M35.4688 6.7856 A1.1500 1.1500 0.0 0 0 34.3188 7.9356" />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.0127; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M39.4403 24.2512 A2.6500 2.6500 0.0 0 0 38.5907 25.9740" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M38.1222 31.3284 A2.6500 2.6500 0.0 0 0 38.8084 33.3496" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M40.4489 12.7230 A2.6500 2.6500 0.0 0 0 39.5993 14.4458" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.1232 19.8872 A2.6500 2.6500 0.0 0 0 39.8093 21.9085" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M39.9544 34.6003 A1.6500 1.6500 0.0 0 0 41.1709 35.1356" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M43.1502 10.8356 A1.6500 1.6500 0.0 0 0 42.0355 11.2691" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M48.8341 35.1356 A1.6500 1.6500 0.0 0 0 49.9488 34.7021" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.0299 11.3709 A1.6500 1.6500 0.0 0 0 50.8134 10.8356" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.8611 26.0840 A2.6500 2.6500 0.0 0 0 52.1750 24.0627" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M51.5355 33.2482 A2.6500 2.6500 0.0 0 0 52.3851 31.5254" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M53.8621 14.6428 A2.6500 2.6500 0.0 0 0 53.1760 12.6216" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M52.5441 21.7200 A2.6500 2.6500 0.0 0 0 53.3937 19.9971" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.8075 24.2512 A2.6500 2.6500 0.0 0 0 56.9579 25.9741" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M56.4895 31.3284 A2.6500 2.6500 0.0 0 0 57.1756 33.3496" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.8161 12.7230 A2.6500 2.6500 0.0 0 0 57.9665 14.4458" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M57.4904 19.8872 A2.6500 2.6500 0.0 0 0 58.1766 21.9085" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M58.3216 34.6003 A1.6500 1.6500 0.0 0 0 59.5381 35.1356" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M61.5175 10.8356 A1.6500 1.6500 0.0 0 0 60.4027 11.2691" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M67.2013 35.1356 A1.6500 1.6500 0.0 0 0 68.3161 34.7021" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.3972 11.3709 A1.6500 1.6500 0.0 0 0 69.1807 10.8356" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M71.2283 26.0840 A2.6500 2.6500 0.0 0 0 70.5422 24.0627" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M69.9027 33.2482 A2.6500 2.6500 0.0 0 0 70.7523 31.5254" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M72.2294 14.6428 A2.6500 2.6500 0.0 0 0 71.5432 12.6216" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+<ns0:path d="M70.9113 21.7200 A2.6500 2.6500 0.0 0 0 71.7609 19.9971" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.1500; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M76.3188 7.9356 A1.1500 1.1500 0.0 0 0 75.1688 6.7856" />
+<ns0:path d="M75.1688 50.7856 A1.1500 1.1500 0.0 0 0 76.3188 49.6356" />
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.0063; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:circle cx="20.3188" cy="50.7856" r="0.0032" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" /> 
+<ns0:circle cx="20.3188" cy="50.7856" r="0.0032" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" /> 
+<ns0:circle cx="34.3188" cy="30.1886" r="0.0032" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" /> 
+<ns0:circle cx="76.3188" cy="6.7856" r="0.0032" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" /> 
+<ns0:circle cx="76.3188" cy="6.7856" r="0.0032" vector-effect="non-scaling-stroke" style=";stroke-width:0.9px;" /> 
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.2000; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M0.9000 3.0006 L10.9000 3.0006 " />
+<ns0:path d="M0.9000 35.0006 L0.9000 3.0006 " />
+<ns0:path d="M0.9000 35.0006 L10.9000 35.0006 " />
+<ns0:path d="M10.9000 35.0006 L10.9000 3.0006 " />
+<ns0:circle cx="6.9500" cy="51.5112" r="1.2500" /> 
+</ns0:g>
+<ns0:g style="fill:none;  stroke:#000000; stroke-width:0.0500; stroke-opacity:1;  stroke-linecap:round; stroke-linejoin:round;">
+<ns0:path d="M3.0000 0.0000 A3.0000 3.0000 0.0 0 0 0.0000 3.0000" />
+<ns0:path d="M0.0000 54.5100 L0.0000 3.0000 " />
+<ns0:path d="M3.0000 0.0000 L79.4700 0.0000 " />
+<ns0:path d="M0.0000 54.5100 A3.0000 3.0000 0.0 0 0 3.0000 57.5100" />
+<ns0:path d="M82.4700 3.0000 A3.0000 3.0000 0.0 0 0 79.4700 0.0000" />
+<ns0:path d="M79.4700 57.5100 L3.0000 57.5100 " />
+<ns0:path d="M82.4700 3.0000 L82.4700 54.5100 " />
+<ns0:path d="M79.4700 57.5100 A3.0000 3.0000 0.0 0 0 82.4700 54.5100" />
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="15.5500" cy="33.9006" r="0.4500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="18.0900" cy="33.9006" r="0.4500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="20.6300" cy="33.9006" r="0.4500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="27.3500" cy="11.5506" r="0.5250" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="24.8500" cy="11.5506" r="0.5500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="22.3500" cy="11.5506" r="0.5500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="19.8500" cy="11.5506" r="0.5500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="17.3500" cy="11.5506" r="0.5500" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="14.8500" cy="11.5506" r="0.5250" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="50.2400" cy="37.4506" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="52.7800" cy="37.4506" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="55.3200" cy="37.4506" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="57.8600" cy="37.4506" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="60.4000" cy="37.4506" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="60.4000" cy="9.5106" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="57.8600" cy="9.5106" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="55.3200" cy="9.5106" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="52.7800" cy="9.5106" r="0.3810" /> 
+</ns0:g>
+<ns0:g style="fill:#FFFFFF; fill-opacity:1.0000; stroke:none;">
+<ns0:circle cx="50.2400" cy="9.5106" r="0.3810" /> 
+</ns0:g> 
+</ns0:svg>

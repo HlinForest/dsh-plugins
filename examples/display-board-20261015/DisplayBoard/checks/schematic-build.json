@@ -1,0 +1,86 @@
+{
+  "source_records": 1054,
+  "components": 41,
+  "pins": 85,
+  "graphics": 98,
+  "texts": 7,
+  "labels": 48,
+  "nc": 1,
+  "wires": 92,
+  "junctions": 19,
+  "root_uuid": "e84841ed-0c60-5131-a496-d9cac85a5d62",
+  "symbols": {
+    "D1": "33dcd839-20b9-5c1d-921e-d4e2b55a50ee",
+    "C2": "ee1b7d24-181e-5da6-abb1-e4e5848ca712",
+    "C3": "028700c1-6316-51b1-8d7e-960ee9830d15",
+    "R3": "fc039eba-ded6-586c-a3d2-2e3adee32616",
+    "R1": "76e01306-ee18-5b96-9064-585ae5ae41f8",
+    "U1": "18f8b1e0-f506-5455-8016-36a587827bc5",
+    "C7": "34d4695a-4b83-56ab-bc7f-53a73d23d44e",
+    "C6": "6e95cbd6-65a0-55cf-9615-a5705b355c01",
+    "C5": "1276c6ff-b95c-5ec8-9be9-3cabb2ff857c",
+    "R2": "73785d50-7dff-5b7f-b75f-e8d21c0a7d1c",
+    "R4": "fe1ad10a-cd0a-5e38-be3d-792ac9db469f",
+    "R6": "2b2448e8-4262-5806-be08-5e9ba80ad573",
+    "R8": "fb5bccdd-560b-593a-aa4f-e3a49610a7da",
+    "R9": "ecf16dbe-f918-5a1c-b7ff-7f331821e38b",
+    "R7": "6ab18d6b-2e46-5604-b6d9-fba48db75fd3",
+    "R5": "fe98acd3-d76e-5c21-9805-ed751f5b2f45",
+    "SS": "361eceff-cb9c-5e05-a10d-bf76946b0c77",
+    "DWK1": "ac9ae76a-4f33-5d0e-8d45-01afd9ecdfaa",
+    "DWK2": "5aa39541-1088-536c-9d31-518362ee46d0",
+    "check": "abde2296-0f07-5016-af38-6a5c92aa9df5",
+    "UL": "b4cb555d-5df8-5b72-9560-6853722c05fa",
+    "LLOO": "f728817b-dcc4-54a4-bee4-ea3215bb5bf0",
+    "QR Code": "1699e8c2-c1fc-5c93-821a-3a8755e69110",
+    "QR Code1": "2f79023d-2780-5bc5-bff3-5a76169d348d",
+    "MM1": "1f3c0bb3-6ce1-5605-87a6-382b027af93d",
+    "MM2": "3ffb2c43-9f47-5d67-ad1c-6ca15949b2a4",
+    "MM3": "b4ede98c-5f39-5b40-8b95-f3f909466089",
+    "LLAA": "997ffa10-9eec-5d7a-a639-693e6668332b",
+    "RJ1": "d80bc971-91a9-5823-9bba-aaa3e67cd4e0",
+    "RJ2": "86958aea-c255-59d5-b916-e7a03298a9cc",
+    "DISP": "312b8f7c-a5c2-55d7-bf22-5d76cb9fe4c1",
+    "*": "dad3842e-1b6e-506d-843b-20e66ca42c9e",
+    "C4": "7b921ea3-df41-591e-9697-ab69cb2282da",
+    "C8": "22fc409d-4f67-5887-a5f2-9094280d42c1",
+    "C1": "f0a0b581-ebd8-51f3-9198-464523b92256",
+    "RJ3": "40f7b090-ca05-5014-bd09-b1a6e03f0fc1",
+    "RJ4": "8b3aead7-1daf-5fa4-9bfb-6f0c806817fb",
+    "RJ5": "a469f1f0-5beb-51ff-9313-3415280c4e83",
+    "RJ6": "8494409c-dc41-5066-b612-4239772b9542",
+    "RJ7": "88a758e7-1e51-59a2-b861-f6d4f9875706",
+    "RJ8": "a5771169-98cc-5645-8e14-cdfcee2b9326"
+  },
+  "reads": [
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\01_task\\requirements.json",
+      "sha256": "d6d63c2357267ab1d703b55a38d263bcedf6eafdc8a15bf3835fee25fbdcdd43"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\components.json",
+      "sha256": "819109d8544b613e2eef1dc4833a691f3b969284d62a59b759922fa195923f4b"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\FileHeader.records.json",
+      "sha256": "0ebf90091be468bde44cfa379ca69d10096eac5849702cc53b8cf4616925b92f"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\07_adjustments\\approved_changes.json",
+      "sha256": "7ef40338389ad76e2dfc1e864de3296cbe434f410684917fcf9b260849da83a1"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\source_tables\\sch_document_settings.json",
+      "sha256": "5a3f007ba0b3a17c31ad5c1e58ef365ba56b23c29ebffafda2b830108e4add2e"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\05_footprints\\instances.json",
+      "sha256": "f7c9fb0c23b88d8ff539490228b52aeced74098c1666beabafa586b1c81fe770"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_components.json",
+      "sha256": "5ebd047bce85cf73ffb33373e28dd1342fad79b69576c56c1e9be86d8c02ea4c"
+    }
+  ],
+  "generated_by": "Codex-authored data-to-KiCad generator"
+}

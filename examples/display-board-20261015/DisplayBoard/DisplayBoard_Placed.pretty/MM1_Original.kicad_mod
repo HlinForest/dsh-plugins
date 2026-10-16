@@ -1,0 +1,183 @@
+(footprint "MM1_Original"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(locked yes)
+	(layer "F.Cu")
+	(property "Reference" "MM1"
+		(at -0.8714 2.6835 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "9f5b9854-fe7f-4356-9523-efe4f29bc84a")
+		(effects
+			(font
+				(face "Arial")
+				(size 0.63 0.63)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+		(render_cache "MM1" 0
+			(polygon
+				(pts
+					(xy 177.157734 126.4005) (xy 177.157734 125.767774) (xy 177.283371 125.767774) (xy 177.432705 126.215967)
+					(xy 177.462826 126.309676) (xy 177.496408 126.208197) (xy 177.647473 125.767774) (xy 177.759801 125.767774)
+					(xy 177.759801 126.4005) (xy 177.679325 126.4005) (xy 177.679325 125.870638) (xy 177.495985 126.4005)
+					(xy 177.420664 126.4005) (xy 177.23821 125.861598) (xy 177.23821 126.4005)
+				)
+			)
+			(polygon
+				(pts
+					(xy 177.892016 126.4005) (xy 177.892016 125.767774) (xy 178.017653 125.767774) (xy 178.166987 126.215967)
+					(xy 178.197108 126.309676) (xy 178.23069 126.208197) (xy 178.381755 125.767774) (xy 178.494082 125.767774)
+					(xy 178.494082 126.4005) (xy 178.413607 126.4005) (xy 178.413607 125.870638) (xy 178.230267 126.4005)
+					(xy 178.154946 126.4005) (xy 177.972491 125.861598) (xy 177.972491 126.4005)
+				)
+			)
+			(polygon
+				(pts
+					(xy 178.889228 126.4005) (xy 178.811753 126.4005) (xy 178.811753 125.905567) (xy 178.780924 125.931217)
+					(xy 178.738394 125.959076) (xy 178.693636 125.983294) (xy 178.656842 125.999199) (xy 178.656842 125.92534)
+					(xy 178.698978 125.902924) (xy 178.736729 125.877991) (xy 178.770438 125.850557) (xy 178.801365 125.819737)
+					(xy 178.823857 125.791443) (xy 178.839297 125.765312) (xy 178.889228 125.765312)
+				)
+			)
+		)
+	)
+	(property "Value" "."
+		(at -1.3843 2.6752 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "be40926d-c361-4b09-a8fd-59c88cb6a96c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "2766e9bc-592a-4daf-b62b-cb6ba0260f6f")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "63fb159d-5c87-48ad-a746-8464b9187f4b")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_SourceUniqueID" "SVCYFFTJ"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "bc50d4ff-cbbe-4a47-b25c-237254283eb8")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_LibReference" "MARK"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "8d6743d1-8ef1-493e-a76b-39168395f6de")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_RecordIndex" "551"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "4a5338df-22ec-481a-be36-a9c556cd99fb")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_OriginalFootprint" "MARK1"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "eac3b3db-1eaf-4965-bdf0-7bc99cedbf33")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_PCBPattern" "MARK1"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "fd5856c3-71df-43b6-90a1-b38356f30e2b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(sheetfile "DisplayBoard.kicad_sch")
+	(attr exclude_from_pos_files)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_circle
+		(center 0 0)
+		(end 0 -1.5)
+		(stroke
+			(width 0.3)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Cu")
+		(uuid "f9316622-21a0-5897-b5ea-009406dc3b46")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0 -0.9)
+		(stroke
+			(width 0.75)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Mask")
+		(uuid "3ab8a8c9-58ae-5dcf-aec1-65705fdd5be2")
+	)
+	(pad "1" smd circle
+		(at 0 0)
+		(size 1.01 1.01)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 90)
+		(uuid "3017e28b-c202-56d0-8671-cbce11446a19")
+	)
+	(embedded_fonts no)
+)

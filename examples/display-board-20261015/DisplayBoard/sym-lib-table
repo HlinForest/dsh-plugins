@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "DisplayBoard_Native") (type "KiCad") (uri "${KIPRJMOD}/DisplayBoard_Native.kicad_sym") (options "") (descr "Original source symbols"))
+)

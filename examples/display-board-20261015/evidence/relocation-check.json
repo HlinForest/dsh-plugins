@@ -1,0 +1,13 @@
+{
+  "schematicNetlistExportExitCode": 0,
+  "netlistConnectionsMatchOriginal": true,
+  "pcbLoaded": true,
+  "footprints": 74,
+  "modelLinksResolved": 31,
+  "librariesResolved": true,
+  "notes": [
+    "Existing schematic annotation warning retained",
+    "Sandbox denied KiCad personal registry writes; netlist export still completed"
+  ],
+  "projectDesignFilesChanged": false
+}

@@ -2,6 +2,8 @@
 
 为 DeepSeek Harness 提供独立工程插件与可视化工作台，目标运行时为 **DSH 0.2.0-rc.2**，要求 **Node.js ≥ 22.19.0**。
 
+**直接打开已生成的显示板工程：** [工程目录与打开说明](examples/display-board-20261015/README.md) · [原理图 PDF](examples/display-board-20261015/DisplayBoard/previews/schematic.pdf) · [工程下载包](https://github.com/HlinForest/dsh-plugins/releases/tag/display-board-20261015)。该目录随 Git 拉取取得，包含原理图、PCB、BOM、库、模型与预览，无需运行插件。本轮从默认数据生成；PCB 数据的历史准备曾使用官方导入器辅助提取，具体范围见说明。
+
 | 插件 | 版本 | 用途 |
 | --- | --- | --- |
 | [dsh-megmeet](plugins/dsh-megmeet/README.md) | 0.2.0 | 需求解析、资料库检索、工况校验与可追溯报告 |

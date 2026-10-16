@@ -1,0 +1,405 @@
+{
+  "coverage": "Python open audit; native C++ file I/O not intercepted",
+  "allowed_roots": [
+    "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs",
+    "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project",
+    "${PLUGIN}\\python\\structured",
+    "${PLUGIN}\\python\\vendor",
+    "${KICAD}",
+    "${WINDOWS}"
+  ],
+  "events": [
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\pkgutil.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\weakref.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\_weakrefset.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\typing.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\generate_pcb.py",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\generate_pcb.py",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\generate_pcb.py",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\copy.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\xml\\__pycache__\\__init__.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\xml\\etree\\__pycache__\\__init__.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\xml\\etree\\__pycache__\\ElementTree.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\xml\\etree\\__pycache__\\ElementPath.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\__pycache__\\common.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\csv.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\hashlib.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\uuid.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\vendor\\__pycache__\\sexpdata.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\__future__.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\string.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\site-packages\\__pycache__\\pcbnew.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\01_task\\requirements.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\01_task\\requirements.json",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\encodings\\__pycache__\\utf_8_sig.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\07_adjustments\\approved_changes.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\07_adjustments\\approved_changes.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\checks\\schematic-build.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\checks\\schematic-build.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\recomputed_connectivity.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\recomputed_connectivity.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\checks\\compiled.xml",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\xml\\parsers\\__pycache__\\__init__.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\xml\\parsers\\__pycache__\\expat.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\pins.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\pins.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\manifest.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\manifest.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_00_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_00_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_00_R0805.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_01_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_01_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_01_R0805.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_02_led3-2_54-6x5_6x6_95l.stp",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_02_led3-2_54-6x5_6x6_95l.stp",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_02_led3-2_54-6x5_6x6_95l.stp",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_03_R1206.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_03_R1206.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_03_R1206.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_04_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_04_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_04_R0805.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_05_R0603.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_05_R0603.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_05_R0603.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_06_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_06_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_06_R0805.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_07_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_07_R0805.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_07_R0805.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_08_cap_0603-H0.8.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_08_cap_0603-H0.8.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_08_cap_0603-H0.8.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_09_THT-CONX-2.5-6.4L(M).STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_09_THT-CONX-2.5-6.4L(M).STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_09_THT-CONX-2.5-6.4L(M).STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_10_THT-CONX-2.5-6.4L(L_R).STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_10_THT-CONX-2.5-6.4L(L_R).STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_10_THT-CONX-2.5-6.4L(L_R).STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_11_cap_0603-H0.8.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_11_cap_0603-H0.8.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_11_cap_0603-H0.8.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_12_cap_0603-H0.8.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\08_dependencies\\native_models\\model_12_cap_0603-H0.8.STEP",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\models\\model_12_cap_0603-H0.8.STEP",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\05_footprints\\instances.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\05_footprints\\instances.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\settings.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\settings.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\drawings.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\drawings.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\tracks.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\tracks.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\zones.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\zones.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\DisplayBoard.kicad_pcb",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\DisplayBoard.kicad_pro",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\fp-lib-table",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_rules.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_rules.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\DisplayBoard.kicad_dru",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\checks\\pcb-build.json",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\checks\\pcb-build.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\6\\6926571c-c777-42ed-b05f-073aab00787f\\project\\checks\\pcb-build.json",
+      "mode": "r"
+    }
+  ]
+}

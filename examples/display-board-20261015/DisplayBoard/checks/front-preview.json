@@ -1,0 +1,26 @@
+{
+  "enhanced_primitives": 273,
+  "minimum_thin_stroke_px": 0.9,
+  "viewBox": [
+    -1.0,
+    -1.0,
+    84.52,
+    59.56
+  ],
+  "purpose": "screen reading only",
+  "cad_changed": false,
+  "design_hashes": {
+    "DisplayBoard.kicad_dru": "bdd02f1387f460ccaeb0dfa433aeb301e2ba005ba3281c08433bea114e9b71bb",
+    "DisplayBoard.kicad_pcb": "3c07595fdbea9d671d93ae21f4224d46308364fd8c29cf2d1a1118f8a33eec05",
+    "DisplayBoard.kicad_prl": "6f0fe34398fc9cf6e0647b7947e0ea7da917d653e66439df8a9b546095235f84",
+    "DisplayBoard.kicad_pro": "f15b05e9c98fcbcc2c4ea49fd6e1d305b92590d769890623a36068da82312419",
+    "DisplayBoard.kicad_sch": "1a3ca5e01302abb9b07cd1d9f35b93dbb1ebadd4d472962eb8c7c0d98bb1941a",
+    "DisplayBoard_Native.kicad_sym": "de669b87993d800a3080fe9c0ca7a4a810532a927ddb9f8f9d46a45e9bbcb1d5"
+  },
+  "files": {
+    "pcb-top-raw.svg": "7ddbb26dda99dd98a20c64afa61d0f450babb7647c3dfc40f921e93f3528c1f7",
+    "pcb-top-true-width.svg": "79bf65e627c81411953619e775672569b1cab66da69346dcf10f0699dba2c39b",
+    "pcb-top.svg": "9c92a6c7a710131d6a8b69e503949312c7c1d2c60f27f1f17946655a8a9f4ac3"
+  },
+  "updated_at": "2026-10-15T09:26:45.568969+08:00"
+}

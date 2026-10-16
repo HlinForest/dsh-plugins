@@ -1,0 +1,44 @@
+{
+  "runPluginVersion": "0.3.4",
+  "runDate": "2026-10-15",
+  "sourceCodeCommit": "9a19d1c2167fdb66da5ab6dcd0f87bf79fbcf714",
+  "schematic": "Generated from extracted native records, pin connections, symbol geometry and page coordinates",
+  "pcb": "Assembled from explicit footprint, track, zone, drawing and settings objects; approved adjustments applied",
+  "generationInvokedAltiumImporter": false,
+  "generationOpenedSchDocOrPcbDoc": false,
+  "historicalInputPreparation": "PCB geometry was historically obtained with the official KiCad importer as an auxiliary extraction channel and crosschecked against the confirmed source import",
+  "modelProvider": "test-double",
+  "realModelCalls": 0,
+  "modelResponses": 12,
+  "generatorSources": [
+    "python/stage.py",
+    "python/structured/generate_schematic.py",
+    "python/structured/generate_pcb.py"
+  ],
+  "auditCoverage": "Command logs plus Python open audit; native C++ file I/O not intercepted",
+  "comparison": {
+    "equal": true,
+    "categories": 28,
+    "differences": []
+  },
+  "remainingGaps": [
+    "尚无器件规格书；请从厂家取得准确型号和封装版本的 PDF。",
+    "制造铜层数与通孔金属化待工程师确认；当前工程保留源层叠和焊盘。",
+    "缺原 Altium 编译网表与原始页面 PDF。",
+    "数码管没有原始 3D 模型；保留二维图形。",
+    "ERC：1 条检查记录待复核。",
+    "DRC：40 条检查记录待复核。"
+  ],
+  "unchangedGeneratedFiles": 103,
+  "redactedCheckFiles": [
+    "checks/compiled.xml",
+    "checks/file-access-pcb.json",
+    "checks/file-access-schematic.json",
+    "checks/pcb-build.json",
+    "checks/schematic-build.json"
+  ],
+  "omittedFiles": [
+    "DisplayBoard.kicad_prl (personal view settings)"
+  ],
+  "designAndLibrariesByteIdentical": true
+}

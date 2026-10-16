@@ -1,0 +1,292 @@
+(footprint "R4_Original"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(locked yes)
+	(layer "F.Cu")
+	(property "Reference" "R4"
+		(at -3.99 1.63916 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "a6ddf680-136b-4868-97e9-f092f74e8ae5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Value" "47R/0805"
+		(at -4.5294 -0.8763 -90)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "ff97a41d-893a-44be-bcb0-ec9f7cf03983")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "20e4d355-69b4-4825-9aaa-d61164f9cf97")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "f376c747-dcb1-4678-bbc9-34e84ca66b9f")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(property "物料编码" "R20180007"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "a21074fa-d5cd-4aee-af70-0910332cddc1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "物料描述" "贴片电阻/1/8W/47Ω±5%/0805"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "8fb667d1-2838-4c92-8c80-e5548a62e43d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "优选等级" "工业A/消费A"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "51a8fe97-5379-4bd5-9312-c55aec525f4a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "装配类型" "SMD"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "090547e4-3075-4b41-bdbd-a65b2aa4d9b5")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_SourceUniqueID" "BWNGUPLB"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "5c7a6fdc-7d11-486e-8723-1ff99f35728d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_LibReference" "R20180007"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "df113c2e-b47c-42bc-952d-7cc9f5dee77e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_RecordIndex" "314"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "598f19cf-0ef4-47e0-a322-1499371ed938")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_OriginalFootprint" "WSR0805"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "e2779f7a-6986-48f6-ad25-7cc3bf618428")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Altium_PCBPattern" "WSR0805"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "91cb6452-e575-44ab-af4b-1192669bc89c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(sheetfile "DisplayBoard.kicad_sch")
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.03999 1.05)
+		(end -2.03999 -1.05)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e236fe10-c2af-59d6-9e5d-aec9428e6f79")
+	)
+	(fp_line
+		(start -0.59999 -1.05)
+		(end -2.03999 -1.05)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "05cb2bf7-4ae5-5cb7-a926-d07b8c06c9f4")
+	)
+	(fp_line
+		(start -0.59999 1.05)
+		(end -2.03999 1.05)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "28e0d112-712f-5d9b-82c6-725c7c7932ee")
+	)
+	(fp_line
+		(start 2.04 -1.05)
+		(end 0.6 -1.05)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6af9124f-563a-5d48-a0a1-ae574774f612")
+	)
+	(fp_line
+		(start 2.04 1.05)
+		(end 0.6 1.05)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "89613f06-58b1-5c60-a036-289a7e8137b5")
+	)
+	(fp_line
+		(start 2.04 1.05)
+		(end 2.04 -1.05)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "677a75df-cce4-507c-855a-b7edabcf9a72")
+	)
+	(fp_line
+		(start -1.0795 0.6985)
+		(end -1.0795 -0.6985)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "User.1")
+		(uuid "42107154-cb33-595b-8d1b-52f45eb2c730")
+	)
+	(fp_line
+		(start 1.0795 -0.6985)
+		(end -1.0795 -0.6985)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "User.1")
+		(uuid "725c33c1-6629-51ee-b627-a36327ce48a6")
+	)
+	(fp_line
+		(start 1.0795 -0.6985)
+		(end 1.0795 0.6985)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "User.1")
+		(uuid "b2ed36dc-31b7-585d-a8f6-3b328e6a0fb2")
+	)
+	(fp_line
+		(start 1.0795 0.6985)
+		(end -1.0795 0.6985)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "User.1")
+		(uuid "a477f042-f195-5ebb-88f7-1648c743e0eb")
+	)
+	(pad "1" smd rect
+		(at -1.14 0)
+		(size 1 1.3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.0635)
+		(uuid "c3ee273e-5294-53e7-9fde-ee2acdde1811")
+	)
+	(pad "2" smd rect
+		(at 1.14 0 180)
+		(size 1 1.3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.0635)
+		(uuid "73554862-61bc-5895-8f10-ba7d6157b9ac")
+	)
+	(embedded_fonts no)
+)

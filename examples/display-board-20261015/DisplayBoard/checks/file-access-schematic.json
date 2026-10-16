@@ -1,0 +1,153 @@
+{
+  "coverage": "Python open audit; native C++ file I/O not intercepted",
+  "allowed_roots": [
+    "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs",
+    "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\4\\47b8966f-1936-4887-87f0-2f0ad0832be2\\project",
+    "${PLUGIN}\\python\\structured",
+    "${PLUGIN}\\python\\vendor",
+    "${KICAD}",
+    "${WINDOWS}"
+  ],
+  "events": [
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\pkgutil.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\weakref.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\_weakrefset.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\typing.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\generate_schematic.py",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\generate_schematic.py",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\generate_schematic.py",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\copy.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\structured\\__pycache__\\common.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\csv.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\hashlib.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\uuid.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${PLUGIN}\\python\\vendor\\__pycache__\\sexpdata.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\__future__.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\__pycache__\\string.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\01_task\\requirements.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\01_task\\requirements.json",
+      "mode": "r"
+    },
+    {
+      "path": "${KICAD}\\Lib\\encodings\\__pycache__\\utf_8_sig.cpython-311.pyc",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\03_components\\components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\FileHeader.records.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\FileHeader.records.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\07_adjustments\\approved_changes.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\07_adjustments\\approved_changes.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\source_tables\\sch_document_settings.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\04_schematic\\source_tables\\sch_document_settings.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\05_footprints\\instances.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\05_footprints\\instances.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\default-inputs\\06_pcb\\native_tables\\pcb_native_components.json",
+      "mode": "r"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\4\\47b8966f-1936-4887-87f0-2f0ad0832be2\\project\\DisplayBoard.kicad_sch",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\4\\47b8966f-1936-4887-87f0-2f0ad0832be2\\project\\DisplayBoard_Native.kicad_sym",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\4\\47b8966f-1936-4887-87f0-2f0ad0832be2\\project\\sym-lib-table",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\4\\47b8966f-1936-4887-87f0-2f0ad0832be2\\project\\BOM_逐位号.csv",
+      "mode": "w"
+    },
+    {
+      "path": "${RUN}\\projects\\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\\steps\\4\\47b8966f-1936-4887-87f0-2f0ad0832be2\\project\\checks\\schematic-build.json",
+      "mode": "w"
+    }
+  ]
+}

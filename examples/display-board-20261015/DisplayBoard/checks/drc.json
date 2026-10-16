@@ -1,0 +1,901 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-15T09:26:43",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "DisplayBoard.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "文字高度超出范围 (<电路板配置> 中的 \"丝印文本高度\" 约束 最小高度 0.8000 mm; 实际 0.7560 mm)",
+            "items": [
+                {
+                    "description": "UL 的封装文本 (CQC),",
+                    "pos": {
+                        "x": 125.2569,
+                        "y": 125.59842
+                    },
+                    "uuid": "8545d370-a794-5c6a-8009-92202f3a22e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "文本线宽超出范围 (TrueType 字体字符的笔画线宽不足)",
+            "items": [
+                {
+                    "description": "UL 的封装文本 (PCB厂商将此丝删除),",
+                    "pos": {
+                        "x": 142.4851,
+                        "y": 126.89327
+                    },
+                    "uuid": "377d6296-a8d9-56e6-a1ed-661545993fa3"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_thickness"
+        },
+        {
+            "description": "文本线宽超出范围 (TrueType 字体字符的笔画线宽不足)",
+            "items": [
+                {
+                    "description": "UL 的封装文本 (放置UL/CQC/PCB LOGO等丝印),",
+                    "pos": {
+                        "x": 142.9851,
+                        "y": 128.89328
+                    },
+                    "uuid": "552f54b8-a4b8-54fd-a7ec-f698ad7333d8"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_thickness"
+        },
+        {
+            "description": "文本线宽超出范围 (TrueType 字体字符的笔画线宽不足)",
+            "items": [
+                {
+                    "description": "check 的封装文本 (9),",
+                    "pos": {
+                        "x": 153.3851,
+                        "y": 128.86114
+                    },
+                    "uuid": "5cb09770-1fbd-51d3-a334-b237fecfb934"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_thickness"
+        },
+        {
+            "description": "文本线宽超出范围 (TrueType 字体字符的笔画线宽不足)",
+            "items": [
+                {
+                    "description": "check 的封装文本 (6),",
+                    "pos": {
+                        "x": 165.38509,
+                        "y": 128.86114
+                    },
+                    "uuid": "b0c9ed41-236d-50c8-8914-6a00e854efa5"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_thickness"
+        },
+        {
+            "description": "文本线宽超出范围 (TrueType 字体字符的笔画线宽不足)",
+            "items": [
+                {
+                    "description": "MM1 的参考字段",
+                    "pos": {
+                        "x": 178.8351,
+                        "y": 126.5076
+                    },
+                    "uuid": "2516f236-d823-586a-981f-ba42c555a409"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_thickness"
+        },
+        {
+            "description": "文字高度超出范围 (<电路板配置> 中的 \"丝印文本高度\" 约束 最小高度 0.8000 mm; 实际 0.6300 mm)",
+            "items": [
+                {
+                    "description": "MM1 的参考字段",
+                    "pos": {
+                        "x": 178.8351,
+                        "y": 126.5076
+                    },
+                    "uuid": "2516f236-d823-586a-981f-ba42c555a409"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 119.93509,
+                        "y": 91.50049
+                    },
+                    "uuid": "12fba57d-86c9-52af-913a-1b9b90d56f42"
+                },
+                {
+                    "description": "Top Overlay 上的 PCB 文本 'DIN'",
+                    "pos": {
+                        "x": 122.80759,
+                        "y": 93.8505
+                    },
+                    "uuid": "501b782b-2309-5488-97df-0208de3b9387"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 122.53508,
+                        "y": 89.5005
+                    },
+                    "uuid": "0273e3a3-850f-5620-bf67-90e6c2cfef80"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 6 [/DIN]",
+                    "pos": {
+                        "x": 122.13509,
+                        "y": 87.80049
+                    },
+                    "uuid": "5cf1fe65-87b1-5348-ba78-f239e025c66b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 125.03508,
+                        "y": 89.5005
+                    },
+                    "uuid": "f9b1c027-0d33-51b4-b302-a2208d1496ac"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 5 [/CLK]",
+                    "pos": {
+                        "x": 124.63509,
+                        "y": 87.80049
+                    },
+                    "uuid": "87d83fae-984e-57a8-ae6d-a062a581b704"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 127.53508,
+                        "y": 86.8005
+                    },
+                    "uuid": "885ef73b-8f1d-51a8-9277-96ed3353aa43"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 4 [/STB]",
+                    "pos": {
+                        "x": 127.13509,
+                        "y": 87.80049
+                    },
+                    "uuid": "e7efc18c-93a6-54cd-b32c-6ea66bec447f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 130.03508,
+                        "y": 89.5005
+                    },
+                    "uuid": "e8b8e2c0-c4ff-554d-8310-3ad7b70a20a4"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 3 [/+5V]",
+                    "pos": {
+                        "x": 129.63509,
+                        "y": 87.80049
+                    },
+                    "uuid": "4b18c12b-3925-5ee0-a967-1120af0f9c69"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 132.53508,
+                        "y": 89.5005
+                    },
+                    "uuid": "d0d87ca9-cec5-5563-8fbd-87ae20582447"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 2 [/SGND]",
+                    "pos": {
+                        "x": 132.13509,
+                        "y": 87.80049
+                    },
+                    "uuid": "9dcf71e1-b73d-5d99-be15-b795c5ebf097"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 线段, 位于 Top Overlay",
+                    "pos": {
+                        "x": 135.03508,
+                        "y": 89.5005
+                    },
+                    "uuid": "62b71613-2a83-5a1e-8d5d-7e6b147f2064"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 1 [/RCV]",
+                    "pos": {
+                        "x": 134.63509,
+                        "y": 87.80049
+                    },
+                    "uuid": "01558e85-e36c-5058-994b-daed10441664"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ3 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 128.2851,
+                        "y": 94.95049
+                    },
+                    "uuid": "365708c5-7cc1-59f5-937c-5243f6e95cca"
+                },
+                {
+                    "description": "Bottom Overlay 上的 PCB 文本 '+5V'",
+                    "pos": {
+                        "x": 130.18399,
+                        "y": 92.1005
+                    },
+                    "uuid": "8fce9851-fac9-52d3-b8c2-3ef6436e662c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Bottom Overlay 上的 PCB 文本 '+5V'",
+                    "pos": {
+                        "x": 130.18399,
+                        "y": 92.1005
+                    },
+                    "uuid": "8fce9851-fac9-52d3-b8c2-3ef6436e662c"
+                },
+                {
+                    "description": "RJ3 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 129.72509,
+                        "y": 97.0505
+                    },
+                    "uuid": "c69c7de1-aa7b-563f-85cc-d3cee98cd777"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 149.9451,
+                        "y": 96.2505
+                    },
+                    "uuid": "209eb2ea-7b15-5605-8331-a4a13bef5055"
+                },
+                {
+                    "description": "C6 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 150.33409,
+                        "y": 96.2905
+                    },
+                    "uuid": "73af8dbd-5fe3-5b12-af37-c41528bd30c5"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 149.9451,
+                        "y": 96.2505
+                    },
+                    "uuid": "209eb2ea-7b15-5605-8331-a4a13bef5055"
+                },
+                {
+                    "description": "C6 的 弧线, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 150.33409,
+                        "y": 96.69049
+                    },
+                    "uuid": "ef3a23f9-05d0-592e-becb-8f16c3b29e5d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 152.58509,
+                        "y": 96.2505
+                    },
+                    "uuid": "3496cc41-a77f-5190-a210-185f7f698fcd"
+                },
+                {
+                    "description": "C6 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 152.0741,
+                        "y": 96.29049
+                    },
+                    "uuid": "8aa3856a-6d3c-5ff2-a761-ce4933585bbb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 152.58509,
+                        "y": 96.2505
+                    },
+                    "uuid": "3496cc41-a77f-5190-a210-185f7f698fcd"
+                },
+                {
+                    "description": "C6 的 弧线, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 153.014091,
+                        "y": 96.690489
+                    },
+                    "uuid": "a57da42b-21ec-59b6-8f31-de2f462b5bea"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C7 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 150.34509,
+                        "y": 94.01049
+                    },
+                    "uuid": "3175f826-9388-5923-a44a-af8c4d9fe2f7"
+                },
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 149.9451,
+                        "y": 94.1505
+                    },
+                    "uuid": "b54585b0-36d7-5deb-92f3-263a68120d24"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 149.9451,
+                        "y": 94.1505
+                    },
+                    "uuid": "b54585b0-36d7-5deb-92f3-263a68120d24"
+                },
+                {
+                    "description": "C7 的 弧线, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 150.3451,
+                        "y": 93.6105
+                    },
+                    "uuid": "c680750c-2dfd-5885-a852-ad385ea2f6af"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "C7 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 152.08509,
+                        "y": 94.01049
+                    },
+                    "uuid": "39568992-47b5-53e9-adbd-731ad44b1103"
+                },
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 152.58509,
+                        "y": 94.1505
+                    },
+                    "uuid": "510ef22f-1a67-535e-b2f2-e5f4312c8594"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "RJ5 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 152.58509,
+                        "y": 94.1505
+                    },
+                    "uuid": "510ef22f-1a67-535e-b2f2-e5f4312c8594"
+                },
+                {
+                    "description": "C7 的 弧线, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 153.025101,
+                        "y": 93.610501
+                    },
+                    "uuid": "ab529e6a-72aa-5666-af27-5b0517d720d8"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "R6 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 154.02509,
+                        "y": 109.9505
+                    },
+                    "uuid": "8705070b-aecf-5433-a38f-aa7cf3856182"
+                },
+                {
+                    "description": "R6 的参考字段",
+                    "pos": {
+                        "x": 155.9751,
+                        "y": 109.52299
+                    },
+                    "uuid": "c2eeca21-a724-569a-8b12-7ae9444ae1db"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "R8 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 154.02509,
+                        "y": 107.41716
+                    },
+                    "uuid": "4c2c04ea-0585-5c5d-8bc8-bcbd9819d4ac"
+                },
+                {
+                    "description": "R8 的参考字段",
+                    "pos": {
+                        "x": 155.9751,
+                        "y": 106.97299
+                    },
+                    "uuid": "79ce2a2b-60be-551b-ba53-6b5127299fca"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "R2 的参考字段",
+                    "pos": {
+                        "x": 155.9751,
+                        "y": 102.023
+                    },
+                    "uuid": "7b1f652f-02c8-5e59-a765-7acc5e629e2a"
+                },
+                {
+                    "description": "R2 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 154.02509,
+                        "y": 102.3505
+                    },
+                    "uuid": "9f248f94-170d-5aae-9696-915d4452bcc1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 122.13511,
+                        "y": 89.70062
+                    },
+                    "uuid": "6a1c677b-2c37-55cc-83da-9b48a26ce8f8"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 2 [/SGND]",
+                    "pos": {
+                        "x": 132.13509,
+                        "y": 87.80049
+                    },
+                    "uuid": "9dcf71e1-b73d-5d99-be15-b795c5ebf097"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 122.13511,
+                        "y": 89.70062
+                    },
+                    "uuid": "6a1c677b-2c37-55cc-83da-9b48a26ce8f8"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 3 [/+5V]",
+                    "pos": {
+                        "x": 129.63509,
+                        "y": 87.80049
+                    },
+                    "uuid": "4b18c12b-3925-5ee0-a967-1120af0f9c69"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 122.13511,
+                        "y": 89.70062
+                    },
+                    "uuid": "6a1c677b-2c37-55cc-83da-9b48a26ce8f8"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 6 [/DIN]",
+                    "pos": {
+                        "x": 122.13509,
+                        "y": 87.80049
+                    },
+                    "uuid": "5cf1fe65-87b1-5348-ba78-f239e025c66b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 122.13511,
+                        "y": 89.70062
+                    },
+                    "uuid": "6a1c677b-2c37-55cc-83da-9b48a26ce8f8"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 4 [/STB]",
+                    "pos": {
+                        "x": 127.13509,
+                        "y": 87.80049
+                    },
+                    "uuid": "e7efc18c-93a6-54cd-b32c-6ea66bec447f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 122.13511,
+                        "y": 89.70062
+                    },
+                    "uuid": "6a1c677b-2c37-55cc-83da-9b48a26ce8f8"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 5 [/CLK]",
+                    "pos": {
+                        "x": 124.63509,
+                        "y": 87.80049
+                    },
+                    "uuid": "87d83fae-984e-57a8-ae6d-a062a581b704"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "DISP 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 122.13511,
+                        "y": 89.70062
+                    },
+                    "uuid": "6a1c677b-2c37-55cc-83da-9b48a26ce8f8"
+                },
+                {
+                    "description": "DISP 的PTH 焊盘 1 [/RCV]",
+                    "pos": {
+                        "x": 134.63509,
+                        "y": 87.80049
+                    },
+                    "uuid": "01558e85-e36c-5058-994b-daed10441664"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "RJ3 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 129.72509,
+                        "y": 97.0505
+                    },
+                    "uuid": "c69c7de1-aa7b-563f-85cc-d3cee98cd777"
+                },
+                {
+                    "description": "Bottom Layer 上  的焊盘 TEST [/SGND]",
+                    "pos": {
+                        "x": 130.2851,
+                        "y": 95.9005
+                    },
+                    "uuid": "eaa76732-fad1-5413-bb26-7700bfc894dc"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "R3 的参考字段",
+                    "pos": {
+                        "x": 119.0976,
+                        "y": 99.6005
+                    },
+                    "uuid": "e2bfa135-17b3-5704-9c57-de04d97edafa"
+                },
+                {
+                    "description": "Bottom Layer 上  的焊盘 0 [/RCV]",
+                    "pos": {
+                        "x": 117.8851,
+                        "y": 102.2005
+                    },
+                    "uuid": "724de331-1964-512e-9a78-7b8053cf7c79"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "D1 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 128.8751,
+                        "y": 108.35061
+                    },
+                    "uuid": "a43399b7-f646-5a3f-9400-66da39ac3c30"
+                },
+                {
+                    "description": "D1 的PTH 焊盘 2 [/SGND]",
+                    "pos": {
+                        "x": 125.3751,
+                        "y": 110.15049
+                    },
+                    "uuid": "d8ecef51-c7ef-5bf5-a6c4-d7d75f8b5bc5"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "D1 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 128.8751,
+                        "y": 108.35061
+                    },
+                    "uuid": "a43399b7-f646-5a3f-9400-66da39ac3c30"
+                },
+                {
+                    "description": "D1 的PTH 焊盘 3 [Net-(D1-VCC)]",
+                    "pos": {
+                        "x": 127.9151,
+                        "y": 110.15049
+                    },
+                    "uuid": "63ce1534-c453-52ae-bc80-ff155b588994"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "D1 的 矩形, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 128.8751,
+                        "y": 108.35061
+                    },
+                    "uuid": "a43399b7-f646-5a3f-9400-66da39ac3c30"
+                },
+                {
+                    "description": "D1 的PTH 焊盘 1 [/RCV]",
+                    "pos": {
+                        "x": 122.83509,
+                        "y": 110.15049
+                    },
+                    "uuid": "42d29cec-0c80-5ec0-989e-c4ccfafc0a0b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "R2 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 149.9451,
+                        "y": 102.3505
+                    },
+                    "uuid": "124a1fb4-74b4-5eaa-9170-13194cd1789f"
+                },
+                {
+                    "description": "Bottom Layer 上  的焊盘 TEST [Net-(U1-SEG1)]",
+                    "pos": {
+                        "x": 149.3851,
+                        "y": 101.6005
+                    },
+                    "uuid": "1264f6a5-3674-5d2b-843a-dae870e323a0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "RJ2 的 线段, 位于 Bottom Overlay",
+                    "pos": {
+                        "x": 172.7251,
+                        "y": 104.5505
+                    },
+                    "uuid": "7759ce4d-0599-5cf5-8cf7-d27f82ff604a"
+                },
+                {
+                    "description": "Bottom Layer 上  的焊盘 TEST [/G1]",
+                    "pos": {
+                        "x": 173.3851,
+                        "y": 103.6505
+                    },
+                    "uuid": "7a7eef40-0ef0-5727-b8e5-46bae8c6fe8a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        }
+    ]
+}

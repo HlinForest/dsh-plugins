@@ -1,0 +1,2255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>${RUN}\projects\dfd1364c-7b58-4abf-8d77-7fc125a1e0e5\steps\4\47b8966f-1936-4887-87f0-2f0ad0832be2\project\DisplayBoard.kicad_sch</source>
+    <date>2026-10-15T09:25:17</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>DisplayBoard.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="*">
+      <value>LED</value>
+      <footprint>DisplayBoard_Placed:__Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">FXLPKCMW</field>
+        <field name="Altium_LibReference">LED</field>
+        <field name="Altium_RecordIndex">688</field>
+        <field name="Altium_OriginalFootprint">UV</field>
+        <field name="Altium_PCBPattern">UV</field>
+        <field name="Footprint">DisplayBoard_Placed:__Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source___688" description=""/>
+      <property name="Altium_SourceUniqueID" value="FXLPKCMW"/>
+      <property name="Altium_LibReference" value="LED"/>
+      <property name="Altium_RecordIndex" value="688"/>
+      <property name="Altium_OriginalFootprint" value="UV"/>
+      <property name="Altium_PCBPattern" value="UV"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dad3842e-1b6e-506d-843b-20e66ca42c9e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="10"/>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="9"/>
+            <pin num="8"/>
+            <pin num="3"/>
+            <pin num="7"/>
+            <pin num="4"/>
+            <pin num="6"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C1">
+      <value>0.068uF/0603</value>
+      <footprint>DisplayBoard_Placed:C1_Original</footprint>
+      <fields>
+        <field name="物料编码">R21200057</field>
+        <field name="物料描述">台系贴片电容/0.068uF±10%/50V/X7R/0603</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">SDBVRKYP</field>
+        <field name="Altium_LibReference">R21200057</field>
+        <field name="Altium_RecordIndex">771</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C1_771" description=""/>
+      <property name="物料编码" value="R21200057"/>
+      <property name="物料描述" value="台系贴片电容/0.068uF±10%/50V/X7R/0603"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="SDBVRKYP"/>
+      <property name="Altium_LibReference" value="R21200057"/>
+      <property name="Altium_RecordIndex" value="771"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0a0b581-ebd8-51f3-9198-464523b92256</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>1uF/0603</value>
+      <footprint>DisplayBoard_Placed:C2_Original</footprint>
+      <fields>
+        <field name="物料编码">R21070090</field>
+        <field name="物料描述">贴片电容/1uF±10%/25V/X7R/0603</field>
+        <field name="优选等级">工业C/消费C</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">LPMGNYWJ</field>
+        <field name="Altium_LibReference">R21070090</field>
+        <field name="Altium_RecordIndex">78</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C2_78" description=""/>
+      <property name="物料编码" value="R21070090"/>
+      <property name="物料描述" value="贴片电容/1uF±10%/25V/X7R/0603"/>
+      <property name="优选等级" value="工业C/消费C"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="LPMGNYWJ"/>
+      <property name="Altium_LibReference" value="R21070090"/>
+      <property name="Altium_RecordIndex" value="78"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ee1b7d24-181e-5da6-abb1-e4e5848ca712</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>0.068uF/0603</value>
+      <footprint>DisplayBoard_Placed:C3_Original</footprint>
+      <fields>
+        <field name="物料编码">R21200057</field>
+        <field name="物料描述">台系贴片电容/0.068uF±10%/50V/X7R/0603</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">HBDHNBQB</field>
+        <field name="Altium_LibReference">R21200057</field>
+        <field name="Altium_RecordIndex">102</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C3_102" description=""/>
+      <property name="物料编码" value="R21200057"/>
+      <property name="物料描述" value="台系贴片电容/0.068uF±10%/50V/X7R/0603"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="HBDHNBQB"/>
+      <property name="Altium_LibReference" value="R21200057"/>
+      <property name="Altium_RecordIndex" value="102"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>028700c1-6316-51b1-8d7e-960ee9830d15</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>4.7uF/16V</value>
+      <footprint>DisplayBoard_Placed:C4_Original</footprint>
+      <fields>
+        <field name="物料编码">R21200046</field>
+        <field name="物料描述">贴片电容/4.7UF/10%/16V/X5R/0603</field>
+        <field name="优选等级">工业B/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">RJPJGPWD</field>
+        <field name="Altium_LibReference">R21200046</field>
+        <field name="Altium_RecordIndex">723</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C4_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C4_723" description=""/>
+      <property name="物料编码" value="R21200046"/>
+      <property name="物料描述" value="贴片电容/4.7UF/10%/16V/X5R/0603"/>
+      <property name="优选等级" value="工业B/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="RJPJGPWD"/>
+      <property name="Altium_LibReference" value="R21200046"/>
+      <property name="Altium_RecordIndex" value="723"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7b921ea3-df41-591e-9697-ab69cb2282da</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>100pF/0603</value>
+      <footprint>DisplayBoard_Placed:C5_Original</footprint>
+      <fields>
+        <field name="物料编码">R21070004</field>
+        <field name="物料描述">贴片电容/100pF±5%/50V/NPO/0603</field>
+        <field name="优选等级">工业A/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">YDPFKTMP</field>
+        <field name="Altium_LibReference">R21070004</field>
+        <field name="Altium_RecordIndex">268</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C5_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C5_268" description=""/>
+      <property name="物料编码" value="R21070004"/>
+      <property name="物料描述" value="贴片电容/100pF±5%/50V/NPO/0603"/>
+      <property name="优选等级" value="工业A/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="YDPFKTMP"/>
+      <property name="Altium_LibReference" value="R21070004"/>
+      <property name="Altium_RecordIndex" value="268"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1276c6ff-b95c-5ec8-9be9-3cabb2ff857c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>100pF/0603</value>
+      <footprint>DisplayBoard_Placed:C6_Original</footprint>
+      <fields>
+        <field name="物料编码">R21070004</field>
+        <field name="物料描述">贴片电容/100pF±5%/50V/NPO/0603</field>
+        <field name="优选等级">工业A/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">VBYEUMEC</field>
+        <field name="Altium_LibReference">R21070004</field>
+        <field name="Altium_RecordIndex">244</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C6_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C6_244" description=""/>
+      <property name="物料编码" value="R21070004"/>
+      <property name="物料描述" value="贴片电容/100pF±5%/50V/NPO/0603"/>
+      <property name="优选等级" value="工业A/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="VBYEUMEC"/>
+      <property name="Altium_LibReference" value="R21070004"/>
+      <property name="Altium_RecordIndex" value="244"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6e95cbd6-65a0-55cf-9615-a5705b355c01</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>100pF/0603</value>
+      <footprint>DisplayBoard_Placed:C7_Original</footprint>
+      <fields>
+        <field name="物料编码">R21070004</field>
+        <field name="物料描述">贴片电容/100pF±5%/50V/NPO/0603</field>
+        <field name="优选等级">工业A/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">IINDXHLJ</field>
+        <field name="Altium_LibReference">R21070004</field>
+        <field name="Altium_RecordIndex">220</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C7_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C7_220" description=""/>
+      <property name="物料编码" value="R21070004"/>
+      <property name="物料描述" value="贴片电容/100pF±5%/50V/NPO/0603"/>
+      <property name="优选等级" value="工业A/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="IINDXHLJ"/>
+      <property name="Altium_LibReference" value="R21070004"/>
+      <property name="Altium_RecordIndex" value="220"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>34d4695a-4b83-56ab-bc7f-53a73d23d44e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>4.7uF/16V</value>
+      <footprint>DisplayBoard_Placed:C8_Original</footprint>
+      <fields>
+        <field name="物料编码">R21200046</field>
+        <field name="物料描述">贴片电容/4.7UF/10%/16V/X5R/0603</field>
+        <field name="优选等级">工业B/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">HJFPPUNK</field>
+        <field name="Altium_LibReference">R21200046</field>
+        <field name="Altium_RecordIndex">747</field>
+        <field name="Altium_OriginalFootprint">WSC0603</field>
+        <field name="Altium_PCBPattern">WSC0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C8_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_C8_747" description=""/>
+      <property name="物料编码" value="R21200046"/>
+      <property name="物料描述" value="贴片电容/4.7UF/10%/16V/X5R/0603"/>
+      <property name="优选等级" value="工业B/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="HJFPPUNK"/>
+      <property name="Altium_LibReference" value="R21200046"/>
+      <property name="Altium_RecordIndex" value="747"/>
+      <property name="Altium_OriginalFootprint" value="WSC0603"/>
+      <property name="Altium_PCBPattern" value="WSC0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>22fc409d-4f67-5887-a5f2-9094280d42c1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="check">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:check_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">WWYNQTTJ</field>
+        <field name="Altium_LibReference">1Side check</field>
+        <field name="Altium_RecordIndex">491</field>
+        <field name="Altium_OriginalFootprint">1Side check-1</field>
+        <field name="Altium_PCBPattern">1SIDE CHECK-1</field>
+        <field name="Footprint">DisplayBoard_Placed:check_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_check_491" description=""/>
+      <property name="Altium_SourceUniqueID" value="WWYNQTTJ"/>
+      <property name="Altium_LibReference" value="1Side check"/>
+      <property name="Altium_RecordIndex" value="491"/>
+      <property name="Altium_OriginalFootprint" value="1Side check-1"/>
+      <property name="Altium_PCBPattern" value="1SIDE CHECK-1"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>abde2296-0f07-5016-af38-6a5c92aa9df5</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>IRM-3638M3-X</value>
+      <footprint>DisplayBoard_Placed:D1_Original</footprint>
+      <fields>
+        <field name="物料描述">接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃</field>
+        <field name="物料编码">R25090022</field>
+        <field name="优选等级">消费A</field>
+        <field name="装配类型">THT</field>
+        <field name="Altium_SourceUniqueID">TFBGHGEF</field>
+        <field name="Altium_LibReference">R25090022</field>
+        <field name="Altium_RecordIndex">33</field>
+        <field name="Altium_OriginalFootprint">LED3-2.54-6*5.6*6.95L/S</field>
+        <field name="Altium_PCBPattern">LED3-2.54-6*5.6*6.95L/S</field>
+        <field name="Footprint">DisplayBoard_Placed:D1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_D1_33" description=""/>
+      <property name="物料描述" value="接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃"/>
+      <property name="物料编码" value="R25090022"/>
+      <property name="优选等级" value="消费A"/>
+      <property name="装配类型" value="THT"/>
+      <property name="Altium_SourceUniqueID" value="TFBGHGEF"/>
+      <property name="Altium_LibReference" value="R25090022"/>
+      <property name="Altium_RecordIndex" value="33"/>
+      <property name="Altium_OriginalFootprint" value="LED3-2.54-6*5.6*6.95L/S"/>
+      <property name="Altium_PCBPattern" value="LED3-2.54-6*5.6*6.95L/S"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>33dcd839-20b9-5c1d-921e-d4e2b55a50ee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="DISP">
+      <value>6Pin/2.5mm</value>
+      <footprint>DisplayBoard_Placed:DISP_Original</footprint>
+      <fields>
+        <field name="物料描述">电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446</field>
+        <field name="优选等级"/>
+        <field name="物料编码">R30072135</field>
+        <field name="装配类型">THT</field>
+        <field name="Altium_SourceUniqueID">NDHSGHCF</field>
+        <field name="Altium_LibReference">R30072135</field>
+        <field name="Altium_RecordIndex">659</field>
+        <field name="Altium_OriginalFootprint">THT-CON6-2.5-6.4L/S</field>
+        <field name="Altium_PCBPattern">THT-CON6-2.5-6.4L/S</field>
+        <field name="Footprint">DisplayBoard_Placed:DISP_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_DISP_659" description=""/>
+      <property name="物料描述" value="电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446"/>
+      <property name="优选等级" value=""/>
+      <property name="物料编码" value="R30072135"/>
+      <property name="装配类型" value="THT"/>
+      <property name="Altium_SourceUniqueID" value="NDHSGHCF"/>
+      <property name="Altium_LibReference" value="R30072135"/>
+      <property name="Altium_RecordIndex" value="659"/>
+      <property name="Altium_OriginalFootprint" value="THT-CON6-2.5-6.4L/S"/>
+      <property name="Altium_PCBPattern" value="THT-CON6-2.5-6.4L/S"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>312b8f7c-a5c2-55d7-bf22-5d76cb9fe4c1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="6"/>
+            <pin num="5"/>
+            <pin num="4"/>
+            <pin num="3"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="DWK1">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:DWK1_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">NJYCJCQI</field>
+        <field name="Altium_LibReference">SYDWK</field>
+        <field name="Altium_RecordIndex">473</field>
+        <field name="Altium_OriginalFootprint">D-2.5mm</field>
+        <field name="Altium_PCBPattern">D-2.5mm</field>
+        <field name="Footprint">DisplayBoard_Placed:DWK1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_DWK1_473" description=""/>
+      <property name="Altium_SourceUniqueID" value="NJYCJCQI"/>
+      <property name="Altium_LibReference" value="SYDWK"/>
+      <property name="Altium_RecordIndex" value="473"/>
+      <property name="Altium_OriginalFootprint" value="D-2.5mm"/>
+      <property name="Altium_PCBPattern" value="D-2.5mm"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ac9ae76a-4f33-5d0e-8d45-01afd9ecdfaa</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="DWK2">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:DWK2_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">CPXYTHRX</field>
+        <field name="Altium_LibReference">SYDWK</field>
+        <field name="Altium_RecordIndex">482</field>
+        <field name="Altium_OriginalFootprint">D-2.5mm</field>
+        <field name="Altium_PCBPattern">D-2.5MM</field>
+        <field name="Footprint">DisplayBoard_Placed:DWK2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_DWK2_482" description=""/>
+      <property name="Altium_SourceUniqueID" value="CPXYTHRX"/>
+      <property name="Altium_LibReference" value="SYDWK"/>
+      <property name="Altium_RecordIndex" value="482"/>
+      <property name="Altium_OriginalFootprint" value="D-2.5mm"/>
+      <property name="Altium_PCBPattern" value="D-2.5MM"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5aa39541-1088-536c-9d31-518362ee46d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="LLAA">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:LLAA_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">JDRMDYJY</field>
+        <field name="Altium_LibReference">LABEL</field>
+        <field name="Altium_RecordIndex">587</field>
+        <field name="Altium_OriginalFootprint">LABEL1</field>
+        <field name="Altium_PCBPattern">LABEL1</field>
+        <field name="Footprint">DisplayBoard_Placed:LLAA_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_LLAA_587" description=""/>
+      <property name="Altium_SourceUniqueID" value="JDRMDYJY"/>
+      <property name="Altium_LibReference" value="LABEL"/>
+      <property name="Altium_RecordIndex" value="587"/>
+      <property name="Altium_OriginalFootprint" value="LABEL1"/>
+      <property name="Altium_PCBPattern" value="LABEL1"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>997ffa10-9eec-5d7a-a639-693e6668332b</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="LLOO">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:LLOO_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">ATWJFXBY</field>
+        <field name="Altium_LibReference">LOGO</field>
+        <field name="Altium_RecordIndex">519</field>
+        <field name="Altium_OriginalFootprint">NSMALL-S</field>
+        <field name="Altium_PCBPattern">NSMALL-S</field>
+        <field name="Footprint">DisplayBoard_Placed:LLOO_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_LLOO_519" description=""/>
+      <property name="Altium_SourceUniqueID" value="ATWJFXBY"/>
+      <property name="Altium_LibReference" value="LOGO"/>
+      <property name="Altium_RecordIndex" value="519"/>
+      <property name="Altium_OriginalFootprint" value="NSMALL-S"/>
+      <property name="Altium_PCBPattern" value="NSMALL-S"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f728817b-dcc4-54a4-bee4-ea3215bb5bf0</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="MM1">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:MM1_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">SVCYFFTJ</field>
+        <field name="Altium_LibReference">MARK</field>
+        <field name="Altium_RecordIndex">551</field>
+        <field name="Altium_OriginalFootprint">MARK1</field>
+        <field name="Altium_PCBPattern">MARK1</field>
+        <field name="Footprint">DisplayBoard_Placed:MM1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_MM1_551" description=""/>
+      <property name="Altium_SourceUniqueID" value="SVCYFFTJ"/>
+      <property name="Altium_LibReference" value="MARK"/>
+      <property name="Altium_RecordIndex" value="551"/>
+      <property name="Altium_OriginalFootprint" value="MARK1"/>
+      <property name="Altium_PCBPattern" value="MARK1"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1f3c0bb3-6ce1-5605-87a6-382b027af93d</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="MM2">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:MM2_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">VLUBYKSK</field>
+        <field name="Altium_LibReference">MARK</field>
+        <field name="Altium_RecordIndex">563</field>
+        <field name="Altium_OriginalFootprint">MARK1</field>
+        <field name="Altium_PCBPattern">MARK1</field>
+        <field name="Footprint">DisplayBoard_Placed:MM2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_MM2_563" description=""/>
+      <property name="Altium_SourceUniqueID" value="VLUBYKSK"/>
+      <property name="Altium_LibReference" value="MARK"/>
+      <property name="Altium_RecordIndex" value="563"/>
+      <property name="Altium_OriginalFootprint" value="MARK1"/>
+      <property name="Altium_PCBPattern" value="MARK1"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3ffb2c43-9f47-5d67-ad1c-6ca15949b2a4</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="MM3">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:MM3_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">PPPTDOYR</field>
+        <field name="Altium_LibReference">MARK</field>
+        <field name="Altium_RecordIndex">575</field>
+        <field name="Altium_OriginalFootprint">MARK1</field>
+        <field name="Altium_PCBPattern">MARK1</field>
+        <field name="Footprint">DisplayBoard_Placed:MM3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_MM3_575" description=""/>
+      <property name="Altium_SourceUniqueID" value="PPPTDOYR"/>
+      <property name="Altium_LibReference" value="MARK"/>
+      <property name="Altium_RecordIndex" value="575"/>
+      <property name="Altium_OriginalFootprint" value="MARK1"/>
+      <property name="Altium_PCBPattern" value="MARK1"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4ede98c-5f39-5b40-8b95-f3f909466089</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="QR Code">
+      <value>.</value>
+      <fields>
+        <field name="Altium_SourceUniqueID">YEGXNLPN</field>
+        <field name="Altium_LibReference">QR Code</field>
+        <field name="Altium_RecordIndex">531</field>
+        <field name="Altium_OriginalFootprint">QR code</field>
+        <field name="Restoration_Note">原理图有此对象，原 PCB 无放置实例。</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_QR_Code_531" description=""/>
+      <property name="Altium_SourceUniqueID" value="YEGXNLPN"/>
+      <property name="Altium_LibReference" value="QR Code"/>
+      <property name="Altium_RecordIndex" value="531"/>
+      <property name="Altium_OriginalFootprint" value="QR code"/>
+      <property name="Restoration_Note" value="原理图有此对象，原 PCB 无放置实例。"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1699e8c2-c1fc-5c93-821a-3a8755e69110</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="QR Code1">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:QR_Code1_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">LPXVSVVT</field>
+        <field name="Altium_LibReference">QR Code</field>
+        <field name="Altium_RecordIndex">541</field>
+        <field name="Altium_OriginalFootprint">QR code</field>
+        <field name="Altium_PCBPattern">QR CODE</field>
+        <field name="Footprint">DisplayBoard_Placed:QR_Code1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_QR_Code1_541" description=""/>
+      <property name="Altium_SourceUniqueID" value="LPXVSVVT"/>
+      <property name="Altium_LibReference" value="QR Code"/>
+      <property name="Altium_RecordIndex" value="541"/>
+      <property name="Altium_OriginalFootprint" value="QR code"/>
+      <property name="Altium_PCBPattern" value="QR CODE"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2f79023d-2780-5bc5-bff3-5a76169d348d</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>220R/0805</value>
+      <footprint>DisplayBoard_Placed:R1_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180015</field>
+        <field name="物料描述">贴片电阻/1/8W/220Ω±5%/0805</field>
+        <field name="优选等级">工业B/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">TTMPQHLA</field>
+        <field name="Altium_LibReference">R20180015</field>
+        <field name="Altium_RecordIndex">147</field>
+        <field name="Altium_OriginalFootprint">WSR0805</field>
+        <field name="Altium_PCBPattern">WSR0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R1_147" description=""/>
+      <property name="物料编码" value="R20180015"/>
+      <property name="物料描述" value="贴片电阻/1/8W/220Ω±5%/0805"/>
+      <property name="优选等级" value="工业B/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="TTMPQHLA"/>
+      <property name="Altium_LibReference" value="R20180015"/>
+      <property name="Altium_RecordIndex" value="147"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805"/>
+      <property name="Altium_PCBPattern" value="WSR0805"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>76e01306-ee18-5b96-9064-585ae5ae41f8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>47R/0805</value>
+      <footprint>DisplayBoard_Placed:R2_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180007</field>
+        <field name="物料描述">贴片电阻/1/8W/47Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">TAENITFN</field>
+        <field name="Altium_LibReference">R20180007</field>
+        <field name="Altium_RecordIndex">293</field>
+        <field name="Altium_OriginalFootprint">WSR0805</field>
+        <field name="Altium_PCBPattern">WSR0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R2_293" description=""/>
+      <property name="物料编码" value="R20180007"/>
+      <property name="物料描述" value="贴片电阻/1/8W/47Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="TAENITFN"/>
+      <property name="Altium_LibReference" value="R20180007"/>
+      <property name="Altium_RecordIndex" value="293"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805"/>
+      <property name="Altium_PCBPattern" value="WSR0805"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>73785d50-7dff-5b7f-b75f-e8d21c0a7d1c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>22K/0805</value>
+      <footprint>DisplayBoard_Placed:R3_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180061</field>
+        <field name="物料描述">贴片电阻/1/8W/22KΩ±5%/0805</field>
+        <field name="优选等级">工业B/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">DQLLDQDE</field>
+        <field name="Altium_LibReference">R20180061</field>
+        <field name="Altium_RecordIndex">126</field>
+        <field name="Altium_OriginalFootprint">WSR0805</field>
+        <field name="Altium_PCBPattern">WSR0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R3_126" description=""/>
+      <property name="物料编码" value="R20180061"/>
+      <property name="物料描述" value="贴片电阻/1/8W/22KΩ±5%/0805"/>
+      <property name="优选等级" value="工业B/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="DQLLDQDE"/>
+      <property name="Altium_LibReference" value="R20180061"/>
+      <property name="Altium_RecordIndex" value="126"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805"/>
+      <property name="Altium_PCBPattern" value="WSR0805"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fc039eba-ded6-586c-a3d2-2e3adee32616</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>47R/0805</value>
+      <footprint>DisplayBoard_Placed:R4_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180007</field>
+        <field name="物料描述">贴片电阻/1/8W/47Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">BWNGUPLB</field>
+        <field name="Altium_LibReference">R20180007</field>
+        <field name="Altium_RecordIndex">314</field>
+        <field name="Altium_OriginalFootprint">WSR0805</field>
+        <field name="Altium_PCBPattern">WSR0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R4_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R4_314" description=""/>
+      <property name="物料编码" value="R20180007"/>
+      <property name="物料描述" value="贴片电阻/1/8W/47Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="BWNGUPLB"/>
+      <property name="Altium_LibReference" value="R20180007"/>
+      <property name="Altium_RecordIndex" value="314"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805"/>
+      <property name="Altium_PCBPattern" value="WSR0805"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe1ad10a-cd0a-5e38-be3d-792ac9db469f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>47R/0603</value>
+      <footprint>DisplayBoard_Placed:R5_Original</footprint>
+      <fields>
+        <field name="物料编码">R20190050</field>
+        <field name="物料描述">贴片电阻/1/10W/47Ω±5%/0603</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">KJPEQXWK</field>
+        <field name="Altium_LibReference">R20190050</field>
+        <field name="Altium_RecordIndex">419</field>
+        <field name="Altium_OriginalFootprint">WSR0603</field>
+        <field name="Altium_PCBPattern">WSR0603</field>
+        <field name="Footprint">DisplayBoard_Placed:R5_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R5_419" description=""/>
+      <property name="物料编码" value="R20190050"/>
+      <property name="物料描述" value="贴片电阻/1/10W/47Ω±5%/0603"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="KJPEQXWK"/>
+      <property name="Altium_LibReference" value="R20190050"/>
+      <property name="Altium_RecordIndex" value="419"/>
+      <property name="Altium_OriginalFootprint" value="WSR0603"/>
+      <property name="Altium_PCBPattern" value="WSR0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe98acd3-d76e-5c21-9805-ed751f5b2f45</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>47R/0805</value>
+      <footprint>DisplayBoard_Placed:R6_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180007</field>
+        <field name="物料描述">贴片电阻/1/8W/47Ω±5%/0805</field>
+        <field name="优选等级">工业B/消费B</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">KXSJGBOY</field>
+        <field name="Altium_LibReference">R20180007</field>
+        <field name="Altium_RecordIndex">335</field>
+        <field name="Altium_OriginalFootprint">WSR0805</field>
+        <field name="Altium_PCBPattern">WSR0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R6_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R6_335" description=""/>
+      <property name="物料编码" value="R20180007"/>
+      <property name="物料描述" value="贴片电阻/1/8W/47Ω±5%/0805"/>
+      <property name="优选等级" value="工业B/消费B"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="KXSJGBOY"/>
+      <property name="Altium_LibReference" value="R20180007"/>
+      <property name="Altium_RecordIndex" value="335"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805"/>
+      <property name="Altium_PCBPattern" value="WSR0805"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2b2448e8-4262-5806-be08-5e9ba80ad573</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>47R/0603</value>
+      <footprint>DisplayBoard_Placed:R7_Original</footprint>
+      <fields>
+        <field name="物料编码">R20190050</field>
+        <field name="物料描述">贴片电阻/1/10W/47Ω±5%/0603</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">DUJPRBMG</field>
+        <field name="Altium_LibReference">R20190050</field>
+        <field name="Altium_RecordIndex">398</field>
+        <field name="Altium_OriginalFootprint">WSR0603</field>
+        <field name="Altium_PCBPattern">WSR0603</field>
+        <field name="Footprint">DisplayBoard_Placed:R7_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R7_398" description=""/>
+      <property name="物料编码" value="R20190050"/>
+      <property name="物料描述" value="贴片电阻/1/10W/47Ω±5%/0603"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="DUJPRBMG"/>
+      <property name="Altium_LibReference" value="R20190050"/>
+      <property name="Altium_RecordIndex" value="398"/>
+      <property name="Altium_OriginalFootprint" value="WSR0603"/>
+      <property name="Altium_PCBPattern" value="WSR0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6ab18d6b-2e46-5604-b6d9-fba48db75fd3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>47R/0805</value>
+      <footprint>DisplayBoard_Placed:R8_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180007</field>
+        <field name="物料描述">贴片电阻/1/8W/47Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">PNBWUVLP</field>
+        <field name="Altium_LibReference">R20180007</field>
+        <field name="Altium_RecordIndex">356</field>
+        <field name="Altium_OriginalFootprint">WSR0805</field>
+        <field name="Altium_PCBPattern">WSR0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R8_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R8_356" description=""/>
+      <property name="物料编码" value="R20180007"/>
+      <property name="物料描述" value="贴片电阻/1/8W/47Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="PNBWUVLP"/>
+      <property name="Altium_LibReference" value="R20180007"/>
+      <property name="Altium_RecordIndex" value="356"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805"/>
+      <property name="Altium_PCBPattern" value="WSR0805"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fb5bccdd-560b-593a-aa4f-e3a49610a7da</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>47R/0603</value>
+      <footprint>DisplayBoard_Placed:R9_Original</footprint>
+      <fields>
+        <field name="物料编码">R20190050</field>
+        <field name="物料描述">贴片电阻/1/10W/47Ω±5%/0603</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">SFHPOUGF</field>
+        <field name="Altium_LibReference">R20190050</field>
+        <field name="Altium_RecordIndex">377</field>
+        <field name="Altium_OriginalFootprint">WSR0603</field>
+        <field name="Altium_PCBPattern">WSR0603</field>
+        <field name="Footprint">DisplayBoard_Placed:R9_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_R9_377" description=""/>
+      <property name="物料编码" value="R20190050"/>
+      <property name="物料描述" value="贴片电阻/1/10W/47Ω±5%/0603"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="SFHPOUGF"/>
+      <property name="Altium_LibReference" value="R20190050"/>
+      <property name="Altium_RecordIndex" value="377"/>
+      <property name="Altium_OriginalFootprint" value="WSR0603"/>
+      <property name="Altium_PCBPattern" value="WSR0603"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ecf16dbe-f918-5a1c-b7ff-7f331821e38b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ1">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ1_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180001</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">XRXOMKQY</field>
+        <field name="Altium_LibReference">R20180001</field>
+        <field name="Altium_RecordIndex">603</field>
+        <field name="Altium_OriginalFootprint">SR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ1_603" description=""/>
+      <property name="物料编码" value="R20180001"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="XRXOMKQY"/>
+      <property name="Altium_LibReference" value="R20180001"/>
+      <property name="Altium_RecordIndex" value="603"/>
+      <property name="Altium_OriginalFootprint" value="SR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d80bc971-91a9-5823-9bba-aaa3e67cd4e0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ2">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ2_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180001</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">GGWSCGDD</field>
+        <field name="Altium_LibReference">R20180001</field>
+        <field name="Altium_RecordIndex">632</field>
+        <field name="Altium_OriginalFootprint">WSR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ2_632" description=""/>
+      <property name="物料编码" value="R20180001"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="GGWSCGDD"/>
+      <property name="Altium_LibReference" value="R20180001"/>
+      <property name="Altium_RecordIndex" value="632"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>86958aea-c255-59d5-b916-e7a03298a9cc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ3">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ3_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180224</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±1%/0805</field>
+        <field name="优选等级">工业C/消费C</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">NETNTZWU</field>
+        <field name="Altium_LibReference">R20180224</field>
+        <field name="Altium_RecordIndex">798</field>
+        <field name="Altium_OriginalFootprint">WSR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ3_798" description=""/>
+      <property name="物料编码" value="R20180224"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±1%/0805"/>
+      <property name="优选等级" value="工业C/消费C"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="NETNTZWU"/>
+      <property name="Altium_LibReference" value="R20180224"/>
+      <property name="Altium_RecordIndex" value="798"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40f7b090-ca05-5014-bd09-b1a6e03f0fc1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ4">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ4_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180001</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">ECRGPSEU</field>
+        <field name="Altium_LibReference">R20180001</field>
+        <field name="Altium_RecordIndex">827</field>
+        <field name="Altium_OriginalFootprint">WSR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ4_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ4_827" description=""/>
+      <property name="物料编码" value="R20180001"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="ECRGPSEU"/>
+      <property name="Altium_LibReference" value="R20180001"/>
+      <property name="Altium_RecordIndex" value="827"/>
+      <property name="Altium_OriginalFootprint" value="WSR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8b3aead7-1daf-5fa4-9bfb-6f0c806817fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ5">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ5_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180001</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">TQCMBEWQ</field>
+        <field name="Altium_LibReference">R20180001</field>
+        <field name="Altium_RecordIndex">911</field>
+        <field name="Altium_OriginalFootprint">SR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ5_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ5_911" description=""/>
+      <property name="物料编码" value="R20180001"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="TQCMBEWQ"/>
+      <property name="Altium_LibReference" value="R20180001"/>
+      <property name="Altium_RecordIndex" value="911"/>
+      <property name="Altium_OriginalFootprint" value="SR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a469f1f0-5beb-51ff-9313-3415280c4e83</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ6">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ6_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180001</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">LGFKRBWN</field>
+        <field name="Altium_LibReference">R20180001</field>
+        <field name="Altium_RecordIndex">942</field>
+        <field name="Altium_OriginalFootprint">SR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ6_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ6_942" description=""/>
+      <property name="物料编码" value="R20180001"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="LGFKRBWN"/>
+      <property name="Altium_LibReference" value="R20180001"/>
+      <property name="Altium_RecordIndex" value="942"/>
+      <property name="Altium_OriginalFootprint" value="SR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8494409c-dc41-5066-b612-4239772b9542</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ7">
+      <value>0R/0805</value>
+      <footprint>DisplayBoard_Placed:RJ7_Original</footprint>
+      <fields>
+        <field name="物料编码">R20180001</field>
+        <field name="物料描述">贴片电阻/1/8W/0Ω±5%/0805</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">AYGDFQAC</field>
+        <field name="Altium_LibReference">R20180001</field>
+        <field name="Altium_RecordIndex">973</field>
+        <field name="Altium_OriginalFootprint">SR0805-J</field>
+        <field name="Altium_PCBPattern">WSR0805-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ7_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ7_973" description=""/>
+      <property name="物料编码" value="R20180001"/>
+      <property name="物料描述" value="贴片电阻/1/8W/0Ω±5%/0805"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="AYGDFQAC"/>
+      <property name="Altium_LibReference" value="R20180001"/>
+      <property name="Altium_RecordIndex" value="973"/>
+      <property name="Altium_OriginalFootprint" value="SR0805-J"/>
+      <property name="Altium_PCBPattern" value="WSR0805-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>88a758e7-1e51-59a2-b861-f6d4f9875706</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RJ8">
+      <value>0R/1206</value>
+      <footprint>DisplayBoard_Placed:RJ8_Original</footprint>
+      <fields>
+        <field name="物料编码">R20140001</field>
+        <field name="物料描述">贴片电阻/1/4W/0Ω±5%/1206</field>
+        <field name="优选等级">工业A/消费A</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">QXDGUCXN</field>
+        <field name="Altium_LibReference">R20140001</field>
+        <field name="Altium_RecordIndex">1006</field>
+        <field name="Altium_OriginalFootprint">WSR1206-J</field>
+        <field name="Altium_PCBPattern">WSR1206-J</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ8_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_RJ8_1006" description=""/>
+      <property name="物料编码" value="R20140001"/>
+      <property name="物料描述" value="贴片电阻/1/4W/0Ω±5%/1206"/>
+      <property name="优选等级" value="工业A/消费A"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="QXDGUCXN"/>
+      <property name="Altium_LibReference" value="R20140001"/>
+      <property name="Altium_RecordIndex" value="1006"/>
+      <property name="Altium_OriginalFootprint" value="WSR1206-J"/>
+      <property name="Altium_PCBPattern" value="WSR1206-J"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <jumper_pin_groups>
+        <group>
+          <pin>1</pin>
+          <pin>2</pin>
+        </group>
+      </jumper_pin_groups>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a5771169-98cc-5645-8e14-cdfcee2b9326</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SS">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:SS_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">NUCQTDWQ</field>
+        <field name="Altium_LibReference">SOLDER</field>
+        <field name="Altium_RecordIndex">460</field>
+        <field name="Altium_OriginalFootprint">SOLDER</field>
+        <field name="Altium_PCBPattern">SOLDER</field>
+        <field name="Footprint">DisplayBoard_Placed:SS_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_SS_460" description=""/>
+      <property name="Altium_SourceUniqueID" value="NUCQTDWQ"/>
+      <property name="Altium_LibReference" value="SOLDER"/>
+      <property name="Altium_RecordIndex" value="460"/>
+      <property name="Altium_OriginalFootprint" value="SOLDER"/>
+      <property name="Altium_PCBPattern" value="SOLDER"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>361eceff-cb9c-5e05-a10d-bf76946b0c77</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>TM1616</value>
+      <footprint>DisplayBoard_Placed:U1_Original</footprint>
+      <fields>
+        <field name="优选等级">消费A</field>
+        <field name="物料编码">R25070026</field>
+        <field name="物料描述">CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路</field>
+        <field name="装配类型">SMD</field>
+        <field name="Altium_SourceUniqueID">KQHMPELJ</field>
+        <field name="Altium_LibReference">R25070026</field>
+        <field name="Altium_RecordIndex">168</field>
+        <field name="Altium_OriginalFootprint">WSOP16-1.27-3.8</field>
+        <field name="Altium_PCBPattern">WSOP16-1.27-3.8</field>
+        <field name="Footprint">DisplayBoard_Placed:U1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_U1_168" description=""/>
+      <property name="优选等级" value="消费A"/>
+      <property name="物料编码" value="R25070026"/>
+      <property name="物料描述" value="CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路"/>
+      <property name="装配类型" value="SMD"/>
+      <property name="Altium_SourceUniqueID" value="KQHMPELJ"/>
+      <property name="Altium_LibReference" value="R25070026"/>
+      <property name="Altium_RecordIndex" value="168"/>
+      <property name="Altium_OriginalFootprint" value="WSOP16-1.27-3.8"/>
+      <property name="Altium_PCBPattern" value="WSOP16-1.27-3.8"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18f8b1e0-f506-5455-8016-36a587827bc5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="16"/>
+            <pin num="15"/>
+            <pin num="14"/>
+            <pin num="13"/>
+            <pin num="12"/>
+            <pin num="11"/>
+            <pin num="10"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="UL">
+      <value>.</value>
+      <footprint>DisplayBoard_Placed:UL_Original</footprint>
+      <fields>
+        <field name="Altium_SourceUniqueID">UVLCCWUD</field>
+        <field name="Altium_LibReference">CQC-UL-PCB LOGO</field>
+        <field name="Altium_RecordIndex">510</field>
+        <field name="Altium_OriginalFootprint">CQC-UL-PCB LOGO</field>
+        <field name="Altium_PCBPattern">CQC-UL-PCB LOGO</field>
+        <field name="Footprint">DisplayBoard_Placed:UL_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DisplayBoard_Native" part="Source_UL_510" description=""/>
+      <property name="Altium_SourceUniqueID" value="UVLCCWUD"/>
+      <property name="Altium_LibReference" value="CQC-UL-PCB LOGO"/>
+      <property name="Altium_RecordIndex" value="510"/>
+      <property name="Altium_OriginalFootprint" value="CQC-UL-PCB LOGO"/>
+      <property name="Altium_PCBPattern" value="CQC-UL-PCB LOGO"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="DisplayBoard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4cb555d-5df8-5b72-9560-6853722c05fa</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="DisplayBoard_Native" part="Source_C1_771">
+      <fields>
+        <field name="Reference">C1</field>
+        <field name="Value">0.068uF/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C2_78">
+      <fields>
+        <field name="Reference">C2</field>
+        <field name="Value">1uF/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C3_102">
+      <fields>
+        <field name="Reference">C3</field>
+        <field name="Value">0.068uF/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C4_723">
+      <fields>
+        <field name="Reference">C4</field>
+        <field name="Value">4.7uF/16V</field>
+        <field name="Footprint">DisplayBoard_Placed:C4_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C5_268">
+      <fields>
+        <field name="Reference">C5</field>
+        <field name="Value">100pF/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C5_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C6_244">
+      <fields>
+        <field name="Reference">C6</field>
+        <field name="Value">100pF/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C6_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C7_220">
+      <fields>
+        <field name="Reference">C7</field>
+        <field name="Value">100pF/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:C7_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_C8_747">
+      <fields>
+        <field name="Reference">C8</field>
+        <field name="Value">4.7uF/16V</field>
+        <field name="Footprint">DisplayBoard_Placed:C8_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_D1_33">
+      <fields>
+        <field name="Reference">D1</field>
+        <field name="Value">IRM-3638M3-X</field>
+        <field name="Footprint">DisplayBoard_Placed:D1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_DISP_659">
+      <fields>
+        <field name="Reference">DISP</field>
+        <field name="Value">6Pin/2.5mm</field>
+        <field name="Footprint">DisplayBoard_Placed:DISP_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_DWK1_473">
+      <fields>
+        <field name="Reference">DWK1</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:DWK1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_DWK2_482">
+      <fields>
+        <field name="Reference">DWK2</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:DWK2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_LLAA_587">
+      <fields>
+        <field name="Reference">LLAA</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:LLAA_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_LLOO_519">
+      <fields>
+        <field name="Reference">LLOO</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:LLOO_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_MM1_551">
+      <fields>
+        <field name="Reference">MM1</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:MM1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_MM2_563">
+      <fields>
+        <field name="Reference">MM2</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:MM2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_MM3_575">
+      <fields>
+        <field name="Reference">MM3</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:MM3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_QR_Code1_541">
+      <fields>
+        <field name="Reference">QR Code1</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:QR_Code1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_QR_Code_531">
+      <fields>
+        <field name="Reference">QR Code</field>
+        <field name="Value">.</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R1_147">
+      <fields>
+        <field name="Reference">R1</field>
+        <field name="Value">220R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R2_293">
+      <fields>
+        <field name="Reference">R2</field>
+        <field name="Value">47R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R3_126">
+      <fields>
+        <field name="Reference">R3</field>
+        <field name="Value">22K/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R4_314">
+      <fields>
+        <field name="Reference">R4</field>
+        <field name="Value">47R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R4_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R5_419">
+      <fields>
+        <field name="Reference">R5</field>
+        <field name="Value">47R/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:R5_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R6_335">
+      <fields>
+        <field name="Reference">R6</field>
+        <field name="Value">47R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R6_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R7_398">
+      <fields>
+        <field name="Reference">R7</field>
+        <field name="Value">47R/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:R7_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R8_356">
+      <fields>
+        <field name="Reference">R8</field>
+        <field name="Value">47R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:R8_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_R9_377">
+      <fields>
+        <field name="Reference">R9</field>
+        <field name="Value">47R/0603</field>
+        <field name="Footprint">DisplayBoard_Placed:R9_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ1_603">
+      <fields>
+        <field name="Reference">RJ1</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ2_632">
+      <fields>
+        <field name="Reference">RJ2</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ2_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ3_798">
+      <fields>
+        <field name="Reference">RJ3</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ3_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ4_827">
+      <fields>
+        <field name="Reference">RJ4</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ4_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ5_911">
+      <fields>
+        <field name="Reference">RJ5</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ5_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ6_942">
+      <fields>
+        <field name="Reference">RJ6</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ6_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ7_973">
+      <fields>
+        <field name="Reference">RJ7</field>
+        <field name="Value">0R/0805</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ7_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_RJ8_1006">
+      <fields>
+        <field name="Reference">RJ8</field>
+        <field name="Value">0R/1206</field>
+        <field name="Footprint">DisplayBoard_Placed:RJ8_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_SS_460">
+      <fields>
+        <field name="Reference">SS</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:SS_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_U1_168">
+      <fields>
+        <field name="Reference">U1</field>
+        <field name="Value">TM1616</field>
+        <field name="Footprint">DisplayBoard_Placed:U1_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DIN" type="passive"/>
+        <pin num="2" name="CLK" type="passive"/>
+        <pin num="3" name="STB" type="passive"/>
+        <pin num="4" name="VDD" type="passive"/>
+        <pin num="5" name="SEG1" type="passive"/>
+        <pin num="6" name="SEG2" type="passive"/>
+        <pin num="7" name="SEG3" type="passive"/>
+        <pin num="8" name="SEG4" type="passive"/>
+        <pin num="9" name="SEG5" type="passive"/>
+        <pin num="10" name="SEG6" type="passive"/>
+        <pin num="11" name="SEG7" type="passive"/>
+        <pin num="12" name="GRID4" type="passive"/>
+        <pin num="13" name="GRID3" type="passive"/>
+        <pin num="14" name="GND" type="passive"/>
+        <pin num="15" name="GRID2" type="passive"/>
+        <pin num="16" name="GRID1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_UL_510">
+      <fields>
+        <field name="Reference">UL</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:UL_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source___688">
+      <fields>
+        <field name="Reference">*</field>
+        <field name="Value">LED</field>
+        <field name="Footprint">DisplayBoard_Placed:__Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DIG3" type="passive"/>
+        <pin num="2" name="DIG2" type="passive"/>
+        <pin num="3" name="DIG1" type="passive"/>
+        <pin num="4" name="B" type="passive"/>
+        <pin num="5" name="A" type="passive"/>
+        <pin num="6" name="F" type="passive"/>
+        <pin num="7" name="G" type="passive"/>
+        <pin num="8" name="C" type="passive"/>
+        <pin num="9" name="E" type="passive"/>
+        <pin num="10" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DisplayBoard_Native" part="Source_check_491">
+      <fields>
+        <field name="Reference">check</field>
+        <field name="Value">.</field>
+        <field name="Footprint">DisplayBoard_Placed:check_Original</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+  </libparts>
+  <libraries/>
+  <nets>
+    <net code="1" name="/+5V" class="Default">
+      <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="DISP" pin="3" pinfunction="3_3" pintype="passive"/>
+      <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="VDD_4" pintype="passive"/>
+    </net>
+    <net code="2" name="/A" class="Default">
+      <node ref="*" pin="5" pinfunction="A_5" pintype="passive"/>
+      <node ref="R7" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="3" name="/B" class="Default">
+      <node ref="*" pin="4" pinfunction="B_4" pintype="passive"/>
+      <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="4" name="/C" class="Default">
+      <node ref="*" pin="8" pinfunction="C_8" pintype="passive"/>
+      <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="5" name="/CLK" class="Default">
+      <node ref="C6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="DISP" pin="5" pinfunction="5_5" pintype="passive"/>
+      <node ref="RJ5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="RJ6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="CLK_2" pintype="passive"/>
+    </net>
+    <net code="6" name="/D" class="Default">
+      <node ref="*" pin="10" pinfunction="D_10" pintype="passive"/>
+      <node ref="R8" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="7" name="/DIN" class="Default">
+      <node ref="C7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="DISP" pin="6" pinfunction="6_6" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="DIN_1" pintype="passive"/>
+    </net>
+    <net code="8" name="/E" class="Default">
+      <node ref="*" pin="9" pinfunction="E_9" pintype="passive"/>
+      <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="9" name="/F" class="Default">
+      <node ref="*" pin="6" pinfunction="F_6" pintype="passive"/>
+      <node ref="R9" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="10" name="/G" class="Default">
+      <node ref="*" pin="7" pinfunction="G_7" pintype="passive"/>
+      <node ref="R6" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="11" name="/G1" class="Default">
+      <node ref="*" pin="1" pinfunction="DIG3_1" pintype="passive"/>
+      <node ref="RJ2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="GRID1_16" pintype="passive"/>
+    </net>
+    <net code="12" name="/G2" class="Default">
+      <node ref="*" pin="3" pinfunction="DIG1_3" pintype="passive"/>
+      <node ref="RJ8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="GRID2_15" pintype="passive"/>
+    </net>
+    <net code="13" name="/G3" class="Default">
+      <node ref="*" pin="2" pinfunction="DIG2_2" pintype="passive"/>
+      <node ref="RJ1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="GRID3_13" pintype="passive"/>
+    </net>
+    <net code="14" name="/RCV" class="Default">
+      <node ref="D1" pin="1" pinfunction="OUT_1" pintype="passive"/>
+      <node ref="DISP" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="15" name="/SGND" class="Default">
+      <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="DISP" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="RJ3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="RJ4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="RJ7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RJ7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="GND_14" pintype="passive"/>
+    </net>
+    <net code="16" name="/STB" class="Default">
+      <node ref="C5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="DISP" pin="4" pinfunction="4_4" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="STB_3" pintype="passive"/>
+    </net>
+    <net code="17" name="Net-(D1-VCC)" class="Default">
+      <node ref="C2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D1" pin="3" pinfunction="VCC_3" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="18" name="Net-(U1-SEG1)" class="Default">
+      <node ref="R2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="SEG1_5" pintype="passive"/>
+    </net>
+    <net code="19" name="Net-(U1-SEG2)" class="Default">
+      <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="SEG2_6" pintype="passive"/>
+    </net>
+    <net code="20" name="Net-(U1-SEG3)" class="Default">
+      <node ref="R6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="SEG3_7" pintype="passive"/>
+    </net>
+    <net code="21" name="Net-(U1-SEG4)" class="Default">
+      <node ref="R8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="SEG4_8" pintype="passive"/>
+    </net>
+    <net code="22" name="Net-(U1-SEG5)" class="Default">
+      <node ref="R9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="SEG5_9" pintype="passive"/>
+    </net>
+    <net code="23" name="Net-(U1-SEG6)" class="Default">
+      <node ref="R7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="SEG6_10" pintype="passive"/>
+    </net>
+    <net code="24" name="Net-(U1-SEG7)" class="Default">
+      <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SEG7_11" pintype="passive"/>
+    </net>
+    <net code="25" name="unconnected-(U1-GRID4-Pad12)" class="Default">
+      <node ref="U1" pin="12" pinfunction="GRID4_12" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>
