@@ -14,6 +14,7 @@ import { executeText, textDefaults } from './text-flow.js';
 import { freezeLibrary, isFixed } from './fixed-library.js';
 import { updateProgress, modelProgress } from './progress.js';
 import { isNewDesign } from './design-intent.js';
+import { loadProject, saveProject } from './project-store.js';
 import { extractPdf } from './pdf-evidence.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -27,9 +28,9 @@ export class Flow {
     if (!config.workspaceRoot || !inside(config.workspaceRoot, this.root)) throw new Error('任务目录必须在工程工作区内。');
   }
   dir(id) { if (!uuid.test(id || '')) throw new Error('无效项目 ID。'); return path.join(this.root, id); }
-  save(project) { project.updatedAt = new Date().toISOString(); return writeJSON(path.join(this.dir(project.id), 'project.json'), project); }
+  save(project) { project.updatedAt = new Date().toISOString(); return saveProject(this.dir(project.id), project); }
   async load(id) {
-    const p = await readJSON(path.join(this.dir(id), 'project.json'));
+    const p = await loadProject(this.dir(id));
     if (!this.jobs.has(id)) for (const s of p.stages) if (s.status === 'running') { s.status = 'interrupted'; s.error = '上次进程已退出，请重新执行本步。'; }
     p.messages ||= {}; p.events ||= []; p.uploads ||= [];
     p.origin ||= p.mode === 'text-mcp' ? 'text-mcp' : 'legacy-conversion';
@@ -100,7 +101,14 @@ export class Flow {
     await fs.mkdir(this.root, { recursive: true });
     const rows = [];
     for (const id of await fs.readdir(this.root)) if (uuid.test(id)) {
-      const p = await this.load(id).catch(e => { if (e.code === 'ENOENT') return null; throw e; });
+      const p = await this.load(id).catch(e => {
+        if (e.code === 'ENOENT') return null;
+        if (['encrypted', 'integrity'].includes(e.code)) {
+          rows.push({ id, label: `历史项目暂不可读 (${id.slice(0,8)})`, updatedAt: '', createdAt: '', unavailable: true, error: e.message });
+          return null;
+        }
+        throw e;
+      });
     if (p && !p.replayOf) rows.push({ id, label: p.label, mode: p.mode, designMode: p.designMode, caseId: p.caseId, demoPreset: p.demoPreset, createdAt: p.createdAt, updatedAt: p.updatedAt });
     }
     return rows.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
@@ -144,10 +152,10 @@ export class Flow {
     if (args.demoPreset === 'display-board') {
       p.demoPreset = args.demoPreset;
       p.inputs.requirements = '请按随附《显示板工程规格》设计原理图。使用5V供电、TM1616显示驱动、IRM-3638M3-X红外接收器，以及两位数字和四圆形指示标记的显示器。器件清单、阻容参数、接口针序、逐引脚连接、段映射和装配要求均以规格书为准，完整保留，不自行替换方案。按规格中的功能分区与排版要求生成清楚的图纸：主控与输入滤波就近，能够直连的信号不绕线，跨区地线使用SGND标号。交付可编辑原理图、符号库、BOM、PDF和检查记录，本轮不做PCB。';
-      p.inputs.stageNotes = {1:'整理工程规格中的功能、器件和交付要求。',2:'提取规格书中的全部设计要求与资料事实，保留来源页码。',3:'严格按规格整理器件、参数、引脚与连接，不自行增删器件或更改已规定参数。',4:'按KiCad开源符号规范和功能分区自动生成图纸，保持连接与参数不变。',5:'从生成工程导出BOM，逐项对照规格清单、封装说明和装配状态。',6:'本轮不做PCB。',7:'对照输入规格检查连接、BOM、ERC及图纸表达，整理本次生成与核验记录。'};
+      p.inputs.stageNotes = {1:'整理工程规格中的功能、器件和交付要求。',2:'提取规格书中的全部设计要求与资料事实，保留来源页码或章节。',3:'严格按规格整理器件、参数、引脚与连接，不自行增删器件或更改已规定参数。',4:'按KiCad开源符号规范和功能分区自动生成图纸，保持连接与参数不变。',5:'从生成工程导出BOM，逐项对照规格清单、封装说明和装配状态。',6:'本轮不做PCB。',7:'对照输入规格检查连接、BOM、ERC及图纸表达，整理本次生成与核验记录。'};
       await this.save(p);
-      const target = path.join(this.dir(p.id), 'DisplayBoard-Mock-Specifications.pdf');
-      await fs.copyFile(path.join(packageRoot,'cases/display-board/mentor/DisplayBoard-Mock-Specifications.pdf'),target);
+      const target = path.join(this.dir(p.id), 'DisplayBoard-Mock-Specifications.docx');
+      await fs.copyFile(path.join(packageRoot,'cases/display-board/mentor/DisplayBoard-Mock-Specifications.docx'),target);
       return this.attach({projectId:p.id,stage:2,path:target,binding:'显示板工程要求、器件规格与装配'});
     }
     return this.open(p.id);
@@ -491,21 +499,21 @@ export class Flow {
     this.guard(a.projectId); const p = await this.load(a.projectId), stage = Number(a.stage || 2);
     if (p.mode === 'text-mcp') {
       this.stage(p, stage); const file = await within(this.config.workspaceRoot, a.path); const stat = await fs.stat(file);
-      if (!stat.isFile() || path.extname(file).toLowerCase() !== '.pdf') throw new Error('文字流程只接受规格书 PDF 附件；工程资料请整理为公开文字需求。');
+      if (!stat.isFile() || !['.pdf', '.docx'].includes(path.extname(file).toLowerCase())) throw new Error('文字流程接受规格书 PDF 或 DOCX 附件；工程资料请整理为公开文字需求。');
       const binding = String(a.binding || ''), extracted = await extractPdf(this, p.id, file, binding);
       this.guard(a.projectId);
       const current = await this.load(a.projectId);
       const previous = current.uploads.find(u => u.name === path.basename(file) && u.binding === binding);
       const id = previous?.id || randomUUID();
-      const entry = { id, name: path.basename(file), ...extracted, records: undefined, stage, binding, type: '规格书 PDF',
-        status: extracted.readable ? `已提取 ${extracted.pages} 页正文` : `已提取可读正文；第 ${extracted.unreadablePages.join('、')} 页无文字，请补充该页内容` };
+      const entry = { id, name: path.basename(file), ...extracted, records: undefined, stage, binding, type: extracted.format === 'docx' ? '规格书 DOCX' : '规格书 PDF',
+        status: extracted.format === 'docx' ? `已提取 ${extracted.sections} 个章节` : extracted.readable ? `已提取 ${extracted.pages} 页正文` : `已提取可读正文；第 ${extracted.unreadablePages.join('、')} 页无文字，请补充该页内容` };
       current.uploads = [...current.uploads.filter(u => u.id !== id), entry];
       current.inputs.evidence = [
         ...(current.inputs.evidence || []).filter(r => r.attachmentId !== id),
         ...extracted.records.map(r => ({ ...r, id: `${id}-${r.id}`, attachmentId: id })),
       ];
       this.invalidate(current, 2); current.revision++;
-      this.recordEvent(current, 2, '资料', '提取 PDF 正文：' + entry.name, { attachmentId: id, pages: extracted.pages, readable: extracted.readable, sha256: extracted.sha256 });
+      this.recordEvent(current, 2, '资料', '提取规格书正文：' + entry.name, { attachmentId: id, pages: extracted.pages, readable: extracted.readable, sha256: extracted.sha256 });
       await this.save(current); return this.open(current.id);
     }
     this.stage(p, stage); const file = await within(this.config.workspaceRoot, a.path);

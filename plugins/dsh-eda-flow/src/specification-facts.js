@@ -24,7 +24,7 @@ export function extractFacts(plan, inputs) {
     const citations = fact.citations.map(c => {
       const source = (inputs.evidence || []).find(r => r.id === c.sourceId);
       if (!source || typeof c.quote !== 'string' || normalize(c.quote).length < 8 || !normalize(source.content).includes(normalize(c.quote))) throw Error('器件引用未匹配资料原文：'+fact.reference);
-      return { ...c, document:source.document, page:source.page, simulated:source.simulated === true };
+      return { ...c, document:source.document, page:source.page, section:source.section, simulated:source.simulated === true };
     });
     const sourceText = normalize(citations.map(c => (inputs.evidence || []).find(r => r.id === c.sourceId).content).join(' '));
     if (!Array.isArray(fact.pins) || (!fact.pins.length && fact.objectRole !== 'process') || new Set(fact.pins.map(p=>p.number)).size !== fact.pins.length) throw Error('器件引脚表缺失或重复：'+fact.reference);
@@ -35,7 +35,7 @@ export function extractFacts(plan, inputs) {
     if (fact.displayFeatures && (Object.keys(fact.displayFeatures).some(k=>!['digits','indicatorCount'].includes(k)) || Object.values(fact.displayFeatures).some(n=>!Number.isInteger(n)||n<0||n>16))) throw Error('显示功能仅允许数字位数和标记数。');
     for (const k of ['dnp','in_bom','on_board']) if (k in fact && typeof fact[k] !== 'boolean') throw Error('装配状态须为布尔值。');
     const digest = createHash('sha256').update(JSON.stringify(fact)).digest('hex').slice(0,16);
-    return {...fact, citations, id:'fact-'+digest, symbolId:'Evidence:Fact_'+digest, document:citations[0].document, page:citations[0].page,
+    return {...fact, citations, id:'fact-'+digest, symbolId:'Evidence:Fact_'+digest, document:citations[0].document, page:citations[0].page, section:citations[0].section,
       pageIsPlaceholder:false, simulated:citations.some(c=>c.simulated), sourceType:'model-specification-fact',
       binding:fact.reference || fact.value, content:citations.map(c=>c.quote).join('\n'), stages:[3,4,5,7]};
   });

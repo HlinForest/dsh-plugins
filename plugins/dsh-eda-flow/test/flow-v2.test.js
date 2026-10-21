@@ -69,7 +69,7 @@ test('full input reader supports continuation and rejects directory escape', asy
   const second = await flow.readEvidence(p, 1, { path: first.path, offset: first.nextOffset, length: 50 });
   assert.equal(first.nextOffset, 50); assert.equal(second.offset, 50); assert.equal(first.sha256, second.sha256);
   await assert.rejects(within(root, path.dirname(root)), /工作区/);
-  await assert.rejects(flow.readEvidence(p, 1, { path: '../project.json' }), /工作区/);
+  await assert.rejects(flow.readEvidence(p, 1, { path: '../project.sqlite' }), /工作区/);
 });
 test('Harness streaming adapter performs actual read protocol and records provider/model', async () => {
   let prepared=0, reads=0; const records=[];

@@ -46,7 +46,7 @@ test('PDF facts are collected incrementally, remain separate from inputs and inv
  let p=await flow.create({label:'facts',designMode:'new-design',demoPreset:'display-board'});
  await flow.confirm({projectId:p.id,stage:1,allowDraft:true},'human');p=await flow.execute(p.id,2);
  assert.equal(p.stages[1].result.evidenceFacts.length,1);
- assert(p.inputs.evidence.every(r=>r.sourceType==='pdf-text-extraction'));
+ assert(p.inputs.evidence.every(r=>r.sourceType==='docx-text-extraction'));
  assert(sourceEvidence(p).some(r=>r.sourceType==='model-specification-fact'));
  p=await flow.update({projectId:p.id,stage:2,inputs:{stageNotes:{2:'重新核对接收器'}}});
  assert(!sourceEvidence(p).some(r=>r.sourceType==='model-specification-fact'));

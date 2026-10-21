@@ -7,7 +7,7 @@ export const stages = [
   { id: 6, title: 'PCB', input: '板框、安装孔、禁布区、层叠、布线铜面、器件位置、线宽间距、模型和制造要求。', automatic: '生成 PCB 和正反面预览', obtain: '结构提供机械数据，PCB 工程师确认叠层、孔金属化、关键布线与制造规则。' },
   { id: 7, title: '核验与交付', input: '验收标准、源证据、工程师意见、待确认项处理结果。', automatic: '检查工程并打包可编辑文件和记录', obtain: '确认原理图、BOM、布局布线、依赖和制造设置；技术检查与工程师签核分别记录。' },
 ];
-export const version = '0.9.5-beta.1';
+export const version = '0.9.5-beta.2';
 export const inputGroups = {
   1: ['01_task', '07_adjustments'], 2: ['02_materials', '04_schematic'],
   3: ['03_components', '08_dependencies'], 4: ['03_components', '04_schematic', '01_task', '07_adjustments'],

@@ -50,10 +50,10 @@ export function routes(service) {
     { name: 'attachment', methods: ['GET'], run: async request => {
       const url=new URL(request.url), project=await service.load(url.searchParams.get('projectId'));
       const entry=project.uploads.find(x=>x.id===url.searchParams.get('id'));
-      if(!entry?.extraction || !entry.sha256) throw new Error('没有可读取的 PDF 快照。');
+      if(!entry?.extraction || !entry.sha256) throw new Error('没有可读取的资料快照。');
       const file=await within(service.dir(project.id),entry.path), bytes=await fs.readFile(file);
       if(hash(bytes)!==entry.sha256) throw new Error('资料快照变化，请重新添加。');
-      return new Response(bytes,{headers:{'content-type':'application/pdf','cache-control':'no-store','x-content-type-options':'nosniff',
+      return new Response(bytes,{headers:{'content-type':path.extname(entry.name).toLowerCase()==='.docx'?'application/vnd.openxmlformats-officedocument.wordprocessingml.document':'application/pdf','cache-control':'no-store','x-content-type-options':'nosniff',
         'content-security-policy':"sandbox; default-src 'none'",
         'content-disposition':"attachment; filename*=UTF-8''"+encodeURIComponent(entry.name)}});
     } },

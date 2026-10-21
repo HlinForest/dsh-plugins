@@ -69,6 +69,10 @@ def extract(source, name, binding):
 
 
 if __name__ == "__main__":
-    request = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8-sig"))
-    result = extract(request["path"], request["name"], request.get("binding", ""))
-    Path(sys.argv[2]).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    if sys.argv[1] == '--stdio':
+        request = json.load(sys.stdin)
+        print(json.dumps(extract(request["path"], request["name"], request.get("binding", "")), ensure_ascii=False))
+    else:
+        request = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8-sig"))
+        result = extract(request["path"], request["name"], request.get("binding", ""))
+        Path(sys.argv[2]).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")

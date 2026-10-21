@@ -1,22 +1,24 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { hash, readJSON, writeJSON } from './io.js';
+import { documentProcess } from './document-process.js';
+import { hash, writeJSON } from './io.js';
 
 const script = fileURLToPath(new URL('../python/extract_pdf.py', import.meta.url));
 
 export async function extractPdf(flow, projectId, file, binding = '') {
   const bytes = await fs.readFile(file), sha256 = hash(bytes);
-  if (bytes.length > 50 * 1024 * 1024) throw new Error('单个 PDF 不能超过 50 MB。');
+  if (bytes.length > 50 * 1024 * 1024) throw new Error('单个资料文件 不能超过 50 MB。');
   const name = path.basename(file);
   const directory = path.join(flow.dir(projectId), 'documents', sha256, hash(binding).slice(0, 16));
   await fs.mkdir(directory, { recursive: true });
   const snapshot = path.join(directory, name);
   await fs.writeFile(snapshot, bytes);
-  const input = path.join(directory, 'extract-request.json'), output = path.join(directory, 'extraction.json');
-  await writeJSON(input, { path: snapshot, name, binding });
-  await flow.runProcess([script, input, output], directory);
-  return { ...await readJSON(output), path: snapshot, extraction: output, size: bytes.length };
+  const docx = path.extname(file).toLowerCase() === '.docx';
+  const extractor = docx ? fileURLToPath(new URL('../python/extract_docx.py', import.meta.url)) : script;
+  const result = await documentProcess(flow.config.kicadPython, extractor, { path: snapshot, name, binding });
+  return { ...result, path: snapshot, extraction: 'process-stdio', size: bytes.length };
+
 }
 
 export function stageEvidence(inputs, stage) {
