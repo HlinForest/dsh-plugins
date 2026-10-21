@@ -1,0 +1,28 @@
+{
+  "version": "0.9.5-beta.1",
+  "scannedFiles": 667,
+  "credentialFindings": [],
+  "filesInOfflineBundle": 100,
+  "assets": [
+    {
+      "name": "EDA-Flow-0.9.5-beta.1-Intranet.zip",
+      "bytes": 350977800,
+      "sha256": "ccc9bd32b70585a5b838ae04142466e7dcc398b9534bdc02af7df88e1111611e"
+    },
+    {
+      "name": "EDA-Flow-0.9.5-beta.1-Source.zip",
+      "bytes": 3383182,
+      "sha256": "c8a60a85adcf48d2cafb9d87e338c4bb107b6c9e7385c0b86c154f3f201037e2"
+    },
+    {
+      "name": "dsh-eda-flow-0.9.5-beta.1.tgz",
+      "bytes": 4706704,
+      "sha256": "c1575fc9087965cb3f12ba33dcd33fc15c3a467f1fff66f481ceb90f6b82352b"
+    },
+    {
+      "name": "Harness-DisplayBoard-Live-Demo.zip",
+      "bytes": 1364800,
+      "sha256": "165a50317bab73e9071ddc214084fa4984659095ec3ca3b90b1c2baeae098e10"
+    }
+  ]
+}

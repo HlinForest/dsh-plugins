@@ -1,0 +1,147 @@
+{
+  "id": "series-pin-array",
+  "version": "1.0.0",
+  "design": {
+    "components": [
+      {
+        "id": "P0",
+        "ref": "P0",
+        "librarySymbol": "Connector_Generic:Conn_01x03",
+        "value": "HOST",
+        "mpn": "",
+        "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "Pin_1",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "Pin_2",
+            "type": "passive",
+            "pad": "2"
+          },
+          {
+            "number": "3",
+            "name": "Pin_3",
+            "type": "passive",
+            "pad": "3"
+          }
+        ]
+      },
+      {
+        "id": "P1",
+        "ref": "P1",
+        "librarySymbol": "Device:R",
+        "value": "47",
+        "mpn": "",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "id": "P2",
+        "ref": "P2",
+        "librarySymbol": "Device:R",
+        "value": "47",
+        "mpn": "",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      }
+    ],
+    "nets": [
+      {
+        "name": "N0",
+        "nodes": [
+          "P0.1",
+          "P1.1"
+        ]
+      },
+      {
+        "name": "N1",
+        "nodes": [
+          "P1.2"
+        ]
+      },
+      {
+        "name": "N2",
+        "nodes": [
+          "P0.2",
+          "P2.1"
+        ]
+      },
+      {
+        "name": "N3",
+        "nodes": [
+          "P2.2"
+        ]
+      },
+      {
+        "name": "N4",
+        "nodes": [
+          "P0.3"
+        ]
+      }
+    ],
+    "nc": [],
+    "supplied_nets": [],
+    "functions": [],
+    "unresolved": [
+      "工程示例：采购型号、额定值和实物性能未认证。"
+    ]
+  },
+  "fragment": "series-pin-array.kicad_sch",
+  "fragmentSha256": "ce8df94952e353fe1915feb45072dfa6b84a5364be48830c5d3d14192b2e4280",
+  "width": 69,
+  "height": 33,
+  "origin": [
+    0,
+    0
+  ],
+  "validation": {
+    "status": "passed",
+    "evidence": "KiCad 10.0.6 actual schematic/netlist/NC/PDF regression; 2026-10-19",
+    "electricalRatings": "not-validated",
+    "hardwareTest": "not-run"
+  },
+  "limitations": [
+    "Exact symbol/material and topology match only; no electrical redesign."
+  ],
+  "autoDetect": true
+}

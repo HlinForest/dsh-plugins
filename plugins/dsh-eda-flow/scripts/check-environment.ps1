@@ -22,6 +22,7 @@ try {
 } finally { if (Test-Path -LiteralPath $taskProbe) { Remove-Item -LiteralPath $taskProbe } }
 Check-Tool 'KiCad CLI' (Join-Path $KicadDirectory 'kicad-cli.exe') @('--version')
 Check-Tool 'KiCad Python / verifier' (Join-Path $KicadDirectory 'python.exe') @('-c','import sys,pcbnew,wx,sexpdata;print(sys.version);print(pcbnew.GetBuildVersion())')
+Check-Tool 'Constraint placement solver' (Join-Path $KicadDirectory 'python.exe') @('-c','from ortools.sat.python import cp_model;print("OR-Tools ready")')
 Check-Tool 'Local PDF reader' (Join-Path $KicadDirectory 'python.exe') @('-c','import pymupdf;print(pymupdf.VersionBind)')
 $taskResult = @{checkedAt=(Get-Date).ToString('o');checks=@($taskChecks.ToArray());passed=(@($taskChecks | Where-Object { -not $_.passed }).Count -eq 0);modelConnection='Use the approved provider configured inside Harness; not tested by this script.'}
 [IO.File]::WriteAllText([IO.Path]::GetFullPath($OutputFile), ($taskResult | ConvertTo-Json -Depth 6), [Text.UTF8Encoding]::new($false))

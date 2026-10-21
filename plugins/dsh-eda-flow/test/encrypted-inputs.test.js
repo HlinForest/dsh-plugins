@@ -11,7 +11,7 @@ async function fixture(t) {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-encrypted-'));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
   t.after(async () => { await flow.close(); await fs.rm(root, { recursive: true, force: true }); });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await flow.create({ legacy: true, caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   return { flow, project };
 }
@@ -85,7 +85,7 @@ test('wrapping triggered during intake is detected before AI and preserves the c
   let calls = 0;
   const flow = new DuringIntake({ workspaceRoot: root, workDirectory: root, allowModelCalls: true }, { generate() { calls++; throw new Error('Must not call AI'); } });
   t.after(async () => { await flow.close(); await fs.rm(root, { recursive: true, force: true }); });
-  const p = await flow.create({ caseId: 'display-board' }); flow.id = p.id;
+  const p = await flow.create({ legacy: true, caseId: 'display-board' }); flow.id = p.id;
   const before = await flow.confirm({ projectId: p.id, stage: 1 }, 'human');
   await assert.rejects(flow.execute(p.id, 2), e => e.code === 'encrypted');
   const after = await flow.open(p.id);

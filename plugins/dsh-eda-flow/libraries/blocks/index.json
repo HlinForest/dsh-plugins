@@ -1,0 +1,30 @@
+[
+  {
+    "id": "power-decoupling",
+    "version": "1.0.0",
+    "description": "电源并联去耦示例",
+    "validation": {
+      "nativeSymbols": "passed",
+      "netlist": "passed",
+      "NC": "passed",
+      "pdfGeometry": "passed",
+      "electricalRatings": "not-validated",
+      "hardwareTest": "not-run",
+      "reviewStatus": "engineering-example"
+    }
+  },
+  {
+    "id": "uart-series",
+    "version": "1.0.0",
+    "description": "UART双向串联电阻接口示例",
+    "validation": {
+      "nativeSymbols": "passed",
+      "netlist": "passed",
+      "NC": "passed",
+      "pdfGeometry": "passed",
+      "electricalRatings": "not-validated",
+      "hardwareTest": "not-run",
+      "reviewStatus": "engineering-example"
+    }
+  }
+]

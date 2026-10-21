@@ -1,3 +1,4 @@
+import { freezeElectrical } from './controlled-layout.js';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,13 +9,20 @@ import { presentation } from './presentation.js';
 import { stages, inputGroups, version } from './contracts.js';
 import { hash, readJSON, writeJSON, within, inside, tree, fileChanges, sameFiles } from './io.js';
 import { byteEvidence, inspectDefaultBundle, compareReaders } from './input-integrity.js';
+import { PreciseTools } from './precise-tools.js';
+import { executeText, textDefaults } from './text-flow.js';
+import { freezeLibrary, isFixed } from './fixed-library.js';
+import { updateProgress, modelProgress } from './progress.js';
+import { isNewDesign } from './design-intent.js';
+import { extractPdf } from './pdf-evidence.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
 const uuid = /^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$/;
 
 export class Flow {
-  constructor(config, ai = null) {
+  constructor(config, ai = null, mcp = null) {
     this.config = config; this.ai = ai; this.jobs = new Map(); this.mutations = new Map(); this.createQueue = Promise.resolve();
+    this.mcp = mcp || new PreciseTools(config);
     this.root = path.join(config.workDirectory || path.join(config.workspaceRoot || '.', 'eda-flow'), 'projects');
     if (!config.workspaceRoot || !inside(config.workspaceRoot, this.root)) throw new Error('任务目录必须在工程工作区内。');
   }
@@ -24,6 +32,21 @@ export class Flow {
     const p = await readJSON(path.join(this.dir(id), 'project.json'));
     if (!this.jobs.has(id)) for (const s of p.stages) if (s.status === 'running') { s.status = 'interrupted'; s.error = '上次进程已退出，请重新执行本步。'; }
     p.messages ||= {}; p.events ||= []; p.uploads ||= [];
+    p.origin ||= p.mode === 'text-mcp' ? 'text-mcp' : 'legacy-conversion';
+    if (p.mode === 'text-mcp') { p.scope = 'schematic'; p.liveHarnessValidation ||= 'pending'; }
+    if (p.designMode === 'datasheet-demo' && !p.inputs?.evidence?.some(r=>r.objectRole) && !p.mockEvidenceIssue && !this.jobs.has(id)) {
+      p.mockEvidenceIssue={kind:'mock-baseline-upgrade',from:2,message:'旧模拟资料缺少当前显示板的完整器件、引脚及装配记录。请新建显示板演示使用修正版资料；本工程输入和历史文件保留。'};
+      this.invalidate(p,2,p.mockEvidenceIssue);delete p.lastValidLayout;p.revision++;
+      this.recordEvent(p,2,'资料版本','旧模拟资料不能继续作为当前显示板的验收依据');
+      await this.save(p);
+    }
+    if (p.designMode === 'datasheet-demo' && !p.controlledLayout && !this.jobs.has(id)) {
+      p.controlledLayout = true; p.layoutEngine = 'native-kicad';
+      this.invalidate(p, 3, {kind:'workflow-upgrade',from:3,message:'模拟资料流程已接入受控排版，请重新执行并确认第三步以冻结电路与符号。历史生成文件保留。'});
+      delete p.lastValidLayout; p.revision++;
+      this.recordEvent(p,3,'流程升级','模拟PDF演示接入受控排版；第三步起需重新确认');
+      await this.save(p);
+    }
     return p;
   }
   async open(id) {
@@ -66,6 +89,8 @@ export class Flow {
     p.busy = this.jobs.has(id); p.modelRequests = p.modelRequests || 0;
     p.progress = this.jobs.get(id)?.progress || '';
     p.phase = this.jobs.get(id)?.phase || null; p.jobType = this.jobs.get(id)?.type || null;
+    const job = this.jobs.get(id);
+    p.liveProgress = job ? { ...job.activity, startedAt: job.startedAt, stage: job.stage, type: job.type, cancelling: Boolean(job.cancelling), recent: job.recentActivity || [] } : null;
     p.model = this.ai?.selection?.() || null;
     p.inputCatalog = await this.inputIndex(p, 1);
     if (changed && !p.busy) await this.save(p);
@@ -76,31 +101,56 @@ export class Flow {
     const rows = [];
     for (const id of await fs.readdir(this.root)) if (uuid.test(id)) {
       const p = await this.load(id).catch(e => { if (e.code === 'ENOENT') return null; throw e; });
-      if (p && !p.replayOf) rows.push({ id, label: p.label, mode: p.mode, caseId: p.caseId, createdAt: p.createdAt, updatedAt: p.updatedAt });
+    if (p && !p.replayOf) rows.push({ id, label: p.label, mode: p.mode, designMode: p.designMode, caseId: p.caseId, demoPreset: p.demoPreset, createdAt: p.createdAt, updatedAt: p.updatedAt });
     }
     return rows.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   }
   create(args) { const next = this.createQueue.then(() => this.createProject(args)); this.createQueue = next.catch(() => {}); return next; }
   async createProject(args) {
+    if (args.demoPreset && (args.demoPreset !== 'display-board' || args.designMode !== 'new-design' || args.caseId)) throw new Error('默认演示输入需使用通用新设计流程。');
     const label = String(args.label || (args.caseId ? '显示板' : '新设计项目')).trim();
     if (!label || label.length > 120) throw new Error('项目名称需要 1–120 个字符。');
     if (!args.replayOf && (await this.list()).some(p => p.label === label)) throw new Error('已有同名项目，请使用可区分的名称。');
     const caseId = args.caseId || null;
     if (caseId && caseId !== 'display-board') throw new Error('未知默认输入。');
-    const p = { schemaVersion: 2, id: randomUUID(), label, replayOf: args.replayOf || undefined,
-      mode: 'design', caseId, createdAt: new Date().toISOString(), revision: 1,
-      modelRequests: 0, inputs: caseId ? await readJSON(path.join(packageRoot, 'cases/display-board/defaults.json')) : { requirements: '', constraints: {}, datasheets: [], stageNotes: {} },
-      stages: stages.map(s => ({ ...s, status: 'pending', source: 'ai', plan: null, confirmed: false, gaps: [], assumptions: [] })), events: [], messages: {}, uploads: [] };
+    const legacy = args.legacy === true;
+    const designMode = args.designMode || (caseId && !legacy ? 'datasheet-demo' : 'reconstruction');
+    if (!['reconstruction','new-design','fixed-redesign','datasheet-demo'].includes(designMode)) throw new Error('未知设计流程。');
+    if (designMode === 'datasheet-demo' && (legacy || caseId !== 'display-board')) throw new Error('模拟规格书流程仅用于新建显示板演示。');
+    if (designMode === 'fixed-redesign' && !caseId && (!Array.isArray(args.fixedParts) || !args.fixedParts.length)) throw new Error('固定器件项目需要 fixedParts 清单，或选择显示板案例。');
+    if (designMode === 'fixed-redesign' && !caseId) {
+      const refs = new Set();
+      for (const part of args.fixedParts) {
+        if (!part || !/^[A-Za-z][A-Za-z0-9_]*\d+$/.test(part.ref || '') || refs.has(part.ref) || !['librarySymbol','value','footprint'].every(k=>typeof part[k]==='string'&&part[k].trim()) || part.mpn!==undefined&&typeof part.mpn!=='string') throw new Error('器件清单需有唯一位号 ref、librarySymbol、value 和 footprint；mpn 可留空。');
+        refs.add(part.ref);
+      }
+    }
+    if (legacy && designMode === 'fixed-redesign') throw new Error('固定器件项目不能使用历史流程。');
+    const p = { schemaVersion: legacy ? 2 : 3, id: randomUUID(), label, replayOf: args.replayOf || undefined,
+      mode: legacy ? 'design' : 'text-mcp', scope: legacy ? 'full-project' : 'schematic', origin: legacy ? 'legacy-conversion' : 'text-mcp', caseId, createdAt: new Date().toISOString(), revision: 1,
+      designMode, controlledLayout: !legacy && ['new-design','fixed-redesign','datasheet-demo'].includes(designMode), layoutEngine: !legacy && (['new-design','datasheet-demo'].includes(designMode) || designMode === 'fixed-redesign' && !caseId) ? 'native-kicad' : undefined, fixedParts: !caseId && designMode === 'fixed-redesign' ? args.fixedParts : undefined, modelRequests: 0, inputs: legacy ? (caseId ? await readJSON(path.join(packageRoot, 'cases/display-board/defaults.json')) : { requirements: '', constraints: {}, datasheets: [], stageNotes: {} }) : await textDefaults(caseId, designMode),
+      stages: stages.map(s => ({ ...s, ...(!legacy && s.id === 6 ? { title: 'PCB（本轮未执行）', automatic: '下一阶段再开展布局布线' } : {}), status: !legacy && s.id === 6 ? 'skipped' : 'pending', source: 'ai', plan: null, confirmed: false, gaps: [], assumptions: [], questions: [] })), events: [], messages: {}, uploads: [] };
     await fs.mkdir(this.dir(p.id), { recursive: true });
-    if (caseId) {
+    if (isFixed(p) && caseId === 'display-board') p.fixedLibrary = await freezeLibrary(this.dir(p.id));
+    if (caseId && legacy) {
       const source = path.join(packageRoot, 'cases/display-board/inputs');
       p.inputsBundle = path.join(this.dir(p.id), 'default-inputs');
       await fs.cp(source, p.inputsBundle, { recursive: true });
       p.bundleFiles = await tree(p.inputsBundle); p.bundleHash = hash(p.bundleFiles);
       p.caseInputSignature = this.designSignature(p.inputs);
     }
-    this.recordEvent(p, 1, '项目', caseId ? '载入显示板输入' : '创建空白项目');
-    await this.save(p); return this.open(p.id);
+    this.recordEvent(p, 1, '项目', designMode === 'datasheet-demo' ? '载入自然语言与模拟 PDF 提取结果（页码为演示占位）' : caseId ? (legacy ? '载入旧版工程资料（历史流程）' : '载入显示板纯文字任务书') : '创建空白项目');
+    await this.save(p);
+    if (args.demoPreset === 'display-board') {
+      p.demoPreset = args.demoPreset;
+      p.inputs.requirements = '请按随附《显示板工程规格》设计原理图。使用5V供电、TM1616显示驱动、IRM-3638M3-X红外接收器，以及两位数字和四圆形指示标记的显示器。器件清单、阻容参数、接口针序、逐引脚连接、段映射和装配要求均以规格书为准，完整保留，不自行替换方案。按规格中的功能分区与排版要求生成清楚的图纸：主控与输入滤波就近，能够直连的信号不绕线，跨区地线使用SGND标号。交付可编辑原理图、符号库、BOM、PDF和检查记录，本轮不做PCB。';
+      p.inputs.stageNotes = {1:'整理工程规格中的功能、器件和交付要求。',2:'提取规格书中的全部设计要求与资料事实，保留来源页码。',3:'严格按规格整理器件、参数、引脚与连接，不自行增删器件或更改已规定参数。',4:'按KiCad开源符号规范和功能分区自动生成图纸，保持连接与参数不变。',5:'从生成工程导出BOM，逐项对照规格清单、封装说明和装配状态。',6:'本轮不做PCB。',7:'对照输入规格检查连接、BOM、ERC及图纸表达，整理本次生成与核验记录。'};
+      await this.save(p);
+      const target = path.join(this.dir(p.id), 'DisplayBoard-Mock-Specifications.pdf');
+      await fs.copyFile(path.join(packageRoot,'cases/display-board/mentor/DisplayBoard-Mock-Specifications.pdf'),target);
+      return this.attach({projectId:p.id,stage:2,path:target,binding:'显示板工程要求、器件规格与装配'});
+    }
+    return this.open(p.id);
   }
   changedNames(files) { return files.length ? `：${files.slice(0, 3).map(f => f.path).join('、')}${files.length > 3 ? `等 ${files.length} 个文件` : ''}` : ''; }
   bundleMatches(p, current) { return p.bundleFiles ? hash(p.bundleFiles) === p.bundleHash && sameFiles(p.bundleFiles, current) : p.bundleHash === hash(current); }
@@ -161,8 +211,10 @@ export class Flow {
       files, realModelCalls: 0, contentIncluded: false };
   }
   invalidate(p, from, reason = { kind: 'inputs', from, message: `“${p.stages.find(s => s.id === from)?.title || '前序步骤'}”的输入或处理方案已修改，请重新核对本步结果。` }) {
+    if (from <= 3) delete p.electricalFreeze;
     let record = false;
     for (const s of p.stages) if (s.id >= from) {
+      if (p.mode === 'text-mcp' && s.id === 6) { s.status = 'skipped'; s.confirmed = false; continue; }
       if ((s.output || s.confirmed) && hash(s.invalidation || null) !== hash(reason)) record = true;
       s.status = s.output || s.confirmed ? 'stale' : 'pending'; s.confirmed = false; delete s.confirmation; delete s.error; delete s.errorInfo;
       s.invalidation = reason;
@@ -172,7 +224,7 @@ export class Flow {
   }
   prerequisites(p, number) {
     this.requireReadable(p, number);
-    for (const prior of p.stages.filter(s => s.id < Number(number))) if (prior.status !== 'done' || !prior.confirmed)
+    for (const prior of p.stages.filter(s => s.id < Number(number) && !(p.mode === 'text-mcp' && s.id === 6 && s.status === 'skipped'))) if (prior.status !== 'done' || !prior.confirmed)
       throw new FlowError('input', `请先执行并确认“${prior.title}”。${prior.invalidation?.message || '确认成功后再执行本步。'}`);
   }
   async confirmedProject(id, number) {
@@ -187,11 +239,16 @@ export class Flow {
     if (a.expectedRevision != null && a.expectedRevision !== p.revision) throw new FlowError('conflict', '输入已被其他窗口修改，请刷新项目后重新保存。');
     if (a.inputs !== undefined) {
       if (!a.inputs || typeof a.inputs !== 'object' || Array.isArray(a.inputs)) throw new Error('输入应为对象。');
+      if (p.mode === 'text-mcp') {
+        if (Object.keys(a.inputs).some(key => !['requirements','datasheetText','constraints','stageNotes','basis','acceptance','power','interfaces','review'].includes(key))) throw new Error('文字流程仅接受需求、规格书正文、约束和本步文字补充；不能加载工程对象包。');
+        for (const key of ['requirements','datasheetText','basis','acceptance','power','interfaces','review']) if (a.inputs[key] !== undefined && (typeof a.inputs[key] !== 'string' || a.inputs[key].length > 1500000)) throw new Error('正文必须为不超过 150 万字符的文字。');
+      }
       if (a.inputs.stageNotes && (Object.keys(a.inputs.stageNotes).some(k => Number(k) !== s.id) || Object.values(a.inputs.stageNotes).some(v => typeof v !== 'string'))) throw new Error('一次只能修改当前步骤的补充输入。');
       const changedKeys = Object.keys(a.inputs).filter(key => key === 'stageNotes' ? Object.entries(a.inputs.stageNotes).some(([k,v]) => (p.inputs.stageNotes?.[k] || '') !== v) : JSON.stringify(p.inputs[key]) !== JSON.stringify(a.inputs[key]));
       p.inputs = { ...p.inputs, ...a.inputs, ...(a.inputs.stageNotes ? { stageNotes: { ...p.inputs.stageNotes, ...a.inputs.stageNotes } } : {}) };
-      const first = Math.min(...changedKeys.map(key => key === 'stageNotes' ? s.id : key === 'datasheets' ? 3 : key === 'ui' || key === 'resources' ? s.id : ['schematic', 'pcb', 'nativeProject', 'basis'].includes(key) ? 2 : 1));
+      const first = Math.min(...changedKeys.map(key => key === 'stageNotes' ? s.id : key === 'review' && p.mode === 'text-mcp' ? 7 : key === 'datasheets' || key === 'datasheetText' ? (p.mode === 'text-mcp' ? 2 : 3) : key === 'ui' || key === 'resources' ? s.id : ['schematic', 'pcb', 'nativeProject', 'basis'].includes(key) ? 2 : 1));
       if (changedKeys.length) { this.invalidate(p, Number.isFinite(first) ? first : s.id); p.inputFiles = (p.inputFiles || []).filter(f => f.stage < first); }
+      if (p.mode === 'text-mcp' && changedKeys.length) this.recordEvent(p, s.id, '文字输入', '保存可追溯的文字补充', { fields: changedKeys, inputs: a.inputs });
     } else if (a.plan !== undefined) this.invalidate(p, s.id);
     if (a.plan !== undefined) {
       if (!a.plan || typeof a.plan !== 'object' || Array.isArray(a.plan)) throw new Error('处理输出必须是对象。');
@@ -206,7 +263,9 @@ export class Flow {
     this.requireReadable(p, s.id);
     if (s.id === 1 && s.status !== 'done') return this.manualConfirm(p, a);
     if (s.status !== 'done') throw new Error('本步没有有效的执行结果。');
+    if (isNewDesign(p) && s.id === 7 && !s.result?.consistency?.releaseReady && !a.allowDraft) throw new FlowError('review', '从零设计尚未完成厂家资料与实物验证，只能带待确认项保存草稿，不能确认生产交付。');
     if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new FlowError('review', '本步仍有待确认项，请查看当前页面的“本步待确认项”。可按入口补充，或在底部选择“带待确认项继续草稿”。', { stage: s.id, gaps: s.gaps, assumptions: s.assumptions });
+    if (p.controlledLayout && s.id === 3) await freezeElectrical(this,p,s);
     s.confirmed = true; s.confirmation = { at: new Date().toISOString(), actor: 'human', draft: Boolean(a.allowDraft), note: String(a.note || ''), outputHash: s.outputHash };
     this.recordEvent(p, s.id, '确认', '确认' + s.title, s.confirmation);
     await this.save(p); return this.confirmedProject(p.id, s.id);
@@ -280,6 +339,7 @@ export class Flow {
   }
   async execute(id, number, signal, { replay = false } = {}) {
     const p = await this.open(id); const s = this.stage(p, number);
+    if (p.mode === 'text-mcp') return executeText(this, p, s, signal);
     this.prerequisites(p, s.id);
     if (!replay && (!this.config.allowModelCalls || !this.ai)) throw new Error('本步需要 Harness 当前模型。请配置模型后执行；离线页面仅用于查看输入。');
     const inputs = await this.checkedInputs(p);
@@ -316,6 +376,7 @@ export class Flow {
           evidence.push({ scope: 'stage:' + index, result: await readJSON(path.join(dir, 'result.json')), files: (await tree(dir)).filter(f => !/input-snapshot|model-log/.test(f.path)) });
         }
         const records = []; const record = async value => {
+          this.modelProgress(id, value); if (value.event === 'stream-progress') return;
           if (value.event === 'request') { p.modelRequests++; this.recordEvent(p, s.id, 'AI 请求', `模型处理 · 第 ${p.modelRequests} 次请求`, { provider: value.provider, model: value.model, phase }); await this.save(p); }
           records.push({ at: new Date().toISOString(), ...value }); await writeJSON(path.join(output, 'model-log.json'), records);
         };
@@ -370,7 +431,8 @@ export class Flow {
     this.guard(a.projectId);
     const current = await this.open(a.projectId); this.stage(current, a.stage); this.prerequisites(current, a.stage);
     this.guard(a.projectId); const controller = new AbortController();
-    const task = { controller, type: 'stage', promise: null }; this.jobs.set(a.projectId, task);
+    const task = { controller, type: 'stage', stage: a.stage, startedAt: new Date().toISOString(), promise: null }; this.jobs.set(a.projectId, task);
+    this.phase(a.projectId, 'input', '正在检查本步输入');
     task.promise = this.execute(a.projectId, a.stage, controller.signal).catch(async error => {
       const p = await this.load(a.projectId); const s = this.stage(p, a.stage); if (s.status !== 'failed' && s.status !== 'cancelled') { s.errorInfo = classify(error, 'input', controller.signal); s.error = s.errorInfo.message; s.status = controller.signal.aborted ? 'cancelled' : 'failed'; this.recordEvent(p, s.id, '失败', s.errorInfo.title, s.errorInfo); } await this.save(p);
     }).finally(() => this.jobs.delete(a.projectId));
@@ -378,8 +440,9 @@ export class Flow {
   }
   async replay(id) {
     this.guard(id); const original = await this.open(id);
+    if (original.mode === 'text-mcp') throw new Error('文字 MCP 流程不支持固定调用重放。独立验证请新建空白项目，将同一文字输入交给模型重新执行。');
     if (original.stages.some(s => s.status !== 'done' || !s.confirmed)) throw new Error('重放需要全部步骤有效且经工程师确认。');
-    const p = await this.create({ caseId: original.caseId, label: original.label + ' · 空目录重放', replayOf: original.id });
+    const p = await this.create({ legacy: true, caseId: original.caseId, label: original.label + ' · 空目录重放', replayOf: original.id });
     const snapshot = await this.snapshotInputs(await this.checkedInputs(original), this.dir(p.id));
     p.inputs = snapshot.inputs;
     for (const s of p.stages) {
@@ -401,7 +464,8 @@ export class Flow {
   recordEvent(p, stage, kind, title, detail = '') {
     p.events.push({ id: randomUUID(), stage, kind, title, detail, at: new Date().toISOString() });
   }
-  phase(id, phase, progress) { const job = this.jobs.get(id); if (job) Object.assign(job, { phase, progress }); }
+  phase(id, phase, progress, details) { updateProgress(this.jobs.get(id), phase, progress, details); }
+  modelProgress(id, value) { modelProgress(this.jobs.get(id), value); }
   async manualConfirm(p, a = {}) {
     if (!String(p.inputs.requirements || '').trim()) throw new FlowError('input', '请先填写需求与目标。');
     const s = p.stages[0]; this.invalidate(p, 1);
@@ -425,6 +489,25 @@ export class Flow {
   }
   async attach(a) {
     this.guard(a.projectId); const p = await this.load(a.projectId), stage = Number(a.stage || 2);
+    if (p.mode === 'text-mcp') {
+      this.stage(p, stage); const file = await within(this.config.workspaceRoot, a.path); const stat = await fs.stat(file);
+      if (!stat.isFile() || path.extname(file).toLowerCase() !== '.pdf') throw new Error('文字流程只接受规格书 PDF 附件；工程资料请整理为公开文字需求。');
+      const binding = String(a.binding || ''), extracted = await extractPdf(this, p.id, file, binding);
+      this.guard(a.projectId);
+      const current = await this.load(a.projectId);
+      const previous = current.uploads.find(u => u.name === path.basename(file) && u.binding === binding);
+      const id = previous?.id || randomUUID();
+      const entry = { id, name: path.basename(file), ...extracted, records: undefined, stage, binding, type: '规格书 PDF',
+        status: extracted.readable ? `已提取 ${extracted.pages} 页正文` : `已提取可读正文；第 ${extracted.unreadablePages.join('、')} 页无文字，请补充该页内容` };
+      current.uploads = [...current.uploads.filter(u => u.id !== id), entry];
+      current.inputs.evidence = [
+        ...(current.inputs.evidence || []).filter(r => r.attachmentId !== id),
+        ...extracted.records.map(r => ({ ...r, id: `${id}-${r.id}`, attachmentId: id })),
+      ];
+      this.invalidate(current, 2); current.revision++;
+      this.recordEvent(current, 2, '资料', '提取 PDF 正文：' + entry.name, { attachmentId: id, pages: extracted.pages, readable: extracted.readable, sha256: extracted.sha256 });
+      await this.save(current); return this.open(current.id);
+    }
     this.stage(p, stage); const file = await within(this.config.workspaceRoot, a.path);
     const stat = await fs.stat(file); if (!stat.isFile()) throw new Error('请选择文件。');
     const ext = path.extname(file).toLowerCase(), entry = { id: randomUUID(), name: path.basename(file), path: file, size: stat.size, sha256: hash(await fs.readFile(file)), stage, binding: String(a.binding || ''), status: '待读取', type: ext === '.pdf' ? '规格书 PDF' : '补充资料' };
@@ -457,19 +540,24 @@ export class Flow {
     if (!String(a.text || '').trim()) throw new Error('请输入补充问题。');
     const context = String(a.context || a.stage || 1);
     if (!/^[1-7]$|^files$|^activity$/.test(context)) throw new Error('无效对话范围。');
-    const controller = new AbortController(), task = { controller, type: 'chat', phase: 'model', progress: 'AI 整理建议' };
+    const controller = new AbortController(), task = { controller, type: 'chat', stage: Number(a.stage || 1), startedAt: new Date().toISOString() };
     this.jobs.set(a.projectId, task);
+    this.phase(a.projectId, 'model', '正在准备助手对话');
     task.promise = (async () => {
       const p = await this.load(a.projectId), number = /^[1-7]$/.test(context) ? Number(context) : Number(a.stage || 1);
       const stage = this.stage(p, number); p.messages[context] ||= [];
       p.messages[context].push({ id: randomUUID(), role: 'user', text: String(a.text).slice(0, 32000), at: new Date().toISOString() });
       this.recordEvent(p, number, '对话', '补充本步要求', a.text);
       const folder = path.join(this.dir(p.id), 'conversations', randomUUID()), records = [];
-      const record = async value => { if (value.event === 'request') p.modelRequests++; records.push({ at: new Date().toISOString(), ...value }); await writeJSON(path.join(folder, 'model-log.json'), records); };
+      const record = async value => { this.modelProgress(p.id, value); if (value.event === 'stream-progress') return; if (value.event === 'request') p.modelRequests++; records.push({ at: new Date().toISOString(), ...value }); await writeJSON(path.join(folder, 'model-log.json'), records); };
       await this.save(p);
       try {
-        const result = await this.ai.generate({ project: p, stage, request: { inputs: p.inputs }, evidence: [{ scope: 'inputs', files: await this.inputIndex(p, number) }, ...p.stages.filter(s => s.output && s.id <= number).map(s => ({ scope: 'stage:' + s.id, files: s.files }))],
-          conversation: { messages: p.messages[context].slice(-20), selectedRecord: a.selectedRecord }, read: item => this.readEvidence(p, Math.min(number + 1, 8), item, stage.output && path.join(stage.output, 'prepared')), record }, controller.signal);
+        const conversation = { messages: p.messages[context].slice(-20), selectedRecord: a.selectedRecord };
+        const result = p.mode === 'text-mcp'
+          ? await this.ai.generateText({ project: { mode: p.mode, scope: p.scope, designMode: p.designMode, controlledLayout: p.controlledLayout, layoutEngine: p.layoutEngine }, stage: { id: stage.id, title: stage.title }, request: { inputs: p.inputs, result: stage.result }, conversation, record }, controller.signal)
+          : await this.ai.generate({ project: p, stage, request: { inputs: p.inputs }, evidence: [{ scope: 'inputs', files: await this.inputIndex(p, number) }, ...p.stages.filter(s => s.output && s.id <= number).map(s => ({ scope: 'stage:' + s.id, files: s.files }))],
+            conversation, read: item => this.readEvidence(p, Math.min(number + 1, 8), item, stage.output && path.join(stage.output, 'prepared')), record }, controller.signal);
+        result.text ||= result.summary || result.questions?.join('\n');
         p.messages[context].push({ id: randomUUID(), role: 'assistant', text: result.text, proposal: /^[1-7]$/.test(context), provider: result.provider, model: result.model, at: new Date().toISOString() });
         this.recordEvent(p, number, 'AI 建议', '助手已回复', { context, provider: result.provider, model: result.model, log: path.relative(this.dir(p.id), folder) });
       } catch (error) {
@@ -499,7 +587,7 @@ export class Flow {
   }
   async dispatch(a, signal, actor = 'model') {
     if (a.action === 'list') return this.list();
-    if (a.action === 'create') return this.create(a);
+    if (a.action === 'create') return this.create({ ...a, legacy: false });
     if (a.action === 'files') return this.files(a.directory);
     if (a.action === 'open') return this.open(a.projectId);
     if (a.action === 'read') { const p = await this.open(a.projectId); return this.readEvidence(p, Number(a.stage || 1), a, this.stage(p, a.stage || 1).output ? path.join(this.stage(p, a.stage || 1).output, 'prepared') : undefined); }
@@ -515,7 +603,7 @@ export class Flow {
     if (a.action === 'attach') return this.attach(a);
     if (a.action === 'update') return this.update(a);
     if (a.action === 'confirm') return this.confirm(a, actor);
-    if (a.action === 'cancel') { this.jobs.get(a.projectId)?.controller.abort(); return { cancelled: true }; }
+    if (a.action === 'cancel') { const job = this.jobs.get(a.projectId); if (job) { this.phase(a.projectId, job.phase, '正在取消，请等待当前操作结束'); job.cancelling = true; job.controller.abort(); } return { cancelled: true }; }
     if (a.action === 'execute') {
       if (actor === 'human') return this.start(a);
       throw new Error('请在页面执行或提交自定义处理输出；模型不能递归启动 AI 阶段。');

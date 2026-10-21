@@ -1,0 +1,204 @@
+{
+  "id": "uart-series",
+  "version": "1.0.0",
+  "description": "UART双向串联电阻接口示例",
+  "interfaces": [
+    "TX_HOST",
+    "TX_DEVICE",
+    "RX_HOST",
+    "RX_DEVICE",
+    "GND"
+  ],
+  "design": {
+    "components": [
+      {
+        "id": "J1",
+        "ref": "J1",
+        "librarySymbol": "Connector_Generic:Conn_01x03",
+        "value": "HOST",
+        "mpn": "",
+        "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "Pin_1",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "Pin_2",
+            "type": "passive",
+            "pad": "2"
+          },
+          {
+            "number": "3",
+            "name": "Pin_3",
+            "type": "passive",
+            "pad": "3"
+          }
+        ]
+      },
+      {
+        "id": "R1",
+        "ref": "R1",
+        "librarySymbol": "Device:R",
+        "value": "47",
+        "mpn": "",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "id": "R2",
+        "ref": "R2",
+        "librarySymbol": "Device:R",
+        "value": "47",
+        "mpn": "",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "id": "J2",
+        "ref": "J2",
+        "librarySymbol": "Connector_Generic:Conn_01x03",
+        "value": "DEVICE",
+        "mpn": "",
+        "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "Pin_1",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "Pin_2",
+            "type": "passive",
+            "pad": "2"
+          },
+          {
+            "number": "3",
+            "name": "Pin_3",
+            "type": "passive",
+            "pad": "3"
+          }
+        ]
+      }
+    ],
+    "nets": [
+      {
+        "name": "TX_HOST",
+        "nodes": [
+          "J1.1",
+          "R1.1"
+        ]
+      },
+      {
+        "name": "TX_DEVICE",
+        "nodes": [
+          "R1.2",
+          "J2.1"
+        ]
+      },
+      {
+        "name": "RX_HOST",
+        "nodes": [
+          "J1.2",
+          "R2.1"
+        ]
+      },
+      {
+        "name": "RX_DEVICE",
+        "nodes": [
+          "R2.2",
+          "J2.2"
+        ]
+      },
+      {
+        "name": "GND",
+        "nodes": [
+          "J1.3",
+          "J2.3"
+        ]
+      }
+    ],
+    "nc": [],
+    "supplied_nets": [],
+    "functions": [],
+    "unresolved": [
+      "工程示例：采购型号、额定值和实物性能未认证。"
+    ]
+  },
+  "fragment": "engineering.kicad_blocks/uart-series.kicad_block/uart-series.kicad_sch",
+  "fragmentSha256": "ce0d0a1fd00a23d409172485a611fa03d5e900cf361da5927a54ddc675fddb37",
+  "width": 178.72,
+  "height": 66.09800000000001,
+  "origin": [
+    10,
+    10
+  ],
+  "validation": {
+    "nativeSymbols": "passed",
+    "netlist": "passed",
+    "NC": "passed",
+    "pdfGeometry": "passed",
+    "electricalRatings": "not-validated",
+    "hardwareTest": "not-run",
+    "reviewStatus": "engineering-example"
+  },
+  "limitations": [
+    "需要确认实际电压、电流、接口电平、信号速率和器件额定值。",
+    "示例值不是通用推荐值；更换参数或器件需建立新模块版本。",
+    "尚未纳入企业内部优选物料。"
+  ],
+  "sources": [
+    {
+      "url": "https://docs.kicad.org/9.0/en/eeschema/eeschema.html#schematic-design-blocks",
+      "purpose": "native reusable fragment format, not electrical endorsement"
+    },
+    {
+      "url": "https://klc.kicad.org/",
+      "purpose": "library convention, not circuit performance specification"
+    }
+  ],
+  "autoDetect": false
+}

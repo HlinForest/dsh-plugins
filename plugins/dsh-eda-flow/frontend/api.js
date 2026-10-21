@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { clientVersion, confirmedStage, confirmationError } from './confirmation.js';
 const BASE = '/api/eda-flow/';
 export async function api(body) {
-  const response = await fetch(BASE + (body ? 'action' : 'bootstrap'), body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : { cache: 'no-store' });
+  const response = await fetch(BASE + (body ? 'action' : 'bootstrap'), body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), ...(body.action === 'open' ? { signal: AbortSignal.timeout(15000) } : {}) } : { cache: 'no-store' });
   const value = await response.json();
   if (!response.ok || !value.ok) throw Object.assign(new Error(value.error || `请求失败：${response.status}`), { info: value.errorInfo });
   return value.value;
@@ -10,8 +10,8 @@ export async function api(body) {
 export const assetURL = (id, stage, file, download = false) => BASE + 'asset?' + new URLSearchParams({ projectId: id, stage, path: file, ...(download ? { download: '1' } : {}) });
 const EMPTY_DATA = { components: [], pins: [], nets: [], tracks: [], footprints: [], files: [], models: [], materials: { source_native: [] }, counts: {} };
 export function fieldsOf(raw) {
-  const i = raw.inputs || {}, c = i.constraints || {}, example = raw.caseId === 'display-board';
-  return { requirements: i.requirements || '', outline: c.outlinePolicy || '', mount: c.packagePolicy || '', rules: c.rulePolicy || '', basis: i.basis || '', acceptance: i.acceptance || '', power: i.power || '', interfaces: i.interfaces || '', manufacture: '', routing: '', cadLayers: '', plating: '', review: i.review || '',
+  const i = raw.inputs || {}, c = i.constraints || {}, example = raw.caseId === 'display-board' && raw.mode !== 'text-mcp';
+  return { requirements: i.requirements || '', datasheetText: i.datasheetText || '', outline: c.outlinePolicy || '', mount: c.packagePolicy || '', rules: c.rulePolicy || '', basis: i.basis || '', acceptance: i.acceptance || '', power: i.power || '', interfaces: i.interfaces || '', manufacture: '', routing: '', cadLayers: '', plating: '', review: i.review || '',
     ...(example ? { power: '按原工程供电与网络定义', interfaces: 'DISP 接口；DIN、CLK、STB、RCV', manufacture: '待工程师确认', routing: '背面 B.Cu', cadLayers: '2 个铜层（工程表示）', acceptance: '连接、参数、符号与页面布局一致；PCB 位置与铜图元一致；工程依赖可解析。' } : {}), ...i.ui };
 }
 function viewProject(raw) {
@@ -19,11 +19,12 @@ function viewProject(raw) {
   return { ...raw, name: /^(R6|显示板默认流程)$/.test(raw.label) ? '显示板' : raw.label, template: raw.caseId === 'display-board', fields: fieldsOf(raw), notes: raw.inputs.stageNotes || {}, statuses: raw.stages.map(s => s.status), confirmed: raw.stages.map(s => s.confirmed), errors: Object.fromEntries(raw.stages.map(s => [s.id, s.errorInfo?.code || (s.error ? 'model' : undefined)])), uploads: raw.uploads || [], messages: raw.messages || {}, events: [...(raw.events || [])].reverse().map((e,i) => ({ ...e, id: e.id || i, title: e.title || `${e.stage} · ${e.outcome || '记录'}`, kind: e.kind || e.source || '执行' })) };
 }
 export function useFlow() {
+  const [lastSyncAt, SYNC] = useState(0), [connectionError, CONNECTION] = useState('');
   const [version, VERSION] = useState('');
   const [errorInfo, EI] = useState(null);
   const [raw, R] = useState(null), [projects, PS] = useState([]), [data, D] = useState(EMPTY_DATA), [model, MD] = useState(null), [error, E] = useState(''), [pending, P] = useState(false), [operation, OP] = useState(null), [drafts, DF] = useState({});
   const active = useRef(null), rawRef = useRef(null), dataRevision = useRef(''), lock = useRef(false), epoch = useRef(0), backendVersion = useRef('');
-  const accept = value => { if (active.current !== value.id) return; rawRef.current = value; R(value); MD(value.model || null); };
+  const accept = value => { if (active.current !== value.id) return; rawRef.current = value; R(value); MD(value.model || null); SYNC(Date.now()); CONNECTION(''); };
   const refreshList = async () => { const boot = await api(); backendVersion.current = boot.version || ''; VERSION(boot.version || ''); PS(boot.projects.map(x => ({ ...x, name: /^(R6|显示板默认流程)$/.test(x.label) ? '显示板' : x.label, template: x.caseId === 'display-board', created: new Date(x.createdAt || x.updatedAt).toLocaleString('zh-CN') }))); MD(boot.model); return boot; };
   const refresh = async (id = active.current) => {
     if (!id) return;
@@ -46,7 +47,7 @@ export function useFlow() {
       if (id) await select(id);
     })().catch(e => E(e.message));
     let polling = false;
-    const interval = setInterval(async () => { if (polling || disposed || lock.current) return; polling = true; try { await refresh(); if (!active.current) await refreshList(); } catch (e) { E(e.message); } finally { polling = false; } }, 1800);
+    const interval = setInterval(async () => { if (polling || disposed || lock.current) return; polling = true; try { await refresh(); if (!active.current) await refreshList(); } catch (e) { CONNECTION(e.message); } finally { polling = false; } }, 1200);
     return () => { disposed = true; clearInterval(interval); };
   }, []);
   const perform = async (fn, action = null) => {
@@ -64,7 +65,7 @@ export function useFlow() {
     for (const [key,value] of Object.entries(d?.fields || {})) if (value !== previous[key]) {
       const constraint = { outline: 'outlinePolicy', mount: 'packagePolicy', rules: 'rulePolicy' }[key];
       if (constraint) changes.constraints = { ...current.inputs.constraints, ...changes.constraints, [constraint]: value };
-      else if (['requirements','basis','acceptance','power','interfaces','review'].includes(key)) changes[key] = value;
+      else if (['requirements','datasheetText','basis','acceptance','power','interfaces','review'].includes(key)) changes[key] = value;
       else changes.ui = { ...current.inputs.ui, ...changes.ui, [key]: value };
     }
     if (d?.notes[stage] !== undefined && d.notes[stage] !== current.inputs.stageNotes?.[stage]) changes.stageNotes = { [stage]: d.notes[stage] };
@@ -84,12 +85,14 @@ export function useFlow() {
     }
     return result;
   }, { action: body.action, stage: body.stage });
-  const create = (name, template) => perform(async () => { const result = await api({ action: 'create', label: name, caseId: template ? 'display-board' : null }); await refreshList(); await select(result.id); return result; });
+  const create = (name, template, fixedParts) => perform(async () => { const result = await api({ action: 'create', label: name, demoPreset: template==='mentor-display'?'display-board':undefined, caseId: template === true || ['datasheet-demo','fixed-redesign','new-display','reconstruction'].includes(template) ? 'display-board' : null, fixedParts: template==='fixed-generic'?fixedParts:undefined, designMode: template === 'datasheet-demo' || template === true ? 'datasheet-demo' : ['fixed-redesign','fixed-generic'].includes(template) ? 'fixed-redesign' : typeof template === 'string' && template !== 'reconstruction' ? 'new-design' : 'reconstruction', mode: 'text-mcp', scope: 'schematic' }); await refreshList(); await select(result.id); return result; });
   const rename = name => perform(async () => { const value = await api({ action: 'rename', projectId: active.current, label: name }); accept(value); await refreshList(); });
   const upload = (files, stage, binding) => perform(async () => { await save(stage); const form = new FormData(); form.set('projectId', active.current); form.set('stage', stage); form.set('binding', binding); for (const file of files) form.append('files', file); const response = await fetch(BASE + 'upload', { method: 'POST', body: form }); const value = await response.json(); if (!value.ok) throw new Error(value.error); accept(value.value); });
   const base = viewProject(raw), d = drafts[base.id];
   const p = d ? { ...base, fields: { ...base.fields, ...d.fields }, notes: { ...base.notes, ...d.notes }, dirty: d.dirty } : base;
-  return { p, data, projects, model, version, clientVersion, compatible: version === clientVersion, error, errorInfo, pending, operation, update, action,
+  return { p, data, projects, model, version, clientVersion, compatible: version === clientVersion, error, errorInfo, pending, operation, update, action, lastSyncAt, connectionError,
     refresh: () => perform(async () => { await refreshList(); return refresh(); }, { action: 'refresh', readOnly: true }),
     select: id => perform(() => select(id), { readOnly: true }), create, rename, upload, save: stage => perform(() => save(stage), { action: 'save', stage }), clearError: () => { E(''); EI(null); } };
 }
+
+export const attachmentURL = (projectId,id) => BASE+'attachment?'+new URLSearchParams({projectId,id});

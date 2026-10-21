@@ -22,7 +22,7 @@ test('a confirmation invalidated during readback must not report success and adv
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-confirm-integrity-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new ChangedAtConfirmation({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await flow.create({ legacy: true, caseId: 'display-board' });
   await assert.rejects(flow.confirm({ projectId: project.id, stage: 1 }, 'human'), error => {
     assert.equal(error.code, 'integrity');
     assert.match(error.message, /result\.json/);
@@ -37,7 +37,7 @@ test('starting the next stage must return the invalid prerequisite before accept
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-confirm-start-'));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
   t.after(async () => { await flow.close(); await fs.rm(root, { recursive: true, force: true }); });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await flow.create({ legacy: true, caseId: 'display-board' });
   await assert.rejects(flow.start({ projectId: project.id, stage: 2 }), /任务与约束/);
   assert.equal(flow.jobs.size, 0);
 });
@@ -61,7 +61,7 @@ test('unchanged file content keeps confirmation when only recorded size or listi
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-evidence-order-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await flow.create({ legacy: true, caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const saved = await flow.load(project.id);
   saved.stages[0].files.reverse();
@@ -77,7 +77,7 @@ test('real default-input changes are still blocked and identify the file without
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-default-drift-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await flow.create({ legacy: true, caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const filename = '01_task/requirements.json';
   await fs.appendFile(path.join(project.inputsBundle, filename), '\n');
@@ -95,7 +95,7 @@ test('default input content is stable across listing metadata and existing manif
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-default-manifest-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await flow.create({ legacy: true, caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const saved = await flow.load(project.id);
   delete saved.bundleFiles; await flow.save(saved);
@@ -111,7 +111,7 @@ test('edited integrity records cannot bypass the saved output digest', async t =
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-record-integrity-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ requirements: 'unused' });
+  const project = await flow.create({ legacy: true, requirements: 'unused' });
   await flow.update({ projectId: project.id, stage: 1, inputs: { requirements: 'display board' } });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const saved = await flow.load(project.id), stage = saved.stages[0];

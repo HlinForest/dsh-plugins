@@ -1,7 +1,7 @@
 {
   "name": "dsh-eda-flow",
-  "version": "0.3.4",
-  "description": "独立分步原理图与 PCB 设计：完整显示板默认输入、Harness 模型处理、真实工具执行",
+  "version": "0.9.5-beta.1",
+  "description": "纯文字需求与规格书驱动的 KiCad MCP 原理图流程；保留七步界面与历史工程查看",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -13,6 +13,8 @@
     "client",
     "client.js",
     "python",
+    "mcp",
+    "libraries",
     "cases/display-board",
     "skills",
     "cordis.patch.yml",
@@ -47,11 +49,12 @@
     }
   },
   "scripts": {
-    "test": "node --test test/*.test.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js",
     "check": "node --check src/service.js && node --check src/index.js && node --check client/app.js && node --check client.js",
     "start": "node scripts/serve.mjs",
-    "prepack": "npm run build:client && npm run check",
-    "build:client": "vite build --config frontend/vite.config.mjs"
+    "prepack": "npm run build:messages && npm run build:client && npm run check",
+    "build:client": "vite build --config frontend/vite.config.mjs",
+    "build:messages": "node scripts/build-harness-messages.mjs"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.4",
@@ -59,10 +62,12 @@
     "@deepseek-ai/dsh-client-connection": "0.2.0-rc.2"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "~3.18.4"
+    "@deepseek-ai/schemastery": "~3.18.4",
+    "elkjs": "0.12.0"
   },
   "bundleDependencies": [
-    "@deepseek-ai/schemastery"
+    "@deepseek-ai/schemastery",
+    "elkjs"
   ],
   "license": "MIT",
   "peerDependenciesMeta": {
@@ -86,6 +91,7 @@
     "vite": "6.4.2",
     "@vitejs/plugin-react": "5.0.4",
     "@carbon/icons-react": "^11.90.0",
-    "@fontsource/ibm-plex-sans": "^5.3.0"
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@deepseek-ai/dsh-llm": "0.2.0-rc.2"
   }
 }

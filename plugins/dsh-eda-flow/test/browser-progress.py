@@ -1,0 +1,95 @@
+import json, sys
+from pathlib import Path
+from playwright.sync_api import sync_playwright, expect
+
+base, out = sys.argv[1], Path(sys.argv[2])
+out.mkdir(parents=True, exist_ok=True)
+with sync_playwright() as pw:
+    browser = pw.chromium.launch(channel='msedge', headless=True)
+    page = browser.new_page(viewport={'width': 1280, 'height': 900})
+    errors = []
+    page.on('pageerror', lambda error: errors.append(str(error)))
+    def control(op, **values):
+        return page.request.post(base + '/test-control', data={'op': op, **values}).json()
+    def chunk(event_type, text=None, **values):
+        control('chunk', chunk={'type': event_type, **({'text': text} if text is not None else {}), **values})
+    page.goto(base + '/api/eda-flow/page?step=4')
+    page.get_by_role('button', name='生成原理图', exact=True).click()
+    panel = page.get_by_role('region', name='实时处理进度')
+    expect(panel).to_be_visible()
+    expect(panel).to_contain_text('等待模型响应', timeout=10000)
+    elapsed = panel.locator('.run-elapsed').inner_text()
+    expect(panel.locator('.run-elapsed')).not_to_have_text(elapsed, timeout=3000)
+    chunk('reasoning-delta', 'private fixture reasoning')
+    expect(panel).to_contain_text('已收到活动')
+    assert 'private fixture reasoning' not in page.locator('body').inner_text()
+    chunk('text-delta', '{"action":"tool",')
+    expect(panel).to_contain_text('正在接收模型回复')
+    expect(panel).to_contain_text('本轮已收到')
+    for width in [1280, 1000, 390]:
+        page.set_viewport_size({'width': width, 'height': 900})
+        expect(panel).to_be_visible()
+        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        page.screenshot(path=str(out / f'progress-{width}.png'))
+    page.set_viewport_size({'width': 1280, 'height': 900})
+    chunk('text-delta', '"name":"precise_create","arguments":{"request_key":"test"}}')
+    chunk('finish')
+    expect(panel).to_contain_text('正在创建空白原理图')
+    control('release-tool')
+    expect(panel).to_contain_text('KiCad 已完成 1 次')
+    expect(panel).to_contain_text('本次第 2 轮请求')
+    control('silence')
+    expect(panel).to_contain_text('暂未收到新的模型内容')
+    page.screenshot(path=str(out / 'progress-waiting.png'))
+    def offline(route):
+        if route.request.post_data_json.get('action') == 'open':
+            route.abort()
+        else:
+            route.continue_()
+    page.route('**/api/eda-flow/action', offline)
+    expect(panel).to_contain_text('状态连接暂时中断', timeout=5000)
+    page.unroute('**/api/eda-flow/action', offline)
+    expect(panel).not_to_contain_text('状态连接暂时中断', timeout=5000)
+    page.reload()
+    expect(panel).to_contain_text('KiCad 已完成 1 次', timeout=10000)
+    chunk('text-delta', '{"action":')
+    chunk('finish', kind='max-tokens')
+    expect(panel).to_contain_text('本次第 3 轮请求')
+    panel.locator('summary').click()
+    expect(panel).to_contain_text('输出被截断，正在缩小批次重试')
+    page.screenshot(path=str(out / 'progress-recovery.png'))
+    chunk('text-delta', '{"action":"question","questions":["请补充规格书"]}')
+    chunk('finish')
+    expect(panel).to_have_count(0, timeout=10000)
+    # Cancellation from the central panel works even with the assistant drawer hidden.
+    page.set_viewport_size({'width': 1000, 'height': 900})
+    page.get_by_role('button', name='生成原理图', exact=True).click()
+    expect(panel).to_be_visible()
+    panel.get_by_role('button', name='取消本次处理', exact=True).click()
+    expect(panel).to_have_count(0, timeout=10000)
+    expect(page.locator('.workspace')).to_contain_text('取消')
+    page.get_by_role('button', name='生成原理图', exact=True).click()
+    expect(panel).to_contain_text('等待模型响应')
+    for attempt in range(3):
+        chunk('text-delta', '{"action":')
+        chunk('finish', kind='max-tokens')
+        if attempt < 2:
+            expect(panel).to_contain_text(f'本次第 {attempt + 2} 轮请求')
+    expect(panel).to_have_count(0, timeout=10000)
+    page.get_by_role('button', name='查看模型原始回复', exact=True).click()
+    expect(page.locator('.text-task-preview')).to_have_text('{"action":')
+    page.screenshot(path=str(out / 'truncated-raw-reply.png'))
+    page.get_by_role('button', name='返回当前步骤', exact=True).click()
+    # Assistant-only requests use the same live status without changing the stage status.
+    page.get_by_role('button', name='打开 AI 助手', exact=True).click()
+    page.get_by_label('补充本步要求', exact=True).fill('本地进度测试')
+    page.get_by_label('发送补充要求', exact=True).click()
+    page.get_by_role('button', name='收起 AI 助手', exact=True).click()
+    expect(panel).to_contain_text('助手对话')
+    panel.get_by_role('button', name='取消本次处理', exact=True).click()
+    expect(panel).to_have_count(0, timeout=10000)
+    assert not errors, errors
+    report = {'status': 'PASS', 'realModelCalls': 0, 'checks': ['waiting / reasoning / reply activity before completion', 'elapsed timer advances', '1280 / 1000 / 390 visible without assistant drawer or horizontal overflow', 'tool in-flight and completed count', 'long silence distinguished from disconnected polling', 'refresh retains active job', 'truncation recovery visible in recent activity', 'completion clears progress', 'central cancellation', 'exhausted truncation exposes raw reply', 'assistant conversation progress'], 'scope': 'Actual Harness runtime and Flow HTTP; controlled local model and tool fixture, no real CAD generation in browser test'}
+    (out / 'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), 'utf-8')
+    print(json.dumps(report, ensure_ascii=False))
+    browser.close()

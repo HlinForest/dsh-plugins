@@ -1,5 +1,14 @@
 # DSH Plugins
 
+## 电路设计 0.9.5-beta.1 内网试用
+
+[下载安装包与演示回放](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.9.5-beta.1) · [安装说明](docs/eda-flow-0.9.5-intranet.md)
+
+自然语言 + 默认模拟 PDF → 器件与连接推导 → 可编辑 KiCad 原理图、BOM 与实际检查。保留旧功能；新演示不需要上传 AD 工程或绘图坐标。离线 ZIP 包含安装/更新脚本、窗口运行时及独立 Python 排版依赖。请从 Release 下载完整 ZIP 后按说明运行，其中的脚本依赖 ZIP 内的 plugin 和 offline 目录。
+
+本次演示 ERC 0 错误、0 警告；DS1 原封装标识 UV 和 electrical 分类在模型整理时遗漏，自动检查未拦截。完整逐步记录随演示 ZIP 提供。
+
+
 为 DeepSeek Harness 提供独立工程插件与可视化工作台，目标运行时为 **DSH 0.2.0-rc.2**，要求 **Node.js ≥ 22.19.0**。
 
 **直接打开已生成的显示板工程：** [工程目录与打开说明](examples/display-board-20261015/README.md) · [原理图 PDF](examples/display-board-20261015/DisplayBoard/previews/schematic.pdf) · [工程下载包](https://github.com/HlinForest/dsh-plugins/releases/tag/display-board-20261015)。该目录随 Git 拉取取得，包含原理图、PCB、BOM、库、模型与预览，无需运行插件。本轮从默认数据生成；PCB 数据的历史准备曾使用官方导入器辅助提取，具体范围见说明。

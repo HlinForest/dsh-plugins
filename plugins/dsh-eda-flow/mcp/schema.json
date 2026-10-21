@@ -1,0 +1,1005 @@
+{
+  "tools": [
+    {
+      "name": "precise_compose",
+      "description": "Compose a new functional layout from YOUR inferred groups and net topology. Replaces the current drawing atomically. Supply all frozen ELECTRICAL references exactly once in groups (columns list references in top-to-bottom order; columns run left-to-right), all pins exactly once as reference.pin in nets or nc, and genuine externally supplied rails in supplied_nets. Optional rotations 0/90/180/270, spacing default 1.0. No page coordinates. Original immutable symbols/material fields are instantiated; process marks are retained automatically. Tool computes geometry-sized placement and obstacle-aware orthogonal real wires for ALL within-group connections. Labels only join separate groups, and annotate local wires. It does not infer connections or read a source netlist. Inspect with precise_read then precise_check_export; readabilityConsistency compares actual exported nets to your topology and requires local wire continuity. Routing failure changes nothing; adjust functional grouping/column order/spacing rather than falling back to label-only wiring.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "request_key": {
+            "type": "string"
+          },
+          "groups": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "columns": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 6,
+                  "items": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "columns"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "nets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "nodes": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "nodes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "nc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "supplied_nets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rotations": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                0,
+                90,
+                180,
+                270
+              ]
+            }
+          },
+          "spacing": {
+            "type": "number",
+            "minimum": 0.8,
+            "maximum": 1.8
+          }
+        },
+        "required": [
+          "request_key",
+          "groups",
+          "nets",
+          "nc"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "precise_fixed_library",
+      "description": "Read the project's frozen component library. Omit references for inventory; supply up to 8 references for exact original local symbol/pin geometry and material properties. Contains no original page placements or complete netlist.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "precise_place_fixed",
+      "description": "Place or move selected frozen components at your own absolute page coordinates. Library supplies immutable original symbol graphics, pins, values and BOM fields. Optional fields override only absolute text positions/angles. All old properties are replaced; use precise_read to get actual pin endpoints before routing. Does not create any wires or infer connections.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "request_key": {
+            "type": "string"
+          },
+          "components": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "properties": {
+                "reference": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "minItems": 2,
+                  "maxItems": 3,
+                  "description": "[x,y,angle=0] in mm; library Y-up, schematic Y-down. No snapping."
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "at": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 3,
+                        "description": "[x,y,angle=0] in mm; library Y-up, schematic Y-down. No snapping."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "at"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "reference",
+                "at"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "request_key",
+          "components"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "precise_create",
+      "description": "Create an empty A4 (default) or A3 schematic in the server's fixed new-project root. Use A3 when component fields and signal paths need more room. No import. Idempotent request_key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "request_key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_+.-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "paper": {
+            "enum": [
+              "A4",
+              "A3"
+            ]
+          },
+          "portrait": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "request_key",
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "precise_apply",
+      "description": "Atomically upsert explicit symbols and schematic primitives by stable name/id. All coordinates exact mm, no grid snap or inferred connectivity. Symbol local Y-up; page Y-down. Request keys prevent replay duplicates. Upsert replaces the complete object.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "request_key": {
+            "type": "string"
+          },
+          "symbols": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_+.-]+$"
+                },
+                "reference_prefix": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "datasheet": {
+                  "type": "string"
+                },
+                "footprint": {
+                  "type": "string"
+                },
+                "pin_names_visible": {
+                  "type": "boolean"
+                },
+                "pin_numbers_visible": {
+                  "type": "boolean"
+                },
+                "pin_name_offset": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "power": {
+                  "type": "boolean"
+                },
+                "pins": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "number": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "at": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 3,
+                        "description": "[x,y,angle=0] in mm; library Y-up, schematic Y-down. No snapping."
+                      },
+                      "length": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000
+                      },
+                      "type": {
+                        "enum": [
+                          "input",
+                          "output",
+                          "bidirectional",
+                          "tri_state",
+                          "passive",
+                          "free",
+                          "unspecified",
+                          "power_in",
+                          "power_out",
+                          "open_collector",
+                          "open_emitter",
+                          "no_connect"
+                        ]
+                      },
+                      "shape": {
+                        "enum": [
+                          "line",
+                          "inverted",
+                          "clock",
+                          "inverted_clock",
+                          "input_low",
+                          "clock_low",
+                          "output_low",
+                          "falling_edge_clock",
+                          "non_logic"
+                        ]
+                      },
+                      "visible": {
+                        "type": "boolean"
+                      },
+                      "name_visible": {
+                        "type": "boolean"
+                      },
+                      "number_visible": {
+                        "type": "boolean"
+                      },
+                      "name_font": {
+                        "type": "object",
+                        "properties": {
+                          "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "minimum": -100000,
+                              "maximum": 100000
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "bold": {
+                            "type": "boolean"
+                          },
+                          "italic": {
+                            "type": "boolean"
+                          },
+                          "thickness": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100000
+                          },
+                          "justify": {
+                            "type": "array",
+                            "items": {
+                              "enum": [
+                                "left",
+                                "right",
+                                "top",
+                                "bottom",
+                                "mirror"
+                              ]
+                            },
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "number_font": {
+                        "type": "object",
+                        "properties": {
+                          "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "minimum": -100000,
+                              "maximum": 100000
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "bold": {
+                            "type": "boolean"
+                          },
+                          "italic": {
+                            "type": "boolean"
+                          },
+                          "thickness": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100000
+                          },
+                          "justify": {
+                            "type": "array",
+                            "items": {
+                              "enum": [
+                                "left",
+                                "right",
+                                "top",
+                                "bottom",
+                                "mirror"
+                              ]
+                            },
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "number",
+                      "name",
+                      "at",
+                      "length",
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "graphics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "rectangle",
+                          "rounded_rectangle",
+                          "polyline",
+                          "arc",
+                          "circle",
+                          "text"
+                        ]
+                      },
+                      "start": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "mid": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "end": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "center": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "radius": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000
+                      },
+                      "rx": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000
+                      },
+                      "ry": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000
+                      },
+                      "points": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number",
+                            "minimum": -100000,
+                            "maximum": 100000
+                          },
+                          "minItems": 2,
+                          "maxItems": 2
+                        },
+                        "minItems": 2
+                      },
+                      "text": {
+                        "type": "string"
+                      },
+                      "at": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 3,
+                        "description": "[x,y,angle=0] in mm; library Y-up, schematic Y-down. No snapping."
+                      },
+                      "font": {
+                        "type": "object",
+                        "properties": {
+                          "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "minimum": -100000,
+                              "maximum": 100000
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "bold": {
+                            "type": "boolean"
+                          },
+                          "italic": {
+                            "type": "boolean"
+                          },
+                          "thickness": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100000
+                          },
+                          "justify": {
+                            "type": "array",
+                            "items": {
+                              "enum": [
+                                "left",
+                                "right",
+                                "top",
+                                "bottom",
+                                "mirror"
+                              ]
+                            },
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      },
+                      "visible": {
+                        "type": "boolean"
+                      },
+                      "width": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100000
+                      },
+                      "fill": {
+                        "enum": [
+                          "none",
+                          "outline",
+                          "background"
+                        ]
+                      },
+                      "stroke_type": {
+                        "enum": [
+                          "default",
+                          "solid",
+                          "dash",
+                          "dot",
+                          "dash_dot",
+                          "dash_dot_dot"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "pins"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "enum": [
+                    "component",
+                    "wire",
+                    "junction",
+                    "label",
+                    "no_connect",
+                    "text",
+                    "rectangle",
+                    "polyline",
+                    "arc",
+                    "circle",
+                    "rounded_rectangle"
+                  ]
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "reference": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "footprint": {
+                  "type": "string"
+                },
+                "datasheet": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "minItems": 2,
+                  "maxItems": 3,
+                  "description": "[x,y,angle=0] in mm; library Y-up, schematic Y-down. No snapping."
+                },
+                "mirror": {
+                  "enum": [
+                    "x",
+                    "y"
+                  ]
+                },
+                "in_bom": {
+                  "type": "boolean"
+                },
+                "on_board": {
+                  "type": "boolean"
+                },
+                "dnp": {
+                  "type": "boolean"
+                },
+                "exclude_from_sim": {
+                  "type": "boolean"
+                },
+                "properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      },
+                      "at": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": -100000,
+                          "maximum": 100000
+                        },
+                        "minItems": 2,
+                        "maxItems": 3,
+                        "description": "[x,y,angle=0] in mm; library Y-up, schematic Y-down. No snapping."
+                      },
+                      "visible": {
+                        "type": "boolean"
+                      },
+                      "font": {
+                        "type": "object",
+                        "properties": {
+                          "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "minimum": -100000,
+                              "maximum": 100000
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "bold": {
+                            "type": "boolean"
+                          },
+                          "italic": {
+                            "type": "boolean"
+                          },
+                          "thickness": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100000
+                          },
+                          "justify": {
+                            "type": "array",
+                            "items": {
+                              "enum": [
+                                "left",
+                                "right",
+                                "top",
+                                "bottom",
+                                "mirror"
+                              ]
+                            },
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "value",
+                      "at"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "points": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "minimum": -100000,
+                      "maximum": 100000
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "minItems": 2
+                },
+                "width": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "diameter": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "text": {
+                  "type": "string"
+                },
+                "font": {
+                  "type": "object",
+                  "properties": {
+                    "size": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": -100000,
+                        "maximum": 100000
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "face": {
+                      "type": "string"
+                    },
+                    "bold": {
+                      "type": "boolean"
+                    },
+                    "italic": {
+                      "type": "boolean"
+                    },
+                    "thickness": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100000
+                    },
+                    "justify": {
+                      "type": "array",
+                      "items": {
+                        "enum": [
+                          "left",
+                          "right",
+                          "top",
+                          "bottom",
+                          "mirror"
+                        ]
+                      },
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                },
+                "visible": {
+                  "type": "boolean"
+                },
+                "label_type": {
+                  "enum": [
+                    "local",
+                    "global",
+                    "hierarchical"
+                  ]
+                },
+                "shape": {
+                  "enum": [
+                    "input",
+                    "output",
+                    "bidirectional",
+                    "tri_state",
+                    "passive"
+                  ]
+                },
+                "start": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "mid": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "end": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "center": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "radius": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "fill": {
+                  "enum": [
+                    "none",
+                    "outline",
+                    "background"
+                  ]
+                },
+                "stroke_type": {
+                  "enum": [
+                    "default",
+                    "solid",
+                    "dash",
+                    "dot",
+                    "dash_dot",
+                    "dash_dot_dot"
+                  ]
+                },
+                "rx": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "ry": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100000
+                }
+              },
+              "required": [
+                "id",
+                "kind"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "delete_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "delete_symbols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "request_key"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "precise_read",
+      "description": "Read actual schematic fingerprint and compare it with the authored model; return object model and transformed pin coordinates. Reject externally changed files.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "include_objects": {
+            "type": "boolean"
+          },
+          "include_source": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "precise_check_export",
+      "description": "Validate via installed KiCad CLI, export PDF/SVG/KiCad XML netlist/ERC JSON/BOM. ERC findings are reported, never suppressed. Outputs remain inside project root.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "request_key": {
+            "type": "string"
+          },
+          "formats": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "pdf",
+                "svg",
+                "netlist",
+                "erc",
+                "bom"
+              ]
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          }
+        },
+        "required": [
+          "request_key",
+          "formats"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

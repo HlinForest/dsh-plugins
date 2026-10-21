@@ -20,11 +20,11 @@ async function setup(t, options = {}) {
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const fake = { async generate({ record }) { await record({ event: 'request', model: 'TEST-DOUBLE' }); return structuredClone(plan); } };
   const flow = new LocalFake({ workspaceRoot: root, workDirectory: root, allowModelCalls: true, ...options }, fake);
-  return { root, flow, p: await flow.create({}) };
+  return { root, flow, p: await flow.create({ legacy: true,}) };
 }
 test('new and default projects have no output; every normal stage requires a model', async t => {
   const { flow, p } = await setup(t, { allowModelCalls: false });
-  const example = await flow.create({ caseId: 'display-board' });
+  const example = await flow.create({ legacy: true, caseId: 'display-board' });
   assert(example.stages.every(s => s.source === 'ai' && s.plan === null && !s.output));
   assert(example.inputCatalog.length > 70);
   await assert.rejects(flow.execute(p.id, 1), /需要 Harness 当前模型/);
@@ -57,14 +57,14 @@ test('upstream edit and output drift invalidate dependent confirmations', async 
   const changed = await flow.open(p.id); assert.equal(changed.stages[0].status, 'stale'); assert(!changed.stages[1].confirmed);
 });
 test('default input applicability includes constraints and every note, excludes supplemental PDF', async t => {
-  const { flow } = await setup(t); const p = await flow.create({ caseId: 'display-board' });
+  const { flow } = await setup(t); const p = await flow.create({ legacy: true, caseId: 'display-board' });
   assert(await flow.structuredEligible(p));
   p.inputs.datasheets.push({ path: 'provided.pdf' }); assert(await flow.structuredEligible(p));
   p.inputs.stageNotes[6] = 'use a different board size'; assert.equal(await flow.structuredEligible(p), false);
   delete p.inputs.stageNotes[6]; p.inputs.constraints.layerPolicy = 'four layers'; assert.equal(await flow.structuredEligible(p), false);
 });
 test('full input reader supports continuation and rejects directory escape', async t => {
-  const { flow, root } = await setup(t); const p = await flow.create({ caseId: 'display-board' });
+  const { flow, root } = await setup(t); const p = await flow.create({ legacy: true, caseId: 'display-board' });
   const first = await flow.readEvidence(p, 1, { path: '01_task/requirements.json', length: 50 });
   const second = await flow.readEvidence(p, 1, { path: first.path, offset: first.nextOffset, length: 50 });
   assert.equal(first.nextOffset, 50); assert.equal(second.offset, 50); assert.equal(first.sha256, second.sha256);
