@@ -1,5 +1,7 @@
 # 电路设计 0.9.5-beta.1 内网试用包
 
+完整包也已放入仓库：[获取分卷并自动合并](../intranet/eda-flow-0.9.5-beta.1/README.md)，无需访问 Release。
+
 从 Harness 新建“显示板演示 · 默认需求与模拟 PDF”，逐步执行自然语言需求、PDF 正文提取、器件与电气设计、原理图、BOM 和交付检查。输入可编辑；PCB 本轮不执行。
 
 包内提供原始插件 TGZ、Windows x64 独立窗口运行时、Python 3.11 离线依赖及七步演示回放。Harness、Node 和 KiCad 需事先安装。模型使用 Harness 已配置的账号或内网模型服务；安装包不含账号。

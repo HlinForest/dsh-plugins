@@ -2,9 +2,9 @@
 
 ## 电路设计 0.9.5-beta.1 内网试用
 
-[下载安装包与演示回放](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.9.5-beta.1) · [安装说明](docs/eda-flow-0.9.5-intranet.md)
+[直接从仓库获取完整安装包（无需 Release）](intranet/eda-flow-0.9.5-beta.1/README.md) · [安装说明](docs/eda-flow-0.9.5-intranet.md)
 
-自然语言 + 默认模拟 PDF → 器件与连接推导 → 可编辑 KiCad 原理图、BOM 与实际检查。保留旧功能；新演示不需要上传 AD 工程或绘图坐标。离线 ZIP 包含安装/更新脚本、窗口运行时及独立 Python 排版依赖。请从 Release 下载完整 ZIP 后按说明运行，其中的脚本依赖 ZIP 内的 plugin 和 offline 目录。
+自然语言 + 默认模拟 PDF → 器件与连接推导 → 可编辑 KiCad 原理图、BOM 与实际检查。保留旧功能；新演示不需要上传 AD 工程或绘图坐标。离线 ZIP 包含安装/更新脚本、窗口运行时及独立 Python 排版依赖。完整安装包已按普通 Git 分卷存入 intranet/eda-flow-0.9.5-beta.1，按目录说明拉取后运行 prepare.ps1，即可校验、合并并解压。
 
 本次演示 ERC 0 错误、0 警告；DS1 原封装标识 UV 和 electrical 分类在模型整理时遗漏，自动检查未拦截。完整逐步记录随演示 ZIP 提供。
 
