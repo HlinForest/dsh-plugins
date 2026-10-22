@@ -1,3 +1,4 @@
+import {projectRequest} from './projectOptions.js';
 import { useEffect, useRef, useState } from 'react';
 import { clientVersion, confirmedStage, confirmationError } from './confirmation.js';
 const BASE = '/api/eda-flow/';
@@ -85,7 +86,7 @@ export function useFlow() {
     }
     return result;
   }, { action: body.action, stage: body.stage });
-  const create = (name, template, fixedParts) => perform(async () => { const result = await api({ action: 'create', label: name, demoPreset: template==='mentor-display'?'display-board':undefined, caseId: template === true || ['datasheet-demo','fixed-redesign','new-display','reconstruction'].includes(template) ? 'display-board' : null, fixedParts: template==='fixed-generic'?fixedParts:undefined, designMode: template === 'datasheet-demo' || template === true ? 'datasheet-demo' : ['fixed-redesign','fixed-generic'].includes(template) ? 'fixed-redesign' : typeof template === 'string' && template !== 'reconstruction' ? 'new-design' : 'reconstruction', mode: 'text-mcp', scope: 'schematic' }); await refreshList(); await select(result.id); return result; });
+  const create = (name, template, fixedParts) => perform(async () => { const result = await api(projectRequest(name, template, fixedParts)); await refreshList(); await select(result.id); return result; });
   const rename = name => perform(async () => { const value = await api({ action: 'rename', projectId: active.current, label: name }); accept(value); await refreshList(); });
   const upload = (files, stage, binding) => perform(async () => { await save(stage); const form = new FormData(); form.set('projectId', active.current); form.set('stage', stage); form.set('binding', binding); for (const file of files) form.append('files', file); const response = await fetch(BASE + 'upload', { method: 'POST', body: form }); const value = await response.json(); if (!value.ok) throw new Error(value.error); accept(value.value); });
   const base = viewProject(raw), d = drafts[base.id];

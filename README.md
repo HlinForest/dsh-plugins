@@ -1,5 +1,7 @@
 # DSH Plugins
 
+[0.9.5-beta.5 内网更新包：新建入口合并与历史项目兼容](intranet/eda-flow-0.9.5-beta.5/README.md)。
+
 [0.9.5-beta.4 内网更新包：图纸优先、完整工程下载与精简界面](intranet/eda-flow-0.9.5-beta.4/README.md)。
 
 [0.9.5-beta.3 内网更新包：默认 DOCX、完整 CAD 记录存储与显示板实测](intranet/eda-flow-0.9.5-beta.3/README.md)。
