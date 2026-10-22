@@ -83,3 +83,17 @@ test('legacy evidence reads also retain Harness assistant source and replay meta
   assert.equal(result.executor, 'local');
   checkHistory(requests);
 });
+
+test('inline review uses actual Harness parser with a structured read-only resolution',async t=>{
+ const resolution={status:'resolved',regenerateFrom:null};
+ const {ai,requests}=host(t,[{...finish,resolution}]);
+ const result=await ai.generateText({project:{mode:'text-mcp'},stage:{id:2},request:{clarification:true,inputs:{},question:'电压？',answer:'5V'},record:async()=>{},validateFinish: r=>r.resolution?.status==='resolved'?null:'missing resolution'});
+ assert.deepEqual(result.resolution,resolution);assert.equal(requests.length,1);
+});
+
+test('a repeated answered question is fed back to the model without asking the user again',async t=>{
+ const {ai,requests}=host(t,[{action:'question',questions:['输入电压？']},finish]);
+ const r=await ai.generateText({project:{mode:'text-mcp'},stage:{id:3},request:{inputs:{},resolvedAnswers:[{question:'输入电压?',answer:'5V'}]},record:async()=>{}});
+ assert.equal(r.action,'finish');assert.equal(requests.length,2);
+ assert.match(JSON.stringify(requests[1]),/5V/);
+});

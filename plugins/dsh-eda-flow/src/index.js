@@ -9,6 +9,7 @@ export const inject = ['connection', 'tools'];
 export const Config = Schema.object({
   workspaceRoot: Schema.string().required(), workDirectory: Schema.string().default(''),
   kicadPython: Schema.string().required(), kicadCli: Schema.string().required(),
+  pcbPython: Schema.string().default(''), javaPath: Schema.string().default(''), freeroutingJar: Schema.string().default(''), kicadFootprintRoot: Schema.string().default(''),
   mcpPython: Schema.string().default(''),
   kicadLibraryRoot: Schema.string().default(''),
   catalogFile: Schema.string().default(''),

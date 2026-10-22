@@ -1,3 +1,5 @@
+import {answerIssue} from './clarifications.js';
+import {pendingIssues} from './review-items.js';
 import { freezeElectrical } from './controlled-layout.js';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -32,9 +34,10 @@ export class Flow {
   async load(id) {
     const p = await loadProject(this.dir(id));
     if (!this.jobs.has(id)) for (const s of p.stages) if (s.status === 'running') { s.status = 'interrupted'; s.error = '上次进程已退出，请重新执行本步。'; }
+    if(!this.jobs.has(id))for(const r of p.clarifications||[])if(r.status==='reviewing'){r.status='error';r.feedback='上次核对已中断，回答已保存，可重试。';}
     p.messages ||= {}; p.events ||= []; p.uploads ||= [];
     p.origin ||= p.mode === 'text-mcp' ? 'text-mcp' : 'legacy-conversion';
-    if (p.mode === 'text-mcp') { p.scope = 'schematic'; p.liveHarnessValidation ||= 'pending'; }
+    if (p.mode === 'text-mcp') { p.scope = p.pcbEnabled?'pcb':'schematic'; p.liveHarnessValidation ||= 'pending'; }
     if (p.designMode === 'datasheet-demo' && !p.inputs?.evidence?.some(r=>r.objectRole) && !p.mockEvidenceIssue && !this.jobs.has(id)) {
       p.mockEvidenceIssue={kind:'mock-baseline-upgrade',from:2,message:'旧模拟资料缺少当前显示板的完整器件、引脚及装配记录。请新建显示板演示使用修正版资料；本工程输入和历史文件保留。'};
       this.invalidate(p,2,p.mockEvidenceIssue);delete p.lastValidLayout;p.revision++;
@@ -222,7 +225,7 @@ export class Flow {
     if (from <= 3) delete p.electricalFreeze;
     let record = false;
     for (const s of p.stages) if (s.id >= from) {
-      if (p.mode === 'text-mcp' && s.id === 6) { s.status = 'skipped'; s.confirmed = false; continue; }
+      if (p.mode === 'text-mcp' && s.id === 6 && !p.pcbEnabled) { s.status = 'skipped'; s.confirmed = false; continue; }
       if ((s.output || s.confirmed) && hash(s.invalidation || null) !== hash(reason)) record = true;
       s.status = s.output || s.confirmed ? 'stale' : 'pending'; s.confirmed = false; delete s.confirmation; delete s.error; delete s.errorInfo;
       s.invalidation = reason;
@@ -255,7 +258,7 @@ export class Flow {
       const changedKeys = Object.keys(a.inputs).filter(key => key === 'stageNotes' ? Object.entries(a.inputs.stageNotes).some(([k,v]) => (p.inputs.stageNotes?.[k] || '') !== v) : JSON.stringify(p.inputs[key]) !== JSON.stringify(a.inputs[key]));
       p.inputs = { ...p.inputs, ...a.inputs, ...(a.inputs.stageNotes ? { stageNotes: { ...p.inputs.stageNotes, ...a.inputs.stageNotes } } : {}) };
       const first = Math.min(...changedKeys.map(key => key === 'stageNotes' ? s.id : key === 'review' && p.mode === 'text-mcp' ? 7 : key === 'datasheets' || key === 'datasheetText' ? (p.mode === 'text-mcp' ? 2 : 3) : key === 'ui' || key === 'resources' ? s.id : ['schematic', 'pcb', 'nativeProject', 'basis'].includes(key) ? 2 : 1));
-      if (changedKeys.length) { this.invalidate(p, Number.isFinite(first) ? first : s.id); p.inputFiles = (p.inputFiles || []).filter(f => f.stage < first); }
+      if (changedKeys.length) { if(changedKeys.some(k=>k!=='review'))p.clarificationRevision=(p.clarificationRevision||0)+1; this.invalidate(p, Number.isFinite(first) ? first : s.id); p.inputFiles = (p.inputFiles || []).filter(f => f.stage < first); }
       if (p.mode === 'text-mcp' && changedKeys.length) this.recordEvent(p, s.id, '文字输入', '保存可追溯的文字补充', { fields: changedKeys, inputs: a.inputs });
     } else if (a.plan !== undefined) this.invalidate(p, s.id);
     if (a.plan !== undefined) {
@@ -272,7 +275,8 @@ export class Flow {
     if (s.id === 1 && s.status !== 'done') return this.manualConfirm(p, a);
     if (s.status !== 'done') throw new Error('本步没有有效的执行结果。');
     if (isNewDesign(p) && s.id === 7 && !s.result?.consistency?.releaseReady && !a.allowDraft) throw new FlowError('review', '从零设计尚未完成厂家资料与实物验证，只能带待确认项保存草稿，不能确认生产交付。');
-    if ((s.gaps.length || s.assumptions.length) && !a.allowDraft) throw new FlowError('review', '本步仍有待确认项，请查看当前页面的“本步待确认项”。可按入口补充，或在底部选择“带待确认项继续草稿”。', { stage: s.id, gaps: s.gaps, assumptions: s.assumptions });
+    if(s.id===6&&p.pcbEnabled&&!s.result?.drc?.passed)throw new Error('PCB DRC尚未通过，请修正后再确认。');
+    if (pendingIssues(p,s).length && !a.allowDraft) throw new FlowError('review', '本步仍有待确认项，请查看当前页面的“本步待确认项”。可按入口补充，或在底部选择“带待确认项继续草稿”。', { stage: s.id, gaps: s.gaps, assumptions: s.assumptions });
     if (p.controlledLayout && s.id === 3) await freezeElectrical(this,p,s);
     s.confirmed = true; s.confirmation = { at: new Date().toISOString(), actor: 'human', draft: Boolean(a.allowDraft), note: String(a.note || ''), outputHash: s.outputHash };
     this.recordEvent(p, s.id, '确认', '确认' + s.title, s.confirmation);
@@ -512,7 +516,7 @@ export class Flow {
         ...(current.inputs.evidence || []).filter(r => r.attachmentId !== id),
         ...extracted.records.map(r => ({ ...r, id: `${id}-${r.id}`, attachmentId: id })),
       ];
-      this.invalidate(current, 2); current.revision++;
+      current.clarificationRevision=(current.clarificationRevision||0)+1; this.invalidate(current, 2); current.revision++;
       this.recordEvent(current, 2, '资料', '提取规格书正文：' + entry.name, { attachmentId: id, pages: extracted.pages, readable: extracted.readable, sha256: extracted.sha256 });
       await this.save(current); return this.open(current.id);
     }
@@ -583,7 +587,7 @@ export class Flow {
     if (!suggestion) throw new Error('建议不存在。');
     if (!suggestion.applied) {
       p.inputs.stageNotes ||= {}; p.inputs.stageNotes[stage.id] = [p.inputs.stageNotes[stage.id], suggestion.text].filter(Boolean).join('\n'); suggestion.applied = true;
-      this.invalidate(p, stage.id); p.revision++; this.recordEvent(p, stage.id, '输入', '采用 AI 建议', suggestion.text); await this.save(p);
+      p.clarificationRevision=(p.clarificationRevision||0)+1; this.invalidate(p, stage.id); p.revision++; this.recordEvent(p, stage.id, '输入', '采用 AI 建议', suggestion.text); await this.save(p);
     }
     return this.open(p.id);
   }
@@ -606,6 +610,8 @@ export class Flow {
       this.guard(a.projectId); return this.diagnoseInputs(a, undefined, signal);
     }
     if (a.action === 'rename') return this.rename(a);
+    if(a.action==='enable-pcb'){if(actor!=='human')throw new Error('请由工程师启用PCB。');this.guard(a.projectId);const p=await this.load(a.projectId);if(!p.pcbEnabled){p.pcbEnabled=true;p.scope='pcb';p.stages[5].title='PCB';this.invalidate(p,6);p.revision++;this.recordEvent(p,6,'范围','启用PCB布局布线与DRC');await this.save(p);}return this.open(p.id);}
+    if (a.action === 'answer-issue') { if(actor !== 'human')throw new Error('请由工程师提交回答。'); return answerIssue(this,a); }
     if (a.action === 'chat') { if (actor !== 'human') throw new Error('请由工程师发起助手对话。'); return this.startChat(a); }
     if (a.action === 'adopt') { if (actor !== 'human') throw new Error('请由工程师采用建议。'); return this.adopt(a); }
     if (a.action === 'attach') return this.attach(a);

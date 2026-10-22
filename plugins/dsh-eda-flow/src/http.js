@@ -29,7 +29,7 @@ export function routes(service) {
       const raw = await request.text(); if (Buffer.byteLength(raw) > 3 * 1024 * 1024) throw new Error('请求过大。');
       const args = JSON.parse(raw);
       if (args.action === 'open-window') return json({ ok: true, value: await service.openWindow() });
-      const mutate = ['update','confirm','rename','adopt','attach','create','chat','execute','replay'].includes(args.action);
+      const mutate = ['enable-pcb','answer-issue','update','confirm','rename','adopt','attach','create','chat','execute','replay'].includes(args.action);
       const run = () => service.dispatch(args, request.signal, 'human');
       if (!mutate) return json({ ok: true, value: await run() });
       const key = args.projectId || 'create', previous = service.mutations.get(key) || Promise.resolve(), next = previous.catch(() => {}).then(run);

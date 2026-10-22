@@ -1,3 +1,5 @@
+import {executePcb} from './pcb-flow.js';
+import {resolvedAnswers} from './review-items.js';
 import {sourceEvidence, extractFacts, factInstructions, factTool, resolveDesignFacts} from './specification-facts.js';
 import { blockTool, designBlocks } from './design-blocks.js';
 import { requestMetrics } from './input-metrics.js';
@@ -26,7 +28,7 @@ export async function textDefaults(caseId, designMode = 'reconstruction') {
 export async function executeText(flow, p, s, signal) {
   if (p.controlledLayout && [4,5,7].includes(s.id)) return executeControlled(flow,p,s,signal);
   flow.prerequisites(p, s.id);
-  if (s.id === 6) return flow.open(p.id);
+  if (s.id === 6) return executePcb(flow,p,s,signal);
   if (s.id === 1) throw new FlowError('input', '请先在页面确认文字任务与约束。');
   if (!flow.config.allowModelCalls || !flow.ai?.generateText) throw new FlowError('unselected', '本步需要 Harness 当前模型与文字 MCP 接口。输入已保存。');
   if (!String(p.inputs.requirements || '').trim()) throw new FlowError('input', '请填写完整文字需求。');
@@ -87,7 +89,7 @@ export async function executeText(flow, p, s, signal) {
   try {
     if ([2,3].includes(s.id)) await snapshotPdfs(flow, p, output);
     const attachments = (p.uploads || []).map(f => ({ name: f.name, binding: f.binding, status: f.status, readable: f.readable === true, pages: f.pages, unreadablePages: f.unreadablePages, sha256: f.sha256 }));
-    const request = { inputs: { requirements: p.inputs.requirements, datasheetText: p.inputs.datasheetText || '', constraints: p.inputs.constraints || {}, stageNotes: p.inputs.stageNotes || {} },
+    const request = { resolvedAnswers:resolvedAnswers(p), inputs: { requirements: p.inputs.requirements, datasheetText: p.inputs.datasheetText || '', constraints: p.inputs.constraints || {}, stageNotes: p.inputs.stageNotes || {} },
       attachments, plan: s.plan, upstream: p.stages.filter(x => x.id < s.id && x.status === 'done' && (!fixed || s.id<=3 || x.id>=3)).map(x => ({ stage: x.id, summary: x.result?.summary, gaps: fixed ? x.plan?.gaps || [] : x.gaps, assumptions: fixed ? x.plan?.assumptions || [] : x.assumptions, parameters: x.result?.parameters, components: x.id < 4 ? x.result?.components : undefined })),
       scope: 'schematic', originalComparison: 'not-available', instruction: '输入正文完整内联；只使用本轮文字、规格书正文和本次生成工程。' };
     if (fresh) { request.requirements = requirements; request.design = design; request.instruction = '从简短需求自行设计；不读取复原案例。只使用本项目输入、库查询证据和冻结设计清单。'; }
@@ -262,7 +264,9 @@ export async function executeText(flow, p, s, signal) {
       ], liveHarnessValidation: 'pending' };
     await writeJSON(path.join(output, 'result.json'), s.result);
     if (s.id === 7) {
-      await writeJSON(path.join(output, 'frozen-evidence.json'), { schemaVersion: 3, inputs: p.inputs, origin: 'text-mcp', scope: 'schematic', modelRequests: p.modelRequests, planOrigin: s.planOrigin,
+      if(p.pcbEnabled){const pcb=p.stages[5];if(!pcb.confirmed||!pcb.result?.drc?.passed)throw new Error('PCB必须通过DRC并确认。');await fs.cp(path.join(pcb.output,'project'),path.join(output,'project','PCB'),{recursive:true,errorOnExist:true,force:false});}
+
+      await writeJSON(path.join(output, 'frozen-evidence.json'), { schemaVersion: 3, inputs: p.inputs, clarifications:p.clarifications||[], origin: 'text-mcp', scope: 'schematic', modelRequests: p.modelRequests, planOrigin: s.planOrigin,
         sourcePolicy: 'Only inline text and current run; application-level root confinement, not an OS sandbox.', stages: p.stages.map(x => ({ id: x.id, status: x.id === 7 ? 'completed-pending-confirmation' : x.status, confirmation: x.confirmation, outputHash: x.outputHash, planOrigin: x.planOrigin })), checks: s.result.checks });
       await flow.runProcess([path.join(root, 'python/archive.py'), path.join(output, 'request.json')], output, signal);
       s.result.archive = 'frozen-evidence.zip'; await writeJSON(path.join(output, 'result.json'), s.result);

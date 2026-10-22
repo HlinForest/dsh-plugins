@@ -1,6 +1,6 @@
 {
   "name": "dsh-eda-flow",
-  "version": "0.9.5-beta.5",
+  "version": "0.9.5-beta.6",
   "description": "纯文字需求与规格书驱动的 KiCad MCP 原理图流程；保留七步界面与历史工程查看",
   "type": "module",
   "main": "src/index.js",
@@ -30,7 +30,8 @@
     "!python/runner.py",
     "scripts/open-window.ps1",
     "desktop",
-    "scripts/install-desktop-runtime.ps1"
+    "scripts/install-desktop-runtime.ps1",
+    "vendor"
   ],
   "engines": {
     "node": ">=22.19.0"

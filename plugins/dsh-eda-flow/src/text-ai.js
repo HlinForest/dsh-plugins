@@ -1,3 +1,6 @@
+import {pcbInstructions} from './pcb-flow.js';
+import {issueKey} from './review-items.js';
+import {clarificationInstructions} from './clarifications.js';
 const sourceSpecInstructions = `提供的PDF及已确认提取结果包含器件引脚和装配事实。对资料中symbolId为Evidence:前缀的器件使用design_library查询，宿主优先匹配开源库，缺失时按通用功能分组与网格生成符号；几何不由用户提供。精确保留其身份、引脚及物料字段objectRole/originalFootprint/materialCode/materialDescription/assemblyType。未给出可核验封装几何时footprint可留空并记录待核对项，不代换成近似型号。资料中的模拟标记随引用保留；页码是本次PDF页码。连接仍由你根据需求推导，布局根据功能与拓扑安排；不读取历史工程。`;
 import { controlledInstructions, genericInstructions } from './controlled-layout.js';
 import { randomUUID } from 'node:crypto';
@@ -75,7 +78,7 @@ export async function generateText(ctx, { project, stage, request, tools = [], i
   const llm = ctx.get('llm'), selection = ctx.get('agentDefaultModel')?.currentSelection();
   if (!llm || !selection?.provider || !selection?.model) throw new FlowError('unselected', '请先在 Harness 中选择模型。文字输入已保存。');
   const bounded = AbortSignal.any([signal, AbortSignal.timeout(1800000)].filter(Boolean));
-  const system = project.controlledLayout ? (project.layoutEngine==='native-kicad'?genericInstructions:controlledInstructions) + (isMockDemo(project) ? '\n' + mockControlledInstructions : hasSourceSpecs({inputs:request.inputs}) ? '\n' + sourceSpecInstructions : '') + '\n允许工具及完整参数结构：' + JSON.stringify(tools) : (project.designMode === 'fixed-redesign' ? fixedInstructions + '\n' : project.designMode === 'new-design' ? designInstructions + '\n' : '') + '你是文字驱动的电路设计助手。输入正文已经完整给出，不要求读取文件，不导入历史 CAD，不运行脚本，不使用 structured/python 生成器。固定元件库是授权的局部器件资料，不是历史整页CAD。规格书附件只有元数据时代表未读取；请用户粘贴带来源页码的正文，禁止编造资料内容。遵循明确连接、属性、装配、几何要求。\n'
+  const system = request.clarification ? clarificationInstructions : request.pcbDesign ? pcbInstructions : '仅对影响设计的实际缺项或资料冲突提问；已解决的回答见 request.resolvedAnswers 或 inputs.clarifications，必须继承，不再换句话重复询问。不把已明确的PCB不执行或泛泛的工程师复核声明列为待补项。最终图纸确认由界面单独保留。\n' + (project.controlledLayout ? (project.layoutEngine==='native-kicad'?genericInstructions:controlledInstructions) + (isMockDemo(project) ? '\n' + mockControlledInstructions : hasSourceSpecs({inputs:request.inputs}) ? '\n' + sourceSpecInstructions : '') + '\n允许工具及完整参数结构：' + JSON.stringify(tools) : (project.designMode === 'fixed-redesign' ? fixedInstructions + '\n' : project.designMode === 'new-design' ? designInstructions + '\n' : '') + '你是文字驱动的电路设计助手。输入正文已经完整给出，不要求读取文件，不导入历史 CAD，不运行脚本，不使用 structured/python 生成器。固定元件库是授权的局部器件资料，不是历史整页CAD。规格书附件只有元数据时代表未读取；请用户粘贴带来源页码的正文，禁止编造资料内容。遵循明确连接、属性、装配、几何要求。\n'
     + '只返回一个合法 JSON 对象，键名和字符串必须使用双引号，不加解释或 Markdown。三种动作示例：{"action":"question","questions":["影响正确性的待补问题"]}；{"action":"tool","name":"工具名","arguments":{}}；{"action":"finish","summary":"本步实际结果","gaps":[],"assumptions":[]}。完成动作可另外提供 components、parameters、citations 数组。不输出批量调用脚本或固定调用序列。每次工具结果或错误返回后继续理解和修正。finish 只表示模型完成，实际通过取决于工具校验。\n'
     + '步骤2/3只分析已提供正文，关键参数记录来源（正文段落或真实规格书页码）；步骤4从空白项目调用通用 MCP 创建符号、连接和属性，修改后必须 precise_read 和 precise_check_export 检查再 finish；步骤5/7只读取当前生成工程副本并导出核对，不修改已确认 CAD。PCB 本轮跳过。\n'
     + '控制单轮输出：一次只做一个小动作，不在一条回复中输出整张原理图。precise_apply 按 symbol.name/item.id 逐对象新增或替换，未列出的对象保持不变；完整替换指单个对象，不是整个工程。先创建空白工程，再分批定义符号（每批1个复杂符号）、放置器件与导线（通常每批不超过20个对象），每个被更新对象的全部必需属性必须齐全；不同批次使用不同 request_key。成功后接着做下一批，不重复已完成对象，不重新 create。finish 只写简洁总结，不复述任务书、全部页面坐标或工具已返回的完整对象。\n'
@@ -84,7 +87,7 @@ export async function generateText(ctx, { project, stage, request, tools = [], i
     + 'KiCad文字方向：元件旋转90/270度时，若要其属性水平显示，属性at角度填90度（非旋转元件填0度）；坐标仍是页面绝对坐标。水平网络标签用font.justify=["left","bottom"]使文字在线上方，不能居中压在线上。导线可显式设width=0.254mm避免PDF中呈发丝线。\n'
     + (conversation ? '当前仅提供建议，禁止工具修改。以finish.summary答复，必要时question。\n' : '')
     + (isMockDemo(project) ? designInstructions + '\n' + mockInstructions + '\n' : '')
-    + '允许工具及完整参数结构：' + JSON.stringify(tools);
+    + '允许工具及完整参数结构：' + JSON.stringify(tools));
   const messages = [{ id: randomUUID(), role: 'user', source: { kind: 'eda-flow-text' }, content: [{ type: 'text', text: JSON.stringify({ project, stage, request, conversation }) }] }];
   let formatRetries = 0, truncationRetries = 0;
   for (let round = 0; round < 256; round++) {
@@ -111,6 +114,12 @@ export async function generateText(ctx, { project, stage, request, tools = [], i
       if (!action || typeof action !== 'object' || Array.isArray(action)) throw new FlowError('format', '模型回复必须是单个 JSON 动作对象。');
       if (action.action === 'question') {
         if (!Array.isArray(action.questions) || !action.questions.length || action.questions.some(q => typeof q !== 'string' || !q.trim())) throw new FlowError('format', '待补问题格式无效。');
+        if(!request.clarification){
+          const answered=[...(request.resolvedAnswers||[]),...(request.inputs?.clarifications||[])];
+          const repeated=action.questions.filter(q=>answered.some(a=>issueKey(a.question)===issueKey(q)));
+          action.questions=action.questions.filter(q=>!repeated.includes(q));
+          if(!action.questions.length){respond({alreadyAnswered:answered.filter(a=>repeated.some(q=>issueKey(q)===issueKey(a.question))),instruction:'这些问题已有有效回答，请使用已有答案继续当前步骤，不再重复提问。'});continue;}
+        }
         return { ...action, provider: selection.provider, model: selection.model };
       }
       if (action.action === 'tool') {

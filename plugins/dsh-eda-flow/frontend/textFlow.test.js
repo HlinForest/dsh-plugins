@@ -108,11 +108,11 @@ test('waiting questions need an explicit answer and stay separate from execution
   assert.match(answer, /工程师回答：IRM-3638M3-X/);
 });
 
-test('PCB page shows skipped scope with navigation and no generation action', () => {
+test('PCB page accepts natural language requirements and exposes generation results', () => {
   const html = render('TextFlowContent', { ...props, stage: 6, state: project.stages[5] });
-  assert.match(html, /PCB 本轮未执行/);
-  assert.match(html, /进入核验与交付/);
-  assert.doesNotMatch(html, /生成 PCB|已完成|已确认/);
+  assert.match(html, /PCB 要求/);
+  assert.match(html, /自动布线后运行 DRC/);
+  assert.doesNotMatch(html, /本轮未执行/);
 });
 
 test('delivery displays actual pending verification and never offers legacy replay', () => {
@@ -172,4 +172,9 @@ test('schematic opens with current drawing and project download, without repeate
  const html=render('TextFlowContent',{...props,p,state:result,stage:4,tab:0});
  assert.match(html,/下载完整工程/);assert.match(html,/下载图纸 PDF/);assert.match(html,/<img/);assert.match(html,/stage=4/);assert.doesNotMatch(html,/REPEATED GAP/);
  result.status='stale';const stale=render('TextFlowContent',{...props,p,state:result,stage:4,tab:0});assert.doesNotMatch(stale,/project-download|<img/);
+});
+
+test('PCB result links use project identity and expose the real board preview',()=>{
+ const html=render('TextFlowContent',{...props,stage:6,state:{status:'done',result:{pcbPdf:'project/PCB.pdf',previews:['project/PCB.svg'],summary:'PCB已生成'}}});
+ assert.match(html,/下载完整 PCB 工程/);assert.match(html,/projectId=sample/);assert.doesNotMatch(html,/object(?:%20|\+)Object/);assert.match(html,/PCB.svg/);
 });

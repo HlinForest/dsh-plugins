@@ -1,3 +1,4 @@
+import {resolvedAnswers} from './review-items.js';
 import { requestMetrics } from './input-metrics.js';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -29,7 +30,7 @@ export async function executeControlled(flow,p,s,signal){
     return {...candidate,audit:result};
   };
   try{
-    await writeJSON(path.join(output,'input-provenance.json'),{simulated:hasSimulatedInputs(p),scope:isMockDemo(p)?'PDF extraction only; controlled CAD and checks are real':'Natural language and extracted PDF pages',inputs:p.inputs,electricalHash:frozen.hash});
+    await writeJSON(path.join(output,'input-provenance.json'),{simulated:hasSimulatedInputs(p),scope:isMockDemo(p)?'PDF extraction only; controlled CAD and checks are real':'Natural language and extracted PDF pages',inputs:p.inputs,clarifications:p.clarifications||[],electricalHash:frozen.hash});
     if(s.id>4){
       if(!oldValid)throw new Error('尚无已通过的受控原理图。');
       if(!sameFiles(oldValid.files,await tree(oldValid.project))||oldValid.electricalHash!==frozen.hash)throw new Error('上游原理图已变化。');
@@ -56,10 +57,10 @@ export async function executeControlled(flow,p,s,signal){
       }catch(e){calls.push({name,arguments:args,error:e.message,ok:false});await writeJSON(path.join(output,'tool-log.json'),calls);throw e;}
     };
     s.plan=await flow.ai.generateText({project:{mode:p.mode,designMode:p.designMode,controlledLayout:true,layoutEngine:frozen.engine,label:p.label},stage:{id:s.id,title:s.title},
-      request:{inputs:p.inputs,scope:'controlled-schematic',instruction:s.id===4?`先inspect，再以${frozen.template}、合适纸张和间距生成，verify后完成。首轮省略groups和rotations，由宿主按器件功能、连接和真实引脚方向自动推导紧凑分区。不要自行拆开主控、限流电阻及输入/供电滤波；输入未规定精确旋转时不覆盖自动朝向。`:'只读核验本轮已生成原理图。',electricalHash:frozen.hash},
+      request:{inputs:{...p.inputs,clarifications:resolvedAnswers(p)},scope:'controlled-schematic',instruction:s.id===4?`先inspect，再以${frozen.template}、合适纸张和间距生成，verify后完成。首轮省略groups和rotations，由宿主按器件功能、连接和真实引脚方向自动推导紧凑分区。不要自行拆开主控、限流电阻及输入/供电滤波；输入未规定精确旋转时不覆盖自动朝向。`:'只读核验本轮已生成原理图。',electricalHash:frozen.hash},
       tools:tools.filter(t=>s.id===4||t.name!=='layout_generate'),invoke,record,
       validateFinish:()=>accepted&&verified?null:'必须实际生成并调用 layout_verify，通过后才可完成。'},signal);
-    if(s.plan.action==='question')throw new Error('模型需要补充：'+s.plan.questions.join('; '));
+    if(s.plan.action==='question'){s.status='waiting-input';s.questions=s.plan.questions;s.gaps=[...s.plan.questions];s.finishedAt=new Date().toISOString();await flow.save(p);return flow.open(p.id);}
     accepted=await verifyCandidate(accepted);
     for(const prior of p.stages.filter(x=>x.id<s.id&&x.output&&x.status==='done'))if(!sameFiles(prior.files,await tree(prior.output)))throw new Error('执行期间上游文件变化。');
     const project=path.join(output,'project');
@@ -77,7 +78,7 @@ export async function executeControlled(flow,p,s,signal){
     });
     await writeJSON(path.join(output,'generated-review.json'),{components,pins,nets,counts:{components:components.length,pins:pins.length,nets:nets.length},source:'generated-cad'});
     s.planOrigin=s.plan.provider==='test-double'||/test[-_ ]?double/i.test(s.plan.model||'')?'test-double':'live-ai';
-    s.gaps=[...(s.plan.gaps||[]),...(frozen.design.unresolved||[]),...(result.erc.warnings?[`ERC：0 个错误、${result.erc.warnings} 个警告，详见实际报告，需人工审阅。`]:[]),'采购信息、器件额定值及实物功能需工程师复核；PCB未执行。'];s.assumptions=s.plan.assumptions||[];
+    s.gaps=[...(s.plan.gaps||[]),...(frozen.design.unresolved||[]),...(result.erc.warnings?[`ERC：0 个错误、${result.erc.warnings} 个警告，详见实际报告，需人工审阅。`]:[])];s.assumptions=s.plan.assumptions||[];
     s.result={summary:s.plan.summary,gaps:s.gaps,assumptions:s.assumptions,origin:'text-mcp',components,
       schematicPdf:relative(path.join(project,pdf.path)),previews:svg?[relative(path.join(project,svg.path))]:[],bom:'project/bom.csv',
       erc:{by_severity:{error:result.erc.errors,warning:result.erc.warnings},violation_count:result.erc.errors+result.erc.warnings},
@@ -86,12 +87,15 @@ export async function executeControlled(flow,p,s,signal){
     await writeJSON(path.join(output,'ai-output.json'),s.plan);await writeJSON(path.join(output,'result.json'),s.result);
     await writeJSON(path.join(output,'generation-evidence.json'),{electricalHash:frozen.hash,layout:accepted.layout,source:'host-controlled-compiler',planOrigin:s.planOrigin,provider:s.plan.provider,model:s.plan.model});
     if(s.id===7){
+      if(p.pcbEnabled){const pcb=p.stages[5];if(!pcb.confirmed||!pcb.result?.drc?.passed)throw new Error('PCB必须通过DRC并经工程师确认。');await fs.cp(path.join(pcb.output,'project'),path.join(project,'PCB'),{recursive:true,errorOnExist:true,force:false});s.result.checks.push({name:'PCB布局布线与DRC',status:'passed',detail:`${pcb.result.drc.errors}错误 / ${pcb.result.drc.unconnected}未连接；已人工确认`});}
+
+      s.result.files=(await tree(project)).map(f=>({...f,path:'project/'+f.path,format:path.extname(f.path).slice(1)}));await writeJSON(path.join(output,'result.json'),s.result);
       const req=path.join(output,'archive-request.json');await writeJSON(req,{output,stage:s.id,dependencies:Object.fromEntries(p.stages.filter(x=>x.id<s.id&&x.output&&x.status==='done').map(x=>[x.id,x.output]))});
       const script=fileURLToPath(new URL('../python/archive.py',import.meta.url));
       await flow.runProcess([script,req],output,signal);s.result.archive='frozen-evidence.zip';await writeJSON(path.join(output,'result.json'),s.result);
     }
     s.status='done';s.files=await tree(output);s.outputHash=hash(s.files);s.executedPlan=structuredClone(s.plan);s.finishedAt=new Date().toISOString();delete s.invalidation;
-    p.lastValidLayout={project,files:await tree(project),electricalHash:frozen.hash,layout:accepted.layout};
+    if(s.id!==7||!p.pcbEnabled)p.lastValidLayout={project,files:await tree(project),electricalHash:frozen.hash,layout:accepted.layout};
     flow.recordEvent(p,s.id,'完成','受控排版及独立核验完成',{output,electricalHash:frozen.hash});await flow.save(p);return flow.open(p.id);
   }catch(e){
     s.status=signal?.aborted?'cancelled':'failed';s.error=e.message;s.finishedAt=new Date().toISOString();p.lastValidLayout=oldValid;

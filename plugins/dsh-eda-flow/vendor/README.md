@@ -1,0 +1,2 @@
+Freerouting 2.1.0 (unmodified), GPL-3.0. Requires Java 21+. Runs locally, with GUI/API server/analytics disabled. Corresponding source is distributed in the repo test directory vendor/freerouting-2.1.0-corresponding-source.zip; upstream https://github.com/freerouting/freerouting/tree/v2.1.0 .
+Source archive retains upstream source, build scripts, dependencies metadata, resources and license; excludes integration application binaries and test board datasets.
