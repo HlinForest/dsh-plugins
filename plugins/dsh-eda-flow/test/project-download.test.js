@@ -1,0 +1,26 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {Flow} from '../src/service.js';
+import {routes} from '../src/http.js';
+import {writeJSON} from '../src/io.js';
+test('project download at schematic stage includes libraries and readable records without changing outputs',async t=>{
+ const root=await fs.mkdtemp(path.join(os.tmpdir(),'eda-download-test-'));
+ t.after(()=>fs.rm(root,{recursive:true,force:true}));
+ const flow=new Flow({workspaceRoot:root,workDirectory:root,kicadPython:'D:/anaconda/python.exe'});t.after(()=>flow.close());
+ const output=path.join(root,'output'),project=path.join(output,'project');await fs.mkdir(path.join(project,'symbols'),{recursive:true});
+ await fs.writeFile(path.join(project,'Circuit.kicad_sch'),'schematic');await fs.writeFile(path.join(project,'symbols/Evidence.kicad_sym'),'library');
+ await writeJSON(path.join(project,'erc.json'),{errors:0});await fs.writeFile(path.join(project,'erc.json'),'%TSD-Header-export');
+ const stage={id:4,status:'done',output,files:[{path:'project/Circuit.kicad_sch'}]},p={label:'display',stages:[stage]};
+ const route=routes({load:async()=>p,stage:()=>stage,runProcess:flow.runProcess.bind(flow)}).find(r=>r.name==='project-download');
+ const request=new Request('http://localhost/api/eda-flow/project-download?projectId=test&stage=4');
+ const response=await route.run(request);assert.equal(response.headers.get('content-type'),'application/zip');
+ const files=JSON.parse(execFileSync('D:/anaconda/python.exe',['-c','import io,json,sys,zipfile; z=zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())); print(json.dumps({n:z.read(n).decode() for n in z.namelist()}))'],{input:Buffer.from(await response.arrayBuffer()),encoding:'utf8'}));
+ assert.equal(files['Circuit.kicad_sch'],'schematic');assert.equal(files['symbols/Evidence.kicad_sym'],'library');assert.deepEqual(JSON.parse(files['erc.json']),{errors:0});
+ assert.equal(await fs.readFile(path.join(project,'erc.json'),'utf8'),'%TSD-Header-export');assert(!('.eda-records.sqlite' in files));
+ stage.status='stale';await assert.rejects(()=>route.run(request),/有效原理图/);
+ stage.status='done';stage.files=[{path:'../outside/Circuit.kicad_sch'}];await assert.rejects(()=>route.run(request));
+});

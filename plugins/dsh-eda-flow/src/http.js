@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { within, hash } from './io.js';
 import { storedText } from './record-store.js';
@@ -34,6 +35,24 @@ export function routes(service) {
       const key = args.projectId || 'create', previous = service.mutations.get(key) || Promise.resolve(), next = previous.catch(() => {}).then(run);
       service.mutations.set(key, next);
       try { return json({ ok: true, value: await next }); } finally { if (service.mutations.get(key) === next) service.mutations.delete(key); }
+    } },
+    { name: 'project-download', methods: ['GET'], run: async request => {
+      checkOrigin(request);
+      const url = new URL(request.url), project = await service.load(url.searchParams.get('projectId'));
+      const step = service.stage(project, url.searchParams.get('stage'));
+      if (step.status !== 'done' || !step.output) throw new Error('请先生成有效原理图。');
+      const schematic = (step.files || step.result?.files || []).find(f => /\.kicad_sch$/i.test(f.path));
+      if (!schematic) throw new Error('本步没有可下载的工程。');
+      const directory = await within(step.output, path.dirname(schematic.path));
+      const temporary = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-project-download-'));
+      try {
+        const archive = path.join(temporary, 'project.zip');
+        await service.runProcess([path.join(root, 'python/project_bundle.py'), directory, archive], temporary, request.signal);
+        return new Response(await fs.readFile(archive), { headers: {
+          'content-type': 'application/zip', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff',
+          'content-disposition': "attachment; filename*=UTF-8''" + encodeURIComponent(`${project.label || 'Circuit'}-工程.zip`),
+        } });
+      } finally { await fs.rm(temporary, { recursive: true, force: true }); }
     } },
     { name: 'asset', methods: ['GET'], run: async request => {
       const url = new URL(request.url); const project = await service.load(url.searchParams.get('projectId'));

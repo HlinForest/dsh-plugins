@@ -117,13 +117,13 @@ test('PCB page shows skipped scope with navigation and no generation action', ()
 
 test('delivery displays actual pending verification and never offers legacy replay', () => {
   const overview = render('TextFlowContent', { ...props, stage: 7, state: { status: 'done', result: { liveHarnessValidation: 'pending', checks: [{ name: 'ERC', status: 'findings', detail: '0 error / 1 warning' }, { name: '原工程逐项差异', status: 'not-run', detail: '未提供独立原工程基准' }] } } });
-  assert.match(overview, /Harness 真实模型验收：待验证/);
+  assert.doesNotMatch(overview, /Harness 真实模型验收：待验证/);
   assert.match(overview, /0 error \/ 1 warning/);
   assert.match(overview, /发现待处理项/);
   assert.doesNotMatch(overview, /内容一致/);
   const delivery = render('TextFlowContent', { ...props, stage: 7, tab: 2 });
   assert.doesNotMatch(delivery, /空目录重放/);
-  assert.match(delivery, /另建空白项目/);
+  assert.doesNotMatch(delivery, /另建空白项目/);
   assert.equal(checkStatus({ status: 'not-run' }), '未执行');
 });
 
@@ -164,4 +164,12 @@ test('progress remains visible outside the assistant drawer and distinguishes si
 
 test('truncated replies offer the same raw-response inspection as malformed JSON', () => {
   assert.match(render('ModelReply', { state: { errorInfo: { code: 'truncated', details: { rawResponse: '{' } } } }), /查看模型原始回复/);
+});
+
+test('schematic opens with current drawing and project download, without repeated gaps',()=>{
+ const result={id:4,status:'done',files:[{path:'project/Circuit.kicad_sch'},{path:'project/Circuit.pdf'},{path:'project/svg/Circuit.svg'}],result:{schematicPdf:'project/Circuit.pdf',previews:['project/svg/Circuit.svg']},gaps:['REPEATED GAP']};
+ const p={...project,stages:[...project.stages.filter(s=>s.id!==4),result]};
+ const html=render('TextFlowContent',{...props,p,state:result,stage:4,tab:0});
+ assert.match(html,/下载完整工程/);assert.match(html,/下载图纸 PDF/);assert.match(html,/<img/);assert.match(html,/stage=4/);assert.doesNotMatch(html,/REPEATED GAP/);
+ result.status='stale';const stale=render('TextFlowContent',{...props,p,state:result,stage:4,tab:0});assert.doesNotMatch(stale,/project-download|<img/);
 });
