@@ -24,5 +24,7 @@ test('evidence archive preserves deep Windows inputs, project files and output r
  // Feed bytes through stdin so the verifier is independent of path normalization.
  const report=JSON.parse(execFileSync(python,['-c','import io,json,sys,zipfile; z=zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())); print(json.dumps({"bad":z.testzip(),"files":{n:z.read(n).decode("utf8") for n in z.namelist()}}))'],{input:bytes,encoding:'utf8'}));
  assert.equal(report.bad,null);
- assert.deepEqual(report.files,{'default-inputs/模拟提取.json':'simulated extraction','steps/4/Circuit.kicad_sch':'exact schematic bytes','steps/7/audit.json':'actual check result'});
+ const {'record-export-manifest.json':manifest,...files}=report.files;
+ assert.deepEqual(JSON.parse(manifest),{schema:1,records:[]});
+ assert.deepEqual(files,{'default-inputs/模拟提取.json':'simulated extraction','steps/4/Circuit.kicad_sch':'exact schematic bytes','steps/7/audit.json':'actual check result'});
 });

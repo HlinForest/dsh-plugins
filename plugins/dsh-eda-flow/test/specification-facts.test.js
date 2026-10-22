@@ -6,12 +6,25 @@ import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {extractFacts,sourceEvidence,resolveDesignFacts} from '../src/specification-facts.js';
 import {Flow} from '../src/service.js';
+import {validateSourceInventory} from '../src/source-inventory.js';
 
 const text='U7 IR-TEST 引脚1=OUT(output)，2=GND(power_in)，3=VCC(power_in)。电源5V。';
 const inputs={evidence:[{id:'page-1',document:'parts.pdf',page:3,content:text,simulated:false}]};
 const fact={reference:'U7',value:'IR-TEST',componentKind:'infrared-receiver',objectRole:'electrical',
   pins:[{number:'1',name:'OUT',type:'output'},{number:'2',name:'GND',type:'power_in'},{number:'3',name:'VCC',type:'power_in'}],
   citations:[{sourceId:'page-1',quote:text}]};
+
+test('assigned reference inherits uniquely selected source-symbol metadata',()=>{
+  const row={...extractFacts({componentFacts:[fact]},inputs)[0],reference:'',originalFootprint:'VENDOR-PACKAGE',assemblyType:'THT'};
+  const p={inputs:{evidence:[]},stages:[{id:2,status:'done',result:{evidenceFacts:[row]}}]};
+  const design=resolveDesignFacts({components:[{ref:'RX1',librarySymbol:row.symbolId,value:row.value}]},p);
+  assert.equal(design.components[0].originalFootprint,'VENDOR-PACKAGE');
+  assert.equal(design.components[0].assemblyType,'THT');
+  assert.equal(design.components[0].objectRole,'electrical');
+  assert.deepEqual(validateSourceInventory(design,[row]),[]);
+  design.components[0].originalFootprint='wrong';
+  assert(validateSourceInventory(design,[row]).some(e=>e.includes('originalFootprint')));
+});
 test('fact extraction rejects drawing geometry, missing citations and invented pins',()=>{
   const rows=extractFacts({componentFacts:[fact]},inputs);
   assert.equal(rows[0].page,3);assert.equal(rows[0].simulated,false);

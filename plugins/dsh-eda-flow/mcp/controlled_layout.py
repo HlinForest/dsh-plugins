@@ -1,3 +1,5 @@
+import record_io
+from erc_report import parse_report
 """Frozen electrical input -> presentation only -> independent native/PDF checks."""
 import sys
 sys.dont_write_bytecode=True
@@ -10,8 +12,8 @@ import functional_layout as geom
 from native_schematic import parse,signature,canonical
 from layout_motifs import generate
 
-def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
-def write(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='utf8')
+def read(p):return record_io.read_json(p)
+def write(p,v):record_io.write_json(p,v)
 
 def validate(lib,design):
     errors=[];refs=[c['ref'] for c in lib['objects']]
@@ -48,15 +50,16 @@ def export(out,cli,sch):
         for args in [['sch','export','netlist','--format','kicadxml','-o',str(target/'actual.net.xml'),str(staged)],
                      ['sch','export','pdf','-o',str(target/(sch.stem+'.pdf')),str(staged)],
                      ['sch','export','svg','-o',str(target/'svg'),str(staged)],
-                     ['sch','erc','--format','json','--severity-all','-o',str(target/'erc.json'),str(staged)]]:
+                     ['sch','erc','--format','report','--severity-all','-o',str(target/'erc.rpt'),str(staged)]]:
             r=subprocess.run([cli]+args,cwd=work,capture_output=True,encoding='utf8',errors='replace',timeout=120)
             logs.append({'args':args,'code':r.returncode,'stdout':r.stdout,'stderr':r.stderr,'sourceSchematicSha256':source_hash,'staging':'byte-identical short-path project copy'})
             if r.returncode:raise RuntimeError(str(logs[-1]))
         if hashlib.sha256(sch.read_bytes()).hexdigest()!=source_hash or hashlib.sha256(staged.read_bytes()).hexdigest()!=source_hash:raise ValueError('Schematic changed during export')
-        for name in ['actual.net.xml',sch.stem+'.pdf','erc.json']:
+        for name in ['actual.net.xml',sch.stem+'.pdf','erc.rpt']:
             if not (target/name).is_file():raise ValueError('Export did not produce '+name)
         if not list((target/'svg').glob('*.svg')):raise ValueError('Export did not produce SVG')
         shutil.copytree(target,out,dirs_exist_ok=True)
+        write(out/'erc.json',parse_report((target/'erc.rpt').read_text(encoding='utf-8-sig')))
     write(out/'kicad-commands.json',logs)
 
 def audit(out,lib,design):

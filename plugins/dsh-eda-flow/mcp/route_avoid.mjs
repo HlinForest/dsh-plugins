@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {AvoidLib} from './vendor-libavoid/dist/index-node.mjs';
-const g=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
+const g=JSON.parse(fs.readFileSync(process.argv[2]==='--stdio'?0:process.argv[2],'utf8'));
 await AvoidLib.load();const A=AvoidLib.getInstance(),router=new A.Router(2);
 router.setRoutingParameter(A.RoutingParameter.segmentPenalty,10);
 router.setRoutingParameter(A.RoutingParameter.crossingPenalty,100);
@@ -52,5 +52,5 @@ for(const {ids,es} of components){const hs=[...ids].filter(k=>['WEST','EAST'].in
  for(const k of ids)if(!['WEST','EAST'].includes(sides.get(k))){const p=ports.get(k),tap={x:p.x,y:left.y};if(p.x<left.x||p.x>right.x||!clear(tap,p))valid=false;segments.push([tap,p]);}
  if(valid){for(const e of es)e.sections=[];es[0].sections=segments.map(([a,b])=>({startPoint:a,endPoint:b}));}
 }
-g.routingEngine='libavoid';fs.writeFileSync(process.argv[3],JSON.stringify(g,null,2));
+g.routingEngine='libavoid';if(process.argv[2]==='--stdio')process.stdout.write(JSON.stringify(g));else fs.writeFileSync(process.argv[3],JSON.stringify(g,null,2));
 

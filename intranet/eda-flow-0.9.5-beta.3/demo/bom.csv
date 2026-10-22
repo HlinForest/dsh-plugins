@@ -1,0 +1,42 @@
+﻿Reference,Value,Footprint,MPN,DesignId,OriginalFootprint,MaterialCode,MaterialDescription,AssemblyType,ObjectRole,DNP,OnBoard
+D1,IRM-3638M3-X,,,fact-72e2722851b1f9e8-D1,LED3-2.54-6*5.6*6.95L/S,R25090022,接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃,THT,electrical,False,True
+C2,1uF/0603,,,fact-1fc2e94732fde29f-C2,WSC0603,R21070090,贴片电容/1uF±10%/25V/X7R/0603,SMD,electrical,False,True
+C3,0.068uF/0603,,,fact-e573350d32d5fd8d-C3,WSC0603,R21200057,台系贴片电容/0.068uF±10%/50V/X7R/0603,SMD,electrical,False,True
+R3,22K/0805,,,fact-0cda63120bbceb05-R3,WSR0805,R20180061,贴片电阻/1/8W/22KΩ±5%/0805,SMD,electrical,False,True
+R1,220R/0805,,,fact-6cac11bc48808bb5-R1,WSR0805,R20180015,贴片电阻/1/8W/220Ω±5%/0805,SMD,electrical,False,True
+U1,TM1616,,,fact-f799712a83a6fb51-U1,WSOP16-1.27-3.8,R25070026,CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路,SMD,electrical,False,True
+C7,100pF/0603,,,fact-59f559693b291fbc-C7,WSC0603,R21070004,贴片电容/100pF±5%/50V/NPO/0603,SMD,electrical,False,True
+C6,100pF/0603,,,fact-938e7a332a34074c-C6,WSC0603,R21070004,贴片电容/100pF±5%/50V/NPO/0603,SMD,electrical,False,True
+C5,100pF/0603,,,fact-73ec59cc354c3c91-C5,WSC0603,R21070004,贴片电容/100pF±5%/50V/NPO/0603,SMD,electrical,False,True
+R2,47R/0805,,,fact-04263d5a3ab7772f-R2,WSR0805,R20180007,贴片电阻/1/8W/47Ω±5%/0805,SMD,electrical,False,True
+R4,47R/0805,,,fact-ffcfd9d77cab4cc5-R4,WSR0805,R20180007,贴片电阻/1/8W/47Ω±5%/0805,SMD,electrical,False,True
+R6,47R/0805,,,fact-36beefd0406b2fa8-R6,WSR0805,R20180007,贴片电阻/1/8W/47Ω±5%/0805,SMD,electrical,False,True
+R8,47R/0805,,,fact-4d119b524778afe9-R8,WSR0805,R20180007,贴片电阻/1/8W/47Ω±5%/0805,SMD,electrical,False,True
+R9,47R/0603,,,fact-2f0ef0668e8f3ddd-R9,WSR0603,R20190050,贴片电阻/1/10W/47Ω±5%/0603,SMD,electrical,False,True
+R7,47R/0603,,,fact-48b58668a61e3489-R7,WSR0603,R20190050,贴片电阻/1/10W/47Ω±5%/0603,SMD,electrical,False,True
+R5,47R/0603,,,fact-96bded8dc12a6bdc-R5,WSR0603,R20190050,贴片电阻/1/10W/47Ω±5%/0603,SMD,electrical,False,True
+RJ1,0R/0805,,,fact-926ea4ae5a0af444-RJ1,SR0805-J,R20180001,贴片电阻/1/8W/0Ω±5%/0805,SMD,electrical,False,True
+RJ2,0R/0805,,,fact-1393248468327684-RJ2,WSR0805-J,R20180001,贴片电阻/1/8W/0Ω±5%/0805,SMD,electrical,False,True
+DISP,6Pin/2.5mm,,,fact-e9c477a07349baf0-DISP,THT-CON6-2.5-6.4L/S,R30072135,电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446,THT,electrical,False,True
+DS1,LED,,,fact-cb132c8435d3793a-DS1,UV,,,THT,electrical,False,True
+C4,4.7uF/16V,,,fact-867b1d6fb1eb064e-C4,WSC0603,R21200046,贴片电容/4.7UF/10%/16V/X5R/0603,SMD,electrical,False,True
+C8,4.7uF/16V,,,fact-2149f4d54a06058d-C8,WSC0603,R21200046,贴片电容/4.7UF/10%/16V/X5R/0603,SMD,electrical,False,True
+C1,0.068uF/0603,,,fact-6bdd94e26535755d-C1,WSC0603,R21200057,台系贴片电容/0.068uF±10%/50V/X7R/0603,SMD,electrical,False,True
+RJ3,0R/0805,,,fact-99d5baede6167411-RJ3,WSR0805-J,R20180224,贴片电阻/1/8W/0Ω±1%/0805,SMD,electrical,False,True
+RJ4,0R/0805,,,fact-49708bfe5e1d1c4f-RJ4,WSR0805-J,R20180001,贴片电阻/1/8W/0Ω±5%/0805,SMD,electrical,False,True
+RJ5,0R/0805,,,fact-0063567891f46c67-RJ5,SR0805-J,R20180001,贴片电阻/1/8W/0Ω±5%/0805,SMD,electrical,False,True
+RJ6,0R/0805,,,fact-1e17f333bddbeec0-RJ6,SR0805-J,R20180001,贴片电阻/1/8W/0Ω±5%/0805,SMD,electrical,False,True
+RJ7,0R/0805,,,fact-30b43e31b075d6c6-RJ7,SR0805-J,R20180001,贴片电阻/1/8W/0Ω±5%/0805,SMD,electrical,False,True
+RJ8,0R/1206,,,fact-506dd102a84ce6be-RJ8,WSR1206-J,R20140001,贴片电阻/1/4W/0Ω±5%/1206,SMD,electrical,False,True
+SS,.,,,fact-3a9b27f886ccfdef-SS,SOLDER,,,,process,False,True
+DWK1,.,,,fact-41e25e55c5f814ef-DWK1,D-2.5mm,,,,process,False,True
+DWK2,.,,,fact-70befbfe99029a25-DWK2,D-2.5mm,,,,process,False,True
+check,.,,,fact-43c75c3ab5514d6f-check,1Side check-1,,,,process,False,True
+UL,.,,,fact-6726eafb06e25a76-UL,CQC-UL-PCB LOGO,,,,process,False,True
+LLOO,.,,,fact-e7c8b5275040d6c5-LLOO,NSMALL-S,,,,process,False,True
+QR Code,.,,,fact-7c9199eaeb7c00a3-QR Code,QR code,,,,process,False,False
+QR Code1,.,,,fact-2bd9384987bd0527-QR Code1,QR code,,,,process,False,True
+MM1,.,,,fact-03972fdbea714ef2-MM1,MARK1,,,,process,False,True
+MM2,.,,,fact-935d02e186402c2b-MM2,MARK1,,,,process,False,True
+MM3,.,,,fact-deaeae87f02bf086-MM3,MARK1,,,,process,False,True
+LLAA,.,,,fact-905ae3136aa9f6db-LLAA,LABEL1,,,,process,False,True

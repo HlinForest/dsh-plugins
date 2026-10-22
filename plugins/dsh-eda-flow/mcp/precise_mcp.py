@@ -4,6 +4,8 @@ No CAD import, DSL interpretation, model, or design-specific data lives here.
 Each request is an explicit set of generic objects supplied by the caller.
 """
 from __future__ import annotations
+import record_io
+from erc_report import parse_report
 
 import argparse
 import copy
@@ -318,6 +320,8 @@ class Engine:
 
     def atomic(self, path, text):
         path = self.path(path.name)
+        if path.suffix in (".json", ".jsonl"):
+            record_io.store_text(path,text)
         temp = self.path(path.name + ".tmp")
         temp.write_text(text, encoding="utf-8", newline="\n")
         os.replace(temp, path)
@@ -325,7 +329,7 @@ class Engine:
     def load(self):
         if not self.state_path.exists():
             raise ValueError("Call precise_create first")
-        state = json.loads(self.state_path.read_text(encoding="utf-8"))
+        state = record_io.read_json(self.state_path)
         actual = self.path(state["name"] + ".kicad_sch").read_bytes()
         if actual != render(state).encode("utf-8"):
             raise ValueError("Schematic was changed outside MCP; refusing to overwrite or misreport it")
@@ -355,13 +359,13 @@ class Engine:
     def audit(self, name, args, result, is_error=False):
         previous = ""
         if self.audit_path.exists():
-            lines = self.audit_path.read_text(encoding="utf-8").splitlines()
+            lines = record_io.read_text(self.audit_path).splitlines()
             if lines:
                 previous = json.loads(lines[-1])["entry_sha256"]
         entry = {"time_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "tool": name, "arguments": args, "arguments_sha256": digest(args), "result": result, "result_sha256": digest(result), "is_error": is_error, "previous_entry_sha256": previous}
         entry["entry_sha256"] = digest(entry)
-        with self.audit_path.open("a", encoding="utf-8", newline="\n") as f:
-            f.write(canonical(entry) + "\n")
+        previous_text = record_io.read_text(self.audit_path) if self.audit_path.exists() else ""
+        self.atomic(self.audit_path, previous_text + canonical(entry) + "\n")
 
     def call(self, name, args):
         lock = self.path(".precise-lock")
@@ -481,10 +485,10 @@ class Engine:
                         writer.writerow([item["reference"], values.get("Value", item.get("value", item["symbol"])), values.get("Footprint", item.get("footprint", symbol.get("footprint", ""))), item.get("in_bom", True), item.get("on_board", True), item.get("dnp", False), len(symbol["pins"]), role] + [values.get(name, "") for name in custom_names])
                 self.atomic(out, buffer.getvalue())
             else:
-                extension = {"netlist": ".net.xml", "erc": "-erc.json", "pdf": ".pdf", "svg": ".svg"}[fmt]
+                extension = {"netlist": ".net.xml", "erc": "-erc.rpt", "pdf": ".pdf", "svg": ".svg"}[fmt]
                 out = self.path(state["name"] + extension)
                 if fmt == "erc":
-                    command = [self.cli, "sch", "erc", "--format", "json", "--severity-all", "--exit-code-violations", "-o", str(out), str(sch)]
+                    command = [self.cli, "sch", "erc", "--format", "report", "--severity-all", "--exit-code-violations", "-o", str(out), str(sch)]
                 elif fmt == "svg":
                     command = [self.cli, "sch", "export", "svg", "-o", str(self.root) + os.sep, str(sch)]
                 else:
@@ -499,7 +503,8 @@ class Engine:
                 if not out.exists():
                     raise ValueError(f"KiCad did not produce {out.name}")
                 if fmt == "erc":
-                    report = json.loads(out.read_text(encoding="utf-8-sig"))
+                    report = parse_report(out.read_text(encoding="utf-8-sig"))
+                    record_io.write_json(self.path(state["name"]+"-erc.json"),report)
                     violations = [v for sheet in report.get("sheets", []) for v in sheet.get("violations", [])]
                     result["erc"] = {"violation_count": len(violations), "by_severity": {severity: sum(v.get("severity") == severity for v in violations) for severity in ["error", "warning", "exclusion"]}, "violations": violations}
             result["outputs"][fmt] = {"path": str(out), "sha256": digest(out.read_bytes()), "bytes": out.stat().st_size}

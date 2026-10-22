@@ -3,9 +3,12 @@ import path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
 import { FlowError } from './errors.js';
+import { storedText, storeText } from './record-store.js';
 
 export const hash = data => createHash('sha256').update(typeof data === 'string' || Buffer.isBuffer(data) ? data : JSON.stringify(data)).digest('hex');
 export async function readJSON(file) {
+  const record = storedText(file);
+  if (record !== undefined) return JSON.parse(record);
   const data = await fs.readFile(file);
   const location = path.resolve(String(file));
   // Inspect the bytes before parsing; do not strip or alter protected content.
@@ -27,6 +30,7 @@ export function writeJSON(file, value) {
   const payload = JSON.stringify(value, null, 2);
   const next = (writes.get(file) || Promise.resolve()).catch(() => {}).then(async () => {
     await fs.mkdir(path.dirname(file), { recursive: true });
+    storeText(file, payload);
     const tmp = file + '.' + randomUUID() + '.tmp';
     try {
       await fs.writeFile(tmp, payload);

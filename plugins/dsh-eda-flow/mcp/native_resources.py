@@ -1,3 +1,4 @@
+import record_io
 """Native library snapshots. Never reconstruct symbol geometry from model output."""
 import copy, hashlib, json, re
 from pathlib import Path
@@ -31,7 +32,7 @@ def sha(text): return hashlib.sha256(text.encode('utf8')).hexdigest()
 def policy(req):
     file=req.get('catalogFile')
     if not file: return {'mode':'configured-library-root','symbols':None,'footprints':None}
-    data=json.loads(Path(file).read_text(encoding='utf8'))
+    data=record_io.read_json(file)
     if data.get('schema')!=1 or any(not isinstance(data.get(k),list) for k in ('symbols','footprints')): raise ValueError('Invalid catalog: schema=1, symbols and footprints arrays required')
     return {**data,'mode':'allowlist','sha256':sha(Path(file).read_text(encoding='utf8'))}
 

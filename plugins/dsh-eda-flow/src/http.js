@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { within, hash } from './io.js';
+import { storedText } from './record-store.js';
 import { stages, version } from './contracts.js';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.pdf': 'application/pdf', '.json': 'application/json; charset=utf-8', '.csv': 'text/csv; charset=utf-8' };
@@ -41,7 +42,8 @@ export function routes(service) {
       const file = await within(step.output, url.searchParams.get('path')); const stat = await fs.stat(file);
       if (!stat.isFile() || stat.size > 100 * 1024 * 1024) throw new Error('文件不可读取或超过 100 MB。');
       const ext = path.extname(file).toLowerCase(); const download = url.searchParams.has('download') || !types[ext];
-      return new Response(await fs.readFile(file), { headers: { 'content-type': types[ext] || 'application/octet-stream',
+      const record = ['.json', '.jsonl'].includes(ext) ? storedText(file) : undefined;
+      return new Response(record === undefined ? await fs.readFile(file) : record, { headers: { 'content-type': types[ext] || 'application/octet-stream',
         'cache-control': 'no-store', 'x-content-type-options': 'nosniff',
         // User/model generated HTML and SVG must never execute scripts in the host origin.
         'content-security-policy': "sandbox; default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'",

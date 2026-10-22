@@ -1,3 +1,4 @@
+import record_io
 """Single-sheet native KiCad compiler, with ELK routing and independent read-back gates."""
 import sys
 sys.dont_write_bytecode=True
@@ -20,10 +21,10 @@ def io_path(p):
     if os.name=='nt' and not p.startswith('\\\\?\\'):
         p='\\\\?\\UNC\\'+p[2:] if p.startswith('\\\\') else '\\\\?\\'+p
     return Path(p)
-def read(p): return json.loads(io_path(p).read_text(encoding='utf8'))
+def read(p): return record_io.read_json(p)
 def write(p,v):
     p=io_path(p);p.parent.mkdir(parents=True,exist_ok=True)
-    p.write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='utf8')
+    record_io.write_json(p,v)
 def uid(): return str(uuid.uuid4())
 def form(key,*args): return [A(key),*args]
 def snap(x): return round(round(float(x)/1.27)*1.27,4)
@@ -214,16 +215,16 @@ def normalize_layout(layout,d,resources=None):
 
 def elk(graph,out,name,node):
     ip=out/(name+'-input.json');op=out/(name+'-output.json');write(ip,graph)
-    p=subprocess.run([node,str(Path(__file__).with_name('pack_generic.cjs')),str(ip),str(op)],capture_output=True,text=True,timeout=90)
+    p=subprocess.run([node,str(Path(__file__).with_name('pack_generic.cjs')),'--stdio'],input=json.dumps(graph),capture_output=True,text=True,encoding='utf-8',timeout=90)
     if p.returncode: raise ValueError('ELK: '+p.stderr[-2000:])
-    result=read(op)
+    result=json.loads(p.stdout);write(op,result)
     if graph.get('layoutOptions',{}).get('elk.algorithm')=='layered' and graph.get('edges'):
         from constraint_placement import compact
         result=compact(result,graph.get("grid",1.27))
         write(ip,result)
-        routed=subprocess.run([node,str(Path(__file__).with_name('route_avoid.mjs')),str(ip),str(op)],capture_output=True,text=True,timeout=90)
+        routed=subprocess.run([node,str(Path(__file__).with_name('route_avoid.mjs')),'--stdio'],input=json.dumps(result),capture_output=True,text=True,encoding='utf-8',timeout=90)
         if routed.returncode:raise ValueError('libavoid: '+routed.stderr[-2000:])
-        result=read(op)
+        result=json.loads(routed.stdout);write(op,result)
     return result
 
 def generate(resources,d,out,layout,node):

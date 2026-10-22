@@ -1,3 +1,4 @@
+import record_io
 """Read-only library queries and independent CAD/XML/BOM/footprint reconciliation."""
 import csv, hashlib, json, re, sys, shutil
 from pathlib import Path
@@ -56,7 +57,7 @@ def symbol_evidence(root,ident,evidence):
     return {'id':ident,'pins':row['pins'],'document':row['document'],'page':row['page'],'simulated':True,'pageIsPlaceholder':row['pageIsPlaceholder']}
 
 def audit(root,design,project,evidence=()):
-    state=json.loads((project/'.precise-state.json').read_text(encoding='utf8'))
+    state=record_io.read_json(project/'.precise-state.json')
     name=state['name'];net=ET.parse(project/(name+'.net.xml')).getroot()
     with (project/(name+'-bom.csv')).open(encoding='utf-8-sig',newline='') as f:bom=list(csv.DictReader(f))
     errors=[];pending=list(design['unresolved']);footprints=[];purchase=[]
@@ -151,6 +152,6 @@ def review_design(root,design,sources=()):
             except Exception as e:errors.append(c['ref']+': '+str(e))
     return {'errors':errors,'evidence':evidence,'scope':'库一致性；厂家及机械适配仍需审定'}
 if __name__=='__main__':
-    request=json.loads(Path(sys.argv[1]).read_text(encoding='utf8'));root=Path(request['libraryRoot'])
+    request=record_io.read_json(sys.argv[1]);root=Path(request['libraryRoot'])
     result=lookup(root,request['kind'],request['query']) if request.get('operation')=='lookup' else review_design(root,request['design'],request.get('evidence',[])) if request.get('operation')=='review-design' else audit(root,request['design'],Path(request['project']),request.get('evidence',[]))
-    Path(sys.argv[2]).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
+    record_io.write_json(sys.argv[2],result)

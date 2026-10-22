@@ -65,12 +65,12 @@ export async function freezeElectrical(flow,p,s){
     const reviewed=path.join(s.output,'electrical-review');
     d=await readJSON(path.join(reviewed,'electrical.json'));
     if(hash(d)!==hash({...s.plan.design,supplied_nets:s.plan.design.supplied_nets||[]}))throw new Error('已评审设计与确认清单不同，请重新执行第三步。');
-    await fs.copyFile(path.join(reviewed,'symbols.json'),path.join(dir,'symbols.json'));
+    await writeJSON(path.join(dir,'symbols.json'),await readJSON(path.join(reviewed,'symbols.json')));
     await writeJSON(path.join(dir,'electrical.json'),d);
     await writeJSON(path.join(dir,'basis.json'),{requirements:p.stages[1]?.plan?.requirements||[],inputs:p.inputs,citations:s.plan.citations||[],assumptions:s.plan.assumptions||[],scope:'User-confirmed design; no claim of manufacturer or physical validation'});
   }else{
     d=await reviewElectrical(flow,p,s.plan?.design,dir);
-    await fs.copyFile(path.join(flow.dir(p.id),p.fixedLibrary.file),path.join(dir,'symbols.json'));
+    await writeJSON(path.join(dir,'symbols.json'),await readJSON(path.join(flow.dir(p.id),p.fixedLibrary.file)));
   }
   const contract={schema:2,engine:p.layoutEngine||'display-board',template:p.layoutEngine==='native-kicad'?'generic-v1':'display-board-v1',electricalHash:hash(d),stage3OutputHash:s.outputHash,stage3PlanHash:hash(s.plan),libraryHash:hash(await fs.readFile(path.join(dir,'symbols.json')))};
   await writeJSON(path.join(dir,'contract.json'),contract);

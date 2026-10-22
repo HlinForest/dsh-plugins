@@ -47,7 +47,8 @@ export function resolveDesignFacts(design,p) {
   if (!design || !Array.isArray(design.components)) return design;
   const facts=sourceEvidence(p).filter(r=>r.sourceType==='model-specification-fact');
   return {...design,components:design.components.map(component=>{
-    const fact=component.sourceFactId ? facts.find(r=>r.id===component.sourceFactId) : facts.find(r=>r.reference && r.reference===component.ref);
+    const symbols=facts.filter(r=>r.symbolId===component.librarySymbol);
+    const fact=component.sourceFactId ? facts.find(r=>r.id===component.sourceFactId) : facts.find(r=>r.reference && r.reference===component.ref) || (symbols.length===1 ? symbols[0] : undefined);
     if(component.sourceFactId&&!fact)throw Error('未知器件事实：'+component.sourceFactId);
     if(!fact)return component;
     const {sourceFactId,...overrides}=component;

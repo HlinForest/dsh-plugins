@@ -1,4 +1,5 @@
 """Frozen component-library instances, independent of page placement and routing."""
+import record_io
 import collections,copy,csv,hashlib,json,math
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -6,7 +7,7 @@ import xml.etree.ElementTree as ET
 def load(root):
     p=Path(root)/'.fixed-components.json'
     if not p.exists():return None
-    data=p.read_bytes()
+    data=record_io.read_text(p).encode('utf-8')
     if hashlib.sha256(data).hexdigest()!=(Path(root)/'.fixed-components.sha256').read_text().strip():
         raise ValueError('Fixed library fingerprint mismatch')
     lib=json.loads(data)

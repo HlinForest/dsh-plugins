@@ -1,0 +1,69 @@
+{
+  "version": "0.9.5-beta.3",
+  "date": "2026-10-22",
+  "model": {
+    "provider": "deepseek-account",
+    "model": "deepseek-flash",
+    "reasoningEffort": "max"
+  },
+  "completedStages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+  ],
+  "pcb": "skipped",
+  "objects": 41,
+  "pins": 85,
+  "erc": {
+    "by_severity": {
+      "error": 0,
+      "warning": 0
+    },
+    "violation_count": 0
+  },
+  "sourceMetadataMismatches": 0,
+  "displayMetadata": {
+    "Reference": "DS1",
+    "Value": "LED",
+    "Footprint": "",
+    "MPN": "",
+    "DesignId": "fact-cb132c8435d3793a-DS1",
+    "OriginalFootprint": "UV",
+    "MaterialCode": "",
+    "MaterialDescription": "",
+    "AssemblyType": "THT",
+    "ObjectRole": "electrical",
+    "DNP": "False",
+    "OnBoard": "True"
+  },
+  "sqliteDatabasesChecked": 44,
+  "sqliteRecordsChecked": 277,
+  "archiveJsonFilesParsed": 140,
+  "archiveRecordExportsVerified": 139,
+  "pdfVisualReview": "completed",
+  "package": {
+    "sha256": "a7d8a6d100b430de1dca60855cd07f85918389d85f2b7860c2f5df79a953ca8c",
+    "sourceFilesVerified": 229
+  },
+  "nets": 24,
+  "restartReadback": "passed",
+  "protectedJsonFullFlow": "passed",
+  "genericProtectedJson": {
+    "status": "passed",
+    "protectedJsonExports": 17,
+    "realDeepSeekDesignReplayed": true
+  },
+  "regression": {
+    "passed": 99,
+    "skipped": 1,
+    "method": "Full suite: 98 passed, 1 old archive-file-list assertion failed, 1 existing skip. Updated the assertion for the added export manifest; targeted rerun passed."
+  },
+  "installerTest": {
+    "mode": "isolated stub package manager",
+    "status": "passed",
+    "configurationPreserved": true
+  }
+}

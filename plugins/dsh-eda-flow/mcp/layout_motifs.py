@@ -1,16 +1,17 @@
+import record_io
 """Reviewed motif recognition and rendering; no reference-specific dispatch."""
 import sys
 sys.dont_write_bytecode=True
 import json,math,copy,subprocess,collections,hashlib
 from pathlib import Path
 ROOT=Path(__file__).parent
-def dump(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2),encoding='utf8')
+def dump(p,x):record_io.write_json(p,x)
 from wiring_policy import SERIES_GAP, TERMINAL_STUB, ARRAY_STUB
 import precise_mcp as pm
 import fixed_components as fc
 import functional_layout as geom
 
-def read(p): return json.loads(p.read_text(encoding='utf8'))
+def read(p): return record_io.read_json(p)
 def pt(p): return [round(v,4) for v in p[:2]]
 lib={};circuit={};parts={};netof={};netnodes={}
 
@@ -124,7 +125,8 @@ def generate(library, design, out, gap=5.08, node='node'):
     dump(out/'motif-recognition.json',{'matches':[{'template':t['id'],**m} for t,m in matches],'unmatched':[]})
     refs=[r for b in blocks for r in b.comps];assert len(refs)==len(set(refs)) and set(refs)==set(parts)
     job={'gap':gap,'blocks':[b.finish() for b in blocks],'rows':[rows[k] for k in sorted(rows)]};dump(out/'elk-input.json',job)
-    subprocess.run([node,str(ROOT/'pack_motifs.cjs'),str(out/'elk-input.json'),str(out/'elk-output.json')],check=True)
+    packed_process=subprocess.run([node,str(ROOT/'pack_motifs.cjs'),'--stdio'],input=json.dumps(job),capture_output=True,text=True,encoding='utf-8',check=True)
+    dump(out/'elk-output.json',json.loads(packed_process.stdout))
     packed=read(out/'elk-output.json');state={'uuid':'e27b90b3-6687-4aa0-bc93-086cc26f10d5','items':{},'symbols':{},'revision':1};state['name']='DisplayBoard_ELK_A4';state['title']='Frozen circuit - A4 / reviewed motifs + ELK'
     positions={};rowpos={r['id']:r for r in packed['page']['children']}
     for row in packed['rows']:

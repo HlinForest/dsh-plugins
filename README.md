@@ -1,5 +1,7 @@
 # DSH Plugins
 
+[0.9.5-beta.3 内网更新包：默认 DOCX、完整 CAD 记录存储与显示板实测](intranet/eda-flow-0.9.5-beta.3/README.md)。
+
 ## 电路设计 0.9.5-beta.1 内网试用
 
 [直接从仓库获取完整安装包（无需 Release）](intranet/eda-flow-0.9.5-beta.1/README.md) · [安装说明](docs/eda-flow-0.9.5-intranet.md)
