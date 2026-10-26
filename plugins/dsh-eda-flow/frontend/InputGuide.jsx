@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { inputGroups } from '../src/contracts.js';
 
 export function inputFiles(project, stage) {
@@ -18,7 +18,7 @@ const guides = {
   2: { defaults: '已载入器件、连接、PCB 和依赖的提取数据。下方 AD 名称仅为来源记录，无需勾选或重新上传。', blank: '添加需求文档、接口表或已有资料；没有 AD 工程和参考电路也可以开始。',
     action: '点击底部“整理输入” → 等待处理完成 → 核对“提取数据 / 资料关联” → “确认并继续”。', supplement: '文字依据填在“资料关联”；新文件点“添加资料”。若资料校验失败，先点“检查资料读取”。', target: { stage: 2, tab: 0, upload: true, label: '添加资料' } },
   3: { defaults: '器件、引脚与原始属性已载入；厂家规格书 PDF 尚未提供。', blank: '提供准确型号、位号、封装与装配状态，并上传对应厂家的规格书 PDF。',
-    action: '点击“读取并核对” → 检查“参数复核”中的来源与缺项 → 确认继续。', supplement: '在“规格书 → 添加规格书”上传 PDF，绑定型号或位号。演示暂不补齐时，可选择“带待确认项继续草稿”。', target: { stage: 3, tab: 1, upload: true, label: '添加并绑定规格书' } },
+    action: '点击“读取并核对” → 检查“参数复核”中的来源与缺项 → 确认继续。', supplement: '在“规格书 → 添加规格书”上传 PDF，绑定型号或位号。资料尚未齐全时，可选择“带待确认项继续草稿”。', target: { stage: 3, tab: 1, upload: true, label: '添加并绑定规格书' } },
   4: { defaults: '完整连接、符号、参数和页面坐标已载入。', blank: '提供功能分块、电源和接口、逐引脚连接、NC 与布局要求；可先向 AI 助手咨询并复核建议。',
     action: '点击“生成原理图” → 查看“图纸”和“检查” → 确认继续。', supplement: '连接与调整写入“连接与参数”的补充栏；连接表等文件点“补充本步资料”。ERC 问题在“检查”页复核。', target: { stage: 4, tab: 0, label: '填写连接与参数' } },
   5: { defaults: '已有物料属性、封装几何与引脚映射。', blank: '提供型号、企业料号、DNP、封装尺寸及焊盘与引脚对应关系。',
@@ -32,20 +32,29 @@ export function InputGuide({ project, stage, onFiles, onUpload, onLocate }) {
   const files = inputFiles(project, stage);
   const guide = guides[stage];
   return <section className="input-guide" aria-label="本步输入来源">
-    <div><strong>{project.template ? '显示板默认输入已载入' : '本步由工程师提供输入'}</strong>
+    <div><strong>{project.template ? '显示板输入已载入' : '本步由工程师提供输入'}</strong>
       <p>{project.template ? guide.defaults : guide.blank}</p>
       <p><b>本步操作</b> {guide.action}</p>
       <details><summary>需要补什么、在哪里补</summary><p>{guide.supplement}</p>{guide.target && <button className="text-link" onClick={() => onLocate(guide.target)}>{guide.target.label}</button>}</details>
     </div>
-    <div className="input-guide-actions">{project.template && <><button className="text-link" onClick={onFiles}>查看本步默认资料</button><span className="muted">{files.length} 份关联资料</span></>}{stage > 1 && <button className="text-link" onClick={onUpload}>补充本步资料</button>}</div>
+    <div className="input-guide-actions">{project.template && <><button className="text-link" onClick={onFiles}>查看本步资料</button><span className="muted">{files.length} 份关联资料</span></>}{stage > 1 && <button className="text-link" onClick={onUpload}>补充本步资料</button>}</div>
   </section>;
 }
-export function PendingItems({ state, stage, onLocate }) {
-  const items = [...(state.gaps || []), ...(state.assumptions || [])];
+export function PendingItems({ state, stage, onLocate, textMode = false, notes = "", onSaveSupplement, busy }) {
+  const items = [...new Set([...(state.gaps || []), ...(state.assumptions || [])])];
   if (!items.length) return null;
-  return <section className="pending-items" aria-label="本步待确认项">
-    <h3>本步待确认项 · {items.length}</h3>
-    <p className="page-help">逐项核对或补充；暂不补充时，可在底部选择“带待确认项继续草稿”。</p>
-    <ul>{items.map((text, index) => { const target = issueTarget(text, stage); return <li key={index}><span>{text}</span><button className="text-link" onClick={() => onLocate(target)}>{target.label}</button></li>; })}</ul>
-  </section>;
+  return <details className="pending-items" aria-label="本步待确认项"><summary>待确认项 · {items.length}</summary>
+    <p className="page-help">{state.status === 'done' ? '逐项核对或补充；暂不补充时，可在底部选择“带待确认项继续草稿”。' : '点击对应入口补充文字，保存后再执行本步；待补问题不会自动记为完成。'}</p>
+    <ul>{items.map((text, index) => { const legacyTarget = issueTarget(text, stage); const target = textMode ? (/规格书|datasheet|PDF.*器件/i.test(text) ? { stage: 3, tab: 1, field: 'datasheetText', label: '补充规格书正文' } : /ERC/.test(text) ? { stage: 4, tab: 2, label: '查看实际 ERC' } : { stage, tab: 0, field: 'stageNotes', label: '补充文字要求' }) : legacyTarget; return textMode && target.field ? <SupplementItem key={`${stage}:${text}`} text={text} label={target.label} notes={notes} onSave={onSaveSupplement} busy={busy}/> : <li key={index}><span>{text}</span><button className="text-link" onClick={() => onLocate(target)}>{target.label}</button></li>; })}</ul>
+  </details>;
+}
+
+export function SupplementItem({text,label,notes,onSave,busy}) {
+ const prefix='【补充确认：'+text+'】\n',suffix='\n【补充结束】';
+ const start=notes.indexOf(prefix),end=start<0?-1:notes.indexOf(suffix,start+prefix.length);
+ const saved=end<0?'':notes.slice(start+prefix.length,end);
+ const [open,O]=useState(false),[draft,D]=useState(null),[error,E]=useState(''),[saving,S]=useState(false);
+ const value=draft===null?saved:draft,dirty=value!==saved;
+ const save=async()=>{S(true);E('');try{await onSave(text,value);D(null)}catch(e){E(e.message)}finally{S(false)}};
+ return <li className="supplement-item"><div className="supplement-row"><span>{text}</span><button className="text-link" aria-expanded={open} onClick={()=>O(!open)}>{label}</button><small>{dirty?'未保存':saved?'已确认保存':'待补充'}</small></div><div hidden={!open} className="supplement-editor"><label>本项补充<textarea value={value} onChange={e=>D(e.target.value)} disabled={saving}/></label><p>确认后保存到本步输入；不会自动确认设计或启动模型。涉及规格书时请注明型号、来源和页码。</p>{error&&<p role="alert">{error}</p>}<button disabled={busy||saving||!value.trim()||!dirty} onClick={save}>{saving?'正在保存…':'确认并保存本项'}</button><button onClick={()=>O(false)}>收起</button></div></li>;
 }

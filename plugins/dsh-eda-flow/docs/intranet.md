@@ -1,49 +1,62 @@
-# 内网安装与试用
+# 0.11.3-beta.1 内网部署与使用
 
-已有安装升级到 **0.3.3**，优先使用[保留配置的更新命令](../../../docs/update-eda-flow-0.3.3.md)，无需填写工作目录。以下完整离线包用于首次安装 0.3.1，安装后再升级。
+本文描述当前插件包的部署方式。部署方需要准备一份 `dsh-eda-flow-0.11.3-beta.1.tgz`、Harness CLI 的 `dsh.cmd`、一个已初始化的 Harness profile、KiCad CLI/Python 和可写的工程工作区。插件包不包含 Harness、KiCad、模型登录、外部 PDF 或桌面 Electron 运行时。
 
-解压 `EDA_Flow_Intranet_0.3.1.zip`，保留目录。安装包已包含显示板输入，无需旧工作台、旧工程目录或开发机路径。
+显示板与空白项目共用通用七步文字流程。显示板预填页面中可见的普通文字输入和步骤补充；没有内置规格书、提取记录、原理图、PCB 或固定器件库。本轮演示分别上传 TM1616、LED 显示模块、IRM-3638M3-X 和 6Pin 连接器的四份外置 PDF。内网测试在相同入口上传对应型号的厂家原始规格书；文件名和数量没有限定。文件保存在插件目录之外，创建项目后通过第二步的“添加 PDF / DOCX 资料”上传，在第三步绑定型号或位号并核对来源页码。其他普通器件按文字约束和通用库选型。
 
-[GitHub 完整离线包与 UI skills](https://github.com/HlinForest/dsh-plugins/releases/tag/eda-flow-v0.3.1)。完整包包含独立窗口运行时、Python 离线依赖与 `skills/megmeet-dsh-plugin-skills`；安装器自动复制随包窗口运行时，不联网下载它。Harness、Node 与 KiCad 仍需预先安装。更新前先关闭电路设计窗口。
+## 安装前检查
 
-先在 Harness 中选好内网可用模型。插件使用该模型，不另填密钥。
+1. 关闭正在运行的电路设计窗口，保留现有 Harness profile 和项目数据。
+2. 在 Harness 中选择内网允许使用的模型；插件沿用该选择，不另存密钥。
+3. 确认 `WorkspaceRoot` 已存在，`KicadDirectory` 中有 `python.exe` 和 `kicad-cli.exe`。
+4. 准备 supplied TGZ 和 DSH CLI 的实际路径。安装器不会从插件目录猜测包文件，也不会寻找旧版固定包名。
 
-在解压目录运行（将工作区与 KiCad 路径换成内网电脑的实际路径）：
+## 使用当前安装器
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\install-offline-python.ps1 -PythonExe 'D:\KiCad\bin\python.exe'
-powershell -ExecutionPolicy Bypass -File .\scripts\check-environment.ps1 -WorkspaceRoot 'D:\EDA' -KicadDirectory 'D:\KiCad\bin'
-powershell -ExecutionPolicy Bypass -File .\scripts\install-intranet.ps1 -WorkspaceRoot 'D:\EDA' -KicadDirectory 'D:\KiCad\bin' -Profile desktop
-```
-
-工作区需先存在。安装器备份 profile 清单和配置，保留现有模型与登录，默认开启模型处理。安装不会发起模型请求。重启 Harness，点击侧边栏“原理图与 PCB 流程”。
-
-包内 Node 运行依赖已携带；若 profile 中其他依赖没有离线缓存，可给安装器加 `-Registry` 指向允许的内网 npm 源。DSH 不在默认安装位置时使用 `-DshCommand` 指定 dsh.cmd。
-
-也可手动执行：
+从完整交付 ZIP 解压后的根目录运行。若从插件源码目录运行，将下面的 `install` 目录改为 `scripts`：
 
 ```powershell
-dsh plugin --profile desktop add .\plugin\dsh-eda-flow-0.3.1.tgz
+powershell -ExecutionPolicy Bypass -File .\install\install-intranet.ps1 `
+  -SuppliedPackage 'E:\drop\dsh-eda-flow-0.11.3-beta.1.tgz' `
+  -DshPath 'C:\Users\Public\AppData\Local\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd' `
+  -Profile desktop `
+  -WorkspaceRoot 'D:\EDA' `
+  -KicadDirectory 'D:\KiCad\bin'
 ```
 
-将该插件配置为：
+参数说明：
 
-```yaml
-- id: eda-flow
-  config:
-    workspaceRoot: 'D:/EDA'
-    workDirectory: 'D:/EDA/eda-flow'
-    kicadPython: 'D:/KiCad/bin/python.exe'
-    kicadCli: 'D:/KiCad/bin/kicad-cli.exe'
-    allowModelCalls: true
+- `SuppliedPackage`：部署方实际提供的 `.tgz` 文件，可以位于插件目录之外。
+- `DshPath`：要使用的 Harness DSH CLI 文件路径。
+- `Profile`：目标 Harness profile，默认是 `desktop`；安装器要求该 profile 已初始化。
+- `WorkspaceRoot`：项目工作区根目录。
+- `KicadDirectory`：包含 KiCad CLI/Python 的目录。
+- `WorkDirectory`：可选，默认是 `WorkspaceRoot\eda-flow`。
+- `DshHomePath`：可选，默认是当前用户的 `.dsh` 目录。
+- `DesktopRuntimeSource`：可选，指向已获准的 Electron 解压目录；详见 [桌面窗口说明](desktop-window.md)。
+- `Registry`：可选，只有明确允许使用内网 npm 源时才传入；省略时使用已有本地 pnpm store 和 `--offline`。
+
+安装器会：
+
+- 校验 supplied TGZ、DSH CLI 和 KiCad 可执行文件的本地路径；
+- 把 TGZ 按 SHA-256 缓存在 `WorkDirectory\plugin-cache`，重复运行会复用相同文件；
+- 备份 profile 的 package、patch 和 lock 文件；
+- 通过 Harness CLI 安装 supplied TGZ，并只更新带 `eda-flow-intranet managed config` 标记的配置段；
+- 写入 `workspaceRoot`、`workDirectory`、`kicadCli`、`kicadPython` 和 `allowModelCalls`；
+- 在工作目录保存备份、安装记录和本地 profile 验证日志。
+
+它不会复制登录信息、打印配置内容、发起模型请求或默认联网。配置验证失败时会恢复原 patch；保留备份目录，便于人工恢复。安装完成后重启 Harness，并确认页面左下角的页面版本和后台版本都为 `0.11.3-beta.1`。
+
+## 环境检查与试用
+
+安装前可运行只读环境检查；它只验证工作区、KiCad、Python 依赖和本地 PDF 读取器，不连接模型：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install\check-environment.ps1 `
+  -WorkspaceRoot 'D:\EDA' `
+  -KicadDirectory 'D:\KiCad\bin'
 ```
 
-按 [桌面窗口说明](desktop-window.md) 部署独立运行时后，点击电路设计图标打开独立桌面窗口；悬停可查看入口名称。未部署运行时时使用 Edge 回退。“新建项目”选择显示板输入或空白输入。第一步可人工确认，其他生成阶段调用真实模型；错误按服务实际返回分类。文件选择会将资料复制到当前项目目录。
+安装后从 Harness 的电路设计入口打开窗口，新建“空白项目”或“显示板”。显示板中的普通输入和每一步补充说明应当直接显示并可编辑；未上传外部 PDF 时，第二、三步应显示待上传状态。上传资料后，核对文件名、状态、正文字符数、绑定对象和来源页码，再进行模型处理。
 
-UI skills 是供开发助手复用的界面规范，不是运行插件的必要依赖。可直接阅读随包 `skills/megmeet-dsh-plugin-skills/SKILL.md`；在 Codex 使用时把整个文件夹复制到本机技能目录，然后指定 `$megmeet-dsh-plugin-skills`。它包含通用 UI spec、显示板流程约定及实拍参考。
-
-试用记录在 `workDirectory/projects/<项目ID>/steps/<步骤>/<运行ID>`：`model-log.json` 是实际模型输入、读取、输出与错误；`commands.json` 是本次工具执行；`result.json` 是结果；原工程和规格书快照也在对应步骤。第 7 步提供工程 ZIP 与完整冻结记录 ZIP。
-
-内网验收重点：确认选中的真实模型能读到默认数据，执行七步，并核对模型名、请求日志、图纸、BOM、PCB、差异报告。空目录重放使用已记录方案，因此不重新消耗模型额度。它验证工具执行可复现，不能代替真实模型能力验证。
-
-本机验证不调用付费模型；随包验证报告明确标出模拟接口和真实 KiCad 的各自范围。
+试用记录位于 `WorkDirectory\projects\<项目ID>`，具体步骤、模型请求、工具执行和生成文件以页面的操作记录及交付下载为准。真实模型能力、KiCad 输出和外部 PDF 事实仍需内网工程师验收；本地安装脚本本身不代表模型或量产验证已通过。

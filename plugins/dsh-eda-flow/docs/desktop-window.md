@@ -4,7 +4,7 @@
 
 插件包携带 `desktop` 入口和图标，Electron 二进制单独部署在插件工作目录，避免修改宿主依赖。当前固定 Electron 44.7.2、Windows x64。
 
-有网络的电脑，在插件目录执行：
+以下命令从插件源码目录执行；若使用完整交付 ZIP，在解压根目录将 `scripts` 改为 `install`。有网络的电脑执行：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\install-desktop-runtime.ps1 -WorkDirectory 'D:\EDA\eda-flow' -Download

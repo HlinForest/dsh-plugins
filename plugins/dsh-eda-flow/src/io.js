@@ -2,14 +2,35 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
+import { FlowError } from './errors.js';
+import { storedText, storeText } from './record-store.js';
 
 export const hash = data => createHash('sha256').update(typeof data === 'string' || Buffer.isBuffer(data) ? data : JSON.stringify(data)).digest('hex');
-export const readJSON = async file => JSON.parse((await fs.readFile(file, 'utf8')).replace(/^\uFEFF/, ''));
+export async function readJSON(file) {
+  const record = storedText(file);
+  if (record !== undefined) return JSON.parse(record);
+  const data = await fs.readFile(file);
+  const location = path.resolve(String(file));
+  // Inspect the bytes before parsing; do not strip or alter protected content.
+  if (/^%?TSD-Header/i.test(data.subarray(0, 64).toString('utf8').replace(/^\uFEFF/, ''))) {
+    throw new FlowError('encrypted',
+      `JSON 文件读取到 TSD-Header 保护格式：${location}。当前读取进程：${process.execPath}。请由内网 IT 核对该进程对这个文件及其目录的读取授权，处理后重试。原文件已保留。`,
+      { path: location, format: 'json', protection: 'TSD-Header', operation: 'read-json',
+        processExecutable: process.execPath, bytes: data.length });
+  }
+  try { return JSON.parse(data.toString('utf8').replace(/^\uFEFF/, '')); }
+  catch (error) {
+    if (!(error instanceof SyntaxError)) throw error;
+    throw new FlowError('integrity', `JSON 文件格式无效：${location}。未检测到 TSD-Header，不能据此判定为加密；请核对文件是否完整。原文件已保留。`,
+      { path: location, format: 'json', operation: 'read-json', processExecutable: process.execPath, bytes: data.length });
+  }
+}
 const writes = new Map();
 export function writeJSON(file, value) {
   const payload = JSON.stringify(value, null, 2);
   const next = (writes.get(file) || Promise.resolve()).catch(() => {}).then(async () => {
     await fs.mkdir(path.dirname(file), { recursive: true });
+    storeText(file, payload);
     const tmp = file + '.' + randomUUID() + '.tmp';
     try {
       await fs.writeFile(tmp, payload);

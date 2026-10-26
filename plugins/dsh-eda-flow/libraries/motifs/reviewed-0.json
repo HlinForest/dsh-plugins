@@ -1,0 +1,2438 @@
+{
+  "id": "reviewed-0",
+  "schema": 1,
+  "provenance": "Approved existing schematic presentation; no electrical design inference",
+  "pattern": {
+    "parts": {
+      "P0": {
+        "kind": "73ec062dbac0a727262ab9443b4d20c011f6a8fc828558a415dccf01773368af",
+        "pins": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "P1": {
+        "kind": "129b7db221768ca679ab5e4739c181a13a79783641d1a7218de78b97d8a39752",
+        "pins": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ]
+      },
+      "P2": {
+        "kind": "5f75cd6c0e5c3b98c35c544b8629b8e5ce127f234bd865bb0faac1e332d680d3",
+        "pins": [
+          "1",
+          "2"
+        ]
+      },
+      "P3": {
+        "kind": "b32d6f446cad7e761270d63a52fb5c8a43d8536c0567b49fd7d141acd68335dd",
+        "pins": [
+          "1",
+          "2"
+        ]
+      },
+      "P4": {
+        "kind": "4f542736b4731e061ad45fe676c176fb70e6f2355e948a00f851bb9a4315c014",
+        "pins": [
+          "1",
+          "2"
+        ]
+      },
+      "P5": {
+        "kind": "b9409ad8f20cdc1339cab5f2c7a43d2dce665a45ff2ecd098df8a1f0130c226e",
+        "pins": [
+          "1",
+          "2"
+        ]
+      }
+    },
+    "nets": [
+      {
+        "name": "N0",
+        "nodes": [
+          "P1.3",
+          "P2.1",
+          "P5.1"
+        ]
+      },
+      {
+        "name": "N1",
+        "nodes": [
+          "P1.2",
+          "P0.2",
+          "P3.2",
+          "P4.2"
+        ]
+      },
+      {
+        "name": "N2",
+        "nodes": [
+          "P2.2",
+          "P0.3",
+          "P3.1",
+          "P4.1"
+        ]
+      },
+      {
+        "name": "N3",
+        "nodes": [
+          "P0.1",
+          "P5.2",
+          "P1.1"
+        ]
+      },
+      {
+        "name": "N4",
+        "nodes": [
+          "P1.4"
+        ]
+      },
+      {
+        "name": "N5",
+        "nodes": [
+          "P1.5"
+        ]
+      },
+      {
+        "name": "N6",
+        "nodes": [
+          "P1.6"
+        ]
+      }
+    ],
+    "nc": []
+  },
+  "items": [
+    {
+      "kind": "component",
+      "reference": "P0",
+      "at": [
+        0,
+        58.42,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0,
+            42,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料描述": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料编码": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "优选等级": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "装配类型": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P1",
+      "at": [
+        96.52,
+        58.42,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            86.36,
+            32,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料描述": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "优选等级": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料编码": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "装配类型": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            96.52,
+            58.42,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P2",
+      "at": [
+        60.96,
+        12.7,
+        180
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            54,
+            10.8,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "物料编码": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料描述": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "优选等级": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "装配类型": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            60.96,
+            12.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P3",
+      "at": [
+        30.48,
+        25.4,
+        180
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            32.480000000000004,
+            28.4,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "物料编码": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料描述": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "优选等级": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "装配类型": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            32.480000000000004,
+            31.4,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            30.48,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P4",
+      "at": [
+        45.72,
+        25.4,
+        180
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            47.72,
+            28.4,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "物料编码": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料描述": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "优选等级": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "装配类型": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            47.72,
+            31.4,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            45.72,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N2",
+      "at": [
+        22.86,
+        12.7,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P5",
+      "at": [
+        71.12,
+        25.4,
+        180
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            73,
+            28,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "物料编码": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "物料描述": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "优选等级": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "装配类型": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            73,
+            31,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "right",
+              "top"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            71.12,
+            25.4,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N0",
+      "at": [
+        71.12,
+        12.7,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N3",
+      "at": [
+        55.88,
+        52.07,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N1",
+      "at": [
+        45.72,
+        60.96,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N4",
+      "at": [
+        83.82,
+        45.72,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N5",
+      "at": [
+        83.82,
+        41.91,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N6",
+      "at": [
+        83.82,
+        38.1,
+        0
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          17.78,
+          46.99
+        ],
+        [
+          22.86,
+          46.99
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          22.86,
+          12.7
+        ],
+        [
+          22.86,
+          46.99
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          22.86,
+          12.7
+        ],
+        [
+          50.8,
+          12.7
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          30.48,
+          12.7
+        ],
+        [
+          30.48,
+          25.4
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          45.72,
+          12.7
+        ],
+        [
+          45.72,
+          25.4
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "junction",
+      "at": [
+        45.72,
+        12.7
+      ],
+      "diameter": 0.7
+    },
+    {
+      "kind": "junction",
+      "at": [
+        30.48,
+        12.7
+      ],
+      "diameter": 0.7
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          17.78,
+          57.15
+        ],
+        [
+          20.32,
+          57.15
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          20.32,
+          57.15
+        ],
+        [
+          20.32,
+          60.96
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          20.32,
+          60.96
+        ],
+        [
+          78.74,
+          60.96
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          30.48,
+          33.02
+        ],
+        [
+          30.48,
+          60.96
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          45.72,
+          33.02
+        ],
+        [
+          45.72,
+          60.96
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          78.74,
+          53.34
+        ],
+        [
+          78.74,
+          60.96
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          78.74,
+          53.34
+        ],
+        [
+          88.9,
+          53.34
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "junction",
+      "at": [
+        30.48,
+        60.96
+      ],
+      "diameter": 0.7
+    },
+    {
+      "kind": "junction",
+      "at": [
+        45.72,
+        60.96
+      ],
+      "diameter": 0.7
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          60.96,
+          12.7
+        ],
+        [
+          71.12,
+          12.7
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          71.12,
+          12.7
+        ],
+        [
+          71.12,
+          25.4
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          71.12,
+          12.7
+        ],
+        [
+          81.28,
+          12.7
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          81.28,
+          12.7
+        ],
+        [
+          81.28,
+          49.53
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          81.28,
+          49.53
+        ],
+        [
+          88.9,
+          49.53
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "junction",
+      "at": [
+        71.12,
+        12.7
+      ],
+      "diameter": 0.7
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          17.78,
+          52.07
+        ],
+        [
+          76.2,
+          52.07
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          71.12,
+          35.56
+        ],
+        [
+          71.12,
+          52.07
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          76.2,
+          52.07
+        ],
+        [
+          76.2,
+          57.15
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          76.2,
+          57.15
+        ],
+        [
+          88.9,
+          57.15
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "junction",
+      "at": [
+        71.12,
+        52.07
+      ],
+      "diameter": 0.7
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          83.82,
+          45.72
+        ],
+        [
+          88.9,
+          45.72
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          83.82,
+          41.91
+        ],
+        [
+          88.9,
+          41.91
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          83.82,
+          38.1
+        ],
+        [
+          88.9,
+          38.1
+        ]
+      ],
+      "width": 0.18
+    }
+  ],
+  "required": [
+    [
+      "P0.1",
+      "P1.1",
+      "P5.2"
+    ],
+    [
+      "P0.2",
+      "P1.2",
+      "P3.2",
+      "P4.2"
+    ],
+    [
+      "P0.3",
+      "P2.2",
+      "P3.1",
+      "P4.1"
+    ],
+    [
+      "P1.3",
+      "P2.1",
+      "P5.1"
+    ]
+  ],
+  "row": 0,
+  "order": 0,
+  "bounds": [
+    -4.21,
+    4.811999999999999,
+    100.33,
+    65.77
+  ]
+}

@@ -1,0 +1,2710 @@
+{
+  "id": "reviewed-4",
+  "schema": 1,
+  "provenance": "Approved existing schematic presentation; no electrical design inference",
+  "pattern": {
+    "parts": {
+      "P0": {
+        "kind": "10b5e63b0443611293583bccaacdf4ba889e7ed5222c1183a5cb095a17db1acd",
+        "pins": []
+      },
+      "P1": {
+        "kind": "6211416662b7bca4d5ca1d8f994b920ecd84c8ab599cffcd03352977db87deae",
+        "pins": []
+      },
+      "P2": {
+        "kind": "5912b680164bb4b68dbd99ae2a67dd2e2a8e702ce3c4d6421fd907ccd4260733",
+        "pins": []
+      },
+      "P3": {
+        "kind": "438093cf21542bd8cf3d90be8a04781447051475df2efe8a11eeb0de8e15b030",
+        "pins": []
+      },
+      "P4": {
+        "kind": "438093cf21542bd8cf3d90be8a04781447051475df2efe8a11eeb0de8e15b030",
+        "pins": []
+      },
+      "P5": {
+        "kind": "597afdb119d382aba6a5d63ae50da08f789a80ad30f4d96620336653e7b093b1",
+        "pins": []
+      },
+      "P6": {
+        "kind": "a8157bbec8ed2a1ceb522148385ea1bd0f8423c3e681aa2c64762fd3d8f98c89",
+        "pins": []
+      },
+      "P7": {
+        "kind": "d4e6a9c5ecefba535ac9095f24c5fe4ac0e53f372a439eb6d3ee5d52daa2fe80",
+        "pins": []
+      },
+      "P8": {
+        "kind": "d4e6a9c5ecefba535ac9095f24c5fe4ac0e53f372a439eb6d3ee5d52daa2fe80",
+        "pins": []
+      },
+      "P9": {
+        "kind": "2e1edc046035f74be2850b745e7fed934325d245247d964e3a3bfc7a023703fb",
+        "pins": []
+      },
+      "P10": {
+        "kind": "2e1edc046035f74be2850b745e7fed934325d245247d964e3a3bfc7a023703fb",
+        "pins": []
+      },
+      "P11": {
+        "kind": "2e1edc046035f74be2850b745e7fed934325d245247d964e3a3bfc7a023703fb",
+        "pins": []
+      }
+    },
+    "nets": [],
+    "nc": []
+  },
+  "items": [
+    {
+      "kind": "component",
+      "reference": "P0",
+      "at": [
+        0.908,
+        5.318,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0.4,
+            2.178,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0.908,
+            5.318,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P1",
+      "at": [
+        0.4,
+        13.938,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0.4,
+            11.306,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0.4,
+            13.938,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P2",
+      "at": [
+        0.4,
+        22.05,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0.4,
+            19.418,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0.4,
+            22.05,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P3",
+      "at": [
+        0.4,
+        31.432,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0.4,
+            27.53,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0.4,
+            31.432,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P4",
+      "at": [
+        0.4,
+        41.83,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0.4,
+            37.928,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0.4,
+            41.83,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P5",
+      "at": [
+        0.4,
+        51.466,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0.4,
+            48.326,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            0.4,
+            51.466,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P6",
+      "at": [
+        29.61,
+        8.874,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            29.61,
+            2.178,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            29.61,
+            8.874,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P7",
+      "at": [
+        29.61,
+        14.7,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            29.61,
+            12.322,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            29.61,
+            14.7,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P8",
+      "at": [
+        29.61,
+        22.304,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            29.61,
+            19.926,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            29.61,
+            22.304,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P9",
+      "at": [
+        29.61,
+        30.67,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            29.61,
+            27.53,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            29.61,
+            30.67,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P10",
+      "at": [
+        29.61,
+        39.798,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            29.61,
+            36.658,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            29.61,
+            39.798,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "component",
+      "reference": "P11",
+      "at": [
+        29.61,
+        48.926,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            29.61,
+            45.786,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            29.61,
+            48.926,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [],
+  "row": 1,
+  "order": 4,
+  "bounds": [
+    -3.81,
+    -3.81,
+    50.438,
+    57.816
+  ]
+}

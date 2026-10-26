@@ -1,0 +1,145 @@
+{
+  "id": "power-decoupling",
+  "version": "1.0.0",
+  "description": "电源并联去耦示例",
+  "interfaces": [
+    "VCC",
+    "GND"
+  ],
+  "design": {
+    "components": [
+      {
+        "id": "J1",
+        "ref": "J1",
+        "librarySymbol": "Connector_Generic:Conn_01x02",
+        "value": "POWER",
+        "mpn": "",
+        "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "Pin_1",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "Pin_2",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "id": "C1",
+        "ref": "C1",
+        "librarySymbol": "Device:C",
+        "value": "100n",
+        "mpn": "",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "ref": "C2",
+        "librarySymbol": "Device:C",
+        "value": "1u",
+        "mpn": "",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "dnp": false,
+        "in_bom": true,
+        "on_board": true,
+        "pins": [
+          {
+            "number": "1",
+            "name": "",
+            "type": "passive",
+            "pad": "1"
+          },
+          {
+            "number": "2",
+            "name": "",
+            "type": "passive",
+            "pad": "2"
+          }
+        ]
+      }
+    ],
+    "nets": [
+      {
+        "name": "VCC",
+        "nodes": [
+          "J1.1",
+          "C1.1",
+          "C2.1"
+        ]
+      },
+      {
+        "name": "GND",
+        "nodes": [
+          "J1.2",
+          "C1.2",
+          "C2.2"
+        ]
+      }
+    ],
+    "nc": [],
+    "supplied_nets": [],
+    "functions": [],
+    "unresolved": [
+      "工程示例：采购型号、额定值和实物性能未认证。"
+    ]
+  },
+  "fragment": "engineering.kicad_blocks/power-decoupling.kicad_block/power-decoupling.kicad_sch",
+  "fragmentSha256": "c5df998970d92dbd338a9557c30d9c138d5bdc00b6b35edfe6cb1e522d644c66",
+  "width": 107.01799999999999,
+  "height": 75.73,
+  "origin": [
+    10,
+    10
+  ],
+  "validation": {
+    "nativeSymbols": "passed",
+    "netlist": "passed",
+    "NC": "passed",
+    "pdfGeometry": "passed",
+    "electricalRatings": "not-validated",
+    "hardwareTest": "not-run",
+    "reviewStatus": "engineering-example"
+  },
+  "limitations": [
+    "需要确认实际电压、电流、接口电平、信号速率和器件额定值。",
+    "示例值不是通用推荐值；更换参数或器件需建立新模块版本。",
+    "尚未纳入企业内部优选物料。"
+  ],
+  "sources": [
+    {
+      "url": "https://docs.kicad.org/9.0/en/eeschema/eeschema.html#schematic-design-blocks",
+      "purpose": "native reusable fragment format, not electrical endorsement"
+    },
+    {
+      "url": "https://klc.kicad.org/",
+      "purpose": "library convention, not circuit performance specification"
+    }
+  ],
+  "autoDetect": false
+}

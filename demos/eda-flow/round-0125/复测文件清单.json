@@ -1,0 +1,435 @@
+{
+  "version": "0.16.2-beta.4",
+  "result": "CONNECTIVITY_AND_ROUTING_QUALITY_ACCEPTED",
+  "githubUploaded": false,
+  "adEquivalent": false,
+  "productionApproved": false,
+  "linksChecked": 28,
+  "files": [
+    {
+      "path": "Demo.html",
+      "bytes": 14687,
+      "sha256": "fa2173be4fbc2513a79947ea4cab8ad3daa5cca58860fc50eaf209a7dfdce1a4"
+    },
+    {
+      "path": "本轮实跑与差异.md",
+      "bytes": 8934,
+      "sha256": "71044298b9b07540b0658f9be7c0ccfa851863cb6d5ea153281a9b78ddf75627"
+    },
+    {
+      "path": "使用说明.md",
+      "bytes": 8128,
+      "sha256": "ec7a386e045e8c6d6e95e6fa02adf0eda06dfdcf21d8d65869e0b851174f9895"
+    },
+    {
+      "path": "工程师评审记录.json",
+      "bytes": 175180,
+      "sha256": "f8a337edbe8f373dac1154faee6548bc581879445e5fde1f7f96078701ef87b4"
+    },
+    {
+      "path": "实际前后核验.json",
+      "bytes": 46575,
+      "sha256": "2a86b01a5971885047a347a09e84c68d2eba3dc3078fcdcebf847817cfee7607"
+    },
+    {
+      "path": "候选3-连通但折线偏多.json",
+      "bytes": 13675,
+      "sha256": "42a71e177f4c8ea0c6b7000ac04ad1740a83965626c2fd8e1d475b0172ffe0a2"
+    },
+    {
+      "path": "候选4-搜索未收敛.json",
+      "bytes": 48352,
+      "sha256": "0ffcf6eaca8d5d5f4b6b1ab0c4df2660414bd46aa86e4e2479ef55269b5579ad"
+    },
+    {
+      "path": "targeted-tests.json",
+      "bytes": 444,
+      "sha256": "92a06ab3c7bae837934f1df9839b08926a617fc9cd2a4e27852d135d815390f6"
+    },
+    {
+      "path": "安装包一致性.json",
+      "bytes": 201,
+      "sha256": "1b7ead5caa3f428442d73f04836568c0f68c54a4c1817f664466aa4bdb459481"
+    },
+    {
+      "path": "Harness-评审复核.png",
+      "bytes": 121076,
+      "sha256": "b4588b238a74805c6566dacb830a00513551abd854f7a555e595d4a1169bcb61"
+    },
+    {
+      "path": "STB-connectivity.svg",
+      "bytes": 24965,
+      "sha256": "078fbf92b0335355f54a073eaac54bc4873257d3bc0816a11ea6f1b6f82257df"
+    },
+    {
+      "path": "STB-connectivity.png",
+      "bytes": 62018,
+      "sha256": "2d66244656ba5b9a8e551bcb4626bc3dcb6b42ea6907f344fcadb952fb13e496"
+    },
+    {
+      "path": "交付导出核验.json",
+      "bytes": 424,
+      "sha256": "dc150a804a9e562873d0fef9d9d12b058acc0f40194a48196429392a539dda4f"
+    },
+    {
+      "path": "修改前-Back.png",
+      "bytes": 156444,
+      "sha256": "9222d28d91aa3e8bd65989a0c6e1cf7d292bd0033b54b92b1f45f3bf578db96a"
+    },
+    {
+      "path": "修改前-Front.png",
+      "bytes": 59258,
+      "sha256": "d267d27e63bb1f3d562beac5f71f472322b51d5a95768e3e7e18efba9aaf9b94"
+    },
+    {
+      "path": "修改后-Back.png",
+      "bytes": 156602,
+      "sha256": "13ace32acc59c2b6e5a53b902935c43f8ab6eeee6c366ab52d749c9f13d52cc1"
+    },
+    {
+      "path": "修改后-Front.png",
+      "bytes": 59258,
+      "sha256": "d267d27e63bb1f3d562beac5f71f472322b51d5a95768e3e7e18efba9aaf9b94"
+    },
+    {
+      "path": "修改前/actual.net.xml",
+      "bytes": 43237,
+      "sha256": "1b0c19db4fda2c18b2898753e3d3b12140f98c121bef9606e4e9e4f16a613f97"
+    },
+    {
+      "path": "修改前/bom.csv",
+      "bytes": 2245,
+      "sha256": "4c8db5a31b12a0f5c3cef97b70fc807b181f9c4fcd14ba187da44b85daf51378"
+    },
+    {
+      "path": "修改前/Circuit.kicad_pcb",
+      "bytes": 275354,
+      "sha256": "8b7e6247f691daece08bf266fa1c111edb27df43a652b451046d91a6cd740863"
+    },
+    {
+      "path": "修改前/Circuit.kicad_pro",
+      "bytes": 9609,
+      "sha256": "a8938a26bc4ba62287762d056e9140ceb994c9c1f298568b095c0274a9bf6a15"
+    },
+    {
+      "path": "修改前/Circuit.kicad_sch",
+      "bytes": 72776,
+      "sha256": "08e5d42c409e315403c5af10573df908485d1edbebe69b463c1a7b753df2582e"
+    },
+    {
+      "path": "修改前/Circuit.pdf",
+      "bytes": 139037,
+      "sha256": "d33d34885b4555d3f673e9b5a8a28cd8e3026e79b69a46715d7077523728155b"
+    },
+    {
+      "path": "修改前/drc-before-silk-0.rpt",
+      "bytes": 912,
+      "sha256": "803874ffde77974e616143d56f116fc77369ada5c9ac066040abdf2e863f570c"
+    },
+    {
+      "path": "修改前/drc.json",
+      "bytes": 113,
+      "sha256": "3876cf1616a68a75c299b5a1c8a9a2b322ae9fc3f3c164a41dd12cc3211474e9"
+    },
+    {
+      "path": "修改前/drc.rpt",
+      "bytes": 520,
+      "sha256": "e3349d0cd8542874d40e3239ad828359623a01f643705c8a81e5caddd5c0d7c7"
+    },
+    {
+      "path": "修改前/erc.rpt",
+      "bytes": 369,
+      "sha256": "25ac1d7a65d117152663ef962d59aea0761f97bec346b0cdc30ee9facf7dbe4f"
+    },
+    {
+      "path": "修改前/fp-lib-table",
+      "bytes": 324,
+      "sha256": "3e426348693694aad6863b2b186c259618f3d4c395a8146e72317e324adea9c3"
+    },
+    {
+      "path": "修改前/PCB-Back.pdf",
+      "bytes": 78860,
+      "sha256": "cccde54f15892751ca0e96530c7991777173b592980fef74e25ef31b474eafdd"
+    },
+    {
+      "path": "修改前/PCB-Back.svg",
+      "bytes": 210351,
+      "sha256": "5c186eeb3b2e35e6f8ea9d2cf30d62a257981a81612812a1b6f79f3e4c93fd60"
+    },
+    {
+      "path": "修改前/PCB-BOM.csv",
+      "bytes": 1152,
+      "sha256": "faf9ad13017e15aba4d83f43099f1ce3b4eb3b2125970a069aa73d5e1a18940f"
+    },
+    {
+      "path": "修改前/PCB-Front.pdf",
+      "bytes": 24650,
+      "sha256": "9718e0b61c6e9d968a63999abcc33a54384dbcde8f915c643071c14e38245588"
+    },
+    {
+      "path": "修改前/PCB-Front.svg",
+      "bytes": 10755,
+      "sha256": "66cad398e9440d7bf61c9d5f948138f4320317243b46eea4aa52c713c54f723f"
+    },
+    {
+      "path": "修改前/pcb-netlist.xml",
+      "bytes": 43766,
+      "sha256": "8d401c414ddaf47fafac39a757875659ee8e2f1fe5eacf36dbd3aff32df2ad48"
+    },
+    {
+      "path": "修改前/PCB-pad-map.csv",
+      "bytes": 3764,
+      "sha256": "bbe5ad20799b85ebf6debc8033365cd5d4848302553545d00a45343fda0ef845"
+    },
+    {
+      "path": "修改前/PCB.pdf",
+      "bytes": 80208,
+      "sha256": "549e611bc7d0916ba35a3e1de7093690b56cb265020596e5d714bd21e806b0e1"
+    },
+    {
+      "path": "修改前/PCB.svg",
+      "bytes": 222176,
+      "sha256": "60739f97c2b09408040493ee480e29328cf0c23845b777388a1e0fac95209803"
+    },
+    {
+      "path": "修改前/sym-lib-table",
+      "bytes": 367,
+      "sha256": "deb8bf032eb8b75773ff7eba7b5ffc5926f5292b42baad029ff972b5f247aef6"
+    },
+    {
+      "path": "修改前/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "bytes": 2142,
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "修改前/EvidencePkg.pretty/FP_50ea157fbcd408b9.kicad_mod",
+      "bytes": 1475,
+      "sha256": "42307e0a5d7f55adc50edab3f45d91e72eceee73150fbc857381875ec774e29c"
+    },
+    {
+      "path": "修改前/EvidencePkg.pretty/FP_87693eea20e7eb47.kicad_mod",
+      "bytes": 7072,
+      "sha256": "b358a2d62cb9d997dd28de62b9d8fc3823158012eebf9c4bca5c822db6793845"
+    },
+    {
+      "path": "修改前/EvidencePkg.pretty/FP_abf73c9ba269dea0.kicad_mod",
+      "bytes": 2678,
+      "sha256": "d7dbb40ef6fa6f5c82e58d5ee7a932b6f0ead740fd4faeb735e9220c9502f816"
+    },
+    {
+      "path": "修改前/EvidencePkg.pretty/FP_c783efe2c5902037.kicad_mod",
+      "bytes": 3200,
+      "sha256": "1cf190ad0658b9677e29301fc214345ce64406ed611c4c9e2e63326fd493b8ef"
+    },
+    {
+      "path": "修改前/footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "bytes": 2142,
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "修改前/footprints/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "bytes": 2057,
+      "sha256": "949bbbe025b509557866ddd9fcb0403244571f3ceb4f954c9766ee622d18421c"
+    },
+    {
+      "path": "修改前/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "bytes": 3398,
+      "sha256": "af78d6cecec5811c20aa45fe5016d9f498935c7065edf492129b37bc4aaec762"
+    },
+    {
+      "path": "修改前/svg/Circuit.svg",
+      "bytes": 526613,
+      "sha256": "313881a03f4c6375afca58808bd720b8663f5818cb1dea42b01b0a0d1b88e2f7"
+    },
+    {
+      "path": "修改前/symbols/Device.kicad_sym",
+      "bytes": 3156,
+      "sha256": "838ca0f85cc33419008b98a63c09182eb60e1bcf850b07896483824ee2eadc15"
+    },
+    {
+      "path": "修改前/symbols/Evidence.kicad_sym",
+      "bytes": 8907,
+      "sha256": "55539c284b63ccb7f7678aa560cde96a78739e0170fa4548bf1d58f71f3d4b30"
+    },
+    {
+      "path": "修改前/symbols/Host.kicad_sym",
+      "bytes": 314,
+      "sha256": "b2f820c10125adbbdb5a418be036843863481e7255fc4beb4ffeb24d73149cde"
+    },
+    {
+      "path": "修改后/actual.net.xml",
+      "bytes": 43237,
+      "sha256": "4427428dff64866a5b40a58a679374b4f107400512383829d3c1a1a503db15be"
+    },
+    {
+      "path": "修改后/bom.csv",
+      "bytes": 2245,
+      "sha256": "4c8db5a31b12a0f5c3cef97b70fc807b181f9c4fcd14ba187da44b85daf51378"
+    },
+    {
+      "path": "修改后/Circuit.kicad_pcb",
+      "bytes": 257329,
+      "sha256": "8554217b4b29b8bf1261673e17da5cb8b6858008550d0eaaea7e4432866e3748"
+    },
+    {
+      "path": "修改后/Circuit.kicad_pro",
+      "bytes": 9605,
+      "sha256": "3b6cca8394c0f81d5d48329c6bda86012a5f28c041e62407eec8f6b86c9b6d43"
+    },
+    {
+      "path": "修改后/Circuit.kicad_sch",
+      "bytes": 72776,
+      "sha256": "08e5d42c409e315403c5af10573df908485d1edbebe69b463c1a7b753df2582e"
+    },
+    {
+      "path": "修改后/Circuit.pdf",
+      "bytes": 139037,
+      "sha256": "731efd6a65d971e24086726411419b42dddd217bbe6173828b3700a9ead45f8c"
+    },
+    {
+      "path": "修改后/drc-before-silk-0.rpt",
+      "bytes": 912,
+      "sha256": "e705d05cabdf7715d9290ae16c1d18c554df4912066a5133682cc09aaa12128e"
+    },
+    {
+      "path": "修改后/drc.json",
+      "bytes": 113,
+      "sha256": "3876cf1616a68a75c299b5a1c8a9a2b322ae9fc3f3c164a41dd12cc3211474e9"
+    },
+    {
+      "path": "修改后/drc.rpt",
+      "bytes": 520,
+      "sha256": "0850696038764b94b2ec450516dc13a42c7550e89bcf0b530dc64bb456bc10d6"
+    },
+    {
+      "path": "修改后/erc.rpt",
+      "bytes": 369,
+      "sha256": "de6f2b96ae9cf18a148070289b56916e85f2a83f6744971f054cfc2ec014ec73"
+    },
+    {
+      "path": "修改后/fp-lib-table",
+      "bytes": 324,
+      "sha256": "3e426348693694aad6863b2b186c259618f3d4c395a8146e72317e324adea9c3"
+    },
+    {
+      "path": "修改后/PCB-Back.pdf",
+      "bytes": 75209,
+      "sha256": "6b681fbc8b953adc3d57b5f85db08f5e8da6c3d706b05a6390d638bfc0f4eea2"
+    },
+    {
+      "path": "修改后/PCB-Back.svg",
+      "bytes": 199699,
+      "sha256": "8b510a8ac09c485c33de7bc76795564a99937d994e04dc9fdb38ea79b5bac29c"
+    },
+    {
+      "path": "修改后/PCB-BOM.csv",
+      "bytes": 1152,
+      "sha256": "faf9ad13017e15aba4d83f43099f1ce3b4eb3b2125970a069aa73d5e1a18940f"
+    },
+    {
+      "path": "修改后/PCB-Front.pdf",
+      "bytes": 24651,
+      "sha256": "f3626673bd7f79c6fe4624e76dfe90d5b7913c1971149a52ce357839133ca3f3"
+    },
+    {
+      "path": "修改后/PCB-Front.svg",
+      "bytes": 10755,
+      "sha256": "c6d1c36a8a14d18615a295b964bde96f1ef19b5f2f43b0f9fdaac8f1c00988ee"
+    },
+    {
+      "path": "修改后/pcb-netlist.xml",
+      "bytes": 43766,
+      "sha256": "853710c777b1eb6dc65cbfe41678813f895517ef389198f2c45d41aa51084388"
+    },
+    {
+      "path": "修改后/PCB-pad-map.csv",
+      "bytes": 3764,
+      "sha256": "efcb072d235cd7a31f550b260570163422296128f8e1eff149a4db0942c42ebe"
+    },
+    {
+      "path": "修改后/PCB.pdf",
+      "bytes": 76641,
+      "sha256": "3689d88b3e7c0cd50becff5ecd8385cfc99134c16fba983e171129c309a2bad3"
+    },
+    {
+      "path": "修改后/PCB.svg",
+      "bytes": 211347,
+      "sha256": "3564f2ae65428a2a2bdd62a574699faa1b8e799c7c0aa2305a5362dbd57419e4"
+    },
+    {
+      "path": "修改后/sym-lib-table",
+      "bytes": 367,
+      "sha256": "deb8bf032eb8b75773ff7eba7b5ffc5926f5292b42baad029ff972b5f247aef6"
+    },
+    {
+      "path": "修改后/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "bytes": 2142,
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "修改后/EvidencePkg.pretty/FP_50ea157fbcd408b9.kicad_mod",
+      "bytes": 1475,
+      "sha256": "42307e0a5d7f55adc50edab3f45d91e72eceee73150fbc857381875ec774e29c"
+    },
+    {
+      "path": "修改后/EvidencePkg.pretty/FP_87693eea20e7eb47.kicad_mod",
+      "bytes": 7072,
+      "sha256": "b358a2d62cb9d997dd28de62b9d8fc3823158012eebf9c4bca5c822db6793845"
+    },
+    {
+      "path": "修改后/EvidencePkg.pretty/FP_abf73c9ba269dea0.kicad_mod",
+      "bytes": 2678,
+      "sha256": "d7dbb40ef6fa6f5c82e58d5ee7a932b6f0ead740fd4faeb735e9220c9502f816"
+    },
+    {
+      "path": "修改后/EvidencePkg.pretty/FP_c783efe2c5902037.kicad_mod",
+      "bytes": 3200,
+      "sha256": "1cf190ad0658b9677e29301fc214345ce64406ed611c4c9e2e63326fd493b8ef"
+    },
+    {
+      "path": "修改后/footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "bytes": 2142,
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "修改后/footprints/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "bytes": 2057,
+      "sha256": "949bbbe025b509557866ddd9fcb0403244571f3ceb4f954c9766ee622d18421c"
+    },
+    {
+      "path": "修改后/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "bytes": 3398,
+      "sha256": "50f751cbc8dede2c2d8ffa6f0afb410402d540389d9f878175b5f9213d315382"
+    },
+    {
+      "path": "修改后/svg/Circuit.svg",
+      "bytes": 526613,
+      "sha256": "275908c8330c7f315b0d05f4795a90be28171e2ad17f5771dca7285be66b8590"
+    },
+    {
+      "path": "修改后/symbols/Device.kicad_sym",
+      "bytes": 3156,
+      "sha256": "838ca0f85cc33419008b98a63c09182eb60e1bcf850b07896483824ee2eadc15"
+    },
+    {
+      "path": "修改后/symbols/Evidence.kicad_sym",
+      "bytes": 8907,
+      "sha256": "55539c284b63ccb7f7678aa560cde96a78739e0170fa4548bf1d58f71f3d4b30"
+    },
+    {
+      "path": "修改后/symbols/Host.kicad_sym",
+      "bytes": 314,
+      "sha256": "b2f820c10125adbbdb5a418be036843863481e7255fc4beb4ffeb24d73149cde"
+    },
+    {
+      "path": "Demo-前后比较.png",
+      "bytes": 57313,
+      "sha256": "db8686010bc938e743232c857212168596c3a5ecf3078d1e1d52646f060a6fbd"
+    },
+    {
+      "path": "Demo-验收结果.png",
+      "bytes": 62578,
+      "sha256": "eafe09b27568bf7f3b587422998a42983bfa2b063e8ea509be228ba0d754cd8a"
+    }
+  ]
+}

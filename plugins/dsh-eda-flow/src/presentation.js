@@ -5,6 +5,16 @@ const child = (x, key) => x.find(v => tag(v) === key)?.slice(1) || [];
 const props = x => Object.fromEntries(x.filter(v => tag(v) === 'property').map(v => [v[1], v[2]]));
 export async function presentation(p) {
   const empty = { components: [], pins: [], nets: [], footprints: [], tracks: [], models: [], files: [], materials: { source_native: [] }, counts: {}, requirements: {}, defaults: p.inputs };
+  if (p.mode === 'text-mcp') {
+    const generated = p.stages.filter(s => s.status === 'done' && s.id >= 4 && s.output).at(-1);
+    const analysisStage = p.stages.filter(s => s.status === 'done' && s.id < 4).at(-1);
+    const analyses = analysisStage?.result;
+    const actual = generated ? await readJSON(path.join(generated.output, 'generated-review.json')).catch(() => null) : null;
+    const files = p.stages.filter(s => s.output && s.status !== 'running').flatMap(s => (s.files || []).map(f => ({ ...f, size: f.bytes, name: path.basename(f.path), scope: 'stage:' + s.id, stage: s.id })));
+    const visible = actual ? {...actual,components:actual.components.map(c=>({...c,source:'实际 KiCad 回读'}))} : {components:(analyses?.components || []).map(c=>({...c,source:analysisStage?.id===3?'候选电路':'资料提取'}))};
+    return { ...empty, ...visible, files, origin: 'text-mcp', scope: 'schematic', requirements: { text: p.inputs.requirements, datasheetText: p.inputs.datasheetText || '' },
+      checks: generated?.result?.checks || [], provenance: actual ? (p.controlledLayout ? '来自冻结电路的受控编译及实际 KiCad 回读。' : '来自本次模型 MCP 工程的实际 KiCad 回读。') : '来自资料提取或候选电路，尚未生成有效原理图。', liveHarnessValidation: p.liveHarnessValidation || 'pending' };
+  }
   if (!p.inputsBundle) {
     // A new design uses the same tables, populated only by supplied or extracted data.
     const extracted = p.stages[1]?.status === 'done' && p.stages[1].output;

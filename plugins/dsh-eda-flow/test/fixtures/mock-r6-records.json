@@ -1,0 +1,3034 @@
+[
+  {
+    "id": "task",
+    "document": "显示板工程任务书（模拟资料待替换）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "以已确认MD50PG REV1.0/R6为功能和器件基准。保留29个电气器件、85个引脚、八个0Ω跨线电阻及12个工艺对象。重新设计整页布局，不沿用原图绝对坐标。DISP接口1=RCV、2=SGND、3=+5V、4=STB、5=CLK、6=DIN。不得沿用另一份Rev A的线序、型号或阻容值。",
+    "binding": "系统",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency"
+  },
+  {
+    "id": "display-mapping",
+    "document": "显示驱动及显示器接线说明（模拟摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "U1的SEG1—SEG7依次经原47Ω电阻连接显示段C/E/G/D/F/A/B；GRID1/GRID2/GRID3依次接显示器1/3/2脚，GRID4第12脚不接。显示器原位号*、原值LED、原封装标识UV，无证据时不得指定SKHT564411WAE型号。",
+    "binding": "U1 / *",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency"
+  },
+  {
+    "id": "display-appearance",
+    "document": "显示器符号外观说明（模拟摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "符号外形是上方主体矩形加下方横条矩形，下横条向左突出。主体内两个连续折线构成的8，下横条四个近整圆形指示标记。上侧从左至右为10=D、9=E、8=C、7=G、6=F；下侧从左至右为1=DIG3、2=DIG2、3=DIG1、4=B、5=A。不能改成所有引脚在左侧，不能把四圆形替换成未经原资料确认的Wi-Fi/时钟/电源/月牙图案。符号外形不是实体PCB尺寸。 图形尺寸均为原理图符号尺寸：主体宽25.4、高14.732mm；下横条高8.128mm、向左多伸8.128mm。每个8宽3.556、高7.112mm；圆形半径1.336355mm，保留原近整圆缺口。引脚长度5.08mm；逐脚位置见随附尺寸记录，不能吸附改变器件内部几何。 四个标记的弧线起始角为331.586°，扫过358.16°，剩余缺口仅为1.84°；不要把起始角与扫角解释成缺口的两个边界。",
+    "binding": "*",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "appearance": {
+      "kind": "stepped-two-digit-display",
+      "body": "upper rectangle with lower strip protruding left",
+      "digits": 2,
+      "digitStyle": "continuous square eight",
+      "indicators": 4,
+      "indicatorStyle": "near-circle",
+      "topPinOrder": [
+        "10",
+        "9",
+        "8",
+        "7",
+        "6"
+      ],
+      "bottomPinOrder": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "bodyWidthMm": 25.4,
+      "bodyHeightMm": 14.732,
+      "stripHeightMm": 8.128,
+      "stripLeftExtensionMm": 8.128,
+      "outlineWidthMm": 0.0254,
+      "digitWidthMm": 3.556,
+      "digitHeightMm": 7.112,
+      "digitLeftOffsetsMm": [
+        7.62,
+        12.192
+      ],
+      "digitBottomAboveStripMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "indicatorRadiusMm": 1.336355,
+      "indicatorHeightMm": 4.572,
+      "indicatorLeftOffsetsMm": [
+        -3.556,
+        5.588,
+        13.208,
+        21.844
+      ],
+      "indicatorGapStartDegrees": 331.586,
+      "indicatorSweepDegrees": 358.16,
+      "topPinOffsetsMm": [
+        2.54,
+        8.128,
+        12.7,
+        17.78,
+        22.86
+      ],
+      "bottomPinOffsetsMm": [
+        2.54,
+        7.62,
+        12.7,
+        17.78,
+        23.368
+      ],
+      "pinLengthMm": 5.08
+    },
+    "symbolId": "Evidence:R6_Display",
+    "reference": "*",
+    "pins": [
+      {
+        "number": "1",
+        "name": "DIG3",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "DIG2",
+        "type": "passive"
+      },
+      {
+        "number": "3",
+        "name": "DIG1",
+        "type": "passive"
+      },
+      {
+        "number": "4",
+        "name": "B",
+        "type": "passive"
+      },
+      {
+        "number": "5",
+        "name": "A",
+        "type": "passive"
+      },
+      {
+        "number": "6",
+        "name": "F",
+        "type": "passive"
+      },
+      {
+        "number": "7",
+        "name": "G",
+        "type": "passive"
+      },
+      {
+        "number": "8",
+        "name": "C",
+        "type": "passive"
+      },
+      {
+        "number": "9",
+        "name": "E",
+        "type": "passive"
+      },
+      {
+        "number": "10",
+        "name": "D",
+        "type": "passive"
+      }
+    ]
+  },
+  {
+    "id": "component-source-33",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号D1；原值IRM-3638M3-X；原封装标识LED3-2.54-6*5.6*6.95L/S；物料编码R25090022；物料说明接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃；装配THT；默认装配，非DNP。 引脚：1=OUT(output)；2=GND(power_in)；3=VCC(power_in)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-receiver\",\"bodyWidthMm\":15.24,\"bodyHeightMm\":12.7,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[{\"number\":\"1\",\"edge\":\"right\",\"offsetMm\":6.35,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"2\",\"edge\":\"right\",\"offsetMm\":1.27,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"3\",\"edge\":\"right\",\"offsetMm\":11.43,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true}],\"photoDiodeUnitMm\":1.27}",
+    "binding": "D1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "D1",
+    "value": "IRM-3638M3-X",
+    "originalFootprint": "LED3-2.54-6*5.6*6.95L/S",
+    "materialCode": "R25090022",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "OUT",
+        "type": "output"
+      },
+      {
+        "number": "2",
+        "name": "GND",
+        "type": "power_in"
+      },
+      {
+        "number": "3",
+        "name": "VCC",
+        "type": "power_in"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 61,
+      "lineEnd": 71,
+      "schDocRecord": 33
+    },
+    "materialDescription": "接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃",
+    "assemblyType": "THT",
+    "symbolId": "Evidence:R6_source_33",
+    "appearance": {
+      "kind": "specified-receiver",
+      "bodyWidthMm": 15.24,
+      "bodyHeightMm": 12.7,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [
+        {
+          "number": "1",
+          "edge": "right",
+          "offsetMm": 6.35,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "2",
+          "edge": "right",
+          "offsetMm": 1.27,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "3",
+          "edge": "right",
+          "offsetMm": 11.43,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        }
+      ],
+      "photoDiodeUnitMm": 1.27
+    }
+  },
+  {
+    "id": "component-source-78",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C2；原值1uF/0603；原封装标识WSC0603；物料编码R21070090；物料说明贴片电容/1uF±10%/25V/X7R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":90,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C2",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C2",
+    "value": "1uF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070090",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 72,
+      "lineEnd": 81,
+      "schDocRecord": 78
+    },
+    "materialDescription": "贴片电容/1uF±10%/25V/X7R/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_78",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 90,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-102",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C3；原值0.068uF/0603；原封装标识WSC0603；物料编码R21200057；物料说明台系贴片电容/0.068uF±10%/50V/X7R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":90,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C3",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C3",
+    "value": "0.068uF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200057",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 82,
+      "lineEnd": 91,
+      "schDocRecord": 102
+    },
+    "materialDescription": "台系贴片电容/0.068uF±10%/50V/X7R/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_102",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 90,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-126",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R3；原值22K/0805；原封装标识WSR0805；物料编码R20180061；物料说明贴片电阻/1/8W/22KΩ±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":90,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R3",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R3",
+    "value": "22K/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180061",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 92,
+      "lineEnd": 101,
+      "schDocRecord": 126
+    },
+    "materialDescription": "贴片电阻/1/8W/22KΩ±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_126",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 90,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-147",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R1；原值220R/0805；原封装标识WSR0805；物料编码R20180015；物料说明贴片电阻/1/8W/220Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R1",
+    "value": "220R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180015",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 102,
+      "lineEnd": 111,
+      "schDocRecord": 147
+    },
+    "materialDescription": "贴片电阻/1/8W/220Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_147",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-168",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号U1；原值TM1616；原封装标识WSOP16-1.27-3.8；物料编码R25070026；物料说明CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路；装配SMD；默认装配，非DNP。 引脚：1=DIN(input)；2=CLK(input)；3=STB(input)；4=VDD(power_in)；5=SEG1(output)；6=SEG2(output)；7=SEG3(output)；8=SEG4(output)；9=SEG5(output)；10=SEG6(output)；11=SEG7(output)；12=GRID4(output)；13=GRID3(output)；14=GND(power_in)；15=GRID2(output)；16=GRID1(output)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-box\",\"bodyWidthMm\":19.05,\"bodyHeightMm\":40.64,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[{\"number\":\"1\",\"edge\":\"left\",\"offsetMm\":38.1,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"2\",\"edge\":\"left\",\"offsetMm\":33.02,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"3\",\"edge\":\"left\",\"offsetMm\":27.94,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"4\",\"edge\":\"left\",\"offsetMm\":22.86,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"5\",\"edge\":\"left\",\"offsetMm\":17.78,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"6\",\"edge\":\"left\",\"offsetMm\":12.7,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"7\",\"edge\":\"left\",\"offsetMm\":7.62,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"8\",\"edge\":\"left\",\"offsetMm\":2.54,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"9\",\"edge\":\"right\",\"offsetMm\":2.54,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"10\",\"edge\":\"right\",\"offsetMm\":7.62,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"11\",\"edge\":\"right\",\"offsetMm\":12.7,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"12\",\"edge\":\"right\",\"offsetMm\":17.78,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"13\",\"edge\":\"right\",\"offsetMm\":22.86,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"14\",\"edge\":\"right\",\"offsetMm\":27.94,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"15\",\"edge\":\"right\",\"offsetMm\":33.02,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true},{\"number\":\"16\",\"edge\":\"right\",\"offsetMm\":38.1,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":true}]}",
+    "binding": "U1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "U1",
+    "value": "TM1616",
+    "originalFootprint": "WSOP16-1.27-3.8",
+    "materialCode": "R25070026",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "DIN",
+        "type": "input"
+      },
+      {
+        "number": "2",
+        "name": "CLK",
+        "type": "input"
+      },
+      {
+        "number": "3",
+        "name": "STB",
+        "type": "input"
+      },
+      {
+        "number": "4",
+        "name": "VDD",
+        "type": "power_in"
+      },
+      {
+        "number": "5",
+        "name": "SEG1",
+        "type": "output"
+      },
+      {
+        "number": "6",
+        "name": "SEG2",
+        "type": "output"
+      },
+      {
+        "number": "7",
+        "name": "SEG3",
+        "type": "output"
+      },
+      {
+        "number": "8",
+        "name": "SEG4",
+        "type": "output"
+      },
+      {
+        "number": "9",
+        "name": "SEG5",
+        "type": "output"
+      },
+      {
+        "number": "10",
+        "name": "SEG6",
+        "type": "output"
+      },
+      {
+        "number": "11",
+        "name": "SEG7",
+        "type": "output"
+      },
+      {
+        "number": "12",
+        "name": "GRID4",
+        "type": "output"
+      },
+      {
+        "number": "13",
+        "name": "GRID3",
+        "type": "output"
+      },
+      {
+        "number": "14",
+        "name": "GND",
+        "type": "power_in"
+      },
+      {
+        "number": "15",
+        "name": "GRID2",
+        "type": "output"
+      },
+      {
+        "number": "16",
+        "name": "GRID1",
+        "type": "output"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 112,
+      "lineEnd": 135,
+      "schDocRecord": 168
+    },
+    "materialDescription": "CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_168",
+    "appearance": {
+      "kind": "specified-box",
+      "bodyWidthMm": 19.05,
+      "bodyHeightMm": 40.64,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [
+        {
+          "number": "1",
+          "edge": "left",
+          "offsetMm": 38.1,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "2",
+          "edge": "left",
+          "offsetMm": 33.02,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "3",
+          "edge": "left",
+          "offsetMm": 27.94,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "4",
+          "edge": "left",
+          "offsetMm": 22.86,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "5",
+          "edge": "left",
+          "offsetMm": 17.78,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "6",
+          "edge": "left",
+          "offsetMm": 12.7,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "7",
+          "edge": "left",
+          "offsetMm": 7.62,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "8",
+          "edge": "left",
+          "offsetMm": 2.54,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "9",
+          "edge": "right",
+          "offsetMm": 2.54,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "10",
+          "edge": "right",
+          "offsetMm": 7.62,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "11",
+          "edge": "right",
+          "offsetMm": 12.7,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "12",
+          "edge": "right",
+          "offsetMm": 17.78,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "13",
+          "edge": "right",
+          "offsetMm": 22.86,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "14",
+          "edge": "right",
+          "offsetMm": 27.94,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "15",
+          "edge": "right",
+          "offsetMm": 33.02,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        },
+        {
+          "number": "16",
+          "edge": "right",
+          "offsetMm": 38.1,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "component-source-220",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C7；原值100pF/0603；原封装标识WSC0603；物料编码R21070004；物料说明贴片电容/100pF±5%/50V/NPO/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":90,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C7",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C7",
+    "value": "100pF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070004",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 136,
+      "lineEnd": 145,
+      "schDocRecord": 220
+    },
+    "materialDescription": "贴片电容/100pF±5%/50V/NPO/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_220",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 90,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-244",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C6；原值100pF/0603；原封装标识WSC0603；物料编码R21070004；物料说明贴片电容/100pF±5%/50V/NPO/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":90,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C6",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C6",
+    "value": "100pF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070004",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 146,
+      "lineEnd": 155,
+      "schDocRecord": 244
+    },
+    "materialDescription": "贴片电容/100pF±5%/50V/NPO/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_244",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 90,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-268",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C5；原值100pF/0603；原封装标识WSC0603；物料编码R21070004；物料说明贴片电容/100pF±5%/50V/NPO/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":90,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C5",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C5",
+    "value": "100pF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070004",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 156,
+      "lineEnd": 165,
+      "schDocRecord": 268
+    },
+    "materialDescription": "贴片电容/100pF±5%/50V/NPO/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_268",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 90,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-293",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R2；原值47R/0805；原封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R2",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R2",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 166,
+      "lineEnd": 175,
+      "schDocRecord": 293
+    },
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_293",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-314",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R4；原值47R/0805；原封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R4",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R4",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 176,
+      "lineEnd": 185,
+      "schDocRecord": 314
+    },
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_314",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-335",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R6；原值47R/0805；原封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R6",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R6",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 186,
+      "lineEnd": 195,
+      "schDocRecord": 335
+    },
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_335",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-356",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R8；原值47R/0805；原封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R8",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R8",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 196,
+      "lineEnd": 205,
+      "schDocRecord": 356
+    },
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_356",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-377",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R9；原值47R/0603；原封装标识WSR0603；物料编码R20190050；物料说明贴片电阻/1/10W/47Ω±5%/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R9",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R9",
+    "value": "47R/0603",
+    "originalFootprint": "WSR0603",
+    "materialCode": "R20190050",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 206,
+      "lineEnd": 215,
+      "schDocRecord": 377
+    },
+    "materialDescription": "贴片电阻/1/10W/47Ω±5%/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_377",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-398",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R7；原值47R/0603；原封装标识WSR0603；物料编码R20190050；物料说明贴片电阻/1/10W/47Ω±5%/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R7",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R7",
+    "value": "47R/0603",
+    "originalFootprint": "WSR0603",
+    "materialCode": "R20190050",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 216,
+      "lineEnd": 225,
+      "schDocRecord": 398
+    },
+    "materialDescription": "贴片电阻/1/10W/47Ω±5%/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_398",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-419",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号R5；原值47R/0603；原封装标识WSR0603；物料编码R20190050；物料说明贴片电阻/1/10W/47Ω±5%/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "R5",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "R5",
+    "value": "47R/0603",
+    "originalFootprint": "WSR0603",
+    "materialCode": "R20190050",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 226,
+      "lineEnd": 235,
+      "schDocRecord": 419
+    },
+    "materialDescription": "贴片电阻/1/10W/47Ω±5%/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_419",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-603",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ1；原值0R/0805；原封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ1",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 296,
+      "lineEnd": 305,
+      "schDocRecord": 603
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_603",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-632",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ2；原值0R/0805；原封装标识WSR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ2",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ2",
+    "value": "0R/0805",
+    "originalFootprint": "WSR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 306,
+      "lineEnd": 315,
+      "schDocRecord": 632
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_632",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-659",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号DISP；原值6Pin/2.5mm；原封装标识THT-CON6-2.5-6.4L/S；物料编码R30072135；物料说明电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446；装配THT；默认装配，非DNP。 引脚：1=1(input)；2=2(power_out)；3=3(power_out)；4=4(output)；5=5(output)；6=6(output)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-box\",\"bodyWidthMm\":5.08,\"bodyHeightMm\":21.59,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[{\"number\":\"1\",\"edge\":\"left\",\"offsetMm\":1.27,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":false},{\"number\":\"2\",\"edge\":\"left\",\"offsetMm\":5.08,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":false},{\"number\":\"3\",\"edge\":\"left\",\"offsetMm\":8.89,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":false},{\"number\":\"4\",\"edge\":\"left\",\"offsetMm\":12.7,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":false},{\"number\":\"5\",\"edge\":\"left\",\"offsetMm\":16.51,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":false},{\"number\":\"6\",\"edge\":\"left\",\"offsetMm\":20.32,\"lengthMm\":2.54,\"showName\":true,\"showNumber\":false}]}",
+    "binding": "DISP",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "DISP",
+    "value": "6Pin/2.5mm",
+    "originalFootprint": "THT-CON6-2.5-6.4L/S",
+    "materialCode": "R30072135",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "input"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "power_out"
+      },
+      {
+        "number": "3",
+        "name": "3",
+        "type": "power_out"
+      },
+      {
+        "number": "4",
+        "name": "4",
+        "type": "output"
+      },
+      {
+        "number": "5",
+        "name": "5",
+        "type": "output"
+      },
+      {
+        "number": "6",
+        "name": "6",
+        "type": "output"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 316,
+      "lineEnd": 329,
+      "schDocRecord": 659
+    },
+    "materialDescription": "电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446",
+    "assemblyType": "THT",
+    "symbolId": "Evidence:R6_source_659",
+    "appearance": {
+      "kind": "specified-box",
+      "bodyWidthMm": 5.08,
+      "bodyHeightMm": 21.59,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [
+        {
+          "number": "1",
+          "edge": "left",
+          "offsetMm": 1.27,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": false
+        },
+        {
+          "number": "2",
+          "edge": "left",
+          "offsetMm": 5.08,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": false
+        },
+        {
+          "number": "3",
+          "edge": "left",
+          "offsetMm": 8.89,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": false
+        },
+        {
+          "number": "4",
+          "edge": "left",
+          "offsetMm": 12.7,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": false
+        },
+        {
+          "number": "5",
+          "edge": "left",
+          "offsetMm": 16.51,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": false
+        },
+        {
+          "number": "6",
+          "edge": "left",
+          "offsetMm": 20.32,
+          "lengthMm": 2.54,
+          "showName": true,
+          "showNumber": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "component-source-688",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号*；原值LED；原封装标识UV；物料编码；物料说明；装配；默认装配，非DNP。 引脚：1=DIG3(passive)；2=DIG2(passive)；3=DIG1(passive)；4=B(passive)；5=A(passive)；6=F(passive)；7=G(passive)；8=C(passive)；9=E(passive)；10=D(passive)。",
+    "binding": "*",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "*",
+    "value": "LED",
+    "originalFootprint": "UV",
+    "materialCode": "",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "DIG3",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "DIG2",
+        "type": "passive"
+      },
+      {
+        "number": "3",
+        "name": "DIG1",
+        "type": "passive"
+      },
+      {
+        "number": "4",
+        "name": "B",
+        "type": "passive"
+      },
+      {
+        "number": "5",
+        "name": "A",
+        "type": "passive"
+      },
+      {
+        "number": "6",
+        "name": "F",
+        "type": "passive"
+      },
+      {
+        "number": "7",
+        "name": "G",
+        "type": "passive"
+      },
+      {
+        "number": "8",
+        "name": "C",
+        "type": "passive"
+      },
+      {
+        "number": "9",
+        "name": "E",
+        "type": "passive"
+      },
+      {
+        "number": "10",
+        "name": "D",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 330,
+      "lineEnd": 343,
+      "schDocRecord": 688
+    },
+    "materialDescription": "",
+    "assemblyType": ""
+  },
+  {
+    "id": "component-source-723",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C4；原值4.7uF/16V；原封装标识WSC0603；物料编码R21200046；物料说明贴片电容/4.7UF/10%/16V/X5R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":180,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C4",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C4",
+    "value": "4.7uF/16V",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200046",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 344,
+      "lineEnd": 353,
+      "schDocRecord": 723
+    },
+    "materialDescription": "贴片电容/4.7UF/10%/16V/X5R/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_723",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 180,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-747",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C8；原值4.7uF/16V；原封装标识WSC0603；物料编码R21200046；物料说明贴片电容/4.7UF/10%/16V/X5R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":180,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C8",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C8",
+    "value": "4.7uF/16V",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200046",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 354,
+      "lineEnd": 363,
+      "schDocRecord": 747
+    },
+    "materialDescription": "贴片电容/4.7UF/10%/16V/X5R/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_747",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 180,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-771",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号C1；原值0.068uF/0603；原封装标识WSC0603；物料编码R21200057；物料说明台系贴片电容/0.068uF±10%/50V/X7R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-capacitor\",\"axisDegrees\":0,\"terminalSpanMm\":7.62,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"plateHalfLengthMm\":1.016,\"plateGapMm\":1.016}",
+    "binding": "C1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "C1",
+    "value": "0.068uF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200057",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 364,
+      "lineEnd": 373,
+      "schDocRecord": 771
+    },
+    "materialDescription": "台系贴片电容/0.068uF±10%/50V/X7R/0603",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_771",
+    "appearance": {
+      "kind": "specified-capacitor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 7.62,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "plateHalfLengthMm": 1.016,
+      "plateGapMm": 1.016
+    }
+  },
+  {
+    "id": "component-source-798",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ3；原值0R/0805；原封装标识WSR0805-J；物料编码R20180224；物料说明贴片电阻/1/8W/0Ω±1%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ3",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ3",
+    "value": "0R/0805",
+    "originalFootprint": "WSR0805-J",
+    "materialCode": "R20180224",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 374,
+      "lineEnd": 383,
+      "schDocRecord": 798
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±1%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_798",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-827",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ4；原值0R/0805；原封装标识WSR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ4",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ4",
+    "value": "0R/0805",
+    "originalFootprint": "WSR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 384,
+      "lineEnd": 393,
+      "schDocRecord": 827
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_827",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-911",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ5；原值0R/0805；原封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ5",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ5",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 394,
+      "lineEnd": 403,
+      "schDocRecord": 911
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_911",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-942",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ6；原值0R/0805；原封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ6",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ6",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 404,
+      "lineEnd": 413,
+      "schDocRecord": 942
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_942",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-973",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ7；原值0R/0805；原封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ7",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ7",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 414,
+      "lineEnd": 423,
+      "schDocRecord": 973
+    },
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_973",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-1006",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号RJ8；原值0R/1206；原封装标识WSR1206-J；物料编码R20140001；物料说明贴片电阻/1/4W/0Ω±5%/1206；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-resistor\",\"axisDegrees\":0,\"terminalSpanMm\":10.16,\"pinLengthMm\":2.54,\"strokeWidthMm\":0.254,\"pinNamesVisible\":false,\"pinNumbersVisible\":false,\"zigzagHalfHeightMm\":0.762,\"zigzagTurns\":5}",
+    "binding": "RJ8",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "RJ8",
+    "value": "0R/1206",
+    "originalFootprint": "WSR1206-J",
+    "materialCode": "R20140001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 424,
+      "lineEnd": 434,
+      "schDocRecord": 1006
+    },
+    "materialDescription": "贴片电阻/1/4W/0Ω±5%/1206",
+    "assemblyType": "SMD",
+    "symbolId": "Evidence:R6_source_1006",
+    "appearance": {
+      "kind": "specified-resistor",
+      "axisDegrees": 0,
+      "terminalSpanMm": 10.16,
+      "pinLengthMm": 2.54,
+      "strokeWidthMm": 0.254,
+      "pinNamesVisible": false,
+      "pinNumbersVisible": false,
+      "zigzagHalfHeightMm": 0.762,
+      "zigzagTurns": 5
+    }
+  },
+  {
+    "id": "component-source-460",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号SS；原值.；原封装标识SOLDER；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":17.018,\"bodyHeightMm\":6.096,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[],\"labels\":[{\"text\":\"波峰焊单向过炉条\",\"leftMm\":0.762,\"bottomMm\":2.032,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":true}",
+    "binding": "SS",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "SS",
+    "value": ".",
+    "originalFootprint": "SOLDER",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 236,
+      "lineEnd": 240,
+      "schDocRecord": 460
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_460",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 17.018,
+      "bodyHeightMm": 6.096,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "波峰焊单向过炉条",
+          "leftMm": 0.762,
+          "bottomMm": 2.032,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": true
+    }
+  },
+  {
+    "id": "component-source-473",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号DWK1；原值.；原封装标识D-2.5mm；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":17.018,\"bodyHeightMm\":3.556,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,1.778],\"pinPresentation\":[],\"labels\":[{\"text\":\"PCB厂家丝印定位孔\",\"leftMm\":0.762,\"bottomMm\":0.762,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "DWK1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "DWK1",
+    "value": ".",
+    "originalFootprint": "D-2.5mm",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 241,
+      "lineEnd": 245,
+      "schDocRecord": 473
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_473",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 17.018,
+      "bodyHeightMm": 3.556,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        1.778
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "PCB厂家丝印定位孔",
+          "leftMm": 0.762,
+          "bottomMm": 0.762,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-482",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号DWK2；原值.；原封装标识D-2.5mm；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":17.018,\"bodyHeightMm\":3.556,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,1.778],\"pinPresentation\":[],\"labels\":[{\"text\":\"PCB厂家丝印定位孔\",\"leftMm\":0.762,\"bottomMm\":0.762,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "DWK2",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "DWK2",
+    "value": ".",
+    "originalFootprint": "D-2.5mm",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 246,
+      "lineEnd": 250,
+      "schDocRecord": 482
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_482",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 17.018,
+      "bodyHeightMm": 3.556,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        1.778
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "PCB厂家丝印定位孔",
+          "leftMm": 0.762,
+          "bottomMm": 0.762,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-491",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号check；原值.；原封装标识1Side check-1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":10.16,\"bodyHeightMm\":5.08,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,2.54],\"pinPresentation\":[],\"labels\":[{\"text\":\"单面板检\",\"leftMm\":1.27,\"bottomMm\":2.54,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"},{\"text\":\"查核对丝印\",\"leftMm\":0.762,\"bottomMm\":0.762,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "check",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "check",
+    "value": ".",
+    "originalFootprint": "1Side check-1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 251,
+      "lineEnd": 255,
+      "schDocRecord": 491
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_491",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 10.16,
+      "bodyHeightMm": 5.08,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        2.54
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "单面板检",
+          "leftMm": 1.27,
+          "bottomMm": 2.54,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        },
+        {
+          "text": "查核对丝印",
+          "leftMm": 0.762,
+          "bottomMm": 0.762,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-510",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号UL；原值.；原封装标识CQC-UL-PCB LOGO；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":15.24,\"bodyHeightMm\":4.064,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.085603,2.032],\"pinPresentation\":[],\"labels\":[{\"text\":\"单面板CQC UL等丝印位置框\",\"leftMm\":0.508,\"bottomMm\":1.016,\"fontMm\":0.635,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "UL",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "UL",
+    "value": ".",
+    "originalFootprint": "CQC-UL-PCB LOGO",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 256,
+      "lineEnd": 260,
+      "schDocRecord": 510
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_510",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 15.24,
+      "bodyHeightMm": 4.064,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.085603,
+        2.032
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "单面板CQC UL等丝印位置框",
+          "leftMm": 0.508,
+          "bottomMm": 1.016,
+          "fontMm": 0.635,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-519",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号LLOO；原值.；原封装标识NSMALL-S；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":18.034,\"bodyHeightMm\":5.08,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,2.54],\"pinPresentation\":[],\"labels\":[{\"text\":\"公司LOGO需手动修改\",\"leftMm\":0.254,\"bottomMm\":1.524,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "LLOO",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "LLOO",
+    "value": ".",
+    "originalFootprint": "NSMALL-S",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 261,
+      "lineEnd": 265,
+      "schDocRecord": 519
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_519",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 18.034,
+      "bodyHeightMm": 5.08,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        2.54
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "公司LOGO需手动修改",
+          "leftMm": 0.254,
+          "bottomMm": 1.524,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-531",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号QR Code；原值.；原封装标识QR code；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":15.494,\"bodyHeightMm\":6.35,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[],\"labels\":[{\"text\":\"二维码条块\",\"leftMm\":0.762,\"bottomMm\":3.048,\"fontMm\":1.524,\"angle\":0.0,\"align\":\"left bottom\"},{\"text\":\"6mm*6mm\",\"leftMm\":1.524,\"bottomMm\":0.0,\"fontMm\":1.524,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "QR Code",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "QR Code",
+    "value": ".",
+    "originalFootprint": "QR code",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": false,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 266,
+      "lineEnd": 270,
+      "schDocRecord": 531
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_531",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 15.494,
+      "bodyHeightMm": 6.35,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "二维码条块",
+          "leftMm": 0.762,
+          "bottomMm": 3.048,
+          "fontMm": 1.524,
+          "angle": 0.0,
+          "align": "left bottom"
+        },
+        {
+          "text": "6mm*6mm",
+          "leftMm": 1.524,
+          "bottomMm": 0.0,
+          "fontMm": 1.524,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-541",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号QR Code1；原值.；原封装标识QR code；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":15.494,\"bodyHeightMm\":6.35,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[],\"labels\":[{\"text\":\"二维码条块\",\"leftMm\":0.762,\"bottomMm\":3.048,\"fontMm\":1.524,\"angle\":0.0,\"align\":\"left bottom\"},{\"text\":\"6mm*6mm\",\"leftMm\":1.524,\"bottomMm\":0.0,\"fontMm\":1.524,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "QR Code1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "QR Code1",
+    "value": ".",
+    "originalFootprint": "QR code",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 271,
+      "lineEnd": 275,
+      "schDocRecord": 541
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_541",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 15.494,
+      "bodyHeightMm": 6.35,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "二维码条块",
+          "leftMm": 0.762,
+          "bottomMm": 3.048,
+          "fontMm": 1.524,
+          "angle": 0.0,
+          "align": "left bottom"
+        },
+        {
+          "text": "6mm*6mm",
+          "leftMm": 1.524,
+          "bottomMm": 0.0,
+          "fontMm": 1.524,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-551",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号MM1；原值.；原封装标识MARK1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":16.002,\"bodyHeightMm\":5.08,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,2.54],\"pinPresentation\":[],\"labels\":[{\"text\":\"MARK光学定位2个\",\"leftMm\":0.508,\"bottomMm\":1.524,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "MM1",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "MM1",
+    "value": ".",
+    "originalFootprint": "MARK1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 276,
+      "lineEnd": 280,
+      "schDocRecord": 551
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_551",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 16.002,
+      "bodyHeightMm": 5.08,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        2.54
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "MARK光学定位2个",
+          "leftMm": 0.508,
+          "bottomMm": 1.524,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-563",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号MM2；原值.；原封装标识MARK1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":16.002,\"bodyHeightMm\":5.08,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,2.54],\"pinPresentation\":[],\"labels\":[{\"text\":\"MARK光学定位2个\",\"leftMm\":0.508,\"bottomMm\":1.524,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "MM2",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "MM2",
+    "value": ".",
+    "originalFootprint": "MARK1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 281,
+      "lineEnd": 285,
+      "schDocRecord": 563
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_563",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 16.002,
+      "bodyHeightMm": 5.08,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        2.54
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "MARK光学定位2个",
+          "leftMm": 0.508,
+          "bottomMm": 1.524,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-575",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号MM3；原值.；原封装标识MARK1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":16.002,\"bodyHeightMm\":5.08,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[5.08,2.54],\"pinPresentation\":[],\"labels\":[{\"text\":\"MARK光学定位2个\",\"leftMm\":0.508,\"bottomMm\":1.524,\"fontMm\":1.016,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "MM3",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "MM3",
+    "value": ".",
+    "originalFootprint": "MARK1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 286,
+      "lineEnd": 290,
+      "schDocRecord": 575
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_575",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 16.002,
+      "bodyHeightMm": 5.08,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        5.08,
+        2.54
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "MARK光学定位2个",
+          "leftMm": 0.508,
+          "bottomMm": 1.524,
+          "fontMm": 1.016,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "component-source-587",
+    "document": "器件与装配清单（模拟规格摘录）",
+    "page": 1,
+    "pageIsPlaceholder": true,
+    "content": "原位号LLAA；原值.；原封装标识LABEL1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 符号尺寸与引脚呈现依据（均为局部图形，不是实物封装或整页坐标）：{\"kind\":\"specified-process\",\"bodyWidthMm\":15.494,\"bodyHeightMm\":4.064,\"outlineWidthMm\":0.0254,\"cornerRadiusMm\":[0,0],\"pinPresentation\":[],\"labels\":[{\"text\":\"条形码32*10\",\"leftMm\":0.254,\"bottomMm\":0.508,\"fontMm\":1.524,\"angle\":0.0,\"align\":\"left bottom\"}],\"flowArrow\":false}",
+    "binding": "LLAA",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "preparationSource": "MD50PG R6 confirmed source; transcribed into visible requirements, not a runtime CAD dependency",
+    "reference": "LLAA",
+    "value": ".",
+    "originalFootprint": "LABEL1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "preparationEvidence": {
+      "file": "source-default-text.txt",
+      "lineStart": 291,
+      "lineEnd": 295,
+      "schDocRecord": 587
+    },
+    "materialDescription": "",
+    "assemblyType": "",
+    "symbolId": "Evidence:R6_source_587",
+    "appearance": {
+      "kind": "specified-process",
+      "bodyWidthMm": 15.494,
+      "bodyHeightMm": 4.064,
+      "outlineWidthMm": 0.0254,
+      "cornerRadiusMm": [
+        0,
+        0
+      ],
+      "pinPresentation": [],
+      "labels": [
+        {
+          "text": "条形码32*10",
+          "leftMm": 0.254,
+          "bottomMm": 0.508,
+          "fontMm": 1.524,
+          "angle": 0.0,
+          "align": "left bottom"
+        }
+      ],
+      "flowArrow": false
+    }
+  },
+  {
+    "id": "zero-ohm-policy",
+    "document": "跨线与装配说明（模拟摘录）",
+    "page": 2,
+    "pageIsPlaceholder": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "binding": "RJ1—RJ8",
+    "content": "保留八个原零欧跨线：RJ1两端G3、RJ2两端G1、RJ3/RJ4/RJ7两端SGND、RJ5/RJ6两端CLK、RJ8两端G2。这里两端同网是原资料事实，不擅自拆网；也不能据同网删除实际跨线物料。RJ8为1206，其余见逐件0805清单。原PCB几何本轮不生成。",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction"
+  },
+  {
+    "id": "power-branches",
+    "document": "供电与红外外围要求（模拟摘录）",
+    "page": 3,
+    "pageIsPlaceholder": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "DISP / U1 / D1 / C1—C8 / R1 / R3",
+    "content": "DISP.3提供+5V，连接U1.4、C1.1、C4.2、C8.2、R1.2和R3.2。R1.1为红外滤波后的供电，连接D1.3、C2.2、C3.2。RCV连接DISP.1、D1.1、R3.1；R3正常装配，不是DNP。SGND连接DISP.2、U1.14、D1.2、C1.2以及C2/C3/C4/C5/C6/C7/C8的1脚；RJ3/RJ4/RJ7两端也在SGND。各电容均保持原非极性符号，不添加电解正负极。",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction"
+  },
+  {
+    "id": "control-branches",
+    "document": "主板控制接口要求（模拟摘录）",
+    "page": 3,
+    "pageIsPlaceholder": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "DISP / U1 / C5—C7",
+    "content": "DIN连接DISP.6、U1.1和C7.2；CLK连接DISP.5、U1.2和C6.2，同时保留RJ5、RJ6两端同属CLK；STB连接DISP.4、U1.3和C5.2。DISP针号和名称按资料保留，不反转为另一份设计的接口顺序。",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction"
+  },
+  {
+    "id": "segment-branches",
+    "document": "显示段及位选要求（模拟摘录）",
+    "page": 3,
+    "pageIsPlaceholder": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "U1 / R2,R4,R6,R8,R9,R7,R5 / *",
+    "content": "七路分别为：U1.5→R2.2，R2.1→显示器*.8(C)；U1.6→R4.2，R4.1→*.9(E)；U1.7→R6.2，R6.1→*.7(G)；U1.8→R8.2，R8.1→*.10(D)；U1.9→R9.1，R9.2→*.6(F)；U1.10→R7.1，R7.2→*.5(A)；U1.11→R5.1，R5.2→*.4(B)。位选G1为U1.16与*.1及RJ2两端，G2为U1.15与*.3及RJ8两端，G3为U1.13与*.2及RJ1两端。U1.12是唯一明确NC。不按DIG名称数字大小擅自调整这一映射。",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction"
+  },
+  {
+    "id": "assembly-and-boundary",
+    "document": "装配及交付范围（模拟资料）",
+    "page": 3,
+    "pageIsPlaceholder": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "全部对象",
+    "content": "29个电气器件和12个工艺对象均保留，原资料全部dnp=false；只有QR Code的on_board=false，其余为true。工艺对象不能因无电气引脚而删除，也不计入电子器件数量。原封装标识和物料编码保留，不等同已核验采购订货号或PCB焊盘几何。本轮不做PCB、真实PDF解析、固件联调或实物验证。图纸与BOM必须来自实际生成工程。",
+    "simulated": true,
+    "sourceType": "mock-pdf-extraction"
+  }
+]

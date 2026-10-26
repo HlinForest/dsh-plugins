@@ -2,7 +2,7 @@
 
 为 DeepSeek Harness 提供独立工程插件与可视化工作台，目标运行时为 **DSH 0.2.0-rc.2**，要求 **Node.js ≥ 22.19.0**。
 
-**直接打开已生成的显示板工程：** [工程目录与打开说明](examples/display-board-20261015/README.md) · [原理图 PDF](examples/display-board-20261015/DisplayBoard/previews/schematic.pdf) · [工程下载包](https://github.com/HlinForest/dsh-plugins/releases/tag/display-board-20261015)。该目录随 Git 拉取取得，包含原理图、PCB、BOM、库、模型与预览，无需运行插件。本轮从默认数据生成；PCB 数据的历史准备曾使用官方导入器辅助提取，具体范围见说明。
+**历史预置输入显示板工程（2026-10-15）：** [工程目录与打开说明](examples/display-board-20261015/README.md) · [原理图 PDF](examples/display-board-20261015/DisplayBoard/previews/schematic.pdf) · [工程下载包](https://github.com/HlinForest/dsh-plugins/releases/tag/display-board-20261015)。该目录随 Git 拉取取得，包含原理图、PCB、BOM、库、模型与预览，无需运行插件。本轮从默认数据生成；PCB 数据的历史准备曾使用官方导入器辅助提取，具体范围见说明。
 
 | 插件 | 版本 | 用途 |
 | --- | --- | --- |
@@ -10,8 +10,22 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.3.4 | 三栏独立窗口、显示板完整输入、Harness 模型处理、人工确认、真实生成及重放 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.2-beta.4 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
+
+## 电路设计 0.16.2-beta.4：文字评审与真实显示板复测
+
+[Demo与图纸目录](demos/eda-flow/round-0125) · [下载Demo与可编辑工程](demos/eda-flow/round-0125/Demo与工程.zip) · [实跑差异](demos/eda-flow/round-0125/本轮实跑与差异.md) · [评审记录](demos/eda-flow/round-0125/工程师评审记录.json) · [使用说明](demos/eda-flow/round-0125/使用说明.md) · [插件TGZ](dist/dsh-eda-flow-0.16.2-beta.4.tgz) · [SHA256](dist/dsh-eda-flow-0.16.2-beta.4.tgz.sha256)
+
+当前完整显示板与真实DeepSeek模型已跑通文字评审、重新生成、核验及工程导出。C4所在STB网络由2个分支变为1个；本轮全部29个非铺铜、多焊盘信号网实际铜连通，原生DRC错误/警告/未连接均0。相对上轮未连接版，显式线长598.668→538.908 mm、短段34→5、拐点133→101；原版545.613 mm/32短段/126拐点门槛同时满足。清理了已由真实铜区或焊盘覆盖的重复线段，显式长度下降不等同于实际电流路径同幅缩短。
+
+改进使用真实器件角色、接收端、铜形和断线反馈，不读取AD板坐标，不补全AD逐脚连接。旧的完整重放输入从运行目录移除；历史测试资料保留在测试目录。54项流程测试、16项原生CAD/搜索测试通过；源码、TGZ与安装包268个文件一致。
+
+生成需要Harness及可访问的模型、KiCad 10完整程序/库与配套Python依赖、Java21；Freerouting已在TGZ内。TGZ与Demo没有附带CAD安装器、Java或Python离线依赖。没有KiCad时可查看Demo/PDF，或在已有插件项目使用ReviewOnly记录评审；无法重新生成。解压Demo后打开Demo.html查看交互比较，GitHub文件页只显示HTML源码。
+
+安装使用 [本版安装脚本](plugins/dsh-eda-flow/scripts/install-intranet.ps1) 的 -SuppliedPackage 指定新TGZ，并按 [安装说明](plugins/dsh-eda-flow/docs/engineer-review-and-installation.md) 填写已有profile和本机路径。下方0.3.x更新命令属于历史版本，不用于本版升级。
+
+阻容、器件数量、部分封装和铜区分区与AD仍有差异；工作指标不足的保持未确定。本次为连通与布线质量验收，待工程师复核，不是AD严格等价或生产签核。
 
 ## 工程工作台 0.6.0：拉取后直接更新
 
@@ -32,7 +46,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\update-workbench.p
 
 本机验证：68 项 Node 测试通过，10 个页面在五种宽度下检查；独立窗口、缩放、全屏、失败重试及配置保留已检查。模型状态使用模拟响应，付费模型请求为零。
 
-## 电路设计 dsh-eda-flow 0.3.4：内网资料读取检查
+## 历史电路设计 dsh-eda-flow 0.3.4：内网资料读取检查
 
 针对点击“整理输入”后 CSV 校验变化：检测 TSD 保护格式，对照 Harness/Node 与 KiCad Python 读取结果；非任务资料异常从第二步阻止执行，保留未改变的任务确认。校验仍严格执行，不解密、不删除保护头、不自动接受变化文件。尚未取得内网诊断，不能断言具体原因就是加密。
 
