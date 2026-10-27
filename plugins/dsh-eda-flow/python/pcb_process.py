@@ -39,6 +39,17 @@ def placement_report(board,process):
         rows.append({**r,'distanceMm':round(distance,6),'passed':limit is None or distance<=limit+.000002})
     return {'relations':rows,'passed':all(r['passed'] for r in rows),'metric':'supply pad to owner supply pad, straight-line; not loop inductance or transient performance'}
 
+def refresh_copper_report(board,result):
+    """Native zone iteration order is not an association with input rows."""
+    actual={z.m_Uuid.AsString():z for z in board.Zones()}
+    for entry in result['zones']:
+        zone=actual[entry['zoneId']];layer=zone.GetLayer()
+        if zone.GetNetname()!=entry['name']:raise ValueError('Copper report net mismatch')
+        entry['priority']=zone.GetAssignedPriority()
+        entry['filledPolygons']=zone.GetFilledPolysList(layer).OutlineCount()
+        entry['filledAreaMm2']=zone.GetFilledPolysList(layer).Area()/1e12
+    return result
+
 def add_copper(board,process,plan):
     rows=[];layers=plan.get('activeLayers',['F.Cu','B.Cu'])
     if not process.get('copperNets'):return {'zones':[],'filled':False}
@@ -58,10 +69,19 @@ def add_copper(board,process,plan):
         zone.SetIslandRemovalMode(pcb.ISLAND_REMOVAL_MODE_ALWAYS)
         poly=zone.Outline();poly.NewOutline()
         for x,y in [(x0,y0),(x1,y0),(x1,y1),(x0,y1)]:poly.Append(pcb.FromMM(x),pcb.FromMM(y))
-        board.Add(zone);rows.append({**entry,'layer':layers[0],'boundsMm':list(bounds),'padConnection':'solid','islands':'remove-all','geometry':'board inset for return; actual net pad envelope + 1 mm for supply'})
+        board.Add(zone);rows.append({**entry,'zoneId':zone.m_Uuid.AsString(),'layer':layers[0],'boundsMm':list(bounds),'padConnection':'solid','islands':'remove-all','geometry':'board inset for return; actual net pad envelope + 1 mm for supply'})
+    # Resolve overlapping domains explicitly. Larger envelopes fill first;
+    # smaller local domains have higher priority, independent of random UUIDs.
+    # This is a geometric heuristic, still subject to native connectivity DRC.
+    def order(entry):
+        x0,y0,x1,y1=entry['boundsMm']
+        return (entry['kind']!='return',-(x1-x0)*(y1-y0),entry['name'])
+    zones={z.m_Uuid.AsString():z for z in board.Zones()}
+    for priority,entry in enumerate(sorted(rows,key=order)):
+        zones[entry['zoneId']].SetAssignedPriority(priority)
     board.BuildConnectivity();pcb.ZONE_FILLER(board).Fill(board.Zones())
-    for entry,zone in zip(rows,board.Zones()):
-        entry['filledPolygons']=zone.GetFilledPolysList(layer).OutlineCount()
-        entry['filledAreaMm2']=zone.GetFilledPolysList(layer).Area()/1e12
+    result={'zones':rows,'filled':True,'priorityPolicy':'return domains first; then descending actual pad-envelope area; equal areas ordered by net name; native connectivity required','assumptions':['Solid pad connection; production soldering/thermal relief policy requires review.','Copper is added to existing nets only, never contracts zero-ohm boundaries.']}
+    refresh_copper_report(board,result)
+    for entry in rows:
         if entry['filledPolygons']==0:raise ValueError('Requested copper zone has no connected fill: '+entry['name'])
-    return {'zones':rows,'filled':True,'assumptions':['Solid pad connection; production soldering/thermal relief policy requires review.','Copper is added to existing nets only, never contracts zero-ohm boundaries.']}
+    return result

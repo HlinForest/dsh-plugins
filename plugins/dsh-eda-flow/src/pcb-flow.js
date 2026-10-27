@@ -93,7 +93,7 @@ export async function executePcb(flow,p,s,signal){
   const invalid=validatePcbPlan(s.plan)||validatePcbContents(s.plan,request.components)||validateMechanicalDatums(s.plan,request.stageNotes,request.components.map(c=>c.ref));if(invalid)throw new Error(invalid);
   const missing=request.components.filter(c=>c.on_board!==false&&!c.footprint&&!imports.has(c.ref));if(missing.length)throw Error('缺少可读取的 KiCad 封装：'+missing.map(c=>c.ref).join(', '));
   const cli=flow.config.kicadCli,python=flow.config.pcbPython||(process.platform==='win32'?path.join(path.dirname(cli),'python.exe'):flow.config.kicadPython);
-  const args={source:path.dirname(path.join(source.output,file.path)),schematic:path.basename(file.path),output,cli,plan:applyPcbProcess(s.plan.pcb,processPolicy),process:processPolicy,
+  const args={solverPython:flow.config.kicadPython,source:path.dirname(path.join(source.output,file.path)),schematic:path.basename(file.path),output,cli,plan:applyPcbProcess(s.plan.pcb,processPolicy),process:processPolicy,
    footprints:flow.config.kicadFootprintRoot||path.resolve(path.dirname(cli),'../share/kicad/footprints'),java:flow.config.javaPath||'java',jar:flow.config.freeroutingJar||path.join(root,'vendor/freerouting-2.1.0.jar'),footprintImports:[...imports.values()],components:request.components,nc:p.stages[2].plan?.design?.nc||[]};
   await writeJSON(path.join(output,'pcb-request.json'),args);
   const runner=Object.create(flow);runner.config={...flow.config,kicadPython:python,processTimeoutMs:30*60*1000};

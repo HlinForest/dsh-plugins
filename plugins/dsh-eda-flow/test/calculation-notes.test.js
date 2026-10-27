@@ -33,3 +33,9 @@ test('published summary derives its inventory and limits from structured results
  assert(summary.includes('1 个器件、2 个引脚、1 个原始网络'));assert(summary.includes('1 项工作点'));
  assert(summary.includes('1 项设计待核实'));assert(!summary.includes('0.105'));
 });
+test('target-current changes replace stale equal-branch peak arithmetic and retain unknown ratings',()=>{
+ const d={loadAssessments:[{basis:'LOAD 每段峰值≈0.675mA，额定电流仍未知。'}]};
+ const rows=[{id:'drive',owner:'LOAD',kind:'resistor-load',components:['RA','RB'],inputs:{},assumptions:[],calculations:[{peakCurrentA:.008181818},{peakCurrentA:.008181818}]}];
+ const h=reconcileDesignCalculationNotes(d,rows);assert.equal(h.length,1);
+ assert(d.loadAssessments[0].basis.includes('8.18182 mA'));assert(d.loadAssessments[0].basis.includes('额定电流仍未知'));
+});

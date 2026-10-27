@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 import pymupdf
 from pdf_tables import extract_tables
+from pdf_figures import FigureReader
 
 
 def extract(source, name, binding):
@@ -15,7 +16,8 @@ def extract(source, name, binding):
     digest = hashlib.sha256(data).hexdigest()
     if len(data) > 50 * 1024 * 1024:
         raise ValueError("PDF exceeds 50 MB")
-    records, missing, tables, warnings = [], [], [], []
+    records, missing, tables, warnings, figures = [], [], [], [], []
+    figure_reader = FigureReader()
     with pymupdf.open(stream=data, filetype="pdf") as doc:
         if doc.needs_pass:
             raise ValueError("PDF is encrypted; provide an unlocked readable copy")
@@ -45,6 +47,8 @@ def extract(source, name, binding):
             if total > 1500000:
                 raise ValueError("PDF text and tables exceed 1.5 million characters; split the relevant sections")
             tables.extend(page_tables);warnings.extend(page_warnings)
+            page_figures, figure_warnings = figure_reader.extract(page, digest, name, binding)
+            figures.extend(page_figures); warnings.extend(figure_warnings)
     page_count = len(records)
     # Optional published specification appendix, usable by any uploaded document.
     # Parse data only; never execute document content or accept CAD/netlist payloads.
@@ -91,6 +95,8 @@ def extract(source, name, binding):
     records.extend(tables)
     return {"records": records, "sha256": digest, "pages": page_count,
             "tableCount":len(tables),"extractionWarnings":warnings,
+            "figureObservations":figures, "figureCount":len(figures),
+            "ocrTextRegions":sum(bool(row["content"]) for row in figures),
             "unreadablePages": missing, "readable": bool(records) and not missing}
 
 

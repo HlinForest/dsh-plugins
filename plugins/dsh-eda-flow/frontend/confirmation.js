@@ -1,4 +1,5 @@
-export const clientVersion = '0.16.2-beta.4';
+import { version as clientVersion } from '../src/contracts.js';
+export { clientVersion };
 const statuses = { pending: '尚未执行', done: '已完成，尚未确认', running: '处理中', stale: '需要重新核对', failed: '执行失败', interrupted: '执行中断', cancelled: '已取消', 'waiting-input': '待补文字要求', skipped: '本轮未执行' };
 export function confirmedStage(project, number) {
   return project?.stages?.find(stage => Number(stage.id) === Number(number));

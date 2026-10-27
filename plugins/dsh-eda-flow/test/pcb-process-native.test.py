@@ -2,7 +2,19 @@ import sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'python'))
 import pcbnew as p
-from pcb_process import assembly_sides,native_process,placement_report,add_copper
+from pcb_process import assembly_sides,native_process,placement_report,add_copper,refresh_copper_report
+
+def overlapping_board():
+    board=p.BOARD()
+    def point(x,y):return p.VECTOR2I(p.FromMM(x),p.FromMM(y))
+    for a,b in [((0,0),(30,0)),((30,0),(30,25)),((30,25),(0,25)),((0,25),(0,0))]:
+        edge=p.PCB_SHAPE();edge.SetShape(p.SHAPE_T_SEGMENT);edge.SetLayer(p.Edge_Cuts);edge.SetStart(point(*a));edge.SetEnd(point(*b));edge.SetWidth(p.FromMM(.05));board.Add(edge)
+    for name,positions in [('/COMMON',[(3,22),(26,22)]),('/MAIN',[(5,5),(24,18)]),('/LOCAL',[(20,12),(23,16)])]:
+        net=p.NETINFO_ITEM(board,name);board.Add(net)
+        for index,at in enumerate(positions):
+            fp=p.FOOTPRINT(board);fp.SetReference(name+str(index));board.Add(fp)
+            pad=p.PAD(fp);pad.SetNumber('1');pad.SetNet(net);pad.SetAttribute(p.PAD_ATTRIB_SMD);pad.SetShape(p.PAD_SHAPE_RECT);pad.SetSize(point(1,1));pad.SetPosition(point(*at));layers=p.LSET();layers.AddLayer(p.B_Cu);pad.SetLayerSet(layers);fp.Add(pad)
+    return board
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -30,4 +42,20 @@ class Tests(unittest.TestCase):
         result=add_copper(self.b,{'copperNets':[{'name':'/return','kind':'return'}]},{'widthMm':30,'heightMm':25,'clearanceMm':.25,'trackWidthMm':.25,'activeLayers':['B.Cu']})
         self.assertTrue(result['filled']);self.assertGreater(result['zones'][0]['filledAreaMm2'],0)
         self.assertEqual([(z.GetNetname(),z.GetLayer()) for z in self.b.Zones()],[('/return',p.B_Cu)])
+    def test_overlapping_domains_are_reproducible_and_report_by_identity(self):
+        def generate(reverse):
+            board=overlapping_board()
+            entries=[{'name':'/COMMON','kind':'return'},{'name':'/MAIN','kind':'supply'},{'name':'/LOCAL','kind':'supply'}]
+            if reverse:entries.reverse()
+            result=add_copper(board,{'copperNets':entries},{'widthMm':30,'heightMm':25,'clearanceMm':.25,'trackWidthMm':.25,'activeLayers':['B.Cu']})
+            result['zones'].reverse();refresh_copper_report(board,result)
+            actual={z.m_Uuid.AsString():z for z in board.Zones()}
+            for row in result['zones']:
+                zone=actual[row['zoneId']]
+                self.assertEqual(row['name'],zone.GetNetname())
+                self.assertAlmostEqual(row['filledAreaMm2'],zone.GetFilledPolysList(p.B_Cu).Area()/1e12)
+            return {r['name']:(r['priority'],r['filledPolygons'],r['filledAreaMm2']) for r in result['zones']}
+        first=generate(False);second=generate(True)
+        self.assertEqual(first,second)
+        self.assertLess(first['/MAIN'][0],first['/LOCAL'][0])
 if __name__=='__main__':unittest.main()

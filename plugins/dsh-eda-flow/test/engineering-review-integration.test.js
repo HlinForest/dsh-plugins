@@ -15,7 +15,7 @@ const finish={action:'finish',summary:'protocol test double',provider:'test-doub
 
 
 test('engineer review changes real PCB track width, retains versions and exports human review',async t=>{
- const dir=path.resolve('../pcb-validation');await fs.mkdir(dir,{recursive:true});
+ const dir=path.resolve(process.env.EDA_TEST_WORK_DIRECTORY||'../pcb-validation');await fs.mkdir(dir,{recursive:true});
  const ai={async generateText(a){
   if(a.stage.id===2)return {...finish,requirements};
   if(a.stage.id===3)return {...finish,design};

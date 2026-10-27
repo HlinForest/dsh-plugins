@@ -18,6 +18,10 @@ export function textInputRecord(project) {
     ['pcbSmdSide','贴片器件装配面'],['pcbThtSide','插装器件装配面'],['pcbRoutingLayers','允许布线层'],['pcbVias','过孔'],['pcbJumpers','零欧跨线'],['pcbCopper','铜区使用'],['pcbDecouplingMm','局部去耦最大距离 / mm'],['pcbStorageMm','负载储能最大距离 / mm'],
   ]) append(label, fields[key]);
   for (const r of inputs.evidence || []) append(`${r.simulated && historical ? '历史资料提取记录' : 'PDF 提取正文'} · ${r.document} · 第${r.page}页${r.pageIsPlaceholder ? '（页码待核对）' : ''} · ${r.binding}`, r.content || '本页没有可提取文字，请补充该页内容。');
+  for (const upload of project.uploads || []) for (const figure of upload.figureObservations || []) {
+    append(`图中文字待复核 · ${upload.name} · 第${figure.page}页 · 区域 ${figure.bbox.join(', ')}`,
+      `${figure.content || '本区域尚未识别到文字，请查看原 PDF。'}\n${figure.limitations}`);
+  }
   const notes = { ...inputs.stageNotes, ...project.stageNotes, ...project.notes };
   for (const [number, value] of Object.entries(notes).sort(([a], [b]) => Number(a) - Number(b))) {
     const title = project.stages?.find(stage => String(stage.id) === number)?.title;

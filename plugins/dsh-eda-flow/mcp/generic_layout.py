@@ -107,14 +107,16 @@ def validate(d):
             gs=[group.get(k) for k in c['nodes']]
             if None in gs or not (len(set(gs))==1 if c['kind']=='connected' else len(set(gs))==len(gs)): raise ValueError('Function condition contradicts design: '+f['requirementId'])
 
-def document(resources,instances,paper='A4',extras=None,rootid=None):
+def document(resources,instances,paper='A4',extras=None,rootid=None,value_notes=None):
     return [A('kicad_sch'),form('version',A('20260101')),form('generator','dsh_controlled_native'),form('uuid',rootid or uid()),form('paper',paper),
-            form('title_block',form('title',resources.get('title','Circuit design')),form('date',date.today().isoformat()),form('rev','1'),form('comment',A('1'),'Engineering requirements and component specifications')),
+            form('title_block',form('title',resources.get('title','Circuit design')),form('date',date.today().isoformat()),form('rev','1'),form('comment',A('1'),'Engineering requirements and component specifications'),*[form('comment',A(str(i+2)),note) for i,note in enumerate(value_notes or [])]),
             form('lib_symbols',*[nr.parse(v['native']) for v in resources['symbols'].values()],*([nr.parse(HELPER)] if extras and any(x[0]=='symbol' for x in extras) else [])),*instances,*(extras or [])]
 
 def instance(c,resource,x=0,y=0,rotation=0):
     s=nr.parse(resource['native']); properties=copy.deepcopy([p for p in children(s,'property') if p[1] not in ('ki_keywords','ki_fp_filters')]); values={'Reference':c['ref'],'Value':c['value'],'Footprint':c['footprint'],'MPN':c['mpn'],'DesignId':c['id']}
     values.update({field:c[key] for key,field in [('originalFootprint','OriginalFootprint'),('materialCode','MaterialCode'),('materialDescription','MaterialDescription'),('assemblyType','AssemblyType'),('objectRole','ObjectRole')] if key in c})
+    from value_selection import fields
+    values.update(fields(c))
     for name,value in values.items():
         p=next((p for p in properties if p[1]==name),None)
         if p is None:
@@ -1519,7 +1521,18 @@ def generate(resources,d,out,layout,node):
         pos=finalpins[next(n['nodes'][0] for n in d['nets'] if n['name']==net)]
         props=[form('property',k,v,at(*pos,0),form('effects',form('font',form('size',number(1.27),number(1.27))),form('hide',A('yes')))) for k,v in [('Reference',helper_ref),('Value','SUPPLIED'),('Footprint',''),('Role','ERCHelper')]]
         extras.append(form('symbol',form('lib_id','Host:SupplyDeclaration'),at(*pos,0),form('unit',A('1')),form('in_bom',A('no')),form('on_board',A('no')),form('dnp',A('no')),form('uuid',uid()),*props))
-    (out/'Circuit.kicad_sch').write_text(nr.dump(document(resources,list(parts.values()),paper,extras,rootid)),encoding='utf8')
+    from value_selection import fields,notes
+    # Frozen block instances may bypass instance(); add the same hidden host
+    # metadata to every actual component without moving symbols or fields.
+    for c in d['components']:
+        raw=parts[c['ref']]
+        for name,value in fields(c).items():
+            prop=next((p for p in children(raw,'property') if p[1]==name),None)
+            if prop is None:
+                raw.append(form('property',name,value,at(0,0,0),form('effects',form('font',form('size',number(1.27),number(1.27))),form('hide',A('yes')))))
+            else:prop[2]=value
+    (out/'Circuit.kicad_sch').write_text(nr.dump(document(resources,list(parts.values()),paper,extras,rootid,notes(d))),encoding='utf8')
+    write(out/'value-selections.json',[c['valueSelection'] for c in d['components'] if c.get('valueSelection')])
     write(out/'Circuit.kicad_pro',{'schematic':{'connection_grid_size':50.0}});write(out/'required-wires.json',required)
     for ident,fp in resources['footprints'].items():
         lib,name=ident.split(':');file=out/'footprints'/(lib+'.pretty')/(name+'.kicad_mod');file.parent.mkdir(parents=True,exist_ok=True);file.write_text(fp['native'],encoding='utf8')
@@ -1539,6 +1552,9 @@ def generate(resources,d,out,layout,node):
 def audit(resources,d,out,layout):
     ast,state=read_native(out/'Circuit.kicad_sch');errors=[];expected={c['ref']:c for c in d['components']};comps=[c for c in state['items'].values() if c['kind']=='component'];actual={c['reference']:c for c in comps};helpers=supply_helpers(d)
     if len(actual)!=len(comps) or set(actual)!=set(expected)|set(helpers):errors.append('Native component set changed')
+    from value_selection import notes
+    comments={str(row[1]):row[2] for row in children(child(ast,'title_block',[]),'comment')}
+    if any(comments.get(str(i+2))!=note for i,note in enumerate(notes(d))):errors.append('Value selection notes changed')
     # Compare the COMPLETE source AST, not a lossy reconstruction via the writer.
     native={s[1]:s for s in children(child(ast,'lib_symbols',[]),'symbol')}
     for ident,s in resources['symbols'].items():
@@ -1629,7 +1645,7 @@ def audit(resources,d,out,layout):
             bodies.append((c['reference'],body))
     erc=read(out/'erc.json');viol=[v for s in erc['sheets'] for v in s['violations']];ec=sum(v['severity']=='error' for v in viol);wc=sum(v['severity']=='warning' for v in viol)
     if ec:errors.append('ERC errors: '+str(ec))
-    fields=['Reference','Value','Footprint','MPN','DesignId','OriginalFootprint','MaterialCode','MaterialDescription','AssemblyType','ObjectRole','DNP','OnBoard']
+    fields=['Reference','Value','Footprint','MPN','DesignId','OriginalFootprint','MaterialCode','MaterialDescription','AssemblyType','ObjectRole','SelectionStatus','SelectionBasis','SelectionMissing','DNP','OnBoard']
     with (out/'bom.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader()
         for c in comps:

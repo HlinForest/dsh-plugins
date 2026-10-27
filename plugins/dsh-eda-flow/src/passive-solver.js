@@ -4,7 +4,7 @@ import {reviewPassiveCoverage} from './passive-coverage.js';
 import {electricalQuantities} from './evidence-quantities.js';
 import {valueConstraints} from './value-exploration.js';
 
-export const passiveSolverTool={name:'design_solve_passives',description:'从当前真实拓扑、实际阻容及不变的工作条件反求联立可行范围，不需要先猜备选值。约束不满足时提出可直接design_amend的实际阻容修改；现有值可行但缺少目标时保持并报告不唯一。来源约束也必须满足。不能指定参考值、坐标或放宽输入。',inputSchema:{type:'object',properties:{candidateId:{type:'string'}},required:['candidateId'],additionalProperties:false}};
+export const passiveSolverTool={name:'design_solve_passives',description:'从真实拓扑及不变工作条件反求阻容范围。已有明确目标平均电流时选择更接近目标的E24阻值，同时重新求解实际储能电容；来源约束和全部联合工作点仍须满足。没有目标不为贴近参考换值。假设只能得到条件性提案，不是已确定选型。返回可design_amend的实际修改，不接受参考值、坐标或新工作条件。',inputSchema:{type:'object',properties:{candidateId:{type:'string'}},required:['candidateId'],additionalProperties:false}};
 const E12=[1,1.2,1.5,1.8,2.2,2.7,3.3,3.9,4.7,5.6,6.8,8.2];
 const E24=[1,1.1,1.2,1.3,1.5,1.6,1.8,2,2.2,2.4,2.7,3,3.3,3.6,3.9,4.3,4.7,5.1,5.6,6.2,6.8,7.5,8.2,9.1];
 const value=(n,kind)=>`${Number((kind==='C'?n*1e6:n).toPrecision(12))}${kind==='C'?'uF':'ohm'}`;
@@ -67,7 +67,7 @@ function deriveDimension(design,baseline,control,context){
  return {...result,repairs};
 }
 
-export function solvePassives(design,context={}){
+function repairPassives(design,context={}){
  const baseline=reviewOperatingPoints(design,context);
  const baselineSourceErrors=sourceErrors(design,context);
  const base={conditionsChanged:false,topologyChanged:false,componentCountChanged:false,baselineSourceErrors,
@@ -98,4 +98,57 @@ export function solvePassives(design,context={}){
  return {...base,status:review.errors.length||sourceErrors(current,context).length?'needs-design-decision':changes.length?'repair-proposed':'feasible-underdetermined',design:current,changes,dimensions,blocked,bankRequirements:banks,
   resultingErrors:review.errors,amend:{replaceRecords:changes.map(c=>({section:'components',key:c.ref,record:current.components.find(p=>p.ref===c.ref)}))},
   instruction:changes.length?'这是保持当前条件的实际器件修改提案，须更新相关设计依据并design_amend/design_review后才能采纳。E系列取值只是工程候选，仍须核实采购、容差、额定功率/电压、偏压及ESR。':'当前未得到有依据的必要修改；不得为缩小参考差异强行换值。'};
+}
+
+const relativeError=(review,id,target)=>{
+ const rows=review.results.find(r=>r.id===id)?.calculations||[];
+ return rows.length?Math.max(...rows.map(c=>Math.abs(c.averageCurrentA/target-1))):Infinity;
+};
+
+// A bounded synthesis step, not a second source of requirements. The target
+// already belongs to the candidate's operating inputs. Every trial invokes
+// the existing coupled solver, including storage sizing after the load changes.
+// A source example or an absolute maximum is never promoted to a target here.
+export function solvePassives(design,context={}){
+ let solved=repairPassives(design,context),current=solved.design;
+ const baseline=reviewOperatingPoints(design,context),targets=[];
+ const requestedTargets=baseline.results.filter(r=>r.kind==='resistor-load'&&r.inputs?.targetAverageCurrent?.value>0&&r.calculations?.length);
+ if(solved.status!=='invalid-input')for(const requested of requestedTargets){
+  const target=requested.inputs.targetAverageCurrent.value,id=requested.id;
+  const initial=reviewOperatingPoints(current,context),row=initial.results.find(r=>r.id===id);
+  const desired=row?.calculations?.[0]?.targetResistanceOhm;
+  if(!(desired>0))continue;
+  const beforeRelativeError=relativeError(initial,id,target),blockedReasons=[];
+  let best=solved,bestError=beforeRelativeError,attempts=0;
+  const choices=Array.from({length:25},(_,i)=>i-12).flatMap(e=>E24.map(n=>Number((n*10**e).toPrecision(12))))
+   .sort((a,b)=>Math.abs(desired/a-1)-Math.abs(desired/b-1)).slice(0,12);
+  const seen=new Set();
+  for(const resistance of choices){
+   const candidate=structuredClone(current);
+   for(const ref of row.components)candidate.components.find(c=>c.ref===ref).value=value(resistance,'R');
+   const trial=repairPassives(candidate,context);attempts++;
+   blockedReasons.push(...trial.baselineSourceErrors,...trial.blocked.flatMap(r=>r.sourceErrors||[]));
+   const signature=JSON.stringify(trial.design.components.map(c=>[c.ref,c.value]));
+   if(seen.has(signature))continue;seen.add(signature);
+   const operating=reviewOperatingPoints(trial.design,context),sources=sourceErrors(trial.design,context);
+   if(operating.errors.length||sources.length){blockedReasons.push(...sources,...operating.errors.map(e=>e.message));continue;}
+   const regressed=requestedTargets.filter(other=>other.id!==id&&relativeError(operating,other.id,other.inputs.targetAverageCurrent.value)>relativeError(initial,other.id,other.inputs.targetAverageCurrent.value)+1e-12);
+   if(regressed.length){blockedReasons.push('联合修复会使其他已有目标退步：'+regressed.map(r=>r.id).join('、'));continue;}
+   const error=relativeError(operating,id,target);
+   if(error<bestError-1e-12){best=trial;bestError=error;}
+  }
+  solved=best;current=best.design;
+  targets.push({id,components:row.components,targetAverageCurrentA:target,targetBasis:requested.inputs.targetAverageCurrent,
+   qualification:'conditional',beforeRelativeError,afterRelativeError:bestError,attempts,
+   blockedReasons:[...new Set(blockedReasons)],
+   scope:'Bounded E24 nominal-current search with coupled storage repair; no claim of unique optimum, target tolerance, verified ratings or hardware performance.'});
+ }
+ const changes=current.components.filter(c=>c.value!==design.components.find(x=>x.ref===c.ref)?.value)
+  .map(c=>({ref:c.ref,from:design.components.find(x=>x.ref===c.ref).value,to:c.value}));
+ const finalReview=reviewOperatingPoints(current,context);
+ for(const target of targets)target.afterRelativeError=relativeError(finalReview,target.id,target.targetAverageCurrentA);
+ return {...solved,design:current,changes,targets,
+  status:solved.status==='invalid-input'||solved.status==='needs-design-decision'?solved.status:changes.length?'repair-proposed':'feasible-underdetermined',
+  amend:{replaceRecords:changes.map(c=>({section:'components',key:c.ref,record:current.components.find(p=>p.ref===c.ref)}))},
+  instruction:changes.length?'已联立重算目标电流、供电储能和来源约束；这只是当前条件下的实际修改提案。用design_amend采纳并核对依据，假设不升级为确定选型。':solved.instruction};
 }

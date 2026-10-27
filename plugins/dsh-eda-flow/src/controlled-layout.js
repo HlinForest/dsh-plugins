@@ -5,6 +5,7 @@ import {reviewCircuit} from './circuit-review.js';
 import {reviewPassiveCoverage} from './passive-coverage.js';
 import {reviewOperatingPoints} from './operating-points.js';
 import {reviewApplicationDecisions} from './application-decisions.js';
+import {passiveSelections} from './passive-selections.js';
 import {reviewBiasRailChoices} from './bias-rail-choices.js';
 import {reconcileCalculationNotes,currentCalculationNotes,reconcileDesignCalculationNotes} from './calculation-notes.js';
 import fs from 'node:fs/promises';
@@ -15,7 +16,7 @@ import { hash, readJSON, writeJSON, tree, sameFiles } from './io.js';
 import { validateDesign } from './design-intent.js';
 import { hasSourceSpecs, isMockDemo } from './mock-datasheets.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
-export const controlledInstructions=`受控原理图设计：步骤2先区分原始用户约束、资料事实和模型方案；requirements只记录用户或当前资料明确的内容，不把数量/BOM要求改写成具体连线。需要自行选型或决定连接时放在assumptions和第三步design中并写明依据。步骤3必须在finish.design输出完整电气清单 {nets:[{name,nodes:["reference.pin"]}],nc:["reference.pin"],supplied_nets:[],functions:[],unresolved:[]}。固定库提供真实器件/针脚，逐脚恰好进入一个net或nc。0欧及其他无源器件两端的同网/分网关系只能沿用已知连接或明确的工程选择；没有依据时不默认合并或拆分。supplied_nets是工程师/模型根据资料和实际供电路径作出的外部供电显式声明，只能声明已有依据且确有外部供电或完整串联供电路径的网络；它不是任意消除ERC的开关。含power_in且同网没有真实power_out的网络必须显式列入supplied_nets，无真实供电通路时不得声明。查询库核对针脚，不能伪造资料。宿主在工程师确认第三步后冻结电路及真实符号。步骤4只能使用layout_inspect、layout_generate、layout_verify，生成参数只含template,paper,gapMm，不能传nets/nc/器件/坐标/脚本。固定符号路径按符号、器件值、引脚连接及NC自动匹配已验证局部模板；display-board-v1是兼容旧工程的接口名称，不按位号分派。未匹配时报告缺项，禁止修改电路迎合模板。生成后必须verify，finish说明真实检查结果与待确认项。步骤5/7仅inspect和verify，不修改CAD。PCB跳过，采购型号与实物封装仍需人工核验。只返回单个JSON动作：{action:"tool",name:"...",arguments:{}}或{action:"finish",summary:"...",gaps:[],assumptions:[],design?:...}或{action:"question",questions:["..."]}。所有完成声明以工具结果为准。`;
+export const controlledInstructions=`受控原理图设计：步骤2先区分原始用户约束、资料事实和模型方案；requirements只记录用户或当前资料明确的内容，不把数量/BOM要求改写成具体连线。需要自行选型或决定连接时放在assumptions和第三步design中并写明依据。步骤3必须在finish.design输出完整电气清单 {nets:[{name,nodes:["reference.pin"]}],nc:["reference.pin"],supplied_nets:[],functions:[],unresolved:[]}。固定库提供真实器件/针脚，逐脚恰好进入一个net或nc。0欧及其他无源器件两端的同网/分网关系只能沿用已知连接或明确的工程选择；没有依据时不默认合并或拆分。supplied_nets是工程师/模型根据资料和实际供电路径作出的外部供电显式声明，只能声明已有依据且确有外部供电或完整串联供电路径的网络；它不是任意消除ERC的开关。含power_in且同网没有真实power_out的网络必须显式列入supplied_nets，无真实供电通路时不得声明。查询库核对针脚，不能伪造资料。宿主在工程师确认第三步后冻结电路及真实符号。步骤4只能使用layout_inspect、layout_generate、layout_verify，生成参数只含template,paper,gapMm，不能传nets/nc/器件/坐标/脚本。固定符号路径按符号、器件值、引脚连接及NC自动匹配已验证局部模板；display-board-v1是兼容旧工程的接口名称，不按位号分派。未匹配时报告缺项，禁止修改电路迎合模板。生成后必须verify，finish说明真实检查结果与待确认项。步骤5/7仅inspect和verify，不修改CAD。原理图阶段不生成PCB；是否进入PCB由当前项目的启用状态决定，已启用时在第六步单独生成，第七步须包含该步实际结果。采购身份、厂家尺寸公差和实物装配仍需核验。只返回单个JSON动作：{action:"tool",name:"...",arguments:{}}或{action:"finish",summary:"...",gaps:[],assumptions:[],design?:...}或{action:"question",questions:["..."]}。所有完成声明以工具结果为准。`;
 export function normalizeDesign(d){
   if(!d||!Array.isArray(d.nets)||!Array.isArray(d.nc))throw new Error('第三步必须提供完整 nets 和 nc。');
   const allowed=['nets','nc','supplied_nets','functions','unresolved'];
@@ -59,6 +60,8 @@ export async function reviewNative(flow,p,design,directory,signal){
     const context={inputs:p.inputs||{},evidence:sourceEvidence(p),requirements:p.stages[1]?.plan?.requirements||[],guidance:projectGuidance(p)};
     const circuit=reviewCircuit(d,context),coverage=reviewPassiveCoverage(d,context),operating=reviewOperatingPoints(d,context);
     const application=reviewApplicationDecisions(d,context);
+    const selections=passiveSelections(d,operating,context);
+    for(const c of d.components){delete c.valueSelection;const selection=selections.find(s=>s.ref===c.ref);if(selection)c.valueSelection=selection;}
     const bias=reviewBiasRailChoices(d,operating.biasRailComparisons);
     const message=value=>typeof value==='string'?value:value.message;
     const errors=[...circuit.errors,...coverage.errors,...operating.errors,...application.errors,...bias.errors].map(message);
@@ -75,6 +78,7 @@ export async function reviewNative(flow,p,design,directory,signal){
       operatingPoints:operating.results,operatingPointScope:operating.scope,calculationNotes:currentCalculationNotes(operating.results),calculationHistory:d.calculationHistory||[],
       biasRailComparisons:operating.biasRailComparisons,biasRailDecisions:bias.decisions,
       applicationDecisions:application.decisions,applicationRequirements:application.requirements,
+      passiveSelections:selections,
       readiness:{status:errors.length?'invalid':d.unresolved.length?'needs-review':'static-checks-passed',hardwareVerified:false,
         boundary:'检查资料引用、器件用途、数量参数、候选网络和已提供工作点的名义阻容计算；工程假设保持待核实，不覆盖容差、温升、开关瞬态、EMC、采购或实物性能。'}};
     await writeJSON(path.join(directory,'engineering-review.json'),review);

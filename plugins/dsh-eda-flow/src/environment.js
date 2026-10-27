@@ -19,13 +19,14 @@ export async function inspectEnvironment(config,selection=null,probe=runProbe){
  const cli=await probe(config.kicadCli,['--version']);
  add('kicad','KiCad 命令行',['schematic','pcb'],cli.ok&&/^10\./m.test(cli.detail),cli.detail,'安装并配置 KiCad 10 稳定版完整程序；本插件目前验证的是10系列，不使用夜间开发版。');
  const python=config.kicadPython;
- const script="import importlib,json; r={}\nfor n in ['pcbnew','wx','sexpdata','pymupdf','jsonschema','ortools.sat.python.cp_model']:\n try: importlib.import_module(n);r[n]=True\n except Exception as e:r[n]=False\nprint(json.dumps(r))";
+ const script="import importlib,json; r={}\nfor n in ['pcbnew','wx','sexpdata','pymupdf','jsonschema','ortools.sat.python.cp_model','rapidocr_onnxruntime']:\n try: importlib.import_module(n);r[n]=True\n except Exception as e:r[n]=False\nprint(json.dumps(r))";
  const py=await probe(python,['-c',script]);let modules={};try{modules=JSON.parse(py.detail.split(/\r?\n/).findLast(l=>l.startsWith('{'))||'{}')}catch{}
  add('python','原理图 Python 与约束求解器',['schematic'],py.ok&&modules['ortools.sat.python.cp_model']===true,py.ok?'OR-Tools: '+(modules['ortools.sat.python.cp_model']?'可用':'缺少'):py.detail,'运行交付包 install/install-offline-python.ps1，向已配置的Python补齐离线依赖；推荐统一使用KiCad配套Python。');
  // The native schematic path uses its own parser. Do not require legacy sexpdata here.
  const mcp=config.mcpPython&&config.mcpPython!==python?await probe(config.mcpPython,['-c','import jsonschema;print("MCP dependencies ready")']):{ok:py.ok&&modules.jsonschema===true,detail:modules.jsonschema?'可用':'缺少 jsonschema'};
  add('mcp-python','工具接口 Python 依赖',['schematic'],mcp.ok,mcp.detail,'安装交付包离线依赖；单独配置 mcpPython 时也需在该解释器中安装依赖。');
  add('pdf','PDF 提取',['pdf'],py.ok&&modules.pymupdf===true,modules.pymupdf?'可用':py.detail||'缺少 PyMuPDF','向已配置 Python 安装交付包的离线依赖；已有PDF/SVG预览不需要重新提取。');
+ add('pdf-ocr','PDF 图中文字识别（可选）',['pdf-ocr'],modules.rapidocr_onnxruntime===true,modules.rapidocr_onnxruntime?'RapidOCR 可导入；实际图像识别仍以提取记录为准':'未安装；图像区域仍会列为待复核，不影响可复制正文提取','在资料提取 Python 中安装 mcp/requirements-ocr.txt；内网先准备匹配 Python 的离线依赖。识别只在本机运行，结果需对照原图复核。');
  const pcbPython=config.pcbPython||(process.platform==='win32'&&config.kicadCli?path.join(path.dirname(config.kicadCli),'python.exe'):config.kicadPython);
  const pcb=pcbPython===python?{ok:py.ok&&modules.pcbnew===true,detail:modules.pcbnew?'pcbnew 可用':'缺少 pcbnew'}:await probe(pcbPython,['-c','import pcbnew; print(pcbnew.GetBuildVersion())']);
  add('pcb-python','PCB 执行 Python',['pcb'],pcb.ok,pcb.detail,'配置可导入 pcbnew 的 KiCad 10 配套 Python。');

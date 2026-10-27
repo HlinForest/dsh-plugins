@@ -10,22 +10,24 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.2-beta.4 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.6 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
-## 电路设计 0.16.2-beta.4：文字评审与真实显示板复测
+## 电路设计 0.16.3-beta.6：完整显示板文字评审与布线复测
 
-[Demo与图纸目录](demos/eda-flow/round-0125) · [下载Demo与可编辑工程](demos/eda-flow/round-0125/Demo与工程.zip) · [实跑差异](demos/eda-flow/round-0125/本轮实跑与差异.md) · [评审记录](demos/eda-flow/round-0125/工程师评审记录.json) · [使用说明](demos/eda-flow/round-0125/使用说明.md) · [插件TGZ](dist/dsh-eda-flow-0.16.2-beta.4.tgz) · [SHA256](dist/dsh-eda-flow-0.16.2-beta.4.tgz.sha256)
+[Demo 与图纸目录](demos/eda-flow/round-0130) · [下载 Demo 与可编辑工程](demos/eda-flow/round-0130/Demo与工程.zip) · [评审记录](demos/eda-flow/round-0130/工程师评审记录.json) · [AD 逐项比较](demos/eda-flow/round-0130/与AD逐项比较.md) · [使用说明](demos/eda-flow/round-0130/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.6.tgz) · [SHA256](dist/dsh-eda-flow-0.16.3-beta.6.tgz.sha256)
 
-当前完整显示板与真实DeepSeek模型已跑通文字评审、重新生成、核验及工程导出。C4所在STB网络由2个分支变为1个；本轮全部29个非铺铜、多焊盘信号网实际铜连通，原生DRC错误/警告/未连接均0。相对上轮未连接版，显式线长598.668→538.908 mm、短段34→5、拐点133→101；原版545.613 mm/32短段/126拐点门槛同时满足。清理了已由真实铜区或焊盘覆盖的重复线段，显式长度下降不等同于实际电流路径同幅缩短。
+本轮 PCB 阶段真实 DeepSeek 调用 6 次、交付阶段 2 次，完整 27 器件/94 物理焊盘经过 6 个实际布线候选，采用第 5 个。C4 所在 STB 接通，独立核验 29 个信号网络全部连通，KiCad DRC 错误、警告、未连接及网表差异均为 0。导出后的可编辑副本再次通过 DRC。
 
-改进使用真实器件角色、接收端、铜形和断线反馈，不读取AD板坐标，不补全AD逐脚连接。旧的完整重放输入从运行目录移除；历史测试资料保留在测试目录。54项流程测试、16项原生CAD/搜索测试通过；源码、TGZ与安装包268个文件一致。
+相对此前已连通版，显式铜线 537.192922 → 501.440924 mm，短于 0.5 mm 的线段 5 → 4，折点 97 → 90。评审前的断线版为 477.585689 mm，不能把它和完整连通板的长度直接比较成优化收益。线长不含铜区与器件内部跨线，不代表真实信号/回流性能。
 
-生成需要Harness及可访问的模型、KiCad 10完整程序/库与配套Python依赖、Java21；Freerouting已在TGZ内。TGZ与Demo没有附带CAD安装器、Java或Python离线依赖。没有KiCad时可查看Demo/PDF，或在已有插件项目使用ReviewOnly记录评审；无法重新生成。解压Demo后打开Demo.html查看交互比较，GitHub文件页只显示HTML源码。
+新增通用联合布局允许相关滤波、去耦与储能器件共同选择芯片周围的可行侧，保留板框、器件实际形状、装配面、避让和供电距离。实际断线触发候选，之后重新跑 Freerouting、填铜和 DRC。两个联合重排候选未通过，本轮最终采用的是断线反馈后的普通候选；后续联合压缩候选增加线长而被拒绝。全部记录保留，不把新求解器或单次成功说成普遍保证。Freerouting 2.1 的未固定随机路由顺序仍影响复现性。
 
-安装使用 [本版安装脚本](plugins/dsh-eda-flow/scripts/install-intranet.ps1) 的 -SuppliedPackage 指定新TGZ，并按 [安装说明](plugins/dsh-eda-flow/docs/engineer-review-and-installation.md) 填写已有profile和本机路径。下方0.3.x更新命令属于历史版本，不用于本版升级。
+没有输入 AD 板坐标、完整逐脚连线或照抄参数。9 个阻值和 2 组电容组合差异本轮减少 0 项；用户确认 IRM-3638M3-X 后缀仍待核实。原理图、准确封装和物理焊盘接网保持；封装测量资料的厂家验证及实物性能仍待工程师复核。此版本通过的是本轮连通与布线质量验收，不是 AD 等价或生产批准。
 
-阻容、器件数量、部分封装和铜区分区与AD仍有差异；工作指标不足的保持未确定。本次为连通与布线质量验收，待工程师复核，不是AD严格等价或生产签核。
+安装需要 Harness、可用模型、KiCad 10 程序/库与配套 Python 依赖、Java 21。Freerouting 已在 TGZ 内；可选 RapidOCR 的依赖和模型需单独安装。没有 KiCad 可以查看 Demo/PDF，并用 ReviewOnly 记录意见；无法重新生成 CAD 或运行原生 DRC。解压 ZIP 打开 Demo.html 查看交互比较，GitHub 的 HTML 文件页只显示源码。
+
+[安装脚本](plugins/dsh-eda-flow/scripts/install-intranet.ps1) 使用 -SuppliedPackage 指定新 TGZ；[安装指南](plugins/dsh-eda-flow/docs/engineer-review-and-installation.md) 说明 profile 与路径。外部规格书和原始 AD 工程不在发布包中。较早版本和演示结果仍保留为历史记录。
 
 ## 工程工作台 0.6.0：拉取后直接更新
 

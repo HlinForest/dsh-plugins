@@ -9,7 +9,8 @@ import {designAmendTool,amendDesign} from './design-amend.js';
 import {valueExplorationTool,exploreValues} from './value-exploration.js';
 import {reconcileCalculationNotes,engineeringSummary} from './calculation-notes.js';
 import {passiveSolverTool,solvePassives} from './passive-solver.js';
-import {designContext, recoverReviewedCandidate, designResumeTool} from './design-recovery.js';
+import {passiveSelectionInstructions} from './passive-selections.js';
+import {designContext, recoverReviewedCandidate, recoverReviewBaseline, designResumeTool} from './design-recovery.js';
 import {compilePassiveObligations} from './passive-coverage.js';
 import {applicationInstructions, applicationTool, extractGuidance, projectGuidance} from './application-basis.js';
 import {resolveConnectionIntent} from './connection-intent.js';
@@ -88,10 +89,8 @@ export async function executeText(flow, p, s, signal) {
   };
   const checkCandidate = async (design, directory) => {
     const candidate = resolveCandidate(design, p);
-    if (p.pcbEnabled && Array.isArray(candidate?.components)) {
-      const missing = candidate.components.filter(c => c.on_board && !c.footprint).map(c => c.ref);
-      if (missing.length) throw Error('当前已启用PCB，在板器件必须绑定资料规定的精确封装：' + missing.join(', ') + '。sourceFactId不会自动继承补充资料中的封装，须显式给出footprint；无法确定请提出具体缺失项。');
-    }
+    // Exact measured footprints are bound and checked in the PCB import stage.
+    // An electrical review may retain an unbound package; never replace it with an approximation.
     return await reviewElectrical(flow, p, candidate, directory, signal);
   };
   const record = async value => {
@@ -135,7 +134,7 @@ export async function executeText(flow, p, s, signal) {
     if (fresh && s.id === 2) {request.mechanicalCoverage=mechanicalCandidates(p.inputs);request.applicationCoverage=applicationCandidates(p.inputs);}
     if (fresh && s.id === 2) request.instruction += '\n' + factInstructions + '\n' + applicationInstructions + '\n必须通过spec_record_facts分批提交器件事实，每批最多5条；有供电、接口、推荐外围及未用脚说明时通过spec_record_guidance记录。完成后finish只写需求列表与摘要，不重复已提交事实。';
     if (fresh && s.id >= 3) request.applicationGuidance = projectGuidance(p);
-    if (fresh && s.id===3){request.applicationDecisionRequirements=applicationDecisionRequirements(request.applicationGuidance);request.instruction+='\n'+applicationDecisionInstructions;}
+    if (fresh && s.id===3){request.applicationDecisionRequirements=applicationDecisionRequirements(request.applicationGuidance);request.instruction+='\n'+applicationDecisionInstructions+'\n'+passiveSelectionInstructions;}
     if (fresh && s.id >= 3) request.passiveObligations = compilePassiveObligations({inputs:p.inputs,guidance:request.applicationGuidance});
     if (resume) {
       request.resume = {source:'本项目本轮模型已经生成的原理图',instruction:'继续已有工程，禁止重新precise_create。先precise_read读取自己的已有对象，再check_export取得错误并继续修正。这不是原图输入；页面和导线均为上次模型生成。'};
@@ -150,9 +149,10 @@ export async function executeText(flow, p, s, signal) {
       request.instruction += ' sourceLibrary是宿主按本次PDF记录实际查询得到的符号、引脚及哈希，可直接使用；只对未包含的元件查询design_library，不要重复逐个查询已有结果。';
     }
     const recoverable=s.id===3&&p.layoutEngine==='native-kicad'
-      ?await recoverReviewedCandidate(flow.dir(p.id),previousDesignOutput,request):null;
+      ?await recoverReviewBaseline(flow.dir(p.id),p)||await recoverReviewedCandidate(flow.dir(p.id),previousDesignOutput,request):null;
     if(recoverable) request.recoverableDesign={source:'本项目上次模型候选，当前有效性需重新核验',
-      instruction:'输入及资料未变化。先调用design_resume重新核验，再调用design_solve_passives从当前联立约束推导阻容范围和必要的实际修改；有repair提案时核对并通过design_amend采纳或说明来源冲突。当前可行但不唯一时保持未定，不能为缩小参考差异而改值。design_explore_values只作为补充。核对旧basis文字与当前计算，过时算式应移除并引用当前工作点；通过后才可用reviewedDesignId完成。'};
+      reviewId:recoverable.reviewId||null,contextChanged:recoverable.contextChanged===true,
+      instruction:(recoverable.contextChanged?'这是已采用的评审所指向的历史生成方案。输入可能已变化，旧批准不适用；须按当前全部资料重审。':'输入及资料未变化。')+'先调用design_resume重新核验，再调用design_solve_passives从当前联立约束推导阻容范围和必要的实际修改；有repair提案时核对并通过design_amend采纳或说明来源冲突。当前可行但不唯一时保持未定，不能为缩小参考差异而改值。已有方案中未绑定的定制封装保留未定，PCB阶段会依据可见测量资料精确导入，不能为了参数评审完成而换成近似标准封装。design_explore_values只作为补充。核对旧basis文字与当前计算，过时算式应移除并引用当前工作点；通过后才可用reviewedDesignId完成。'};
     await writeJSON(path.join(output, 'text-input.json'), request);
     const dependencies = Object.fromEntries(p.stages.filter(x => x.id < s.id && x.output && x.status === 'done').map(x => [x.id, x.output]));
     await writeJSON(path.join(output, 'request.json'), { stage: s.id, output, dependencies, mode: 'text-mcp' });
@@ -214,7 +214,7 @@ export async function executeText(flow, p, s, signal) {
         const reviewDirectory=path.join(output,'candidate-reviews',randomUUID());
         let candidateId;
         try {
-          if(name==='design_resume'&&(!recoverable||!args||Object.keys(args).length)) throw Error('没有输入一致的本项目候选可恢复，或恢复参数不为空。');
+          if(name==='design_resume'&&(!recoverable||!args||Object.keys(args).length)) throw Error('没有本项目可追溯的候选可恢复，或恢复参数不为空。');
           if(name==='design_review'&&(!args || Object.keys(args).some(k=>k!=='design'))) throw Error('design_review只接受候选design。');
           if(name==='design_amend'&&!candidateDrafts.has(args?.candidateId))throw Error('candidateId未知或已过期；先使用本次design_resume或design_review取得候选。');
           const proposal=name==='design_resume'?structuredClone(recoverable.design):name==='design_amend'?amendDesign(candidateDrafts.get(args.candidateId),args):args.design;

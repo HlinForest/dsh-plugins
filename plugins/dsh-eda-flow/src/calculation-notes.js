@@ -6,6 +6,7 @@ const metrics=[
   {label:/(?:滤波压降|供电压降|压降|voltage\s*drop)\s*(?:约|为|[≈~=:：])*/ig,key:'voltageDropV',unit:'V',scale:{V:1,mV:.001}},
   {label:/(?:时间常数|τ|time\s*constant)\s*(?:约|为|[≈~=:：])*/ig,key:'timeConstantS',unit:'s',scale:{s:1,ms:.001,us:1e-6,'µs':1e-6,'μs':1e-6}},
   {label:/(?:储能压降|瞬态压降|transient\s*droop)\s*(?:约|为|[≈~=:：])*/ig,key:'transientDroopV',unit:'V',scale:{V:1,mV:.001}},
+  {label:/(?:每段峰值|名义峰值(?:电流)?|nominal\s*peak\s*current)\s*(?:约|为|[≈~=:：])*/ig,key:'peakCurrentA',unit:'A',scale:{A:1,mA:.001,uA:1e-6}},
 ];
 const names={voltageDropV:['滤波压降','V',1],deviceVoltageV:['负载端电压','V',1],timeConstantS:['时间常数','µs',1e6],
   totalLoadStepCurrentA:['储能合计增量','mA',1e3],requiredNominalCapacitanceF:['最小名义容量','µF',1e6],transientDroopV:['储能压降','V',1],
@@ -37,10 +38,10 @@ export function reconcileCalculationNotes(notes=[],rows=[]){
       // measured quantity. Ambiguous prose is retained, never silently fixed.
       const relevant=rows.filter(r=>r.calculations?.some(c=>Number.isFinite(c[metric.key]))&&[r.owner,...r.components].some(ref=>new RegExp(`(^|[^A-Za-z0-9_])${escaped(ref)}(?=$|[^A-Za-z0-9_])`).test(text)));
       if(relevant.length!==1)continue;
-      const row=relevant[0],actual=row.calculations.filter(c=>Number.isFinite(c[metric.key])).map(c=>c[metric.key]);
+      const row=relevant[0],actual=[...new Set(row.calculations.filter(c=>Number.isFinite(c[metric.key])).map(c=>c[metric.key]))];
       if(actual.length!==1)continue;
       for(const match of text.matchAll(metric.label)){
-        const quantity=text.slice(match.index+match[0].length).match(/^\s*([+-]?\d+(?:\.\d+)?)\s*(mV|V|ms|us|µs|μs|s)\b/u);
+        const quantity=text.slice(match.index+match[0].length).match(/^\s*([+-]?\d+(?:\.\d+)?)\s*(mV|V|ms|us|µs|μs|s|mA|uA|A)\b/u);
         if(!quantity||metric.scale[quantity[2]]===undefined)continue;
         const stated=Number(quantity[1])*metric.scale[quantity[2]],precision=(quantity[1].split('.')[1]||'').length;
         const rounding=.51*10**(-precision)*metric.scale[quantity[2]];

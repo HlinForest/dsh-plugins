@@ -9,9 +9,10 @@ import pcbnew as pcb
 from native_resources import parse as parse_native
 from native_schematic import child
 from pcb_footprints import bind_imports, electrical_identity, verify_pad_assignments
-from pcb_process import assembly_sides, placement_report, add_copper, native_process
+from pcb_process import assembly_sides, placement_report, add_copper, native_process, refresh_copper_report
 from pcb_signal_placement import signal_filter_relations
-from pcb_refinement import FeedbackSearch
+from pcb_refinement import FeedbackSearch,prefer_candidate,quality_dominates
+from pcb_trace_simplification import shorten_tracks
 from pcb_route_cleanup import remove_redundant_tracks,route_metrics
 
 def run(args, cwd, timeout=180):
@@ -272,6 +273,33 @@ def build(req):
             write(out/'placement-failure.json',{'ref':ref,'relation':relation,'anchors':relation_anchors,'occupied':bodyboxes,'placed':placed})
             raise ValueError(ref+' 无可用布局空间；请调整机械约束')
         move(ref,*best[1:],side);register(ref)
+    if req.get('placementOptimization') in ('coupled-compaction','coupled-critical'):
+        snapshot={'boardMm':[w,h],'edgeMarginMm':.8,'componentGapMm':gap,'clearanceMm':plan['clearanceMm'],'priorityNets':req.get('optimizationFeedback',req.get('routingFeedback',{})).get('nets',[]),'parts':[],'nets':[],'relations':[]}
+        if req['placementOptimization']=='coupled-critical':snapshot['reorderParts']=sorted(critical)
+        positions=lambda ps:[tuple(map(pcb.ToMM,[q.GetPosition().x,q.GetPosition().y])) for q in ps]
+        for ref,fp in footprints.items():
+            side=fp.GetLayer();other=pcb.B_Cu if side==pcb.F_Cu else pcb.F_Cu
+            obstacles=[{'kind':'body','layer':pcb.LayerName(side),'boxMm':bbox(fp)}]
+            for pad in fp.Pads():
+                if pad.GetLayerSet().Contains(other):
+                    box=pad.GetBoundingBox();obstacles.append({'kind':'pad','layer':pcb.LayerName(other),'boxMm':tuple(map(pcb.ToMM,[box.GetX(),box.GetY(),box.GetRight(),box.GetBottom()]))})
+            snapshot['parts'].append({'ref':ref,'fixed':ref in fixed,'boundsMm':bbox(fp),'obstacles':obstacles})
+        planes={n['name'] for n in process.get('copperNets',[])}
+        for net in nets:
+            terminals=[{'ref':ref,'atMm':xy} for ref,pin in net['nodes'] if (ref,pin) in pads for xy in positions(pads[(ref,pin)])]
+            snapshot['nets'].append({'name':net['name'],'copper':net['name'] in planes,'terminals':terminals})
+        for ref,relation in critical.items():
+            for role,pad_key,weight in [('anchor','supplyPad',20),('return','returnPad',3)]:
+                owner=relation[role]['ref'];pin=relation[role]['pad']
+                pairs=[[a,b] for a in positions(pads[(ref,relation[pad_key])]) for b in positions(pads[(owner,pin)])]
+                snapshot['relations'].append({'ref':ref,'owner':owner,'padPairsMm':pairs,'maxDistanceMm':relation.get('maxDistanceMm') if role=='anchor' else None,'weight':weight})
+        write(out/'joint-placement-input.json',snapshot)
+        # Reuse the configured schematic solver environment; pcbnew stays
+        # in KiCad's interpreter and does not need a second OR-Tools install.
+        run([req.get('solverPython',sys.executable),Path(__file__).with_name('pcb_compaction.py'),out/'joint-placement-input.json',out/'joint-placement-result.json'],out,60)
+        compacted=read(out/'joint-placement-result.json')
+        for ref,(dx,dy) in compacted['translations'].items():
+            x,y=placed[ref];footprints[ref].SetPosition(point(x+dx,y+dy));placed[ref]=(x+dx,y+dy)
     power_placement=placement_report(board,process)
     if not power_placement['passed']:raise ValueError('PCB supply placement distance exceeded visible constraint')
     write(out/'process-result.json',{'inputs':process,'assembly':assembly_facts,'powerPlacement':power_placement})
@@ -332,8 +360,7 @@ def build(req):
     copper=add_copper(board,process,plan)
     cleanup=remove_redundant_tracks(board)
     write(out/'copper-route-cleanup.json',cleanup)
-    for entry,zone in zip(copper['zones'],board.Zones()):
-        layer=zone.GetLayer();entry['filledPolygons']=zone.GetFilledPolysList(layer).OutlineCount();entry['filledAreaMm2']=zone.GetFilledPolysList(layer).Area()/1e12
+    refresh_copper_report(board,copper)
     write(out/'copper-result.json',copper)
     pcb.SaveBoard(str(boardfile),board)
     # Reopen native PCB and verify every source net assignment; DRC checks copper connectivity.
@@ -366,7 +393,36 @@ def build(req):
             pcb.FootprintSave(str(project/(ident+'.pretty')),local)
         pcb.SaveBoard(str(boardfile),loaded)
     write(project/'silkscreen-adjustments.json',adjustments)
-    drc=parse_drc(report_text);write(project/'drc.json',drc)
+    drc=parse_drc(report_text)
+    simplification={'adopted':False,'reason':'native DRC must pass before trace optimization'}
+    if drc['passed']:
+        backup=out/'route-before-simplification.kicad_pcb';shutil.copyfile(boardfile,backup)
+        before_drc=copy.deepcopy(drc);before_report=report_text;before_quality=route_metrics(loaded)
+        try:
+            proposal=shorten_tracks(loaded,plan['clearanceMm'],.5)
+            simplification={**proposal,'adopted':False,'before':before_quality}
+            if proposal['changes']:
+                pcb.SaveBoard(str(boardfile),loaded)
+                run([req['cli'],'pcb','drc','--schematic-parity','--format','report','--severity-all','--exit-code-violations','-o',report,boardfile],project)
+                after_text=report.read_text(encoding='utf-8-sig');after_drc=parse_drc(after_text)
+                after_quality=route_metrics(loaded);verify_pad_assignments(loaded,expected)
+                adopted=after_drc['passed'] and after_drc['warnings']<=before_drc['warnings'] and quality_dominates(after_quality,before_quality)
+                simplification.update({'adopted':adopted,'candidateDrc':after_drc,'after':after_quality})
+                if adopted:drc=after_drc;report_text=after_text
+                else:
+                    shutil.copyfile(boardfile,out/'rejected-route-simplification.kicad_pcb')
+                    shutil.copyfile(backup,boardfile);loaded=pcb.LoadBoard(str(boardfile))
+                    report.write_text(before_report,encoding='utf-8');report_text=before_report;drc=before_drc
+        except Exception as error:
+            shutil.copyfile(backup,boardfile);loaded=pcb.LoadBoard(str(boardfile))
+            report.write_text(before_report,encoding='utf-8');report_text=before_report;drc=before_drc
+            simplification={'adopted':False,'reason':'kept previous complete native board','error':str(error),'before':before_quality}
+    write(out/'trace-simplification.json',simplification)
+    write(project/'drc.json',drc)
+    # Refilling after a shortcut can alter island geometry. Report the selected
+    # native board, including when a rejected proposal was restored.
+    refresh_copper_report(loaded,copper)
+    write(out/'copper-result.json',copper)
     svg=project/'PCB.svg';pdf=project/'PCB.pdf'
     run([req['cli'],'pcb','export','svg','--layers','F.Cu,B.Cu,F.SilkS,B.SilkS,F.Fab,B.Fab,F.CrtYd,B.CrtYd,Edge.Cuts','--mode-single','--fit-page-to-board','--exclude-drawing-sheet','-o',svg,boardfile],project)
     run([req['cli'],'pcb','export','pdf','--scale','0','--layers','F.Cu,B.Cu,F.SilkS,B.SilkS,F.Fab,B.Fab,F.CrtYd,B.CrtYd,Edge.Cuts','--mode-single','-o',pdf,boardfile],project)
@@ -377,40 +433,74 @@ def build(req):
             else:args+=['--scale','0']
             if mirrored:args+=['--mirror']
             run(args+['-o',project/('PCB-'+label+'.'+kind),boardfile],project)
-    write(out/'pcb-result.json',{'board':'project/'+boardfile.name,'pdf':'project/PCB.pdf','previews':['project/PCB-Front.svg','project/PCB-Back.svg'],'drc':drc,'components':len(comps),'nets':len(nets),'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'copperRouteCleanup':cleanup,'netMappingVerified':verified_physical_pads,'logicalPinsVerified':len(expected),'footprintImports':len(bindings),'plan':plan,'process':{'assembly':assembly_facts,'powerPlacement':power_placement,'copper':copper,'jumpers':process.get('jumpers',[])}})
+    write(out/'pcb-result.json',{'board':'project/'+boardfile.name,'pdf':'project/PCB.pdf','previews':['project/PCB-Front.svg','project/PCB-Back.svg'],'drc':drc,'components':len(comps),'nets':len(nets),'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'traceSimplification':simplification,'copperRouteCleanup':cleanup,'netMappingVerified':verified_physical_pads,'logicalPinsVerified':len(expected),'footprintImports':len(bindings),'plan':plan,'process':{'assembly':assembly_facts,'powerPlacement':power_placement,'copper':copper,'jumpers':process.get('jumpers',[])}})
 
 def generate_with_refinement(req):
     out=Path(req['output']);minimum=req['plan'].get('componentGapMm',2.0)
     search=FeedbackSearch(minimum,bool(req.get('process',{}).get('relations')),[n['name'] for n in req.get('process',{}).get('copperNets',[])])
-    attempts=[];best=None
-    while (variant:=search.next()) is not None:
-        index=search.count-1;gap=variant['componentGapMm']
+    attempts=[];best=None;pending_quality=None;quality_phase=False;quality_attempts=0;pending_repair=None;repair_attempts=0
+    while True:
+        if pending_repair is not None:
+            variant=pending_repair;pending_repair=None;repair_attempts+=1
+        elif quality_phase:
+            if pending_quality is None:break
+            variant=pending_quality;pending_quality=None;quality_attempts+=1
+        else:
+            variant=search.next()
+            if variant is None:break
+        index=len(attempts);gap=variant['componentGapMm']
         candidate=copy.deepcopy(req);candidate['plan']['componentGapMm']=gap;candidate['routingFeedback']={'nets':variant['nets']}
-        work_id=out.name+'-'+hashlib.sha256(str(out.resolve()).encode('utf8')).hexdigest()[:10]
+        if variant.get('placementOptimization'):candidate['placementOptimization']=variant['placementOptimization']
+        if variant.get('optimizationFeedback'):candidate['optimizationFeedback']=variant['optimizationFeedback']
+        # Use the full output path as identity without repeating its UUID in
+        # the scratch path. Long library and footprint names must still fit
+        # Windows file-copy APIs in ordinary project directories.
+        work_id=hashlib.sha256(str(out.resolve()).encode('utf8')).hexdigest()[:20]
         candidate['output']=str(out.parent.parent.parent/'pcb-work'/work_id/str(index+1));Path(candidate['output']).mkdir(parents=True,exist_ok=True)
         write(Path(candidate['output'])/'request.json',candidate)
         print('PCB layout attempt '+str(index+1)+': component gap '+str(gap)+' mm',flush=True)
         try:
             build(candidate);result=read(Path(candidate['output'])/'pcb-result.json')
-            entry={'attempt':index+1,'componentGapMm':gap,'routingFeedback':candidate['routingFeedback'],'drc':result['drc'],'routingQuality':result['routingQuality']};attempts.append(entry)
-            quality=result['routingQuality']
-            score=(result['drc']['errors'],result['drc']['warnings'],quality['trackLengthMm'],quality['shortSegmentsUnder05mm'],quality['degree2Bends'])
-            improved=best is None or score<best[0]
-            if improved:best=(score,candidate,result)
-            if result['drc']['passed']:break
+            if 'copper' in result.get('process',{}):
+                search.bind_native_copper(result['process']['copper']['zones'])
+            entry={'attempt':index+1,'componentGapMm':gap,'routingFeedback':candidate['routingFeedback'],'drc':result['drc'],'routingQuality':result['routingQuality'],'placementOptimization':candidate.get('placementOptimization','greedy'),'optimizationFeedback':candidate.get('optimizationFeedback',{})};attempts.append(entry)
+            improved=prefer_candidate(result,best[1] if best else None)
+            entry['selectedAsBest']=improved
+            if improved:best=(candidate,result)
+            if result['drc']['passed']:
+                pending_repair=None
+                if not quality_phase:
+                    quality_phase=True
+                    if not candidate.get('placementOptimization'):
+                        pending_quality={**variant,'placementOptimization':'coupled-compaction'}
+                continue
             report=(Path(candidate['output'])/'project/drc.rpt').read_text(encoding='utf-8-sig')
             unconnected=re.findall(r'\[unconnected_items\]:([\s\S]*?)(?=\n\[|\n\*\*|\Z)',report)
             names=[name for block in unconnected for name in re.findall(r'\[([^\]]+)\]',block)]
-            search.feedback(variant,names)
+            if quality_phase and names and quality_attempts<3:
+                focus=sorted(set(names)|set(variant.get('optimizationFeedback',{}).get('nets',[])))
+                if focus!=variant.get('optimizationFeedback',{}).get('nets',[]):
+                    pending_quality={**variant,'optimizationFeedback':{'nets':focus}}
+            else:
+                search.feedback(variant,names)
+                related=bool(req.get('process',{}).get('relations')) or bool(read(Path(candidate['output'])/'signal-filter-placement.json'))
+                if not quality_phase and related and names and repair_attempts<2:
+                    focus=sorted(set(names)-search.copper or set(names))
+                    previous=set(variant.get('optimizationFeedback',{}).get('nets',[]))
+                    if candidate.get('placementOptimization')!='coupled-critical' or not set(focus)<=previous:
+                        pending_repair={**variant,'placementOptimization':'coupled-critical','optimizationFeedback':{'nets':sorted(previous|set(focus))}}
         except Exception as error:
             attempts.append({'attempt':index+1,'componentGapMm':gap,'error':str(error)})
         write(out/'layout-attempts.json',attempts)
     write(out/'layout-attempts.json',attempts)
     if best is None:raise ValueError('No PCB candidate completed: '+str(attempts))
-    _,candidate,result=best;selected=Path(candidate['output'])
+    candidate,result=best;selected=Path(candidate['output'])
     shutil.copytree(selected/'project',out/'project',dirs_exist_ok=True)
     for name in ['placement-result.json','placement-order.json','signal-filter-placement.json','copper-route-cleanup.json','jumper-routing-abstractions.json','jumper-routing-removal.json','process-result.json','copper-result.json']:
         write(out/name,read(selected/name))
+    if (selected/'trace-simplification.json').exists():write(out/'trace-simplification.json',read(selected/'trace-simplification.json'))
+    result['selectedPlacementOptimization']=candidate.get('placementOptimization','greedy')
+    if (selected/'joint-placement-result.json').exists():write(out/'joint-placement-result.json',read(selected/'joint-placement-result.json'))
     result['requestedPlan']=req['plan'];result['layoutAttempts']=attempts;result['selectedComponentGapMm']=candidate['plan']['componentGapMm']
     write(out/'pcb-result.json',result)
 

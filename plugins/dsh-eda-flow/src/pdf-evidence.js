@@ -36,6 +36,7 @@ export async function snapshotPdfs(flow, project, output) {
     await fs.writeFile(target, bytes);
     sources.push({ name: attachment.name, binding: attachment.binding, sha256: attachment.sha256,
       pages: attachment.pages, readable: attachment.readable, unreadablePages: attachment.unreadablePages,
+      figureObservations: attachment.figureObservations || [], extractionWarnings: attachment.extractionWarnings || [],
       snapshot: path.relative(output, target).replaceAll('\\', '/') });
   }
   if (sources.length) await writeJSON(path.join(output, 'pdf-sources.json'), sources);

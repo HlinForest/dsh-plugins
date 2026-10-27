@@ -539,6 +539,7 @@ export class Flow {
       const id = previous?.id || randomUUID();
       const entry = { id, name: path.basename(file), ...extracted, records: undefined, stage, binding, type: extracted.format === 'docx' ? '规格书 DOCX' : '规格书 PDF',
         status: extracted.format === 'docx' ? `已提取 ${extracted.sections} 个章节` : extracted.readable ? `已提取 ${extracted.pages} 页正文${extracted.tableCount ? `、${extracted.tableCount} 个表格` : ''}` : `已提取可读正文；第 ${extracted.unreadablePages.join('、')} 页无文字，请补充该页内容` };
+      if (extracted.figureCount) entry.status += `；${extracted.figureCount} 个图像区域需复核，其中 ${extracted.ocrTextRegions || 0} 个已识别文字（尚不作为设计依据）`;
       current.uploads = [...current.uploads.filter(u => u.id !== id), entry];
       const evidenceKey=pcbOnly?'pcbEvidence':'evidence';
       current.inputs[evidenceKey] = [

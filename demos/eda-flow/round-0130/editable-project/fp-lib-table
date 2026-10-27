@@ -1,0 +1,5 @@
+(fp_lib_table
+(lib (name "Capacitor_SMD")(type KiCad)(uri "${KIPRJMOD}/Capacitor_SMD.pretty")(options "")(descr ""))
+(lib (name "EvidencePkg")(type KiCad)(uri "${KIPRJMOD}/EvidencePkg.pretty")(options "")(descr ""))
+(lib (name "Resistor_SMD")(type KiCad)(uri "${KIPRJMOD}/Resistor_SMD.pretty")(options "")(descr ""))
+)
