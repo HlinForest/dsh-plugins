@@ -1,0 +1,18 @@
+{
+  "version": "0.16.3-beta.6",
+  "published": true,
+  "verifiedAt": "2026-10-27T06:07:54.199Z",
+  "repository": "HlinForest/dsh-plugins",
+  "branch": "release/eda-review-routing-0.16.2",
+  "sourceCommit": "121f93d619320cc5c08205f807fca2241dc149a1",
+  "pullRequest": "https://github.com/HlinForest/dsh-plugins/pull/1",
+  "pullRequestDraft": true,
+  "merged": false,
+  "packageSha256": "f7bba82dda9970856585f489520343aaeefd2347e933cc5026b7a099e800d07f",
+  "demoZipSha256": "ab3ef19206f5271386cc2ca2fad995fa9e2b174d8a00daa0abc29dbd82af67fb",
+  "connectivityAccepted": true,
+  "layoutQualityAccepted": true,
+  "adEquivalent": false,
+  "engineeringSignoff": false,
+  "evidence": "Git push completed successfully and GitHub returned this sourceCommit as PR head. Download ZIP and this record are added in the subsequent publication-record commit."
+}
