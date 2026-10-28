@@ -56,3 +56,25 @@ def prefer_candidate(candidate,baseline):
     keys=('unconnected','parity','errors','warnings')
     sa=tuple(a.get(k,0) for k in keys);sb=tuple(b.get(k,0) for k in keys)
     return sa<sb or sa==sb and quality_dominates(candidate['routingQuality'],baseline['routingQuality'])
+
+def repair_shortlist(candidates,limit=3):
+    """Quality of an incomplete route must not choose its sole repair seed.
+
+    Keep a bounded frontier of actual completed layouts. Distinct obstruction
+    geometry may be repairable even when its raw short-fragment count is worse.
+    """
+    eligible=[row for row in candidates if not row[1]['drc']['passed'] and row[1]['drc']['unconnected'] and not row[1]['drc']['violations'] and not row[1]['drc']['parity']]
+    def rank(row):
+        d=row[1]['drc'];q=row[1]['routingQuality']
+        return (d['unconnected'],d['errors'],d['warnings'],q['shortSegmentsUnder05mm'],q['trackLengthMm'],q['degree2Bends'])
+    return sorted(eligible,key=rank)[:limit]
+
+
+def repair_time_budget(remaining,seeds_left):
+    """Reuse unused search time while reserving a minimum run for later seeds.
+
+    The caller owns the total deadline. A quickly rejected geometry must not
+    strand its unused time when another seed has reached native repair.
+    """
+    available=float(remaining)-15*max(0,int(seeds_left)-1)
+    return min(300,available) if available>=15 else 0

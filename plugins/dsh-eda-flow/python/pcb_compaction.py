@@ -62,6 +62,20 @@ def compact(snapshot, step_mm=.5, seconds=20, deterministic_time=4.0):
                             model.add_hint(choice,k==axis)
                         model.add_exactly_one(choices)
                     else:model.add(directions[axis])
+    # Pre-routed owner circuits stay in their generated poses during this
+    # neighbourhood. Moving foreign pads must respect their actual copper.
+    copper_separations=0
+    for part in parts:
+        if part.get('fixed'):continue
+        ax,ay=xy[part['ref']]
+        for pad in part.get('copperPads',[]):
+            for obstacle in snapshot.get('staticCopper',[]):
+                if pad['layer']!=obstacle['layer'] or pad['net']==obstacle['net']:continue
+                av=list(map(unit,pad['boxMm']));bv=list(map(unit,obstacle['boxMm']));gap=unit(snapshot['clearanceMm']+.003)
+                directions=[ax*step+av[2]+gap<=bv[0],bv[2]+gap<=ax*step+av[0],ay*step+av[3]+gap<=bv[1],bv[3]+gap<=ay*step+av[1]]
+                choices=[model.new_bool_var('copper'+str(copper_separations)+':'+str(k)) for k in range(4)]
+                for direction,choice in zip(directions,choices):model.add(direction).only_enforce_if(choice)
+                model.add_bool_or(choices);copper_separations+=1
     terms=[];objective_specs=[]
     priority={str(n) for n in snapshot.get('priorityNets',[])}
     for net in sorted(snapshot.get('nets',[]),key=lambda n:n['name']):
@@ -118,7 +132,7 @@ def compact(snapshot, step_mm=.5, seconds=20, deterministic_time=4.0):
     accepted=after<before-1e-6
     return {'status':solver.status_name(status),'translations':translations if accepted else {},'acceptedProxyImprovement':accepted,
             'beforeProxyCost':before,'afterProxyCost':after,'movedParts':sum(any(abs(v)>1e-8 for v in ds) for ds in translations.values()) if accepted else 0,
-            'constraints':separation_count,'stepMm':step_mm,'wallTimeSeconds':solver.wall_time,
+            'constraints':separation_count,'copperSeparations':copper_separations,'stepMm':step_mm,'wallTimeSeconds':solver.wall_time,
             'reorderedParts':sorted(reorder),
             'scope':'Generated placement translations with joint separation for declared related parts; actual routed connectivity and quality must be checked separately.' if reorder else 'Generated placement translations within existing obstacle separation order; actual routed connectivity and quality must be checked separately.'}
 

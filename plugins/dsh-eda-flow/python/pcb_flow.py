@@ -1,7 +1,7 @@
-"""Generic KiCad PCB generation from the current schematic, never historical CAD.
+"""Generic PCB generation and refinement from current inputs and verified generated candidates.
 All structured exchanges use record_io; native DRC output is a text report.
 """
-import sys, os, re, math, shutil, subprocess, copy, csv, hashlib, xml.etree.ElementTree as ET
+import sys, os, re, math, shutil, subprocess, copy, csv, hashlib, time, xml.etree.ElementTree as ET
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'mcp'))
 from record_io import read_json as read, write_json as write
@@ -11,9 +11,12 @@ from native_schematic import child
 from pcb_footprints import bind_imports, electrical_identity, verify_pad_assignments
 from pcb_process import assembly_sides, placement_report, add_copper, native_process, refresh_copper_report
 from pcb_signal_placement import signal_filter_relations
-from pcb_refinement import FeedbackSearch,prefer_candidate,quality_dominates
+from pcb_refinement import FeedbackSearch,prefer_candidate,quality_dominates,repair_shortlist,repair_time_budget
 from pcb_trace_simplification import shorten_tracks
-from pcb_route_cleanup import remove_redundant_tracks,route_metrics
+from pcb_power_pose import PowerPoseScore
+from pcb_power_corridors import PowerCorridors
+from pcb_route_cleanup import remove_redundant_tracks,route_metrics,merge_collinear_tracks
+from pcb_candidate_history import prior_candidates,prepare_candidate
 
 def run(args, cwd, timeout=180):
     p=subprocess.run([str(x) for x in args],cwd=cwd,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=timeout,creationflags=0x08000000 if os.name=='nt' else 0)
@@ -136,6 +139,8 @@ def build(req):
     write(out/'signal-filter-placement.json',critical)
     critical.update({r['ref']:r for r in process.get('relations',[])})
     placed={};bodyboxes={};padboxes=[]
+    power_pose=PowerPoseScore(board,process,plan,footprints)
+    corridors=PowerCorridors(board,process,plan)
     def bbox(fp):
         pp=list(fp.Pads())
         if not pp:
@@ -225,6 +230,8 @@ def build(req):
         def crossing(a,b,c,d):
             def side(p,q,r):return (q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0])
             return side(a,b,c)*side(a,b,d)<-1e-8 and side(c,d,a)*side(c,d,b)<-1e-8
+        foreign_corridors,corridor_lines=corridors.constraints()
+        airwires.extend(corridor_lines)
         choices=[];geometry={}
         best=None
         for rotation in [0,90,180,270]:
@@ -241,6 +248,7 @@ def build(req):
                 source_pad=pads[(ref,relation['supplyPad'])][0]
                 source_xy=tuple(map(pcb.ToMM,[source_pad.GetPosition().x,source_pad.GetPosition().y]))
             geometry[rotation]=[(pcb.ToMM(q.GetPosition().x),pcb.ToMM(q.GetPosition().y),q.GetNetname()) for q in fp.Pads() if q.GetNetname() in anchors]
+            corridor_pad_shapes=corridors.pad_shapes(fp)
             rotation_choices=[]
             for ix in range(2,int(w-1)):
                 for iy in range(2,int(h-1)):
@@ -257,25 +265,39 @@ def build(req):
                         if any(layers.Contains(opposite) and overlaps(shifted,b,plan['clearanceMm']) for b,layers,other in padboxes) or (is_pth and any(layer==opposite and overlaps(shifted,b) for b,layer,haspads in bodyboxes.values())):
                             blocked=True;break
                     if blocked:continue
+                    if corridors.blocked(corridor_pad_shapes,foreign_corridors,ix,iy):continue
                     if relation and relation.get('maxDistanceMm') is not None and min(math.hypot(ix+source_xy[0]-x,iy+source_xy[1]-y) for x,y in relation_anchors)>relation['maxDistanceMm']:continue
                     cost=sum(weight*min(abs(ix+px-tx)+abs(iy+py-ty) for tx,ty in points) for px,py,points,weight in terminals) if terminals else abs(ix+(box[0]+box[2])/2-target[0])+abs(iy+(box[1]+box[3])/2-target[1])
                     cost+=.0001*rotation
                     rotation_choices.append((cost,ix,iy,rotation))
-            choices.extend(sorted(rotation_choices)[:80])
+            choices.extend(rotation_choices if relation and relation.get('kind') in ('decoupling','storage') else sorted(rotation_choices)[:80])
+        if relation:choices=power_pose.score(ref,choices,relation,move,side)
         for cost,ix,iy,rotation in choices:
             penalty=0
             for px,py,net_name in geometry[rotation]:
                 a=(ix+px,iy+py);b=min(anchors[net_name],key=lambda p:abs(a[0]-p[0])+abs(a[1]-p[1]))
                 penalty+=sum(20 for c,d,other in airwires if other!=net_name and crossing(a,b,c,d))
+                penalty+=sum(math.hypot(w,h) for c,d,other in corridor_lines if other!=net_name and crossing(a,b,c,d))
             score=cost+penalty
             if best is None or score<best[0]:best=(score,ix,iy,rotation)
         if best is None:
             write(out/'placement-failure.json',{'ref':ref,'relation':relation,'anchors':relation_anchors,'occupied':bodyboxes,'placed':placed})
             raise ValueError(ref+' 无可用布局空间；请调整机械约束')
         move(ref,*best[1:],side);register(ref)
+        corridors.placed(ref,placed)
+    write(out/'placement-power-corridors.json',{'reports':corridors.reports,'scope':'native supply and return corridors reserved during placement; no reference coordinates'})
     if req.get('placementOptimization') in ('coupled-compaction','coupled-critical'):
         snapshot={'boardMm':[w,h],'edgeMarginMm':.8,'componentGapMm':gap,'clearanceMm':plan['clearanceMm'],'priorityNets':req.get('optimizationFeedback',req.get('routingFeedback',{})).get('nets',[]),'parts':[],'nets':[],'relations':[]}
-        if req['placementOptimization']=='coupled-critical':snapshot['reorderParts']=sorted(critical)
+        protected=set()
+        if corridors.generated:
+            for relation in process.get('relations',[]):protected.update([relation['ref'],relation['anchor']['ref'],relation['return']['ref']])
+            snapshot['staticCopper']=[]
+            for track in board.GetTracks():
+                box=track.GetBoundingBox();snapshot['staticCopper'].append({'net':track.GetNetname(),'layer':pcb.LayerName(track.GetLayer()),'boxMm':list(map(pcb.ToMM,[box.GetX(),box.GetY(),box.GetRight(),box.GetBottom()]))})
+        if req['placementOptimization']=='coupled-critical':
+            endpoints={ref for net in nets if net['name'] in snapshot['priorityNets'] for ref,pin in net['nodes']}
+            snapshot['reorderParts']=sorted((set(critical)|endpoints)-protected-set(fixed))
+        snapshot['preservedPowerParts']=sorted(protected)
         positions=lambda ps:[tuple(map(pcb.ToMM,[q.GetPosition().x,q.GetPosition().y])) for q in ps]
         for ref,fp in footprints.items():
             side=fp.GetLayer();other=pcb.B_Cu if side==pcb.F_Cu else pcb.F_Cu
@@ -283,7 +305,12 @@ def build(req):
             for pad in fp.Pads():
                 if pad.GetLayerSet().Contains(other):
                     box=pad.GetBoundingBox();obstacles.append({'kind':'pad','layer':pcb.LayerName(other),'boxMm':tuple(map(pcb.ToMM,[box.GetX(),box.GetY(),box.GetRight(),box.GetBottom()]))})
-            snapshot['parts'].append({'ref':ref,'fixed':ref in fixed,'boundsMm':bbox(fp),'obstacles':obstacles})
+            copper_pads=[]
+            for pad in fp.Pads():
+                box=pad.GetBoundingBox();pb=list(map(pcb.ToMM,[box.GetX(),box.GetY(),box.GetRight(),box.GetBottom()]))
+                for layer in [pcb.F_Cu,pcb.B_Cu]:
+                    if pad.IsOnLayer(layer):copper_pads.append({'net':pad.GetNetname(),'layer':pcb.LayerName(layer),'boxMm':pb})
+            snapshot['parts'].append({'ref':ref,'fixed':ref in fixed or ref in protected,'boundsMm':bbox(fp),'obstacles':obstacles,'copperPads':copper_pads})
         planes={n['name'] for n in process.get('copperNets',[])}
         for net in nets:
             terminals=[{'ref':ref,'atMm':xy} for ref,pin in net['nodes'] if (ref,pin) in pads for xy in positions(pads[(ref,pin)])]
@@ -300,6 +327,13 @@ def build(req):
         compacted=read(out/'joint-placement-result.json')
         for ref,(dx,dy) in compacted['translations'].items():
             x,y=placed[ref];footprints[ref].SetPosition(point(x+dx,y+dy));placed[ref]=(x+dx,y+dy)
+        if corridors.generated:
+            foreign,_=corridors.constraints()
+            for ref,fp in footprints.items():
+                if ref not in protected and corridors.blocked(corridors.pad_shapes(fp),foreign,0,0):raise ValueError('Joint placement intersects reserved copper: '+ref)
+        compacted['preservedPowerParts']=sorted(protected);compacted['preservedCorridorSegments']=len(corridors.generated)
+        write(out/'joint-placement-result.json',compacted)
+    write(out/'power-pose-candidates.json',power_pose.reports)
     power_placement=placement_report(board,process)
     if not power_placement['passed']:raise ValueError('PCB supply placement distance exceeded visible constraint')
     write(out/'process-result.json',{'inputs':process,'assembly':assembly_facts,'powerPlacement':power_placement})
@@ -357,8 +391,11 @@ def build(req):
                 hit=(near(t.GetStart(),v['a']) and near(t.GetEnd(),v['b'])) or (near(t.GetStart(),v['b']) and near(t.GetEnd(),v['a']))
             if hit:board.Remove(t);removed+=1;break
     write(out/'jumper-routing-removal.json',{'temporaryItems':len(virtual),'removed':removed,'physicalJumperGroups':sum(map(len,bridges.values()))})
+    power_corridors=corridors.release_generated_locks()
+    write(out/'power-corridor-result.json',power_corridors)
     copper=add_copper(board,process,plan)
     cleanup=remove_redundant_tracks(board)
+    cleanup['collinear']=merge_collinear_tracks(board)
     write(out/'copper-route-cleanup.json',cleanup)
     refresh_copper_report(board,copper)
     write(out/'copper-result.json',copper)
@@ -423,6 +460,10 @@ def build(req):
     # native board, including when a rejected proposal was restored.
     refresh_copper_report(loaded,copper)
     write(out/'copper-result.json',copper)
+    export_views(req,project,boardfile)
+    write(out/'pcb-result.json',{'board':'project/'+boardfile.name,'pdf':'project/PCB.pdf','previews':['project/PCB-Front.svg','project/PCB-Back.svg'],'drc':drc,'components':len(comps),'nets':len(nets),'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'traceSimplification':simplification,'copperRouteCleanup':cleanup,'netMappingVerified':verified_physical_pads,'logicalPinsVerified':len(expected),'footprintImports':len(bindings),'plan':plan,'process':{'powerCorridors':power_corridors,'assembly':assembly_facts,'powerPlacement':power_placement,'copper':copper,'jumpers':process.get('jumpers',[])}})
+
+def export_views(req,project,boardfile):
     svg=project/'PCB.svg';pdf=project/'PCB.pdf'
     run([req['cli'],'pcb','export','svg','--layers','F.Cu,B.Cu,F.SilkS,B.SilkS,F.Fab,B.Fab,F.CrtYd,B.CrtYd,Edge.Cuts','--mode-single','--fit-page-to-board','--exclude-drawing-sheet','-o',svg,boardfile],project)
     run([req['cli'],'pcb','export','pdf','--scale','0','--layers','F.Cu,B.Cu,F.SilkS,B.SilkS,F.Fab,B.Fab,F.CrtYd,B.CrtYd,Edge.Cuts','--mode-single','-o',pdf,boardfile],project)
@@ -433,13 +474,57 @@ def build(req):
             else:args+=['--scale','0']
             if mirrored:args+=['--mirror']
             run(args+['-o',project/('PCB-'+label+'.'+kind),boardfile],project)
-    write(out/'pcb-result.json',{'board':'project/'+boardfile.name,'pdf':'project/PCB.pdf','previews':['project/PCB-Front.svg','project/PCB-Back.svg'],'drc':drc,'components':len(comps),'nets':len(nets),'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'traceSimplification':simplification,'copperRouteCleanup':cleanup,'netMappingVerified':verified_physical_pads,'logicalPinsVerified':len(expected),'footprintImports':len(bindings),'plan':plan,'process':{'assembly':assembly_facts,'powerPlacement':power_placement,'copper':copper,'jumpers':process.get('jumpers',[])}})
+
+
+def build_candidate(req):
+    """Isolate native board lifetimes and bound the entire candidate process tree."""
+    out=Path(req['output']);request=out/'request.json';write(request,req)
+    args=[sys.executable,str(Path(__file__).resolve()),'--candidate',str(request)]
+    p=subprocess.Popen(args,cwd=out,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',errors='replace',creationflags=0x08000000 if os.name=='nt' else 0,start_new_session=os.name!='nt')
+    timed_out=False
+    try:stdout,stderr=p.communicate(timeout=min(300,max(15,float(req.get('_candidateTimeoutSeconds',300)))))
+    except subprocess.TimeoutExpired:
+        timed_out=True
+        if os.name=='nt':subprocess.run(['taskkill','/PID',str(p.pid),'/T','/F'],capture_output=True,timeout=15)
+        else:
+            import signal
+            os.killpg(p.pid,signal.SIGKILL)
+        stdout,stderr=p.communicate(timeout=15)
+    write(out/'candidate-process.json',{'exitCode':p.returncode,'timedOut':timed_out,'stdout':stdout[-20000:],'stderr':stderr[-20000:]})
+    if timed_out:raise TimeoutError('单个布局候选超过运行时限；已保留此前完成的候选')
+    if p.returncode:raise RuntimeError('原生布局候选进程退出 '+str(p.returncode)+': '+(stderr or stdout)[-1200:])
+
+def publish_candidate(req,best,attempts,repair_runs,history_runs,checkpoint=False):
+    out=Path(req['output']);minimum=req['plan'].get('componentGapMm',2.0)
+    candidate,original=best;result=copy.deepcopy(original);selected=Path(candidate['output'])
+    shutil.copytree(selected/'project',out/'project',dirs_exist_ok=True)
+    for name in ['placement-result.json','placement-order.json','signal-filter-placement.json','copper-route-cleanup.json','jumper-routing-abstractions.json','jumper-routing-removal.json','process-result.json','copper-result.json']:
+        write(out/name,read(selected/name))
+    if (selected/'trace-simplification.json').exists():write(out/'trace-simplification.json',read(selected/'trace-simplification.json'))
+    for name in ['power-pose-candidates.json','placement-power-corridors.json','power-corridor-result.json']:
+        if (selected/name).exists():write(out/name,read(selected/name))
+    if (selected/'local-repair.json').exists():
+        write(out/'local-repair.json',read(selected/'local-repair.json'))
+        shutil.copytree(selected/'postroute-repair',out/'postroute-repair',dirs_exist_ok=True)
+    result['selectedPlacementOptimization']=candidate.get('placementOptimization','greedy')
+    if (selected/'joint-placement-result.json').exists():write(out/'joint-placement-result.json',read(selected/'joint-placement-result.json'))
+    result['requestedPlan']=req['plan'];result['layoutAttempts']=attempts;result['selectedComponentGapMm']=candidate['plan'].get('componentGapMm',minimum)
+    result['localRepairSearch']=repair_runs
+    result['historyCandidates']=history_runs
+    result.setdefault('selectedCandidateSource',{'kind':'fresh-generated'})
+    write(out/'history-candidates.json',history_runs)
+    result['generationStatus']='checkpoint' if checkpoint else 'complete'
+    write(out/'pcb-result.json',result)
 
 def generate_with_refinement(req):
     out=Path(req['output']);minimum=req['plan'].get('componentGapMm',2.0)
     search=FeedbackSearch(minimum,bool(req.get('process',{}).get('relations')),[n['name'] for n in req.get('process',{}).get('copperNets',[])])
-    attempts=[];best=None;pending_quality=None;quality_phase=False;quality_attempts=0;pending_repair=None;repair_attempts=0
+    attempts=[];best=None;completed=[];history_runs=[];checkpoint_saved=False;started=time.monotonic();pending_quality=None;quality_phase=False;quality_attempts=0;pending_repair=None;repair_attempts=0
     while True:
+        remaining=480-(time.monotonic()-started)
+        if remaining<15:
+            write(out/'search-budget.json',{'exhausted':True,'limitSeconds':480,'hasCompletedCandidate':best is not None})
+            break
         if pending_repair is not None:
             variant=pending_repair;pending_repair=None;repair_attempts+=1
         elif quality_phase:
@@ -457,17 +542,40 @@ def generate_with_refinement(req):
         # Windows file-copy APIs in ordinary project directories.
         work_id=hashlib.sha256(str(out.resolve()).encode('utf8')).hexdigest()[:20]
         candidate['output']=str(out.parent.parent.parent/'pcb-work'/work_id/str(index+1));Path(candidate['output']).mkdir(parents=True,exist_ok=True)
+        candidate['_candidateTimeoutSeconds']=min(300,remaining)
         write(Path(candidate['output'])/'request.json',candidate)
         print('PCB layout attempt '+str(index+1)+': component gap '+str(gap)+' mm',flush=True)
         try:
-            build(candidate);result=read(Path(candidate['output'])/'pcb-result.json')
+            build_candidate(candidate);result=read(Path(candidate['output'])/'pcb-result.json')
+            completed.append((candidate,result))
             if 'copper' in result.get('process',{}):
                 search.bind_native_copper(result['process']['copper']['zones'])
             entry={'attempt':index+1,'componentGapMm':gap,'routingFeedback':candidate['routingFeedback'],'drc':result['drc'],'routingQuality':result['routingQuality'],'placementOptimization':candidate.get('placementOptimization','greedy'),'optimizationFeedback':candidate.get('optimizationFeedback',{})};attempts.append(entry)
             improved=prefer_candidate(result,best[1] if best else None)
             entry['selectedAsBest']=improved
             if improved:best=(candidate,result)
-            if result['drc']['passed']:
+            if len(completed)==1:
+                for history_index,(previous,previous_result) in enumerate(prior_candidates(req)):
+                    history_out=Path(candidate['output']).parent/('history-'+str(history_index+1))
+                    history_row={'sourceRun':previous.name,'adopted':False}
+                    try:
+                        prepared,compatibility=prepare_candidate(req,candidate,previous,previous_result,history_out)
+                        history_row['compatibility']=compatibility
+                        if prepared:
+                            history_request,history_result=prepared
+                            history_result=repair_selected(history_request,history_result)
+                            history_row.update({'drc':history_result['drc'],'routingQuality':history_result['routingQuality'],'adopted':history_result.get('localRepair',{}).get('adopted',False)})
+                            if history_row['adopted'] and history_result['drc']['passed'] and prefer_candidate(history_result,best[1]):
+                                history_result['selectedCandidateSource']={'kind':'revalidated-generated-history','sourceRun':previous.name}
+                                best=(history_request,history_result)
+                    except Exception as error:history_row['reason']=str(error)
+                    history_runs.append(history_row);write(out/'history-candidates.json',history_runs)
+            if best[1]['drc']['passed'] and not best[1]['drc']['warnings'] and not checkpoint_saved:
+                publish_candidate(req,best,attempts,[],history_runs,checkpoint=True);checkpoint_saved=True
+            # An independently revalidated historical board is also a complete
+            # incumbent: search for quality improvements instead of spending the
+            # remaining disconnected-layout frontier.
+            if result['drc']['passed'] or best[1]['drc']['passed'] and not quality_phase:
                 pending_repair=None
                 if not quality_phase:
                     quality_phase=True
@@ -494,14 +602,77 @@ def generate_with_refinement(req):
         write(out/'layout-attempts.json',attempts)
     write(out/'layout-attempts.json',attempts)
     if best is None:raise ValueError('No PCB candidate completed: '+str(attempts))
-    candidate,result=best;selected=Path(candidate['output'])
-    shutil.copytree(selected/'project',out/'project',dirs_exist_ok=True)
-    for name in ['placement-result.json','placement-order.json','signal-filter-placement.json','copper-route-cleanup.json','jumper-routing-abstractions.json','jumper-routing-removal.json','process-result.json','copper-result.json']:
-        write(out/name,read(selected/name))
-    if (selected/'trace-simplification.json').exists():write(out/'trace-simplification.json',read(selected/'trace-simplification.json'))
-    result['selectedPlacementOptimization']=candidate.get('placementOptimization','greedy')
-    if (selected/'joint-placement-result.json').exists():write(out/'joint-placement-result.json',read(selected/'joint-placement-result.json'))
-    result['requestedPlan']=req['plan'];result['layoutAttempts']=attempts;result['selectedComponentGapMm']=candidate['plan']['componentGapMm']
-    write(out/'pcb-result.json',result)
+    repair_runs=[]
+    if not best[1]['drc']['passed']:
+        deadline=min(time.monotonic()+360,started+780)
+        seeds=repair_shortlist(completed)
+        for seed_index,(seed,seed_result) in enumerate(seeds):
+            remaining=deadline-time.monotonic()
+            if remaining<15:break
+            budget=repair_time_budget(remaining,len(seeds)-seed_index)
+            if not budget:break
+            local=copy.deepcopy(seed);local['_localRepairSeconds']=budget
+            print('PCB local repair seed: '+str(Path(seed['output']).name),flush=True)
+            repaired=repair_selected(local,seed_result)
+            repair_runs.append({'attempt':int(Path(seed['output']).name),'adopted':repaired.get('localRepair',{}).get('adopted',False),'drc':repaired['drc'],'routingQuality':repaired['routingQuality'],'reason':repaired.get('localRepair',{}).get('reason')})
+            if prefer_candidate(repaired,best[1]):best=(seed,repaired)
+            if repaired['drc']['passed']:break
+    write(out/'local-repair-search.json',repair_runs)
+    publish_candidate(req,best,attempts,repair_runs,history_runs)
 
-if __name__=='__main__':generate_with_refinement(read(sys.argv[1]))
+def repair_selected(req,result):
+    """Repair the best incomplete board once, then refresh all selected evidence."""
+    out=Path(req['output']);project=out/'project';work=out/'postroute-repair';work.mkdir(exist_ok=True)
+    request_file=work/'repair-request.json';write(request_file,req)
+    summary={'adopted':False};boardfile=project/Path(req['schematic']).with_suffix('.kicad_pcb').name
+    original_result=copy.deepcopy(result);rollback={};committing=False
+    try:
+        run([sys.executable,Path(__file__).with_name('pcb_repair_flow.py'),request_file,project,work],out,330)
+        summary=read(work/'result.json')
+        if summary.get('adopted'):
+            candidate=Path(summary['candidate']);candidate_file=candidate/boardfile.name;loaded=pcb.LoadBoard(str(candidate_file))
+            comps,nets=netlist(req['cli'],project/req['schematic']);expected={(ref,pin):net['name'] for net in nets for ref,pin in net['nodes']}
+            verified=verify_pad_assignments(loaded,expected)
+            if len(list(loaded.GetFootprints()))!=len(comps):raise ValueError('Local repair changed component count')
+            process_info=read(out/'process-result.json');power=placement_report(loaded,process_info['inputs'])
+            if not power['passed']:raise ValueError('Local repair violates visible supply distance')
+            report=candidate/'drc.rpt'
+            run([req['cli'],'pcb','drc','--schematic-parity','--format','report','--severity-all','--exit-code-violations','-o',report,candidate_file],candidate)
+            drc=parse_drc(report.read_text(encoding='utf-8-sig'))
+            if not drc['passed'] or drc['warnings']:raise ValueError('Final local repair DRC did not pass')
+            # Previews are generated from the candidate before it can replace
+            # the selected native file; an export failure retains the original.
+            export_views(req,candidate,candidate_file)
+            shutil.copyfile(boardfile,work/'before-selected-repair.kicad_pcb')
+            touched=[project/name for name in [boardfile.name,'drc.rpt','drc.json','PCB.svg','PCB.pdf','PCB-Front.svg','PCB-Front.pdf','PCB-Back.svg','PCB-Back.pdf','PCB-pad-map.csv']]
+            touched += [out/name for name in ['placement-result.json','copper-result.json','process-result.json','trace-simplification.json']]
+            rollback={file:file.read_bytes() if file.exists() else None for file in touched};committing=True
+            for name in [boardfile.name,'drc.rpt','PCB.svg','PCB.pdf','PCB-Front.svg','PCB-Front.pdf','PCB-Back.svg','PCB-Back.pdf']:
+                shutil.copyfile(candidate/name,project/name)
+            placements={fp.GetReference():{'xMm':pcb.ToMM(fp.GetPosition().x),'yMm':pcb.ToMM(fp.GetPosition().y),'rotation':fp.GetOrientationDegrees(),'side':pcb.LayerName(fp.GetLayer()),'fixed':fp.GetReference() in req['plan'].get('placements',{})} for fp in loaded.GetFootprints()}
+            write(out/'placement-result.json',placements)
+            explicit_nc=set(req.get('nc',[]));rows=[]
+            for fp in loaded.GetFootprints():
+                for index,pad in enumerate(fp.Pads()):
+                    pin=pad.GetNumber();ref=fp.GetReference();status='auxiliary' if not pin else 'NC' if ref+'.'+pin in explicit_nc else 'connected' if pad.GetNetCode() else 'unassigned'
+                    rows.append([ref,index,pin,status,pad.GetNetname(),pcb.ToMM(pad.GetPosition().x),pcb.ToMM(pad.GetPosition().y)])
+            with (project/'PCB-pad-map.csv').open('w',encoding='utf-8-sig',newline='') as stream:
+                writer=csv.writer(stream);writer.writerow(['Reference','PhysicalPadIndex','PinAndPadNumber','Status','Net','GeneratedXmm','GeneratedYmm']);writer.writerows(rows)
+            copper=read(out/'copper-result.json');refresh_copper_report(loaded,copper);write(out/'copper-result.json',copper)
+            process_info['powerPlacement']=power;write(out/'process-result.json',process_info);write(project/'drc.json',drc)
+            result=copy.deepcopy(result);result.update({'drc':drc,'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'netMappingVerified':verified})
+            result['process']['powerPlacement']=power;result['process']['copper']=copper
+            if summary.get('simplification',{}).get('passed'):
+                result['traceSimplification']=summary['simplification'];write(out/'trace-simplification.json',summary['simplification'])
+    except Exception as error:
+        if committing:
+            for file,data in rollback.items():
+                if data is None:file.unlink(missing_ok=True)
+                else:file.write_bytes(data)
+            result=original_result
+        summary={'adopted':False,'reason':'kept selected candidate; local repair failed','error':str(error)}
+    write(out/'local-repair.json',summary);result['localRepair']=summary;write(out/'pcb-result.json',result);return result
+
+if __name__=='__main__':
+    if len(sys.argv)>2 and sys.argv[1]=='--candidate':build(read(sys.argv[2]))
+    else:generate_with_refinement(read(sys.argv[1]))

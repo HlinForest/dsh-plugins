@@ -103,7 +103,7 @@ be discovered without injecting a board-specific component table.
 
 ## PCB routing and candidate selection
 
-The installed 0.16.3-beta.5 package uses Freerouting 2.1.0 through the local Java wrapper and KiCad's DSN/SES exchange. ELK, OR-Tools and libavoid in the earlier sections primarily address schematic geometry; they do not choose electrically justified component values. PCB routing cannot recover missing current, ripple, timing or load requirements.
+The plugin uses Freerouting 2.1.0 through the local Java wrapper and KiCad's DSN/SES exchange. ELK, OR-Tools and libavoid in the earlier sections primarily address schematic geometry; they do not choose electrically justified component values. PCB routing cannot recover missing current, ripple, timing or load requirements.
 
 The package additionally tries bounded OR-Tools translation compaction after a completed PCB candidate. It uses the generator's actual pads, courtyards, mounting sides, board envelope and visible supply-distance constraints. Mechanical datums remain fixed only when explicitly supplied. Unconnected nets from native DRC can increase their priority in a later compaction attempt. Rotations, component values, footprint pad mapping and net topology are not changed. The proxy objective is only a search aid: a replacement must remain fully connected, preserve native parity and physical pad assignments, and improve measured copper length/short-segment/bend metrics without worsening any of them. A failed solver or candidate leaves the previous completed result selected.
 
@@ -141,3 +141,29 @@ The subsequent installed-plugin round-0130 used six real DeepSeek calls in PCB g
 The selected result was the feedback-directed greedy candidate, not either of the two coupled-critical candidates (both still had opens). The later coupled-compaction candidate was connected but lengthened copper and was rejected. These facts limit attribution: the new joint method expands the search and its diagnostic replay passed, but the final metric gain is not evidence that joint placement alone caused the gain. The ordinary native trace shortcut in the selected board saved 1.142284 mm and one bend.
 
 Freerouting 2.1.0 calls an unseeded random shuffle in its single-thread pass ([upstream source](https://github.com/freerouting/freerouting/blob/v2.1.0/src/main/java/app/freerouting/autoroute/BatchAutorouter.java#L275-L276)). Identical placement and DSN geometry produced different routing outcomes in comparison runs. One thread does not establish reproducibility, and an unsupported seed flag must not be advertised as a fix. The full bounded workflow passed this round; a guaranteed first-candidate route or deterministic repeatability is not claimed. Nine resistor values and two capacitor-bank differences against AD remain unresolved; the user explicitly left the IRM-3638M3-X suffix applicability unconfirmed.
+
+## Native power-path placement (0.16.3-beta.7)
+
+Single-layer placement scores a bounded set of legal owner-relative poses with native obstacle-aware supply and return routing. These corridors constrain later placements and stay protected during Freerouting. No historical board coordinates, component IDs or reference values are used. Input distance limits remain unchanged. In beta.7, pad-only compaction was skipped while reserved copper existed. Only internally generated corridor locks are released for whole-copper-coverage cleanup; native DRC and full-board acceptance remain mandatory. This is a geometric routing improvement, not an electrical transient simulation or proof of generalization across board families.
+
+## Copper-aware joint placement (0.16.3-beta.9)
+
+Joint placement now preserves the generator’s current owner, decoupling and storage poses and their actual pre-routed copper while optimizing other components. This preservation is internal to the current candidate, not a user datum or reference-board coordinate. Foreign pads must clear static native copper on the same layer; a conservative bounding-box solver check is followed by a native polygon check. Failed-net endpoints may change their separation direction in the bounded repair candidate. Values, pin/pad mapping, topology, sides and rotations remain unchanged.
+
+Full-board round-0134 replay removed the prior CLK open but retained one ground-network disconnection. Replaying fixed DSN wires plus routed SES proved the ground branch was already open before fill and copper cleanup. Native DRC and an independent copper-union audit located it at the receiver filter returns. Experiments that also locked filter-local paths worsened full-board routing and were rejected; they are not included in this package. This establishes a search capability and a diagnosed remaining failure, not an accepted new board. The Demo and each current review record separately state fresh-model acceptance and unresolved value differences.
+
+## Native local repair (0.16.3-beta.10)
+
+The selected incomplete single-layer candidate can now undergo bounded native bridge relocation and interface-filter return-island repair. The search uses current copper, declared component roles and exact footprints. It preserves electrical identity, fixed datums, assembly sides and protected supply geometry. Only full native DRC/parity plus filled-copper connectivity can authorize adoption. Same-net tree routing compares actual legal path costs; shortcut proposals are individually refilled and rolled back if copper connectivity is lost. See [workflow and limits](native-local-repair.md). Native tool replays and new model runs remain separately recorded in the Demo; this does not resolve missing resistor/capacitor operating conditions.
+
+## Multiple repair seeds (0.16.3-beta.11)
+
+Incomplete-layout quality is not a proof of repairability. The native repair now tries up to three completed, geometrically valid seeds, with per-seed and overall time bounds. A full connected candidate takes precedence over an incomplete route with fewer fragments. The actual seed, DRC and quality results are recorded in local-repair-search.json; fixed-coordinate and source-connectivity restrictions are unchanged.
+
+## Shared repair time (0.16.3-beta.12)
+
+Unused time from quickly rejected seeds stays available to later seeds. The six-minute overall limit remains; each native worker is bounded to five minutes and the allocator reserves a minimum launch window for remaining seeds. This fixes an observed full-board case where a feasible branch required about 173 seconds for complete return repair and cleanup, but the prior 120-second per-seed cap stopped it. That tool continuation is recorded separately from the next installed-model run.
+
+## Branch-preserving collinear cleanup (0.16.3-beta.16)
+
+A collinear trunk can be merged through a branch endpoint without moving either the trunk or branch copper. The prior degree-two-only rule retained tiny fragments at T junctions. Full-board continuation removed four segmentation joints and reduced short fragments from five to three while preserving length, bend count and native DRC/parity; normal installed-flow verification is recorded separately.

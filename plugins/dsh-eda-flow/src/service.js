@@ -11,7 +11,7 @@ import { spawn } from 'node:child_process';
 import { FlowError, classify } from './errors.js';
 import { presentation } from './presentation.js';
 import { stages, inputGroups, version } from './contracts.js';
-import { hash, readJSON, writeJSON, within, inside, tree, fileChanges, sameFiles } from './io.js';
+import { hash, readJSON, writeJSON, within, inside, tree, fileChanges, sameFiles, isNativeLockFile } from './io.js';
 import { byteEvidence, inspectDefaultBundle, compareReaders } from './input-integrity.js';
 import { PreciseTools } from './precise-tools.js';
 import { executeText } from './text-flow.js';
@@ -83,6 +83,18 @@ export class Flow {
     }
     for (const s of p.stages) {
       if (!s.output) continue;
+      const invalidation = s.invalidation;
+      if (!this.jobs.has(id) && s.status === 'stale' && s.files &&
+          invalidation?.kind === 'output-files' && invalidation.from === s.id &&
+          invalidation.files?.length && invalidation.files.every(f => isNativeLockFile(f.path)) &&
+          s.outputHash && hash(s.files) === s.outputHash) {
+        const current = await tree(s.output).catch(() => []);
+        if (sameFiles(s.files, current)) {
+          s.status = 'done'; s.confirmed = false; delete s.invalidation;
+          p.revision++; changed = true;
+          this.recordEvent(p, s.id, '工程文件复核', 'CAD 临时锁不改变工程内容；输出校验一致，结果可继续复核。人工确认仍待完成。');
+        }
+      }
       if (s.status === 'done' && s.files) {
         const current = await tree(s.output).catch(() => []);
         const recordValid = Boolean(s.outputHash) && hash(s.files) === s.outputHash;
@@ -347,7 +359,8 @@ export class Flow {
       if (signal?.aborted) stop(); else signal?.addEventListener('abort', stop, { once: true });
       const cleanup = () => { clearTimeout(timer); signal?.removeEventListener('abort', stop); };
       const timeout=Number.isFinite(this.config.processTimeoutMs)&&this.config.processTimeoutMs>0?Math.min(this.config.processTimeoutMs,30*60*1000):15*60*1000;
-      const timer = setTimeout(stop, timeout);
+      log.timeoutMs=timeout;log.timedOut=false;
+      const timer = setTimeout(() => {log.timedOut=true;stop();}, timeout);
       child.stdout.on('data', data => {
         log.stdout = (log.stdout + data).slice(-400000); event?.(String(data).slice(-1500));
         for (const [id, job] of this.jobs) if (output.startsWith(this.dir(id) + path.sep)) {
@@ -357,7 +370,7 @@ export class Flow {
       });
       child.stderr.on('data', data => { log.stderr = (log.stderr + data).slice(-400000); });
       child.on('error', e => { cleanup(); reject(e); });
-      child.on('close', code => { cleanup(); log.exitCode = code; code === 0 && !signal?.aborted ? resolve() : reject(new Error(signal?.aborted ? '本步已取消。' : (log.stderr || log.stdout || `执行退出码 ${code}`).slice(-4000))); });
+      child.on('close', code => { cleanup(); log.exitCode = code; if(code===0&&!signal?.aborted&&!log.timedOut)return resolve(); const error=new Error(signal?.aborted?'本步已取消。':log.timedOut?`本机工具执行超时（${timeout/1000} 秒），已停止本次处理；已完成候选与诊断记录保留。`:(log.stderr||log.stdout||`执行退出码 ${code}`).slice(-4000));if(log.timedOut&&!signal?.aborted)error.code='PROCESS_TIMEOUT';reject(error); });
     }).catch(async error => { log.error = error.message; await writeJSON(logPath, log); throw error; });
     await writeJSON(logPath, log);
   }

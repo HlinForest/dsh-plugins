@@ -50,7 +50,7 @@ def contained(a,b):
     return result.OutlineCount()==0
 
 
-def shorten_tracks(board,clearance_mm,edge_clearance_mm,min_segment_mm=.5,max_chain_edges=5):
+def shorten_tracks(board,clearance_mm,edge_clearance_mm,min_segment_mm=.5,max_chain_edges=5,connectivity_check=None):
     if any(not math.isfinite(v) or v<0 for v in (clearance_mm,edge_clearance_mm,min_segment_mm)):
         raise ValueError('Invalid trace simplification limits')
     board_outline=pcb.SHAPE_POLY_SET()
@@ -103,7 +103,7 @@ def shorten_tracks(board,clearance_mm,edge_clearance_mm,min_segment_mm=.5,max_ch
             if zone.GetIsRuleArea() and zone.GetLayerSet().Contains(layer) and zone.GetDoNotAllowTracks():
                 poly=pcb.SHAPE_POLY_SET(zone.Outline());keepalive.append(poly)
                 objects[layer].append({'id':zone.m_Uuid.AsString(),'net':-1,'poly':poly})
-    used=set();changes=[];cache={};safety=pcb.FromMM(.003)
+    used=set();changes=[];cache={};safety=pcb.FromMM(.003);rejected_connectivity=0
     for candidate in candidates:
         ids=candidate['ids'];layer=candidate['layer'];net=candidate['net']
         if used.intersection(ids):continue
@@ -124,6 +124,14 @@ def shorten_tracks(board,clearance_mm,edge_clearance_mm,min_segment_mm=.5,max_ch
         if any(not intersects(o['poly'],new_poly) for o in contacts):continue
         for uid in ids:board.Remove(tracks[uid]);keepalive.append(tracks[uid])
         for track in new:board.Add(track)
+        if connectivity_check is not None:
+            board.BuildConnectivity();pcb.ZONE_FILLER(board).Fill(board.Zones())
+            if not connectivity_check(board):
+                for track in new:board.Remove(track);keepalive.append(track)
+                for uid in ids:board.Add(tracks[uid])
+                board.BuildConnectivity();pcb.ZONE_FILLER(board).Fill(board.Zones())
+                rejected_connectivity+=1
+                continue
         objects[layer]=[o for o in objects[layer] if o['id'] not in ids]
         for track in new:
             poly=polygon(track,layer);keepalive.append(poly)
@@ -141,4 +149,5 @@ def shorten_tracks(board,clearance_mm,edge_clearance_mm,min_segment_mm=.5,max_ch
     return {'method':'Endpoint-preserving octilinear shortcuts; actual foreign copper clearance and same-net object contacts',
             'candidates':len(candidates),'changes':changes,
             'savedLengthMm':round(sum(c['savedLengthMm'] for c in changes),6),
+            'rejectedFilledConnectivity':rejected_connectivity,
             'nativeDrcRequired':True,'geometrySource':'current generated native PCB only'}

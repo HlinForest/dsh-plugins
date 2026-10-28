@@ -10,10 +10,30 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.6 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.16 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
-## 电路设计 0.16.3-beta.6：完整显示板文字评审与布线复测
+## 电路设计 0.16.3-beta.16：点选器件填要求，整板评审与自动微调
+
+[Demo 与图纸目录](demos/eda-flow/round-0149) · [下载 Demo 与可编辑工程](demos/eda-flow/round-0149/Demo与工程.zip) · [评审记录](demos/eda-flow/round-0149/工程师评审记录.json) · [AD 逐项比较](demos/eda-flow/round-0149/与AD逐项比较.md) · [使用说明](demos/eda-flow/round-0149/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.16.tgz) · [SHA256](dist/dsh-eda-flow-0.16.3-beta.16.tgz.sha256)
+
+在原理图点击器件或位号，查看当前值后填写希望的参数、型号或工作要求，选择“按要求生成修改”。电气变化先回到器件推导，确认方案后再更新原理图、BOM 和 PCB；仅图面调整可保留电气设计。保存原话、所选器件、图纸版本、每次运行和复核结果，缺少依据的值保持待确认。
+
+本轮 PCB 阶段真实 DeepSeek 调用 8 次。完整 27 器件、94 物理焊盘；29 个信号网络和全部实际铜形连通，KiCad DRC 错误、警告、未连接与原理图差异均为 0。导出后的可编辑工程再次通过原生 DRC。
+
+相对上一块完整连通板，显式铜线 501.44 → 442.34 mm，短于 0.5 mm 的线段 4 → 3，二度拐点 90 → 70。此前连通候选短段超标，后续新板又出现 GRID3 断点，均未发布。完整连通基线和失败评审均分别保留。供电与返回路径、失败候选和后续修复均保留在 Demo 记录中。
+
+本轮采用来源：重新核验的既有生成候选；已重新生成候选并比较，来源记录随 Demo 提供。
+
+本次重试另修复了候选完成后未及时保存、原生候选共用进程，以及超时原因被普通 stderr 遮盖的问题。新候选独立运行；完整检查点先保存，整轮完成后再发布。相对本条评审开始前，路由变化为 {"trackLengthMm":0,"segments":0,"shortSegmentsUnder05mm":0,"degree2Bends":0}；上面的变化是相对 round-0130 发布基线的累计改进。
+
+新增通用能力包括实际铜形中的局部跨线/接口滤波修复、多个布局候选的有界搜索、共享剩余运行时间、同网接入路径比较，以及保持连通的折线清理。只读取当前生成板的封装、网络、板框与显式工艺约束；没有输入 AD 坐标、外部完整逐脚连接或照抄参数。当前修复限于单布线层、既有跨线器件及局部滤波调整，仍受空间和时间上限约束；一次整板通过不保证任意板都可自动完成。
+
+9 个阻值和 2 组电容组合差异减少 0 项；IRM-3638M3-X 后缀、工作条件、厂家封装与实物性能仍待确认。通过的是本轮连通与布线质量验收，不是 AD 等价或生产批准。45 项原生检查及 22 项评审/流程回归通过；源码、安装包和已安装插件的 284 个文件一致。
+
+重新生成需要 Harness、可用模型、KiCad 完整程序与库、配套 Python 依赖及 Java。Freerouting 随 TGZ 提供。没有 KiCad 时可查看 Demo/PDF，并用 ReviewOnly 记录意见；补齐本机工具后才能生成与核验，目前没有自动远程 CAD 服务。外部规格书与原始 AD 工程不在发布包内。解压 ZIP 后打开 Demo.html；GitHub 的 HTML 文件页显示源码。安装时通过插件 [安装指南](plugins/dsh-eda-flow/docs/engineer-review-and-installation.md) 指定本次 TGZ。
+
+## 历史电路设计 0.16.3-beta.6：完整显示板文字评审与布线复测
 
 [Demo 与图纸目录](demos/eda-flow/round-0130) · [下载 Demo 与可编辑工程](demos/eda-flow/round-0130/Demo与工程.zip) · [评审记录](demos/eda-flow/round-0130/工程师评审记录.json) · [AD 逐项比较](demos/eda-flow/round-0130/与AD逐项比较.md) · [使用说明](demos/eda-flow/round-0130/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.6.tgz) · [SHA256](dist/dsh-eda-flow-0.16.3-beta.6.tgz.sha256)
 

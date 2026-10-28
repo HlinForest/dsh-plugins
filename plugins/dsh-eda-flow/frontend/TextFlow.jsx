@@ -1,3 +1,4 @@
+import {SchematicSelection} from './SchematicSelection.jsx';
 import React, { useState } from 'react';
 import { Download, Document, Add, ChevronRight } from '@carbon/icons-react';
 import { Badge, Btn, Empty, Field, Notice, Table } from './ui.jsx';
@@ -74,7 +75,7 @@ export function TextChecks({ state, detail, resultFiles }) {
 }
 
 
-export function TextFlowContent({ p, data, stage, tab, state, field, notes, ct, nets, preview, imageFile, detail, resultFiles, download, go, openUpload }) {
+export function TextFlowContent({ p, data, stage, tab, state, field, notes, ct, nets, preview, imageFile, detail, resultFiles, download, go, openUpload, onReviewAction, busy }) {
   const f = (label, key, props = {}) => <Field label={label} value={p.fields?.[key] || ''} onChange={value => field(key, value)} data-input={key} {...props} />;
   const components = data.components || [];
   const fresh = ['new-design', 'datasheet-demo'].includes(p.designMode);
@@ -116,7 +117,7 @@ export function TextFlowContent({ p, data, stage, tab, state, field, notes, ct, 
   }
 
   if (stage === 4) {
-    return <>{tab === 0 ? <><DrawingResult project={p} stage={stage}/>{stepNotes()}</> : tab === 1 ? <>{nets()}{stepNotes()}</> : checks()}</>;
+    return <>{tab === 0 ? <><DrawingResult project={p} stage={stage} onAction={onReviewAction} go={go} busy={busy}/>{stepNotes()}</> : tab === 1 ? <>{nets()}{stepNotes()}</> : checks()}</>;
   }
 
   if (stage === 5) {
@@ -147,7 +148,7 @@ export function TextFlowContent({ p, data, stage, tab, state, field, notes, ct, 
     ? <><div className="section-heading small"><h3>本次工程核验</h3><Badge status={state.status}>{state.status === 'done' ? '核验已执行' : '核验待执行'}</Badge></div>{checks()}</>
     : tab === 1
       ? f('工程师评审意见', 'review', {area:true, placeholder:'记录确认内容、未关闭问题及下一阶段处理事项'})
-      : <><div className="section-heading small"><h3>交付文件</h3><Btn icon={Download} onClick={() => download(p.name + '-输入确认记录.json', JSON.stringify({project:p.name, clarifications:p.clarifications || [], origin:'text-mcp', evidence:p.inputs?.evidence || [], fields:p.fields, notes:p.notes, events:p.events}, null, 2))}>导出输入记录</Btn></div><DrawingResult project={p} stage={stage}/><details><summary>全部文件与记录</summary>{resultFiles()}</details></>;
+      : <><div className="section-heading small"><h3>交付文件</h3><Btn icon={Download} onClick={() => download(p.name + '-输入确认记录.json', JSON.stringify({project:p.name, clarifications:p.clarifications || [], origin:'text-mcp', evidence:p.inputs?.evidence || [], fields:p.fields, notes:p.notes, events:p.events}, null, 2))}>导出输入记录</Btn></div><DrawingResult project={p} stage={stage} onAction={onReviewAction} go={go} busy={busy}/><details><summary>全部文件与记录</summary>{resultFiles()}</details></>;
   return <>{page}{tab === 0 && stepNotes()}</>;
 }
 
@@ -159,7 +160,7 @@ function PcbOutput({ project, state, resultFiles }) {
 
 function DesignRegister({state}) { const design=state.result?.design; if(!design)return <Notice>执行后查看可确认的设计清单。</Notice>;return <><h3>统一设计清单</h3><p className="page-help">确认后作为原理图、BOM和封装核验的共同依据。修改选型需重新执行本步及下游。</p><Table label="设计清单" searchable columns={[{key:'id',title:'身份'},{key:'ref',title:'位号'},{key:'mpn',title:'采购型号',render:r=>r.mpn||'待确认'},{key:'footprint',title:'封装',render:r=>r.footprint||'待确认'}]} rows={design.components}/>{design.supplied_nets?.length>0&&<><h3>供电声明</h3><p className="page-help">以下网络按设计声明添加供电检查标记。当前检查不验证真实供电路径、电压或负载能力，确认前需核对实际电源入口和连接。</p><Table label="供电声明" columns={[{key:'name',title:'网络'}]} rows={design.supplied_nets.map((name,id)=>({id,name}))}/></>}<>{design.functions.some(f=>f.layout?.length)&&<><h3>局部器件归属</h3><p className="page-help">由本次电路方案提出，排版时用于让去耦靠近对应负载。连接仍以已确认网络为准。</p><Table label="局部器件归属" columns={[{key:"anchor",title:"负载供电脚"},{key:"return",title:"返回脚"},{key:"members",title:"局部器件",render:r=>r.members.join("、")}]} rows={design.functions.flatMap(f=>(f.layout||[]).map((r,i)=>({...r,id:f.requirementId+"-"+i})))}/></>}</><Table label="功能验证范围" columns={[{key:'description',title:'功能'},{key:'limitations',title:'仍需验证',render:r=>r.limitations.join('；')}]} rows={design.functions.map((r,id)=>({...r,id}))}/></>;}
 
-export function DrawingResult({project,stage}) {
+export function DrawingResult({project,stage,onAction,go,busy}) {
   const source=[...(project.stages||[])].reverse().find(s=>s.id<=stage&&s.status==='done'&&(s.files||s.result?.files||[]).some(f=>/\.kicad_sch$/i.test(f.path)));
   if(!source)return <Empty title="尚未生成原理图"/>;
   const files=source.files||source.result?.files||[];
@@ -169,6 +170,6 @@ export function DrawingResult({project,stage}) {
   const url='/api/eda-flow/project-download?'+new URLSearchParams({projectId:project.id,stage:source.id});
   return <section className="drawing-result" aria-label="生成结果">
     <div className="drawing-actions"><a className="btn primary" href={url}>下载完整工程 <Download size={18}/></a>{pdf&&<a className="btn" href={assetURL(project.id,source.id,pdf,true)}>下载图纸 PDF <Download size={18}/></a>}{picture&&<a className="text-link" href={assetURL(project.id,source.id,picture)} target="_blank" rel="noreferrer">展开图纸</a>}</div>
-    {picture?<a className="drawing-sheet" href={assetURL(project.id,source.id,picture)} target="_blank" rel="noreferrer" aria-label="展开原理图"><img src={assetURL(project.id,source.id,picture)} alt="生成的原理图"/></a>:pdf?<iframe className="drawing-pdf" title="原理图 PDF" src={assetURL(project.id,source.id,pdf)}/>:<Empty title="图纸预览尚未生成"/>}
+    {picture&&onAction&&[4,5].includes(source.id)&&picture.endsWith(".svg")?<SchematicSelection project={project} source={source} picture={picture} onAction={onAction} go={go} busy={busy}/>:picture?<a className="drawing-sheet" href={assetURL(project.id,source.id,picture)} target="_blank" rel="noreferrer" aria-label="展开原理图"><img src={assetURL(project.id,source.id,picture)} alt="生成的原理图"/></a>:pdf?<iframe className="drawing-pdf" title="原理图 PDF" src={assetURL(project.id,source.id,pdf)}/>:<Empty title="图纸预览尚未生成"/>}
   </section>;
 }

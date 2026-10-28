@@ -29,6 +29,12 @@ class Tests(unittest.TestCase):
   for p in s['parts']:p['fixed']=True
   s['relations'][0]['maxDistanceMm']=1
   r=compact(s);self.assertEqual(r['translations'],{});self.assertEqual(r['status'],'INFEASIBLE')
+ def test_existing_power_copper_cannot_be_occupied_by_a_moved_signal_pad(self):
+  s=example();s['staticCopper']=[{'layer':'B.Cu','net':'POWER','boxMm':[7,3,11,7]}]
+  s['parts'][2]['copperPads']=[{'layer':'B.Cu','net':'A','boxMm':[24,19,26,21]}]
+  r=compact(s);self.assertTrue(r.get('acceptedProxyImprovement'),r);self.assertEqual(r['translations']['SOURCE'],[0,0])
+  dx,dy=r['translations']['FILTER'];a=[24+dx,19+dy,26+dx,21+dy];b=[7,3,11,7];gap=.254
+  self.assertTrue(a[2]+gap<=b[0] or b[2]+gap<=a[0] or a[3]+gap<=b[1] or b[3]+gap<=a[1],(a,b))
  def test_permutation_does_not_change_the_physical_solution(self):
   s=example();a=compact(s);s['parts'].reverse();s['nets'].reverse();b=compact(s);self.assertEqual(a['translations'],b['translations'])
 if __name__=='__main__':unittest.main()

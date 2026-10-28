@@ -1,0 +1,110 @@
+{
+  "version": "0.16.3-beta.16",
+  "drcPassedAfterCopy": true,
+  "libraryReferencesVerified": [
+    "symbols/Host.kicad_sym",
+    "symbols/Evidence.kicad_sym",
+    "symbols/Device.kicad_sym",
+    "Capacitor_SMD.pretty",
+    "EvidencePkg.pretty",
+    "Resistor_SMD.pretty"
+  ],
+  "counts": {
+    "violations": 0,
+    "unconnected_items": 0,
+    "schematic_parity": 0
+  },
+  "boardSha256": "d86e2dbf95bdf3c24376b79275c12c13672186238253f803eebbc4c6258c8dfa",
+  "files": [
+    {
+      "path": "Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "Circuit.kicad_pcb",
+      "sha256": "d86e2dbf95bdf3c24376b79275c12c13672186238253f803eebbc4c6258c8dfa"
+    },
+    {
+      "path": "Circuit.kicad_pro",
+      "sha256": "3b6cca8394c0f81d5d48329c6bda86012a5f28c041e62407eec8f6b86c9b6d43"
+    },
+    {
+      "path": "Circuit.kicad_sch",
+      "sha256": "3c3a631ee1c207496fb7ba10d4a001ca54177dd5eba9f2955eae98973480ac7c"
+    },
+    {
+      "path": "Circuit.pdf",
+      "sha256": "f6d7a040906a61587d1b5f30f4a79be506c1dedd8b137347c0aee3c4cf3b65b5"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_50ea157fbcd408b9.kicad_mod",
+      "sha256": "42307e0a5d7f55adc50edab3f45d91e72eceee73150fbc857381875ec774e29c"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_87693eea20e7eb47.kicad_mod",
+      "sha256": "b358a2d62cb9d997dd28de62b9d8fc3823158012eebf9c4bca5c822db6793845"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_abf73c9ba269dea0.kicad_mod",
+      "sha256": "d7dbb40ef6fa6f5c82e58d5ee7a932b6f0ead740fd4faeb735e9220c9502f816"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_c783efe2c5902037.kicad_mod",
+      "sha256": "1cf190ad0658b9677e29301fc214345ce64406ed611c4c9e2e63326fd493b8ef"
+    },
+    {
+      "path": "fp-lib-table",
+      "sha256": "3e426348693694aad6863b2b186c259618f3d4c395a8146e72317e324adea9c3"
+    },
+    {
+      "path": "PCB-Back.pdf",
+      "sha256": "ab978110fe46796264afae00351294a0eaea1cc113398c27bc650a04bb603704"
+    },
+    {
+      "path": "PCB-Back.svg",
+      "sha256": "f379bef7aa0cc79f577c341ef63c95dc9c0eac24224a139c2d6218cb12a5da59"
+    },
+    {
+      "path": "PCB-Front.pdf",
+      "sha256": "e37557a7c9fc98ef214df303d1a2ff273aaf32eef76d37f5efd874254f077b99"
+    },
+    {
+      "path": "PCB-Front.svg",
+      "sha256": "e6d31736feaef4d9314372f214286f33d1d8d5bedcf523fb0ddc0e9f7aaf99e6"
+    },
+    {
+      "path": "PCB-pad-map.csv",
+      "sha256": "a90f6392a89e086e22fdbfa1fa672a9eda085e497748a9a2ccb9e69fef470f55"
+    },
+    {
+      "path": "PCB.pdf",
+      "sha256": "77bde66f0ac8e506486ca7de7e0d7f6ebe17c9990fad55488e246cea84c58936"
+    },
+    {
+      "path": "PCB.svg",
+      "sha256": "a2171afadba2d978b8778ad9ef4a1a93558586e7dfe963e538586c3e949305bf"
+    },
+    {
+      "path": "Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "sha256": "a03051936e136867f7c7c345b3c83ea67975fda98d0e288d970d9c6c0f182ed4"
+    },
+    {
+      "path": "sym-lib-table",
+      "sha256": "deb8bf032eb8b75773ff7eba7b5ffc5926f5292b42baad029ff972b5f247aef6"
+    },
+    {
+      "path": "symbols/Device.kicad_sym",
+      "sha256": "838ca0f85cc33419008b98a63c09182eb60e1bcf850b07896483824ee2eadc15"
+    },
+    {
+      "path": "symbols/Evidence.kicad_sym",
+      "sha256": "55539c284b63ccb7f7678aa560cde96a78739e0170fa4548bf1d58f71f3d4b30"
+    },
+    {
+      "path": "symbols/Host.kicad_sym",
+      "sha256": "b2f820c10125adbbdb5a418be036843863481e7255fc4beb4ffeb24d73149cde"
+    }
+  ],
+  "externalDatasheetsIncluded": false,
+  "originalADIncluded": false
+}

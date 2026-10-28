@@ -6,6 +6,7 @@ The caller must still run native DRC/parity on the resulting board.
 """
 import pcbnew as pcb
 from collections import defaultdict
+from itertools import combinations
 
 def route_metrics(board):
     tracks=[t for t in board.GetTracks() if not isinstance(t,pcb.PCB_VIA)]
@@ -39,21 +40,24 @@ def covered(poly,fill):
 
 def remove_filled_tracks(board):
     tracks=[t for t in board.GetTracks() if not isinstance(t,pcb.PCB_VIA) and not t.IsLocked() and t.GetNetCode()]
-    keys={(t.GetNetCode(),t.GetLayer()) for t in tracks};fill=filled_copper(board,keys)
+    keepalive=[];board._eda_filled_copper_keepalive=keepalive
+    keepalive.append(tracks)
+    keys={(t.GetNetCode(),t.GetLayer()) for t in tracks};fill=filled_copper(board,keys);keepalive.append(fill)
     candidates=[]
     for track in tracks:
-        key=(track.GetNetCode(),track.GetLayer());poly=trace_polygon(track)
+        key=(track.GetNetCode(),track.GetLayer());poly=trace_polygon(track);keepalive.append(poly)
         if covered(poly,fill[key]):candidates.append((track,key,poly))
     for track,_,_ in candidates:board.Remove(track)
     retained=[]
     while candidates:
         board.BuildConnectivity();pcb.ZONE_FILLER(board).Fill(board.Zones())
-        fill=filled_copper(board,keys)
+        fill=filled_copper(board,keys);keepalive.append(fill)
         restore=[row for row in candidates if not covered(row[2],fill[row[1]])]
         if not restore:break
         for row in restore:board.Add(row[0]);candidates.remove(row);retained.append(row)
     if retained and not candidates:
         board.BuildConnectivity();pcb.ZONE_FILLER(board).Fill(board.Zones())
+    keepalive.extend([candidates,retained])
     return {'method':'whole trace copper contained in same-net same-layer filled polygons, revalidated after refill',
             'removedSegments':len(candidates),'removedLengthMm':round(sum(pcb.ToMM(t.GetLength()) for t,_,_ in candidates),6),
             'restoredSegments':len(retained),'removed':[{'net':t.GetNetname(),'layer':pcb.LayerName(t.GetLayer()),'lengthMm':round(pcb.ToMM(t.GetLength()),6)} for t,_,_ in candidates],
@@ -98,3 +102,39 @@ def remove_redundant_tracks(board):
             'removedLengthMm':round(filled['removedLengthMm']+pads['removedLengthMm'],6),
             'restoredSegments':filled['restoredSegments'],'filledZones':filled,'physicalPads':pads,
             'copperCoveragePreserved':True,'nativeDrcRequired':True}
+
+def merge_collinear_tracks(board):
+    """Remove segmentation artifacts without moving or removing any copper.
+
+    Exact integer collinearity, equal width/net/layer and opposite directions
+    are required. Branch copper stays in place even when its junction
+    becomes an interior point of a merged trunk; protected tracks remain.
+    """
+    changes=[];keepalive=[]
+    while True:
+        joins=defaultdict(list)
+        for track in board.GetTracks():
+            if isinstance(track,(pcb.PCB_VIA,pcb.PCB_ARC)):continue
+            for point in (track.GetStart(),track.GetEnd()):joins[(track.GetNetCode(),track.GetLayer(),point.x,point.y)].append(track)
+        merged=False
+        for (net,layer,x,y),tracks in joins.items():
+            if len(tracks)<2 or net<=0:continue
+            def other(track):
+                start=track.GetStart();end=track.GetEnd()
+                return end if (start.x,start.y)==(x,y) else start
+            pair=None
+            for a,b in combinations(tracks,2):
+                if a.IsLocked() or b.IsLocked() or a.GetWidth()!=b.GetWidth():continue
+                first,last=other(a),other(b);u=(first.x-x,first.y-y);v=(last.x-x,last.y-y)
+                if u[0]*v[1]==u[1]*v[0] and u[0]*v[0]+u[1]*v[1]<0:
+                    pair=(a,b,first,last);break
+            if pair is None:continue
+            a,b,first,last=pair
+            new=pcb.PCB_TRACK(board);new.SetNet(a.GetNet());new.SetLayer(layer);new.SetWidth(a.GetWidth());new.SetStart(first);new.SetEnd(last)
+            board.Remove(a);board.Remove(b);board.Add(new);keepalive.extend((a,b,new));merged=True
+            changes.append({'net':a.GetNetname(),'layer':pcb.LayerName(layer),'removedJointMm':[pcb.ToMM(x),pcb.ToMM(y)]})
+            break
+        if not merged:break
+    board._eda_collinear_keepalive=keepalive
+    if changes:board.BuildConnectivity()
+    return {'method':'exact same-width collinear copper union; no endpoint displacement','mergedJoints':len(changes),'changes':changes,'nativeDrcRequired':True}

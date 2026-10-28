@@ -4,6 +4,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { within, hash } from './io.js';
 import { storedText } from './record-store.js';
+import {schematicTargets} from './schematic-targets.js';
 import {reviewAsset} from './engineering-reviews.js';
 import { stages, version } from './contracts.js';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -37,6 +38,10 @@ export function routes(service) {
       service.mutations.set(key, next);
       try { return json({ ok: true, value: await next }); } finally { if (service.mutations.get(key) === next) service.mutations.delete(key); }
     } },
+    {name:'schematic-targets',methods:['GET'],run:async request=>{
+      const url=new URL(request.url),project=await service.load(url.searchParams.get('projectId'));
+      return json({ok:true,value:await schematicTargets(service,project,Number(url.searchParams.get('stage')),url.searchParams.get('path'),request.signal)});
+    }},
     {name:'review-asset',methods:['GET'],run:async request=>{
       const {data,extension,name}=await reviewAsset(service,Object.fromEntries(new URL(request.url).searchParams));
       return new Response(data,{headers:{'content-type':types[extension]||'application/octet-stream','cache-control':'no-store','x-content-type-options':'nosniff','content-security-policy':"sandbox; default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'",...(extension.startsWith('.kicad_')?{'content-disposition':`attachment; filename="${name.replace(/[^\w.-]/g,'_')}"`}:{})}});

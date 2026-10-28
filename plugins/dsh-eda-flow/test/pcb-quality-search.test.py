@@ -17,6 +17,7 @@ class Tests(unittest.TestCase):
     length=400 if len(calls)>=2 else 500
     result={'drc':{'passed':not failed,'errors':int(failed),'warnings':0,'unconnected':int(failed),'parity':0},
      'routingQuality':{'trackLengthMm':length,'shortSegmentsUnder05mm':1,'degree2Bends':80 if len(calls)>=2 else 90}}
+    if second=='corridors':result['process']={'powerCorridors':{'reservedSegments':4}}
     (dest/'project').mkdir();(dest/'project/selected.txt').write_text(str(len(calls)))
     (dest/'project/drc.rpt').write_text('[unconnected_items]: Missing connection\n    Pad [ARBITRARY_SIGNAL]\n' if failed and second=='recover' else '')
     flow.write(dest/'pcb-result.json',result)
@@ -27,9 +28,12 @@ class Tests(unittest.TestCase):
    self.assertEqual(len(calls),3 if second=='recover' else 2)
    if second=='recover':self.assertEqual(calls[2]['optimizationFeedback']['nets'],['ARBITRARY_SIGNAL'])
    self.assertEqual(calls[1]['placementOptimization'],'coupled-compaction')
+   self.assertEqual(calls[1]['process'],original['process'])
+   self.assertEqual(calls[1]['plan'],original['plan'])
    self.assertEqual(result['drc']['passed'],True)
-   self.assertEqual((out/'project/selected.txt').read_text(),'3' if second=='recover' else '2' if second=='better' else '1')
+   self.assertEqual((out/'project/selected.txt').read_text(),'3' if second=='recover' else '2' if second in ('better','corridors') else '1')
    self.assertEqual(len(result['layoutAttempts']),len(calls))
+ def test_copper_corridors_allow_joint_optimization_with_unchanged_constraints(self):self.exercise('corridors')
  def test_failed_net_is_fed_back_without_changing_topology(self):self.exercise('recover')
  def test_completed_candidate_kept_on_disconnection(self):self.exercise('disconnected')
  def test_completed_candidate_kept_on_solver_failure(self):self.exercise('exception')

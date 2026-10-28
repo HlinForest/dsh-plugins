@@ -1,3 +1,4 @@
+import {parameterChanges} from './reviewDiff.js';
 import React,{useState} from 'react';
 import {Btn,Field,Notice,Badge,Empty} from './ui.jsx';
 const names={3:'器件、参数与接法',4:'原理图排版',6:'PCB布局布线'};
@@ -13,7 +14,7 @@ function Result({value}){
  return <><p>版本 {snapshotLabel(value)} · {value.summary}</p>{value.drc&&<p>DRC：{value.drc.errors} 错误 / {value.drc.unconnected} 未连接</p>}{value.routingQuality&&<p>走线总长：{value.routingQuality.trackLengthMm.toFixed(2)} mm；小于0.5 mm的线段：{value.routingQuality.shortSegmentsUnder05mm}；拐点：{value.routingQuality.degree2Bends}。线长只计走线段，不计铜区；仍需结合图面复核。</p>}{value.copperRouteCleanup?.removedSegments>0&&<p>去除同网铜区或焊盘完整覆盖的重复走线：{value.copperRouteCleanup.removedLengthMm.toFixed(2)} mm；已按实际铜形状核对覆盖范围，并需通过最终连通检查。</p>}{value.powerPlacement?.relations?.map(r=><p key={r.ref}>{r.ref} → {r.anchor.ref}.{r.anchor.pad}：{r.distanceMm.toFixed(3)} mm</p>)}</>;
 }
 function Review({p,r,busy,act,go}){
- const [note,N]=useState(''),latest=r.attempts.at(-1);
+ const [note,N]=useState(''),latest=r.attempts.at(-1),changes=parameterChanges(r.before,latest?.after);
  const before=asset(p,r,r.before,'before'),after=asset(p,r,latest?.after,'after',latest);
  const fresh=latest?.after?.outputHash&&latest.after.outputHash===p.stages.find(s=>s.id===r.stage)?.outputHash&&p.stages.find(s=>s.id===r.stage)?.status==='done';
  return <article className="engineer-review-item"><div className="section-heading small"><strong>{names[r.stage]}</strong><Badge>{statuses[r.status]||r.status}</Badge></div>
@@ -21,6 +22,7 @@ function Review({p,r,busy,act,go}){
  <div className="buttons">{before&&<a href={before} target="_blank" rel="noreferrer">修改前图纸</a>}{after&&<a href={after} target="_blank" rel="noreferrer">本次修改后图纸</a>}
  {r.status==='recorded'&&<Btn disabled={busy} onClick={()=>act({action:'review-apply',reviewId:r.id})}>采用意见，准备修改</Btn>}
  {['applied','failed','cancelled','interrupted','waiting-input'].includes(r.status)&&<><Btn disabled={busy} onClick={()=>go(r.stage)}>查看修改输入</Btn><Btn disabled={busy} onClick={()=>act({action:'execute',stage:r.stage})}>按评审重新生成</Btn></>}</div>
+ {changes&&<div className="review-parameter-diff"><strong>器件方案参数差异</strong>{changes.length?<table><thead><tr><th>器件</th><th>项目</th><th>修改前</th><th>修改后</th></tr></thead><tbody>{changes.map((c,i)=><tr key={i}><td>{c.ref}</td><td>{c.field}</td><td>{c.before||'未指定'}</td><td>{c.after||'未指定'}</td></tr>)}</tbody></table>:<p>本次器件参数未变化，请核对意见是否已落实。</p>}{r.stage===3&&<p className="page-help">确认器件方案后，需要重新生成原理图、BOM 和 PCB。</p>}</div>}
  {latest&&<details><summary>修改前后结果与执行记录 · {r.attempts.length} 次</summary><div className="field-grid"><div><strong>评审针对的版本</strong><Result value={r.before}/></div><div><strong>最新修改结果</strong><Result value={latest.after}/></div></div><p>生成检查用于辅助复核；是否解决这条意见由工程师判断。</p>{r.attempts.map(a=><details key={a.id}><summary>{new Date(a.startedAt).toLocaleString('zh-CN')} · {statuses[a.status]||a.status}</summary><p>{a.error||'执行记录已保存。'}</p><pre>{JSON.stringify(a,null,2)}</pre></details>)}</details>}
  {r.status==='generated'&&fresh&&<><Field label="复核说明" area value={note} onChange={N} placeholder="说明实际改善了什么，或还需要怎样调整"/><div className="buttons"><Btn disabled={busy} onClick={()=>act({action:'review-decide',reviewId:r.id,decision:'resolved',note})}>确认这条意见已解决</Btn><Btn disabled={busy||!note.trim()} onClick={()=>act({action:'review-decide',reviewId:r.id,decision:'needs-revision',note})}>仍需修改，追加意见</Btn></div></>}
  {r.status==='generated'&&!fresh&&<p>当前工程已更新，请针对当前版本追加评审；这份修改记录保留。</p>}

@@ -57,12 +57,15 @@ export async function within(root, file) {
   if (!inside(base, resolved)) throw new Error('文件必须位于配置的工程工作区内。');
   return resolved;
 }
+// KiCad creates this transient session marker while opening a native project.
+// It contains no design content and may disappear between directory reads.
+export const isNativeLockFile = file => /^~[^/\\]+\.kicad_(?:pro|pcb|sch)\.lck$/i.test(path.basename(file));
 export async function tree(root) {
   const result = [];
   async function walk(dir) {
     for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
       if (entry.isSymbolicLink()) throw new Error('工程资料不能包含符号链接。');
-      if (['__pycache__', '.git'].includes(entry.name)) continue;
+      if (['__pycache__', '.git'].includes(entry.name) || isNativeLockFile(entry.name)) continue;
       const file = path.join(dir, entry.name);
       if (entry.isDirectory()) await walk(file);
       else {
