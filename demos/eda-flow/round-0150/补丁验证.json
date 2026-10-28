@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-28T01:57:01.018Z",
+  "nativeAssembly": {
+    "passed": 5,
+    "total": 5
+  },
+  "nativeFootprints": {
+    "passed": 4,
+    "total": 4
+  },
+  "candidateHistory": {
+    "passed": 9,
+    "total": 9
+  },
+  "evidenceFootprintJavascript": {
+    "passed": 4,
+    "total": 4
+  },
+  "fullBoardAssemblyExport": {
+    "before": 23,
+    "after": 24,
+    "U1Included": true
+  },
+  "fullBoardHistoricalRefresh": {
+    "passed": true
+  },
+  "nativeDrc": {
+    "violations": 0,
+    "unconnected": 0,
+    "schematicParity": 0
+  },
+  "newRealModelCalls": 0
+}
