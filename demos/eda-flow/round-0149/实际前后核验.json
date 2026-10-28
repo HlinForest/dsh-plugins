@@ -671,5 +671,7 @@
   "valueDifferencesReduced": 0,
   "remainingResistors": 9,
   "remainingCapacitorGroups": 2,
-  "githubPublished": false
+  "githubPublished": true,
+  "githubSourceCommit": "08b492d55e7870e33ef86c36e5beda7d4549712f",
+  "githubPullRequest": "https://github.com/HlinForest/dsh-plugins/pull/1"
 }

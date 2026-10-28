@@ -1,6 +1,6 @@
 {
   "version": "0.16.3-beta.16",
-  "updatedAt": "2026-10-28T01:22:53.625Z",
+  "updatedAt": "2026-10-28T01:27:31.560Z",
   "status": "done",
   "model": "deepseek-account / deepseek-flash",
   "baselineRequests": 626,
@@ -41,7 +41,7 @@
     ]
   },
   "realModelAccepted": true,
-  "githubPublished": false,
+  "githubPublished": true,
   "retryOfRound": 148,
   "testRecovery": {
     "flowChecksPassed": 17,
