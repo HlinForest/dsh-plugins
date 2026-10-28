@@ -1,0 +1,23 @@
+{
+  "version": "0.16.3-beta.18",
+  "repository": "HlinForest/dsh-plugins",
+  "branch": "release/eda-review-routing-0.16.2",
+  "pullRequest": "https://github.com/HlinForest/dsh-plugins/pull/1",
+  "localCommit": "ba1611e45f6c247b5f1671de44a8509cac6fe2d6",
+  "published": true,
+  "blocker": null,
+  "remoteLastVerifiedHead": "ba1611e45f6c247b5f1671de44a8509cac6fe2d6",
+  "authorization": {
+    "granted": true,
+    "scope": "beta.18 source, installer, editable schematic/PCB, before/after images and review records to HlinForest/dsh-plugins branch release/eda-review-routing-0.16.2 and draft PR #1; excludes original AD, external PDFs and credentials",
+    "userAnswer": "允许上传到该仓库和分支"
+  },
+  "lastCheckedAt": "2026-10-28T04:32:16.618Z",
+  "localChangesPreserved": true,
+  "remoteMetadataChanged": true,
+  "sourceCommit": "ba1611e45f6c247b5f1671de44a8509cac6fe2d6",
+  "publishedAt": "2026-10-28T04:44:59.556Z",
+  "draft": true,
+  "scopeNote": "Frozen beta.18 release only; round-0154 experimental/source changes excluded.",
+  "evidenceCaptureNote": "实际前后核验.json was captured before upload; its githubPublished=false is the historical capture state. This receipt records the later successful upload."
+}
