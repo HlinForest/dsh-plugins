@@ -11,6 +11,7 @@ from pcb_trace_simplification import polygon,union,intersects,contained,alternat
 from pcb_power_routes import _path,_tracks,reserve_power_routes
 from pcb_route_cleanup import route_metrics,remove_redundant_tracks,merge_collinear_tracks
 from pcb_process import placement_report,native_process
+from pcb_signal_placement import signal_filter_relations
 
 def copper_networks(board,layer):
  """Physical connectivity from filled copper, without a second geometry runtime.
@@ -109,6 +110,21 @@ def filter_poses(source,dest,request):
  board=p.LoadBoard(str(source/(Path(request['schematic']).stem+'.kicad_pcb')));audit=copper_networks(board,layer)
  footprints={f.GetReference():f for f in board.GetFootprints()};zone_nets={z.GetNetCode() for z in board.Zones() if not z.GetIsRuleArea()};rows=[];keepers=[]
  outline=p.SHAPE_POLY_SET();board.GetBoardPolygonOutlines(outline,False)
+ padmap={};expected={}
+ for owner,f in footprints.items():
+  for q in f.Pads():
+   padmap.setdefault((owner,q.GetNumber()),[]).append(q)
+   if q.GetNumber() and q.GetNetCode():expected[(owner,q.GetNumber())]=q.GetNetname()
+ relations=signal_filter_relations(request.get('components',[]),expected,native_process(request.get('process',{}),padmap))
+ return_regions={}
+ for ref,relation in relations.items():
+  endpoint=relation['return'];owner=padmap[(endpoint['ref'],endpoint['pad'])][0];net=owner.GetNetCode()
+  shapes=[polygon(q,layer,inside=True) for f in footprints.values() for q in f.Pads() if q.GetNetCode()==net and q.IsOnLayer(layer)]
+  shapes += [polygon(t,layer,inside=True) for t in board.GetTracks() if t.GetNetCode()==net and t.IsOnLayer(layer)]
+  shapes += [p.SHAPE_POLY_SET(z.GetFilledPolysList(layer)) for z in board.Zones() if not z.GetIsRuleArea() and z.GetNetCode()==net and z.GetLayerSet().Contains(layer)]
+  copper=union(shapes);owner_shape=polygon(owner,layer,inside=True);islands=[copper.UnitSet(i) for i in range(copper.OutlineCount())]
+  hits=[island for island in islands if intersects(owner_shape,island)];keepers.extend(shapes+[copper,owner_shape]+islands)
+  if len(hits)==1:return_regions[ref]=(relation['returnPad'],hits[0])
  for ref in eligible_filters(request,audit):
   fp=footprints[ref];moving=list(fp.Pads())
   if fp.IsLocked() or len(moving)!=2:continue
@@ -125,18 +141,30 @@ def filter_poses(source,dest,request):
    if z.GetIsRuleArea() and z.GetLayerSet().Contains(layer) and z.GetDoNotAllowPads():
     for obstacle in obstacles.values():obstacle.BooleanAdd(z.Outline())
   keepers.append(obstacles)
-  # A bounded local neighbourhood, independent of any board/reference pose.
-  for da in (0,180,90,270):
-   fp.SetOrientationDegrees((angle+da)%360)
-   for dx in range(-8,9):
-    for dy in range(-8,9):
-     if not (dx or dy or da):continue
-     fp.SetPosition(p.VECTOR2I(origin[0]+p.FromMM(dx*.5),origin[1]+p.FromMM(dy*.5)));bounds=box(fp)
-     if any(side==fp.GetLayer() and overlaps(bounds,ob,p.FromMM(plan['componentGapMm'])) for ob,side in others):continue
-     if any(intersects(polygon(q,layer),obstacles[q.GetNumber()]) or not contained(polygon(q,layer,p.FromMM(.503)),outline) for q in moving):continue
-     rows.append({'ref':ref,'offsetMm':[dx*.5,dy*.5],'angleDelta':da,'distanceSquared':(dx*dx+dy*dy)*.25})
+  # Expand only when the current neighbourhood cannot reach the actual
+  # owner return island. All offsets remain relative to generated geometry.
+  previous_radius=-1
+  for radius in (8,16,24):
+   row_start=len(rows)
+   for da in (0,180,90,270):
+    fp.SetOrientationDegrees((angle+da)%360)
+    for dx in range(-radius,radius+1):
+     for dy in range(-radius,radius+1):
+      if max(abs(dx),abs(dy))<=previous_radius or not (dx or dy or da):continue
+      fp.SetPosition(p.VECTOR2I(origin[0]+p.FromMM(dx*.5),origin[1]+p.FromMM(dy*.5)));bounds=box(fp)
+      if any(side==fp.GetLayer() and overlaps(bounds,ob,p.FromMM(plan['componentGapMm'])) for ob,side in others):continue
+      if any(intersects(polygon(q,layer),obstacles[q.GetNumber()]) or not contained(polygon(q,layer,p.FromMM(.503)),outline) for q in moving):continue
+      contact=False
+      if ref in return_regions:
+       pin,region=return_regions[ref];terminal=next(q for q in moving if q.GetNumber()==pin)
+       contact=intersects(polygon(terminal,layer,inside=True),region)
+      rows.append({'ref':ref,'offsetMm':[dx*.5,dy*.5],'angleDelta':da,'distanceSquared':(dx*dx+dy*dy)*.25,'joinsOwnerReturnEstimate':contact})
+   if any(row['joinsOwnerReturnEstimate'] for row in rows[row_start:]):break
+   previous_radius=radius
   fp.SetOrientationDegrees(angle);fp.SetPosition(p.VECTOR2I(*origin))
- rows.sort(key=lambda row:(row['distanceSquared'],row['ref'],row['angleDelta'],row['offsetMm']))
+ # Prefer a real owner-connected copper island over a closer isolated island.
+ # Refilling and independent native checks still decide actual connectivity.
+ rows.sort(key=lambda row:(not row['joinsOwnerReturnEstimate'],row['distanceSquared'],row['ref'],row['angleDelta'],row['offsetMm']))
  write_json(dest,{'audit':audit,'poses':rows});return rows
 
 def filter_candidate(source,dest,request,pose):
@@ -226,9 +254,14 @@ def connected(board,pads):
   seen.add(u);pending.extend(x for x in list(c.GetConnectedTracks(a))+list(c.GetConnectedPads(a)) if x.GetNetCode()==pads[0].GetNetCode())
  return all(q.m_Uuid.AsString() in seen for q in pads)
 
-def bridge_candidates(source,dest,request,selected_ref=None):
+def bridge_candidates(source,dest,request,selected_ref=None,quality=False):
  source=Path(source);dest=Path(dest);dest.mkdir(parents=True,exist_ok=True)
- plan=request['plan'];name=Path(request['schematic']).stem;board=p.LoadBoard(str(source/(name+'.kicad_pcb')))
+ plan=request['plan'];name=Path(request['schematic']).stem
+
+ if quality:
+  from pcb_bridge_quality import bridge_quality_candidates
+  return bridge_quality_candidates(source,dest,request,selected_ref)
+ board=p.LoadBoard(str(source/(name+'.kicad_pcb')))
  layer=p.B_Cu if plan['activeLayers']==['B.Cu'] else p.F_Cu
  if len(plan['activeLayers'])!=1:raise ValueError('local native repair currently supports one routing layer')
  fs={f.GetReference():f for f in board.GetFootprints()};pads=[q for f in fs.values() for q in f.Pads()];nets={}
@@ -386,7 +419,11 @@ if __name__=='__main__':
   changes=synchronize_imported_assembly(board,request.get('footprintImports',[]))
   if changes:p.SaveBoard(str(boardfile),board)
   write_json(dest,{'changes':changes,'geometryChanged':False,'electricalChanged':False})
- elif mode=='bridges':bridge_candidates(source,dest,request,sys.argv[5] if len(sys.argv)>5 else None)
+ elif mode=='bridges':
+  bridge_args=[arg for arg in sys.argv[5:] if arg]
+  bridge_quality='quality' in bridge_args
+  bridge_ref=next((arg for arg in bridge_args if arg!='quality'),None)
+  bridge_candidates(source,dest,request,bridge_ref,bridge_quality)
  elif mode=='filter-poses':filter_poses(source,dest,request)
  elif mode=='filter':filter_candidate(source,dest,request,read_json(sys.argv[5]))
  elif mode=='facts':write_json(dest,board_facts(source,request))

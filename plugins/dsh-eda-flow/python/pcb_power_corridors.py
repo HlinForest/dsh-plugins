@@ -13,7 +13,8 @@ class PowerCorridors:
             if relation['anchor']['ref'] not in placed or relation['return']['ref'] not in placed:continue
             self.done.add(ref)
             before={t.m_Uuid.AsString() for t in self.board.GetTracks()}
-            result=reserve_power_routes(self.board,{'relations':[relation]},self.plan)
+            result=reserve_power_routes(self.board,{'relations':[relation],
+                'routeRoles':relation.get('routeRoles',['return','anchor'])},self.plan)
             for track in self.board.GetTracks():
                 if track.m_Uuid.AsString() not in before:
                     self.generated.append((track.GetNetname(),track.GetLayer(),track.GetStart().x,track.GetStart().y,track.GetEnd().x,track.GetEnd().y))

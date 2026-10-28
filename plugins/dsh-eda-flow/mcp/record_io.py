@@ -58,3 +58,68 @@ def write_json(path, value):
     text = json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False)
     store_text(path, text)
     local(path).write_text(text, encoding='utf-8')
+
+
+def snapshot_json_records(paths):
+    """Capture the authoritative SQLite rows for a set of exported JSON paths.
+
+    JSON exports are only a view of the record store.  Callers that replace a
+    group of records temporarily (for example a candidate repair) can use this
+    snapshot with :func:`restore_json_records` if the operation is rolled back.
+    The snapshot deliberately records missing rows and missing databases too,
+    so a failed operation cannot leave newly-created evidence behind.
+    """
+    grouped = {}
+    for value in paths:
+        path = local(value)
+        database = path.parent / DATABASE
+        key = str(database)
+        grouped.setdefault(key, {'database': database, 'exists': database.exists(), 'rows': {}})
+        entry = grouped[key]
+        row = None
+        if database.exists():
+            uri_path = str(database)
+            if uri_path.startswith('\\\\?\\UNC\\'):
+                uri_path = '\\\\' + uri_path[8:]
+            elif uri_path.startswith('\\\\?\\'):
+                uri_path = uri_path[4:]
+            connection = sqlite3.connect(Path(uri_path).as_uri() + '?mode=ro', uri=True, timeout=10)
+            try:
+                result = connection.execute('SELECT body,sha256 FROM records WHERE name=?', (path.name,)).fetchone()
+                if result is not None:
+                    row = {'body': result[0], 'sha256': result[1]}
+            finally:
+                connection.close()
+        entry['rows'][path.name] = row
+    return list(grouped.values())
+
+
+def restore_json_records(snapshot):
+    """Restore rows captured by :func:`snapshot_json_records`.
+
+    Existing rows are restored byte-for-byte, while rows absent from the
+    snapshot are deleted.  This keeps ``read_json`` and the exported files in
+    sync after a failed candidate operation.  We intentionally leave an empty
+    database file in place when the operation created one; it is harmless and
+    avoids deleting unrelated filesystem state.
+    """
+    for database_info in snapshot or []:
+        database = Path(database_info['database'])
+        original_exists = bool(database_info.get('exists'))
+        if not database.exists() and not original_exists:
+            continue
+        database.parent.mkdir(parents=True, exist_ok=True)
+        connection = sqlite3.connect(database, timeout=10)
+        try:
+            with connection:
+                connection.execute('CREATE TABLE IF NOT EXISTS records (name TEXT PRIMARY KEY, body TEXT NOT NULL, sha256 TEXT NOT NULL)')
+                for name, row in database_info.get('rows', {}).items():
+                    if row is None:
+                        connection.execute('DELETE FROM records WHERE name=?', (name,))
+                    else:
+                        connection.execute(
+                            'INSERT INTO records VALUES(?,?,?) ON CONFLICT(name) DO UPDATE SET body=excluded.body,sha256=excluded.sha256',
+                            (name, row['body'], row['sha256']),
+                        )
+        finally:
+            connection.close()

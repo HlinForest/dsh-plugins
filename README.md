@@ -10,10 +10,22 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.17 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.18 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
-## 电路设计 0.16.3-beta.17：补齐封装装配类型与贴片导出
+## 电路设计 0.16.3-beta.18：文字评审后实跑整板修复
+
+[Demo 与可编辑工程](demos/eda-flow/round-0153/Demo与工程.zip) · [前后核验](demos/eda-flow/round-0153/实际前后核验.json) · [评审记录](demos/eda-flow/round-0153/工程师评审记录.json) · [AD 逐项比较](demos/eda-flow/round-0153/与AD逐项比较.md) · [参数依据](demos/eda-flow/round-0153/参数差异与依据.md) · [使用说明](demos/eda-flow/round-0153/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.18.tgz)
+
+使用已安装插件和真实 DeepSeek（PCB 5 次、交付 2 次调用）完成当前 27 器件显示板。相对评审开始前，显式线长 **442.34→428.40 mm**，短段 **3→1**，二度折点 **70→57**；27 器件、94 物理焊盘、29/29 信号及全部物理铜形连通，原生 DRC 和原理图一致性问题均为 0。交付副本复检通过。C1 完整回路增加约 0.13 mm，C5/C6 不变，供电脚距离均满足已确认的 10 mm。
+
+新增通用同接收器/回流域滤波组布局，失败或无改善时继续普通压缩；保留完整基线后仍可修复不完整的质量候选，只有全部铜形连通且质量改善才替换。修复失败同时恢复原生文件、导出记录与 SQLite 权威记录。本轮最终采用普通布局候选的局部修复，联合组候选未通过，未采用；开发工具候选 405.96 mm 未在此次正式流程复现，不计入交付改善。
+
+35 项针对性测试通过（含一个非显示板的原理图到 PCB 原生流程），源码/安装包/已安装插件 288 文件一致。使用现有 Freerouting；可选路由调度与跨线质量实验未在正式流程启用。单铜层、有界搜索的结果不能保证任意板一次成功。9 只电阻、2 组电容差异没有减少，IRM 型号后缀及工作条件仍待确认；没有输入 AD 固定坐标、完整逐脚网表或照抄参数。
+
+原理图可点选器件填写要求，保存意见或按要求生成方案后再更新下游；没有具体参数输入时不会擅自替换器件。缺少 KiCad 可先用 ReviewOnly 保存需求与评审，CAD 生成仍需要本机工具。历史待办中仍有重复或已被后续步骤解决的条目，当前验收以本轮图纸和逐项记录为准。
+
+## 历史电路设计 0.16.3-beta.17：补齐封装装配类型与贴片导出
 
 [Demo 与修复版工程](demos/eda-flow/round-0150/Demo与工程.zip) · [评审记录](demos/eda-flow/round-0150/工程师评审记录.json) · [重新读取当前 PCB 的 AD 比较](demos/eda-flow/round-0150/与AD逐项比较.md) · [使用说明](demos/eda-flow/round-0150/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.17.tgz) · [SHA256](dist/dsh-eda-flow-0.16.3-beta.17.tgz.sha256)
 

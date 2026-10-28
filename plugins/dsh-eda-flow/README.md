@@ -1,4 +1,4 @@
-# EDA Flow 0.16.3-beta.17
+# EDA Flow 0.16.3-beta.18
 
 PCB 的装配面、布线层、零欧跨线、铜区和供电器件距离现为可见输入。详见 [工艺与供电布局流程](docs/pcb-process-workflow.md)。
 
@@ -34,7 +34,7 @@ PCB 的装配面、布线层、零欧跨线、铜区和供电器件距离现为�
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\install-intranet.ps1 `
-  -SuppliedPackage 'E:\drop\dsh-eda-flow-0.16.3-beta.17.tgz' `
+  -SuppliedPackage 'E:\drop\dsh-eda-flow-0.16.3-beta.18.tgz' `
   -DshPath 'C:\Users\Public\AppData\Local\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd' `
   -Profile desktop `
   -WorkspaceRoot 'D:\EDA' `
@@ -43,7 +43,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-intranet.ps1 `
 
 `-WorkDirectory` 默认为 `WorkspaceRoot\eda-flow`，`-DshHomePath` 可指定 Harness 数据根目录，`-DesktopRuntimeSource` 可选地提供已获准的 Electron 解压目录。未显式传入 `-Registry` 时，安装器使用本地 pnpm store 和 `--offline`；安装器不会自行联网或调用模型。只有部署方明确提供 `-Registry` 时，才会使用指定的内网包源。
 
-安装器先备份 profile 的 package、patch 和 lock 文件，再安装 supplied TGZ，并把本插件的 `workspaceRoot`、`workDirectory`、KiCad CLI/Python 路径写入带边界标记的配置段。失败时会恢复原 patch；备份目录和本地验证日志位于工作目录，日志不输出登录信息或模型密钥。完成后重启 Harness，在页面左下角确认页面与后台版本均为 `0.16.3-beta.17`。
+安装器先备份 profile 的 package、patch 和 lock 文件，再安装 supplied TGZ，并把本插件的 `workspaceRoot`、`workDirectory`、KiCad CLI/Python 路径写入带边界标记的配置段。失败时会恢复原 patch；备份目录和本地验证日志位于工作目录，日志不输出登录信息或模型密钥。完成后重启 Harness，在页面左下角确认页面与后台版本均为 `0.16.3-beta.18`。
 
 如果只需要安装包，也可以使用 Harness 原有插件管理入口直接添加 supplied TGZ；不要把外部 PDF 复制进 TGZ 或插件源码目录。桌面窗口运行时的单独部署步骤见 [桌面窗口说明](docs/desktop-window.md)，当前内网安装流程见 [内网部署说明](docs/intranet.md)。
 
@@ -62,7 +62,7 @@ npm test
 - 模型由 Harness 当前 profile 选择和鉴权，插件不保存模型密钥。
 - 外部 PDF 的内容、版权、版本和可读取性由部署方负责；扫描页或缺页会保留为待补事项。
 - 通用流程会生成可编辑工程并记录实际检查结果，但不能替代工程师对电气、机械、制造和实物性能的批准。
-- `docs/` 中带版本号的旧说明用于历史背景，不应作为当前 0.16.3-beta.17 的安装命令或输入约定。
+- `docs/` 中带版本号的旧说明用于历史背景，不应作为当前 0.16.3-beta.18 的安装命令或输入约定。
 
 
 当前局部供电和红外外围的布局机制见 [局部供电布局](docs/local-power-layout.md)。实际工程仍须逐项对照参考设计，ERC 不代表对齐完成。

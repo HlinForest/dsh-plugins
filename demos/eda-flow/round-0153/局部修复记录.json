@@ -1,0 +1,22 @@
+[
+  {
+    "attempt": 1,
+    "adopted": true,
+    "drc": {
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0,
+      "errors": 0,
+      "warnings": 0,
+      "passed": true
+    },
+    "routingQuality": {
+      "trackLengthMm": 428.403814,
+      "segments": 96,
+      "shortSegmentsUnder05mm": 1,
+      "degree2Bends": 57,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "reason": null
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "sourceVersion": "0.16.3-beta.18",
+  "tests": [
+    {
+      "file": "pcb-signal-placement.test.py",
+      "passed": 5
+    },
+    {
+      "file": "pcb-power-routes.test.py",
+      "passed": 8
+    },
+    {
+      "file": "pcb-refinement.test.py",
+      "passed": 8
+    },
+    {
+      "file": "pcb-filter-bank-flow.test.py",
+      "passed": 2
+    },
+    {
+      "file": "pcb-repair-rollback-records.test.py",
+      "passed": 1
+    },
+    {
+      "file": "pcb-local-repair.test.py",
+      "passed": 3
+    },
+    {
+      "file": "pcb-bridge-quality.test.py",
+      "passed": 1
+    },
+    {
+      "files": [
+        "client-version.test.js",
+        "pcb-flow.test.js",
+        "pcb-process.test.js",
+        "cad-records.test.js"
+      ],
+      "passed": 7,
+      "nativeFullWorkflow": true
+    }
+  ],
+  "reviews": {
+    "schedulerFallback": "passed after repair",
+    "recordRollback": "passed after repair and fault injection",
+    "jointPlacement": "no material correctness findings; mixed-side native fallback test not yet added"
+  },
+  "experimentalBridgeQuality": {
+    "accepted": false,
+    "reason": "All copper connected, but length, short segments and bends worsened; not enabled by default"
+  }
+}

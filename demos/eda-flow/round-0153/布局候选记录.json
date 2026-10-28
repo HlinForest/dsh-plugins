@@ -1,0 +1,82 @@
+[
+  {
+    "attempt": 1,
+    "componentGapMm": 0.5,
+    "routingFeedback": {
+      "nets": []
+    },
+    "drc": {
+      "violations": 0,
+      "unconnected": 2,
+      "parity": 0,
+      "errors": 2,
+      "warnings": 0,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 362.460715,
+      "segments": 94,
+      "shortSegmentsUnder05mm": 0,
+      "degree2Bends": 57,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "placementOptimization": "greedy",
+    "optimizationFeedback": {},
+    "selectedAsBest": true
+  },
+  {
+    "attempt": 2,
+    "componentGapMm": 0.5,
+    "routingFeedback": {
+      "nets": []
+    },
+    "drc": {
+      "violations": 1,
+      "unconnected": 1,
+      "parity": 0,
+      "errors": 1,
+      "warnings": 1,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 435.83879,
+      "segments": 118,
+      "shortSegmentsUnder05mm": 2,
+      "degree2Bends": 77,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "placementOptimization": "filter-banks",
+    "optimizationFeedback": {},
+    "selectedAsBest": false
+  },
+  {
+    "attempt": 3,
+    "componentGapMm": 0.5,
+    "routingFeedback": {
+      "nets": []
+    },
+    "drc": {
+      "violations": 0,
+      "unconnected": 3,
+      "parity": 0,
+      "errors": 3,
+      "warnings": 0,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 365.010066,
+      "segments": 91,
+      "shortSegmentsUnder05mm": 3,
+      "degree2Bends": 54,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "placementOptimization": "coupled-compaction",
+    "optimizationFeedback": {},
+    "selectedAsBest": false
+  },
+  {
+    "attempt": 4,
+    "componentGapMm": 0.5,
+    "error": "单个布局候选超过运行时限；已保留此前完成的候选"
+  }
+]

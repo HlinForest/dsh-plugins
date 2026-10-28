@@ -3,6 +3,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'python'))
 import pcbnew as p
 from pcb_power_routes import reserve_power_routes
+from pcb_power_corridors import PowerCorridors
 from pcb_trace_simplification import polygon,union,intersects
 
 def point(x,y):return p.VECTOR2I(p.FromMM(x),p.FromMM(y))
@@ -21,6 +22,18 @@ def fixture():
  plan={'activeLayers':['B.Cu'],'trackWidthMm':.3,'clearanceMm':.254}
  return b,pads,policy,plan
 class Tests(unittest.TestCase):
+ def test_filter_row_can_reserve_signal_stub_without_inventing_a_return_wire(self):
+  b,pads,policy,plan=fixture()
+  policy['relations'][0].update({'kind':'signal-filter','routeRoles':['anchor']})
+  corridors=PowerCorridors(b,policy,plan)
+  corridors.placed('FILTER',{'FILTER':None,'RECEIVER':None})
+  self.assertEqual([r['role'] for r in corridors.reports[0]['routes']],['anchor'])
+  self.assertTrue(corridors.reports[0]['routes'][0]['adopted'])
+  self.assertEqual({t.GetNetname() for t in b.GetTracks()},{'POWER'})
+  self.assertTrue(all(t.IsLocked() for t in b.GetTracks()))
+  corridors.release_generated_locks()
+  self.assertTrue(all(not t.IsLocked() for t in b.GetTracks()))
+
  def test_routes_both_halves_around_real_foreign_copper_without_moving_pads(self):
   b,pads,policy,plan=fixture();before={key:(q.GetPosition().x,q.GetPosition().y,q.GetNetname()) for key,q in pads.items()}
   r=reserve_power_routes(b,policy,plan)

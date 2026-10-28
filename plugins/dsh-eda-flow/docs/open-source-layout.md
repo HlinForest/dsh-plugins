@@ -167,3 +167,8 @@ Unused time from quickly rejected seeds stays available to later seeds. The six-
 ## Branch-preserving collinear cleanup (0.16.3-beta.17)
 
 A collinear trunk can be merged through a branch endpoint without moving either the trunk or branch copper. The prior degree-two-only rule retained tiny fragments at T junctions. Full-board continuation removed four segmentation joints and reduced short fragments from five to three while preserving length, bend count and native DRC/parity; normal installed-flow verification is recorded separately.
+
+
+## Joint receiver-filter banks (0.16.3-beta.18)
+
+Reviewed shunt filters sharing a receiver and return domain can be placed together in the physical input-pad order. Native footprint envelopes, existing supply copper and board rules constrain the relative proposals. Only short signal stubs are reserved; return connectivity is checked on the actual filled copper. Unavailable or non-improving banks retain the generic compaction fallback. Incomplete quality candidates may be repaired even when a complete incumbent exists, but only a fully connected and quality-improving result replaces it. This uses the existing Freerouting engine; the optional connectivity-first scheduler and bridge-quality experiment are not enabled in the normal workflow. See the current Demo for separately recorded native replay and installed-model results.

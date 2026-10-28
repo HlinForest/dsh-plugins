@@ -46,6 +46,16 @@ def quality_dominates(candidate,baseline):
     return all(candidate[k]<=baseline[k]+1e-6 for k in keys) and any(candidate[k]<baseline[k]-1e-6 for k in keys)
 
 
+def has_filter_bank_opportunity(relations):
+    """Offer joint placement for reviewed shunts sharing a receiver/return."""
+    groups={}
+    for relation in relations.values():
+        if relation.get('kind')!='signal-filter':continue
+        key=(relation['anchor']['ref'],relation['return']['ref'],relation['returnNet'])
+        groups[key]=groups.get(key,0)+1
+    return any(count>=2 for count in groups.values())
+
+
 def prefer_candidate(candidate,baseline):
     """Native connectivity/parity gates precede the copper-quality comparison."""
     if baseline is None:return True
@@ -78,3 +88,72 @@ def repair_time_budget(remaining,seeds_left):
     """
     available=float(remaining)-15*max(0,int(seeds_left)-1)
     return min(300,available) if available>=15 else 0
+
+
+def copper_partition_progress(before,after):
+    """Accept an intermediate search seed only when copper groups merge.
+
+    No previously connected pair may split, and every physical pad must still
+    be accounted for. This does not accept the board or replace native DRC.
+    """
+    old={n['net']:n for n in before['networks']};new={n['net']:n for n in after['networks']}
+    if set(old)!=set(new):return False
+    improved=False
+    for net,a in old.items():
+        b=new[net]
+        if a.get('ambiguousPads') or b.get('ambiguousPads'):return False
+        groups=lambda n:[frozenset(p['uuid'] for p in g['members']) for g in n['connectedPadGroups']]
+        ag,bg=groups(a),groups(b)
+        if not ag or not bg or set().union(*ag)!=set().union(*bg):return False
+        if any(not any(group<=other for other in bg) for group in ag):return False
+        improved=improved or len(bg)<len(ag)
+    return improved
+
+
+def anchored_copper_progress(before,after,anchors):
+    """Rank return repair by pads reaching the declared owner, not island count.
+
+    Isolated peers may separate while one reaches the owner; already owner-
+    connected pads and every unaffected network must retain their connections.
+    """
+    old={n['net']:n for n in before['networks']};new={n['net']:n for n in after['networks']}
+    if set(old)!=set(new):return False
+    improved=False
+    for net,a in old.items():
+        b=new[net]
+        if a.get('ambiguousPads') or b.get('ambiguousPads'):return False
+        groups=lambda n:[frozenset(p['uuid'] for p in g['members']) for g in n['connectedPadGroups']]
+        ag,bg=groups(a),groups(b)
+        if not ag or not bg or set().union(*ag)!=set().union(*bg):return False
+        anchor_ids={p['uuid'] for g in a['connectedPadGroups'] for p in g['members'] if (p['ref'],p['pin']) in anchors}
+        if anchor_ids:
+            aa=[g for g in ag if anchor_ids<=g];bb=[g for g in bg if anchor_ids<=g]
+            if len(aa)!=1 or len(bb)!=1 or not aa[0]<=bb[0]:return False
+            improved=improved or len(bb[0])>len(aa[0])
+        else:
+            if any(not any(g<=h for h in bg) for g in ag):return False
+            improved=improved or len(bg)<len(ag)
+    return improved
+
+
+def diverse_filter_poses(poses):
+    """Try distinct obstruction directions before spending the budget nearby.
+
+    Keep owner-return contact as the first priority; within each tier, take
+    one pose per component and angular sector before repeating a sector.
+    Coordinates are offsets from the current generated board only.
+    """
+    import math
+    ordered=[]
+    for contact in (True,False):
+        queues={}
+        for pose in poses:
+            if bool(pose.get("joinsOwnerReturnEstimate"))!=contact:continue
+            x,y=pose["offsetMm"]
+            sector=int(math.floor(math.atan2(y,x)*4/math.pi+.5))%8 if x or y else -1
+            queues.setdefault((pose["ref"],sector),[]).append(pose)
+        while queues:
+            for key in list(queues):
+                ordered.append(queues[key].pop(0))
+                if not queues[key]:del queues[key]
+    return ordered

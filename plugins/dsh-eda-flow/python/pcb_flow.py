@@ -4,14 +4,15 @@ All structured exchanges use record_io; native DRC output is a text report.
 import sys, os, re, math, shutil, subprocess, copy, csv, hashlib, time, xml.etree.ElementTree as ET
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'mcp'))
-from record_io import read_json as read, write_json as write
+from record_io import read_json as read, write_json as write, snapshot_json_records, restore_json_records
 import pcbnew as pcb
 from native_resources import parse as parse_native
 from native_schematic import child
 from pcb_footprints import bind_imports, electrical_identity, verify_pad_assignments
 from pcb_process import assembly_sides, placement_report, add_copper, native_process, refresh_copper_report
-from pcb_signal_placement import signal_filter_relations
-from pcb_refinement import FeedbackSearch,prefer_candidate,quality_dominates,repair_shortlist,repair_time_budget
+from pcb_signal_placement import signal_filter_relations,filter_row_banks
+from pcb_series_banks import series_channels,pad_row_banks,propose_bank
+from pcb_refinement import FeedbackSearch,prefer_candidate,quality_dominates,repair_shortlist,repair_time_budget,has_filter_bank_opportunity
 from pcb_trace_simplification import shorten_tracks
 from pcb_power_pose import PowerPoseScore
 from pcb_power_corridors import PowerCorridors
@@ -140,7 +141,18 @@ def build(req):
     critical.update({r['ref']:r for r in process.get('relations',[])})
     placed={};bodyboxes={};padboxes=[]
     power_pose=PowerPoseScore(board,process,plan,footprints)
-    corridors=PowerCorridors(board,process,plan)
+    # The optional channel-bank search also reserves reviewed interface-filter
+    # returns. A filled-plane declaration alone does not protect a return path
+    # from being cut off by later signal routes.
+    corridor_process={**process,'relations':list(critical.values())} if req.get('placementOptimization')=='series-banks' else process
+    if req.get('placementOptimization')=='filter-banks':
+        # A common return-facing row avoids trapping individual shunt returns.
+        # Reserve only its short signal stubs; the declared plane still owns
+        # the return and must pass the final physical copper audit.
+        corridor_process={**process,'relations':[
+            {**r,'routeRoles':['anchor']} if r['kind']=='signal-filter' else r
+            for r in critical.values()]}
+    corridors=PowerCorridors(board,corridor_process,plan)
     def bbox(fp):
         pp=list(fp.Pads())
         if not pp:
@@ -167,6 +179,8 @@ def build(req):
     focus_refs={ref for net in nets if net['name'] in focus for ref,pin in net['nodes']}
     typical=sorted(areas.values())[len(areas)//2]
     order=sorted(order,key=lambda ref:(0,-areas[ref],0,rank[ref]) if areas[ref]>4*typical else (1,0 if ref in focus_refs else 1,-areas[ref],rank[ref]))
+    channels=series_channels(req.get('components',[]),expected) if req.get('placementOptimization')=='series-banks' else []
+    joint_filters=req.get('placementOptimization')=='filter-banks'
     if critical:
         prior={ref:i for i,ref in enumerate(order)}
         order.sort(key=lambda ref:(0 if areas[ref]>4*typical else 1 if critical.get(ref,{}).get('kind')=='decoupling' else 2 if critical.get(ref,{}).get('kind')=='storage' else 3 if ref in critical else 4,prior[ref]))
@@ -184,8 +198,53 @@ def build(req):
         fp=move(ref,spec['xMm'],spec['yMm'],spec.get('rotation',0),spec.get('side',assembly.get(ref,'F.Cu')))
         if not (0<=spec['xMm']<=w and 0<=spec['yMm']<=h):raise ValueError(ref+' mechanical datum outside board')
         register(ref)
+    bank_reports=[];bank_attempted=set()
+    def try_bank(selected):
+        points={key:tuple(map(pcb.ToMM,[ps[0].GetPosition().x,ps[0].GetPosition().y])) for key,ps in pads.items() if key[0] in placed and len(ps)==1}
+        centers={owner:((b[0]+b[2])/2,(b[1]+b[3])/2) for owner,(b,layer,haspads) in bodyboxes.items()}
+        banks=pad_row_banks(channels,points,centers)
+        if joint_filters:banks+=filter_row_banks(critical,points,centers)
+        for bank in banks:
+            members=bank['members'];refs={m['ref'] for m in members}
+            if selected not in refs or refs & bank_attempted:continue
+            bank_attempted.update(refs)
+            if refs & set(placed) or bank['load'] not in placed or bank['driver'] not in placed:continue
+            if len({assembly.get(r,'F.Cu') for r in refs})!=1:continue
+            side=assembly.get(selected,'F.Cu');geometries={};anchors={};foreign,_=corridors.constraints()
+            eligible=True
+            for member in members:
+                owner=member['ref'];fp=footprints[owner];native=list(fp.Pads())
+                if len(native)!=2 or any(q.GetAttribute()!=pcb.PAD_ATTRIB_SMD for q in native):eligible=False;break
+                geometries[owner]=[]
+                for rotation in (0,90,180,270):
+                    move(owner,0,0,rotation,side)
+                    geometries[owner].append({'rotation':rotation,'box':bbox(fp),'pads':{q.GetNumber():tuple(map(pcb.ToMM,[q.GetPosition().x,q.GetPosition().y])) for q in native},'corridorPads':corridors.pad_shapes(fp)})
+                for q in native:
+                    anchors[(owner,q.GetNumber())]=[point for key,point in points.items() if expected.get(key)==q.GetNetname()]
+            if not eligible:continue
+            layer=pcb.B_Cu if side=='B.Cu' else pcb.F_Cu
+            def shifted(pose):
+                b=pose['geometry']['box'];x,y=pose['xMm'],pose['yMm'];return (b[0]+x,b[1]+y,b[2]+x,b[3]+y)
+            def valid(pose,prior):
+                a=shifted(pose)
+                if a[0]<.8 or a[1]<.8 or a[2]>w-.8 or a[3]>h-.8:return False
+                if any(haspads and other_layer==layer and overlaps(a,b,gap) for b,other_layer,haspads in bodyboxes.values()):return False
+                if any(layers.Contains(layer) and overlaps(a,b,.3) for b,layers,other in padboxes):return False
+                if any(overlaps(a,shifted(p),gap-1e-8) for p in prior):return False
+                return not corridors.blocked(pose['geometry']['corridorPads'],foreign,pose['xMm'],pose['yMm'])
+            result=propose_bank(bank,geometries,bodyboxes[bank['driver']][0],gap,valid,anchors)
+            if result and bank.get('bankKind')=='shunt-filter':
+                result['method']='common receiver and return domain; physical input-pad order and native envelopes; route acceptance required'
+            bank_reports.append({**(result or {'driver':bank['driver'],'load':bank['load'],'refs':sorted(refs),'reason':'no legal joint row; individual placement retained'}),
+                'bankKind':bank.get('bankKind','series')})
+            if result:
+                for pose in result['poses']:
+                    owner=pose['ref'];move(owner,pose['xMm'],pose['yMm'],pose['rotation'],side);register(owner)
+                for pose in result['poses']:corridors.placed(pose['ref'],placed)
     for ref in order:
-        if ref in fixed:continue
+        if ref in placed:continue
+        if channels or joint_filters:try_bank(ref)
+        if ref in placed:continue
         fp=footprints[ref];side=assembly.get(ref,'F.Cu');neighbors=[]
         for n in nets:
             if any(x[0]==ref for x in n['nodes']):neighbors.extend(placed[a] for a,b in n['nodes'] if a in placed)
@@ -285,12 +344,15 @@ def build(req):
             raise ValueError(ref+' 无可用布局空间；请调整机械约束')
         move(ref,*best[1:],side);register(ref)
         corridors.placed(ref,placed)
+    write(out/'series-bank-placement.json',{'enabled':bool(channels),'channels':channels,'banks':bank_reports,'scope':'placement proposal only; no parameter, net or reference-coordinate changes'})
+    write(out/'filter-bank-placement.json',{'enabled':joint_filters,'banks':[b for b in bank_reports if b.get('bankKind')=='shunt-filter'],
+        'scope':'same receiver and return domain, physical input pad order, outward return pads; native route acceptance required'})
     write(out/'placement-power-corridors.json',{'reports':corridors.reports,'scope':'native supply and return corridors reserved during placement; no reference coordinates'})
     if req.get('placementOptimization') in ('coupled-compaction','coupled-critical'):
         snapshot={'boardMm':[w,h],'edgeMarginMm':.8,'componentGapMm':gap,'clearanceMm':plan['clearanceMm'],'priorityNets':req.get('optimizationFeedback',req.get('routingFeedback',{})).get('nets',[]),'parts':[],'nets':[],'relations':[]}
         protected=set()
         if corridors.generated:
-            for relation in process.get('relations',[]):protected.update([relation['ref'],relation['anchor']['ref'],relation['return']['ref']])
+            for relation in corridors.process.get('relations',[]):protected.update([relation['ref'],relation['anchor']['ref'],relation['return']['ref']])
             snapshot['staticCopper']=[]
             for track in board.GetTracks():
                 box=track.GetBoundingBox();snapshot['staticCopper'].append({'net':track.GetNetname(),'layer':pcb.LayerName(track.GetLayer()),'boxMm':list(map(pcb.ToMM,[box.GetX(),box.GetY(),box.GetRight(),box.GetBottom()]))})
@@ -460,8 +522,15 @@ def build(req):
     # native board, including when a rejected proposal was restored.
     refresh_copper_report(loaded,copper)
     write(out/'copper-result.json',copper)
+    physical_copper=None
+    if len(active)==1:
+        from pcb_local_repair import copper_networks
+        physical_copper=copper_networks(loaded,pcb.B_Cu if active==['B.Cu'] else pcb.F_Cu)
+        write(out/'physical-copper-connectivity.json',physical_copper)
+        if drc['passed'] and not physical_copper['allPhysicalPadNetworksConnected']:
+            raise ValueError('Native DRC passed but independent filled-copper connectivity did not')
     export_views(req,project,boardfile)
-    write(out/'pcb-result.json',{'board':'project/'+boardfile.name,'pdf':'project/PCB.pdf','previews':['project/PCB-Front.svg','project/PCB-Back.svg'],'drc':drc,'components':len(comps),'nets':len(nets),'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'traceSimplification':simplification,'copperRouteCleanup':cleanup,'netMappingVerified':verified_physical_pads,'logicalPinsVerified':len(expected),'footprintImports':len(bindings),'plan':plan,'process':{'powerCorridors':power_corridors,'assembly':assembly_facts,'powerPlacement':power_placement,'copper':copper,'jumpers':process.get('jumpers',[])}})
+    write(out/'pcb-result.json',{'board':'project/'+boardfile.name,'pdf':'project/PCB.pdf','previews':['project/PCB-Front.svg','project/PCB-Back.svg'],'drc':drc,'physicalCopperConnected':physical_copper['allPhysicalPadNetworksConnected'] if physical_copper else None,'components':len(comps),'nets':len(nets),'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'traceSimplification':simplification,'copperRouteCleanup':cleanup,'netMappingVerified':verified_physical_pads,'logicalPinsVerified':len(expected),'footprintImports':len(bindings),'plan':plan,'process':{'powerCorridors':power_corridors,'assembly':assembly_facts,'powerPlacement':power_placement,'copper':copper,'jumpers':process.get('jumpers',[])}})
 
 def export_views(req,project,boardfile):
     svg=project/'PCB.svg';pdf=project/'PCB.pdf'
@@ -501,6 +570,8 @@ def publish_candidate(req,best,attempts,repair_runs,history_runs,checkpoint=Fals
     for name in ['placement-result.json','placement-order.json','signal-filter-placement.json','copper-route-cleanup.json','jumper-routing-abstractions.json','jumper-routing-removal.json','process-result.json','copper-result.json']:
         write(out/name,read(selected/name))
     if (selected/'trace-simplification.json').exists():write(out/'trace-simplification.json',read(selected/'trace-simplification.json'))
+    for name in ['series-bank-placement.json','filter-bank-placement.json','physical-copper-connectivity.json']:
+        if (selected/name).exists():write(out/name,read(selected/name))
     for name in ['power-pose-candidates.json','placement-power-corridors.json','power-corridor-result.json']:
         if (selected/name).exists():write(out/name,read(selected/name))
     if (selected/'assembly-refresh.json').exists():write(out/'assembly-refresh.json',read(selected/'assembly-refresh.json'))
@@ -555,6 +626,12 @@ def generate_with_refinement(req):
             improved=prefer_candidate(result,best[1] if best else None)
             entry['selectedAsBest']=improved
             if improved:best=(candidate,result)
+            # A semantic filter group may have no feasible physical row. Preserve
+            # the general compaction search when its trial cannot improve the
+            # complete incumbent, including incomplete but repairable trials.
+            if variant.get('placementOptimization')=='filter-banks' and not improved:
+                pending_quality={**variant,'placementOptimization':'coupled-compaction'}
+                pending_quality.pop('optimizationFeedback',None)
             if len(completed)==1:
                 for history_index,(previous,previous_result) in enumerate(prior_candidates(req)):
                     history_out=Path(candidate['output']).parent/('history-'+str(history_index+1))
@@ -581,12 +658,14 @@ def generate_with_refinement(req):
                 if not quality_phase:
                     quality_phase=True
                     if not candidate.get('placementOptimization'):
-                        pending_quality={**variant,'placementOptimization':'coupled-compaction'}
+                        filters=read(Path(candidate['output'])/'signal-filter-placement.json')
+                        bank_search=len(req['plan'].get('activeLayers',[]))==1 and has_filter_bank_opportunity(filters)
+                        pending_quality={**variant,'placementOptimization':'filter-banks' if bank_search else 'coupled-compaction'}
                 continue
             report=(Path(candidate['output'])/'project/drc.rpt').read_text(encoding='utf-8-sig')
             unconnected=re.findall(r'\[unconnected_items\]:([\s\S]*?)(?=\n\[|\n\*\*|\Z)',report)
             names=[name for block in unconnected for name in re.findall(r'\[([^\]]+)\]',block)]
-            if quality_phase and names and quality_attempts<3:
+            if quality_phase and names and quality_attempts<3 and variant.get('placementOptimization')!='filter-banks':
                 focus=sorted(set(names)|set(variant.get('optimizationFeedback',{}).get('nets',[])))
                 if focus!=variant.get('optimizationFeedback',{}).get('nets',[]):
                     pending_quality={**variant,'optimizationFeedback':{'nets':focus}}
@@ -600,11 +679,16 @@ def generate_with_refinement(req):
                         pending_repair={**variant,'placementOptimization':'coupled-critical','optimizationFeedback':{'nets':sorted(previous|set(focus))}}
         except Exception as error:
             attempts.append({'attempt':index+1,'componentGapMm':gap,'error':str(error)})
+            if quality_phase and variant.get('placementOptimization')=='filter-banks':
+                pending_quality={**variant,'placementOptimization':'coupled-compaction'}
+                pending_quality.pop('optimizationFeedback',None)
         write(out/'layout-attempts.json',attempts)
     write(out/'layout-attempts.json',attempts)
     if best is None:raise ValueError('No PCB candidate completed: '+str(attempts))
     repair_runs=[]
-    if not best[1]['drc']['passed']:
+    # A complete incumbent must not prevent repairing a promising quality
+    # candidate. Only the complete, revalidated result may replace it.
+    if repair_shortlist(completed):
         deadline=min(time.monotonic()+360,started+780)
         seeds=repair_shortlist(completed)
         for seed_index,(seed,seed_result) in enumerate(seeds):
@@ -616,8 +700,9 @@ def generate_with_refinement(req):
             print('PCB local repair seed: '+str(Path(seed['output']).name),flush=True)
             repaired=repair_selected(local,seed_result)
             repair_runs.append({'attempt':int(Path(seed['output']).name),'adopted':repaired.get('localRepair',{}).get('adopted',False),'drc':repaired['drc'],'routingQuality':repaired['routingQuality'],'reason':repaired.get('localRepair',{}).get('reason')})
-            if prefer_candidate(repaired,best[1]):best=(seed,repaired)
-            if repaired['drc']['passed']:break
+            improved=prefer_candidate(repaired,best[1])
+            if improved:best=(seed,repaired)
+            if repaired['drc']['passed'] and improved:break
     write(out/'local-repair-search.json',repair_runs)
     publish_candidate(req,best,attempts,repair_runs,history_runs)
 
@@ -632,6 +717,9 @@ def repair_selected(req,result):
         summary=read(work/'result.json')
         if summary.get('adopted'):
             candidate=Path(summary['candidate']);candidate_file=candidate/boardfile.name;loaded=pcb.LoadBoard(str(candidate_file))
+            from pcb_local_repair import copper_networks
+            actual_copper=copper_networks(loaded,pcb.B_Cu if req['plan']['activeLayers']==['B.Cu'] else pcb.F_Cu)
+            if not actual_copper['allPhysicalPadNetworksConnected']:raise ValueError('Repaired physical copper is not fully connected')
             comps,nets=netlist(req['cli'],project/req['schematic']);expected={(ref,pin):net['name'] for net in nets for ref,pin in net['nodes']}
             verified=verify_pad_assignments(loaded,expected)
             if len(list(loaded.GetFootprints()))!=len(comps):raise ValueError('Local repair changed component count')
@@ -646,8 +734,13 @@ def repair_selected(req,result):
             export_views(req,candidate,candidate_file)
             shutil.copyfile(boardfile,work/'before-selected-repair.kicad_pcb')
             touched=[project/name for name in [boardfile.name,'drc.rpt','drc.json','PCB.svg','PCB.pdf','PCB-Front.svg','PCB-Front.pdf','PCB-Back.svg','PCB-Back.pdf','PCB-pad-map.csv']]
-            touched += [out/name for name in ['placement-result.json','copper-result.json','process-result.json','trace-simplification.json']]
-            rollback={file:file.read_bytes() if file.exists() else None for file in touched};committing=True
+            touched += [out/name for name in ['placement-result.json','copper-result.json','process-result.json','trace-simplification.json','physical-copper-connectivity.json']]
+            # Keep both the exported files and the SQLite record rows.  The
+            # latter are authoritative for ``read_json`` and must be restored
+            # together with the PCB if a later post-commit step fails.
+            rollback={file:file.read_bytes() if file.exists() else None for file in touched}
+            rollback_records=snapshot_json_records(touched)
+            committing=True
             for name in [boardfile.name,'drc.rpt','PCB.svg','PCB.pdf','PCB-Front.svg','PCB-Front.pdf','PCB-Back.svg','PCB-Back.pdf']:
                 shutil.copyfile(candidate/name,project/name)
             placements={fp.GetReference():{'xMm':pcb.ToMM(fp.GetPosition().x),'yMm':pcb.ToMM(fp.GetPosition().y),'rotation':fp.GetOrientationDegrees(),'side':pcb.LayerName(fp.GetLayer()),'fixed':fp.GetReference() in req['plan'].get('placements',{})} for fp in loaded.GetFootprints()}
@@ -661,16 +754,25 @@ def repair_selected(req,result):
                 writer=csv.writer(stream);writer.writerow(['Reference','PhysicalPadIndex','PinAndPadNumber','Status','Net','GeneratedXmm','GeneratedYmm']);writer.writerows(rows)
             copper=read(out/'copper-result.json');refresh_copper_report(loaded,copper);write(out/'copper-result.json',copper)
             process_info['powerPlacement']=power;write(out/'process-result.json',process_info);write(project/'drc.json',drc)
+            write(out/'physical-copper-connectivity.json',actual_copper)
             result=copy.deepcopy(result);result.update({'drc':drc,'tracks':len(list(loaded.GetTracks())),'routingQuality':route_metrics(loaded),'netMappingVerified':verified})
+            result['physicalCopperConnected']=True
             result['process']['powerPlacement']=power;result['process']['copper']=copper
             if summary.get('simplification',{}).get('passed'):
                 result['traceSimplification']=summary['simplification'];write(out/'trace-simplification.json',summary['simplification'])
     except Exception as error:
         if committing:
+            restore_error=None
+            try:
+                restore_json_records(rollback_records)
+            except Exception as record_error:
+                restore_error=str(record_error)
             for file,data in rollback.items():
                 if data is None:file.unlink(missing_ok=True)
                 else:file.write_bytes(data)
             result=original_result
+            if restore_error:
+                error=str(error)+'; record rollback failed: '+restore_error
         summary={'adopted':False,'reason':'kept selected candidate; local repair failed','error':str(error)}
     write(out/'local-repair.json',summary);result['localRepair']=summary;write(out/'pcb-result.json',result);return result
 

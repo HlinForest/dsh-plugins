@@ -22,3 +22,25 @@ def signal_filter_relations(components,expected,process):
                      'supplyPad':signal_pin,'returnPad':return_pin,'supplyNet':members[signal_pin],'returnNet':members[return_pin],
                      'basis':'reviewed interface-filter role, unique input receiver and actual return net; placement preference only'}
     return result
+
+
+def filter_row_banks(relations, points, centers):
+    """Joint shunt-filter rows from one receiver and one actual return domain.
+
+    Electrical roles come from the reviewed circuit. Pad-row direction and
+    member order come only from unique physical receiver pads. Ambiguous,
+    isolated or non-row filters retain individual placement.
+    """
+    from pcb_series_banks import pad_row_banks
+    domains={}
+    for ref,relation in relations.items():
+        if relation.get('kind')!='signal-filter':continue
+        anchor=relation['anchor'];ret=relation['return']
+        key=(anchor['ref'],ret['ref'],relation['returnNet'])
+        domains.setdefault(key,[]).append({'ref':ref,'inputPad':relation['supplyPad'],
+            'outputPad':relation['returnPad'],'driver':anchor,'load':ret})
+    banks=[]
+    for (_,_,return_net),channels in sorted(domains.items()):
+        for bank in pad_row_banks(channels,points,centers):
+            banks.append({**bank,'bankKind':'shunt-filter','returnNet':return_net})
+    return banks

@@ -1,7 +1,7 @@
 import sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'python'))
-from pcb_signal_placement import signal_filter_relations
+from pcb_signal_placement import signal_filter_relations,filter_row_banks
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -23,5 +23,29 @@ class Tests(unittest.TestCase):
     def test_series_filter_and_unproven_return_are_not_shunt_filters(self):
         self.process['copperNets']=[]
         self.assertEqual(signal_filter_relations(self.components,self.nets,self.process),{})
+
+    def test_common_return_filters_follow_physical_receiver_row_not_names(self):
+        relations={ref:{'kind':'signal-filter','anchor':{'ref':'RX','pad':pin},
+            'return':{'ref':'RX','pad':'RETURN'},'supplyPad':'A','returnPad':'B','returnNet':'/return'}
+            for ref,pin in [('Z','last'),('A','first'),('M','middle')]}
+        # Long-package end pins must still use the actual row normal.
+        points={('RX','first'):(-2,-10),('RX','middle'):(-2,0),('RX','last'):(-2,10),
+                ('RX','RETURN'):(2,0),('RX','other'):(2,5)}
+        banks=filter_row_banks(relations,points,{'RX':(0,0)})
+        self.assertEqual(len(banks),1)
+        self.assertEqual([m['ref'] for m in banks[0]['members']],['A','M','Z'])
+        self.assertEqual((banks[0]['normalAxis'],banks[0]['outwardSign']),(0,-1))
+        self.assertEqual(banks[0]['returnNet'],'/return')
+        # Different return domains cannot be merged for visual neatness.
+        relations['M']['returnNet']='/isolated-return'
+        banks=filter_row_banks(relations,points,{'RX':(0,0)})
+        self.assertEqual([m['ref'] for m in banks[0]['members']],['A','Z'])
+
+    def test_unavailable_or_nonrow_physical_anchors_do_not_create_a_bank(self):
+        relation=lambda pin:{'kind':'signal-filter','anchor':{'ref':'RX','pad':pin},
+            'return':{'ref':'RX','pad':'G'},'supplyPad':'1','returnPad':'2','returnNet':'/g'}
+        relations={'P':relation('p'),'Q':relation('q')}
+        self.assertEqual(filter_row_banks(relations,{('RX','p'):(1,2)},{'RX':(0,0)}),[])
+        self.assertEqual(filter_row_banks(relations,{('RX','p'):(1,2),('RX','q'):(2,3)},{'RX':(0,0)}),[])
 
 if __name__=='__main__':unittest.main()
