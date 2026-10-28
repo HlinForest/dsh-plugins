@@ -1,7 +1,7 @@
 {
   "name": "dsh-eda-flow",
-  "version": "0.3.4",
-  "description": "独立分步原理图与 PCB 设计：完整显示板默认输入、Harness 模型处理、真实工具执行",
+  "version": "0.16.3-beta.18",
+  "description": "文字可见预填与外置规格书输入，共用 KiCad 原理图和 PCB 设计流程",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -13,7 +13,8 @@
     "client",
     "client.js",
     "python",
-    "cases/display-board",
+    "mcp",
+    "libraries",
     "skills",
     "cordis.patch.yml",
     "README.md",
@@ -28,7 +29,8 @@
     "!python/runner.py",
     "scripts/open-window.ps1",
     "desktop",
-    "scripts/install-desktop-runtime.ps1"
+    "scripts/install-desktop-runtime.ps1",
+    "vendor"
   ],
   "engines": {
     "node": ">=22.19.0"
@@ -47,11 +49,12 @@
     }
   },
   "scripts": {
-    "test": "node --test test/*.test.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js",
     "check": "node --check src/service.js && node --check src/index.js && node --check client/app.js && node --check client.js",
     "start": "node scripts/serve.mjs",
-    "prepack": "npm run build:client && npm run check",
-    "build:client": "vite build --config frontend/vite.config.mjs"
+    "prepack": "npm run build:messages && npm run build:client && npm run check",
+    "build:client": "vite build --config frontend/vite.config.mjs",
+    "build:messages": "node scripts/build-harness-messages.mjs"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.4",
@@ -59,10 +62,12 @@
     "@deepseek-ai/dsh-client-connection": "0.2.0-rc.2"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "~3.18.4"
+    "@deepseek-ai/schemastery": "~3.18.4",
+    "elkjs": "0.12.0"
   },
   "bundleDependencies": [
-    "@deepseek-ai/schemastery"
+    "@deepseek-ai/schemastery",
+    "elkjs"
   ],
   "license": "MIT",
   "peerDependenciesMeta": {
@@ -86,6 +91,7 @@
     "vite": "6.4.2",
     "@vitejs/plugin-react": "5.0.4",
     "@carbon/icons-react": "^11.90.0",
-    "@fontsource/ibm-plex-sans": "^5.3.0"
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@deepseek-ai/dsh-llm": "0.2.0-rc.2"
   }
 }

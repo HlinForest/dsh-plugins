@@ -74,11 +74,47 @@ def main():
         gaps.append('制造铜层数与通孔金属化待工程师确认；当前工程保留源层叠和焊盘。')
     if stage==7:
         from snapshot import snapshot
-        actual=snapshot(project);expected=read(HERE.parent/'cases/display-board/expected-content.json')
-        different=[k for k in set(actual)|set(expected) if actual.get(k)!=expected.get(k)]
-        write(out/'project-content.json',actual);write(out/'comparison.json',{'equal':not different,'categories':len(expected),'differences':sorted(different),'basis':'历史目标的语义摘要，仅核验阶段使用'})
-        result['comparison']={'equal':not different,'categories':len(expected),'differences':sorted(different)}
-        if different:gaps.append('与显示板目标有差异：'+', '.join(sorted(different)))
+        actual=snapshot(project)
+
+        # A historical project may carry an explicit semantic target beside
+        # its own copied inputs or pass one in its saved request.  The package
+        # no longer owns a display-board target: without a project-owned
+        # baseline this step records content and archives it, but cannot claim
+        # that the result matches anything.
+        baseline=None; baseline_source=None
+        for key in ('expectedContent', 'comparisonBaseline'):
+            value=req.get(key)
+            if isinstance(value, dict):
+                baseline=value; baseline_source='saved request'; break
+            if isinstance(value, str):
+                candidate=Path(value)
+                if candidate.is_file():
+                    baseline=read(candidate); baseline_source='saved request file'; break
+        if baseline is None:
+            for candidate in (project/'expected-content.json', project/'comparison-baseline.json',
+                              inp/'expected-content.json', inp/'comparison-baseline.json',
+                              out/'expected-content.json', out/'comparison-baseline.json'):
+                if candidate.is_file():
+                    baseline=read(candidate); baseline_source='project-owned file'; break
+        if baseline is not None and not isinstance(baseline, dict):
+            raise ValueError('阶段 7 的项目自带目标基线必须是 JSON 对象。')
+        if baseline is not None and isinstance(baseline.get('expectedContent'), dict):
+            baseline=baseline['expectedContent']
+        if baseline is not None and not isinstance(baseline, dict):
+            raise ValueError('阶段 7 的项目自带目标基线必须是 JSON 对象。')
+
+        write(out/'project-content.json',actual)
+        if baseline is None:
+            comparison={'equal':None,'checked':False,'categories':0,'differences':[],
+                        'basis':'未提供项目自带目标基线，比较未执行'}
+            gaps.append('未提供项目自带目标基线；已记录工程内容，目标一致性比较未执行。')
+        else:
+            different=[k for k in set(actual)|set(baseline) if actual.get(k)!=baseline.get(k)]
+            comparison={'equal':not different,'checked':True,'categories':len(baseline),
+                        'differences':sorted(different),'basis':baseline_source or '项目自带目标基线'}
+            if different:gaps.append('与项目自带目标有差异：'+', '.join(sorted(different)))
+        write(out/'comparison.json',comparison)
+        result['comparison']=comparison
         gaps.extend(['缺原 Altium 编译网表与原始页面 PDF。','数码管没有原始 3D 模型；保留二维图形。'])
         with zipfile.ZipFile(out/'DisplayBoard.zip','w',zipfile.ZIP_DEFLATED) as z:
             for f in sorted(project.rglob('*')):

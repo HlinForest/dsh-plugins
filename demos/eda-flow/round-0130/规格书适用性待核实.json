@@ -1,0 +1,9 @@
+{
+  "part": "IRM-3638M3-X",
+  "candidate": "Everlight IRM-36xxM3 Rev.7",
+  "question": "-X 是内部料号后缀还是厂家型号的一部分",
+  "userAnswer": "暂不确定，保留待核实",
+  "decision": "keep candidate separate; do not modify board values from this source",
+  "datasheetSha256": "058052dfc7dd5a7f8ac0daa95fcebc3c591218b34f92bb2e2d87206ccf602038",
+  "receivedAt": "2026-10-27T05:41:37.582Z"
+}

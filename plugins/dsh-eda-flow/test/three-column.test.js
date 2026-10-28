@@ -8,6 +8,7 @@ import { writeJSON } from '../src/io.js';
 import { harnessAI } from '../src/ai.js';
 import { DesignWindow } from '../src/window.js';
 import { classify, finishError } from '../src/errors.js';
+import { createLegacyProject } from './fixtures/legacy-project.js';
 
 class TestTools extends Flow {
   async runProcess(args, out) {
@@ -26,7 +27,7 @@ const fixture = { selection: () => ({ provider: 'test-double', model: 'OFFLINE' 
 
 test('manual confirmation works without model or tool binaries and later stages use its frozen input', async t => {
   const { flow } = await setup(t);
-  const p = await flow.create({ label: '人工项目' });
+  const p = await createLegacyProject(flow, { label: '历史人工项目' });
   await assert.rejects(flow.confirm({ projectId: p.id, stage: 1 }, 'human'), /需求/);
   await flow.update({ projectId: p.id, stage: 1, inputs: { requirements: '3.3V sensor' } });
   const confirmed = await flow.confirm({ projectId: p.id, stage: 1 }, 'human');
@@ -39,8 +40,8 @@ test('manual confirmation works without model or tool binaries and later stages 
 });
 test('retries and rename preserve project IDs; old duplicate names remain distinguishable', async t => {
   const { flow } = await setup(t, fixture);
-  const p = await flow.create({ label: '唯一项目' });
-  await assert.rejects(flow.create({ label: '唯一项目' }), /同名/);
+  const p = await createLegacyProject(flow, { label: '历史唯一项目' });
+  await assert.rejects(createLegacyProject(flow, { label: '历史唯一项目' }), /同名/);
   await flow.update({ projectId: p.id, stage: 1, inputs: { requirements: 'display' } });
   await flow.confirm({ projectId: p.id, stage: 1 }, 'human');
   await flow.execute(p.id, 2); await flow.execute(p.id, 2);
@@ -48,11 +49,11 @@ test('retries and rename preserve project IDs; old duplicate names remain distin
   assert.equal((await flow.open(p.id)).stages[1].attempts, 2);
   await flow.rename({ projectId: p.id, label: '显示板一' });
   assert.equal((await flow.list())[0].id, p.id);
-  await flow.create({ label: 'internal replay', replayOf: p.id });
+  await createLegacyProject(flow, { label: 'internal replay', replayOf: p.id });
   assert.equal((await flow.list()).length, 1);
 });
 test('chat is isolated from generation and adoption invalidates downstream results', async t => {
-  const { flow } = await setup(t, fixture); const p = await flow.create({ label: '对话项目' });
+  const { flow } = await setup(t, fixture); const p = await createLegacyProject(flow, { label: '历史对话项目' });
   await flow.update({ projectId: p.id, stage: 1, inputs: { requirements: 'display' } });
   await flow.confirm({ projectId: p.id, stage: 1 }, 'human'); await flow.execute(p.id, 2);
   await flow.startChat({ projectId: p.id, stage: 1, context: '1', text: '检查需求' });

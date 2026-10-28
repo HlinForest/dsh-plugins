@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\VisualBoard\output\EDA_Autonomous_20261023\live-work\projects\67325095-ea3a-4370-b3d2-ec3ed8739f61\pcb-work\72090acddb7794f94a6b\5\project\Circuit.kicad_sch</source>
+    <date>2026-10-27T13:44:07</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>显示板 · 通用流程与 AD 逐项复测</title>
+        <company/>
+        <rev>1</rev>
+        <date>2026-10-27</date>
+        <source>Circuit.kicad_sch</source>
+        <comment number="1" value="Engineering requirements and component specifications"/>
+        <comment number="2" value="Pending values: C5-C6, R1-R9"/>
+        <comment number="3" value="Source values: C1-C4"/>
+        <comment number="4" value="Operating conditions pending; see BOM SelectionMissing"/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">C1</field>
+        <field name="SelectionStatus">source-recommended</field>
+        <field name="SelectionBasis">当前资料的数值建议已落实；并不证明工作条件或器件额定满足。</field>
+        <field name="SelectionMissing">["U1.loadStepCurrent: 仅填残余增量：D1 经 R8 从 +5V 取用的自身电流（资料记录值 0.6mA）与 TM1616 静态电流未给出的 0.4mA 余量，合计按 1mA 假设；显示扫描段电流与 R9 上拉切换由宿主按真实网络另加，不在此重复", "U1.supportTime: 上游 5V 在 10µs 内响应", "U1.maxDroop: 按 5V±5% 预算允许 0.25V 跌落", "U1.effectiveCapacitanceRatio: 0805 X5R 在 5V 偏压下按 50% 折减", "U1.equivalentEsr: 并联组 ESR 按 50mΩ 保守估算", "D1.lowVoltage: 开集低电平按 0.4V 假设", "D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设", "DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "内部偏置按引用阻值及轨到轨最不利状态估算；阻值容差、实际输出摆幅与切换重叠尚未核实，不能视作保证最大电流。", "切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。", "总容量计算不能决定并联只数或各只容量；需每只器件的有效容量、ESR及高频阻抗依据。", "扫描电流阶跃、上游响应时间与压降预算为工程假设，需实测复核 10µF 是否足够。", "未采用 47uF 电解的低频储能与 ESR 差异需在电源完整性评估中确认。", "C1 的介质类型与直流偏压下的有效容量需按选定物料核对。"]</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="C1"/>
+      <property name="SelectionStatus" value="source-recommended"/>
+      <property name="SelectionBasis" value="当前资料的数值建议已落实；并不证明工作条件或器件额定满足。"/>
+      <property name="SelectionMissing" value="[&quot;U1.loadStepCurrent: 仅填残余增量：D1 经 R8 从 +5V 取用的自身电流（资料记录值 0.6mA）与 TM1616 静态电流未给出的 0.4mA 余量，合计按 1mA 假设；显示扫描段电流与 R9 上拉切换由宿主按真实网络另加，不在此重复&quot;, &quot;U1.supportTime: 上游 5V 在 10µs 内响应&quot;, &quot;U1.maxDroop: 按 5V±5% 预算允许 0.25V 跌落&quot;, &quot;U1.effectiveCapacitanceRatio: 0805 X5R 在 5V 偏压下按 50% 折减&quot;, &quot;U1.equivalentEsr: 并联组 ESR 按 50mΩ 保守估算&quot;, &quot;D1.lowVoltage: 开集低电平按 0.4V 假设&quot;, &quot;D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设&quot;, &quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;内部偏置按引用阻值及轨到轨最不利状态估算；阻值容差、实际输出摆幅与切换重叠尚未核实，不能视作保证最大电流。&quot;, &quot;切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。&quot;, &quot;总容量计算不能决定并联只数或各只容量；需每只器件的有效容量、ESR及高频阻抗依据。&quot;, &quot;扫描电流阶跃、上游响应时间与压降预算为工程假设，需实测复核 10µF 是否足够。&quot;, &quot;未采用 47uF 电解的低频储能与 ESR 差异需在电源完整性评估中确认。&quot;, &quot;C1 的介质类型与直流偏压下的有效容量需按选定物料核对。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fc4daca0-5a5c-4682-bce7-ea1920686b24</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>100pF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">C2</field>
+        <field name="SelectionStatus">source-recommended</field>
+        <field name="SelectionBasis">当前资料的数值建议已落实；并不证明工作条件或器件额定满足。</field>
+        <field name="SelectionMissing">["未做 EMC 实测，100pF 对具体干扰频谱的有效性待验证。", "实际干扰抑制效果需结合布线（C2/C3/C4 靠近 U1）与 EMC 测试确认。"]</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="C2"/>
+      <property name="SelectionStatus" value="source-recommended"/>
+      <property name="SelectionBasis" value="当前资料的数值建议已落实；并不证明工作条件或器件额定满足。"/>
+      <property name="SelectionMissing" value="[&quot;未做 EMC 实测，100pF 对具体干扰频谱的有效性待验证。&quot;, &quot;实际干扰抑制效果需结合布线（C2/C3/C4 靠近 U1）与 EMC 测试确认。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6dcc2619-1e86-4974-a1de-32013a2b9c8e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>100pF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">C3</field>
+        <field name="SelectionStatus">source-recommended</field>
+        <field name="SelectionBasis">当前资料的数值建议已落实；并不证明工作条件或器件额定满足。</field>
+        <field name="SelectionMissing">["未做 EMC 实测，100pF 对具体干扰频谱的有效性待验证。", "实际干扰抑制效果需结合布线（C2/C3/C4 靠近 U1）与 EMC 测试确认。"]</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="C3"/>
+      <property name="SelectionStatus" value="source-recommended"/>
+      <property name="SelectionBasis" value="当前资料的数值建议已落实；并不证明工作条件或器件额定满足。"/>
+      <property name="SelectionMissing" value="[&quot;未做 EMC 实测，100pF 对具体干扰频谱的有效性待验证。&quot;, &quot;实际干扰抑制效果需结合布线（C2/C3/C4 靠近 U1）与 EMC 测试确认。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>16572ab2-2ff3-410d-b1a7-3bc4393819d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>100pF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">C4</field>
+        <field name="SelectionStatus">source-recommended</field>
+        <field name="SelectionBasis">当前资料的数值建议已落实；并不证明工作条件或器件额定满足。</field>
+        <field name="SelectionMissing">["未做 EMC 实测，100pF 对具体干扰频谱的有效性待验证。", "实际干扰抑制效果需结合布线（C2/C3/C4 靠近 U1）与 EMC 测试确认。"]</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="C4"/>
+      <property name="SelectionStatus" value="source-recommended"/>
+      <property name="SelectionBasis" value="当前资料的数值建议已落实；并不证明工作条件或器件额定满足。"/>
+      <property name="SelectionMissing" value="[&quot;未做 EMC 实测，100pF 对具体干扰频谱的有效性待验证。&quot;, &quot;实际干扰抑制效果需结合布线（C2/C3/C4 靠近 U1）与 EMC 测试确认。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0e5208da-4c43-40d5-a5ed-7abec623d1ea</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>1µF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">C5</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["D1.deviceCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "D1.minDeviceVoltage: 按 5V 留 10% 余量", "D1.loadStepCurrent: 接收器自身按 0.5mA 阶跃，不含 R9 切换", "D1.supportTime: 由 R8 上游 5V 在 10µs 级补充", "D1.maxDroop: 滤波后供电允许 0.2V 跌落", "D1.effectiveCapacitanceRatio: 0805 在 5V 偏压下按 50% 折减", "D1.equivalentEsr: 单只 0805 ESR 按 50mΩ 保守估算", "U1.loadStepCurrent: 仅填残余增量：D1 经 R8 从 +5V 取用的自身电流（资料记录值 0.6mA）与 TM1616 静态电流未给出的 0.4mA 余量，合计按 1mA 假设；显示扫描段电流与 R9 上拉切换由宿主按真实网络另加，不在此重复", "U1.supportTime: 上游 5V 在 10µs 内响应", "U1.maxDroop: 按 5V±5% 预算允许 0.25V 跌落", "U1.effectiveCapacitanceRatio: 0805 X5R 在 5V 偏压下按 50% 折减", "U1.equivalentEsr: 并联组 ESR 按 50mΩ 保守估算", "D1.lowVoltage: 开集低电平按 0.4V 假设", "D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设", "DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "内部偏置按引用阻值及轨到轨最不利状态估算；阻值容差、实际输出摆幅与切换重叠尚未核实，不能视作保证最大电流。", "切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。", "联合压降仅覆盖声明的首个供电响应窗口；上游在此期间不超过计算跌落包络。恢复时间、周期扫描累积、频谱与稳压环路未确定，不能作为全时间波形保证。", "缺少已验证的干扰频率与衰减目标，供电压降检查不能决定唯一RC组合。", "总容量计算不能决定并联只数或各只容量；需每只器件的有效容量、ESR及高频阻抗依据。"]</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="C5"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;D1.deviceCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;D1.minDeviceVoltage: 按 5V 留 10% 余量&quot;, &quot;D1.loadStepCurrent: 接收器自身按 0.5mA 阶跃，不含 R9 切换&quot;, &quot;D1.supportTime: 由 R8 上游 5V 在 10µs 级补充&quot;, &quot;D1.maxDroop: 滤波后供电允许 0.2V 跌落&quot;, &quot;D1.effectiveCapacitanceRatio: 0805 在 5V 偏压下按 50% 折减&quot;, &quot;D1.equivalentEsr: 单只 0805 ESR 按 50mΩ 保守估算&quot;, &quot;U1.loadStepCurrent: 仅填残余增量：D1 经 R8 从 +5V 取用的自身电流（资料记录值 0.6mA）与 TM1616 静态电流未给出的 0.4mA 余量，合计按 1mA 假设；显示扫描段电流与 R9 上拉切换由宿主按真实网络另加，不在此重复&quot;, &quot;U1.supportTime: 上游 5V 在 10µs 内响应&quot;, &quot;U1.maxDroop: 按 5V±5% 预算允许 0.25V 跌落&quot;, &quot;U1.effectiveCapacitanceRatio: 0805 X5R 在 5V 偏压下按 50% 折减&quot;, &quot;U1.equivalentEsr: 并联组 ESR 按 50mΩ 保守估算&quot;, &quot;D1.lowVoltage: 开集低电平按 0.4V 假设&quot;, &quot;D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设&quot;, &quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;内部偏置按引用阻值及轨到轨最不利状态估算；阻值容差、实际输出摆幅与切换重叠尚未核实，不能视作保证最大电流。&quot;, &quot;切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。&quot;, &quot;联合压降仅覆盖声明的首个供电响应窗口；上游在此期间不超过计算跌落包络。恢复时间、周期扫描累积、频谱与稳压环路未确定，不能作为全时间波形保证。&quot;, &quot;缺少已验证的干扰频率与衰减目标，供电压降检查不能决定唯一RC组合。&quot;, &quot;总容量计算不能决定并联只数或各只容量；需每只器件的有效容量、ESR及高频阻抗依据。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>82c54c4e-961e-4711-89d5-823801be2cc7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>10µF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">C6</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["U1.loadStepCurrent: 仅填残余增量：D1 经 R8 从 +5V 取用的自身电流（资料记录值 0.6mA）与 TM1616 静态电流未给出的 0.4mA 余量，合计按 1mA 假设；显示扫描段电流与 R9 上拉切换由宿主按真实网络另加，不在此重复", "U1.supportTime: 上游 5V 在 10µs 内响应", "U1.maxDroop: 按 5V±5% 预算允许 0.25V 跌落", "U1.effectiveCapacitanceRatio: 0805 X5R 在 5V 偏压下按 50% 折减", "U1.equivalentEsr: 并联组 ESR 按 50mΩ 保守估算", "D1.lowVoltage: 开集低电平按 0.4V 假设", "D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设", "DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "内部偏置按引用阻值及轨到轨最不利状态估算；阻值容差、实际输出摆幅与切换重叠尚未核实，不能视作保证最大电流。", "切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。", "总容量计算不能决定并联只数或各只容量；需每只器件的有效容量、ESR及高频阻抗依据。", "扫描电流阶跃、上游响应时间与压降预算为工程假设，需实测复核 10µF 是否足够。", "未采用 47uF 电解的低频储能与 ESR 差异需在电源完整性评估中确认。"]</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="C6"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;U1.loadStepCurrent: 仅填残余增量：D1 经 R8 从 +5V 取用的自身电流（资料记录值 0.6mA）与 TM1616 静态电流未给出的 0.4mA 余量，合计按 1mA 假设；显示扫描段电流与 R9 上拉切换由宿主按真实网络另加，不在此重复&quot;, &quot;U1.supportTime: 上游 5V 在 10µs 内响应&quot;, &quot;U1.maxDroop: 按 5V±5% 预算允许 0.25V 跌落&quot;, &quot;U1.effectiveCapacitanceRatio: 0805 X5R 在 5V 偏压下按 50% 折减&quot;, &quot;U1.equivalentEsr: 并联组 ESR 按 50mΩ 保守估算&quot;, &quot;D1.lowVoltage: 开集低电平按 0.4V 假设&quot;, &quot;D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设&quot;, &quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;内部偏置按引用阻值及轨到轨最不利状态估算；阻值容差、实际输出摆幅与切换重叠尚未核实，不能视作保证最大电流。&quot;, &quot;切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。&quot;, &quot;总容量计算不能决定并联只数或各只容量；需每只器件的有效容量、ESR及高频阻抗依据。&quot;, &quot;扫描电流阶跃、上游响应时间与压降预算为工程假设，需实测复核 10µF 是否足够。&quot;, &quot;未采用 47uF 电解的低频储能与 ESR 差异需在电源完整性评估中确认。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b1d1cfde-c5a6-44a4-b5ac-31b2a56b119e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>IRM-3638M3-X</value>
+      <footprint>EvidencePkg:FP_c783efe2c5902037</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">fact-b0a33beccc463cf7-D1</field>
+        <field name="OriginalFootprint">LED3-2.54-6*5.6*6.95L/S</field>
+        <field name="MaterialCode">R25090022</field>
+        <field name="MaterialDescription">接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80 degC</field>
+        <field name="AssemblyType">THT</field>
+        <field name="ObjectRole">electrical</field>
+        <field name="Footprint">EvidencePkg:FP_c783efe2c5902037</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Evidence" part="Fact_b0a33beccc463cf7" description=""/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="fact-b0a33beccc463cf7-D1"/>
+      <property name="OriginalFootprint" value="LED3-2.54-6*5.6*6.95L/S"/>
+      <property name="MaterialCode" value="R25090022"/>
+      <property name="MaterialDescription" value="接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80 degC"/>
+      <property name="AssemblyType" value="THT"/>
+      <property name="ObjectRole" value="electrical"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bd75de3c-6d4d-4a12-bebc-5db870075bcf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="DISP">
+      <value>6Pin/2.5mm</value>
+      <footprint>EvidencePkg:FP_87693eea20e7eb47</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">fact-0ffa6529256614c4-DISP</field>
+        <field name="OriginalFootprint">THT-CON6-2.5-6.4L/S</field>
+        <field name="MaterialCode">R30072135</field>
+        <field name="MaterialDescription">电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446</field>
+        <field name="AssemblyType">THT</field>
+        <field name="ObjectRole">electrical</field>
+        <field name="Footprint">EvidencePkg:FP_87693eea20e7eb47</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Evidence" part="Fact_0ffa6529256614c4" description=""/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="fact-0ffa6529256614c4-DISP"/>
+      <property name="OriginalFootprint" value="THT-CON6-2.5-6.4L/S"/>
+      <property name="MaterialCode" value="R30072135"/>
+      <property name="MaterialDescription" value="电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446"/>
+      <property name="AssemblyType" value="THT"/>
+      <property name="ObjectRole" value="electrical"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ca2c5f6c-a213-4d00-9685-091a22390c57</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="6"/>
+            <pin num="5"/>
+            <pin num="4"/>
+            <pin num="3"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="DS1">
+      <value>LED</value>
+      <footprint>EvidencePkg:FP_50ea157fbcd408b9</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">fact-6a92ebe087d6003e-DS1</field>
+        <field name="OriginalFootprint">UV</field>
+        <field name="MaterialCode"/>
+        <field name="MaterialDescription">显示模块，两位七段数字与四个圆形指示标记；制造商/采购订货号未提供。</field>
+        <field name="AssemblyType"/>
+        <field name="ObjectRole">electrical</field>
+        <field name="Footprint">EvidencePkg:FP_50ea157fbcd408b9</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Evidence" part="Fact_6a92ebe087d6003e" description=""/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="fact-6a92ebe087d6003e-DS1"/>
+      <property name="OriginalFootprint" value="UV"/>
+      <property name="MaterialCode" value=""/>
+      <property name="MaterialDescription" value="显示模块，两位七段数字与四个圆形指示标记；制造商/采购订货号未提供。"/>
+      <property name="AssemblyType" value=""/>
+      <property name="ObjectRole" value="electrical"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1b8615e3-5881-48dd-9e97-a354c6cf8266</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="10"/>
+            <pin num="1"/>
+            <pin num="9"/>
+            <pin num="2"/>
+            <pin num="8"/>
+            <pin num="3"/>
+            <pin num="7"/>
+            <pin num="4"/>
+            <pin num="6"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R1</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R1"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b0793e86-7a63-4bdb-9ff9-f569579c7cac</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R2</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R2"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d3aa2d18-1b64-4591-a4eb-346f1373a243</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R3</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R3"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d6920d59-c8c6-4d83-8372-79f4cbf0528d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R4</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R4"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>81b677bb-7cd2-43c2-99d2-19fe465875da</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R5</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R5"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ee65cf19-e169-4f08-977d-4d0a877e6d00</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R6</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R6"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9bb08903-d327-4fa0-bd44-347783f947ea</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>330Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R7</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选", "DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降", "DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认", "DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认", "扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。", "按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。", "扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。", "缺少目标平均电流/亮度，电流上限不能决定唯一阻值。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R7"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;DS1.forwardVoltage: 模块 Vf 未给出，按红色 LED 段 2.0V 候选&quot;, &quot;DS1.driverDrop: TM1616 开漏导通压降按 0.3V 候选，非全工作区间固定压降&quot;, &quot;DS1.duty: GRID4 空置仍按 1/4 扫描占空比假设，待固件确认&quot;, &quot;DS1.maxPeakCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.maxGroupCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;DS1.scanSlots: TM1616 按 GRID1–GRID4 四槽扫描，GRID4 未接仍占一个槽位；待固件确认&quot;, &quot;扫描电流上界假设电源不超过声明电压、负载及驱动压降非负；缺少压降下界时按 0 V，不能把典型值/单点测试电压作为保证下界。&quot;, &quot;按一次只使能一个公共端、每个已连接公共端所有限流支路同时点亮的包络；内部矩阵、亮度调制、扫描切换和内部额外电流仍待核实。&quot;, &quot;扫描频率未知：不使用串行通信时钟替代，不能据此判定纹波频谱或稳态滤波效果。&quot;, &quot;缺少目标平均电流/亮度，电流上限不能决定唯一阻值。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1a02cc51-0d9f-4caf-a64d-aff472575acf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>100Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R8</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["D1.deviceCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。", "D1.minDeviceVoltage: 按 5V 留 10% 余量", "缺少已验证的干扰频率与衰减目标，供电压降检查不能决定唯一RC组合。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R8"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;D1.deviceCurrent: 引文数值已匹配，额定类型（典型/保证范围/绝对最大值）及适用工作条件仍须核实。&quot;, &quot;D1.minDeviceVoltage: 按 5V 留 10% 余量&quot;, &quot;缺少已验证的干扰频率与衰减目标，供电压降检查不能决定唯一RC组合。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>05962213-8d14-4e05-a93b-8cebd77555de</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>10kΩ</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R9</field>
+        <field name="SelectionStatus">provisional</field>
+        <field name="SelectionBasis">现值为候选；条件计算不能唯一确定选型。</field>
+        <field name="SelectionMissing">["D1.lowVoltage: 开集低电平按 0.4V 假设", "D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设", "D1: 切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。", "缺少接收端负载电容或允许上升时间，不能确定阻值上界；还需核实漏电及逻辑门限。"]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R9"/>
+      <property name="SelectionStatus" value="provisional"/>
+      <property name="SelectionBasis" value="现值为候选；条件计算不能唯一确定选型。"/>
+      <property name="SelectionMissing" value="[&quot;D1.lowVoltage: 开集低电平按 0.4V 假设&quot;, &quot;D1.maxSinkCurrent: D1 灌流能力未给出，按 0.5mA 保守假设&quot;, &quot;D1: 切换估算假设上拉电源不高于声明的源电压、输出不低于返回端 0 V；电源过冲、预充或输出负向尖峰须另行核实。&quot;, &quot;缺少接收端负载电容或允许上升时间，不能确定阻值上界；还需核实漏电及逻辑门限。&quot;]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dc4cc943-b474-44f5-aae8-496ebe9ce6aa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R10</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R10"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6c41fe7d-4ae5-4a10-b488-952eb25f47e1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R11</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R11"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e66d4bc3-bc2a-42d1-93ed-6cf3e8a888f3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R12</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R12"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d030fd6f-1673-4e88-9e02-0e5481fe9bb6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R13</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R13"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b86016a-03e2-4d2a-9d1e-6a8f2c00a603</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R14</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R14"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>389885b9-5644-49f0-a129-8adac8ed6960</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R15</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R15"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7d262203-7e20-4a00-af6d-c1ca11e8c267</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R16</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R16"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f6c4fcc9-7d82-42cc-861e-60f2c0200362</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>0Ω</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <description>Resistor</description>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">R17</field>
+        <field name="SelectionStatus">routing-choice</field>
+        <field name="SelectionBasis">零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。</field>
+        <field name="SelectionMissing">[]</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="R17"/>
+      <property name="SelectionStatus" value="routing-choice"/>
+      <property name="SelectionBasis" value="零欧用于已声明的连接/工艺选择，额定电流仍需物料核实。"/>
+      <property name="SelectionMissing" value="[]"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e4dbb359-fabf-4786-8bc8-7c4c151dd844</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>TM1616</value>
+      <footprint>EvidencePkg:FP_abf73c9ba269dea0</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="DesignId">fact-acb1ef47066f4a92-U1</field>
+        <field name="OriginalFootprint">WSOP16-1.27-3.8</field>
+        <field name="MaterialCode">R25070026</field>
+        <field name="MaterialDescription">CMOS逻辑器件/TM1616/5V/-20~+70 degC/SOP-16/共阴极LED驱动控制专用电路</field>
+        <field name="AssemblyType">SMD</field>
+        <field name="ObjectRole">electrical</field>
+        <field name="Footprint">EvidencePkg:FP_abf73c9ba269dea0</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Evidence" part="Fact_acb1ef47066f4a92" description=""/>
+      <property name="MPN" value=""/>
+      <property name="DesignId" value="fact-acb1ef47066f4a92-U1"/>
+      <property name="OriginalFootprint" value="WSOP16-1.27-3.8"/>
+      <property name="MaterialCode" value="R25070026"/>
+      <property name="MaterialDescription" value="CMOS逻辑器件/TM1616/5V/-20~+70 degC/SOP-16/共阴极LED驱动控制专用电路"/>
+      <property name="AssemblyType" value="SMD"/>
+      <property name="ObjectRole" value="electrical"/>
+      <property name="Sheetname" value="Root"/>
+      <property name="Sheetfile" value="Circuit.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8a1ff05e-b92f-4e7c-9604-624fd17a8570</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="16"/>
+            <pin num="15"/>
+            <pin num="14"/>
+            <pin num="13"/>
+            <pin num="12"/>
+            <pin num="11"/>
+            <pin num="10"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Evidence" part="Fact_0ffa6529256614c4">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">6Pin/2.5mm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="power_out"/>
+        <pin num="3" name="3" type="power_out"/>
+        <pin num="4" name="4" type="output"/>
+        <pin num="5" name="5" type="output"/>
+        <pin num="6" name="6" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Evidence" part="Fact_6a92ebe087d6003e">
+      <fields>
+        <field name="Reference">DS</field>
+        <field name="Value">LED</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DIG3" type="passive"/>
+        <pin num="2" name="DIG2" type="passive"/>
+        <pin num="3" name="DIG1" type="passive"/>
+        <pin num="4" name="B" type="passive"/>
+        <pin num="5" name="A" type="passive"/>
+        <pin num="6" name="F" type="passive"/>
+        <pin num="7" name="G" type="passive"/>
+        <pin num="8" name="C" type="passive"/>
+        <pin num="9" name="E" type="passive"/>
+        <pin num="10" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Evidence" part="Fact_acb1ef47066f4a92">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TM1616</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DIN" type="input"/>
+        <pin num="2" name="CLK" type="input"/>
+        <pin num="3" name="STB" type="input"/>
+        <pin num="4" name="VDD" type="power_in"/>
+        <pin num="5" name="SEG1" type="output"/>
+        <pin num="6" name="SEG2" type="output"/>
+        <pin num="7" name="SEG3" type="output"/>
+        <pin num="8" name="SEG4" type="output"/>
+        <pin num="9" name="SEG5" type="output"/>
+        <pin num="10" name="SEG6" type="output"/>
+        <pin num="11" name="SEG7" type="output"/>
+        <pin num="12" name="GRID4" type="output"/>
+        <pin num="13" name="GRID3" type="output"/>
+        <pin num="14" name="GND" type="power_in"/>
+        <pin num="15" name="GRID2" type="output"/>
+        <pin num="16" name="GRID1" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Evidence" part="Fact_b0a33beccc463cf7">
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">IRM-3638M3-X</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="output"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>${KIPRJMOD}/symbols/Device.kicad_sym</uri>
+    </library>
+    <library logical="Evidence">
+      <uri>${KIPRJMOD}/symbols/Evidence.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+5V" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="DISP" pin="3" pinfunction="3_3" pintype="power_out"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="VDD_4" pintype="power_in"/>
+    </net>
+    <net code="2" name="/CLK" class="Default">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="CLK_2" pintype="input"/>
+    </net>
+    <net code="3" name="/CLK_DISP" class="Default">
+      <node ref="DISP" pin="5" pinfunction="5_5" pintype="output"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+    </net>
+    <net code="4" name="/D1_VCC" class="Default">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="D1" pin="3" pinfunction="VCC_3" pintype="power_in"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="5" name="/DIG1" class="Default">
+      <node ref="DS1" pin="3" pinfunction="DIG1_3" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+    </net>
+    <net code="6" name="/DIG2" class="Default">
+      <node ref="DS1" pin="2" pinfunction="DIG2_2" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+    </net>
+    <net code="7" name="/DIG3" class="Default">
+      <node ref="DS1" pin="1" pinfunction="DIG3_1" pintype="passive"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+    </net>
+    <net code="8" name="/DIN" class="Default">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="DIN_1" pintype="input"/>
+    </net>
+    <net code="9" name="/DIN_DISP" class="Default">
+      <node ref="DISP" pin="6" pinfunction="6_6" pintype="output"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+    </net>
+    <net code="10" name="/GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="GND_14" pintype="power_in"/>
+    </net>
+    <net code="11" name="/GRID1" class="Default">
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="GRID1_16" pintype="output"/>
+    </net>
+    <net code="12" name="/GRID2" class="Default">
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="GRID2_15" pintype="output"/>
+    </net>
+    <net code="13" name="/GRID3" class="Default">
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="GRID3_13" pintype="output"/>
+    </net>
+    <net code="14" name="/IRM_OUT" class="Default">
+      <node ref="D1" pin="1" pinfunction="OUT_1" pintype="output"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+    </net>
+    <net code="15" name="/LED_A" class="Default">
+      <node ref="DS1" pin="5" pinfunction="A_5" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="16" name="/LED_B" class="Default">
+      <node ref="DS1" pin="4" pinfunction="B_4" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+    </net>
+    <net code="17" name="/LED_C" class="Default">
+      <node ref="DS1" pin="8" pinfunction="C_8" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+    </net>
+    <net code="18" name="/LED_D" class="Default">
+      <node ref="DS1" pin="10" pinfunction="D_10" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="19" name="/LED_E" class="Default">
+      <node ref="DS1" pin="9" pinfunction="E_9" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="20" name="/LED_F" class="Default">
+      <node ref="DS1" pin="6" pinfunction="F_6" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+    </net>
+    <net code="21" name="/LED_G" class="Default">
+      <node ref="DS1" pin="7" pinfunction="G_7" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+    </net>
+    <net code="22" name="/RCV" class="Default">
+      <node ref="DISP" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+    </net>
+    <net code="23" name="/SEG1" class="Default">
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="SEG1_5" pintype="output"/>
+    </net>
+    <net code="24" name="/SEG2" class="Default">
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="SEG2_6" pintype="output"/>
+    </net>
+    <net code="25" name="/SEG3" class="Default">
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="SEG3_7" pintype="output"/>
+    </net>
+    <net code="26" name="/SEG4" class="Default">
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="SEG4_8" pintype="output"/>
+    </net>
+    <net code="27" name="/SEG5" class="Default">
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="SEG5_9" pintype="output"/>
+    </net>
+    <net code="28" name="/SEG6" class="Default">
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="SEG6_10" pintype="output"/>
+    </net>
+    <net code="29" name="/SEG7" class="Default">
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SEG7_11" pintype="output"/>
+    </net>
+    <net code="30" name="/SGND" class="Default">
+      <node ref="DISP" pin="2" pinfunction="2_2" pintype="power_out"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="31" name="/STB" class="Default">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="STB_3" pintype="input"/>
+    </net>
+    <net code="32" name="/STB_DISP" class="Default">
+      <node ref="DISP" pin="4" pinfunction="4_4" pintype="output"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+    </net>
+    <net code="33" name="unconnected-(U1-GRID4-Pad12)" class="Default">
+      <node ref="U1" pin="12" pinfunction="GRID4_12" pintype="output+no_connect"/>
+    </net>
+  </nets>
+</export>

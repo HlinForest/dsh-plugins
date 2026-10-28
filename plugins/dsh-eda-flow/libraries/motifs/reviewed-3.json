@@ -1,0 +1,648 @@
+{
+  "id": "reviewed-3",
+  "schema": 1,
+  "provenance": "Approved existing schematic presentation; no electrical design inference",
+  "pattern": {
+    "parts": {
+      "P0": {
+        "kind": "c1079af9773cde39f1020420c0fe65d0bfc543b20d33dfc28ee683d521543d83",
+        "pins": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      }
+    },
+    "nets": [
+      {
+        "name": "N0",
+        "nodes": [
+          "P0.8"
+        ]
+      },
+      {
+        "name": "N1",
+        "nodes": [
+          "P0.9"
+        ]
+      },
+      {
+        "name": "N2",
+        "nodes": [
+          "P0.7"
+        ]
+      },
+      {
+        "name": "N3",
+        "nodes": [
+          "P0.10"
+        ]
+      },
+      {
+        "name": "N4",
+        "nodes": [
+          "P0.6"
+        ]
+      },
+      {
+        "name": "N5",
+        "nodes": [
+          "P0.5"
+        ]
+      },
+      {
+        "name": "N6",
+        "nodes": [
+          "P0.4"
+        ]
+      },
+      {
+        "name": "N7",
+        "nodes": [
+          "P0.1"
+        ]
+      },
+      {
+        "name": "N8",
+        "nodes": [
+          "P0.3"
+        ]
+      },
+      {
+        "name": "N9",
+        "nodes": [
+          "P0.2"
+        ]
+      }
+    ],
+    "nc": []
+  },
+  "items": [
+    {
+      "kind": "component",
+      "reference": "P0",
+      "at": [
+        10.16,
+        45.72,
+        0
+      ],
+      "fields": {
+        "Reference": {
+          "at": [
+            0,
+            26,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Value": {
+          "at": [
+            38,
+            26,
+            0
+          ],
+          "visible": true,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalFootprint": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "OriginalLibrary": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "SourceRecord": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "ManufacturerOrderCode": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialCode": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "MaterialDescription": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "AssemblyType": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "PreferredGrade": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        },
+        "Footprint": {
+          "at": [
+            10.16,
+            45.72,
+            0
+          ],
+          "visible": false,
+          "font": {
+            "size": [
+              1.27,
+              1.27
+            ],
+            "face": "SimSun",
+            "justify": [
+              "left",
+              "bottom"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N7",
+      "at": [
+        12.7,
+        53.34,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N9",
+      "at": [
+        17.78,
+        53.34,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N8",
+      "at": [
+        22.86,
+        53.34,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N6",
+      "at": [
+        27.94,
+        53.34,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N5",
+      "at": [
+        33.528,
+        53.34,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N4",
+      "at": [
+        33.02,
+        10.16,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N2",
+      "at": [
+        27.94,
+        10.16,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N0",
+      "at": [
+        22.86,
+        10.16,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N1",
+      "at": [
+        18.288,
+        10.16,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "label",
+      "text": "N3",
+      "at": [
+        12.7,
+        10.16,
+        90
+      ],
+      "font": {
+        "size": [
+          1.1,
+          1.1
+        ],
+        "justify": [
+          "left",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          12.7,
+          48.26
+        ],
+        [
+          12.7,
+          53.34
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          17.78,
+          48.26
+        ],
+        [
+          17.78,
+          53.34
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          22.86,
+          48.26
+        ],
+        [
+          22.86,
+          53.34
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          27.94,
+          48.26
+        ],
+        [
+          27.94,
+          53.34
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          33.528,
+          48.26
+        ],
+        [
+          33.528,
+          53.34
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          33.02,
+          10.16
+        ],
+        [
+          33.02,
+          15.24
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          27.94,
+          10.16
+        ],
+        [
+          27.94,
+          15.24
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          22.86,
+          10.16
+        ],
+        [
+          22.86,
+          15.24
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          18.288,
+          10.16
+        ],
+        [
+          18.288,
+          15.24
+        ]
+      ],
+      "width": 0.18
+    },
+    {
+      "kind": "wire",
+      "points": [
+        [
+          12.7,
+          10.16
+        ],
+        [
+          12.7,
+          15.24
+        ]
+      ],
+      "width": 0.18
+    }
+  ],
+  "required": [],
+  "row": 1,
+  "order": 3,
+  "bounds": [
+    -4.21,
+    1.0499999999999994,
+    45.053200000000004,
+    59.150000000000006
+  ]
+}

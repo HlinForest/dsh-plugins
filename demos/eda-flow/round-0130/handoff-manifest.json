@@ -1,0 +1,136 @@
+{
+  "source": "D:\\VisualBoard\\output\\EDA_Autonomous_20261023\\live-work\\projects\\67325095-ea3a-4370-b3d2-ec3ed8739f61\\steps\\6\\d0a29183-babc-408e-8e58-a287fcc5ffd8\\project",
+  "files": [
+    {
+      "path": "actual.net.xml",
+      "sha256": "b603a14bf91d7f97d937086fefae1dd170c91cebe0097cdd6169a760c6ab1ac5"
+    },
+    {
+      "path": "bom.csv",
+      "sha256": "026fdf6d8566606a4c2617d5508a28e029d5be371c8c18801a47ba186a0ae5d1"
+    },
+    {
+      "path": "Circuit.kicad_pcb",
+      "sha256": "7f3a77c51a203fd928a1851d611c417b8d770f8573be20be7db658122eea860d"
+    },
+    {
+      "path": "Circuit.kicad_pro",
+      "sha256": "d377944a429134381b49fcc3d7946dab769400c42bab3c52b05509ef3ea94432"
+    },
+    {
+      "path": "Circuit.kicad_sch",
+      "sha256": "3c3a631ee1c207496fb7ba10d4a001ca54177dd5eba9f2955eae98973480ac7c"
+    },
+    {
+      "path": "Circuit.pdf",
+      "sha256": "f6d7a040906a61587d1b5f30f4a79be506c1dedd8b137347c0aee3c4cf3b65b5"
+    },
+    {
+      "path": "drc-before-silk-0.rpt",
+      "sha256": "d7fa65f333e2e8adb01cfef983fdfa5b87660ebad905d5d405db37d64989347b"
+    },
+    {
+      "path": "drc.rpt",
+      "sha256": "15eb189100acecc05f833de27acdafd5d3fc3a566a3da5a6733463e3a944b309"
+    },
+    {
+      "path": "erc.rpt",
+      "sha256": "be58d89b2a44a2f0e37d0175478e059e5f15db334cf57f36c91fb167b13b700f"
+    },
+    {
+      "path": "fp-lib-table",
+      "sha256": "3e426348693694aad6863b2b186c259618f3d4c395a8146e72317e324adea9c3"
+    },
+    {
+      "path": "PCB-Back.pdf",
+      "sha256": "38e162823d2f8189c33708679bdccbaf699eac9039b2bf6b20658a1bef71a124"
+    },
+    {
+      "path": "PCB-Back.svg",
+      "sha256": "1ab5d0c79bee9c77050fa3e49fb56c1b32cddb4875f13aa5904675aadf4063e1"
+    },
+    {
+      "path": "PCB-BOM.csv",
+      "sha256": "faf9ad13017e15aba4d83f43099f1ce3b4eb3b2125970a069aa73d5e1a18940f"
+    },
+    {
+      "path": "PCB-Front.pdf",
+      "sha256": "936cd476897c39df4e508d87556f51f195fc424eec6a74922ef4591051bef7e0"
+    },
+    {
+      "path": "PCB-Front.svg",
+      "sha256": "8c102d24d68ef00bb9f2ed7f70823cfae4e13459d58c4e5eaac10fd53f2daf32"
+    },
+    {
+      "path": "pcb-netlist.xml",
+      "sha256": "7e7d737056773ded18b34660b3cac1410cb2d43a98473bc48e589c46935e7fdd"
+    },
+    {
+      "path": "PCB-pad-map.csv",
+      "sha256": "65c59c8a3dc2e3c0cb3555e4107b2b720978e1dea95af59a3fc53374a83b24e2"
+    },
+    {
+      "path": "PCB.pdf",
+      "sha256": "d34057ca9f6bdaae933622f3a3a6e300600c73b08b40be01e43874c09b20e897"
+    },
+    {
+      "path": "PCB.svg",
+      "sha256": "bd0b8d64b03edeee2363ab8285a4e15a9c0e852c958cd289f0b02fb03e57b224"
+    },
+    {
+      "path": "sym-lib-table",
+      "sha256": "deb8bf032eb8b75773ff7eba7b5ffc5926f5292b42baad029ff972b5f247aef6"
+    },
+    {
+      "path": "Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_50ea157fbcd408b9.kicad_mod",
+      "sha256": "42307e0a5d7f55adc50edab3f45d91e72eceee73150fbc857381875ec774e29c"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_87693eea20e7eb47.kicad_mod",
+      "sha256": "b358a2d62cb9d997dd28de62b9d8fc3823158012eebf9c4bca5c822db6793845"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_abf73c9ba269dea0.kicad_mod",
+      "sha256": "d7dbb40ef6fa6f5c82e58d5ee7a932b6f0ead740fd4faeb735e9220c9502f816"
+    },
+    {
+      "path": "EvidencePkg.pretty/FP_c783efe2c5902037.kicad_mod",
+      "sha256": "1cf190ad0658b9677e29301fc214345ce64406ed611c4c9e2e63326fd493b8ef"
+    },
+    {
+      "path": "footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+      "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+    },
+    {
+      "path": "footprints/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "sha256": "949bbbe025b509557866ddd9fcb0403244571f3ceb4f954c9766ee622d18421c"
+    },
+    {
+      "path": "Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod",
+      "sha256": "e5f9fff901b842de246f318c1e039e041ce061af6e58e18f96ce9fd1b41350d3"
+    },
+    {
+      "path": "svg/Circuit.svg",
+      "sha256": "ba1d61039b5b21c4c10588cb27bb0f2fc09c7e79f19aecef0f49d4f91029eae2"
+    },
+    {
+      "path": "symbols/Device.kicad_sym",
+      "sha256": "838ca0f85cc33419008b98a63c09182eb60e1bcf850b07896483824ee2eadc15"
+    },
+    {
+      "path": "symbols/Evidence.kicad_sym",
+      "sha256": "55539c284b63ccb7f7678aa560cde96a78739e0170fa4548bf1d58f71f3d4b30"
+    },
+    {
+      "path": "symbols/Host.kicad_sym",
+      "sha256": "b2f820c10125adbbdb5a418be036843863481e7255fc4beb4ffeb24d73149cde"
+    }
+  ],
+  "drcPassedAfterCopy": true,
+  "materializedProjectSettings": true,
+  "externalPDFsIncluded": false
+}

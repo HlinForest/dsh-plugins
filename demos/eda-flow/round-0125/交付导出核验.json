@@ -1,0 +1,11 @@
+{
+  "stage7Completed": true,
+  "pcbMatchesAcceptedBoard": true,
+  "pcbSha256": "8554217b4b29b8bf1261673e17da5cb8b6858008550d0eaaea7e4432866e3748",
+  "reviewsExported": 5,
+  "lastReviewStatus": "resolved",
+  "lastDecisionReviewer": "Codex自动与图面核验（仍待工程师签核）",
+  "archiveIntegrityPassed": true,
+  "stage7ConfirmedForProduction": false,
+  "publicDemoExcludesPrivateRuntimeRecords": true
+}

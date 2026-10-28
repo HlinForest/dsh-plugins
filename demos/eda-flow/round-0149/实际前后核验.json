@@ -1,0 +1,677 @@
+{
+  "reviewBefore": {
+    "trackLengthMm": 442.335515,
+    "segments": 110,
+    "shortSegmentsUnder05mm": 3,
+    "degree2Bends": 70,
+    "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+  },
+  "routingQualityDeltaFromReview": {
+    "trackLengthMm": 0,
+    "segments": 0,
+    "shortSegmentsUnder05mm": 0,
+    "degree2Bends": 0
+  },
+  "selectedCandidateSource": {
+    "kind": "revalidated-generated-history",
+    "sourceRun": "bee2f109-24a6-4119-8549-f0c55bdeea66"
+  },
+  "historyCandidates": [
+    {
+      "sourceRun": "bee2f109-24a6-4119-8549-f0c55bdeea66",
+      "adopted": true,
+      "compatibility": {
+        "accepted": true,
+        "sourceRun": "bee2f109-24a6-4119-8549-f0c55bdeea66",
+        "compatible": true
+      },
+      "drc": {
+        "violations": 0,
+        "unconnected": 0,
+        "parity": 0,
+        "errors": 0,
+        "warnings": 0,
+        "passed": true
+      },
+      "routingQuality": {
+        "trackLengthMm": 442.335515,
+        "segments": 110,
+        "shortSegmentsUnder05mm": 3,
+        "degree2Bends": 70,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    },
+    {
+      "sourceRun": "22657f11-179e-42bd-a4e0-ff6cdeaba7ef",
+      "adopted": true,
+      "compatibility": {
+        "accepted": true,
+        "sourceRun": "22657f11-179e-42bd-a4e0-ff6cdeaba7ef",
+        "compatible": true
+      },
+      "drc": {
+        "violations": 0,
+        "unconnected": 0,
+        "parity": 0,
+        "errors": 0,
+        "warnings": 0,
+        "passed": true
+      },
+      "routingQuality": {
+        "trackLengthMm": 442.335515,
+        "segments": 110,
+        "shortSegmentsUnder05mm": 3,
+        "degree2Bends": 70,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    }
+  ],
+  "version": "0.16.3-beta.16",
+  "model": {
+    "provider": "deepseek-account",
+    "model": "deepseek-flash",
+    "newCalls": 8
+  },
+  "current": {
+    "drc": {
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0,
+      "errors": 0,
+      "warnings": 0,
+      "passed": true
+    },
+    "routingQuality": {
+      "trackLengthMm": 442.335515,
+      "segments": 110,
+      "shortSegmentsUnder05mm": 3,
+      "degree2Bends": 70,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "identity": {
+      "electricalAndPhysicalIdentityPreserved": true,
+      "changedIdentityRefs": [],
+      "components": 27,
+      "physicalPads": 94,
+      "signalNets": [
+        {
+          "net": "/CLK",
+          "connected": true,
+          "pads": [
+            "C3.1",
+            "R11.2",
+            "U1.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/CLK_DISP",
+          "connected": true,
+          "pads": [
+            "DISP.5",
+            "DISP.5",
+            "R11.1"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/DIG1",
+          "connected": true,
+          "pads": [
+            "DS1.3",
+            "R15.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/DIG2",
+          "connected": true,
+          "pads": [
+            "DS1.2",
+            "R16.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/DIG3",
+          "connected": true,
+          "pads": [
+            "DS1.1",
+            "R14.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/DIN",
+          "connected": true,
+          "pads": [
+            "C2.1",
+            "R10.2",
+            "U1.1"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/DIN_DISP",
+          "connected": true,
+          "pads": [
+            "DISP.6",
+            "DISP.6",
+            "DISP.6",
+            "R10.1"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/GRID1",
+          "connected": true,
+          "pads": [
+            "R14.1",
+            "U1.16"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/GRID2",
+          "connected": true,
+          "pads": [
+            "R15.1",
+            "U1.15"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/GRID3",
+          "connected": true,
+          "pads": [
+            "R16.1",
+            "U1.13"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/IRM_OUT",
+          "connected": true,
+          "pads": [
+            "D1.1",
+            "D1.1",
+            "R13.1",
+            "R9.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_A",
+          "connected": true,
+          "pads": [
+            "DS1.5",
+            "R6.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_B",
+          "connected": true,
+          "pads": [
+            "DS1.4",
+            "R7.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_C",
+          "connected": true,
+          "pads": [
+            "DS1.8",
+            "R1.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_D",
+          "connected": true,
+          "pads": [
+            "DS1.10",
+            "R4.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_E",
+          "connected": true,
+          "pads": [
+            "DS1.9",
+            "R2.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_F",
+          "connected": true,
+          "pads": [
+            "DS1.6",
+            "R5.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/LED_G",
+          "connected": true,
+          "pads": [
+            "DS1.7",
+            "R3.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/RCV",
+          "connected": true,
+          "pads": [
+            "DISP.1",
+            "DISP.1",
+            "DISP.1",
+            "R13.2"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG1",
+          "connected": true,
+          "pads": [
+            "R1.1",
+            "U1.5"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG2",
+          "connected": true,
+          "pads": [
+            "R2.1",
+            "U1.6"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG3",
+          "connected": true,
+          "pads": [
+            "R3.1",
+            "U1.7"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG4",
+          "connected": true,
+          "pads": [
+            "R4.1",
+            "U1.8"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG5",
+          "connected": true,
+          "pads": [
+            "R5.1",
+            "U1.9"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG6",
+          "connected": true,
+          "pads": [
+            "R6.1",
+            "U1.10"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SEG7",
+          "connected": true,
+          "pads": [
+            "R7.1",
+            "U1.11"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/SGND",
+          "connected": true,
+          "pads": [
+            "DISP.2",
+            "DISP.2",
+            "R17.1"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/STB",
+          "connected": true,
+          "pads": [
+            "C4.1",
+            "R12.2",
+            "U1.3"
+          ],
+          "unreached": []
+        },
+        {
+          "net": "/STB_DISP",
+          "connected": true,
+          "pads": [
+            "DISP.4",
+            "DISP.4",
+            "R12.1"
+          ],
+          "unreached": []
+        }
+      ],
+      "allSignalNetsConnected": true,
+      "nativeDrcEvidence": "handoff-drc.json",
+      "vias": 0,
+      "trackLayers": [
+        "B.Cu"
+      ],
+      "widthsMm": [
+        0.3
+      ],
+      "assembly": {
+        "F": 3,
+        "B": 24
+      }
+    },
+    "physicalCopperConnected": true,
+    "powerPlacement": {
+      "relations": [
+        {
+          "ref": "C1",
+          "kind": "decoupling",
+          "anchor": {
+            "ref": "U1",
+            "pad": "4"
+          },
+          "return": {
+            "ref": "U1",
+            "pad": "14"
+          },
+          "supplyPad": "1",
+          "returnPad": "2",
+          "supplyNet": "/+5V",
+          "returnNet": "/GND",
+          "maxDistanceMm": 10,
+          "basis": "reviewed functions.layout",
+          "distanceMm": 8.563112,
+          "passed": true
+        },
+        {
+          "ref": "C5",
+          "kind": "decoupling",
+          "anchor": {
+            "ref": "D1",
+            "pad": "3"
+          },
+          "return": {
+            "ref": "D1",
+            "pad": "2"
+          },
+          "supplyPad": "1",
+          "returnPad": "2",
+          "supplyNet": "/D1_VCC",
+          "returnNet": "/GND",
+          "maxDistanceMm": 10,
+          "basis": "reviewed functions.layout",
+          "distanceMm": 4.042129,
+          "passed": true
+        },
+        {
+          "ref": "C6",
+          "kind": "storage",
+          "anchor": {
+            "ref": "U1",
+            "pad": "4"
+          },
+          "return": {
+            "ref": "U1",
+            "pad": "14"
+          },
+          "supplyPad": "1",
+          "returnPad": "2",
+          "supplyNet": "/+5V",
+          "returnNet": "/GND",
+          "maxDistanceMm": 10,
+          "basis": "reviewed supply-transient operating point",
+          "distanceMm": 8.827054,
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "metric": "supply pad to owner supply pad, straight-line; not loop inductance or transient performance"
+    },
+    "powerPaths": {
+      "source": "editable-project/Circuit.kicad_pcb",
+      "layer": "B.Cu",
+      "stepMm": 0.1,
+      "metric": "Witness paths inside actual same-net copper, using bounded grid A* and line-of-sight simplification; not inductance, impedance, current density, unique current flow or exact continuous shortest paths. Does not cross zero-ohm parts.",
+      "relations": [
+        {
+          "ref": "C1",
+          "kind": "decoupling",
+          "sides": {
+            "anchor": {
+              "from": "C1.1",
+              "to": "U1.4",
+              "net": "/+5V",
+              "directMm": 8.563111857847009,
+              "pathMm": 9.1707794879549,
+              "path": [
+                [
+                  44,
+                  30.95
+                ],
+                [
+                  36.70000000000016,
+                  31.29999999999993
+                ],
+                [
+                  35.90000000000015,
+                  32.09999999999992
+                ],
+                [
+                  35.635,
+                  32.7813
+                ]
+              ],
+              "expanded": 1331,
+              "straight": false
+            },
+            "return": {
+              "from": "C1.2",
+              "to": "U1.14",
+              "net": "/GND",
+              "directMm": 7.3275292350150325,
+              "pathMm": 7.89030365049262,
+              "path": [
+                [
+                  44,
+                  29.05
+                ],
+                [
+                  37.99999999999999,
+                  28.699999999999992
+                ],
+                [
+                  37.39999999999999,
+                  28.199999999999992
+                ],
+                [
+                  36.905,
+                  27.2187
+                ]
+              ],
+              "expanded": 866,
+              "straight": false
+            }
+          },
+          "sumStraightMm": 15.89064109286204,
+          "sumCopperPathMm": 17.06108313844752,
+          "detourMm": 1.170442045585478
+        },
+        {
+          "ref": "C5",
+          "kind": "decoupling",
+          "sides": {
+            "anchor": {
+              "from": "C5.1",
+              "to": "D1.3",
+              "net": "/D1_VCC",
+              "directMm": 4.04327837280591,
+              "pathMm": 4.04327837280591,
+              "path": [
+                [
+                  78.95,
+                  11
+                ],
+                [
+                  79.54,
+                  15
+                ]
+              ],
+              "expanded": 0,
+              "straight": true
+            },
+            "return": {
+              "from": "C5.2",
+              "to": "D1.2",
+              "net": "/GND",
+              "directMm": 4.000312487793923,
+              "pathMm": 4.000312487793923,
+              "path": [
+                [
+                  77.05,
+                  11
+                ],
+                [
+                  77,
+                  15
+                ]
+              ],
+              "expanded": 0,
+              "straight": true
+            }
+          },
+          "sumStraightMm": 8.043590860599831,
+          "sumCopperPathMm": 8.043590860599831,
+          "detourMm": 0
+        },
+        {
+          "ref": "C6",
+          "kind": "storage",
+          "sides": {
+            "anchor": {
+              "from": "C6.1",
+              "to": "U1.4",
+              "net": "/+5V",
+              "directMm": 8.827054134307774,
+              "pathMm": 9.439218937310784,
+              "path": [
+                [
+                  27,
+                  30.95
+                ],
+                [
+                  34.600000000000136,
+                  31.29999999999993
+                ],
+                [
+                  35.40000000000015,
+                  32.199999999999925
+                ],
+                [
+                  35.635,
+                  32.7813
+                ]
+              ],
+              "expanded": 1535,
+              "straight": false
+            },
+            "return": {
+              "from": "C6.2",
+              "to": "U1.14",
+              "net": "/GND",
+              "directMm": 10.072868741823257,
+              "pathMm": 10.68631577953985,
+              "path": [
+                [
+                  27,
+                  29.05
+                ],
+                [
+                  35.8,
+                  28.699999999999992
+                ],
+                [
+                  36.3,
+                  28.299999999999994
+                ],
+                [
+                  36.905,
+                  27.2187
+                ]
+              ],
+              "expanded": 635,
+              "straight": false
+            }
+          },
+          "sumStraightMm": 18.89992287613103,
+          "sumCopperPathMm": 20.125534716850634,
+          "detourMm": 1.2256118407196048
+        }
+      ],
+      "elapsedSeconds": 0.625
+    },
+    "boardSha256": "d86e2dbf95bdf3c24376b79275c12c13672186238253f803eebbc4c6258c8dfa"
+  },
+  "baseline": {
+    "round": 145,
+    "openNet": "GRID3",
+    "trackLengthMm": 413.69354,
+    "segments": 103,
+    "shortSegmentsUnder05mm": 0,
+    "degree2Bends": 65
+  },
+  "completeBaseline": {
+    "round": 130,
+    "trackLengthMm": 501.440924,
+    "segments": 139,
+    "shortSegmentsUnder05mm": 4,
+    "degree2Bends": 90,
+    "powerPaths": {
+      "C1": 92.003031394,
+      "C5": 8.79424302,
+      "C6": 98.621954623
+    }
+  },
+  "checks": {
+    "completed": true,
+    "nativeDrc": true,
+    "identity": true,
+    "signals": true,
+    "physicalCopper": true,
+    "assembly": true,
+    "routingProcess": true,
+    "supplyDistance": true,
+    "routeQuality": true,
+    "powerPaths": true,
+    "regressionTests": true
+  },
+  "layoutQualityAccepted": true,
+  "conclusion": "本轮模型驱动流程重新核验并采用既有生成候选，已通过整板连通与布线质量复核；电气参数缺项和 AD 差异仍待工程师确认。",
+  "valueDifferencesReduced": 0,
+  "remainingResistors": 9,
+  "remainingCapacitorGroups": 2,
+  "githubPublished": true,
+  "githubSourceCommit": "08b492d55e7870e33ef86c36e5beda7d4549712f",
+  "githubPullRequest": "https://github.com/HlinForest/dsh-plugins/pull/1"
+}

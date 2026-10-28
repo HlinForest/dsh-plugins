@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "compatibility": {
+    "accepted": true,
+    "sourceRun": "af479f70-09b4-4994-be54-573459e0c716",
+    "compatible": true
+  },
+  "assembly": {
+    "changes": [
+      {
+        "ref": "U1",
+        "beforeBits": 0,
+        "after": "smd",
+        "basis": "current evidence pad construction"
+      },
+      {
+        "ref": "DS1",
+        "beforeBits": 0,
+        "after": "through_hole",
+        "basis": "current evidence pad construction"
+      },
+      {
+        "ref": "D1",
+        "beforeBits": 0,
+        "after": "through_hole",
+        "basis": "current evidence pad construction"
+      },
+      {
+        "ref": "DISP",
+        "beforeBits": 0,
+        "after": "through_hole",
+        "basis": "current evidence pad construction"
+      }
+    ],
+    "geometryChanged": false,
+    "electricalChanged": false
+  },
+  "nativeIdentityPreserved": true
+}

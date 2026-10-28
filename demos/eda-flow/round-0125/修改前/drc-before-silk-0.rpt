@@ -1,0 +1,26 @@
+** Drc report for Circuit.kicad_pcb **
+** Created on 2026-10-26T08:59:04 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 2 DRC violations **
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(34.0000 mm, 21.2250 mm): Reference field of R15
+    @(33.9200 mm, 20.0000 mm): PTH pad 3 [/DIG1] of DS1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(39.0000 mm, 21.2250 mm): Reference field of R14
+    @(39.0000 mm, 20.0000 mm): PTH pad 1 [/DIG3] of DS1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

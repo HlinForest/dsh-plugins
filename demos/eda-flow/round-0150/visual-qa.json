@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-28T01:54:32.074Z",
+  "demo": "http://127.0.0.1:54394/Demo.html#assembly",
+  "installedUi": "http://127.0.0.1:64226/api/eda-flow/page?step=4",
+  "evidence": [
+    "Demo-装配导出修复.png",
+    "public/点选器件填写要求.png"
+  ],
+  "observed": "Demo 显示 23→24 贴片导出和未减少的参数差异；实际界面可点选 C1，展示 100nF、版本及空白要求框。没有提交参数。"
+}

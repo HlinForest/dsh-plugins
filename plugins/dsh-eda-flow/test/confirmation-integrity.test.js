@@ -5,6 +5,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { Flow } from '../src/service.js';
 import { tree, hash } from '../src/io.js';
+import { byteEvidence } from '../src/input-integrity.js';
+import { createLegacyProject } from './fixtures/legacy-project.js';
 
 // Reproduce the reported transition with an input file changing between the
 // persisted confirmation and its readback. No model, host profile or binary tool.
@@ -18,11 +20,34 @@ class ChangedAtConfirmation extends Flow {
   }
 }
 
+class HistoricalDiagnostics extends Flow {
+  async pythonInputReadings(project, files) {
+    return Promise.all(files.map(async file => ({
+      path: file.path,
+      ...byteEvidence(await fs.readFile(path.join(project.inputsBundle, file.path))),
+    })));
+  }
+}
+
+test('historical bundle opens and diagnosis reads the saved fixture manifest', async t => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-historical-diagnosis-'));
+  const flow = new HistoricalDiagnostics({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
+  t.after(async () => { await flow.close(); await fs.rm(root, { recursive: true, force: true }); });
+  const project = await createLegacyProject(flow, { label: 'Historical diagnosis fixture', caseId: 'display-board' });
+  const opened = await flow.open(project.id);
+  assert.equal(opened.bundleIssue, undefined);
+  assert(opened.inputCatalog.length > 70);
+  const report = await flow.diagnoseInputs({ projectId: project.id }, opened);
+  assert.equal(report.allValid, true);
+  assert.equal(report.code, null);
+  assert(report.files.length > 70);
+});
+
 test('a confirmation invalidated during readback must not report success and advance', async t => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-confirm-integrity-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new ChangedAtConfirmation({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await createLegacyProject(flow, { label: 'Historical confirmation readback', caseId: 'display-board' });
   await assert.rejects(flow.confirm({ projectId: project.id, stage: 1 }, 'human'), error => {
     assert.equal(error.code, 'integrity');
     assert.match(error.message, /result\.json/);
@@ -37,7 +62,7 @@ test('starting the next stage must return the invalid prerequisite before accept
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-confirm-start-'));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
   t.after(async () => { await flow.close(); await fs.rm(root, { recursive: true, force: true }); });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await createLegacyProject(flow, { label: 'Historical confirmation prerequisite', caseId: 'display-board' });
   await assert.rejects(flow.start({ projectId: project.id, stage: 2 }), /任务与约束/);
   assert.equal(flow.jobs.size, 0);
 });
@@ -61,7 +86,7 @@ test('unchanged file content keeps confirmation when only recorded size or listi
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-evidence-order-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await createLegacyProject(flow, { label: 'Historical confirmation ordering', caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const saved = await flow.load(project.id);
   saved.stages[0].files.reverse();
@@ -77,7 +102,7 @@ test('real default-input changes are still blocked and identify the file without
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-default-drift-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await createLegacyProject(flow, { label: 'Historical input drift', caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const filename = '01_task/requirements.json';
   await fs.appendFile(path.join(project.inputsBundle, filename), '\n');
@@ -95,10 +120,12 @@ test('default input content is stable across listing metadata and existing manif
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-default-manifest-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ caseId: 'display-board' });
+  const project = await createLegacyProject(flow, { label: 'Historical manifest migration', caseId: 'display-board' });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const saved = await flow.load(project.id);
-  delete saved.bundleFiles; await flow.save(saved);
+  // Older persisted projects have no metadata copy; the manifest inside the
+  // copied bundle is the only expected-content source available at open time.
+  delete saved.bundleFiles; delete saved.bundleManifest; await flow.save(saved);
   const migrated = await flow.open(project.id);
   assert(migrated.bundleFiles.length > 70);
   migrated.bundleFiles.reverse(); migrated.bundleFiles[0].bytes += 1024;
@@ -107,11 +134,26 @@ test('default input content is stable across listing metadata and existing manif
   assert.equal(await flow.structuredEligible(await flow.open(project.id)), true);
 });
 
+test('historical own manifest remains subject to integrity and protection checks', async t => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-own-manifest-'));
+  t.after(async () => { await fs.rm(root, { recursive: true, force: true }); });
+  const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
+  const project = await createLegacyProject(flow, { label: 'Historical own manifest integrity', caseId: 'display-board' });
+  const saved = await flow.load(project.id); delete saved.bundleManifest; await flow.save(saved);
+  const manifest = path.join(project.inputsBundle, 'manifest.json');
+  const original = await fs.readFile(manifest, 'utf8');
+  const altered = JSON.parse(original); altered.files['01_task/requirements.json'] = 'tampered';
+  await fs.writeFile(manifest, JSON.stringify(altered));
+  assert.equal((await flow.open(project.id)).bundleIssue.code, 'integrity');
+  await fs.writeFile(manifest, '%TSD-Header\\0manifest');
+  await assert.rejects(flow.open(project.id), error => error.code === 'encrypted');
+});
+
 test('edited integrity records cannot bypass the saved output digest', async t => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'eda-record-integrity-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const flow = new Flow({ workspaceRoot: root, workDirectory: root, allowModelCalls: false });
-  const project = await flow.create({ requirements: 'unused' });
+  const project = await createLegacyProject(flow, { label: 'Historical output record', inputs: { requirements: 'unused' } });
   await flow.update({ projectId: project.id, stage: 1, inputs: { requirements: 'display board' } });
   await flow.confirm({ projectId: project.id, stage: 1 }, 'human');
   const saved = await flow.load(project.id), stage = saved.stages[0];

@@ -1,0 +1,19 @@
+{
+  "nodeTests": {
+    "passed": 54,
+    "failed": 0
+  },
+  "nativeKiCadTests": {
+    "passed": 16,
+    "failed": 0
+  },
+  "scope": [
+    "评审版本与历史上下文",
+    "环境与确认流程",
+    "通用工艺与供电归属",
+    "唯一接收端滤波归属",
+    "真实填铜与焊盘完整覆盖清理",
+    "保留锁定、异网、异层及超出覆盖的走线"
+  ],
+  "notEquivalentToEngineerSignoff": true
+}

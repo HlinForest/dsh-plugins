@@ -1,0 +1,90 @@
+[
+  {
+    "attempt": 1,
+    "componentGapMm": 0.5,
+    "placementOptimization": "greedy",
+    "drc": {
+      "violations": 0,
+      "unconnected": 2,
+      "parity": 0,
+      "errors": 2,
+      "warnings": 0,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 388.262081,
+      "segments": 108,
+      "shortSegmentsUnder05mm": 5,
+      "degree2Bends": 67,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "selectedAsBest": true,
+    "completed": true
+  },
+  {
+    "attempt": 2,
+    "componentGapMm": 0.5,
+    "placementOptimization": "coupled-compaction",
+    "drc": {
+      "violations": 0,
+      "unconnected": 3,
+      "parity": 0,
+      "errors": 3,
+      "warnings": 0,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 425.206572,
+      "segments": 95,
+      "shortSegmentsUnder05mm": 2,
+      "degree2Bends": 52,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "selectedAsBest": false,
+    "completed": true
+  },
+  {
+    "attempt": 3,
+    "componentGapMm": 0.5,
+    "placementOptimization": "coupled-compaction",
+    "drc": {
+      "violations": 0,
+      "unconnected": 3,
+      "parity": 0,
+      "errors": 3,
+      "warnings": 0,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 417.683655,
+      "segments": 99,
+      "shortSegmentsUnder05mm": 4,
+      "degree2Bends": 66,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "selectedAsBest": false,
+    "completed": true
+  },
+  {
+    "attempt": 4,
+    "componentGapMm": 0.5,
+    "placementOptimization": "coupled-compaction",
+    "drc": {
+      "violations": 0,
+      "unconnected": 2,
+      "parity": 0,
+      "errors": 2,
+      "warnings": 0,
+      "passed": false
+    },
+    "routingQuality": {
+      "trackLengthMm": 392.764962,
+      "segments": 106,
+      "shortSegmentsUnder05mm": 11,
+      "degree2Bends": 69,
+      "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+    },
+    "selectedAsBest": false,
+    "completed": true
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "selected": {
+    "kind": "revalidated-generated-history",
+    "sourceRun": "bee2f109-24a6-4119-8549-f0c55bdeea66"
+  },
+  "candidates": [
+    {
+      "sourceRun": "bee2f109-24a6-4119-8549-f0c55bdeea66",
+      "adopted": true,
+      "compatible": true,
+      "drc": {
+        "violations": 0,
+        "unconnected": 0,
+        "parity": 0,
+        "errors": 0,
+        "warnings": 0,
+        "passed": true
+      },
+      "routingQuality": {
+        "trackLengthMm": 442.335515,
+        "segments": 110,
+        "shortSegmentsUnder05mm": 3,
+        "degree2Bends": 70,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    },
+    {
+      "sourceRun": "22657f11-179e-42bd-a4e0-ff6cdeaba7ef",
+      "adopted": true,
+      "compatible": true,
+      "drc": {
+        "violations": 0,
+        "unconnected": 0,
+        "parity": 0,
+        "errors": 0,
+        "warnings": 0,
+        "passed": true
+      },
+      "routingQuality": {
+        "trackLengthMm": 442.335515,
+        "segments": 110,
+        "shortSegmentsUnder05mm": 3,
+        "degree2Bends": 70,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    }
+  ]
+}

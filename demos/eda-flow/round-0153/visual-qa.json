@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "at": "2026-10-28T04:13:36.175Z",
+  "url": "http://127.0.0.1:49767/Demo.html#compare",
+  "screenshot": "Demo-正式前后比较.png",
+  "sameNativeBackLayerView": true,
+  "metricsMatchNativeResult": true,
+  "selectedCandidate": "ordinary layout + native local repair; bank candidate not adopted"
+}

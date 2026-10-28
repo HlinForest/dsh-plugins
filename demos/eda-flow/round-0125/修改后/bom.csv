@@ -1,0 +1,28 @@
+﻿Reference,Value,Footprint,MPN,DesignId,OriginalFootprint,MaterialCode,MaterialDescription,AssemblyType,ObjectRole,DNP,OnBoard
+U1,TM1616,,,fact-acb1ef47066f4a92-U1,WSOP16-1.27-3.8,R25070026,CMOS逻辑器件/TM1616/5V/-20~+70 degC/SOP-16/共阴极LED驱动控制专用电路,SMD,electrical,False,True
+D1,IRM-3638M3-X,,,fact-b0a33beccc463cf7-D1,LED3-2.54-6*5.6*6.95L/S,R25090022,接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80 degC,THT,electrical,False,True
+DISP,6Pin/2.5mm,,,fact-0ffa6529256614c4-DISP,THT-CON6-2.5-6.4L/S,R30072135,电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446,THT,electrical,False,True
+DS1,LED,,,fact-6a92ebe087d6003e-DS1,UV,,显示模块，两位七段数字与四个圆形指示标记；制造商/采购订货号未提供。,,electrical,False,True
+R1,330Ω,Resistor_SMD:R_0805_2012Metric,,R1,,,,,,False,True
+R2,330Ω,Resistor_SMD:R_0805_2012Metric,,R2,,,,,,False,True
+R3,330Ω,Resistor_SMD:R_0805_2012Metric,,R3,,,,,,False,True
+R4,330Ω,Resistor_SMD:R_0805_2012Metric,,R4,,,,,,False,True
+R5,330Ω,Resistor_SMD:R_0805_2012Metric,,R5,,,,,,False,True
+R6,330Ω,Resistor_SMD:R_0805_2012Metric,,R6,,,,,,False,True
+R7,330Ω,Resistor_SMD:R_0805_2012Metric,,R7,,,,,,False,True
+R8,100Ω,Resistor_SMD:R_0805_2012Metric,,R8,,,,,,False,True
+R9,10kΩ,Resistor_SMD:R_0805_2012Metric,,R9,,,,,,False,True
+R10,0Ω,Resistor_SMD:R_0805_2012Metric,,R10,,,,,,False,True
+R11,0Ω,Resistor_SMD:R_0805_2012Metric,,R11,,,,,,False,True
+R12,0Ω,Resistor_SMD:R_0805_2012Metric,,R12,,,,,,False,True
+R13,0Ω,Resistor_SMD:R_0805_2012Metric,,R13,,,,,,False,True
+R14,0Ω,Resistor_SMD:R_0805_2012Metric,,R14,,,,,,False,True
+R15,0Ω,Resistor_SMD:R_0805_2012Metric,,R15,,,,,,False,True
+R16,0Ω,Resistor_SMD:R_0805_2012Metric,,R16,,,,,,False,True
+R17,0Ω,Resistor_SMD:R_0805_2012Metric,,R17,,,,,,False,True
+C1,100nF,Capacitor_SMD:C_0805_2012Metric,,C1,,,,,,False,True
+C2,100pF,Capacitor_SMD:C_0805_2012Metric,,C2,,,,,,False,True
+C3,100pF,Capacitor_SMD:C_0805_2012Metric,,C3,,,,,,False,True
+C4,100pF,Capacitor_SMD:C_0805_2012Metric,,C4,,,,,,False,True
+C5,1µF,Capacitor_SMD:C_0805_2012Metric,,C5,,,,,,False,True
+C6,10µF,Capacitor_SMD:C_0805_2012Metric,,C6,,,,,,False,True

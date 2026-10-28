@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "comparisonImagesVisible": true,
+  "metricsVisible": true,
+  "previousConnectedToggleWorks": true,
+  "adUnresolvedClearlyVisible": true,
+  "screenshot": "Demo-前后比较.png",
+  "url": "http://127.0.0.1:53778/Demo.html#compare"
+}

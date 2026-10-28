@@ -1,0 +1,2149 @@
+{
+  "pluginVersion": "0.16.2-beta.4",
+  "projectId": "67325095-ea3a-4370-b3d2-ec3ed8739f61",
+  "reviewId": "bdc202fa-7d92-4296-9b78-7faceb120790",
+  "model": {
+    "provider": "deepseek-account",
+    "model": "deepseek-flash",
+    "reasoningEffort": "max"
+  },
+  "modelRequestsBefore": 505,
+  "modelRequestsAfter": 528,
+  "before": {
+    "components": 27,
+    "physicalPads": 94,
+    "tracks": 177,
+    "trackWidthsMm": {
+      "0.254": 177
+    },
+    "trackLengthMm": 545.613414,
+    "degree2Bends": 126,
+    "shortSegmentsUnder05mm": 32,
+    "trackLayers": {
+      "B.Cu": 177
+    },
+    "vias": 0,
+    "assembly": {
+      "THT/F.Cu": 3,
+      "SMD/B.Cu": 24
+    },
+    "zoneNets": {
+      "/GND": 1,
+      "/D1_VCC": 1,
+      "/+5V": 1
+    },
+    "zoneLayers": {
+      "B.Cu": 3
+    },
+    "distances": [
+      {
+        "ref": "C1",
+        "owner": "U1.4",
+        "distanceMm": 4.284276,
+        "limitMm": 5,
+        "withinLimit": true
+      },
+      {
+        "ref": "C5",
+        "owner": "D1.3",
+        "distanceMm": 3.096357,
+        "limitMm": 5,
+        "withinLimit": true
+      },
+      {
+        "ref": "C6",
+        "owner": "U1.4",
+        "distanceMm": 5.868906,
+        "limitMm": 10,
+        "withinLimit": true
+      }
+    ],
+    "netTrackLengthMm": {
+      "/+5V": 67.157946,
+      "/CLK": 10.344596,
+      "/CLK_DISP": 27.39816,
+      "/D1_VCC": 11.654493,
+      "/DIG1": 3.344833,
+      "/DIG2": 3.187432,
+      "/DIG3": 3.37797,
+      "/DIN": 7.979591,
+      "/DIN_DISP": 34.721778,
+      "/GND": 137.842111,
+      "/GRID1": 4.412345,
+      "/GRID2": 5.570072,
+      "/GRID3": 11.346396,
+      "/IRM_OUT": 8.730584,
+      "/LED_A": 3.311696,
+      "/LED_B": 3.535371,
+      "/LED_C": 5.82279,
+      "/LED_D": 6.529909,
+      "/LED_E": 21.367166,
+      "/LED_F": 19.716746,
+      "/LED_G": 9.427542,
+      "/RCV": 5.854754,
+      "/SEG1": 9.285815,
+      "/SEG2": 7.842574,
+      "/SEG3": 6.890567,
+      "/SEG4": 24.529761,
+      "/SEG5": 4.914869,
+      "/SEG6": 5.010883,
+      "/SEG7": 11.029854,
+      "/SGND": 15.080795,
+      "/STB": 25.994777,
+      "/STB_DISP": 22.399237
+    },
+    "connectivity": {
+      "method": "native copper adjacency traversed from each pad over actual connected tracks and pads; filled-zone nets separately checked by native DRC",
+      "checkedSignalNets": 29,
+      "allSignalNetsConnected": true,
+      "nets": [
+        {
+          "net": "/CLK",
+          "expectedPads": [
+            "C3.1",
+            "R11.2",
+            "U1.2"
+          ],
+          "branches": [
+            [
+              "C3.1",
+              "R11.2",
+              "U1.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/CLK_DISP",
+          "expectedPads": [
+            "DISP.5",
+            "R11.1"
+          ],
+          "branches": [
+            [
+              "DISP.5",
+              "R11.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG1",
+          "expectedPads": [
+            "DS1.3",
+            "R15.2"
+          ],
+          "branches": [
+            [
+              "DS1.3",
+              "R15.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG2",
+          "expectedPads": [
+            "DS1.2",
+            "R16.2"
+          ],
+          "branches": [
+            [
+              "DS1.2",
+              "R16.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG3",
+          "expectedPads": [
+            "DS1.1",
+            "R14.2"
+          ],
+          "branches": [
+            [
+              "DS1.1",
+              "R14.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIN",
+          "expectedPads": [
+            "C2.1",
+            "R10.2",
+            "U1.1"
+          ],
+          "branches": [
+            [
+              "C2.1",
+              "R10.2",
+              "U1.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIN_DISP",
+          "expectedPads": [
+            "DISP.6",
+            "R10.1"
+          ],
+          "branches": [
+            [
+              "DISP.6",
+              "R10.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID1",
+          "expectedPads": [
+            "R14.1",
+            "U1.16"
+          ],
+          "branches": [
+            [
+              "R14.1",
+              "U1.16"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID2",
+          "expectedPads": [
+            "R15.1",
+            "U1.15"
+          ],
+          "branches": [
+            [
+              "R15.1",
+              "U1.15"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID3",
+          "expectedPads": [
+            "R16.1",
+            "U1.13"
+          ],
+          "branches": [
+            [
+              "R16.1",
+              "U1.13"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/IRM_OUT",
+          "expectedPads": [
+            "D1.1",
+            "R13.1",
+            "R9.2"
+          ],
+          "branches": [
+            [
+              "D1.1",
+              "R13.1",
+              "R9.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_A",
+          "expectedPads": [
+            "DS1.5",
+            "R6.2"
+          ],
+          "branches": [
+            [
+              "DS1.5",
+              "R6.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_B",
+          "expectedPads": [
+            "DS1.4",
+            "R7.2"
+          ],
+          "branches": [
+            [
+              "DS1.4",
+              "R7.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_C",
+          "expectedPads": [
+            "DS1.8",
+            "R1.2"
+          ],
+          "branches": [
+            [
+              "DS1.8",
+              "R1.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_D",
+          "expectedPads": [
+            "DS1.10",
+            "R4.2"
+          ],
+          "branches": [
+            [
+              "DS1.10",
+              "R4.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_E",
+          "expectedPads": [
+            "DS1.9",
+            "R2.2"
+          ],
+          "branches": [
+            [
+              "DS1.9",
+              "R2.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_F",
+          "expectedPads": [
+            "DS1.6",
+            "R5.2"
+          ],
+          "branches": [
+            [
+              "DS1.6",
+              "R5.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_G",
+          "expectedPads": [
+            "DS1.7",
+            "R3.2"
+          ],
+          "branches": [
+            [
+              "DS1.7",
+              "R3.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/RCV",
+          "expectedPads": [
+            "DISP.1",
+            "R13.2"
+          ],
+          "branches": [
+            [
+              "DISP.1",
+              "R13.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG1",
+          "expectedPads": [
+            "R1.1",
+            "U1.5"
+          ],
+          "branches": [
+            [
+              "R1.1",
+              "U1.5"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG2",
+          "expectedPads": [
+            "R2.1",
+            "U1.6"
+          ],
+          "branches": [
+            [
+              "R2.1",
+              "U1.6"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG3",
+          "expectedPads": [
+            "R3.1",
+            "U1.7"
+          ],
+          "branches": [
+            [
+              "R3.1",
+              "U1.7"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG4",
+          "expectedPads": [
+            "R4.1",
+            "U1.8"
+          ],
+          "branches": [
+            [
+              "R4.1",
+              "U1.8"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG5",
+          "expectedPads": [
+            "R5.1",
+            "U1.9"
+          ],
+          "branches": [
+            [
+              "R5.1",
+              "U1.9"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG6",
+          "expectedPads": [
+            "R6.1",
+            "U1.10"
+          ],
+          "branches": [
+            [
+              "R6.1",
+              "U1.10"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG7",
+          "expectedPads": [
+            "R7.1",
+            "U1.11"
+          ],
+          "branches": [
+            [
+              "R7.1",
+              "U1.11"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SGND",
+          "expectedPads": [
+            "DISP.2",
+            "R17.1"
+          ],
+          "branches": [
+            [
+              "DISP.2",
+              "R17.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/STB",
+          "expectedPads": [
+            "C4.1",
+            "R12.2",
+            "U1.3"
+          ],
+          "branches": [
+            [
+              "C4.1",
+              "R12.2",
+              "U1.3"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/STB_DISP",
+          "expectedPads": [
+            "DISP.4",
+            "R12.1"
+          ],
+          "branches": [
+            [
+              "DISP.4",
+              "R12.1"
+            ]
+          ],
+          "connected": true
+        }
+      ],
+      "stb": {
+        "net": "/STB",
+        "expectedPads": [
+          "C4.1",
+          "R12.2",
+          "U1.3"
+        ],
+        "branches": [
+          [
+            "C4.1",
+            "R12.2",
+            "U1.3"
+          ]
+        ],
+        "connected": true
+      }
+    },
+    "clearanceMm": 0.254,
+    "boardSha256": "8b7e6247f691daece08bf266fa1c111edb27df43a652b451046d91a6cd740863"
+  },
+  "previousFailed": {
+    "components": 27,
+    "physicalPads": 94,
+    "tracks": 189,
+    "trackWidthsMm": {
+      "0.3": 189
+    },
+    "trackLengthMm": 598.667929,
+    "degree2Bends": 133,
+    "shortSegmentsUnder05mm": 34,
+    "trackLayers": {
+      "B.Cu": 189
+    },
+    "vias": 0,
+    "assembly": {
+      "THT/F.Cu": 3,
+      "SMD/B.Cu": 24
+    },
+    "zoneNets": {
+      "/+5V": 1,
+      "/D1_VCC": 1,
+      "/GND": 1
+    },
+    "zoneLayers": {
+      "B.Cu": 3
+    },
+    "distances": [
+      {
+        "ref": "C1",
+        "owner": "U1.4",
+        "distanceMm": 4.284276,
+        "limitMm": 5,
+        "withinLimit": true
+      },
+      {
+        "ref": "C5",
+        "owner": "D1.3",
+        "distanceMm": 3.096357,
+        "limitMm": 5,
+        "withinLimit": true
+      },
+      {
+        "ref": "C6",
+        "owner": "U1.4",
+        "distanceMm": 5.868906,
+        "limitMm": 10,
+        "withinLimit": true
+      }
+    ],
+    "netTrackLengthMm": {
+      "/+5V": 75.113009,
+      "/CLK": 14.796256,
+      "/CLK_DISP": 23.39816,
+      "/D1_VCC": 15.14633,
+      "/DIG1": 3.069381,
+      "/DIG2": 5.790141,
+      "/DIG3": 3.036244,
+      "/DIN": 18.101373,
+      "/DIN_DISP": 30.989797,
+      "/GND": 148.271793,
+      "/GRID1": 6.364516,
+      "/GRID2": 11.155858,
+      "/GRID3": 7.709445,
+      "/IRM_OUT": 13.71547,
+      "/LED_A": 3.849653,
+      "/LED_B": 3.193645,
+      "/LED_C": 12.233493,
+      "/LED_D": 3.390457,
+      "/LED_E": 3.286782,
+      "/LED_F": 20.283638,
+      "/LED_G": 3.184901,
+      "/RCV": 8.823643,
+      "/SEG1": 8.530033,
+      "/SEG2": 30.738389,
+      "/SEG3": 18.867335,
+      "/SEG4": 27.664254,
+      "/SEG5": 3.914869,
+      "/SEG6": 6.178067,
+      "/SEG7": 13.255341,
+      "/SGND": 15.700561,
+      "/STB": 22.724042,
+      "/STB_DISP": 16.191053
+    },
+    "connectivity": {
+      "method": "native copper adjacency traversed from each pad over actual connected tracks and pads; filled-zone nets separately checked by native DRC",
+      "checkedSignalNets": 29,
+      "allSignalNetsConnected": false,
+      "nets": [
+        {
+          "net": "/CLK",
+          "expectedPads": [
+            "C3.1",
+            "R11.2",
+            "U1.2"
+          ],
+          "branches": [
+            [
+              "C3.1",
+              "R11.2",
+              "U1.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/CLK_DISP",
+          "expectedPads": [
+            "DISP.5",
+            "R11.1"
+          ],
+          "branches": [
+            [
+              "DISP.5",
+              "R11.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG1",
+          "expectedPads": [
+            "DS1.3",
+            "R15.2"
+          ],
+          "branches": [
+            [
+              "DS1.3",
+              "R15.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG2",
+          "expectedPads": [
+            "DS1.2",
+            "R16.2"
+          ],
+          "branches": [
+            [
+              "DS1.2",
+              "R16.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG3",
+          "expectedPads": [
+            "DS1.1",
+            "R14.2"
+          ],
+          "branches": [
+            [
+              "DS1.1",
+              "R14.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIN",
+          "expectedPads": [
+            "C2.1",
+            "R10.2",
+            "U1.1"
+          ],
+          "branches": [
+            [
+              "C2.1",
+              "R10.2",
+              "U1.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIN_DISP",
+          "expectedPads": [
+            "DISP.6",
+            "R10.1"
+          ],
+          "branches": [
+            [
+              "DISP.6",
+              "R10.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID1",
+          "expectedPads": [
+            "R14.1",
+            "U1.16"
+          ],
+          "branches": [
+            [
+              "R14.1",
+              "U1.16"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID2",
+          "expectedPads": [
+            "R15.1",
+            "U1.15"
+          ],
+          "branches": [
+            [
+              "R15.1",
+              "U1.15"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID3",
+          "expectedPads": [
+            "R16.1",
+            "U1.13"
+          ],
+          "branches": [
+            [
+              "R16.1",
+              "U1.13"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/IRM_OUT",
+          "expectedPads": [
+            "D1.1",
+            "R13.1",
+            "R9.2"
+          ],
+          "branches": [
+            [
+              "D1.1",
+              "R13.1",
+              "R9.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_A",
+          "expectedPads": [
+            "DS1.5",
+            "R6.2"
+          ],
+          "branches": [
+            [
+              "DS1.5",
+              "R6.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_B",
+          "expectedPads": [
+            "DS1.4",
+            "R7.2"
+          ],
+          "branches": [
+            [
+              "DS1.4",
+              "R7.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_C",
+          "expectedPads": [
+            "DS1.8",
+            "R1.2"
+          ],
+          "branches": [
+            [
+              "DS1.8",
+              "R1.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_D",
+          "expectedPads": [
+            "DS1.10",
+            "R4.2"
+          ],
+          "branches": [
+            [
+              "DS1.10",
+              "R4.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_E",
+          "expectedPads": [
+            "DS1.9",
+            "R2.2"
+          ],
+          "branches": [
+            [
+              "DS1.9",
+              "R2.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_F",
+          "expectedPads": [
+            "DS1.6",
+            "R5.2"
+          ],
+          "branches": [
+            [
+              "DS1.6",
+              "R5.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_G",
+          "expectedPads": [
+            "DS1.7",
+            "R3.2"
+          ],
+          "branches": [
+            [
+              "DS1.7",
+              "R3.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/RCV",
+          "expectedPads": [
+            "DISP.1",
+            "R13.2"
+          ],
+          "branches": [
+            [
+              "DISP.1",
+              "R13.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG1",
+          "expectedPads": [
+            "R1.1",
+            "U1.5"
+          ],
+          "branches": [
+            [
+              "R1.1",
+              "U1.5"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG2",
+          "expectedPads": [
+            "R2.1",
+            "U1.6"
+          ],
+          "branches": [
+            [
+              "R2.1",
+              "U1.6"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG3",
+          "expectedPads": [
+            "R3.1",
+            "U1.7"
+          ],
+          "branches": [
+            [
+              "R3.1",
+              "U1.7"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG4",
+          "expectedPads": [
+            "R4.1",
+            "U1.8"
+          ],
+          "branches": [
+            [
+              "R4.1",
+              "U1.8"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG5",
+          "expectedPads": [
+            "R5.1",
+            "U1.9"
+          ],
+          "branches": [
+            [
+              "R5.1",
+              "U1.9"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG6",
+          "expectedPads": [
+            "R6.1",
+            "U1.10"
+          ],
+          "branches": [
+            [
+              "R6.1",
+              "U1.10"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG7",
+          "expectedPads": [
+            "R7.1",
+            "U1.11"
+          ],
+          "branches": [
+            [
+              "R7.1",
+              "U1.11"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SGND",
+          "expectedPads": [
+            "DISP.2",
+            "R17.1"
+          ],
+          "branches": [
+            [
+              "DISP.2",
+              "R17.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/STB",
+          "expectedPads": [
+            "C4.1",
+            "R12.2",
+            "U1.3"
+          ],
+          "branches": [
+            [
+              "C4.1"
+            ],
+            [
+              "R12.2",
+              "U1.3"
+            ]
+          ],
+          "connected": false
+        },
+        {
+          "net": "/STB_DISP",
+          "expectedPads": [
+            "DISP.4",
+            "R12.1"
+          ],
+          "branches": [
+            [
+              "DISP.4",
+              "R12.1"
+            ]
+          ],
+          "connected": true
+        }
+      ],
+      "stb": {
+        "net": "/STB",
+        "expectedPads": [
+          "C4.1",
+          "R12.2",
+          "U1.3"
+        ],
+        "branches": [
+          [
+            "C4.1"
+          ],
+          [
+            "R12.2",
+            "U1.3"
+          ]
+        ],
+        "connected": false
+      }
+    },
+    "clearanceMm": 0.254,
+    "boardSha256": "134e2876b11807d68f5bee8aefff075497932711087964056f756e56fec6604f"
+  },
+  "after": {
+    "components": 27,
+    "physicalPads": 94,
+    "tracks": 151,
+    "trackWidthsMm": {
+      "0.3": 151
+    },
+    "trackLengthMm": 538.908369,
+    "degree2Bends": 101,
+    "shortSegmentsUnder05mm": 5,
+    "trackLayers": {
+      "B.Cu": 151
+    },
+    "vias": 0,
+    "assembly": {
+      "THT/F.Cu": 3,
+      "SMD/B.Cu": 24
+    },
+    "zoneNets": {
+      "/+5V": 1,
+      "/GND": 1,
+      "/D1_VCC": 1
+    },
+    "zoneLayers": {
+      "B.Cu": 3
+    },
+    "distances": [
+      {
+        "ref": "C1",
+        "owner": "U1.4",
+        "distanceMm": 4.284276,
+        "limitMm": 5,
+        "withinLimit": true
+      },
+      {
+        "ref": "C5",
+        "owner": "D1.3",
+        "distanceMm": 3.096357,
+        "limitMm": 5,
+        "withinLimit": true
+      },
+      {
+        "ref": "C6",
+        "owner": "U1.4",
+        "distanceMm": 5.868906,
+        "limitMm": 10,
+        "withinLimit": true
+      }
+    ],
+    "netTrackLengthMm": {
+      "/+5V": 44.8171,
+      "/CLK": 13.800265,
+      "/CLK_DISP": 42.705694,
+      "/DIG1": 16.746964,
+      "/DIG2": 3.187432,
+      "/DIG3": 2.9125,
+      "/DIN": 31.107645,
+      "/DIN_DISP": 15.5099,
+      "/GND": 92.552435,
+      "/GRID1": 4.826558,
+      "/GRID2": 5.155858,
+      "/GRID3": 11.150935,
+      "/IRM_OUT": 7.972511,
+      "/LED_A": 2.7525,
+      "/LED_B": 3.535371,
+      "/LED_C": 3.9475,
+      "/LED_D": 5.8525,
+      "/LED_E": 3.700995,
+      "/LED_F": 18.789653,
+      "/LED_G": 5.599115,
+      "/RCV": 8.597913,
+      "/SEG1": 34.115938,
+      "/SEG2": 33.431963,
+      "/SEG3": 12.758248,
+      "/SEG4": 15.364345,
+      "/SEG5": 3.914869,
+      "/SEG6": 4.59667,
+      "/SEG7": 10.708508,
+      "/SGND": 25.126125,
+      "/STB": 23.790278,
+      "/STB_DISP": 29.88008
+    },
+    "connectivity": {
+      "method": "native copper adjacency traversed from each pad over actual connected tracks and pads; filled-zone nets separately checked by native DRC",
+      "checkedSignalNets": 29,
+      "allSignalNetsConnected": true,
+      "nets": [
+        {
+          "net": "/CLK",
+          "expectedPads": [
+            "C3.1",
+            "R11.2",
+            "U1.2"
+          ],
+          "branches": [
+            [
+              "C3.1",
+              "R11.2",
+              "U1.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/CLK_DISP",
+          "expectedPads": [
+            "DISP.5",
+            "R11.1"
+          ],
+          "branches": [
+            [
+              "DISP.5",
+              "R11.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG1",
+          "expectedPads": [
+            "DS1.3",
+            "R15.2"
+          ],
+          "branches": [
+            [
+              "DS1.3",
+              "R15.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG2",
+          "expectedPads": [
+            "DS1.2",
+            "R16.2"
+          ],
+          "branches": [
+            [
+              "DS1.2",
+              "R16.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIG3",
+          "expectedPads": [
+            "DS1.1",
+            "R14.2"
+          ],
+          "branches": [
+            [
+              "DS1.1",
+              "R14.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIN",
+          "expectedPads": [
+            "C2.1",
+            "R10.2",
+            "U1.1"
+          ],
+          "branches": [
+            [
+              "C2.1",
+              "R10.2",
+              "U1.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/DIN_DISP",
+          "expectedPads": [
+            "DISP.6",
+            "R10.1"
+          ],
+          "branches": [
+            [
+              "DISP.6",
+              "R10.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID1",
+          "expectedPads": [
+            "R14.1",
+            "U1.16"
+          ],
+          "branches": [
+            [
+              "R14.1",
+              "U1.16"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID2",
+          "expectedPads": [
+            "R15.1",
+            "U1.15"
+          ],
+          "branches": [
+            [
+              "R15.1",
+              "U1.15"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/GRID3",
+          "expectedPads": [
+            "R16.1",
+            "U1.13"
+          ],
+          "branches": [
+            [
+              "R16.1",
+              "U1.13"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/IRM_OUT",
+          "expectedPads": [
+            "D1.1",
+            "R13.1",
+            "R9.2"
+          ],
+          "branches": [
+            [
+              "D1.1",
+              "R13.1",
+              "R9.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_A",
+          "expectedPads": [
+            "DS1.5",
+            "R6.2"
+          ],
+          "branches": [
+            [
+              "DS1.5",
+              "R6.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_B",
+          "expectedPads": [
+            "DS1.4",
+            "R7.2"
+          ],
+          "branches": [
+            [
+              "DS1.4",
+              "R7.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_C",
+          "expectedPads": [
+            "DS1.8",
+            "R1.2"
+          ],
+          "branches": [
+            [
+              "DS1.8",
+              "R1.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_D",
+          "expectedPads": [
+            "DS1.10",
+            "R4.2"
+          ],
+          "branches": [
+            [
+              "DS1.10",
+              "R4.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_E",
+          "expectedPads": [
+            "DS1.9",
+            "R2.2"
+          ],
+          "branches": [
+            [
+              "DS1.9",
+              "R2.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_F",
+          "expectedPads": [
+            "DS1.6",
+            "R5.2"
+          ],
+          "branches": [
+            [
+              "DS1.6",
+              "R5.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/LED_G",
+          "expectedPads": [
+            "DS1.7",
+            "R3.2"
+          ],
+          "branches": [
+            [
+              "DS1.7",
+              "R3.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/RCV",
+          "expectedPads": [
+            "DISP.1",
+            "R13.2"
+          ],
+          "branches": [
+            [
+              "DISP.1",
+              "R13.2"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG1",
+          "expectedPads": [
+            "R1.1",
+            "U1.5"
+          ],
+          "branches": [
+            [
+              "R1.1",
+              "U1.5"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG2",
+          "expectedPads": [
+            "R2.1",
+            "U1.6"
+          ],
+          "branches": [
+            [
+              "R2.1",
+              "U1.6"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG3",
+          "expectedPads": [
+            "R3.1",
+            "U1.7"
+          ],
+          "branches": [
+            [
+              "R3.1",
+              "U1.7"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG4",
+          "expectedPads": [
+            "R4.1",
+            "U1.8"
+          ],
+          "branches": [
+            [
+              "R4.1",
+              "U1.8"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG5",
+          "expectedPads": [
+            "R5.1",
+            "U1.9"
+          ],
+          "branches": [
+            [
+              "R5.1",
+              "U1.9"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG6",
+          "expectedPads": [
+            "R6.1",
+            "U1.10"
+          ],
+          "branches": [
+            [
+              "R6.1",
+              "U1.10"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SEG7",
+          "expectedPads": [
+            "R7.1",
+            "U1.11"
+          ],
+          "branches": [
+            [
+              "R7.1",
+              "U1.11"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/SGND",
+          "expectedPads": [
+            "DISP.2",
+            "R17.1"
+          ],
+          "branches": [
+            [
+              "DISP.2",
+              "R17.1"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/STB",
+          "expectedPads": [
+            "C4.1",
+            "R12.2",
+            "U1.3"
+          ],
+          "branches": [
+            [
+              "C4.1",
+              "R12.2",
+              "U1.3"
+            ]
+          ],
+          "connected": true
+        },
+        {
+          "net": "/STB_DISP",
+          "expectedPads": [
+            "DISP.4",
+            "R12.1"
+          ],
+          "branches": [
+            [
+              "DISP.4",
+              "R12.1"
+            ]
+          ],
+          "connected": true
+        }
+      ],
+      "stb": {
+        "net": "/STB",
+        "expectedPads": [
+          "C4.1",
+          "R12.2",
+          "U1.3"
+        ],
+        "branches": [
+          [
+            "C4.1",
+            "R12.2",
+            "U1.3"
+          ]
+        ],
+        "connected": true
+      }
+    },
+    "clearanceMm": 0.254,
+    "boardSha256": "8554217b4b29b8bf1261673e17da5cb8b6858008550d0eaaea7e4432866e3748"
+  },
+  "copperRouteCleanup": {
+    "method": "complete copper coverage by actual filled zones or physical pads; same net and layer",
+    "removedSegments": 66,
+    "removedLengthMm": 110.011549,
+    "restoredSegments": 0,
+    "filledZones": {
+      "method": "whole trace copper contained in same-net same-layer filled polygons, revalidated after refill",
+      "removedSegments": 37,
+      "removedLengthMm": 101.259872,
+      "restoredSegments": 0,
+      "removed": [
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 0.282136
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 0.6615
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 0.6378
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 3.6378
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 1.855731
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 4.4654
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 1.1349
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 0.002121
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 0.0008
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 1.124865
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 0.5393
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 2.107602
+        },
+        {
+          "net": "/GND",
+          "layer": "B.Cu",
+          "lengthMm": 33.9558
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 2.5062
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 0.766928
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 0.0008
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 0.002121
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 1.652509
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 9.2097
+        },
+        {
+          "net": "/D1_VCC",
+          "layer": "B.Cu",
+          "lengthMm": 1.005223
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 1.633275
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 1.5301
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 4.0638
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 0.289772
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 0.1601
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 0.0026
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 0.001838
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 4.8401
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 4.237125
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 0.22981
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 10.228
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 0.2364
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 1.356796
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 1.0747
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 1.4082
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 1.4353
+        },
+        {
+          "net": "/+5V",
+          "layer": "B.Cu",
+          "lengthMm": 2.982718
+        }
+      ],
+      "copperCoveragePreserved": true,
+      "nativeDrcRequired": true
+    },
+    "physicalPads": {
+      "method": "whole trace copper contained in same-net same-layer physical pad copper",
+      "removedSegments": 29,
+      "removedLengthMm": 8.751677,
+      "removed": [
+        {
+          "net": "/STB_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.001838
+        },
+        {
+          "net": "/STB_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.0026
+        },
+        {
+          "net": "/STB",
+          "layer": "B.Cu",
+          "lengthMm": 0.655
+        },
+        {
+          "net": "/SGND",
+          "layer": "B.Cu",
+          "lengthMm": 0.001838
+        },
+        {
+          "net": "/SGND",
+          "layer": "B.Cu",
+          "lengthMm": 0.0026
+        },
+        {
+          "net": "/SEG3",
+          "layer": "B.Cu",
+          "lengthMm": 0.6866
+        },
+        {
+          "net": "/SEG2",
+          "layer": "B.Cu",
+          "lengthMm": 0.9428
+        },
+        {
+          "net": "/SEG1",
+          "layer": "B.Cu",
+          "lengthMm": 0.6641
+        },
+        {
+          "net": "/RCV",
+          "layer": "B.Cu",
+          "lengthMm": 0.0026
+        },
+        {
+          "net": "/RCV",
+          "layer": "B.Cu",
+          "lengthMm": 0.001838
+        },
+        {
+          "net": "/RCV",
+          "layer": "B.Cu",
+          "lengthMm": 0.1995
+        },
+        {
+          "net": "/LED_D",
+          "layer": "B.Cu",
+          "lengthMm": 0.123744
+        },
+        {
+          "net": "/LED_C",
+          "layer": "B.Cu",
+          "lengthMm": 0.113137
+        },
+        {
+          "net": "/LED_A",
+          "layer": "B.Cu",
+          "lengthMm": 0.350018
+        },
+        {
+          "net": "/IRM_OUT",
+          "layer": "B.Cu",
+          "lengthMm": 0.002121
+        },
+        {
+          "net": "/IRM_OUT",
+          "layer": "B.Cu",
+          "lengthMm": 0.0008
+        },
+        {
+          "net": "/IRM_OUT",
+          "layer": "B.Cu",
+          "lengthMm": 0.5451
+        },
+        {
+          "net": "/IRM_OUT",
+          "layer": "B.Cu",
+          "lengthMm": 0.45071
+        },
+        {
+          "net": "/GRID3",
+          "layer": "B.Cu",
+          "lengthMm": 0.9811
+        },
+        {
+          "net": "/GRID3",
+          "layer": "B.Cu",
+          "lengthMm": 0.070852
+        },
+        {
+          "net": "/DIN_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.475459
+        },
+        {
+          "net": "/DIN_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.001838
+        },
+        {
+          "net": "/DIN_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.0026
+        },
+        {
+          "net": "/DIN",
+          "layer": "B.Cu",
+          "lengthMm": 0.9076
+        },
+        {
+          "net": "/DIG3",
+          "layer": "B.Cu",
+          "lengthMm": 0.123744
+        },
+        {
+          "net": "/CLK_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.001838
+        },
+        {
+          "net": "/CLK_DISP",
+          "layer": "B.Cu",
+          "lengthMm": 0.0026
+        },
+        {
+          "net": "/CLK",
+          "layer": "B.Cu",
+          "lengthMm": 0.7111
+        },
+        {
+          "net": "/CLK",
+          "layer": "B.Cu",
+          "lengthMm": 0.726
+        }
+      ],
+      "copperCoveragePreserved": true,
+      "nativeDrcRequired": true
+    },
+    "copperCoveragePreserved": true,
+    "nativeDrcRequired": true
+  },
+  "rawTrackLengthBeforeCleanupMm": 648.919918,
+  "layoutAttempts": [
+    {
+      "attempt": 1,
+      "componentGapMm": 0.5,
+      "routingFeedback": {
+        "nets": []
+      },
+      "drc": {
+        "violations": 0,
+        "unconnected": 1,
+        "parity": 0,
+        "errors": 1,
+        "warnings": 0,
+        "passed": false
+      },
+      "routingQuality": {
+        "trackLengthMm": 461.773117,
+        "segments": 134,
+        "shortSegmentsUnder05mm": 9,
+        "degree2Bends": 85,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    },
+    {
+      "attempt": 2,
+      "componentGapMm": 0.5,
+      "routingFeedback": {
+        "nets": [
+          "/STB"
+        ]
+      },
+      "drc": {
+        "violations": 0,
+        "unconnected": 2,
+        "parity": 0,
+        "errors": 2,
+        "warnings": 0,
+        "passed": false
+      },
+      "routingQuality": {
+        "trackLengthMm": 446.412502,
+        "segments": 116,
+        "shortSegmentsUnder05mm": 6,
+        "degree2Bends": 72,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    },
+    {
+      "attempt": 3,
+      "componentGapMm": 0.5,
+      "routingFeedback": {
+        "nets": [
+          "/CLK",
+          "/SEG1",
+          "/STB"
+        ]
+      },
+      "drc": {
+        "violations": 0,
+        "unconnected": 1,
+        "parity": 0,
+        "errors": 1,
+        "warnings": 0,
+        "passed": false
+      },
+      "routingQuality": {
+        "trackLengthMm": 492.304292,
+        "segments": 130,
+        "shortSegmentsUnder05mm": 5,
+        "degree2Bends": 84,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    },
+    {
+      "attempt": 4,
+      "componentGapMm": 0.5,
+      "routingFeedback": {
+        "nets": [
+          "/+5V",
+          "/CLK",
+          "/SEG1",
+          "/STB"
+        ]
+      },
+      "drc": {
+        "violations": 0,
+        "unconnected": 0,
+        "parity": 0,
+        "errors": 0,
+        "warnings": 0,
+        "passed": true
+      },
+      "routingQuality": {
+        "trackLengthMm": 538.908369,
+        "segments": 151,
+        "shortSegmentsUnder05mm": 5,
+        "degree2Bends": 101,
+        "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+      }
+    }
+  ],
+  "checks": {
+    "actualSignalCopperConnected": true,
+    "stbSingleConnectedBranch": true,
+    "widthApplied": true,
+    "componentValuesAndFootprintsUnchanged": true,
+    "allPhysicalPadNetsUnchanged": true,
+    "netlistAndNcUnchanged": true,
+    "schematicUnchanged": true,
+    "measuredFootprintGeometryUnchanged": true,
+    "clearanceMaintained": true,
+    "onlyBottomTracks": true,
+    "noVias": true,
+    "assemblyUnchanged": true,
+    "existingJumpersPreserved": true,
+    "supplyCopperDomainsPreserved": true,
+    "decouplingAndStorageTargetsMet": true,
+    "drcClean": true,
+    "noFixedCoordinatesInPlan": true,
+    "noFixedCoordinatesInPlacement": true,
+    "trackLengthWithinOriginal": true,
+    "shortSegmentsWithinOriginal": true,
+    "bendsWithinOriginal": true,
+    "originalBoardUnchanged": true
+  },
+  "allChecksPassed": true,
+  "drcBefore": {
+    "violations": 0,
+    "unconnected": 0,
+    "parity": 0,
+    "errors": 0,
+    "warnings": 0,
+    "passed": true
+  },
+  "drcAfter": {
+    "violations": 0,
+    "unconnected": 0,
+    "parity": 0,
+    "errors": 0,
+    "warnings": 0,
+    "passed": true
+  },
+  "trackLengthDeltaMm": -6.705045,
+  "trackLengthDeltaPercent": -1.229,
+  "positionsChanged": 17,
+  "reviewStatus": "resolved",
+  "attempts": 1,
+  "modelEvents": [
+    {
+      "event": "request",
+      "provider": "deepseek-account",
+      "model": "deepseek-flash"
+    },
+    {
+      "event": "response"
+    },
+    {
+      "event": "request",
+      "provider": "deepseek-account",
+      "model": "deepseek-flash"
+    },
+    {
+      "event": "response"
+    },
+    {
+      "event": "request",
+      "provider": "deepseek-account",
+      "model": "deepseek-flash"
+    },
+    {
+      "event": "response"
+    },
+    {
+      "event": "request",
+      "provider": "deepseek-account",
+      "model": "deepseek-flash"
+    },
+    {
+      "event": "response"
+    },
+    {
+      "event": "request",
+      "provider": "deepseek-account",
+      "model": "deepseek-flash"
+    },
+    {
+      "event": "response"
+    },
+    {
+      "event": "request",
+      "provider": "deepseek-account",
+      "model": "deepseek-flash"
+    },
+    {
+      "event": "response"
+    }
+  ],
+  "adEquivalent": false,
+  "productionApproved": false,
+  "githubUploadedAtAudit": false,
+  "publicationStateScope": "audit snapshot before publication; later upload receipt is recorded separately",
+  "deliveryAccepted": true,
+  "latestReviewStatus": "resolved",
+  "metricNotes": [
+    "供电距离为同网电源焊盘中心直线距离，不是实际回路长度或电感。",
+    "二度连接拐点及短段计数不是无意义折线的自动判定；需要看图。"
+  ]
+}

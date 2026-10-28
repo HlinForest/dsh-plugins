@@ -1,0 +1,37 @@
+{
+  "changes": [
+    {
+      "ref": "U1",
+      "beforeBits": 0,
+      "after": "smd",
+      "basis": "current evidence pad construction"
+    },
+    {
+      "ref": "DS1",
+      "beforeBits": 0,
+      "after": "through_hole",
+      "basis": "current evidence pad construction"
+    },
+    {
+      "ref": "D1",
+      "beforeBits": 0,
+      "after": "through_hole",
+      "basis": "current evidence pad construction"
+    },
+    {
+      "ref": "DISP",
+      "beforeBits": 0,
+      "after": "through_hole",
+      "basis": "current evidence pad construction"
+    }
+  ],
+  "onlyAssemblyTypeChanged": true,
+  "beforeSha256": "d86e2dbf95bdf3c24376b79275c12c13672186238253f803eebbc4c6258c8dfa",
+  "afterSha256": "9b0072ee4275d4a36488fc3e765c47dc0ae5a1b9d3bd0bd410c3858c97f0fa08",
+  "geometryChanged": false,
+  "parametersChanged": false,
+  "placementChanged": false,
+  "routesChanged": false,
+  "newModelCalls": 0,
+  "scope": "Deterministic native export repair on the accepted full display-board candidate; not a new model-driven layout run."
+}

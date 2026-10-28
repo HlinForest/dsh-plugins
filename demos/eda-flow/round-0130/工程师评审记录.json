@@ -1,0 +1,1038 @@
+{
+  "round": "0130",
+  "plugin": "0.16.3-beta.6",
+  "text": "评审当前完整显示板 PCB：本次实际结果仍有 STB 未连接（C4.1 与 U1.3/R12.2），尚未验收。请先解决此未连接项，再减少绕线与折点。保留已确认原理图的器件参数、接法、准确封装及可见的底面贴片/顶面插装、底层布线、禁止过孔、既有零欧跨线和铜区要求。重点缩短无必要绕线、减少折点与短碎线，并保持去耦和储能距离。核对上次模型排布意图仍适用时保留 order 与间距；由通用布局与布线工具求解；对输入滤波、去耦及储能的空间竞争使用联合约束求解，允许在实际质量改善时调整。必须实跑布线、填铜、DRC，再比较前后连通及布线质量，不能凭模型说已完成。不输入任何固定坐标，不抄 AD 参数，不增加完整逐脚连线。阻容缺少的工作条件和工程测量封装的厂家验证项继续保留。这是 Codex 依据用户意见形成的复测评审，待工程师签核。",
+  "reviewId": "9afe3e95-47fd-4a51-b503-0569257bd192",
+  "status": "resolved",
+  "reviewer": "Codex 全板布局布线复测（待工程师签核）",
+  "createdAt": "2026-10-27T05:35:14.799Z",
+  "appliedAt": "2026-10-27T05:35:15.248Z",
+  "attempts": [
+    {
+      "id": "8568cc82-e0ef-408f-b9c7-356e33d981fa",
+      "startedAt": "2026-10-27T05:35:31.347Z",
+      "status": "generated",
+      "inputHash": "a675dfc76af8f34b31604cab9374f87dd79e7f454fb53b598759cbd912d3046d",
+      "before": {
+        "stage": 6,
+        "status": "stale",
+        "output": "D:\\VisualBoard\\output\\EDA_Autonomous_20261023\\live-work\\projects\\67325095-ea3a-4370-b3d2-ec3ed8739f61\\steps\\6\\d9fb43b7-cea7-47e7-9505-09c7b9d2bf3d",
+        "outputHash": "f80cd76461ffb564756611e9b0c894c38e6cd5e75993f6f4cb45267dbd0cafd6",
+        "electricalHash": null,
+        "summary": "PCB已生成：27个器件、119条走线/过孔。",
+        "checks": [
+          {
+            "name": "PCB焊盘网络映射",
+            "status": "passed",
+            "detail": "已核对92个焊盘"
+          },
+          {
+            "name": "自动布线与DRC",
+            "status": "failed",
+            "detail": "1错误 / 0警告 / 1未连接"
+          },
+          {
+            "name": "供电器件距离",
+            "status": "passed",
+            "detail": "C1 → U1.4：4.28 mm / 上限 5 mm；C5 → D1.3：3.10 mm / 上限 5 mm；C6 → U1.4：5.87 mm / 上限 10 mm"
+          },
+          {
+            "name": "工艺与铜区",
+            "status": "passed",
+            "detail": "27 个器件按实际焊盘类型核对安装面；8 个原理图已有零欧跨线；3 个铜区已生成并填充"
+          }
+        ],
+        "drc": {
+          "violations": 0,
+          "unconnected": 1,
+          "parity": 0,
+          "errors": 1,
+          "warnings": 0,
+          "passed": false
+        },
+        "erc": null,
+        "powerPlacement": {
+          "relations": [
+            {
+              "ref": "C1",
+              "kind": "decoupling",
+              "anchor": {
+                "ref": "U1",
+                "pad": "4"
+              },
+              "return": {
+                "ref": "U1",
+                "pad": "14"
+              },
+              "supplyPad": "1",
+              "returnPad": "2",
+              "supplyNet": "/+5V",
+              "returnNet": "/GND",
+              "maxDistanceMm": 5,
+              "basis": "reviewed functions.layout",
+              "distanceMm": 4.284276,
+              "passed": true
+            },
+            {
+              "ref": "C5",
+              "kind": "decoupling",
+              "anchor": {
+                "ref": "D1",
+                "pad": "3"
+              },
+              "return": {
+                "ref": "D1",
+                "pad": "2"
+              },
+              "supplyPad": "1",
+              "returnPad": "2",
+              "supplyNet": "/D1_VCC",
+              "returnNet": "/GND",
+              "maxDistanceMm": 5,
+              "basis": "reviewed functions.layout",
+              "distanceMm": 3.096357,
+              "passed": true
+            },
+            {
+              "ref": "C6",
+              "kind": "storage",
+              "anchor": {
+                "ref": "U1",
+                "pad": "4"
+              },
+              "return": {
+                "ref": "U1",
+                "pad": "14"
+              },
+              "supplyPad": "1",
+              "returnPad": "2",
+              "supplyNet": "/+5V",
+              "returnNet": "/GND",
+              "maxDistanceMm": 10,
+              "basis": "reviewed supply-transient operating point",
+              "distanceMm": 5.868906,
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "metric": "supply pad to owner supply pad, straight-line; not loop inductance or transient performance"
+        },
+        "tracks": 119,
+        "routingQuality": {
+          "trackLengthMm": 477.585689,
+          "segments": 119,
+          "shortSegmentsUnder05mm": 2,
+          "degree2Bends": 71,
+          "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+        },
+        "copperRouteCleanup": {
+          "method": "complete copper coverage by actual filled zones or physical pads; same net and layer",
+          "removedSegments": 55,
+          "removedLengthMm": 95.822734,
+          "restoredSegments": 0,
+          "filledZones": {
+            "method": "whole trace copper contained in same-net same-layer filled polygons, revalidated after refill",
+            "removedSegments": 27,
+            "removedLengthMm": 89.671554,
+            "restoredSegments": 0,
+            "removed": [
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.002121
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.0008
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.262054
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 35.5722
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 2.3637
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 2.623366
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.6664
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 2.507
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.765797
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.0008
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.002121
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 2.5475
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.763675
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 1.343503
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 2.1
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 8.308363
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 3.0825
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 2.657024
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.516188
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 3.9037
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 2.1531
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 1.343503
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 4.1108
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 11.394
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.6769
+              }
+            ],
+            "copperCoveragePreserved": true,
+            "nativeDrcRequired": true
+          },
+          "physicalPads": {
+            "method": "whole trace copper contained in same-net same-layer physical pad copper",
+            "removedSegments": 28,
+            "removedLengthMm": 6.15118,
+            "removed": [
+              {
+                "net": "/STB_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/STB_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/SGND",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/SGND",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/SGND",
+                "layer": "B.Cu",
+                "lengthMm": 0.477297
+              },
+              {
+                "net": "/SEG7",
+                "layer": "B.Cu",
+                "lengthMm": 0.677
+              },
+              {
+                "net": "/SEG6",
+                "layer": "B.Cu",
+                "lengthMm": 0.6455
+              },
+              {
+                "net": "/SEG2",
+                "layer": "B.Cu",
+                "lengthMm": 0.6783
+              },
+              {
+                "net": "/SEG1",
+                "layer": "B.Cu",
+                "lengthMm": 0.6705
+              },
+              {
+                "net": "/SEG1",
+                "layer": "B.Cu",
+                "lengthMm": 0.516
+              },
+              {
+                "net": "/RCV",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/RCV",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/LED_D",
+                "layer": "B.Cu",
+                "lengthMm": 0.123744
+              },
+              {
+                "net": "/LED_C",
+                "layer": "B.Cu",
+                "lengthMm": 0.113137
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.002121
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.0008
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.123744
+              },
+              {
+                "net": "/GRID3",
+                "layer": "B.Cu",
+                "lengthMm": 0.6481
+              },
+              {
+                "net": "/DIN_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/DIN_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/DIN",
+                "layer": "B.Cu",
+                "lengthMm": 0.0001
+              },
+              {
+                "net": "/DIG3",
+                "layer": "B.Cu",
+                "lengthMm": 0.0875
+              },
+              {
+                "net": "/DIG1",
+                "layer": "B.Cu",
+                "lengthMm": 0.236881
+              },
+              {
+                "net": "/CLK_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.353553
+              },
+              {
+                "net": "/CLK_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/CLK_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/CLK",
+                "layer": "B.Cu",
+                "lengthMm": 0.704
+              },
+              {
+                "net": "/CLK",
+                "layer": "B.Cu",
+                "lengthMm": 0.070711
+              }
+            ],
+            "copperCoveragePreserved": true,
+            "nativeDrcRequired": true
+          },
+          "copperCoveragePreserved": true,
+          "nativeDrcRequired": true
+        },
+        "components": 27,
+        "files": [
+          {
+            "path": "project/Circuit.kicad_pcb",
+            "bytes": 313756,
+            "sha256": "19adbde380488aaf8ba9cf5b53971cebc94a2533386d7eaaeac1e5e8b7221e06"
+          },
+          {
+            "path": "project/Circuit.kicad_sch",
+            "bytes": 99202,
+            "sha256": "3c3a631ee1c207496fb7ba10d4a001ca54177dd5eba9f2955eae98973480ac7c"
+          },
+          {
+            "path": "project/Circuit.pdf",
+            "bytes": 185418,
+            "sha256": "f6d7a040906a61587d1b5f30f4a79be506c1dedd8b137347c0aee3c4cf3b65b5"
+          },
+          {
+            "path": "project/PCB-Back.pdf",
+            "bytes": 122181,
+            "sha256": "049391bedab738a8b4f0e879c629f1fe562086eccbcb14e47ae798fbafe5c648"
+          },
+          {
+            "path": "project/PCB-Back.svg",
+            "bytes": 214130,
+            "sha256": "b6745431e4d9a7402970cde261cef95968705ccf43f96bef0d3adf455529f667"
+          },
+          {
+            "path": "project/PCB-Front.pdf",
+            "bytes": 67721,
+            "sha256": "3b5585fac88ed74f958af15502b1232470340e4a5919d639f03226f925756582"
+          },
+          {
+            "path": "project/PCB-Front.svg",
+            "bytes": 10755,
+            "sha256": "8feb9da73e3d0b47be2289c6503f45f97fbbf93e5f0f224f3e9e8704da3b79ce"
+          },
+          {
+            "path": "project/PCB.pdf",
+            "bytes": 123569,
+            "sha256": "5a1e2c2f568d201590aa54716e6800b9d289130e041fecf21912342f967fc55c"
+          },
+          {
+            "path": "project/PCB.svg",
+            "bytes": 226195,
+            "sha256": "6c1dc7110ca145dc911839010803c3b52e6146fb8442196cfde4481ee73bba82"
+          },
+          {
+            "path": "project/svg/Circuit.svg",
+            "bytes": 577750,
+            "sha256": "ba1d61039b5b21c4c10588cb27bb0f2fc09c7e79f19aecef0f49d4f91029eae2"
+          }
+        ]
+      },
+      "after": {
+        "stage": 6,
+        "status": "done",
+        "output": "D:\\VisualBoard\\output\\EDA_Autonomous_20261023\\live-work\\projects\\67325095-ea3a-4370-b3d2-ec3ed8739f61\\steps\\6\\d0a29183-babc-408e-8e58-a287fcc5ffd8",
+        "outputHash": "feb053e3b8ad3c151b709aadf99c17f15c70cb56c532fdfe85df7616fd892fdc",
+        "electricalHash": null,
+        "summary": "PCB已生成：27个器件、139条走线/过孔。",
+        "checks": [
+          {
+            "name": "PCB焊盘网络映射",
+            "status": "passed",
+            "detail": "已核对92个焊盘"
+          },
+          {
+            "name": "自动布线与DRC",
+            "status": "passed",
+            "detail": "0错误 / 0警告 / 0未连接"
+          },
+          {
+            "name": "供电器件距离",
+            "status": "passed",
+            "detail": "C1 → U1.4：4.28 mm / 上限 5 mm；C5 → D1.3：3.10 mm / 上限 5 mm；C6 → U1.4：5.87 mm / 上限 10 mm"
+          },
+          {
+            "name": "工艺与铜区",
+            "status": "passed",
+            "detail": "27 个器件按实际焊盘类型核对安装面；8 个原理图已有零欧跨线；3 个铜区已生成并填充"
+          }
+        ],
+        "drc": {
+          "violations": 0,
+          "unconnected": 0,
+          "parity": 0,
+          "errors": 0,
+          "warnings": 0,
+          "passed": true
+        },
+        "erc": null,
+        "powerPlacement": {
+          "relations": [
+            {
+              "ref": "C1",
+              "kind": "decoupling",
+              "anchor": {
+                "ref": "U1",
+                "pad": "4"
+              },
+              "return": {
+                "ref": "U1",
+                "pad": "14"
+              },
+              "supplyPad": "1",
+              "returnPad": "2",
+              "supplyNet": "/+5V",
+              "returnNet": "/GND",
+              "maxDistanceMm": 5,
+              "basis": "reviewed functions.layout",
+              "distanceMm": 4.284276,
+              "passed": true
+            },
+            {
+              "ref": "C5",
+              "kind": "decoupling",
+              "anchor": {
+                "ref": "D1",
+                "pad": "3"
+              },
+              "return": {
+                "ref": "D1",
+                "pad": "2"
+              },
+              "supplyPad": "1",
+              "returnPad": "2",
+              "supplyNet": "/D1_VCC",
+              "returnNet": "/GND",
+              "maxDistanceMm": 5,
+              "basis": "reviewed functions.layout",
+              "distanceMm": 3.096357,
+              "passed": true
+            },
+            {
+              "ref": "C6",
+              "kind": "storage",
+              "anchor": {
+                "ref": "U1",
+                "pad": "4"
+              },
+              "return": {
+                "ref": "U1",
+                "pad": "14"
+              },
+              "supplyPad": "1",
+              "returnPad": "2",
+              "supplyNet": "/+5V",
+              "returnNet": "/GND",
+              "maxDistanceMm": 10,
+              "basis": "reviewed supply-transient operating point",
+              "distanceMm": 5.868906,
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "metric": "supply pad to owner supply pad, straight-line; not loop inductance or transient performance"
+        },
+        "tracks": 139,
+        "routingQuality": {
+          "trackLengthMm": 501.440924,
+          "segments": 139,
+          "shortSegmentsUnder05mm": 4,
+          "degree2Bends": 90,
+          "metric": "explicit copper tracks; excludes area fill and component-internal bridges; not signal or return path performance"
+        },
+        "copperRouteCleanup": {
+          "method": "complete copper coverage by actual filled zones or physical pads; same net and layer",
+          "removedSegments": 63,
+          "removedLengthMm": 110.956096,
+          "restoredSegments": 0,
+          "filledZones": {
+            "method": "whole trace copper contained in same-net same-layer filled polygons, revalidated after refill",
+            "removedSegments": 33,
+            "removedLengthMm": 100.89199,
+            "restoredSegments": 0,
+            "removed": [
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.562
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.738078
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.2235
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.6779
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 4.95
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 1.590566
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 13.539
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 33.9683
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.002121
+              },
+              {
+                "net": "/GND",
+                "layer": "B.Cu",
+                "lengthMm": 0.0008
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 2.5062
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.766928
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 2.5475
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.763675
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.002121
+              },
+              {
+                "net": "/D1_VCC",
+                "layer": "B.Cu",
+                "lengthMm": 0.0008
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 1.343503
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 2.1
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.516188
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 3.9037
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 2.2645
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.618718
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 11.2006
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.2363
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 1.353827
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 1.0788
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 1.4081
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 2.955282
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.6288
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 8.306525
+              },
+              {
+                "net": "/+5V",
+                "layer": "B.Cu",
+                "lengthMm": 0.133219
+              }
+            ],
+            "copperCoveragePreserved": true,
+            "nativeDrcRequired": true
+          },
+          "physicalPads": {
+            "method": "whole trace copper contained in same-net same-layer physical pad copper",
+            "removedSegments": 30,
+            "removedLengthMm": 10.064106,
+            "removed": [
+              {
+                "net": "/STB_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/STB_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/STB",
+                "layer": "B.Cu",
+                "lengthMm": 0.6568
+              },
+              {
+                "net": "/SGND",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/SGND",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/SGND",
+                "layer": "B.Cu",
+                "lengthMm": 0.477297
+              },
+              {
+                "net": "/SEG7",
+                "layer": "B.Cu",
+                "lengthMm": 0.8277
+              },
+              {
+                "net": "/SEG6",
+                "layer": "B.Cu",
+                "lengthMm": 0.9797
+              },
+              {
+                "net": "/SEG2",
+                "layer": "B.Cu",
+                "lengthMm": 0.6699
+              },
+              {
+                "net": "/SEG1",
+                "layer": "B.Cu",
+                "lengthMm": 0.7099
+              },
+              {
+                "net": "/SEG1",
+                "layer": "B.Cu",
+                "lengthMm": 0.5252
+              },
+              {
+                "net": "/RCV",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/RCV",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/RCV",
+                "layer": "B.Cu",
+                "lengthMm": 0.005515
+              },
+              {
+                "net": "/LED_D",
+                "layer": "B.Cu",
+                "lengthMm": 0.123744
+              },
+              {
+                "net": "/LED_C",
+                "layer": "B.Cu",
+                "lengthMm": 0.113137
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.323996
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.123744
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.002121
+              },
+              {
+                "net": "/IRM_OUT",
+                "layer": "B.Cu",
+                "lengthMm": 0.0008
+              },
+              {
+                "net": "/GRID3",
+                "layer": "B.Cu",
+                "lengthMm": 0.6488
+              },
+              {
+                "net": "/GRID2",
+                "layer": "B.Cu",
+                "lengthMm": 0.9562
+              },
+              {
+                "net": "/DIN_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.475459
+              },
+              {
+                "net": "/DIN_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/DIN_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/DIN",
+                "layer": "B.Cu",
+                "lengthMm": 0.9335
+              },
+              {
+                "net": "/CLK_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.0026
+              },
+              {
+                "net": "/CLK_DISP",
+                "layer": "B.Cu",
+                "lengthMm": 0.001838
+              },
+              {
+                "net": "/CLK",
+                "layer": "B.Cu",
+                "lengthMm": 0.7279
+              },
+              {
+                "net": "/CLK",
+                "layer": "B.Cu",
+                "lengthMm": 0.7605
+              }
+            ],
+            "copperCoveragePreserved": true,
+            "nativeDrcRequired": true
+          },
+          "copperCoveragePreserved": true,
+          "nativeDrcRequired": true
+        },
+        "components": 27,
+        "files": [
+          {
+            "path": "project/Circuit.kicad_pcb",
+            "bytes": 307295,
+            "sha256": "7f3a77c51a203fd928a1851d611c417b8d770f8573be20be7db658122eea860d"
+          },
+          {
+            "path": "project/Circuit.kicad_sch",
+            "bytes": 99202,
+            "sha256": "3c3a631ee1c207496fb7ba10d4a001ca54177dd5eba9f2955eae98973480ac7c"
+          },
+          {
+            "path": "project/Circuit.pdf",
+            "bytes": 185418,
+            "sha256": "f6d7a040906a61587d1b5f30f4a79be506c1dedd8b137347c0aee3c4cf3b65b5"
+          },
+          {
+            "path": "project/PCB-Back.pdf",
+            "bytes": 121108,
+            "sha256": "38e162823d2f8189c33708679bdccbaf699eac9039b2bf6b20658a1bef71a124"
+          },
+          {
+            "path": "project/PCB-Back.svg",
+            "bytes": 208920,
+            "sha256": "1ab5d0c79bee9c77050fa3e49fb56c1b32cddb4875f13aa5904675aadf4063e1"
+          },
+          {
+            "path": "project/PCB-Front.pdf",
+            "bytes": 67716,
+            "sha256": "936cd476897c39df4e508d87556f51f195fc424eec6a74922ef4591051bef7e0"
+          },
+          {
+            "path": "project/PCB-Front.svg",
+            "bytes": 10755,
+            "sha256": "8c102d24d68ef00bb9f2ed7f70823cfae4e13459d58c4e5eaac10fd53f2daf32"
+          },
+          {
+            "path": "project/PCB.pdf",
+            "bytes": 122541,
+            "sha256": "d34057ca9f6bdaae933622f3a3a6e300600c73b08b40be01e43874c09b20e897"
+          },
+          {
+            "path": "project/PCB.svg",
+            "bytes": 220824,
+            "sha256": "bd0b8d64b03edeee2363ab8285a4e15a9c0e852c958cd289f0b02fb03e57b224"
+          },
+          {
+            "path": "project/svg/Circuit.svg",
+            "bytes": 577750,
+            "sha256": "ba1d61039b5b21c4c10588cb27bb0f2fc09c7e79f19aecef0f49d4f91029eae2"
+          }
+        ]
+      },
+      "finishedAt": "2026-10-27T05:45:42.975Z",
+      "error": null,
+      "filesChanged": true
+    }
+  ],
+  "decisions": [
+    {
+      "at": "2026-10-27T05:47:22.072Z",
+      "status": "resolved",
+      "note": "当前完整显示板通过真实 DeepSeek 6 次调用后重新生成，6 个实际布局布线候选全部保留。最终采用第 5 个断线反馈候选：27 器件、94 物理焊盘、29 个信号网络全部实际铜连通；C4.1/U1.3/R12.2 的 STB 支路已接通；原生 DRC 错误、警告、未连接、网表差异均为 0。器件、封装、物理焊盘接网与安装面保持。相对此前已连通版本，显式线长 537.192922 → 501.440924 mm，折点 97 → 90，短于 0.5 mm 的线段 5 → 4。相对本轮断线基线 477.585689 mm，完整连通后增加 23.855235 mm，不能称为该基线的线长下降。两个联合重排候选仍有断线，未被采用；最终选用反馈布局并经原生检查确认的走线简化。全板流程技术验收通过，但不代表每次路由确定性一致；Freerouting 2.1 随机路由顺序问题仍记录。9 个阻值和 2 组电容组合差异减少 0 项，用户确认 IRM-3638M3-X 后缀继续待核实。此决定仅解决本次 PCB 连通/布线评审，不代表 AD 等价、工程师签核或生产批准。",
+      "reviewer": "Codex 实际工程复核（待工程师签核）",
+      "outputHash": "feb053e3b8ad3c151b709aadf99c17f15c70cb56c532fdfe85df7616fd892fdc",
+      "attemptId": "8568cc82-e0ef-408f-b9c7-356e33d981fa"
+    }
+  ],
+  "actions": [
+    {
+      "item": "C4 所在 STB 断点",
+      "result": "C4.1、U1.3、R12.2 已由实际铜线接通。"
+    },
+    {
+      "item": "整板连通",
+      "result": "29 个信号网络；全部连通：true；原生 DRC 未连接 0，违规 0。"
+    },
+    {
+      "item": "布线质量",
+      "result": "评审前断线版 477.585689 mm / 71 折点；本次 501.440924 mm / 90 折点。此前已连通版 537.192922 mm / 97 折点；短段由 5 到 4。"
+    },
+    {
+      "item": "联合布局",
+      "result": "由实际断线网络、器件角色和封装避让共同求解；保持安装面及供电距离。不输入 AD 坐标、参数或完整逐脚连线。"
+    },
+    {
+      "item": "阻容与 AD",
+      "result": "9 个阻值、2 组电容组合差异仍保留，减少 0 项。工作条件和候选规格书 -X 适用性待核实。"
+    },
+    {
+      "item": "验收范围",
+      "result": "通过本轮连接及布线质量比较；AD 等价和工程师签核仍未完成。"
+    }
+  ],
+  "layoutQualityAccepted": true,
+  "adEquivalent": false,
+  "engineeringSignoff": false,
+  "publishedToGitHub": null,
+  "publicationEvidence": "publication.json records the upload after the GitHub branch update"
+}

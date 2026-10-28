@@ -1,0 +1,50 @@
+{
+  "skill": "D:/Codex/home/skills/diagnosing-bugs/SKILL.md",
+  "original": {
+    "net": "/STB",
+    "isolated": "C4.1",
+    "otherBranch": [
+      "R12.2",
+      "U1.3"
+    ],
+    "repeatedChecks": 2
+  },
+  "hypotheses": [
+    {
+      "prediction": "If cleanup removed a valid route, raw SES import reconnects C4",
+      "result": "False: raw router result also isolates C4"
+    },
+    {
+      "prediction": "If greedy placement traps a critical branch, changing separation choices jointly can reconnect it while keeping power distances",
+      "result": "Whole-board native DRC and independent 29-net traversal passed in isolated replay"
+    },
+    {
+      "prediction": "If pads alone prevent escape, a pad-only clearance-space analysis remains disconnected",
+      "result": "False: pad-only free space connects all three endpoints"
+    },
+    {
+      "prediction": "More router search alone finds a route without new placement",
+      "result": "Not used as the fix; geometry and failed-net feedback drive joint placement"
+    }
+  ],
+  "rejectedProbe": {
+    "singleChange": "promote failed critical part before other related components",
+    "result": "C1 had no legal position within declared 5 mm supply constraint"
+  },
+  "implemented": {
+    "generic": true,
+    "reorderScope": "Related filters, decoupling and storage only; no reference coordinates, topology or values",
+    "nativeGate": "fresh Freerouting, copper fill, DRC, independent connectivity and routing quality"
+  },
+  "regressions": {
+    "newReorderTests": 4,
+    "existingCompactionTests": 4,
+    "searchOrchestrationTests": 5,
+    "feedbackTests": 5,
+    "nativeFullFlowTests": 1,
+    "allPassed": true,
+    "releaseProtocolAndConfirmationTests": 10,
+    "confirmationEnvironment": "Default long Windows temporary path caused 5 EPERM renames; same tests passed using a short temporary directory inside the workspace. No product I/O changes."
+  },
+  "routingRepeatability": "See routing-repeatability.json; identical placement/DSN geometry produced different native connectivity under Freerouting 2.1.0."
+}

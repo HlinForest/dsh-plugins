@@ -1,0 +1,29 @@
+{
+  "sameGeneratedPlacement": true,
+  "dsnCompared": {
+    "a": "D:/VisualBoard/output/EDA_Autonomous_20261023/live-work/projects/67325095-ea3a-4370-b3d2-ec3ed8739f61/pcb-work/ebb2269caa1c05404394/1/project/Circuit.dsn",
+    "b": "D:\\VisualBoard\\output\\EDA_Autonomous_20261023\\live-work\\projects\\67325095-ea3a-4370-b3d2-ec3ed8739f61/pcb-work/72090acddb7794f94a6b/1/project/Circuit.dsn",
+    "onlyDifference": "output path in pcb document header"
+  },
+  "nativeResults": {
+    "previous": {
+      "unconnected": 2,
+      "trackLengthMm": 493.795172
+    },
+    "current": {
+      "unconnected": 3,
+      "trackLengthMm": 399.657884
+    }
+  },
+  "upstreamSources": [
+    {
+      "url": "https://github.com/freerouting/freerouting/blob/v2.1.0/src/main/java/app/freerouting/autoroute/BatchAutorouter.java#L275-L276",
+      "finding": "Single-thread route pass shuffles the route items using new Random(), without a supplied seed."
+    },
+    {
+      "url": "https://github.com/freerouting/freerouting/blob/v2.1.0/src/main/java/app/freerouting/settings/RouterSettings.java",
+      "finding": "This version has no exposed random seed field; do not claim a CLI random_seed flag controls it."
+    }
+  ],
+  "conclusion": "Route output is not reproducible merely by selecting one thread. The diagnostic passing candidate is not evidence that all new generations pass. Preserve actual failures and gate publication on this fresh model run."
+}

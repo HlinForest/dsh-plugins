@@ -1,0 +1,22 @@
+** Drc report for Circuit.kicad_pcb **
+** Created on 2026-10-27T13:08:02 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 0 DRC violations **
+
+** Found 1 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(36.9500 mm, 23.0000 mm): Pad 1 [/STB] of C4 on B.Cu
+    @(37.5174 mm, 30.6037 mm): Track [/STB] on B.Cu, length 0.8661 mm
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

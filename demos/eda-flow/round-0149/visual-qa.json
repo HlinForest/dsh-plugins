@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "version": "0.16.3-beta.16",
+  "checkedAt": "2026-10-28T01:19:21.416Z",
+  "demo": {
+    "url": "http://127.0.0.1:51788/Demo.html#compare",
+    "bothNativeBoardPreviewsLoaded": true,
+    "allImagesLoaded": true,
+    "horizontalOverflow": false,
+    "sourceDisclosureVisible": true,
+    "reviewBeforeAfterDisclosed": true,
+    "parameterDifferencesVisible": true,
+    "screenshot": "Demo-前后比较.png"
+  },
+  "pointSelection": {
+    "runtimeVersion": "0.16.3-beta.16",
+    "project": "67325095-ea3a-4370-b3d2-ec3ed8739f61",
+    "selected": "C1",
+    "currentValue": "100nF",
+    "drawingVersion": "ccd8e930",
+    "requirementsFieldVisible": true,
+    "submitDisabledUntilRequirement": true,
+    "newRequirementSubmitted": false,
+    "screenshot": "点选器件填写要求.png"
+  }
+}

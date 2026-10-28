@@ -1,0 +1,1761 @@
+[
+  {
+    "document": "显示板工程任务书（模拟资料待替换）",
+    "content": "本显示板的工程规格如下：保留29个电气器件、85个引脚、八个0Ω跨线电阻及12个工艺对象。图纸按功能分区排版。DISP接口1=RCV、2=SGND、3=+5V、4=STB、5=CLK、6=DIN。接口与器件必须满足本规格。",
+    "binding": "系统",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "id": "spec-1"
+  },
+  {
+    "document": "显示驱动及显示器接线说明（模拟规格书）",
+    "content": "U1的SEG1—SEG7依次经47Ω电阻连接显示段C/E/G/D/F/A/B；GRID1/GRID2/GRID3依次接显示器1/3/2脚，GRID4第12脚不接。显示器位号*、器件值LED、封装标识UV，无证据时不得指定SKHT564411WAE型号。",
+    "binding": "U1 / *",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "id": "spec-2"
+  },
+  {
+    "document": "显示器符号外观说明（模拟规格书）",
+    "content": "显示模块：两位七段数字显示及四个圆形指示标记，显示内容为00至99；段脚为A/B/C/D/E/F/G，公共端为DIG1/DIG2/DIG3。接口引脚见下表。装配要求：位号*，器件值LED，默认装配，非DNP，计入BOM并装于PCB。",
+    "binding": "*",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "*",
+    "pins": [
+      {
+        "number": "1",
+        "name": "DIG3",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "DIG2",
+        "type": "passive"
+      },
+      {
+        "number": "3",
+        "name": "DIG1",
+        "type": "passive"
+      },
+      {
+        "number": "4",
+        "name": "B",
+        "type": "passive"
+      },
+      {
+        "number": "5",
+        "name": "A",
+        "type": "passive"
+      },
+      {
+        "number": "6",
+        "name": "F",
+        "type": "passive"
+      },
+      {
+        "number": "7",
+        "name": "G",
+        "type": "passive"
+      },
+      {
+        "number": "8",
+        "name": "C",
+        "type": "passive"
+      },
+      {
+        "number": "9",
+        "name": "E",
+        "type": "passive"
+      },
+      {
+        "number": "10",
+        "name": "D",
+        "type": "passive"
+      }
+    ],
+    "componentKind": "display",
+    "displayFeatures": {
+      "digits": 2,
+      "indicatorCount": 4
+    },
+    "objectRole": "electrical",
+    "id": "spec-3"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号D1；器件值IRM-3638M3-X；封装标识LED3-2.54-6*5.6*6.95L/S；物料编码R25090022；物料说明接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃；装配THT；默认装配，非DNP。 引脚：1=OUT(output)；2=GND(power_in)；3=VCC(power_in)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "D1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "D1",
+    "value": "IRM-3638M3-X",
+    "originalFootprint": "LED3-2.54-6*5.6*6.95L/S",
+    "materialCode": "R25090022",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "OUT",
+        "type": "output"
+      },
+      {
+        "number": "2",
+        "name": "GND",
+        "type": "power_in"
+      },
+      {
+        "number": "3",
+        "name": "VCC",
+        "type": "power_in"
+      }
+    ],
+    "materialDescription": "接口收发器/红外接收管/IRM-3638M3-X/38KHZ/5.5V/0.6mA/-20~+80℃",
+    "assemblyType": "THT",
+    "componentKind": "infrared-receiver",
+    "id": "spec-4"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C2；器件值1uF/0603；封装标识WSC0603；物料编码R21070090；物料说明贴片电容/1uF±10%/25V/X7R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C2",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C2",
+    "value": "1uF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070090",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电容/1uF±10%/25V/X7R/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-5"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C3；器件值0.068uF/0603；封装标识WSC0603；物料编码R21200057；物料说明台系贴片电容/0.068uF±10%/50V/X7R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C3",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C3",
+    "value": "0.068uF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200057",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "台系贴片电容/0.068uF±10%/50V/X7R/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-6"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R3；器件值22K/0805；封装标识WSR0805；物料编码R20180061；物料说明贴片电阻/1/8W/22KΩ±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R3",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R3",
+    "value": "22K/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180061",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/22KΩ±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-7"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R1；器件值220R/0805；封装标识WSR0805；物料编码R20180015；物料说明贴片电阻/1/8W/220Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R1",
+    "value": "220R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180015",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/220Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-8"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号U1；器件值TM1616；封装标识WSOP16-1.27-3.8；物料编码R25070026；物料说明CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路；装配SMD；默认装配，非DNP。 引脚：1=DIN(input)；2=CLK(input)；3=STB(input)；4=VDD(power_in)；5=SEG1(output)；6=SEG2(output)；7=SEG3(output)；8=SEG4(output)；9=SEG5(output)；10=SEG6(output)；11=SEG7(output)；12=GRID4(output)；13=GRID3(output)；14=GND(power_in)；15=GRID2(output)；16=GRID1(output)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "U1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "U1",
+    "value": "TM1616",
+    "originalFootprint": "WSOP16-1.27-3.8",
+    "materialCode": "R25070026",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "DIN",
+        "type": "input"
+      },
+      {
+        "number": "2",
+        "name": "CLK",
+        "type": "input"
+      },
+      {
+        "number": "3",
+        "name": "STB",
+        "type": "input"
+      },
+      {
+        "number": "4",
+        "name": "VDD",
+        "type": "power_in"
+      },
+      {
+        "number": "5",
+        "name": "SEG1",
+        "type": "output"
+      },
+      {
+        "number": "6",
+        "name": "SEG2",
+        "type": "output"
+      },
+      {
+        "number": "7",
+        "name": "SEG3",
+        "type": "output"
+      },
+      {
+        "number": "8",
+        "name": "SEG4",
+        "type": "output"
+      },
+      {
+        "number": "9",
+        "name": "SEG5",
+        "type": "output"
+      },
+      {
+        "number": "10",
+        "name": "SEG6",
+        "type": "output"
+      },
+      {
+        "number": "11",
+        "name": "SEG7",
+        "type": "output"
+      },
+      {
+        "number": "12",
+        "name": "GRID4",
+        "type": "output"
+      },
+      {
+        "number": "13",
+        "name": "GRID3",
+        "type": "output"
+      },
+      {
+        "number": "14",
+        "name": "GND",
+        "type": "power_in"
+      },
+      {
+        "number": "15",
+        "name": "GRID2",
+        "type": "output"
+      },
+      {
+        "number": "16",
+        "name": "GRID1",
+        "type": "output"
+      }
+    ],
+    "materialDescription": "CMOS逻辑器件/TM1616/5V/-20~+70℃/SOP-16/共阴极LED驱动控制专用电路",
+    "assemblyType": "SMD",
+    "componentKind": "logic-ic",
+    "id": "spec-9"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C7；器件值100pF/0603；封装标识WSC0603；物料编码R21070004；物料说明贴片电容/100pF±5%/50V/NPO/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C7",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C7",
+    "value": "100pF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070004",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电容/100pF±5%/50V/NPO/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-10"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C6；器件值100pF/0603；封装标识WSC0603；物料编码R21070004；物料说明贴片电容/100pF±5%/50V/NPO/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C6",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C6",
+    "value": "100pF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070004",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电容/100pF±5%/50V/NPO/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-11"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C5；器件值100pF/0603；封装标识WSC0603；物料编码R21070004；物料说明贴片电容/100pF±5%/50V/NPO/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C5",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C5",
+    "value": "100pF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21070004",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电容/100pF±5%/50V/NPO/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-12"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R2；器件值47R/0805；封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R2",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R2",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-13"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R4；器件值47R/0805；封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R4",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R4",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-14"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R6；器件值47R/0805；封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R6",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R6",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-15"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R8；器件值47R/0805；封装标识WSR0805；物料编码R20180007；物料说明贴片电阻/1/8W/47Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R8",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R8",
+    "value": "47R/0805",
+    "originalFootprint": "WSR0805",
+    "materialCode": "R20180007",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/47Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-16"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R9；器件值47R/0603；封装标识WSR0603；物料编码R20190050；物料说明贴片电阻/1/10W/47Ω±5%/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R9",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R9",
+    "value": "47R/0603",
+    "originalFootprint": "WSR0603",
+    "materialCode": "R20190050",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/10W/47Ω±5%/0603",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-17"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R7；器件值47R/0603；封装标识WSR0603；物料编码R20190050；物料说明贴片电阻/1/10W/47Ω±5%/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R7",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R7",
+    "value": "47R/0603",
+    "originalFootprint": "WSR0603",
+    "materialCode": "R20190050",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/10W/47Ω±5%/0603",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-18"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号R5；器件值47R/0603；封装标识WSR0603；物料编码R20190050；物料说明贴片电阻/1/10W/47Ω±5%/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "R5",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "R5",
+    "value": "47R/0603",
+    "originalFootprint": "WSR0603",
+    "materialCode": "R20190050",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/10W/47Ω±5%/0603",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-19"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ1；器件值0R/0805；封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ1",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-20"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ2；器件值0R/0805；封装标识WSR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ2",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ2",
+    "value": "0R/0805",
+    "originalFootprint": "WSR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-21"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号DISP；器件值6Pin/2.5mm；封装标识THT-CON6-2.5-6.4L/S；物料编码R30072135；物料说明电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446；装配THT；默认装配，非DNP。 引脚：1=1(input)；2=2(power_out)；3=3(power_out)；4=4(output)；5=5(output)；6=6(output)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "DISP",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "DISP",
+    "value": "6Pin/2.5mm",
+    "originalFootprint": "THT-CON6-2.5-6.4L/S",
+    "materialCode": "R30072135",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "input"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "power_out"
+      },
+      {
+        "number": "3",
+        "name": "3",
+        "type": "power_out"
+      },
+      {
+        "number": "4",
+        "name": "4",
+        "type": "output"
+      },
+      {
+        "number": "5",
+        "name": "5",
+        "type": "output"
+      },
+      {
+        "number": "6",
+        "name": "6",
+        "type": "output"
+      }
+    ],
+    "materialDescription": "电缆/MD-12K-D-1/灯板连接线/26AWG/750mm/黑白橙绿紫灰/SM-6P/SM-T/MEG-150446",
+    "assemblyType": "THT",
+    "componentKind": "connector",
+    "id": "spec-22"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "显示模块：两位七段数字显示及四个圆形指示标记，显示内容为00至99；段脚为A/B/C/D/E/F/G，公共端为DIG1/DIG2/DIG3。接口引脚见下表。装配要求：位号*，器件值LED，默认装配，非DNP，计入BOM并装于PCB。",
+    "binding": "*",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "*",
+    "value": "LED",
+    "originalFootprint": "UV",
+    "materialCode": "",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "DIG3",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "DIG2",
+        "type": "passive"
+      },
+      {
+        "number": "3",
+        "name": "DIG1",
+        "type": "passive"
+      },
+      {
+        "number": "4",
+        "name": "B",
+        "type": "passive"
+      },
+      {
+        "number": "5",
+        "name": "A",
+        "type": "passive"
+      },
+      {
+        "number": "6",
+        "name": "F",
+        "type": "passive"
+      },
+      {
+        "number": "7",
+        "name": "G",
+        "type": "passive"
+      },
+      {
+        "number": "8",
+        "name": "C",
+        "type": "passive"
+      },
+      {
+        "number": "9",
+        "name": "E",
+        "type": "passive"
+      },
+      {
+        "number": "10",
+        "name": "D",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "",
+    "assemblyType": "",
+    "displayFeatures": {
+      "digits": 2,
+      "indicatorCount": 4
+    },
+    "id": "spec-23"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C4；器件值4.7uF/16V；封装标识WSC0603；物料编码R21200046；物料说明贴片电容/4.7UF/10%/16V/X5R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C4",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C4",
+    "value": "4.7uF/16V",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200046",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电容/4.7UF/10%/16V/X5R/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-24"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C8；器件值4.7uF/16V；封装标识WSC0603；物料编码R21200046；物料说明贴片电容/4.7UF/10%/16V/X5R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C8",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C8",
+    "value": "4.7uF/16V",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200046",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电容/4.7UF/10%/16V/X5R/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-25"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号C1；器件值0.068uF/0603；封装标识WSC0603；物料编码R21200057；物料说明台系贴片电容/0.068uF±10%/50V/X7R/0603；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "C1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "C1",
+    "value": "0.068uF/0603",
+    "originalFootprint": "WSC0603",
+    "materialCode": "R21200057",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "台系贴片电容/0.068uF±10%/50V/X7R/0603",
+    "assemblyType": "SMD",
+    "componentKind": "capacitor",
+    "id": "spec-26"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ3；器件值0R/0805；封装标识WSR0805-J；物料编码R20180224；物料说明贴片电阻/1/8W/0Ω±1%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ3",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ3",
+    "value": "0R/0805",
+    "originalFootprint": "WSR0805-J",
+    "materialCode": "R20180224",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±1%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-27"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ4；器件值0R/0805；封装标识WSR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ4",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ4",
+    "value": "0R/0805",
+    "originalFootprint": "WSR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-28"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ5；器件值0R/0805；封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ5",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ5",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-29"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ6；器件值0R/0805；封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ6",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ6",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-30"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ7；器件值0R/0805；封装标识SR0805-J；物料编码R20180001；物料说明贴片电阻/1/8W/0Ω±5%/0805；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ7",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ7",
+    "value": "0R/0805",
+    "originalFootprint": "SR0805-J",
+    "materialCode": "R20180001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/8W/0Ω±5%/0805",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-31"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号RJ8；器件值0R/1206；封装标识WSR1206-J；物料编码R20140001；物料说明贴片电阻/1/4W/0Ω±5%/1206；装配SMD；默认装配，非DNP。 引脚：1=1(passive)；2=2(passive)。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "RJ8",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "RJ8",
+    "value": "0R/1206",
+    "originalFootprint": "WSR1206-J",
+    "materialCode": "R20140001",
+    "objectRole": "electrical",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [
+      {
+        "number": "1",
+        "name": "1",
+        "type": "passive"
+      },
+      {
+        "number": "2",
+        "name": "2",
+        "type": "passive"
+      }
+    ],
+    "materialDescription": "贴片电阻/1/4W/0Ω±5%/1206",
+    "assemblyType": "SMD",
+    "componentKind": "resistor",
+    "id": "spec-32"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号SS；器件值.；封装标识SOLDER；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：波峰焊单向过炉条。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "SS",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "SS",
+    "value": ".",
+    "originalFootprint": "SOLDER",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-33"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号DWK1；器件值.；封装标识D-2.5mm；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：PCB厂家丝印定位孔。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "DWK1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "DWK1",
+    "value": ".",
+    "originalFootprint": "D-2.5mm",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-34"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号DWK2；器件值.；封装标识D-2.5mm；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：PCB厂家丝印定位孔。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "DWK2",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "DWK2",
+    "value": ".",
+    "originalFootprint": "D-2.5mm",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-35"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号check；器件值.；封装标识1Side check-1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：单面板检；查核对丝印。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "check",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "check",
+    "value": ".",
+    "originalFootprint": "1Side check-1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-36"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号UL；器件值.；封装标识CQC-UL-PCB LOGO；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：单面板CQC UL等丝印位置框。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "UL",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "UL",
+    "value": ".",
+    "originalFootprint": "CQC-UL-PCB LOGO",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-37"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号LLOO；器件值.；封装标识NSMALL-S；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：公司LOGO需手动修改。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "LLOO",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "LLOO",
+    "value": ".",
+    "originalFootprint": "NSMALL-S",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-38"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号QR Code；器件值.；封装标识QR code；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：二维码条块；6mm*6mm。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "QR Code",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "QR Code",
+    "value": ".",
+    "originalFootprint": "QR code",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": false,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-39"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号QR Code1；器件值.；封装标识QR code；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：二维码条块；6mm*6mm。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "QR Code1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "QR Code1",
+    "value": ".",
+    "originalFootprint": "QR code",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-40"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号MM1；器件值.；封装标识MARK1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：MARK光学定位2个。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "MM1",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "MM1",
+    "value": ".",
+    "originalFootprint": "MARK1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-41"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号MM2；器件值.；封装标识MARK1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：MARK光学定位2个。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "MM2",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "MM2",
+    "value": ".",
+    "originalFootprint": "MARK1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-42"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号MM3；器件值.；封装标识MARK1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：MARK光学定位2个。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "MM3",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "MM3",
+    "value": ".",
+    "originalFootprint": "MARK1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-43"
+  },
+  {
+    "document": "器件与装配清单（模拟规格书）",
+    "content": "位号LLAA；器件值.；封装标识LABEL1；物料编码；物料说明；装配；默认装配，非DNP。 此对象为工艺图形，不算电子器件或电气引脚。 工艺要求：条形码32*10。 清单记录要求：纳入BOM及装配清单，包含工艺对象。",
+    "binding": "LLAA",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "reference": "LLAA",
+    "value": ".",
+    "originalFootprint": "LABEL1",
+    "materialCode": "",
+    "objectRole": "process",
+    "in_bom": true,
+    "on_board": true,
+    "dnp": false,
+    "pins": [],
+    "materialDescription": "",
+    "assemblyType": "",
+    "componentKind": "process",
+    "id": "spec-44"
+  },
+  {
+    "document": "跨线与装配说明（模拟规格书）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "binding": "RJ1—RJ8",
+    "content": "设置八个零欧跨线：RJ1两端G3、RJ2两端G1、RJ3/RJ4/RJ7两端SGND、RJ5/RJ6两端CLK、RJ8两端G2。跨线两端接入同一命名网络是本设计要求，不擅自拆网；也不能据同网删除实际跨线物料。RJ8为1206，其余见逐件0805清单。本轮只设计原理图。",
+    "simulated": true,
+    "id": "spec-45"
+  },
+  {
+    "document": "供电与红外外围要求（模拟规格书）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "DISP / U1 / D1 / C1—C8 / R1 / R3",
+    "content": "DISP.3提供+5V，连接U1.4、C1.1、C4.2、C8.2、R1.2和R3.2。R1.1为红外滤波后的供电，连接D1.3、C2.2、C3.2。RCV连接DISP.1、D1.1、R3.1；R3正常装配，不是DNP。SGND连接DISP.2、U1.14、D1.2、C1.2以及C2/C3/C4/C5/C6/C7/C8的1脚；RJ3/RJ4/RJ7两端也在SGND。各电容均保持原非极性符号，不添加电解正负极。",
+    "simulated": true,
+    "id": "spec-46"
+  },
+  {
+    "document": "主板控制接口要求（模拟规格书）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "DISP / U1 / C5—C7",
+    "content": "DIN连接DISP.6、U1.1和C7.2；CLK连接DISP.5、U1.2和C6.2，同时保留RJ5、RJ6两端同属CLK；STB连接DISP.4、U1.3和C5.2。DISP针号和名称按资料保留，不反转为另一份设计的接口顺序。",
+    "simulated": true,
+    "id": "spec-47"
+  },
+  {
+    "document": "显示段及位选要求（模拟规格书）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "U1 / R2,R4,R6,R8,R9,R7,R5 / *",
+    "content": "七路分别为：U1.5→R2.2，R2.1→显示器*.8(C)；U1.6→R4.2，R4.1→*.9(E)；U1.7→R6.2，R6.1→*.7(G)；U1.8→R8.2，R8.1→*.10(D)；U1.9→R9.1，R9.2→*.6(F)；U1.10→R7.1，R7.2→*.5(A)；U1.11→R5.1，R5.2→*.4(B)。位选G1为U1.16与*.1及RJ2两端，G2为U1.15与*.3及RJ8两端，G3为U1.13与*.2及RJ1两端。U1.12是唯一明确NC。不按DIG名称数字大小擅自调整这一映射。",
+    "simulated": true,
+    "id": "spec-48"
+  },
+  {
+    "document": "装配及交付范围（模拟资料）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "binding": "全部对象",
+    "content": "29个电气器件和12个工艺对象均保留，全部默认装配，非DNP；只有QR Code的on_board=false，其余为true。工艺对象不能因无电气引脚而删除，也不计入电子器件数量。封装标识和物料编码保留，不等同已核验采购订货号或PCB焊盘几何。本轮交付原理图及相关物料资料。图纸与BOM必须来自实际生成工程。",
+    "simulated": true,
+    "id": "spec-49"
+  },
+  {
+    "document": "图纸表达与功能分区规范（模拟规格书）",
+    "content": "图纸按功能组织：红外接口在左、显示驱动与输入滤波在右；显示模块、零欧跨线和工艺说明集中安排在下方。输入滤波电容靠近驱动输入，不放在显示模块旁。优先直线连接，跨功能区地线使用SGND标号，不画绕主控的大回路。器件符号由开源库和通用绘图规范生成，根据器件功能自动组织图面。",
+    "binding": "整页图纸",
+    "simulated": true,
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "id": "spec-50"
+  }
+]
