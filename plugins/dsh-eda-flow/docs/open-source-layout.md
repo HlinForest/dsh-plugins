@@ -164,6 +164,6 @@ Incomplete-layout quality is not a proof of repairability. The native repair now
 
 Unused time from quickly rejected seeds stays available to later seeds. The six-minute overall limit remains; each native worker is bounded to five minutes and the allocator reserves a minimum launch window for remaining seeds. This fixes an observed full-board case where a feasible branch required about 173 seconds for complete return repair and cleanup, but the prior 120-second per-seed cap stopped it. That tool continuation is recorded separately from the next installed-model run.
 
-## Branch-preserving collinear cleanup (0.16.3-beta.16)
+## Branch-preserving collinear cleanup (0.16.3-beta.17)
 
 A collinear trunk can be merged through a branch endpoint without moving either the trunk or branch copper. The prior degree-two-only rule retained tiny fragments at T junctions. Full-board continuation removed four segmentation joints and reduced short fragments from five to three while preserving length, bend count and native DRC/parity; normal installed-flow verification is recorded separately.

@@ -10,10 +10,20 @@
 | [dsh-pcb-review](plugins/dsh-pcb-review/README.md) | 0.1.2 | Altium / KiCad 导出数据评审、器件检查清单与变更提醒 |
 | [dsh-schematic-sync](plugins/dsh-schematic-sync/README.md) | 0.1.2 | KiCad 原理图目标对比、候选修改、验证与回退 |
 | [dsh-kicad-workflow](plugins/dsh-kicad-workflow/README.md) | 0.1.1 | KiCad MCP 接入、设计与重建流程、检查及交付打包 |
-| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.16 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
+| [dsh-eda-flow](plugins/dsh-eda-flow/README.md) | 0.16.3-beta.17 | 文字/PDF通用设计、工程师评审、真实PCB布局布线与前后验收 |
 | [dsh-engineering-workbench](plugins/dsh-engineering-workbench/README.md) | 0.6.0 | 独立窗口与 Harness 风格 UI；保留读手册、产品方案、评审、比较、编辑、资料提取与复原流程 |
 
-## 电路设计 0.16.3-beta.16：点选器件填要求，整板评审与自动微调
+## 电路设计 0.16.3-beta.17：补齐封装装配类型与贴片导出
+
+[Demo 与修复版工程](demos/eda-flow/round-0150/Demo与工程.zip) · [评审记录](demos/eda-flow/round-0150/工程师评审记录.json) · [重新读取当前 PCB 的 AD 比较](demos/eda-flow/round-0150/与AD逐项比较.md) · [使用说明](demos/eda-flow/round-0150/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.17.tgz) · [SHA256](dist/dsh-eda-flow-0.16.3-beta.17.tgz.sha256)
+
+外部封装的焊盘已生成，但遗漏 KiCad 装配类型会让“仅贴片”坐标导出漏掉主芯片。修复从已引用资料的电气焊盘结构确定贴片或插装属性，兼容历史候选同步；不依赖显示板位号或固定坐标。当前完整显示板贴片导出 23 → 24 项（补齐 U1），三个通孔器件标为插装；其他排除导出与不装配属性保留。
+
+本次为 round-0149 已验收整板的确定性元数据修复，新增模型调用 0 次。原生文件除四个装配类型外结构完全相同，重新 DRC 后违规、未连接与原理图一致性问题均为 0；线长仍为 442.335515 mm。22 项针对性测试及完整板历史候选更新验证通过，源码/安装包/已安装插件 284 文件一致。
+
+参数差异未减少：9 只电阻、2 组电容仍待工作条件；普通阻容封装及工艺辅助对象仍有差异。比较表已改为读取实际 PCB 的封装、值和接网，12 个工艺辅助符号不再误列为电气拓扑故障。原理图可点选器件填写参数或工作要求，先审查新方案再更新下游。旧项目不会因升级静默改写；修复版副本随本 Demo 提供，后续重新生成自动应用。
+
+## 历史电路设计 0.16.3-beta.16：点选器件填要求，整板评审与自动微调
 
 [Demo 与图纸目录](demos/eda-flow/round-0149) · [下载 Demo 与可编辑工程](demos/eda-flow/round-0149/Demo与工程.zip) · [评审记录](demos/eda-flow/round-0149/工程师评审记录.json) · [AD 逐项比较](demos/eda-flow/round-0149/与AD逐项比较.md) · [使用说明](demos/eda-flow/round-0149/使用说明.md) · [插件 TGZ](dist/dsh-eda-flow-0.16.3-beta.16.tgz) · [SHA256](dist/dsh-eda-flow-0.16.3-beta.16.tgz.sha256)
 

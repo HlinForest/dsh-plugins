@@ -380,6 +380,12 @@ def bridge_candidates(source,dest,request,selected_ref=None):
 if __name__=='__main__':
  mode,request_file,source_arg,dest_arg=sys.argv[1:5];request=read_json(request_file);source=Path(source_arg);dest=Path(dest_arg)
  if mode=='compatible':write_json(dest,compare_candidate_geometry(source,Path(sys.argv[5]),request))
+ elif mode=='assembly':
+  from pcb_footprints import synchronize_imported_assembly
+  boardfile=source/Path(request['schematic']).with_suffix('.kicad_pcb');board=p.LoadBoard(str(boardfile))
+  changes=synchronize_imported_assembly(board,request.get('footprintImports',[]))
+  if changes:p.SaveBoard(str(boardfile),board)
+  write_json(dest,{'changes':changes,'geometryChanged':False,'electricalChanged':False})
  elif mode=='bridges':bridge_candidates(source,dest,request,sys.argv[5] if len(sys.argv)>5 else None)
  elif mode=='filter-poses':filter_poses(source,dest,request)
  elif mode=='filter':filter_candidate(source,dest,request,read_json(sys.argv[5]))

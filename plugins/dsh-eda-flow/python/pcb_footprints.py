@@ -47,11 +47,44 @@ def normalized_geometry(spec):
         changes.append({'pad':pad['number'],'sourceAt': [x,y,angle],'nativeAt':pad['at'],'localTranslation':[dx,dy],'copperVerticesPreserved':True,'coordinateResolutionMm':.000001})
     return geometry,changes
 
+def assembly_attribute(spec):
+    """Use electrical terminal construction, never reference/value or board pose.
+    Duplicate surface copper on a plated terminal does not turn a THT part
+    into an SMD part. Copper-only/unnumbered features give no placement claim.
+    """
+    terminals=[pad for pad in spec['geometry']['pads'] if pad['number']]
+    if any(pad['type']=='thru_hole' for pad in terminals):return 'through_hole'
+    if terminals and all(pad['type']=='smd' for pad in terminals) and any(any(layer.endswith('.Paste') for layer in pad['layers']) for pad in terminals):return 'smd'
+    return None
+
+def synchronize_imported_assembly(board,imports):
+    """Refresh known imported type bits after historical geometry is verified.
+    Preserve DNP/exclusions, positions, pads and all electrical information.
+    Validate all identities before applying any attribute changes.
+    """
+    import pcbnew as pcb
+    types={'smd':pcb.FP_SMD,'through_hole':pcb.FP_THROUGH_HOLE}
+    mask=pcb.FP_SMD|pcb.FP_THROUGH_HOLE;pending=[];seen=set()
+    for spec in imports:
+        if spec['ref'] in seen:raise ValueError('Duplicate imported assembly reference '+spec['ref'])
+        seen.add(spec['ref']);matches=[fp for fp in board.GetFootprints() if fp.GetReference()==spec['ref']]
+        if len(matches)!=1:raise ValueError('Imported assembly reference is not unique '+spec['ref'])
+        fp=matches[0];actual=str(fp.GetFPID().GetLibNickname())+':'+str(fp.GetFPID().GetLibItemName())
+        if actual!=spec['id']:raise ValueError('Imported assembly footprint identity changed '+spec['ref'])
+        attr=assembly_attribute(spec)
+        if attr is None:continue
+        before=fp.GetAttributes();after=(before & ~mask)|types[attr]
+        if before!=after:pending.append((fp,after,{'ref':spec['ref'],'beforeBits':before & mask,'after':attr,'basis':'current evidence pad construction'}))
+    for fp,after,_ in pending:fp.SetAttributes(after)
+    return [row for _,_,row in pending]
+
 def native_footprint(spec):
     name=spec['id'].split(':',1)[1]; g,_=normalized_geometry(spec)
     rows=[f'(footprint {q(name)} (version 20260101) (generator "dsh_eda_flow") (layer "F.Cu")',
           '(property "Reference" "REF**" (at 0 0) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))',
           f'(property "Value" {q(name)} (at 0 0) (layer "F.Fab") (hide yes) (effects (font (size 1 1) (thickness 0.15))))']
+    attribute=assembly_attribute(spec)
+    if attribute:rows.append(f'(attr {attribute})')
     x0,y0,x1,y1=g['envelope']
     # An evidence-defined envelope reserves placement area; it is not a body
     # drawing, a guessed courtyard expansion, or a manufacturer's tolerance.
@@ -85,7 +118,7 @@ def bind_imports(project,sch,imports,components):
         if lib!='EvidencePkg' or not name.startswith('FP_') or any(x in name for x in ['..','/','\\']):raise ValueError('Unsafe footprint ID')
         directory=project/(lib+'.pretty');directory.mkdir(exist_ok=True)
         text=native_footprint(spec);(directory/(name+'.kicad_mod')).write_text(text,encoding='utf-8')
-        changed.append({**spec,'nativeSha256':hashlib.sha256(text.encode('utf8')).hexdigest(),'anchorNormalization':normalized_geometry(spec)[1]})
+        changed.append({**spec,'assemblyAttribute':assembly_attribute(spec),'nativeSha256':hashlib.sha256(text.encode('utf8')).hexdigest(),'anchorNormalization':normalized_geometry(spec)[1]})
     sch.write_text(dump(ast)+'\n',encoding='utf-8')
     return changed
 

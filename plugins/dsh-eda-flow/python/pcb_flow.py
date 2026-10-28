@@ -503,6 +503,7 @@ def publish_candidate(req,best,attempts,repair_runs,history_runs,checkpoint=Fals
     if (selected/'trace-simplification.json').exists():write(out/'trace-simplification.json',read(selected/'trace-simplification.json'))
     for name in ['power-pose-candidates.json','placement-power-corridors.json','power-corridor-result.json']:
         if (selected/name).exists():write(out/name,read(selected/name))
+    if (selected/'assembly-refresh.json').exists():write(out/'assembly-refresh.json',read(selected/'assembly-refresh.json'))
     if (selected/'local-repair.json').exists():
         write(out/'local-repair.json',read(selected/'local-repair.json'))
         shutil.copytree(selected/'postroute-repair',out/'postroute-repair',dirs_exist_ok=True)

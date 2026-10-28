@@ -50,12 +50,16 @@ def prepare_candidate(request,fresh_request,previous,result,destination):
     shutil.copytree(previous/'project',destination/'project',dirs_exist_ok=True)
     for item in expected.iterdir():
         if item.is_dir() and item.suffix=='.pretty':shutil.copytree(item,destination/'project'/item.name,dirs_exist_ok=True)
-        elif item.suffix in ('.kicad_sch','.kicad_pro','.kicad_dru') or item.name in ('fp-lib-table','sym-lib-table'):
+        elif item.suffix in ('.kicad_sch','.kicad_pro','.kicad_dru') or item.name in ('fp-lib-table','sym-lib-table','footprint-bindings.json','PCB-BOM.csv'):
             shutil.copyfile(item,destination/'project'/item.name)
     for item in previous.iterdir():
         if item.is_file() and item.suffix=='.json' and item.name not in ('pcb-request.json','model-log.json','pdf-sources.json','layout-attempts.json','pcb-result.json'):
             try:write(destination/item.name,read(item))
             except (OSError,ValueError):pass
+    if request.get('footprintImports'):
+        report=destination/'assembly-refresh.json'
+        p=subprocess.run([sys.executable,str(worker),'assembly',str(request_file),str(destination/'project'),str(report)],capture_output=True,timeout=60,creationflags=0x08000000 if os.name=='nt' else 0)
+        if p.returncode or not report.exists():raise ValueError('Historical imported assembly refresh did not complete')
     cloned=copy.deepcopy(result)
     for key in ('localRepair','localRepairSearch','historyCandidates','layoutAttempts'):cloned.pop(key,None)
     cloned['requestedPlan']=copy.deepcopy(request['plan'])
